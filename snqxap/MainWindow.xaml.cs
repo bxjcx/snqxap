@@ -254,7 +254,7 @@ namespace snqxap
             gun[20].skilltype = 23; gun[20].skillrate = 0.45; gun[20].skilltime = 5.4; gun[20].skillupmydodge = 3.6; gun[20].skillcontent = "提升自身闪避360%";
             gun[21].name = "OTs-12"; gun[21].what = 2; gun[21].hp = 105; gun[21].damage = 42; gun[21].hit = 54; gun[21].dodge = 54; gun[21].shotspeed = 72; gun[21].crit = 0.2; gun[21].belt = 0; gun[21].number = 2; gun[21].effect0 = 3; gun[21].effect1 = 6; gun[21].damageup = 0.15; gun[21].hitup = 0; gun[21].shotspeedup = 0.2; gun[21].critup = 0; gun[21].dodgeup = 0; gun[21].to = 3;
             gun[21].skilltype = 18;gun[21].skillrate = 0.64;gun[21].skilltime = 8;gun[21].skillupmyshotspeed =0.64;gun[21].skillcontent = "提升自身射速64%";
-            gun[22].name = "G36"; gun[22].what = 2; gun[22].hp = 127; gun[22].damage = 47; gun[22].hit = 44; gun[22].dodge = 41; gun[22].shotspeed = 72; gun[22].crit = 0.2; gun[22].belt = 0; gun[22].number = 2; gun[22].effect0 = 6; gun[22].effect1 = 9; gun[22].damageup = 0.3; gun[22].hitup = 0; gun[22].shotspeedup = 0.15; gun[22].critup = 0; gun[22].dodgeup = 0; gun[22].to = 3;
+            gun[22].name = "G36"; gun[22].what = 2; gun[22].hp = 127; gun[22].damage = 47; gun[22].hit = 44; gun[22].dodge = 41; gun[22].shotspeed = 72; gun[22].crit = 0.2; gun[22].belt = 0; gun[22].number = 2; gun[22].effect0 = 6; gun[22].effect1 = 3; gun[22].damageup = 0.3; gun[22].hitup = 0; gun[22].shotspeedup = 0.15; gun[22].critup = 0; gun[22].dodgeup = 0; gun[22].to = 3;
             gun[22].skilltype = 6;gun[22].skillrate = 0.38;gun[22].skilltime = 9.6;gun[22].skillupmydamage = 0.96;gun[22].skillcontent = "提升自身伤害96%";
             gun[23].name = "FAL"; gun[23].what = 2; gun[23].hp = 132; gun[23].damage = 57; gun[23].hit = 40; gun[23].dodge = 38; gun[23].shotspeed = 70; gun[23].crit = 0.2; gun[23].belt = 0; gun[23].number = 3; gun[23].effect0 = 3; gun[23].effect1 = 6; gun[23].effect2 = 9; gun[23].damageup = 0; gun[23].hitup = 0; gun[23].shotspeedup = 0; gun[23].critup = 0; gun[23].dodgeup = 0.2; gun[23].to = 3;
             gun[23].skilltype = 1;gun[23].skilldamage = gun[23].damage * 2.5;gun[23].skillcircle = 4;gun[23].skillrate = 0.45;gun[23].skillcontent = "爆破榴弹,半径" + gun[23].skillcircle.ToString();
@@ -2944,6 +2944,7 @@ namespace snqxap
                             {
                                 Combo0.SelectedIndex = 101;
                                 Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb0.Text = "无";
                                 Lskilldamage0.Content = 0;
                                 Ltime0.Content = 0;
                                 Lskillread0.Content = 0;
@@ -2953,6 +2954,7 @@ namespace snqxap
                             {
                                 Combo1.SelectedIndex = 101;
                                 Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb1.Text = "无";
                                 Lskilldamage1.Content = 0;
                                 Ltime1.Content = 0;
                                 Lskillread1.Content = 0;
@@ -2962,6 +2964,7 @@ namespace snqxap
                             {
                                 Combo2.SelectedIndex = 101;
                                 Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb2.Text = "无";
                                 Lskilldamage2.Content = 0;
                                 Ltime2.Content = 0;
                                 Lskillread2.Content = 0;
@@ -2971,6 +2974,7 @@ namespace snqxap
                             {
                                 Combo3.SelectedIndex = 101;
                                 Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb3.Text = "无";
                                 Lskilldamage3.Content = 0;
                                 Ltime3.Content = 0;
                                 Lskillread3.Content = 0;
@@ -2980,6 +2984,7 @@ namespace snqxap
                             {
                                 Combo4.SelectedIndex = 101;
                                 Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb4.Text = "无";
                                 Lskilldamage4.Content = 0;
                                 Ltime4.Content = 0;
                                 Lskillread4.Content = 0;
@@ -2989,6 +2994,7 @@ namespace snqxap
                             {
                                 Combo5.SelectedIndex = 101;
                                 Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb5.Text = "无";
                                 Lskilldamage5.Content = 0;
                                 Ltime5.Content = 0;
                                 Lskillread5.Content = 0;
@@ -2998,6 +3004,7 @@ namespace snqxap
                             {
                                 Combo6.SelectedIndex = 101;
                                 Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb6.Text = "无";
                                 Lskilldamage6.Content = 0;
                                 Ltime6.Content = 0;
                                 Lskillread6.Content = 0;
@@ -3007,6 +3014,7 @@ namespace snqxap
                             {
                                 Combo7.SelectedIndex = 101;
                                 Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb7.Text = "无";
                                 Lskilldamage7.Content = 0;
                                 Ltime7.Content = 0;
                                 Lskillread7.Content = 0;
@@ -3016,6 +3024,7 @@ namespace snqxap
                             {
                                 Combo8.SelectedIndex = 101;
                                 Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb8.Text = "无";
                                 Lskilldamage8.Content = 0;
                                 Ltime8.Content = 0;
                                 Lskillread8.Content = 0;
@@ -3069,6 +3078,7 @@ namespace snqxap
                             {
                                 Combo0.SelectedIndex = 101;
                                 Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb0.Text = "无";
                                 Lskilldamage0.Content = 0;
                                 Ltime0.Content = 0;
                                 Lskillread0.Content = 0;
@@ -3078,6 +3088,7 @@ namespace snqxap
                             {
                                 Combo1.SelectedIndex = 101;
                                 Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb1.Text = "无";
                                 Lskilldamage1.Content = 0;
                                 Ltime1.Content = 0;
                                 Lskillread1.Content = 0;
@@ -3087,6 +3098,7 @@ namespace snqxap
                             {
                                 Combo2.SelectedIndex = 101;
                                 Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb2.Text = "无";
                                 Lskilldamage2.Content = 0;
                                 Ltime2.Content = 0;
                                 Lskillread2.Content = 0;
@@ -3096,6 +3108,7 @@ namespace snqxap
                             {
                                 Combo3.SelectedIndex = 101;
                                 Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb3.Text = "无";
                                 Lskilldamage3.Content = 0;
                                 Ltime3.Content = 0;
                                 Lskillread3.Content = 0;
@@ -3105,6 +3118,7 @@ namespace snqxap
                             {
                                 Combo4.SelectedIndex = 101;
                                 Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb4.Text = "无";
                                 Lskilldamage4.Content = 0;
                                 Ltime4.Content = 0;
                                 Lskillread4.Content = 0;
@@ -3114,6 +3128,7 @@ namespace snqxap
                             {
                                 Combo5.SelectedIndex = 101;
                                 Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb5.Text = "无";
                                 Lskilldamage5.Content = 0;
                                 Ltime5.Content = 0;
                                 Lskillread5.Content = 0;
@@ -3123,6 +3138,7 @@ namespace snqxap
                             {
                                 Combo6.SelectedIndex = 101;
                                 Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb6.Text = "无";
                                 Lskilldamage6.Content = 0;
                                 Ltime6.Content = 0;
                                 Lskillread6.Content = 0;
@@ -3132,6 +3148,7 @@ namespace snqxap
                             {
                                 Combo7.SelectedIndex = 101;
                                 Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb7.Text = "无";
                                 Lskilldamage7.Content = 0;
                                 Ltime7.Content = 0;
                                 Lskillread7.Content = 0;
@@ -3141,6 +3158,7 @@ namespace snqxap
                             {
                                 Combo8.SelectedIndex = 101;
                                 Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb8.Text = "无";
                                 Lskilldamage8.Content = 0;
                                 Ltime8.Content = 0;
                                 Lskillread8.Content = 0;
@@ -3196,6 +3214,7 @@ namespace snqxap
                             {
                                 Combo0.SelectedIndex = 101;
                                 Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb0.Text = "无";
                                 Lskilldamage0.Content = 0;
                                 Ltime0.Content = 0;
                                 Lskillread0.Content = 0;
@@ -3205,6 +3224,7 @@ namespace snqxap
                             {
                                 Combo1.SelectedIndex = 101;
                                 Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb1.Text = "无";
                                 Lskilldamage1.Content = 0;
                                 Ltime1.Content = 0;
                                 Lskillread1.Content = 0;
@@ -3214,6 +3234,7 @@ namespace snqxap
                             {
                                 Combo2.SelectedIndex = 101;
                                 Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb2.Text = "无";
                                 Lskilldamage2.Content = 0;
                                 Ltime2.Content = 0;
                                 Lskillread2.Content = 0;
@@ -3223,6 +3244,7 @@ namespace snqxap
                             {
                                 Combo3.SelectedIndex = 101;
                                 Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb3.Text = "无";
                                 Lskilldamage3.Content = 0;
                                 Ltime3.Content = 0;
                                 Lskillread3.Content = 0;
@@ -3232,6 +3254,7 @@ namespace snqxap
                             {
                                 Combo4.SelectedIndex = 101;
                                 Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb4.Text = "无";
                                 Lskilldamage4.Content = 0;
                                 Ltime4.Content = 0;
                                 Lskillread4.Content = 0;
@@ -3241,6 +3264,7 @@ namespace snqxap
                             {
                                 Combo5.SelectedIndex = 101;
                                 Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb5.Text = "无";
                                 Lskilldamage5.Content = 0;
                                 Ltime5.Content = 0;
                                 Lskillread5.Content = 0;
@@ -3250,6 +3274,7 @@ namespace snqxap
                             {
                                 Combo6.SelectedIndex = 101;
                                 Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb6.Text = "无";
                                 Lskilldamage6.Content = 0;
                                 Ltime6.Content = 0;
                                 Lskillread6.Content = 0;
@@ -3259,6 +3284,7 @@ namespace snqxap
                             {
                                 Combo7.SelectedIndex = 101;
                                 Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb7.Text = "无";
                                 Lskilldamage7.Content = 0;
                                 Ltime7.Content = 0;
                                 Lskillread7.Content = 0;
@@ -3268,6 +3294,7 @@ namespace snqxap
                             {
                                 Combo8.SelectedIndex = 101;
                                 Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb8.Text = "无";
                                 Lskilldamage8.Content = 0;
                                 Ltime8.Content = 0;
                                 Lskillread8.Content = 0;
@@ -3321,6 +3348,7 @@ namespace snqxap
                             {
                                 Combo0.SelectedIndex = 101;
                                 Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb0.Text = "无";
                                 Lskilldamage0.Content = 0;
                                 Ltime0.Content = 0;
                                 Lskillread0.Content = 0;
@@ -3330,6 +3358,7 @@ namespace snqxap
                             {
                                 Combo1.SelectedIndex = 101;
                                 Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb1.Text = "无";
                                 Lskilldamage1.Content = 0;
                                 Ltime1.Content = 0;
                                 Lskillread1.Content = 0;
@@ -3339,6 +3368,7 @@ namespace snqxap
                             {
                                 Combo2.SelectedIndex = 101;
                                 Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb2.Text = "无";
                                 Lskilldamage2.Content = 0;
                                 Ltime2.Content = 0;
                                 Lskillread2.Content = 0;
@@ -3348,6 +3378,7 @@ namespace snqxap
                             {
                                 Combo3.SelectedIndex = 101;
                                 Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb3.Text = "无";
                                 Lskilldamage3.Content = 0;
                                 Ltime3.Content = 0;
                                 Lskillread3.Content = 0;
@@ -3357,6 +3388,7 @@ namespace snqxap
                             {
                                 Combo4.SelectedIndex = 101;
                                 Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb4.Text = "无";
                                 Lskilldamage4.Content = 0;
                                 Ltime4.Content = 0;
                                 Lskillread4.Content = 0;
@@ -3366,6 +3398,7 @@ namespace snqxap
                             {
                                 Combo5.SelectedIndex = 101;
                                 Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb5.Text = "无";
                                 Lskilldamage5.Content = 0;
                                 Ltime5.Content = 0;
                                 Lskillread5.Content = 0;
@@ -3375,6 +3408,7 @@ namespace snqxap
                             {
                                 Combo6.SelectedIndex = 101;
                                 Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb6.Text = "无";
                                 Lskilldamage6.Content = 0;
                                 Ltime6.Content = 0;
                                 Lskillread6.Content = 0;
@@ -3384,6 +3418,7 @@ namespace snqxap
                             {
                                 Combo7.SelectedIndex = 101;
                                 Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb7.Text = "无";
                                 Lskilldamage7.Content = 0;
                                 Ltime7.Content = 0;
                                 Lskillread7.Content = 0;
@@ -3393,6 +3428,7 @@ namespace snqxap
                             {
                                 Combo8.SelectedIndex = 101;
                                 Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb8.Text = "无";
                                 Lskilldamage8.Content = 0;
                                 Ltime8.Content = 0;
                                 Lskillread8.Content = 0;
@@ -3551,6 +3587,7 @@ namespace snqxap
                             {
                                 Combo0.SelectedIndex = 101;
                                 Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb0.Text = "无";
                                 Lskilldamage0.Content = 0;
                                 Ltime0.Content = 0;
                                 Lskillread0.Content = 0;
@@ -3560,6 +3597,7 @@ namespace snqxap
                             {
                                 Combo1.SelectedIndex = 101;
                                 Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb1.Text = "无";
                                 Lskilldamage1.Content = 0;
                                 Ltime1.Content = 0;
                                 Lskillread1.Content = 0;
@@ -3569,6 +3607,7 @@ namespace snqxap
                             {
                                 Combo2.SelectedIndex = 101;
                                 Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb2.Text = "无";
                                 Lskilldamage2.Content = 0;
                                 Ltime2.Content = 0;
                                 Lskillread2.Content = 0;
@@ -3578,6 +3617,7 @@ namespace snqxap
                             {
                                 Combo3.SelectedIndex = 101;
                                 Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb3.Text = "无";
                                 Lskilldamage3.Content = 0;
                                 Ltime3.Content = 0;
                                 Lskillread3.Content = 0;
@@ -3587,6 +3627,7 @@ namespace snqxap
                             {
                                 Combo4.SelectedIndex = 101;
                                 Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb4.Text = "无";
                                 Lskilldamage4.Content = 0;
                                 Ltime4.Content = 0;
                                 Lskillread4.Content = 0;
@@ -3596,6 +3637,7 @@ namespace snqxap
                             {
                                 Combo5.SelectedIndex = 101;
                                 Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb5.Text = "无";
                                 Lskilldamage5.Content = 0;
                                 Ltime5.Content = 0;
                                 Lskillread5.Content = 0;
@@ -3605,6 +3647,7 @@ namespace snqxap
                             {
                                 Combo6.SelectedIndex = 101;
                                 Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb6.Text = "无";
                                 Lskilldamage6.Content = 0;
                                 Ltime6.Content = 0;
                                 Lskillread6.Content = 0;
@@ -3614,6 +3657,7 @@ namespace snqxap
                             {
                                 Combo7.SelectedIndex = 101;
                                 Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb7.Text = "无";
                                 Lskilldamage7.Content = 0;
                                 Ltime7.Content = 0;
                                 Lskillread7.Content = 0;
@@ -3623,6 +3667,7 @@ namespace snqxap
                             {
                                 Combo8.SelectedIndex = 101;
                                 Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb8.Text = "无";
                                 Lskilldamage8.Content = 0;
                                 Ltime8.Content = 0;
                                 Lskillread8.Content = 0;
@@ -3683,6 +3728,7 @@ namespace snqxap
                             {
                                 Combo0.SelectedIndex = 101;
                                 Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb0.Text = "无";
                                 Lskilldamage0.Content = 0;
                                 Ltime0.Content = 0;
                                 Lskillread0.Content = 0;
@@ -3692,6 +3738,7 @@ namespace snqxap
                             {
                                 Combo1.SelectedIndex = 101;
                                 Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb1.Text = "无";
                                 Lskilldamage1.Content = 0;
                                 Ltime1.Content = 0;
                                 Lskillread1.Content = 0;
@@ -3701,6 +3748,7 @@ namespace snqxap
                             {
                                 Combo2.SelectedIndex = 101;
                                 Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb2.Text = "无";
                                 Lskilldamage2.Content = 0;
                                 Ltime2.Content = 0;
                                 Lskillread2.Content = 0;
@@ -3710,6 +3758,7 @@ namespace snqxap
                             {
                                 Combo3.SelectedIndex = 101;
                                 Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb3.Text = "无";
                                 Lskilldamage3.Content = 0;
                                 Ltime3.Content = 0;
                                 Lskillread3.Content = 0;
@@ -3719,6 +3768,7 @@ namespace snqxap
                             {
                                 Combo4.SelectedIndex = 101;
                                 Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb4.Text = "无";
                                 Lskilldamage4.Content = 0;
                                 Ltime4.Content = 0;
                                 Lskillread4.Content = 0;
@@ -3728,6 +3778,7 @@ namespace snqxap
                             {
                                 Combo5.SelectedIndex = 101;
                                 Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb5.Text = "无";
                                 Lskilldamage5.Content = 0;
                                 Ltime5.Content = 0;
                                 Lskillread5.Content = 0;
@@ -3737,6 +3788,7 @@ namespace snqxap
                             {
                                 Combo6.SelectedIndex = 101;
                                 Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb6.Text = "无";
                                 Lskilldamage6.Content = 0;
                                 Ltime6.Content = 0;
                                 Lskillread6.Content = 0;
@@ -3746,6 +3798,7 @@ namespace snqxap
                             {
                                 Combo7.SelectedIndex = 101;
                                 Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb7.Text = "无";
                                 Lskilldamage7.Content = 0;
                                 Ltime7.Content = 0;
                                 Lskillread7.Content = 0;
@@ -3755,6 +3808,7 @@ namespace snqxap
                             {
                                 Combo8.SelectedIndex = 101;
                                 Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb8.Text = "无";
                                 Lskilldamage8.Content = 0;
                                 Ltime8.Content = 0;
                                 Lskillread8.Content = 0;
@@ -3812,6 +3866,7 @@ namespace snqxap
                             {
                                 Combo0.SelectedIndex = 101;
                                 Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb0.Text = "无";
                                 Lskilldamage0.Content = 0;
                                 Ltime0.Content = 0;
                                 Lskillread0.Content = 0;
@@ -3821,6 +3876,7 @@ namespace snqxap
                             {
                                 Combo1.SelectedIndex = 101;
                                 Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb1.Text = "无";
                                 Lskilldamage1.Content = 0;
                                 Ltime1.Content = 0;
                                 Lskillread1.Content = 0;
@@ -3830,6 +3886,7 @@ namespace snqxap
                             {
                                 Combo2.SelectedIndex = 101;
                                 Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb2.Text = "无";
                                 Lskilldamage2.Content = 0;
                                 Ltime2.Content = 0;
                                 Lskillread2.Content = 0;
@@ -3839,6 +3896,7 @@ namespace snqxap
                             {
                                 Combo3.SelectedIndex = 101;
                                 Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb3.Text = "无";
                                 Lskilldamage3.Content = 0;
                                 Ltime3.Content = 0;
                                 Lskillread3.Content = 0;
@@ -3848,6 +3906,7 @@ namespace snqxap
                             {
                                 Combo4.SelectedIndex = 101;
                                 Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb4.Text = "无";
                                 Lskilldamage4.Content = 0;
                                 Ltime4.Content = 0;
                                 Lskillread4.Content = 0;
@@ -3857,6 +3916,7 @@ namespace snqxap
                             {
                                 Combo5.SelectedIndex = 101;
                                 Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb5.Text = "无";
                                 Lskilldamage5.Content = 0;
                                 Ltime5.Content = 0;
                                 Lskillread5.Content = 0;
@@ -3866,6 +3926,7 @@ namespace snqxap
                             {
                                 Combo6.SelectedIndex = 101;
                                 Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb6.Text = "无";
                                 Lskilldamage6.Content = 0;
                                 Ltime6.Content = 0;
                                 Lskillread6.Content = 0;
@@ -3875,6 +3936,7 @@ namespace snqxap
                             {
                                 Combo7.SelectedIndex = 101;
                                 Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb7.Text = "无";
                                 Lskilldamage7.Content = 0;
                                 Ltime7.Content = 0;
                                 Lskillread7.Content = 0;
@@ -3884,6 +3946,7 @@ namespace snqxap
                             {
                                 Combo8.SelectedIndex = 101;
                                 Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb8.Text = "无";
                                 Lskilldamage8.Content = 0;
                                 Ltime8.Content = 0;
                                 Lskillread8.Content = 0;
@@ -3940,6 +4003,7 @@ namespace snqxap
                             {
                                 Combo0.SelectedIndex = 101;
                                 Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb0.Text = "无";
                                 Lskilldamage0.Content = 0;
                                 Ltime0.Content = 0;
                                 Lskillread0.Content = 0;
@@ -3949,6 +4013,7 @@ namespace snqxap
                             {
                                 Combo1.SelectedIndex = 101;
                                 Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb1.Text = "无";
                                 Lskilldamage1.Content = 0;
                                 Ltime1.Content = 0;
                                 Lskillread1.Content = 0;
@@ -3958,6 +4023,7 @@ namespace snqxap
                             {
                                 Combo2.SelectedIndex = 101;
                                 Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb2.Text = "无";
                                 Lskilldamage2.Content = 0;
                                 Ltime2.Content = 0;
                                 Lskillread2.Content = 0;
@@ -3967,6 +4033,7 @@ namespace snqxap
                             {
                                 Combo3.SelectedIndex = 101;
                                 Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb3.Text = "无";
                                 Lskilldamage3.Content = 0;
                                 Ltime3.Content = 0;
                                 Lskillread3.Content = 0;
@@ -3976,6 +4043,7 @@ namespace snqxap
                             {
                                 Combo4.SelectedIndex = 101;
                                 Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb4.Text = "无";
                                 Lskilldamage4.Content = 0;
                                 Ltime4.Content = 0;
                                 Lskillread4.Content = 0;
@@ -3985,6 +4053,7 @@ namespace snqxap
                             {
                                 Combo5.SelectedIndex = 101;
                                 Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb5.Text = "无";
                                 Lskilldamage5.Content = 0;
                                 Ltime5.Content = 0;
                                 Lskillread5.Content = 0;
@@ -3994,6 +4063,7 @@ namespace snqxap
                             {
                                 Combo6.SelectedIndex = 101;
                                 Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb6.Text = "无";
                                 Lskilldamage6.Content = 0;
                                 Ltime6.Content = 0;
                                 Lskillread6.Content = 0;
@@ -4003,6 +4073,7 @@ namespace snqxap
                             {
                                 Combo7.SelectedIndex = 101;
                                 Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb7.Text = "无";
                                 Lskilldamage7.Content = 0;
                                 Ltime7.Content = 0;
                                 Lskillread7.Content = 0;
@@ -4012,6 +4083,7 @@ namespace snqxap
                             {
                                 Combo8.SelectedIndex = 101;
                                 Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb8.Text = "无";
                                 Lskilldamage8.Content = 0;
                                 Ltime8.Content = 0;
                                 Lskillread8.Content = 0;
@@ -4071,6 +4143,7 @@ namespace snqxap
                             {
                                 Combo0.SelectedIndex = 101;
                                 Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb0.Text = "无";
                                 Lskilldamage0.Content = 0;
                                 Ltime0.Content = 0;
                                 Lskillread0.Content = 0;
@@ -4080,6 +4153,7 @@ namespace snqxap
                             {
                                 Combo1.SelectedIndex = 101;
                                 Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb1.Text = "无";
                                 Lskilldamage1.Content = 0;
                                 Ltime1.Content = 0;
                                 Lskillread1.Content = 0;
@@ -4089,6 +4163,7 @@ namespace snqxap
                             {
                                 Combo2.SelectedIndex = 101;
                                 Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb2.Text = "无";
                                 Lskilldamage2.Content = 0;
                                 Ltime2.Content = 0;
                                 Lskillread2.Content = 0;
@@ -4098,6 +4173,7 @@ namespace snqxap
                             {
                                 Combo3.SelectedIndex = 101;
                                 Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb3.Text = "无";
                                 Lskilldamage3.Content = 0;
                                 Ltime3.Content = 0;
                                 Lskillread3.Content = 0;
@@ -4107,6 +4183,7 @@ namespace snqxap
                             {
                                 Combo4.SelectedIndex = 101;
                                 Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb4.Text = "无";
                                 Lskilldamage4.Content = 0;
                                 Ltime4.Content = 0;
                                 Lskillread4.Content = 0;
@@ -4116,6 +4193,7 @@ namespace snqxap
                             {
                                 Combo5.SelectedIndex = 101;
                                 Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb5.Text = "无";
                                 Lskilldamage5.Content = 0;
                                 Ltime5.Content = 0;
                                 Lskillread5.Content = 0;
@@ -4125,6 +4203,7 @@ namespace snqxap
                             {
                                 Combo6.SelectedIndex = 101;
                                 Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb6.Text = "无";
                                 Lskilldamage6.Content = 0;
                                 Ltime6.Content = 0;
                                 Lskillread6.Content = 0;
@@ -4134,6 +4213,7 @@ namespace snqxap
                             {
                                 Combo7.SelectedIndex = 101;
                                 Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb7.Text = "无";
                                 Lskilldamage7.Content = 0;
                                 Ltime7.Content = 0;
                                 Lskillread7.Content = 0;
@@ -4143,6 +4223,7 @@ namespace snqxap
                             {
                                 Combo8.SelectedIndex = 101;
                                 Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                tb8.Text = "无";
                                 Lskilldamage8.Content = 0;
                                 Ltime8.Content = 0;
                                 Lskillread8.Content = 0;
@@ -5495,7 +5576,23 @@ namespace snqxap
                         Lhit0.Content =(( basehit + maxAddHit) * gg[0].hitup * (1 + skilluphit[0])).ToString("0");
                       
                         Image0.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
-                        if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[0].shotspeedup * (1 + skillupshotspeed[0]) > 120)
+                        string tbt = "";
+                        if (gg[0].damageup != 1)
+                            tbt += "伤害+" + ((gg[0].damageup - 1) * 100).ToString() + "% ";
+                        if (gg[0].shotspeedup != 1)
+                            tbt += "射速+" + ((gg[0].shotspeedup - 1) * 100).ToString() + "% ";
+                        if (gg[0].hitup != 1)
+                            tbt += "命中+" + ((gg[0].hitup - 1) * 100).ToString() + "% ";
+                        if (gg[0].dodgeup != 1)
+                            tbt += "闪避+" + ((gg[0].dodgeup - 1) * 100).ToString() + "% ";
+                        if (gg[0].critup != 1)
+                            tbt += "暴击率+" + ((gg[0].critup - 1) * 100).ToString() + "% ";
+                        if (gg[0].rateup != 0)
+                            tbt += "发动率+" + (gg[0].rateup * 100).ToString() + "% ";
+                        if (tbt == "")
+                            tbt = "无";
+                        tb0.Text = tbt;
+                                if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[0].shotspeedup * (1 + skillupshotspeed[0]) > 120)
                             Lshotspeed0.Content = 120;
                         else
                             Lshotspeed0.Content = ((baseRate + maxAddRate) * gg[0].shotspeedup * (1 + skillupshotspeed[0])).ToString("0");
@@ -5520,6 +5617,22 @@ namespace snqxap
                         Lhit1.Content = ((basehit + maxAddHit) * gg[1].hitup * (1 + skilluphit[1])).ToString("0");
                   //      calcskill(combo, select, skillselect); 
                         Image1.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
+                        string tbt = "";
+                        if (gg[1].damageup != 1)
+                            tbt += "伤害+" + ((gg[1].damageup - 1) * 100).ToString() + "% ";
+                        if (gg[1].shotspeedup != 1)
+                            tbt += "射速+" + ((gg[1].shotspeedup - 1) * 100).ToString() + "% ";
+                        if (gg[1].hitup != 1)
+                            tbt += "命中+" + ((gg[1].hitup - 1) * 100).ToString() + "% ";
+                        if (gg[1].dodgeup != 1)
+                            tbt += "闪避+" + ((gg[1].dodgeup - 1) * 100).ToString() + "% ";
+                        if (gg[1].critup != 1)
+                            tbt += "暴击率+" + ((gg[1].critup - 1) * 100).ToString() + "% ";
+                        if (gg[1].rateup != 0)
+                            tbt += "发动率+" + (gg[1].rateup * 100).ToString() + "% ";
+                        if (tbt == "")
+                            tbt = "无";
+                        tb1.Text = tbt;
                         if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[1].shotspeedup * (1 + skillupshotspeed[1]) > 120)
                             Lshotspeed1.Content = 120;
                         else
@@ -5545,6 +5658,22 @@ namespace snqxap
                         Lhit2.Content = ((basehit + maxAddHit) * gg[2].hitup * (1 + skilluphit[2])).ToString("0");
             //            calcskill(combo, select, skillselect);
                         Image2.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
+                        string tbt = "";
+                        if (gg[2].damageup != 1)
+                            tbt += "伤害+" + ((gg[2].damageup - 1) * 100).ToString() + "% ";
+                        if (gg[2].shotspeedup != 1)
+                            tbt += "射速+" + ((gg[2].shotspeedup - 1) * 100).ToString() + "% ";
+                        if (gg[2].hitup != 1)
+                            tbt += "命中+" + ((gg[2].hitup - 1) * 100).ToString() + "% ";
+                        if (gg[2].dodgeup != 1)
+                            tbt += "闪避+" + ((gg[2].dodgeup - 1) * 100).ToString() + "% ";
+                        if (gg[2].critup != 1)
+                            tbt += "暴击率+" + ((gg[2].critup - 1) * 100).ToString() + "% ";
+                        if (gg[2].rateup != 0)
+                            tbt += "发动率+" + (gg[2].rateup * 100).ToString() + "% ";
+                        if (tbt == "")
+                            tbt = "无";
+                        tb2.Text = tbt;
                         if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[2].shotspeedup * (1 + skillupshotspeed[2]) > 120)
                             Lshotspeed2.Content = 120;
                         else
@@ -5570,6 +5699,22 @@ namespace snqxap
                         Lhit3.Content = ((basehit + maxAddHit) * gg[3].hitup * (1 + skilluphit[3])).ToString("0");
                  //       calcskill(combo, select, skillselect);
                         Image3.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
+                        string tbt = "";
+                        if (gg[3].damageup != 1)
+                            tbt += "伤害+" + ((gg[3].damageup - 1) * 100).ToString() + "% ";
+                        if (gg[3].shotspeedup != 1)
+                            tbt += "射速+" + ((gg[3].shotspeedup - 1) * 100).ToString() + "% ";
+                        if (gg[3].hitup != 1)
+                            tbt += "命中+" + ((gg[3].hitup - 1) * 100).ToString() + "% ";
+                        if (gg[3].dodgeup != 1)
+                            tbt += "闪避+" + ((gg[3].dodgeup - 1) * 100).ToString() + "% ";
+                        if (gg[3].critup != 1)
+                            tbt += "暴击率+" + ((gg[3].critup - 1) * 100).ToString() + "% ";
+                        if (gg[3].rateup != 0)
+                            tbt += "发动率+" + (gg[3].rateup * 100).ToString() + "% ";
+                        if (tbt == "")
+                            tbt = "无";
+                        tb3.Text = tbt;
                         if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[3].shotspeedup * (1 + skillupshotspeed[3]) > 120)
                             Lshotspeed3.Content = 120;
                         else
@@ -5595,6 +5740,22 @@ namespace snqxap
                         Lhit4.Content = ((basehit + maxAddHit) * gg[4].hitup * (1 + skilluphit[4])).ToString("0");
                   //      calcskill(combo, select, skillselect);
                         Image4.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
+                        string tbt = "";
+                        if (gg[4].damageup != 1)
+                            tbt += "伤害+" + ((gg[4].damageup - 1) * 100).ToString() + "% ";
+                        if (gg[4].shotspeedup != 1)
+                            tbt += "射速+" + ((gg[4].shotspeedup - 1) * 100).ToString() + "% ";
+                        if (gg[4].hitup != 1)
+                            tbt += "命中+" + ((gg[4].hitup - 1) * 100).ToString() + "% ";
+                        if (gg[4].dodgeup != 1)
+                            tbt += "闪避+" + ((gg[4].dodgeup - 1) * 100).ToString() + "% ";
+                        if (gg[4].critup != 1)
+                            tbt += "暴击率+" + ((gg[4].critup - 1) * 100).ToString() + "% ";
+                        if (gg[4].rateup != 0)
+                            tbt += "发动率+" + (gg[4].rateup * 100).ToString() + "% ";
+                        if (tbt == "")
+                            tbt = "无";
+                        tb4.Text = tbt;
                         if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[4].shotspeedup * (1 + skillupshotspeed[4]) > 120)
                             Lshotspeed4.Content = 120;
                         else
@@ -5620,6 +5781,22 @@ namespace snqxap
                         Lhit5.Content = ((basehit + maxAddHit) * gg[5].hitup * (1 + skilluphit[5])).ToString("0");
                    //     calcskill(combo, select, skillselect);
                         Image5.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
+                        string tbt = "";
+                        if (gg[5].damageup != 1)
+                            tbt += "伤害+" + ((gg[5].damageup - 1) * 100).ToString() + "% ";
+                        if (gg[5].shotspeedup != 1)
+                            tbt += "射速+" + ((gg[5].shotspeedup - 1) * 100).ToString() + "% ";
+                        if (gg[5].hitup != 1)
+                            tbt += "命中+" + ((gg[5].hitup - 1) * 100).ToString() + "% ";
+                        if (gg[5].dodgeup != 1)
+                            tbt += "闪避+" + ((gg[5].dodgeup - 1) * 100).ToString() + "% ";
+                        if (gg[5].critup != 1)
+                            tbt += "暴击率+" + ((gg[5].critup - 1) * 100).ToString() + "% ";
+                        if (gg[5].rateup != 0)
+                            tbt += "发动率+" + (gg[5].rateup * 100).ToString() + "% ";
+                        if (tbt == "")
+                            tbt = "无";
+                        tb5.Text = tbt;
                         if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[5].shotspeedup * (1 + skillupshotspeed[5]) > 120)
                             Lshotspeed5.Content = 120;
                         else
@@ -5645,6 +5822,22 @@ namespace snqxap
                         Lhit6.Content = ((basehit + maxAddHit) * gg[6].hitup * (1 + skilluphit[6])).ToString("0");
                  //       calcskill(combo, select, skillselect);
                         Image6.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
+                        string tbt = "";
+                        if (gg[6].damageup != 1)
+                            tbt += "伤害+" + ((gg[6].damageup - 1) * 100).ToString() + "% ";
+                        if (gg[6].shotspeedup != 1)
+                            tbt += "射速+" + ((gg[6].shotspeedup - 1) * 100).ToString() + "% ";
+                        if (gg[6].hitup != 1)
+                            tbt += "命中+" + ((gg[6].hitup - 1) * 100).ToString() + "% ";
+                        if (gg[6].dodgeup != 1)
+                            tbt += "闪避+" + ((gg[6].dodgeup - 1) * 100).ToString() + "% ";
+                        if (gg[6].critup != 1)
+                            tbt += "暴击率+" + ((gg[6].critup - 1) * 100).ToString() + "% ";
+                        if (gg[6].rateup != 0)
+                            tbt += "发动率+" + (gg[6].rateup * 100).ToString() + "% ";
+                        if (tbt == "")
+                            tbt = "无";
+                        tb6.Text = tbt;
                         if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[6].shotspeedup * (1 + skillupshotspeed[6]) > 120)
                             Lshotspeed6.Content = 120;
                         else
@@ -5670,6 +5863,22 @@ namespace snqxap
                         Lhit7.Content = ((basehit + maxAddHit) * gg[7].hitup * (1 + skilluphit[7])).ToString("0");
                     //    calcskill(combo, select, skillselect);
                         Image7.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
+                        string tbt = "";
+                        if (gg[7].damageup != 1)
+                            tbt += "伤害+" + ((gg[7].damageup - 1) * 100).ToString() + "% ";
+                        if (gg[7].shotspeedup != 1)
+                            tbt += "射速+" + ((gg[7].shotspeedup - 1) * 100).ToString() + "% ";
+                        if (gg[7].hitup != 1)
+                            tbt += "命中+" + ((gg[7].hitup - 1) * 100).ToString() + "% ";
+                        if (gg[7].dodgeup != 1)
+                            tbt += "闪避+" + ((gg[7].dodgeup - 1) * 100).ToString() + "% ";
+                        if (gg[7].critup != 1)
+                            tbt += "暴击率+" + ((gg[7].critup - 1) * 100).ToString() + "% ";
+                        if (gg[7].rateup != 0)
+                            tbt += "发动率+" + (gg[7].rateup * 100).ToString() + "% ";
+                        if (tbt == "")
+                            tbt = "无";
+                        tb7.Text = tbt;
                         if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[7].shotspeedup * (1 + skillupshotspeed[7]) > 120)
                             Lshotspeed7.Content = 120;
                         else
@@ -5695,6 +5904,22 @@ namespace snqxap
                         Lhit8.Content = ((basehit + maxAddHit) * gg[8].hitup * (1 + skilluphit[8])).ToString("0");
                  //       calcskill(combo, select, skillselect);
                         Image8.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
+                        string tbt = "";
+                        if (gg[8].damageup != 1)
+                            tbt += "伤害+" + ((gg[8].damageup - 1) * 100).ToString() + "% ";
+                        if (gg[8].shotspeedup != 1)
+                            tbt += "射速+" + ((gg[8].shotspeedup - 1) * 100).ToString() + "% ";
+                        if (gg[8].hitup != 1)
+                            tbt += "命中+" + ((gg[8].hitup - 1) * 100).ToString() + "% ";
+                        if (gg[8].dodgeup != 1)
+                            tbt += "闪避+" + ((gg[8].dodgeup - 1) * 100).ToString() + "% ";
+                        if (gg[8].critup != 1)
+                            tbt += "暴击率+" + ((gg[8].critup - 1) * 100).ToString() + "% ";
+                        if (gg[8].rateup != 0)
+                            tbt += "发动率+" + (gg[8].rateup * 100).ToString() + "% ";
+                        if (tbt == "")
+                            tbt = "无";
+                        tb8.Text = tbt;
                         if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[8].shotspeedup * (1 + skillupshotspeed[8]) > 120)
                             Lshotspeed8.Content = 120;
                         else

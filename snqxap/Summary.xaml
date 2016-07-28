@@ -5,14 +5,14 @@
     <Grid>
         <Label Content="作者：雪风 贴吧ID @真冬死宅酱                     Email:" HorizontalAlignment="Left"  VerticalAlignment="Top" FontSize="12" Height="27" Width="308"/>
         <Label Content="这个玩意充满了bug，出了什么问题请重置或重启或告诉我。"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,27,0,0"/>
-        <Label Content="每支枪均为满级数据。代码自己都快看不懂了。本人没有审美。"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,54,0,0"/>
-        <Label Content="你问我什么时候更新？ 看心情、会不会以及老板打不打我。"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,81,0,0"/>
+        <Label Content="代码好像能看懂了。本人没有审美。老板一言不发并丢给可以加班的活。"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,54,0,0"/>
+        <Label Content="更新时间看心情、会不会以及老板打不打我。↑"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,81,0,0"/>
         <Label Content="每点一下重置，这个世界就会少一个名叫 雪球 的欧洲婊。"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,108,0,0" Foreground="Green"/>
         <Label Content="伤害指数：射速*伤害/50*(1-暴击率+暴击率*1.5)/(1+敌回避/命中)"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,135,0,0" Foreground="Red"/>
-        <Label Content="伤害指数(机枪)：因过长而放弃写出来。（而且还有技能的bug）"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,162,0,0" Foreground="Red"/>
+        <Label Content="伤害指数(机枪)：输出量除时间。（超过一轮加技能会比实际强）"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,162,0,0" Foreground="Red"/>
         <Label Content="主T肉度：血量/(1/(1+回避/敌命中))"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,215,0,0" Foreground="Red"/>
-        <Label Content="欢迎数据dalao给我更好的算式。"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,242,0,0"/>
-        <Label Content="因为有活要干了可能下次更新不会很早。"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,189,0,0"/>
+        <Label Content="欢迎数据dalao给我更好的算式。 对于扩编，目前倾向于不加这个选项。"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,242,0,0"/>
+        <Label Content="好像都要忘了about这次想起来还是改一下吧（ドヤ颜"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,189,0,0"/>
 
         <TextBlock FontSize="12" Height="27" Margin="300,5,8,250" >
             <Hyperlink>
