@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -15,14 +14,28 @@ using System.Windows.Shapes;
 namespace snqxap
 {
     /// <summary>
-    /// UpdateData.xaml 的交互逻辑
+    /// buffOn.xaml 的交互逻辑
     /// </summary>
-    public partial class UpdateData : Window
+    public partial class buffOn : Window
     {
-        public UpdateData()
+
+        public GunGrid[] gg { get; set; }
+
+        public int[] select { get;set; }
+        
+
+        public buffOn()
         {
             InitializeComponent();
+            baka();
+        }
+
+        public void baka()
+        {
+
 
         }
+
+
     }
 }

@@ -83,7 +83,7 @@ namespace snqxap
 
     }
 
-    class GunGrid
+    public class GunGrid
     {
         public double damageup { get; set; }
         public double shotspeedup { get; set; }

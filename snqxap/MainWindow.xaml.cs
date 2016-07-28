@@ -6637,5 +6637,22 @@ namespace snqxap
             calcprobabiliy(8, index, skillindex);
             renewskill();
         }
+
+        private void buff_Click(object sender, RoutedEventArgs e)
+        {
+            buffOn bo = new buffOn();
+            bo.gg = gg;
+            bo.select = new int[9];
+            bo.select[0] = Combo0.SelectedIndex;
+            bo.select[1] = Combo1.SelectedIndex;
+            bo.select[2] = Combo2.SelectedIndex;
+            bo.select[3] = Combo3.SelectedIndex;
+            bo.select[4] = Combo4.SelectedIndex;
+            bo.select[5] = Combo5.SelectedIndex;
+            bo.select[6] = Combo6.SelectedIndex;
+            bo.select[7] = Combo7.SelectedIndex;
+            bo.select[8] = Combo8.SelectedIndex;
+            bo.ShowDialog();
+        }
     }
 }

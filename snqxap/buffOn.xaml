@@ -1,0 +1,41 @@
+﻿<Window x:Class="snqxap.buffOn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="buffOn" Height="660" Width="670" ResizeMode="NoResize">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="assets/yushe1.png"/>
+        </Grid.Background>
+        <Grid Width="220" Height="220" Margin="0,0,564,532">
+            <Image Name="Idamage0" Source="/assets/b_damage.png" Width="28" Height="28" Margin="10,10,182,182"/>
+            <Label Name="Ldamage0" Content="0" FontSize="15" Width="28" Height="28" Margin="44,10,148,182"/>
+            <Image Name="Ishotspeed0" Source="/assets/b_shotspeed.png" Width="28" Height="28" Margin="10,40,182,152"/>
+            <Label Name="Lshotspeed0" Content="0" FontSize="15" Width="28" Height="28" Margin="44,40,148,152"/>
+            <Image Name="Ihit0" Source="/assets/b_hit.png" Width="28" Height="28" Margin="10,70,182,122"/>
+            <Label Name="Lhit0" Content="0" FontSize="15" Width="28" Height="28" Margin="44,70,148,122"/>
+            <Image Name="Idodge0" Source="/assets/b_dodge.png" Width="28" Height="28" Margin="10,110,182,82"/>
+            <Label Name="Ldodge0" Content="0" FontSize="15" Width="28" Height="28" Margin="44,110,148,82"/>
+            <Image Name="Icrit0" Source="/assets/b_crit.png" Width="28" Height="28" Margin="10,130,182,42"/>
+            <Label Name="Lcrit0" Content="0" FontSize="15" Width="28" Height="28" Margin="44,130,148,182"/>
+            <Image Name="Irate0" Source="/assets/b_rate.png" Width="28" Height="28" Margin="11,160,182,12"/>
+            <Label Name="Lrate0" Content="0" FontSize="15" Width="28" Height="28" Margin="44,160,148,12"/>
+            <Image Name="Image0" Width="100"  Height="150" Margin="115,35,5,35"/>
+        </Grid>
+        <Grid Width="220" Height="220" Margin="220,0,224,412">
+            <Image Name="Idamage1" Source="/assets/b_damage.png" Width="28" Height="28" Margin="10,10,182,182"/>
+            <Label Name="Ldamage1" Content="0" FontSize="15" Width="28" Height="28" Margin="44,10,148,182"/>
+            <Image Name="Ishotspeed1" Source="/assets/b_shotspeed.png" Width="28" Height="28" Margin="10,40,182,152"/>
+            <Label Name="Lshotspeed1" Content="0" FontSize="15" Width="28" Height="28" Margin="44,40,148,152"/>
+            <Image Name="Ihit1" Source="/assets/b_hit.png" Width="28" Height="28" Margin="10,70,182,122"/>
+            <Label Name="Lhit1" Content="0" FontSize="15" Width="28" Height="28" Margin="44,70,148,122"/>
+            <Image Name="Idodge1" Source="/assets/b_dodge.png" Width="28" Height="28" Margin="10,100,182,92"/>
+            <Label Name="Ldodge1" Content="0" FontSize="15" Width="28" Height="28" Margin="44,100,148,92"/>
+            <Image Name="Icrit1" Source="/assets/b_crit.png" Width="28" Height="28" Margin="10,130,182,62"/>
+            <Label Name="Lcrit1" Content="0" FontSize="15" Width="28" Height="28" Margin="44,130,148,62"/>
+            <Image Name="Irate1" Source="/assets/b_rate.png" Width="28" Height="28" Margin="11,160,182,32"/>
+            <Label Name="Lrate1" Content="0" FontSize="15" Width="28" Height="28" Margin="44,160,148,32"/>
+            <Image Name="Image1" Width="100"  Height="150" Margin="115,35,5,35"/>
+        </Grid>
+
+    </Grid>
+</Window>

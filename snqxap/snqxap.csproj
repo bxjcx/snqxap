@@ -58,6 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="buffOn.xaml.cs">
+      <DependentUpon>buffOn.xaml</DependentUpon>
+    </Compile>
     <Compile Include="enemydata.xaml.cs">
       <DependentUpon>enemydata.xaml</DependentUpon>
     </Compile>
@@ -67,6 +70,10 @@
     <Compile Include="UpdateData.xaml.cs">
       <DependentUpon>UpdateData.xaml</DependentUpon>
     </Compile>
+    <Page Include="buffOn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="enemydata.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -288,6 +295,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="assets\boss3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\yushe1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\yushe3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\b_crit.png" />
+    <Resource Include="assets\b_damage.png" />
+    <Resource Include="assets\b_dodge.png" />
+    <Resource Include="assets\b_hit.png" />
+    <Resource Include="assets\b_rate.png" />
+    <Resource Include="assets\b_shotspeed.png" />
+    <Resource Include="assets\yushe2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
