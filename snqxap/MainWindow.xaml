@@ -1,7 +1,7 @@
 ﻿<Window x:Class="snqxap.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="「干死雪球」阵型计算器 - h@jyying.cn - v1.0.6再也没见过雪球版" Height="800" Width="700">
+        Title="「干死雪球」阵型计算器 - h@jyying.cn - v1.0.7 全年龄版（雾）" Height="800" Width="700">
     <Viewbox Stretch="Fill">
         <Grid  Height="770" Width="700">
             <Grid HorizontalAlignment="Left" Height="660" Margin="10,10,0,0" VerticalAlignment="Top" Width="660">
@@ -16,14 +16,14 @@
                     <Image Name="Image0" Source="/assets/1.png" Width="100"  Height="150" Margin="115,35,5,35"/>
                     <ComboBox IsEditable = "true"  Name="Combo0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo0_SelectionChanged"/>
                     <ComboBox IsEditable = "true"  Name="Level0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level0_SelectionChanged"/>
-                    <ComboBox  IsEnabled="False" IsEditable = "true"  Name="SkillLevel0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0"/>
+                    <ComboBox IsEditable = "true"  Name="SkillLevel0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel0_SelectionChanged"/>
                     <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldamage0" Content="0" HorizontalAlignment="Left" Margin="30,49,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="射速:" HorizontalAlignment="Left" Margin="0,68,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lshotspeed0" Content="0" HorizontalAlignment="Left" Margin="30,68,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="命中:" HorizontalAlignment="Left" Margin="55,30,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lhit0" Content="0" HorizontalAlignment="Left" Margin= "85,30,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="回避:" HorizontalAlignment="Left" Margin="55,48,0,0" VerticalAlignment="Top" FontSize="12"/>
+                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,48,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldodge0" Content="0" HorizontalAlignment="Left" Margin="85,48,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,87,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lcrit0" Content="0" HorizontalAlignment="Left" Margin="30,87,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -53,15 +53,15 @@
                     <Border Grid.Row="1" Grid.Column="1"></Border>
                     <Image Name="Image1" Source="/assets/1.png" Width="100"  Height="150" Margin="115,35,5,35"/>
                     <ComboBox IsEditable = "true"  Name="Combo1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo1_SelectionChanged"/>
-                    <ComboBox  IsEditable = "true"  Name="Level1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level1_SelectionChanged"/>
-                    <ComboBox IsEnabled="False" IsEditable = "true"  Name="SkillLevel1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0"/>
+                    <ComboBox IsEditable = "true"  Name="Level1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level1_SelectionChanged"/>
+                    <ComboBox IsEditable = "true"  Name="SkillLevel1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel1_SelectionChanged"/>
                     <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldamage1" Content="0" HorizontalAlignment="Left" Margin="30,49,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="射速:" HorizontalAlignment="Left" Margin="0,68,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lshotspeed1" Content="0" HorizontalAlignment="Left" Margin="30,68,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="命中:" HorizontalAlignment="Left" Margin="55,30,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lhit1" Content="0" HorizontalAlignment="Left" Margin= "85,30,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="回避:" HorizontalAlignment="Left" Margin="55,48,0,0" VerticalAlignment="Top" FontSize="12"/>
+                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,48,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldodge1" Content="0" HorizontalAlignment="Left" Margin="85,48,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,87,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lcrit1" Content="0" HorizontalAlignment="Left" Margin="30,87,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -91,15 +91,15 @@
                     <Border Grid.Row="1" Grid.Column="1"></Border>
                     <Image Name="Image2" Source="/assets/1.png" Width="100"  Height="150" Margin="115,35,5,35"/>
                     <ComboBox IsEditable = "true"  Name="Combo2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo2_SelectionChanged"/>
-                    <ComboBox  IsEditable = "true"  Name="Level2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level2_SelectionChanged"/>
-                    <ComboBox IsEnabled="False" IsEditable = "true"  Name="SkillLevel2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0"/>
+                    <ComboBox IsEditable = "true"  Name="Level2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level2_SelectionChanged"/>
+                    <ComboBox IsEditable = "true"  Name="SkillLevel2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel2_SelectionChanged"/>
                     <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldamage2" Content="0" HorizontalAlignment="Left" Margin="30,49,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="射速:" HorizontalAlignment="Left" Margin="0,68,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lshotspeed2" Content="0" HorizontalAlignment="Left" Margin="30,68,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="命中:" HorizontalAlignment="Left" Margin="55,30,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lhit2" Content="0" HorizontalAlignment="Left" Margin= "85,30,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="回避:" HorizontalAlignment="Left" Margin="55,48,0,0" VerticalAlignment="Top" FontSize="12"/>
+                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,48,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldodge2" Content="0" HorizontalAlignment="Left" Margin="85,48,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,87,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lcrit2" Content="0" HorizontalAlignment="Left" Margin="30,87,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -130,14 +130,14 @@
                     <Image Name="Image3" Source="/assets/1.png" Width="100"  Height="150" Margin="115,35,5,35"/>
                     <ComboBox IsEditable = "true"  Name="Combo3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo3_SelectionChanged"/>
                     <ComboBox IsEditable = "true"  Name="Level3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level3_SelectionChanged"/>
-                    <ComboBox IsEnabled="False" IsEditable = "true"  Name="SkillLevel3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0"/>
+                    <ComboBox IsEditable = "true"  Name="SkillLevel3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel3_SelectionChanged"/>
                     <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldamage3" Content="0" HorizontalAlignment="Left" Margin="30,49,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="射速:" HorizontalAlignment="Left" Margin="0,68,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lshotspeed3" Content="0" HorizontalAlignment="Left" Margin="30,68,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="命中:" HorizontalAlignment="Left" Margin="55,30,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lhit3" Content="0" HorizontalAlignment="Left" Margin= "85,30,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="回避:" HorizontalAlignment="Left" Margin="55,48,0,0" VerticalAlignment="Top" FontSize="12"/>
+                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,48,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldodge3" Content="0" HorizontalAlignment="Left" Margin="85,48,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,87,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lcrit3" Content="0" HorizontalAlignment="Left" Margin="30,87,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -168,14 +168,14 @@
                     <Image Name="Image4" Source="/assets/1.png" Width="100"  Height="150" Margin="115,35,5,35"/>
                     <ComboBox IsEditable = "true"  Name="Combo4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo4_SelectionChanged"/>
                     <ComboBox IsEditable = "true"  Name="Level4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level4_SelectionChanged"/>
-                    <ComboBox IsEnabled="False" IsEditable = "true"  Name="SkillLevel4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0"/>
+                    <ComboBox IsEditable = "true"  Name="SkillLevel4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0"  SelectionChanged="SkillLevel4_SelectionChanged"/>
                     <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldamage4" Content="0" HorizontalAlignment="Left" Margin="30,49,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="射速:" HorizontalAlignment="Left" Margin="0,68,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lshotspeed4" Content="0" HorizontalAlignment="Left" Margin="30,68,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="命中:" HorizontalAlignment="Left" Margin="55,30,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lhit4" Content="0" HorizontalAlignment="Left" Margin= "85,30,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="回避:" HorizontalAlignment="Left" Margin="55,48,0,0" VerticalAlignment="Top" FontSize="12"/>
+                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,48,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldodge4" Content="0" HorizontalAlignment="Left" Margin="85,48,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,87,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lcrit4" Content="0" HorizontalAlignment="Left" Margin="30,87,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -193,7 +193,7 @@
                     <Label Name="Lbelt4" Content="0" HorizontalAlignment="Left" Margin="85,66,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,106,0,0" VerticalAlignment="Top" FontSize="12" />
                     <Label Name="Lskilldamage4" Content="0" HorizontalAlignment="Left" Margin="55,106,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <CheckBox Click="cb0_Click" Name="cb4" Content="技能发动" HorizontalAlignment="Left" Margin="10,202,0,0"/>
+                    <CheckBox Click="cb4_Click" Name="cb4" Content="技能发动" HorizontalAlignment="Left" Margin="10,202,0,0"/>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="220" Margin="440,220,0,0">
                     <Grid.Resources>
@@ -206,14 +206,14 @@
                     <Image Name="Image5" Source="/assets/1.png" Width="100"  Height="150" Margin="115,35,5,35"/>
                     <ComboBox IsEditable = "true"  Name="Combo5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo5_SelectionChanged"/>
                     <ComboBox IsEditable = "true"  Name="Level5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level5_SelectionChanged"/>
-                    <ComboBox IsEnabled="False" IsEditable = "true"  Name="SkillLevel5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0"/>
+                    <ComboBox IsEditable = "true"  Name="SkillLevel5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel5_SelectionChanged"/>
                     <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldamage5" Content="0" HorizontalAlignment="Left" Margin="30,49,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="射速:" HorizontalAlignment="Left" Margin="0,68,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lshotspeed5" Content="0" HorizontalAlignment="Left" Margin="30,68,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="命中:" HorizontalAlignment="Left" Margin="55,30,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lhit5" Content="0" HorizontalAlignment="Left" Margin= "85,30,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="回避:" HorizontalAlignment="Left" Margin="55,48,0,0" VerticalAlignment="Top" FontSize="12"/>
+                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,48,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldodge5" Content="0" HorizontalAlignment="Left" Margin="85,48,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,87,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lcrit5" Content="0" HorizontalAlignment="Left" Margin="30,87,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -243,15 +243,15 @@
                     <Border Grid.Row="1" Grid.Column="1"></Border>
                     <Image Name="Image6" Source="/assets/1.png" Width="100"  Height="150" Margin="115,35,5,35"/>
                     <ComboBox IsEditable = "true"  Name="Combo6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo6_SelectionChanged"/>
-                    <ComboBox  IsEditable = "true"  Name="Level6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level6_SelectionChanged"/>
-                    <ComboBox IsEnabled="False" IsEditable = "true"  Name="SkillLevel6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0"/>
+                    <ComboBox IsEditable = "true"  Name="Level6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level6_SelectionChanged"/>
+                    <ComboBox IsEditable = "true"  Name="SkillLevel6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel6_SelectionChanged"/>
                     <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldamage6" Content="0" HorizontalAlignment="Left" Margin="30,49,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="射速:" HorizontalAlignment="Left" Margin="0,68,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lshotspeed6" Content="0" HorizontalAlignment="Left" Margin="30,68,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="命中:" HorizontalAlignment="Left" Margin="55,30,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lhit6" Content="0" HorizontalAlignment="Left" Margin= "85,30,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="回避:" HorizontalAlignment="Left" Margin="55,48,0,0" VerticalAlignment="Top" FontSize="12"/>
+                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,48,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldodge6" Content="0" HorizontalAlignment="Left" Margin="85,48,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,87,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lcrit6" Content="0" HorizontalAlignment="Left" Margin="30,87,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -281,15 +281,15 @@
                     <Border Grid.Row="1" Grid.Column="1"></Border>
                     <Image Name="Image7" Source="/assets/1.png" Width="100"  Height="150" Margin="115,35,5,35"/>
                     <ComboBox IsEditable = "true"  Name="Combo7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo7_SelectionChanged"/>
-                    <ComboBox  IsEditable = "true"  Name="Level7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level7_SelectionChanged"/>
-                    <ComboBox IsEnabled="False" IsEditable = "true"  Name="SkillLevel7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0"/>
+                    <ComboBox IsEditable = "true"  Name="Level7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level7_SelectionChanged"/>
+                    <ComboBox IsEditable = "true"  Name="SkillLevel7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel7_SelectionChanged"/>
                     <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldamage7" Content="0" HorizontalAlignment="Left" Margin="30,49,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="射速:" HorizontalAlignment="Left" Margin="0,68,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lshotspeed7" Content="0" HorizontalAlignment="Left" Margin="30,68,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="命中:" HorizontalAlignment="Left" Margin="55,30,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lhit7" Content="0" HorizontalAlignment="Left" Margin= "85,30,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="回避:" HorizontalAlignment="Left" Margin="55,48,0,0" VerticalAlignment="Top" FontSize="12"/>
+                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,48,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldodge7" Content="0" HorizontalAlignment="Left" Margin="85,48,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,87,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lcrit7" Content="0" HorizontalAlignment="Left" Margin="30,87,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -320,14 +320,14 @@
                     <Image Name="Image8" Source="/assets/1.png" Width="100"  Height="150" Margin="115,35,5,35"/>
                     <ComboBox IsEditable = "true"  Name="Combo8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo8_SelectionChanged"/>
                     <ComboBox IsEditable = "true"  Name="Level8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level8_SelectionChanged"/>
-                    <ComboBox IsEnabled="False" IsEditable = "true"  Name="SkillLevel8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0"/>
+                    <ComboBox IsEditable = "true"  Name="SkillLevel8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel8_SelectionChanged"/>
                     <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldamage8" Content="0" HorizontalAlignment="Left" Margin="30,49,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="射速:" HorizontalAlignment="Left" Margin="0,68,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lshotspeed8" Content="0" HorizontalAlignment="Left" Margin="30,68,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="命中:" HorizontalAlignment="Left" Margin="55,30,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lhit8" Content="0" HorizontalAlignment="Left" Margin= "85,30,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="回避:" HorizontalAlignment="Left" Margin="55,48,0,0" VerticalAlignment="Top" FontSize="12"/>
+                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,48,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldodge8" Content="0" HorizontalAlignment="Left" Margin="85,48,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,87,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lcrit8" Content="0" HorizontalAlignment="Left" Margin="30,87,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -376,7 +376,7 @@
             <Button Content="About" HorizontalAlignment="Left" Margin="5,740,0,0" VerticalAlignment="Top" Width="75" Click="About_Click"/>
             <Button Content="Log" HorizontalAlignment="Left" Margin="620,740,0,0" VerticalAlignment="Top" Width="75" Click="UpdateData_Click"/>
             <Button x:Name="button" Content="敌方数据" HorizontalAlignment="Left" Margin="528,740,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-            <Label Content="对回避：" FontSize="15" HorizontalAlignment="Left" Margin="75,675,0,0" VerticalAlignment="Top"/>
+            <Label Content="对闪避：" FontSize="15" HorizontalAlignment="Left" Margin="75,675,0,0" VerticalAlignment="Top"/>
             <Label Content="敌人伤害指数：" FontSize="15" HorizontalAlignment="Left" Margin="234,675,0,0" VerticalAlignment="Top" Width="108"/>
             <Label Content="对命中" FontSize="15" HorizontalAlignment="Left" Margin="75,705,0,0" VerticalAlignment="Top"/>
             <Label Content="敌人主T肉度 ：" FontSize="15" HorizontalAlignment="Left" Margin="234,705,0,0" VerticalAlignment="Top" Width="108"/>

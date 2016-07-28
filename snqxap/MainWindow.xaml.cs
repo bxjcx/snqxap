@@ -162,7 +162,7 @@ namespace snqxap
             rb8.IsChecked = false;
 
             tank.Content = 0;
-            enemydodge.Text = "15";
+            enemydodge.Text = "10";
             enemyhit.Text = "20";
 
             rbf0.IsChecked = false;
@@ -216,7 +216,7 @@ namespace snqxap
             gun[1].skilltype = 15; gun[1].skillcircle = 2.5; gun[1].skilldamage = gun[1].damage * 4; gun[1].skillrate = 0.5; gun[1].skilltime = 0; gun[1].skillcontent = "手榴弹,半径" + gun[1].skillcircle.ToString();
             gun[2].name = "UMP9"; gun[2].what = 3; gun[2].hp = 176; gun[2].damage = 26; gun[2].hit = 14; gun[2].dodge = 76; gun[2].shotspeed = 87; gun[2].crit = 0.05; gun[2].belt = 0; gun[2].number = 3; gun[2].effect0 = 1; gun[2].effect1 = 4; gun[2].effect2 = 7; gun[2].damageup = 0; gun[2].hitup = 0.3; gun[2].shotspeedup = 0.12; gun[2].critup = 0; gun[2].dodgeup = 0; gun[2].to = 2;
             gun[2].skilltype = 11; gun[2].skillcircle = 2.5; gun[2].skilldamage = 0; gun[2].skillrate = 0.6; gun[2].skilltime = 3.6; gun[2].skillcontent = "闪光弹,半径" + gun[2].skillcircle.ToString();
-            gun[3].name = "vector"; gun[3].what = 3; gun[3].hp = 185; gun[3].damage = 30; gun[3].hit = 11; gun[3].dodge = 71; gun[3].shotspeed = 101; gun[3].crit = 0.05; gun[3].belt = 0; gun[3].number = 1; gun[3].effect0 = 4; gun[3].damageup = 0; gun[3].hitup = 0; gun[3].shotspeedup = 0.25; gun[3].critup = 0; gun[3].dodgeup = 0; gun[3].to = 2;
+            gun[3].name = "Vector"; gun[3].what = 3; gun[3].hp = 185; gun[3].damage = 30; gun[3].hit = 11; gun[3].dodge = 71; gun[3].shotspeed = 101; gun[3].crit = 0.05; gun[3].belt = 0; gun[3].number = 1; gun[3].effect0 = 4; gun[3].damageup = 0; gun[3].hitup = 0; gun[3].shotspeedup = 0.25; gun[3].critup = 0; gun[3].dodgeup = 0; gun[3].to = 2;
             gun[3].skilltype = 12; gun[3].skillcircle = 1; gun[3].skilldamage = gun[3].damage * 3.2; gun[3].skillrate = 0.6; gun[3].skilltime = 4; gun[3].skillcontent = "燃烧弹,半径" + gun[3].skillcircle.ToString() + "不算DOT";
             gun[4].name = "蝎式"; gun[4].what = 3; gun[4].hp = 159; gun[4].damage = 24; gun[4].hit = 13; gun[4].dodge = 83; gun[4].shotspeed = 95; gun[4].crit = 0.05; gun[4].belt = 0; gun[4].number = 1; gun[4].effect0 = 4; gun[4].damageup = 0; gun[4].hitup = 0.5; gun[4].shotspeedup = 0.15; gun[4].critup = 0; gun[4].dodgeup = 0; gun[4].to = 2;
             gun[4].skilltype = 12; gun[4].skillcircle = 1; gun[4].skilldamage = gun[4].damage * 3; gun[4].skillrate = 0.56; gun[4].skilltime = 4; gun[4].skillcontent = "燃烧弹,半径" + gun[4].skillcircle.ToString() + "不算DOT";
@@ -278,7 +278,7 @@ namespace snqxap
             gun[32].skilltype = 1; gun[32].skilldamage = gun[32].damage * 2; gun[32].skillcircle = 4; gun[32].skillrate = 0.45; gun[32].skillcontent = "爆破榴弹,半径" + gun[32].skillcircle.ToString();
             gun[33].name = "CZ-805"; gun[33].what = 2; gun[33].hp = 116; gun[33].damage = 43; gun[33].hit = 49; gun[33].dodge = 41; gun[33].shotspeed = 75; gun[33].crit = 0.2; gun[33].belt = 0; gun[33].number = 2; gun[33].effect0 = 3; gun[33].effect1 = 9; gun[33].damageup = 0; gun[33].hitup = 0.5; gun[33].shotspeedup = 0.25; gun[33].critup = 0; gun[33].dodgeup = 0; gun[33].to = 3;
             gun[33].skilltype = 1; gun[33].skilldamage = gun[33].damage * 2; gun[33].skillcircle = 4; gun[33].skillrate = 0.45; gun[33].skillcontent = "爆破榴弹,半径" + gun[33].skillcircle.ToString();
-            gun[34].name = "m4 SOPMPDⅡ"; gun[34].what = 2; gun[34].hp = 110; gun[34].damage = 47; gun[34].hit = 49; gun[34].dodge = 44; gun[34].shotspeed = 78; gun[34].crit = 0.2; gun[34].belt = 0; gun[34].number = 1; gun[34].effect0 = 3; gun[34].damageup = 0; gun[34].hitup = 0; gun[34].shotspeedup = 0; gun[34].critup = 0; gun[34].dodgeup = 0.36; gun[34].to = 2;
+            gun[34].name = "M4 SOPMODⅡ"; gun[34].what = 2; gun[34].hp = 110; gun[34].damage = 47; gun[34].hit = 49; gun[34].dodge = 44; gun[34].shotspeed = 78; gun[34].crit = 0.2; gun[34].belt = 0; gun[34].number = 1; gun[34].effect0 = 3; gun[34].damageup = 0; gun[34].hitup = 0; gun[34].shotspeedup = 0; gun[34].critup = 0; gun[34].dodgeup = 0.36; gun[34].to = 2;
             gun[34].skilltype = 1; gun[34].skilldamage = gun[34].damage * 5.5; gun[34].skillcircle = 1; gun[34].skillrate = 0.6; gun[34].skillcontent = "杀伤榴弹,半径" + gun[34].skillcircle.ToString();
             gun[35].name = "TAR-21"; gun[35].what = 2; gun[35].hp = 105; gun[35].damage = 49; gun[35].hit = 48; gun[35].dodge = 44; gun[35].shotspeed = 79; gun[35].crit = 0.2; gun[35].belt = 0; gun[35].number = 2; gun[35].effect0 = 3; gun[35].effect1 = 9; gun[35].damageup = 0; gun[35].hitup = 0; gun[35].shotspeedup = 0; gun[35].critup = 0; gun[35].dodgeup = 0.18; gun[35].to = 3;
             gun[35].skilltype = 18; gun[35].skillrate = 0.88; gun[35].skilltime = 16; gun[35].skillupmyshotspeed = 0.512; gun[35].skillcontent = "(夜)提升自身射速51.2%";
@@ -480,6 +480,24 @@ namespace snqxap
                 SkillLevel8.Items.Add(i);
             }
 
+            Level0.SelectedIndex = 99;
+            Level1.SelectedIndex = 99;
+            Level2.SelectedIndex = 99;
+            Level3.SelectedIndex = 99;
+            Level4.SelectedIndex = 99;
+            Level5.SelectedIndex = 99;
+            Level6.SelectedIndex = 99;
+            Level7.SelectedIndex = 99;
+            Level8.SelectedIndex = 99;
+            SkillLevel0.SelectedIndex = 9;
+            SkillLevel1.SelectedIndex = 9;
+            SkillLevel2.SelectedIndex = 9;
+            SkillLevel3.SelectedIndex = 9;
+            SkillLevel4.SelectedIndex = 9;
+            SkillLevel5.SelectedIndex = 9;
+            SkillLevel6.SelectedIndex = 9;
+            SkillLevel7.SelectedIndex = 9;
+            SkillLevel8.SelectedIndex = 9;
             gun[0].eatratio = 105;
             gun[1].eatratio = 125;
             gun[2].eatratio = 110;
@@ -1091,6 +1109,820 @@ namespace snqxap
             gun[98].ratiorate = 115;
             gun[99].ratiorate = 110;
             gun[100].ratiorate = 110;
+
+            gun[0].type = 106;
+            gun[1].type = 401;
+            gun[2].type = 403;
+            gun[3].type = 404;
+            gun[4].type = 404;
+            gun[5].type = 401;
+            gun[6].type = 305;
+            gun[7].type = 404;
+            gun[8].type = 104;
+            gun[9].type = 402;
+            gun[10].type = 402;
+            gun[11].type = 104;
+            gun[12].type = 401;
+            gun[13].type = 401;
+            gun[14].type = 106;
+            gun[15].type = 403;
+            gun[16].type = 404;
+            gun[17].type = 401;
+            gun[18].type = 403;
+            gun[19].type = 402;
+            gun[20].type = 104;
+            gun[21].type = 102;
+            gun[22].type = 101;
+            gun[23].type = 601;
+            gun[24].type = 601;
+            gun[25].type = 101;
+            gun[26].type = 601;
+            gun[27].type = 304;
+            gun[28].type = 403;
+            gun[29].type = 102;
+            gun[30].type = 601;
+            gun[31].type = 301;
+            gun[32].type = 601;
+            gun[33].type = 601;
+            gun[34].type = 601;
+            gun[35].type = 132;
+            gun[36].type = 133;
+            gun[37].type = 405;
+            gun[38].type = 601;
+            gun[39].type = 101;
+            gun[40].type = 101;
+            gun[41].type = 302;
+            gun[42].type = 131;
+            gun[43].type = 601;
+            gun[44].type = 203;
+            gun[45].type = 231;
+            gun[46].type = 1;
+            gun[47].type = 1;
+            gun[48].type = 4;
+            gun[49].type = 201;
+            gun[50].type = 233;
+            gun[51].type = 2;
+            gun[52].type = 2;
+            gun[53].type = 34;
+            gun[54].type = 31;
+            gun[55].type = 402;
+            gun[56].type = 1;
+            gun[57].type = 405;
+            gun[58].type = 2;
+            gun[59].type = 405;
+            gun[60].type = 403;
+            gun[61].type = 4;
+            gun[62].type = 2;
+            gun[63].type = 204;
+            gun[64].type = 202;
+            gun[65].type = 102;
+            gun[66].type = 101;
+            gun[67].type = 101;
+            gun[68].type = 501;
+            gun[69].type = 501;
+            gun[70].type = 503;
+            gun[71].type = 304;
+            gun[72].type = 101;
+            gun[73].type = 503;
+            gun[74].type = 102;
+            gun[75].type = 501;
+            gun[76].type = 501;
+            gun[77].type = 132;
+            gun[78].type = 333;
+            gun[79].type = 501;
+            gun[80].type = 502;
+            gun[81].type = 502;
+            gun[82].type = 131;
+            gun[83].type = 101;
+            gun[84].type = 101;
+            gun[85].type = 101;
+            gun[86].type = 103;
+            gun[87].type = 101;
+            gun[88].type = 103;
+            gun[89].type = 101;
+            gun[90].type = 103;
+            gun[91].type = 103;
+            gun[92].type = 133;
+            gun[93].type = 101;
+            gun[94].type = 303;
+            gun[95].type = 104;
+            gun[96].type = 301;
+            gun[97].type = 302;
+            gun[98].type = 104;
+            gun[99].type = 103;
+            gun[100].type = 1;
+
+            gun[0].probability = 20;
+            gun[1].probability = 20;
+            gun[2].probability = 30;
+            gun[3].probability = 30;
+            gun[4].probability = 28;
+            gun[5].probability = 18;
+            gun[6].probability = 40;
+            gun[7].probability = 28;
+            gun[8].probability = 22;
+            gun[9].probability = 40;
+            gun[10].probability = 35;
+            gun[11].probability = 20;
+            gun[12].probability = 20;
+            gun[13].probability = 18;
+            gun[14].probability = 24;
+            gun[15].probability = 30;
+            gun[16].probability = 25;
+            gun[17].probability = 18;
+            gun[18].probability = 30;
+            gun[19].probability = 35;
+            gun[20].probability = 25;
+            gun[21].probability = 40;
+            gun[22].probability = 24;
+            gun[23].probability = 18;
+            gun[24].probability = 24;
+            gun[25].probability = 24;
+            gun[26].probability = 20;
+            gun[27].probability = 36;
+            gun[28].probability = 30;
+            gun[29].probability = 40;
+            gun[30].probability = 20;
+            gun[31].probability = 40;
+            gun[32].probability = 18;
+            gun[33].probability = 18;
+            gun[34].probability = 24;
+            gun[35].probability = 55;
+            gun[36].probability = 40;
+            gun[37].probability = 40;
+            gun[38].probability = 20;
+            gun[39].probability = 36;
+            gun[40].probability = 40;
+            gun[41].probability = 40;
+            gun[42].probability = 36;
+            gun[43].probability = 24;
+            gun[44].probability = 40;
+            gun[45].probability = 40;
+            gun[46].probability = 35;
+            gun[47].probability = 35;
+            gun[48].probability = 32;
+            gun[49].probability = 24;
+            gun[50].probability = 50;
+            gun[51].probability = 35;
+            gun[52].probability = 40;
+            gun[53].probability = 45;
+            gun[54].probability = 35;
+            gun[55].probability = 35;
+            gun[56].probability = 35;
+            gun[57].probability = 40;
+            gun[58].probability = 35;
+            gun[59].probability = 40;
+            gun[60].probability = 30;
+            gun[61].probability = 30;
+            gun[62].probability = 40;
+            gun[63].probability = 40;
+            gun[64].probability = 24;
+            gun[65].probability = 36;
+            gun[66].probability = 36;
+            gun[67].probability = 40;
+            gun[68].probability = 16;
+            gun[69].probability = 16;
+            gun[70].probability = 30;
+            gun[71].probability = 40;
+            gun[72].probability = 40;
+            gun[73].probability = 30;
+            gun[74].probability = 36;
+            gun[75].probability = 30;
+            gun[76].probability = 30;
+            gun[77].probability = 36;
+            gun[78].probability = 50;
+            gun[79].probability = 16;
+            gun[80].probability = 30;
+            gun[81].probability = 30;
+            gun[82].probability = 30;
+            gun[83].probability = 32;
+            gun[84].probability = 30;
+            gun[85].probability = 30;
+            gun[86].probability = 32;
+            gun[87].probability = 30;
+            gun[88].probability = 32;
+            gun[89].probability = 30;
+            gun[90].probability = 32;
+            gun[91].probability = 30;
+            gun[92].probability = 30;
+            gun[93].probability = 30;
+            gun[94].probability = 30;
+            gun[95].probability = 32;
+            gun[96].probability = 40;
+            gun[97].probability = 42;
+            gun[98].probability = 30;
+            gun[99].probability = 30;
+            gun[100].probability = 40;
+
+            gun[0].skilleffect1 = 2;
+            gun[1].skilleffect1 = 1.6;
+            gun[2].skilleffect1 = 1.8;
+            gun[3].skilleffect1 = 1.6;
+            gun[4].skilleffect1 = 1.5;
+            gun[5].skilleffect1 = 1.6;
+            gun[6].skilleffect1 = 60;
+            gun[7].skilleffect1 = 1.5;
+            gun[8].skilleffect1 = 200;
+            gun[9].skilleffect1 = 30;
+            gun[10].skilleffect1 = 30;
+            gun[11].skilleffect1 = 200;
+            gun[12].skilleffect1 = 1.6;
+            gun[13].skilleffect1 = 1.6;
+            gun[14].skilleffect1 = 1.5;
+            gun[15].skilleffect1 = 1.5;
+            gun[16].skilleffect1 = 1.5;
+            gun[17].skilleffect1 = 1.6;
+            gun[18].skilleffect1 = 1.5;
+            gun[19].skilleffect1 = 30;
+            gun[20].skilleffect1 = 200;
+            gun[21].skilleffect1 = 40;
+            gun[22].skilleffect1 = 60;
+            gun[23].skilleffect1 = 1;
+            gun[24].skilleffect1 = 2.4;
+            gun[25].skilleffect1 = 65;
+            gun[26].skilleffect1 = 0.8;
+            gun[27].skilleffect1 = 60;
+            gun[28].skilleffect1 = 1.8;
+            gun[29].skilleffect1 = 36;
+            gun[30].skilleffect1 = 0.8;
+            gun[31].skilleffect1 = 60;
+            gun[32].skilleffect1 = 0.8;
+            gun[33].skilleffect1 = 0.8;
+            gun[34].skilleffect1 = 2.2;
+            gun[35].skilleffect1 = 32;
+            gun[36].skilleffect1 = 200;
+            gun[37].skilleffect1 = 50;
+            gun[38].skilleffect1 = 2.2;
+            gun[39].skilleffect1 = 100;
+            gun[40].skilleffect1 = 100;
+            gun[41].skilleffect1 = 60;
+            gun[42].skilleffect1 = 100;
+            gun[43].skilleffect1 = 2.2;
+            gun[44].skilleffect1 = 30;
+            gun[45].skilleffect1 = 30;
+            gun[46].skilleffect1 = 12;
+            gun[47].skilleffect1 = 15;
+            gun[48].skilleffect1 = 30;
+            gun[49].skilleffect1 = 28;
+            gun[50].skilleffect1 = 40;
+            gun[51].skilleffect1 = 6;
+            gun[52].skilleffect1 = 10;
+            gun[53].skilleffect1 = 40;
+            gun[54].skilleffect1 = 12;
+            gun[55].skilleffect1 = 30;
+            gun[56].skilleffect1 = 10;
+            gun[57].skilleffect1 = 55;
+            gun[58].skilleffect1 = 15;
+            gun[59].skilleffect1 = 50;
+            gun[60].skilleffect1 = 1.6;
+            gun[61].skilleffect1 = 18;
+            gun[62].skilleffect1 = 10;
+            gun[63].skilleffect1 = 40;
+            gun[64].skilleffect1 = 25;
+            gun[65].skilleffect1 = 40;
+            gun[66].skilleffect1 = 100;
+            gun[67].skilleffect1 = 120;
+            gun[68].skilleffect1 = 4;
+            gun[69].skilleffect1 = 3.5;
+            gun[70].skilleffect1 = 2;
+            gun[71].skilleffect1 = 60;
+            gun[72].skilleffect1 = 100;
+            gun[73].skilleffect1 = 2.2;
+            gun[74].skilleffect1 = 40;
+            gun[75].skilleffect1 = 2.2;
+            gun[76].skilleffect1 = 2.2;
+            gun[77].skilleffect1 = 50;
+            gun[78].skilleffect1 = 60;
+            gun[79].skilleffect1 = 4;
+            gun[80].skilleffect1 = 2.4;
+            gun[81].skilleffect1 = 2.4;
+            gun[82].skilleffect1 = 50;
+            gun[83].skilleffect1 = 30;
+            gun[84].skilleffect1 = 30;
+            gun[85].skilleffect1 = 30;
+            gun[86].skilleffect1 = 100;
+            gun[87].skilleffect1 = 30;
+            gun[88].skilleffect1 = 120;
+            gun[89].skilleffect1 = 28;
+            gun[90].skilleffect1 = 100;
+            gun[91].skilleffect1 = 100;
+            gun[92].skilleffect1 = 150;
+            gun[93].skilleffect1 = 25;
+            gun[94].skilleffect1 = 60;
+            gun[95].skilleffect1 = 200;
+            gun[96].skilleffect1 = 60;
+            gun[97].skilleffect1 = 60;
+            gun[98].skilleffect1 = 200;
+            gun[99].skilleffect1 = 120;
+            gun[100].skilleffect1 = 10;
+            gun[0].skilleffect2 = 0;
+            gun[1].skilleffect2 = 2.5;
+            gun[2].skilleffect2 = 2.5;
+            gun[3].skilleffect2 = 0.5;
+            gun[4].skilleffect2 = 0.5;
+            gun[5].skilleffect2 = 2.5;
+            gun[6].skilleffect2 = 3;
+            gun[7].skilleffect2 = 0.5;
+            gun[8].skilleffect2 = 3;
+            gun[9].skilleffect2 = 20;
+            gun[10].skilleffect2 = 20;
+            gun[11].skilleffect2 = 3;
+            gun[12].skilleffect2 = 2.5;
+            gun[13].skilleffect2 = 2.5;
+            gun[14].skilleffect2 = 0;
+            gun[15].skilleffect2 = 2.5;
+            gun[16].skilleffect2 = 0.5;
+            gun[17].skilleffect2 = 2.5;
+            gun[18].skilleffect2 = 2.5;
+            gun[19].skilleffect2 = 25;
+            gun[20].skilleffect2 = 3;
+            gun[21].skilleffect2 = 5;
+            gun[22].skilleffect2 = 6;
+            gun[23].skilleffect2 = 4;
+            gun[24].skilleffect2 = 1;
+            gun[25].skilleffect2 = 6;
+            gun[26].skilleffect2 = 4;
+            gun[27].skilleffect2 = 8;
+            gun[28].skilleffect2 = 2.5;
+            gun[29].skilleffect2 = 6;
+            gun[30].skilleffect2 = 4;
+            gun[31].skilleffect2 = 2.8;
+            gun[32].skilleffect2 = 4;
+            gun[33].skilleffect2 = 4;
+            gun[34].skilleffect2 = 1;
+            gun[35].skilleffect2 = 10;
+            gun[36].skilleffect2 = 8;
+            gun[37].skilleffect2 = 8;
+            gun[38].skilleffect2 = 1;
+            gun[39].skilleffect2 = 2;
+            gun[40].skilleffect2 = 2;
+            gun[41].skilleffect2 = 2.5;
+            gun[42].skilleffect2 = 5;
+            gun[43].skilleffect2 = 1;
+            gun[44].skilleffect2 = 4;
+            gun[45].skilleffect2 = 3;
+            gun[46].skilleffect2 = 5;
+            gun[47].skilleffect2 = 5;
+            gun[48].skilleffect2 = 5;
+            gun[49].skilleffect2 = 3;
+            gun[50].skilleffect2 = 4;
+            gun[51].skilleffect2 = 10;
+            gun[52].skilleffect2 = 5;
+            gun[53].skilleffect2 = 8;
+            gun[54].skilleffect2 = 10;
+            gun[55].skilleffect2 = 20;
+            gun[56].skilleffect2 = 5;
+            gun[57].skilleffect2 = 8;
+            gun[58].skilleffect2 = 5;
+            gun[59].skilleffect2 = 8;
+            gun[60].skilleffect2 = 2.5;
+            gun[61].skilleffect2 = 10;
+            gun[62].skilleffect2 = 5;
+            gun[63].skilleffect2 = 4;
+            gun[64].skilleffect2 = 3;
+            gun[65].skilleffect2 = 5;
+            gun[66].skilleffect2 = 2;
+            gun[67].skilleffect2 = 2;
+            gun[68].skilleffect2 = 2;
+            gun[69].skilleffect2 = 2;
+            gun[70].skilleffect2 = 2;
+            gun[71].skilleffect2 = 8;
+            gun[72].skilleffect2 = 2;
+            gun[73].skilleffect2 = 2;
+            gun[74].skilleffect2 = 5;
+            gun[75].skilleffect2 = 2;
+            gun[76].skilleffect2 = 2;
+            gun[77].skilleffect2 = 8;
+            gun[78].skilleffect2 = 5;
+            gun[79].skilleffect2 = 2;
+            gun[80].skilleffect2 = 2;
+            gun[81].skilleffect2 = 2;
+            gun[82].skilleffect2 = 8;
+            gun[83].skilleffect2 = 8;
+            gun[84].skilleffect2 = 8;
+            gun[85].skilleffect2 = 8;
+            gun[86].skilleffect2 = 8;
+            gun[87].skilleffect2 = 8;
+            gun[88].skilleffect2 = 8;
+            gun[89].skilleffect2 = 8;
+            gun[90].skilleffect2 = 8;
+            gun[91].skilleffect2 = 8;
+            gun[92].skilleffect2 = 10;
+            gun[93].skilleffect2 = 8;
+            gun[94].skilleffect2 = 5;
+            gun[95].skilleffect2 = 4;
+            gun[96].skilleffect2 = 2.5;
+            gun[97].skilleffect2 = 2.5;
+            gun[98].skilleffect2 = 4;
+            gun[99].skilleffect2 = 8;
+            gun[100].skilleffect2 = 5;
+            gun[0].skilleffect3 = 0;
+            gun[1].skilleffect3 = 0;
+            gun[2].skilleffect3 = 0;
+            gun[3].skilleffect3 = 2;
+            gun[4].skilleffect3 = 2;
+            gun[5].skilleffect3 = 0;
+            gun[6].skilleffect3 = 0;
+            gun[7].skilleffect3 = 2;
+            gun[8].skilleffect3 = 0;
+            gun[9].skilleffect3 = 2.5;
+            gun[10].skilleffect3 = 2.5;
+            gun[11].skilleffect3 = 0;
+            gun[12].skilleffect3 = 0;
+            gun[13].skilleffect3 = 0;
+            gun[14].skilleffect3 = 0;
+            gun[15].skilleffect3 = 0;
+            gun[16].skilleffect3 = 2;
+            gun[17].skilleffect3 = 0;
+            gun[18].skilleffect3 = 0;
+            gun[19].skilleffect3 = 2.5;
+            gun[20].skilleffect3 = 0;
+            gun[21].skilleffect3 = 0;
+            gun[22].skilleffect3 = 0;
+            gun[23].skilleffect3 = 0;
+            gun[24].skilleffect3 = 0;
+            gun[25].skilleffect3 = 0;
+            gun[26].skilleffect3 = 0;
+            gun[27].skilleffect3 = 0;
+            gun[28].skilleffect3 = 0;
+            gun[29].skilleffect3 = 0;
+            gun[30].skilleffect3 = 0;
+            gun[31].skilleffect3 = 0;
+            gun[32].skilleffect3 = 0;
+            gun[33].skilleffect3 = 0;
+            gun[34].skilleffect3 = 0;
+            gun[35].skilleffect3 = 0;
+            gun[36].skilleffect3 = 0;
+            gun[37].skilleffect3 = 0;
+            gun[38].skilleffect3 = 0;
+            gun[39].skilleffect3 = 0;
+            gun[40].skilleffect3 = 0;
+            gun[41].skilleffect3 = 0;
+            gun[42].skilleffect3 = 0;
+            gun[43].skilleffect3 = 0;
+            gun[44].skilleffect3 = 0;
+            gun[45].skilleffect3 = 0;
+            gun[46].skilleffect3 = 0;
+            gun[47].skilleffect3 = 0;
+            gun[48].skilleffect3 = 0;
+            gun[49].skilleffect3 = 0;
+            gun[50].skilleffect3 = 0;
+            gun[51].skilleffect3 = 0;
+            gun[52].skilleffect3 = 0;
+            gun[53].skilleffect3 = 0;
+            gun[54].skilleffect3 = 0;
+            gun[55].skilleffect3 = 2.5;
+            gun[56].skilleffect3 = 0;
+            gun[57].skilleffect3 = 0;
+            gun[58].skilleffect3 = 0;
+            gun[59].skilleffect3 = 0;
+            gun[60].skilleffect3 = 0;
+            gun[61].skilleffect3 = 0;
+            gun[62].skilleffect3 = 0;
+            gun[63].skilleffect3 = 0;
+            gun[64].skilleffect3 = 0;
+            gun[65].skilleffect3 = 0;
+            gun[66].skilleffect3 = 0;
+            gun[67].skilleffect3 = 0;
+            gun[68].skilleffect3 = 0;
+            gun[69].skilleffect3 = 0;
+            gun[70].skilleffect3 = 0;
+            gun[71].skilleffect3 = 0;
+            gun[72].skilleffect3 = 0;
+            gun[73].skilleffect3 = 0;
+            gun[74].skilleffect3 = 0;
+            gun[75].skilleffect3 = 0;
+            gun[76].skilleffect3 = 0;
+            gun[77].skilleffect3 = 0;
+            gun[78].skilleffect3 = 0;
+            gun[79].skilleffect3 = 0;
+            gun[80].skilleffect3 = 0;
+            gun[81].skilleffect3 = 0;
+            gun[82].skilleffect3 = 0;
+            gun[83].skilleffect3 = 0;
+            gun[84].skilleffect3 = 0;
+            gun[85].skilleffect3 = 0;
+            gun[86].skilleffect3 = 0;
+            gun[87].skilleffect3 = 0;
+            gun[88].skilleffect3 = 0;
+            gun[89].skilleffect3 = 0;
+            gun[90].skilleffect3 = 0;
+            gun[91].skilleffect3 = 0;
+            gun[92].skilleffect3 = 0;
+            gun[93].skilleffect3 = 0;
+            gun[94].skilleffect3 = 0;
+            gun[95].skilleffect3 = 0;
+            gun[96].skilleffect3 = 0;
+            gun[97].skilleffect3 = 0;
+            gun[98].skilleffect3 = 0;
+            gun[99].skilleffect3 = 0;
+            gun[100].skilleffect3 = 0;
+            gun[0].skilleffect4 = 0;
+            gun[1].skilleffect4 = 0;
+            gun[2].skilleffect4 = 0;
+            gun[3].skilleffect4 = 1;
+            gun[4].skilleffect4 = 1;
+            gun[5].skilleffect4 = 0;
+            gun[6].skilleffect4 = 0;
+            gun[7].skilleffect4 = 1;
+            gun[8].skilleffect4 = 0;
+            gun[9].skilleffect4 = 2.5;
+            gun[10].skilleffect4 = 2.5;
+            gun[11].skilleffect4 = 0;
+            gun[12].skilleffect4 = 0;
+            gun[13].skilleffect4 = 0;
+            gun[14].skilleffect4 = 0;
+            gun[15].skilleffect4 = 0;
+            gun[16].skilleffect4 = 1;
+            gun[17].skilleffect4 = 0;
+            gun[18].skilleffect4 = 0;
+            gun[19].skilleffect4 = 2.5;
+            gun[20].skilleffect4 = 0;
+            gun[21].skilleffect4 = 0;
+            gun[22].skilleffect4 = 0;
+            gun[23].skilleffect4 = 0;
+            gun[24].skilleffect4 = 0;
+            gun[25].skilleffect4 = 0;
+            gun[26].skilleffect4 = 0;
+            gun[27].skilleffect4 = 0;
+            gun[28].skilleffect4 = 0;
+            gun[29].skilleffect4 = 0;
+            gun[30].skilleffect4 = 0;
+            gun[31].skilleffect4 = 0;
+            gun[32].skilleffect4 = 0;
+            gun[33].skilleffect4 = 0;
+            gun[34].skilleffect4 = 0;
+            gun[35].skilleffect4 = 0;
+            gun[36].skilleffect4 = 0;
+            gun[37].skilleffect4 = 0;
+            gun[38].skilleffect4 = 0;
+            gun[39].skilleffect4 = 0;
+            gun[40].skilleffect4 = 0;
+            gun[41].skilleffect4 = 0;
+            gun[42].skilleffect4 = 0;
+            gun[43].skilleffect4 = 0;
+            gun[44].skilleffect4 = 0;
+            gun[45].skilleffect4 = 0;
+            gun[46].skilleffect4 = 0;
+            gun[47].skilleffect4 = 0;
+            gun[48].skilleffect4 = 0;
+            gun[49].skilleffect4 = 0;
+            gun[50].skilleffect4 = 0;
+            gun[51].skilleffect4 = 0;
+            gun[52].skilleffect4 = 0;
+            gun[53].skilleffect4 = 0;
+            gun[54].skilleffect4 = 0;
+            gun[55].skilleffect4 = 2.5;
+            gun[56].skilleffect4 = 0;
+            gun[57].skilleffect4 = 0;
+            gun[58].skilleffect4 = 0;
+            gun[59].skilleffect4 = 0;
+            gun[60].skilleffect4 = 0;
+            gun[61].skilleffect4 = 0;
+            gun[62].skilleffect4 = 0;
+            gun[63].skilleffect4 = 0;
+            gun[64].skilleffect4 = 0;
+            gun[65].skilleffect4 = 0;
+            gun[66].skilleffect4 = 0;
+            gun[67].skilleffect4 = 0;
+            gun[68].skilleffect4 = 0;
+            gun[69].skilleffect4 = 0;
+            gun[70].skilleffect4 = 0;
+            gun[71].skilleffect4 = 0;
+            gun[72].skilleffect4 = 0;
+            gun[73].skilleffect4 = 0;
+            gun[74].skilleffect4 = 0;
+            gun[75].skilleffect4 = 0;
+            gun[76].skilleffect4 = 0;
+            gun[77].skilleffect4 = 0;
+            gun[78].skilleffect4 = 0;
+            gun[79].skilleffect4 = 0;
+            gun[80].skilleffect4 = 0;
+            gun[81].skilleffect4 = 0;
+            gun[82].skilleffect4 = 0;
+            gun[83].skilleffect4 = 0;
+            gun[84].skilleffect4 = 0;
+            gun[85].skilleffect4 = 0;
+            gun[86].skilleffect4 = 0;
+            gun[87].skilleffect4 = 0;
+            gun[88].skilleffect4 = 0;
+            gun[89].skilleffect4 = 0;
+            gun[90].skilleffect4 = 0;
+            gun[91].skilleffect4 = 0;
+            gun[92].skilleffect4 = 0;
+            gun[93].skilleffect4 = 0;
+            gun[94].skilleffect4 = 0;
+            gun[95].skilleffect4 = 0;
+            gun[96].skilleffect4 = 0;
+            gun[97].skilleffect4 = 0;
+            gun[98].skilleffect4 = 0;
+            gun[99].skilleffect4 = 0;
+            gun[100].skilleffect4 = 0;
+
+            gun[0].growth = 1;
+            gun[1].growth = 1.5;
+            gun[2].growth = 1;
+            gun[3].growth = 1;
+            gun[4].growth = 1;
+            gun[5].growth = 1.5;
+            gun[6].growth = 0.5;
+            gun[7].growth = 1;
+            gun[8].growth = 0.8;
+            gun[9].growth = 0.6;
+            gun[10].growth = 0.6;
+            gun[11].growth = 0.8;
+            gun[12].growth = 1.5;
+            gun[13].growth = 1.5;
+            gun[14].growth = 1;
+            gun[15].growth = 1;
+            gun[16].growth = 1;
+            gun[17].growth = 1.5;
+            gun[18].growth = 1;
+            gun[19].growth = 0.6;
+            gun[20].growth = 0.8;
+            gun[21].growth = 0.6;
+            gun[22].growth = 0.6;
+            gun[23].growth = 1.5;
+            gun[24].growth = 1.5;
+            gun[25].growth = 0.6;
+            gun[26].growth = 1.5;
+            gun[27].growth = 0.6;
+            gun[28].growth = 1;
+            gun[29].growth = 0.6;
+            gun[30].growth = 1.5;
+            gun[31].growth = 0.6;
+            gun[32].growth = 1.5;
+            gun[33].growth = 1.5;
+            gun[34].growth = 1.5;
+            gun[35].growth = 0.6;
+            gun[36].growth = 1.2;
+            gun[37].growth = 0.8;
+            gun[38].growth = 1.5;
+            gun[39].growth = 0.6;
+            gun[40].growth = 0.6;
+            gun[41].growth = 0.6;
+            gun[42].growth = 0.6;
+            gun[43].growth = 1.5;
+            gun[44].growth = 0.5;
+            gun[45].growth = 0.6;
+            gun[46].growth = 0.6;
+            gun[47].growth = 0.6;
+            gun[48].growth = 0.6;
+            gun[49].growth = 0.6;
+            gun[50].growth = 0.5;
+            gun[51].growth = 0.6;
+            gun[52].growth = 0.6;
+            gun[53].growth = 0.8;
+            gun[54].growth = 0.6;
+            gun[55].growth = 0.6;
+            gun[56].growth = 0.6;
+            gun[57].growth = 0.8;
+            gun[58].growth = 0.6;
+            gun[59].growth = 0.8;
+            gun[60].growth = 1;
+            gun[61].growth = 0.6;
+            gun[62].growth = 0.6;
+            gun[63].growth = 0.8;
+            gun[64].growth = 0.6;
+            gun[65].growth = 0.6;
+            gun[66].growth = 0.6;
+            gun[67].growth = 0.6;
+            gun[68].growth = 1.2;
+            gun[69].growth = 1.2;
+            gun[70].growth = 1.2;
+            gun[71].growth = 0.6;
+            gun[72].growth = 0.6;
+            gun[73].growth = 1.2;
+            gun[74].growth = 0.6;
+            gun[75].growth = 1.2;
+            gun[76].growth = 1.2;
+            gun[77].growth = 0.6;
+            gun[78].growth = 0.5;
+            gun[79].growth = 1.2;
+            gun[80].growth = 1.2;
+            gun[81].growth = 1.2;
+            gun[82].growth = 1.2;
+            gun[83].growth = 1.2;
+            gun[84].growth = 1.2;
+            gun[85].growth = 1.2;
+            gun[86].growth = 2;
+            gun[87].growth = 1.2;
+            gun[88].growth = 2;
+            gun[89].growth = 1.2;
+            gun[90].growth = 1.5;
+            gun[91].growth = 2;
+            gun[92].growth = 2;
+            gun[93].growth = 1.2;
+            gun[94].growth = 0.5;
+            gun[95].growth = 0.8;
+            gun[96].growth = 0.6;
+            gun[97].growth = 0.6;
+            gun[98].growth = 0.8;
+            gun[99].growth = 2;
+            gun[100].growth = 0.6;
+
+            gun[0].growth_type = 2;
+            gun[1].growth_type = 2;
+            gun[2].growth_type = 2;
+            gun[3].growth_type = 4;
+            gun[4].growth_type = 4;
+            gun[5].growth_type = 2;
+            gun[6].growth_type = 3;
+            gun[7].growth_type = 4;
+            gun[8].growth_type = 3;
+            gun[9].growth_type = 4;
+            gun[10].growth_type = 4;
+            gun[11].growth_type = 3;
+            gun[12].growth_type = 2;
+            gun[13].growth_type = 2;
+            gun[14].growth_type = 2;
+            gun[15].growth_type = 2;
+            gun[16].growth_type = 4;
+            gun[17].growth_type = 2;
+            gun[18].growth_type = 2;
+            gun[19].growth_type = 4;
+            gun[20].growth_type = 3;
+            gun[21].growth_type = 3;
+            gun[22].growth_type = 3;
+            gun[23].growth_type = 2;
+            gun[24].growth_type = 2;
+            gun[25].growth_type = 3;
+            gun[26].growth_type = 2;
+            gun[27].growth_type = 3;
+            gun[28].growth_type = 2;
+            gun[29].growth_type = 3;
+            gun[30].growth_type = 2;
+            gun[31].growth_type = 3;
+            gun[32].growth_type = 2;
+            gun[33].growth_type = 2;
+            gun[34].growth_type = 2;
+            gun[35].growth_type = 3;
+            gun[36].growth_type = 3;
+            gun[37].growth_type = 3;
+            gun[38].growth_type = 2;
+            gun[39].growth_type = 3;
+            gun[40].growth_type = 3;
+            gun[41].growth_type = 3;
+            gun[42].growth_type = 3;
+            gun[43].growth_type = 2;
+            gun[44].growth_type = 3;
+            gun[45].growth_type = 3;
+            gun[46].growth_type = 3;
+            gun[47].growth_type = 3;
+            gun[48].growth_type = 3;
+            gun[49].growth_type = 3;
+            gun[50].growth_type = 3;
+            gun[51].growth_type = 3;
+            gun[52].growth_type = 3;
+            gun[53].growth_type = 3;
+            gun[54].growth_type = 3;
+            gun[55].growth_type = 4;
+            gun[56].growth_type = 3;
+            gun[57].growth_type = 3;
+            gun[58].growth_type = 3;
+            gun[59].growth_type = 3;
+            gun[60].growth_type = 2;
+            gun[61].growth_type = 3;
+            gun[62].growth_type = 3;
+            gun[63].growth_type = 3;
+            gun[64].growth_type = 3;
+            gun[65].growth_type = 3;
+            gun[66].growth_type = 3;
+            gun[67].growth_type = 3;
+            gun[68].growth_type = 2;
+            gun[69].growth_type = 2;
+            gun[70].growth_type = 2;
+            gun[71].growth_type = 3;
+            gun[72].growth_type = 3;
+            gun[73].growth_type = 2;
+            gun[74].growth_type = 3;
+            gun[75].growth_type = 2;
+            gun[76].growth_type = 2;
+            gun[77].growth_type = 3;
+            gun[78].growth_type = 3;
+            gun[79].growth_type = 2;
+            gun[80].growth_type = 2;
+            gun[81].growth_type = 2;
+            gun[82].growth_type = 2;
+            gun[83].growth_type = 2;
+            gun[84].growth_type = 2;
+            gun[85].growth_type = 2;
+            gun[86].growth_type = 2;
+            gun[87].growth_type = 2;
+            gun[88].growth_type = 2;
+            gun[89].growth_type = 2;
+            gun[90].growth_type = 2;
+            gun[91].growth_type = 2;
+            gun[92].growth_type = 2;
+            gun[93].growth_type = 2;
+            gun[94].growth_type = 3;
+            gun[95].growth_type = 3;
+            gun[96].growth_type = 3;
+            gun[97].growth_type = 3;
+            gun[98].growth_type = 3;
+            gun[99].growth_type = 2;
+            gun[100].growth_type = 3;
+            
         }
 
 
@@ -1473,7 +2305,9 @@ namespace snqxap
                         
                        select = Combo0.SelectedIndex;
                         int levelselect = Level0.SelectedIndex;
-                        calclevel(select, levelselect, 0);
+                        int skillselect = SkillLevel0.SelectedIndex;
+                        calclevel(select, levelselect, 0,skillselect);
+                        
                         break;
                    /*     if (select == -1)
                             return;
@@ -1506,56 +2340,64 @@ namespace snqxap
                     {
                         select = Combo1.SelectedIndex;
                         int levelselect = Level1.SelectedIndex;
-                        calclevel(select, levelselect, 1);
+                        int skillselect = SkillLevel1.SelectedIndex;
+                        calclevel(select, levelselect, 1,skillselect);
                         break;
                     }
                 case 2:
                     {
                         select = Combo2.SelectedIndex;
                         int levelselect = Level2.SelectedIndex;
-                        calclevel(select, levelselect, 2);
+                        int skillselect = SkillLevel2.SelectedIndex;
+                        calclevel(select, levelselect, 2,skillselect);
                         break;
                     }
                 case 3:
                     {
                         select = Combo3.SelectedIndex;
                         int levelselect = Level3.SelectedIndex;
-                        calclevel(select, levelselect, 3);
+                        int skillselect = SkillLevel3.SelectedIndex;
+                        calclevel(select, levelselect, 3,skillselect);
                         break;
                     }
                 case 4:
                     {
                         select = Combo4.SelectedIndex;
                         int levelselect = Level4.SelectedIndex;
-                        calclevel(select, levelselect, 4);
+                        int skillselect = SkillLevel4.SelectedIndex;
+                        calclevel(select, levelselect, 4,skillselect);
                         break;
                     }
                 case 5:
                     {
                         select = Combo5.SelectedIndex;
                         int levelselect = Level5.SelectedIndex;
-                        calclevel(select, levelselect, 5);
+                        int skillselect = SkillLevel5.SelectedIndex;
+                        calclevel(select, levelselect, 5,skillselect);
                         break;
                     }
                 case 6:
                     {
                         select = Combo6.SelectedIndex;
                         int levelselect = Level6.SelectedIndex;
-                        calclevel(select, levelselect, 6);
+                        int skillselect = SkillLevel6.SelectedIndex;
+                        calclevel(select, levelselect, 6,skillselect);
                         break;
                     }
                 case 7:
                     {
                         select = Combo7.SelectedIndex;
                         int levelselect = Level7.SelectedIndex;
-                        calclevel(select, levelselect, 7);
+                        int skillselect = SkillLevel7.SelectedIndex;
+                        calclevel(select, levelselect, 7,skillselect);
                         break;
                     }
                 case 8:
                     {
                         select = Combo8.SelectedIndex;
                         int levelselect = Level8.SelectedIndex;
-                        calclevel(select, levelselect, 8);
+                        int skillselect = SkillLevel8.SelectedIndex;
+                        calclevel(select, levelselect, 8,skillselect);
                         break;
                     }
             }
@@ -2101,46 +2943,82 @@ namespace snqxap
                         case 0:
                             {
                                 Combo0.SelectedIndex = 101;
+                                Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage0.Content = 0;
+                                Ltime0.Content = 0;
+                                Lskillread0.Content = 0;
                                 break;
                             }
                         case 1:
                             {
                                 Combo1.SelectedIndex = 101;
+                                Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage1.Content = 0;
+                                Ltime1.Content = 0;
+                                Lskillread1.Content = 0;
                                 break;
                             }
                         case 2:
                             {
                                 Combo2.SelectedIndex = 101;
+                                Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage2.Content = 0;
+                                Ltime2.Content = 0;
+                                Lskillread2.Content = 0;
                                 break;
                             }
                         case 3:
                             {
                                 Combo3.SelectedIndex = 101;
+                                Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage3.Content = 0;
+                                Ltime3.Content = 0;
+                                Lskillread3.Content = 0;
                                 break;
                             }
                         case 4:
                             {
                                 Combo4.SelectedIndex = 101;
+                                Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage4.Content = 0;
+                                Ltime4.Content = 0;
+                                Lskillread4.Content = 0;
                                 break;
                             }
                         case 5:
                             {
                                 Combo5.SelectedIndex = 101;
+                                Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage5.Content = 0;
+                                Ltime5.Content = 0;
+                                Lskillread5.Content = 0;
                                 break;
                             }
                         case 6:
                             {
                                 Combo6.SelectedIndex = 101;
+                                Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage6.Content = 0;
+                                Ltime6.Content = 0;
+                                Lskillread6.Content = 0;
                                 break;
                             }
                         case 7:
                             {
                                 Combo7.SelectedIndex = 101;
+                                Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage7.Content = 0;
+                                Ltime7.Content = 0;
+                                Lskillread7.Content = 0;
                                 break;
                             }
                         case 8:
                             {
                                 Combo8.SelectedIndex = 101;
+                                Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage8.Content = 0;
+                                Ltime8.Content = 0;
+                                Lskillread8.Content = 0;
                                 break;
                             }
                     }
@@ -2190,46 +3068,82 @@ namespace snqxap
                         case 0:
                             {
                                 Combo0.SelectedIndex = 101;
+                                Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage0.Content = 0;
+                                Ltime0.Content = 0;
+                                Lskillread0.Content = 0;
                                 break;
                             }
                         case 1:
                             {
                                 Combo1.SelectedIndex = 101;
+                                Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage1.Content = 0;
+                                Ltime1.Content = 0;
+                                Lskillread1.Content = 0;
                                 break;
                             }
                         case 2:
                             {
                                 Combo2.SelectedIndex = 101;
+                                Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage2.Content = 0;
+                                Ltime2.Content = 0;
+                                Lskillread2.Content = 0;
                                 break;
                             }
                         case 3:
                             {
                                 Combo3.SelectedIndex = 101;
+                                Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage3.Content = 0;
+                                Ltime3.Content = 0;
+                                Lskillread3.Content = 0;
                                 break;
                             }
                         case 4:
                             {
                                 Combo4.SelectedIndex = 101;
+                                Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage4.Content = 0;
+                                Ltime4.Content = 0;
+                                Lskillread4.Content = 0;
                                 break;
                             }
                         case 5:
                             {
                                 Combo5.SelectedIndex = 101;
+                                Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage5.Content = 0;
+                                Ltime5.Content = 0;
+                                Lskillread5.Content = 0;
                                 break;
                             }
                         case 6:
                             {
                                 Combo6.SelectedIndex = 101;
+                                Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage6.Content = 0;
+                                Ltime6.Content = 0;
+                                Lskillread6.Content = 0;
                                 break;
                             }
                         case 7:
                             {
                                 Combo7.SelectedIndex = 101;
+                                Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage7.Content = 0;
+                                Ltime7.Content = 0;
+                                Lskillread7.Content = 0;
                                 break;
                             }
                         case 8:
                             {
                                 Combo8.SelectedIndex = 101;
+                                Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage8.Content = 0;
+                                Ltime8.Content = 0;
+                                Lskillread8.Content = 0;
                                 break;
                             }
                     }
@@ -2281,46 +3195,82 @@ namespace snqxap
                         case 0:
                             {
                                 Combo0.SelectedIndex = 101;
+                                Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage0.Content = 0;
+                                Ltime0.Content = 0;
+                                Lskillread0.Content = 0;
                                 break;
                             }
                         case 1:
                             {
                                 Combo1.SelectedIndex = 101;
+                                Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage1.Content = 0;
+                                Ltime1.Content = 0;
+                                Lskillread1.Content = 0;
                                 break;
                             }
                         case 2:
                             {
                                 Combo2.SelectedIndex = 101;
+                                Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage2.Content = 0;
+                                Ltime2.Content = 0;
+                                Lskillread2.Content = 0;
                                 break;
                             }
                         case 3:
                             {
                                 Combo3.SelectedIndex = 101;
+                                Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage3.Content = 0;
+                                Ltime3.Content = 0;
+                                Lskillread3.Content = 0;
                                 break;
                             }
                         case 4:
                             {
                                 Combo4.SelectedIndex = 101;
+                                Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage4.Content = 0;
+                                Ltime4.Content = 0;
+                                Lskillread4.Content = 0;
                                 break;
                             }
                         case 5:
                             {
                                 Combo5.SelectedIndex = 101;
+                                Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage5.Content = 0;
+                                Ltime5.Content = 0;
+                                Lskillread5.Content = 0;
                                 break;
                             }
                         case 6:
                             {
                                 Combo6.SelectedIndex = 101;
+                                Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage6.Content = 0;
+                                Ltime6.Content = 0;
+                                Lskillread6.Content = 0;
                                 break;
                             }
                         case 7:
                             {
                                 Combo7.SelectedIndex = 101;
+                                Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage7.Content = 0;
+                                Ltime7.Content = 0;
+                                Lskillread7.Content = 0;
                                 break;
                             }
                         case 8:
                             {
                                 Combo8.SelectedIndex = 101;
+                                Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage8.Content = 0;
+                                Ltime8.Content = 0;
+                                Lskillread8.Content = 0;
                                 break;
                             }
                     }
@@ -2370,46 +3320,82 @@ namespace snqxap
                         case 0:
                             {
                                 Combo0.SelectedIndex = 101;
+                                Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage0.Content = 0;
+                                Ltime0.Content = 0;
+                                Lskillread0.Content = 0;
                                 break;
                             }
                         case 1:
                             {
                                 Combo1.SelectedIndex = 101;
+                                Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage1.Content = 0;
+                                Ltime1.Content = 0;
+                                Lskillread1.Content = 0;
                                 break;
                             }
                         case 2:
                             {
                                 Combo2.SelectedIndex = 101;
+                                Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage2.Content = 0;
+                                Ltime2.Content = 0;
+                                Lskillread2.Content = 0;
                                 break;
                             }
                         case 3:
                             {
                                 Combo3.SelectedIndex = 101;
+                                Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage3.Content = 0;
+                                Ltime3.Content = 0;
+                                Lskillread3.Content = 0;
                                 break;
                             }
                         case 4:
                             {
                                 Combo4.SelectedIndex = 101;
+                                Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage4.Content = 0;
+                                Ltime4.Content = 0;
+                                Lskillread4.Content = 0;
                                 break;
                             }
                         case 5:
                             {
                                 Combo5.SelectedIndex = 101;
+                                Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage5.Content = 0;
+                                Ltime5.Content = 0;
+                                Lskillread5.Content = 0;
                                 break;
                             }
                         case 6:
                             {
                                 Combo6.SelectedIndex = 101;
+                                Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage6.Content = 0;
+                                Ltime6.Content = 0;
+                                Lskillread6.Content = 0;
                                 break;
                             }
                         case 7:
                             {
                                 Combo7.SelectedIndex = 101;
+                                Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage7.Content = 0;
+                                Ltime7.Content = 0;
+                                Lskillread7.Content = 0;
                                 break;
                             }
                         case 8:
                             {
                                 Combo8.SelectedIndex = 101;
+                                Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage8.Content = 0;
+                                Ltime8.Content = 0;
+                                Lskillread8.Content = 0;
                                 break;
                             }
                     }
@@ -2451,44 +3437,17 @@ namespace snqxap
         private void renewskill()
         {
             clearskill();
-            for (int i = 0; i < 9;i++ )
+            calcskill(0, Combo0.SelectedIndex, SkillLevel0.SelectedIndex, cb0.IsChecked == true, Level0.SelectedIndex);
+            calcskill(1, Combo1.SelectedIndex, SkillLevel1.SelectedIndex, cb1.IsChecked == true, Level1.SelectedIndex);
+            calcskill(2, Combo2.SelectedIndex, SkillLevel2.SelectedIndex, cb2.IsChecked == true, Level2.SelectedIndex);
+            calcskill(3, Combo3.SelectedIndex, SkillLevel3.SelectedIndex, cb3.IsChecked == true, Level3.SelectedIndex);
+            calcskill(4, Combo4.SelectedIndex, SkillLevel4.SelectedIndex, cb4.IsChecked == true, Level4.SelectedIndex);
+            calcskill(5, Combo5.SelectedIndex, SkillLevel5.SelectedIndex, cb5.IsChecked == true, Level5.SelectedIndex);
+            calcskill(6, Combo6.SelectedIndex, SkillLevel6.SelectedIndex, cb6.IsChecked == true, Level6.SelectedIndex);
+            calcskill(7, Combo7.SelectedIndex, SkillLevel7.SelectedIndex, cb7.IsChecked == true, Level7.SelectedIndex);
+            calcskill(8, Combo8.SelectedIndex, SkillLevel8.SelectedIndex, cb8.IsChecked == true, Level8.SelectedIndex);
+            for (int i = 0; i < 9; i++)
                 renewindex(i);
-            if (cb0.IsChecked == true)
-            {
-                skillon(Combo0.SelectedIndex, 0);
-            }
-            if (cb1.IsChecked == true)
-            {
-                skillon(Combo1.SelectedIndex, 1);
-            }
-            if (cb2.IsChecked == true)
-            {
-                skillon(Combo2.SelectedIndex, 2);
-            }
-            if (cb3.IsChecked == true)
-            {
-                skillon(Combo3.SelectedIndex, 3);
-            }
-            if (cb4.IsChecked == true)
-            {
-                skillon(Combo4.SelectedIndex, 4);
-            }
-            if (cb5.IsChecked == true)
-            {
-                skillon(Combo5.SelectedIndex, 5);
-            }
-            if (cb6.IsChecked == true)
-            {
-                skillon(Combo6.SelectedIndex, 6);
-            }
-            if (cb7.IsChecked == true)
-            {
-                skillon(Combo7.SelectedIndex, 7);
-            }
-            if (cb8.IsChecked == true)
-            {
-                skillon(Combo8.SelectedIndex, 8);
-            }
             renewtank();
         }
         private void renewtank()
@@ -2591,46 +3550,82 @@ namespace snqxap
                         case 0:
                             {
                                 Combo0.SelectedIndex = 101;
+                                Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage0.Content = 0;
+                                Ltime0.Content = 0;
+                                Lskillread0.Content = 0;
                                 break;
                             }
                         case 1:
                             {
                                 Combo1.SelectedIndex = 101;
+                                Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage1.Content = 0;
+                                Ltime1.Content = 0;
+                                Lskillread1.Content = 0;
                                 break;
                             }
                         case 2:
                             {
                                 Combo2.SelectedIndex = 101;
+                                Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage2.Content = 0;
+                                Ltime2.Content = 0;
+                                Lskillread2.Content = 0;
                                 break;
                             }
                         case 3:
                             {
                                 Combo3.SelectedIndex = 101;
+                                Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage3.Content = 0;
+                                Ltime3.Content = 0;
+                                Lskillread3.Content = 0;
                                 break;
                             }
                         case 4:
                             {
                                 Combo4.SelectedIndex = 101;
+                                Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage4.Content = 0;
+                                Ltime4.Content = 0;
+                                Lskillread4.Content = 0;
                                 break;
                             }
                         case 5:
                             {
                                 Combo5.SelectedIndex = 101;
+                                Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage5.Content = 0;
+                                Ltime5.Content = 0;
+                                Lskillread5.Content = 0;
                                 break;
                             }
                         case 6:
                             {
                                 Combo6.SelectedIndex = 101;
+                                Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage6.Content = 0;
+                                Ltime6.Content = 0;
+                                Lskillread6.Content = 0;
                                 break;
                             }
                         case 7:
                             {
                                 Combo7.SelectedIndex = 101;
+                                Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage7.Content = 0;
+                                Ltime7.Content = 0;
+                                Lskillread7.Content = 0;
                                 break;
                             }
                         case 8:
                             {
                                 Combo8.SelectedIndex = 101;
+                                Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage8.Content = 0;
+                                Ltime8.Content = 0;
+                                Lskillread8.Content = 0;
                                 break;
                             }
                     }
@@ -2687,46 +3682,82 @@ namespace snqxap
                         case 0:
                             {
                                 Combo0.SelectedIndex = 101;
+                                Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage0.Content = 0;
+                                Ltime0.Content = 0;
+                                Lskillread0.Content = 0;
                                 break;
                             }
                         case 1:
                             {
                                 Combo1.SelectedIndex = 101;
+                                Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage1.Content = 0;
+                                Ltime1.Content = 0;
+                                Lskillread1.Content = 0;
                                 break;
                             }
                         case 2:
                             {
                                 Combo2.SelectedIndex = 101;
+                                Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage2.Content = 0;
+                                Ltime2.Content = 0;
+                                Lskillread2.Content = 0;
                                 break;
                             }
                         case 3:
                             {
                                 Combo3.SelectedIndex = 101;
+                                Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage3.Content = 0;
+                                Ltime3.Content = 0;
+                                Lskillread3.Content = 0;
                                 break;
                             }
                         case 4:
                             {
                                 Combo4.SelectedIndex = 101;
+                                Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage4.Content = 0;
+                                Ltime4.Content = 0;
+                                Lskillread4.Content = 0;
                                 break;
                             }
                         case 5:
                             {
                                 Combo5.SelectedIndex = 101;
+                                Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage5.Content = 0;
+                                Ltime5.Content = 0;
+                                Lskillread5.Content = 0;
                                 break;
                             }
                         case 6:
                             {
                                 Combo6.SelectedIndex = 101;
+                                Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage6.Content = 0;
+                                Ltime6.Content = 0;
+                                Lskillread6.Content = 0;
                                 break;
                             }
                         case 7:
                             {
                                 Combo7.SelectedIndex = 101;
+                                Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage7.Content = 0;
+                                Ltime7.Content = 0;
+                                Lskillread7.Content = 0;
                                 break;
                             }
                         case 8:
                             {
                                 Combo8.SelectedIndex = 101;
+                                Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage8.Content = 0;
+                                Ltime8.Content = 0;
+                                Lskillread8.Content = 0;
                                 break;
                             }
                     }
@@ -2780,46 +3811,82 @@ namespace snqxap
                         case 0:
                             {
                                 Combo0.SelectedIndex = 101;
+                                Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage0.Content = 0;
+                                Ltime0.Content = 0;
+                                Lskillread0.Content = 0;
                                 break;
                             }
                         case 1:
                             {
                                 Combo1.SelectedIndex = 101;
+                                Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage1.Content = 0;
+                                Ltime1.Content = 0;
+                                Lskillread1.Content = 0;
                                 break;
                             }
                         case 2:
                             {
                                 Combo2.SelectedIndex = 101;
+                                Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage2.Content = 0;
+                                Ltime2.Content = 0;
+                                Lskillread2.Content = 0;
                                 break;
                             }
                         case 3:
                             {
                                 Combo3.SelectedIndex = 101;
+                                Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage3.Content = 0;
+                                Ltime3.Content = 0;
+                                Lskillread3.Content = 0;
                                 break;
                             }
                         case 4:
                             {
                                 Combo4.SelectedIndex = 101;
+                                Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage4.Content = 0;
+                                Ltime4.Content = 0;
+                                Lskillread4.Content = 0;
                                 break;
                             }
                         case 5:
                             {
                                 Combo5.SelectedIndex = 101;
+                                Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage5.Content = 0;
+                                Ltime5.Content = 0;
+                                Lskillread5.Content = 0;
                                 break;
                             }
                         case 6:
                             {
                                 Combo6.SelectedIndex = 101;
+                                Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage6.Content = 0;
+                                Ltime6.Content = 0;
+                                Lskillread6.Content = 0;
                                 break;
                             }
                         case 7:
                             {
                                 Combo7.SelectedIndex = 101;
+                                Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage7.Content = 0;
+                                Ltime7.Content = 0;
+                                Lskillread7.Content = 0;
                                 break;
                             }
                         case 8:
                             {
                                 Combo8.SelectedIndex = 101;
+                                Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage8.Content = 0;
+                                Ltime8.Content = 0;
+                                Lskillread8.Content = 0;
                                 break;
                             }
                     }
@@ -2872,46 +3939,82 @@ namespace snqxap
                         case 0:
                             {
                                 Combo0.SelectedIndex = 101;
+                                Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage0.Content = 0;
+                                Ltime0.Content = 0;
+                                Lskillread0.Content = 0;
                                 break;
                             }
                         case 1:
                             {
                                 Combo1.SelectedIndex = 101;
+                                Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage1.Content = 0;
+                                Ltime1.Content = 0;
+                                Lskillread1.Content = 0;
                                 break;
                             }
                         case 2:
                             {
                                 Combo2.SelectedIndex = 101;
+                                Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage2.Content = 0;
+                                Ltime2.Content = 0;
+                                Lskillread2.Content = 0;
                                 break;
                             }
                         case 3:
                             {
                                 Combo3.SelectedIndex = 101;
+                                Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage3.Content = 0;
+                                Ltime3.Content = 0;
+                                Lskillread3.Content = 0;
                                 break;
                             }
                         case 4:
                             {
                                 Combo4.SelectedIndex = 101;
+                                Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage4.Content = 0;
+                                Ltime4.Content = 0;
+                                Lskillread4.Content = 0;
                                 break;
                             }
                         case 5:
                             {
                                 Combo5.SelectedIndex = 101;
+                                Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage5.Content = 0;
+                                Ltime5.Content = 0;
+                                Lskillread5.Content = 0;
                                 break;
                             }
                         case 6:
                             {
                                 Combo6.SelectedIndex = 101;
+                                Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage6.Content = 0;
+                                Ltime6.Content = 0;
+                                Lskillread6.Content = 0;
                                 break;
                             }
                         case 7:
                             {
                                 Combo7.SelectedIndex = 101;
+                                Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage7.Content = 0;
+                                Ltime7.Content = 0;
+                                Lskillread7.Content = 0;
                                 break;
                             }
                         case 8:
                             {
                                 Combo8.SelectedIndex = 101;
+                                Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage8.Content = 0;
+                                Ltime8.Content = 0;
+                                Lskillread8.Content = 0;
                                 break;
                             }
                     }
@@ -2967,46 +4070,82 @@ namespace snqxap
                         case 0:
                             {
                                 Combo0.SelectedIndex = 101;
+                                Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage0.Content = 0;
+                                Ltime0.Content = 0;
+                                Lskillread0.Content = 0;
                                 break;
                             }
                         case 1:
                             {
                                 Combo1.SelectedIndex = 101;
+                                Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage1.Content = 0;
+                                Ltime1.Content = 0;
+                                Lskillread1.Content = 0;
                                 break;
                             }
                         case 2:
                             {
                                 Combo2.SelectedIndex = 101;
+                                Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage2.Content = 0;
+                                Ltime2.Content = 0;
+                                Lskillread2.Content = 0;
                                 break;
                             }
                         case 3:
                             {
                                 Combo3.SelectedIndex = 101;
+                                Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage3.Content = 0;
+                                Ltime3.Content = 0;
+                                Lskillread3.Content = 0;
                                 break;
                             }
                         case 4:
                             {
                                 Combo4.SelectedIndex = 101;
+                                Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage4.Content = 0;
+                                Ltime4.Content = 0;
+                                Lskillread4.Content = 0;
                                 break;
                             }
                         case 5:
                             {
                                 Combo5.SelectedIndex = 101;
+                                Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage5.Content = 0;
+                                Ltime5.Content = 0;
+                                Lskillread5.Content = 0;
                                 break;
                             }
                         case 6:
                             {
                                 Combo6.SelectedIndex = 101;
+                                Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage6.Content = 0;
+                                Ltime6.Content = 0;
+                                Lskillread6.Content = 0;
                                 break;
                             }
                         case 7:
                             {
                                 Combo7.SelectedIndex = 101;
+                                Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage7.Content = 0;
+                                Ltime7.Content = 0;
+                                Lskillread7.Content = 0;
                                 break;
                             }
                         case 8:
                             {
                                 Combo8.SelectedIndex = 101;
+                                Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
+                                Lskilldamage8.Content = 0;
+                                Ltime8.Content = 0;
+                                Lskillread8.Content = 0;
                                 break;
                             }
                     }
@@ -3094,7 +4233,7 @@ namespace snqxap
 
         void   calctank(int combo)
         {
-            nowhit.Content = Double.Parse(enemyhit.Text) * skilldownhit;  
+            nowhit.Content = (Double.Parse(enemyhit.Text) * skilldownhit).ToString("0.00");  
             switch(combo)
             {
                 case 0:
@@ -3222,7 +4361,7 @@ namespace snqxap
 
         void calcftank(int combo)
         {
-            nowhit.Content = Double.Parse(enemyhit.Text) * skilldownhit;
+            nowhit.Content = (Double.Parse(enemyhit.Text) * skilldownhit).ToString("0.00");  
             switch (combo)
             {
                 case 0:
@@ -3448,7 +4587,7 @@ namespace snqxap
             rb8.IsChecked = false;
 
             tank.Content = 0;
-            enemydodge.Text = "15";
+            enemydodge.Text = "10";
             enemyhit.Text = "20";
 
             rbf0.IsChecked = false;
@@ -3482,6 +4621,27 @@ namespace snqxap
             Lskillrate6.Content = "0%";
             Lskillrate7.Content = "0%";
             Lskillrate8.Content = "0%";
+
+            Level0.SelectedIndex = 99;
+            Level1.SelectedIndex = 99;
+            Level2.SelectedIndex = 99;
+            Level3.SelectedIndex = 99;
+            Level4.SelectedIndex = 99;
+            Level5.SelectedIndex = 99;
+            Level6.SelectedIndex = 99;
+            Level7.SelectedIndex = 99;
+            Level8.SelectedIndex = 99;
+            SkillLevel0.SelectedIndex = 9;
+            SkillLevel1.SelectedIndex = 9;
+            SkillLevel2.SelectedIndex = 9;
+            SkillLevel3.SelectedIndex = 9;
+            SkillLevel4.SelectedIndex = 9;
+            SkillLevel5.SelectedIndex = 9;
+            SkillLevel6.SelectedIndex = 9;
+            SkillLevel7.SelectedIndex = 9;
+            SkillLevel8.SelectedIndex = 9;
+
+
 
         }
 
@@ -3693,417 +4853,209 @@ namespace snqxap
         private void cb0_Click(object sender, RoutedEventArgs e)
         {
             if (cb0.IsChecked == true)
-                skillon(Combo0.SelectedIndex, 0);
+                calcskill(0, Combo0.SelectedIndex, SkillLevel0.SelectedIndex, cb0.IsChecked == true, Level0.SelectedIndex);
             else
             {
                 clearskill();
+                renewdamage(0, 0);
                 for (int i = 0; i < 9; i++)
                 {
                     renewindex(i);
                 }
-                if(cb1.IsChecked == true)
-                {
-                    skillon(Combo1.SelectedIndex, 1);
-                }
-                if (cb2.IsChecked == true)
-                {
-                    skillon(Combo2.SelectedIndex, 2);
-                }
-                if (cb3.IsChecked == true)
-                {
-                    skillon(Combo3.SelectedIndex, 3);
-                }
-                if (cb4.IsChecked == true)
-                {
-                    skillon(Combo4.SelectedIndex, 4);
-                }
-                if (cb5.IsChecked == true)
-                {
-                    skillon(Combo5.SelectedIndex, 5);
-                }
-                if (cb6.IsChecked == true)
-                {
-                    skillon(Combo6.SelectedIndex, 6);
-                }
-                if (cb7.IsChecked == true)
-                {
-                    skillon(Combo7.SelectedIndex, 7);
-                }
-                if (cb8.IsChecked == true)
-                {
-                    skillon(Combo8.SelectedIndex, 8);
-                }
+                calcskill(1, Combo1.SelectedIndex, SkillLevel1.SelectedIndex, cb1.IsChecked == true, Level1.SelectedIndex);
+                calcskill(2, Combo2.SelectedIndex, SkillLevel2.SelectedIndex, cb2.IsChecked == true, Level2.SelectedIndex);
+                calcskill(3, Combo3.SelectedIndex, SkillLevel3.SelectedIndex, cb3.IsChecked == true, Level3.SelectedIndex);
+                calcskill(4, Combo4.SelectedIndex, SkillLevel4.SelectedIndex, cb4.IsChecked == true, Level4.SelectedIndex);
+                calcskill(5, Combo5.SelectedIndex, SkillLevel5.SelectedIndex, cb5.IsChecked == true, Level5.SelectedIndex);
+                calcskill(6, Combo6.SelectedIndex, SkillLevel6.SelectedIndex, cb6.IsChecked == true, Level6.SelectedIndex);
+                calcskill(7, Combo7.SelectedIndex, SkillLevel7.SelectedIndex, cb7.IsChecked == true, Level7.SelectedIndex);
+                calcskill(8, Combo8.SelectedIndex, SkillLevel8.SelectedIndex, cb8.IsChecked == true, Level8.SelectedIndex);
             }
             renewtank();
         }
         private void cb1_Click(object sender, RoutedEventArgs e)
         {
             if (cb1.IsChecked == true)
-                skillon(Combo1.SelectedIndex, 1);
+                calcskill(1, Combo1.SelectedIndex, SkillLevel1.SelectedIndex, cb1.IsChecked == true, Level1.SelectedIndex);
             else
             {
                 clearskill();
+                renewdamage(1, 0);
                 for (int i = 0; i < 9; i++)
                 {
                     renewindex(i);
                 }
-                if (cb0.IsChecked == true)
-                {
-                    skillon(Combo0.SelectedIndex, 0);
-                }
-                if (cb2.IsChecked == true)
-                {
-                    skillon(Combo2.SelectedIndex, 2);
-                }
-                if (cb3.IsChecked == true)
-                {
-                    skillon(Combo3.SelectedIndex, 3);
-                }
-                if (cb4.IsChecked == true)
-                {
-                    skillon(Combo4.SelectedIndex, 4);
-                }
-                if (cb5.IsChecked == true)
-                {
-                    skillon(Combo5.SelectedIndex, 5);
-                }
-                if (cb6.IsChecked == true)
-                {
-                    skillon(Combo6.SelectedIndex, 6);
-                }
-                if (cb7.IsChecked == true)
-                {
-                    skillon(Combo7.SelectedIndex, 7);
-                }
-                if (cb8.IsChecked == true)
-                {
-                    skillon(Combo8.SelectedIndex, 8);
-                }
+                calcskill(0, Combo0.SelectedIndex, SkillLevel0.SelectedIndex, cb0.IsChecked == true, Level0.SelectedIndex);
+                calcskill(2, Combo2.SelectedIndex, SkillLevel2.SelectedIndex, cb2.IsChecked == true, Level2.SelectedIndex);
+                calcskill(3, Combo3.SelectedIndex, SkillLevel3.SelectedIndex, cb3.IsChecked == true, Level3.SelectedIndex);
+                calcskill(4, Combo4.SelectedIndex, SkillLevel4.SelectedIndex, cb4.IsChecked == true, Level4.SelectedIndex);
+                calcskill(5, Combo5.SelectedIndex, SkillLevel5.SelectedIndex, cb5.IsChecked == true, Level5.SelectedIndex);
+                calcskill(6, Combo6.SelectedIndex, SkillLevel6.SelectedIndex, cb6.IsChecked == true, Level6.SelectedIndex);
+                calcskill(7, Combo7.SelectedIndex, SkillLevel7.SelectedIndex, cb7.IsChecked == true, Level7.SelectedIndex);
+                calcskill(8, Combo8.SelectedIndex, SkillLevel8.SelectedIndex, cb8.IsChecked == true, Level8.SelectedIndex);
             }
             renewtank();
         }
         private void cb2_Click(object sender, RoutedEventArgs e)
         {
             if (cb2.IsChecked == true)
-                skillon(Combo2.SelectedIndex, 2);
+                calcskill(2, Combo2.SelectedIndex, SkillLevel2.SelectedIndex, cb2.IsChecked == true, Level2.SelectedIndex);
             else
             {
                 clearskill();
+                renewdamage(2, 0);
                 for (int i = 0; i < 9; i++)
                 {
                     renewindex(i);
                 }
-                if (cb0.IsChecked == true)
-                {
-                    skillon(Combo0.SelectedIndex, 0);
-                }
-                if (cb1.IsChecked == true)
-                {
-                    skillon(Combo1.SelectedIndex, 1);
-                }
-                if (cb3.IsChecked == true)
-                {
-                    skillon(Combo3.SelectedIndex, 3);
-                }
-                if (cb4.IsChecked == true)
-                {
-                    skillon(Combo4.SelectedIndex, 4);
-                }
-                if (cb5.IsChecked == true)
-                {
-                    skillon(Combo5.SelectedIndex, 5);
-                }
-                if (cb6.IsChecked == true)
-                {
-                    skillon(Combo6.SelectedIndex, 6);
-                }
-                if (cb7.IsChecked == true)
-                {
-                    skillon(Combo7.SelectedIndex, 7);
-                }
-                if (cb8.IsChecked == true)
-                {
-                    skillon(Combo8.SelectedIndex, 8);
-                }
+                calcskill(0, Combo0.SelectedIndex, SkillLevel0.SelectedIndex, cb0.IsChecked == true, Level0.SelectedIndex);
+                calcskill(1, Combo1.SelectedIndex, SkillLevel1.SelectedIndex, cb1.IsChecked == true, Level1.SelectedIndex);
+                calcskill(3, Combo3.SelectedIndex, SkillLevel3.SelectedIndex, cb3.IsChecked == true, Level3.SelectedIndex);
+                calcskill(4, Combo4.SelectedIndex, SkillLevel4.SelectedIndex, cb4.IsChecked == true, Level4.SelectedIndex);
+                calcskill(5, Combo5.SelectedIndex, SkillLevel5.SelectedIndex, cb5.IsChecked == true, Level5.SelectedIndex);
+                calcskill(6, Combo6.SelectedIndex, SkillLevel6.SelectedIndex, cb6.IsChecked == true, Level6.SelectedIndex);
+                calcskill(7, Combo7.SelectedIndex, SkillLevel7.SelectedIndex, cb7.IsChecked == true, Level7.SelectedIndex);
+                calcskill(8, Combo8.SelectedIndex, SkillLevel8.SelectedIndex, cb8.IsChecked == true, Level8.SelectedIndex);
             }
             renewtank();
         }
         private void cb3_Click(object sender, RoutedEventArgs e)
         {
             if (cb3.IsChecked == true)
-                skillon(Combo3.SelectedIndex, 3);
+                calcskill(3, Combo3.SelectedIndex, SkillLevel3.SelectedIndex, cb3.IsChecked == true, Level3.SelectedIndex);
             else
             {
                 clearskill();
+                renewdamage(3, 0);
                 for (int i = 0; i < 9; i++)
                 {
                     renewindex(i);
                 }
-                if (cb0.IsChecked == true)
-                {
-                    skillon(Combo0.SelectedIndex, 0);
-                }
-                if (cb1.IsChecked == true)
-                {
-                    skillon(Combo1.SelectedIndex, 1);
-                }
-                if (cb2.IsChecked == true)
-                {
-                    skillon(Combo2.SelectedIndex, 2);
-                }
-                if (cb4.IsChecked == true)
-                {
-                    skillon(Combo4.SelectedIndex, 4);
-                }
-                if (cb5.IsChecked == true)
-                {
-                    skillon(Combo5.SelectedIndex, 5);
-                }
-                if (cb6.IsChecked == true)
-                {
-                    skillon(Combo6.SelectedIndex, 6);
-                }
-                if (cb7.IsChecked == true)
-                {
-                    skillon(Combo7.SelectedIndex, 7);
-                }
-                if (cb8.IsChecked == true)
-                {
-                    skillon(Combo8.SelectedIndex, 8);
-                }
+                calcskill(0, Combo0.SelectedIndex, SkillLevel0.SelectedIndex, cb0.IsChecked == true, Level0.SelectedIndex);
+                calcskill(1, Combo1.SelectedIndex, SkillLevel1.SelectedIndex, cb1.IsChecked == true, Level1.SelectedIndex);
+                calcskill(2, Combo2.SelectedIndex, SkillLevel2.SelectedIndex, cb2.IsChecked == true, Level2.SelectedIndex);
+                calcskill(4, Combo4.SelectedIndex, SkillLevel4.SelectedIndex, cb4.IsChecked == true, Level4.SelectedIndex);
+                calcskill(5, Combo5.SelectedIndex, SkillLevel5.SelectedIndex, cb5.IsChecked == true, Level5.SelectedIndex);
+                calcskill(6, Combo6.SelectedIndex, SkillLevel6.SelectedIndex, cb6.IsChecked == true, Level6.SelectedIndex);
+                calcskill(7, Combo7.SelectedIndex, SkillLevel7.SelectedIndex, cb7.IsChecked == true, Level7.SelectedIndex);
+                calcskill(8, Combo8.SelectedIndex, SkillLevel8.SelectedIndex, cb8.IsChecked == true, Level8.SelectedIndex);
             }
             renewtank();
         }
         private void cb4_Click(object sender, RoutedEventArgs e)
         {
             if (cb4.IsChecked == true)
-                skillon(Combo4.SelectedIndex, 4);
+                calcskill(4, Combo4.SelectedIndex, SkillLevel4.SelectedIndex, cb4.IsChecked == true, Level4.SelectedIndex);
             else
             {
                 clearskill();
+                renewdamage(4, 0);
                 for (int i = 0; i < 9;i++ )
                 {
                     renewindex(i);
                 }
-                    if (cb0.IsChecked == true)
-                    {
-                        skillon(Combo0.SelectedIndex, 0);
-                    }
-                if (cb1.IsChecked == true)
-                {
-                    skillon(Combo1.SelectedIndex, 1);
-                }
-                if (cb2.IsChecked == true)
-                {
-                    skillon(Combo2.SelectedIndex, 2);
-                }
-                if (cb3.IsChecked == true)
-                {
-                    skillon(Combo3.SelectedIndex, 3);
-                }
-                if (cb5.IsChecked == true)
-                {
-                    skillon(Combo5.SelectedIndex, 5);
-                }
-                if (cb6.IsChecked == true)
-                {
-                    skillon(Combo6.SelectedIndex, 6);
-                }
-                if (cb7.IsChecked == true)
-                {
-                    skillon(Combo7.SelectedIndex, 7);
-                }
-                if (cb8.IsChecked == true)
-                {
-                    skillon(Combo8.SelectedIndex, 8);
-                }
+                calcskill(0, Combo0.SelectedIndex, SkillLevel0.SelectedIndex, cb0.IsChecked == true, Level0.SelectedIndex);
+                calcskill(1, Combo1.SelectedIndex, SkillLevel1.SelectedIndex, cb1.IsChecked == true, Level1.SelectedIndex);
+                calcskill(2, Combo2.SelectedIndex, SkillLevel2.SelectedIndex, cb2.IsChecked == true, Level2.SelectedIndex);
+                calcskill(3, Combo3.SelectedIndex, SkillLevel3.SelectedIndex, cb3.IsChecked == true, Level3.SelectedIndex);
+                calcskill(5, Combo5.SelectedIndex, SkillLevel5.SelectedIndex, cb5.IsChecked == true, Level5.SelectedIndex);
+                calcskill(6, Combo6.SelectedIndex, SkillLevel6.SelectedIndex, cb6.IsChecked == true, Level6.SelectedIndex);
+                calcskill(7, Combo7.SelectedIndex, SkillLevel7.SelectedIndex, cb7.IsChecked == true, Level7.SelectedIndex);
+                calcskill(8, Combo8.SelectedIndex, SkillLevel8.SelectedIndex, cb8.IsChecked == true, Level8.SelectedIndex);
             }
             renewtank();
         }
         private void cb5_Click(object sender, RoutedEventArgs e)
         {
             if (cb5.IsChecked == true)
-                skillon(Combo5.SelectedIndex, 5);
+                calcskill(5, Combo5.SelectedIndex, SkillLevel5.SelectedIndex, cb5.IsChecked == true, Level5.SelectedIndex);
             else
             {
                 clearskill();
+                renewdamage(5, 0);
                 for (int i = 0; i < 9; i++)
                 {
                     renewindex(i);
                 }
-                if (cb0.IsChecked == true)
-                {
-                    skillon(Combo0.SelectedIndex, 0);
-                }
-                if (cb1.IsChecked == true)
-                {
-                    skillon(Combo1.SelectedIndex, 1);
-                }
-                if (cb2.IsChecked == true)
-                {
-                    skillon(Combo2.SelectedIndex, 2);
-                }
-                if (cb3.IsChecked == true)
-                {
-                    skillon(Combo3.SelectedIndex, 3);
-                }
-                if (cb4.IsChecked == true)
-                {
-                    skillon(Combo4.SelectedIndex, 4);
-                }
-                if (cb6.IsChecked == true)
-                {
-                    skillon(Combo6.SelectedIndex, 6);
-                }
-                if (cb7.IsChecked == true)
-                {
-                    skillon(Combo7.SelectedIndex, 7);
-                }
-                if (cb8.IsChecked == true)
-                {
-                    skillon(Combo8.SelectedIndex, 8);
-                }
+                calcskill(0, Combo0.SelectedIndex, SkillLevel0.SelectedIndex, cb0.IsChecked == true, Level0.SelectedIndex);
+                calcskill(1, Combo1.SelectedIndex, SkillLevel1.SelectedIndex, cb1.IsChecked == true, Level1.SelectedIndex);
+                calcskill(2, Combo2.SelectedIndex, SkillLevel2.SelectedIndex, cb2.IsChecked == true, Level2.SelectedIndex);
+                calcskill(3, Combo3.SelectedIndex, SkillLevel3.SelectedIndex, cb3.IsChecked == true, Level3.SelectedIndex);
+                calcskill(4, Combo4.SelectedIndex, SkillLevel4.SelectedIndex, cb4.IsChecked == true, Level4.SelectedIndex);
+                calcskill(6, Combo6.SelectedIndex, SkillLevel6.SelectedIndex, cb6.IsChecked == true, Level6.SelectedIndex);
+                calcskill(7, Combo7.SelectedIndex, SkillLevel7.SelectedIndex, cb7.IsChecked == true, Level7.SelectedIndex);
+                calcskill(8, Combo8.SelectedIndex, SkillLevel8.SelectedIndex, cb8.IsChecked == true, Level8.SelectedIndex);
             }
             renewtank();
         }
         private void cb6_Click(object sender, RoutedEventArgs e)
         {
             if (cb6.IsChecked == true)
-                skillon(Combo6.SelectedIndex, 6);
+                calcskill(6, Combo6.SelectedIndex, SkillLevel6.SelectedIndex, cb6.IsChecked == true, Level6.SelectedIndex);
             else
             {
                 clearskill();
+                renewdamage(6, 0);
                 for (int i = 0; i < 9; i++)
                 {
                     renewindex(i);
                 }
-                if (cb0.IsChecked == true)
-                {
-                    skillon(Combo0.SelectedIndex, 0);
-                }
-                if (cb1.IsChecked == true)
-                {
-                    skillon(Combo1.SelectedIndex, 1);
-                }
-                if (cb2.IsChecked == true)
-                {
-                    skillon(Combo2.SelectedIndex, 2);
-                }
-                if (cb3.IsChecked == true)
-                {
-                    skillon(Combo3.SelectedIndex, 3);
-                }
-                if (cb4.IsChecked == true)
-                {
-                    skillon(Combo4.SelectedIndex, 4);
-                }
-                if (cb5.IsChecked == true)
-                {
-                    skillon(Combo5.SelectedIndex, 5);
-                }
-                if (cb7.IsChecked == true)
-                {
-                    skillon(Combo7.SelectedIndex, 7);
-                }
-                if (cb8.IsChecked == true)
-                {
-                    skillon(Combo8.SelectedIndex, 8);
-                }
-
+                calcskill(0, Combo0.SelectedIndex, SkillLevel0.SelectedIndex, cb0.IsChecked == true, Level0.SelectedIndex);
+                calcskill(1, Combo1.SelectedIndex, SkillLevel1.SelectedIndex, cb1.IsChecked == true, Level1.SelectedIndex);
+                calcskill(2, Combo2.SelectedIndex, SkillLevel2.SelectedIndex, cb2.IsChecked == true, Level2.SelectedIndex);
+                calcskill(3, Combo3.SelectedIndex, SkillLevel3.SelectedIndex, cb3.IsChecked == true, Level3.SelectedIndex);
+                calcskill(4, Combo4.SelectedIndex, SkillLevel4.SelectedIndex, cb4.IsChecked == true, Level4.SelectedIndex);
+                calcskill(5, Combo5.SelectedIndex, SkillLevel5.SelectedIndex, cb5.IsChecked == true, Level5.SelectedIndex);
+                calcskill(7, Combo7.SelectedIndex, SkillLevel7.SelectedIndex, cb7.IsChecked == true, Level7.SelectedIndex);
+                calcskill(8, Combo8.SelectedIndex, SkillLevel8.SelectedIndex, cb8.IsChecked == true, Level8.SelectedIndex);
+    
             }
             renewtank();
         }
         private void cb7_Click(object sender, RoutedEventArgs e)
         {
             if (cb7.IsChecked == true)
-                skillon(Combo7.SelectedIndex, 7);
+                calcskill(7, Combo7.SelectedIndex, SkillLevel7.SelectedIndex, cb7.IsChecked == true, Level7.SelectedIndex);
             else
             {
                 clearskill();
+                renewdamage(7, 0);
                 for (int i = 0; i < 9; i++)
                 {
                     renewindex(i);
                 }
-                if (cb0.IsChecked == true)
-                {
-                    skillon(Combo0.SelectedIndex, 0);
-                }
-                if (cb1.IsChecked == true)
-                {
-                    skillon(Combo1.SelectedIndex, 1);
-                }
-                if (cb2.IsChecked == true)
-                {
-                    skillon(Combo2.SelectedIndex, 2);
-                }
-                if (cb3.IsChecked == true)
-                {
-                    skillon(Combo3.SelectedIndex, 3);
-                }
-                if (cb4.IsChecked == true)
-                {
-                    skillon(Combo4.SelectedIndex, 4);
-                }
-                if (cb5.IsChecked == true)
-                {
-                    skillon(Combo5.SelectedIndex, 5);
-                }
-                if (cb6.IsChecked == true)
-                {
-                    skillon(Combo6.SelectedIndex, 6);
-                }
-                if (cb8.IsChecked == true)
-                {
-                    skillon(Combo8.SelectedIndex, 8);
-                }
+                calcskill(0, Combo0.SelectedIndex, SkillLevel0.SelectedIndex, cb0.IsChecked == true, Level0.SelectedIndex);
+                calcskill(1, Combo1.SelectedIndex, SkillLevel1.SelectedIndex, cb1.IsChecked == true, Level1.SelectedIndex);
+                calcskill(2, Combo2.SelectedIndex, SkillLevel2.SelectedIndex, cb2.IsChecked == true, Level2.SelectedIndex);
+                calcskill(3, Combo3.SelectedIndex, SkillLevel3.SelectedIndex, cb3.IsChecked == true, Level3.SelectedIndex);
+                calcskill(4, Combo4.SelectedIndex, SkillLevel4.SelectedIndex, cb4.IsChecked == true, Level4.SelectedIndex);
+                calcskill(5, Combo5.SelectedIndex, SkillLevel5.SelectedIndex, cb5.IsChecked == true, Level5.SelectedIndex);
+                calcskill(6, Combo6.SelectedIndex, SkillLevel6.SelectedIndex, cb6.IsChecked == true, Level6.SelectedIndex);
+                calcskill(8, Combo8.SelectedIndex, SkillLevel8.SelectedIndex, cb8.IsChecked == true, Level8.SelectedIndex);
             }
             renewtank();
         }
         private void cb8_Click(object sender, RoutedEventArgs e)
         {
             if (cb8.IsChecked == true)
-                skillon(Combo8.SelectedIndex, 8);
+                calcskill(8, Combo8.SelectedIndex, SkillLevel8.SelectedIndex, cb8.IsChecked == true, Level8.SelectedIndex);
             else
             {
                 clearskill();
+                renewdamage(8, 0);
                 for (int i = 0; i < 9; i++)
                 {
                     renewindex(i);
                 }
-                if (cb0.IsChecked == true)
-                {
-                    skillon(Combo0.SelectedIndex, 0);
-                }
-                if (cb1.IsChecked == true)
-                {
-                    skillon(Combo1.SelectedIndex, 1);
-                }
-                if (cb2.IsChecked == true)
-                {
-                    skillon(Combo2.SelectedIndex, 2);
-                }
-                if (cb3.IsChecked == true)
-                {
-                    skillon(Combo3.SelectedIndex, 3);
-                }
-                if (cb4.IsChecked == true)
-                {
-                    skillon(Combo4.SelectedIndex, 4);
-                }
-                if (cb5.IsChecked == true)
-                {
-                    skillon(Combo5.SelectedIndex, 5);
-                }
-                if (cb6.IsChecked == true)
-                {
-                    skillon(Combo6.SelectedIndex, 6);
-                }
-                if (cb7.IsChecked == true)
-                {
-                    skillon(Combo7.SelectedIndex, 7);
-                }
-
-            }
+                calcskill(0, Combo0.SelectedIndex, SkillLevel0.SelectedIndex, cb0.IsChecked == true, Level0.SelectedIndex);
+                calcskill(1, Combo1.SelectedIndex, SkillLevel1.SelectedIndex, cb1.IsChecked == true, Level1.SelectedIndex);
+                calcskill(2, Combo2.SelectedIndex, SkillLevel2.SelectedIndex, cb2.IsChecked == true, Level2.SelectedIndex);
+                calcskill(3, Combo3.SelectedIndex, SkillLevel3.SelectedIndex, cb3.IsChecked == true, Level3.SelectedIndex);
+                calcskill(4, Combo4.SelectedIndex, SkillLevel4.SelectedIndex, cb4.IsChecked == true, Level4.SelectedIndex);
+                calcskill(5, Combo5.SelectedIndex, SkillLevel5.SelectedIndex, cb5.IsChecked == true, Level5.SelectedIndex);
+                calcskill(6, Combo6.SelectedIndex, SkillLevel6.SelectedIndex, cb6.IsChecked == true, Level6.SelectedIndex);
+                calcskill(7, Combo7.SelectedIndex, SkillLevel7.SelectedIndex, cb7.IsChecked == true, Level7.SelectedIndex);
+             }
             renewtank();
         }
 
@@ -4461,7 +5413,7 @@ namespace snqxap
             ed.Show();
         }
 
-        private void calclevel(int select,int levelselect,int combo)
+        private void calclevel(int select,int levelselect,int combo,int skillselect)
         {
             if (select == -1)
                 return;
@@ -4538,28 +5490,22 @@ namespace snqxap
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         break;*/
                         Lhp0.Content = maxLife;
+                //        calcskill(combo, select, skillselect);
                         Ldamage0.Content = ((basePow + maxAddPow) * gg[0].damageup * (1 + skillupdamage[0])).ToString("0") ;
                         Lhit0.Content =(( basehit + maxAddHit) * gg[0].hitup * (1 + skilluphit[0])).ToString("0");
-                        Lskillread0.Content = gun[select].skillcontent;
-              //          Lskilldamage0.Content = gun[select].skilldamage.ToString("0");
-                        Lskilldamage0.Content = (gun[select].skilldamage / gun[select].damage * Int32.Parse(Ldamage0.Content.ToString())).ToString("0");
-
-                        Ltime0.Content = gun[select].skilltime;
+                      
                         Image0.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[0].shotspeedup * (1 + skillupshotspeed[0]) > 120)
                             Lshotspeed0.Content = 120;
                         else
                             Lshotspeed0.Content = ((baseRate + maxAddRate) * gg[0].shotspeedup * (1 + skillupshotspeed[0])).ToString("0");
-                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[0].rateup) > 1)
-                            Lskillrate0.Content = "100%";
-                        else
-                            Lskillrate0.Content = ((gun[select].skillrate * (1 + gg[0].rateup)) * 100).ToString("0") + "%";
+                        calcprobabiliy(0, select, skillselect);
                         double crit = gun[select].crit * gg[0].critup;
                         Lcrit0.Content = (crit * 100).ToString("0") + "%";
                         Ldodge0.Content =  ((baseDodge + maxAddDodge) * gg[0].dodgeup * (1 + skillupdodge[0])).ToString("0");
                         Lbelt0.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex0.Content = Index(Double.Parse(Lshotspeed0.Content.ToString()), Double.Parse(Ldamage0.Content.ToString()), gun[select].crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit0.Content.ToString()), gun[select].belt, 0).ToString("0.00");
+                        Lindex0.Content = Index(Double.Parse(Lshotspeed0.Content.ToString()), Double.Parse(Ldamage0.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit0.Content.ToString()), gun[select].belt, 0).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         if(rb0.IsChecked==true)
                             calctank(0);
@@ -4572,24 +5518,19 @@ namespace snqxap
                         Lhp1.Content = maxLife;
                         Ldamage1.Content = ((basePow + maxAddPow) * gg[1].damageup * (1 + skillupdamage[1])).ToString("0");
                         Lhit1.Content = ((basehit + maxAddHit) * gg[1].hitup * (1 + skilluphit[1])).ToString("0");
-                        Lskillread1.Content = gun[select].skillcontent;
-                        Lskilldamage1.Content = (gun[select].skilldamage / gun[select].damage * Int32.Parse(Ldamage1.Content.ToString())).ToString("0");
-                        Ltime1.Content = gun[select].skilltime;
+                  //      calcskill(combo, select, skillselect); 
                         Image1.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[1].shotspeedup * (1 + skillupshotspeed[1]) > 120)
                             Lshotspeed1.Content = 120;
                         else
                             Lshotspeed1.Content = ((baseRate + maxAddRate) * gg[1].shotspeedup * (1 + skillupshotspeed[1])).ToString("0");
-                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[1].rateup) > 1)
-                            Lskillrate1.Content = "100%";
-                        else
-                            Lskillrate1.Content = ((gun[select].skillrate * (1 + gg[1].rateup)) * 100).ToString("0") + "%";
+                        calcprobabiliy(1, select, skillselect); 
                         double crit = gun[select].crit * gg[1].critup;
                         Lcrit1.Content = (crit * 100).ToString("0") + "%";
                         Ldodge1.Content = ((baseDodge + maxAddDodge) * gg[1].dodgeup * (1 + skillupdodge[1])).ToString("0");
                         Lbelt1.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex1.Content = Index(Double.Parse(Lshotspeed1.Content.ToString()), Double.Parse(Ldamage1.Content.ToString()), gun[select].crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit1.Content.ToString()), gun[select].belt, 1).ToString("0.00");
+                        Lindex1.Content = Index(Double.Parse(Lshotspeed1.Content.ToString()), Double.Parse(Ldamage1.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit1.Content.ToString()), gun[select].belt, 1).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         if (rb1.IsChecked == true)
                             calctank(1);
@@ -4602,24 +5543,19 @@ namespace snqxap
                         Lhp2.Content = maxLife;
                         Ldamage2.Content = ((basePow + maxAddPow) * gg[2].damageup * (1 + skillupdamage[2])).ToString("0");
                         Lhit2.Content = ((basehit + maxAddHit) * gg[2].hitup * (1 + skilluphit[2])).ToString("0");
-                        Lskillread2.Content = gun[select].skillcontent;
-                        Lskilldamage2.Content = (gun[select].skilldamage / gun[select].damage * Int32.Parse(Ldamage2.Content.ToString())).ToString("0");
-                        Ltime2.Content = gun[select].skilltime;
+            //            calcskill(combo, select, skillselect);
                         Image2.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[2].shotspeedup * (1 + skillupshotspeed[2]) > 120)
                             Lshotspeed2.Content = 120;
                         else
                             Lshotspeed2.Content = ((baseRate + maxAddRate) * gg[2].shotspeedup * (1 + skillupshotspeed[2])).ToString("0");
-                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[2].rateup) > 1)
-                            Lskillrate2.Content = "100%";
-                        else
-                            Lskillrate2.Content = ((gun[select].skillrate * (1 + gg[2].rateup)) * 100).ToString("0") + "%";
+                        calcprobabiliy(2, select, skillselect); 
                         double crit = gun[select].crit * gg[2].critup;
                         Lcrit2.Content = (crit * 100).ToString("0") + "%";
                         Ldodge2.Content = ((baseDodge + maxAddDodge) * gg[2].dodgeup * (1 + skillupdodge[2])).ToString("0");
                         Lbelt2.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex2.Content = Index(Double.Parse(Lshotspeed2.Content.ToString()), Double.Parse(Ldamage2.Content.ToString()), gun[select].crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit2.Content.ToString()), gun[select].belt, 2).ToString("0.00");
+                        Lindex2.Content = Index(Double.Parse(Lshotspeed2.Content.ToString()), Double.Parse(Ldamage2.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit2.Content.ToString()), gun[select].belt, 2).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         if (rb2.IsChecked == true)
                             calctank(2);
@@ -4632,24 +5568,19 @@ namespace snqxap
                         Lhp3.Content = maxLife;
                         Ldamage3.Content = ((basePow + maxAddPow) * gg[3].damageup * (1 + skillupdamage[3])).ToString("0");
                         Lhit3.Content = ((basehit + maxAddHit) * gg[3].hitup * (1 + skilluphit[3])).ToString("0");
-                        Lskillread3.Content = gun[select].skillcontent;
-                        Lskilldamage3.Content = (gun[select].skilldamage / gun[select].damage * Int32.Parse(Ldamage3.Content.ToString())).ToString("0");
-                        Ltime3.Content = gun[select].skilltime;
+                 //       calcskill(combo, select, skillselect);
                         Image3.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[3].shotspeedup * (1 + skillupshotspeed[3]) > 120)
                             Lshotspeed3.Content = 120;
                         else
                             Lshotspeed3.Content = ((baseRate + maxAddRate) * gg[3].shotspeedup * (1 + skillupshotspeed[3])).ToString("0");
-                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[3].rateup) > 1)
-                            Lskillrate3.Content = "100%";
-                        else
-                            Lskillrate3.Content = ((gun[select].skillrate * (1 + gg[3].rateup)) * 100).ToString("0") + "%";
+                        calcprobabiliy(3, select, skillselect); 
                         double crit = gun[select].crit * gg[3].critup;
                         Lcrit3.Content = (crit * 100).ToString("0") + "%";
                         Ldodge3.Content = ((baseDodge + maxAddDodge) * gg[3].dodgeup * (1 + skillupdodge[3])).ToString("0");
                         Lbelt3.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex3.Content = Index(Double.Parse(Lshotspeed3.Content.ToString()), Double.Parse(Ldamage3.Content.ToString()), gun[select].crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit3.Content.ToString()), gun[select].belt, 3).ToString("0.00");
+                        Lindex3.Content = Index(Double.Parse(Lshotspeed3.Content.ToString()), Double.Parse(Ldamage3.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit3.Content.ToString()), gun[select].belt, 3).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         if (rb3.IsChecked == true)
                             calctank(3);
@@ -4662,24 +5593,19 @@ namespace snqxap
                         Lhp4.Content = maxLife;
                         Ldamage4.Content = ((basePow + maxAddPow) * gg[4].damageup * (1 + skillupdamage[4])).ToString("0");
                         Lhit4.Content = ((basehit + maxAddHit) * gg[4].hitup * (1 + skilluphit[4])).ToString("0");
-                        Lskillread4.Content = gun[select].skillcontent;
-                        Lskilldamage4.Content = (gun[select].skilldamage / gun[select].damage * Int32.Parse(Ldamage4.Content.ToString())).ToString("0");
-                        Ltime4.Content = gun[select].skilltime;
+                  //      calcskill(combo, select, skillselect);
                         Image4.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[4].shotspeedup * (1 + skillupshotspeed[4]) > 120)
                             Lshotspeed4.Content = 120;
                         else
                             Lshotspeed4.Content = ((baseRate + maxAddRate) * gg[4].shotspeedup * (1 + skillupshotspeed[4])).ToString("0");
-                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[4].rateup) > 1)
-                            Lskillrate4.Content = "100%";
-                        else
-                            Lskillrate4.Content = ((gun[select].skillrate * (1 + gg[4].rateup)) * 100).ToString("0") + "%";
+                        calcprobabiliy(4, select, skillselect); 
                         double crit = gun[select].crit * gg[4].critup;
                         Lcrit4.Content = (crit * 100).ToString("0") + "%";
                         Ldodge4.Content = ((baseDodge + maxAddDodge) * gg[4].dodgeup * (1 + skillupdodge[4])).ToString("0");
                         Lbelt4.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex4.Content = Index(Double.Parse(Lshotspeed4.Content.ToString()), Double.Parse(Ldamage4.Content.ToString()), gun[select].crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit4.Content.ToString()), gun[select].belt, 4).ToString("0.00");
+                        Lindex4.Content = Index(Double.Parse(Lshotspeed4.Content.ToString()), Double.Parse(Ldamage4.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit4.Content.ToString()), gun[select].belt, 4).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         if (rb4.IsChecked == true)
                             calctank(4);
@@ -4692,24 +5618,19 @@ namespace snqxap
                         Lhp5.Content = maxLife;
                         Ldamage5.Content = ((basePow + maxAddPow) * gg[5].damageup * (1 + skillupdamage[5])).ToString("0");
                         Lhit5.Content = ((basehit + maxAddHit) * gg[5].hitup * (1 + skilluphit[5])).ToString("0");
-                        Lskillread5.Content = gun[select].skillcontent;
-                        Lskilldamage5.Content = (gun[select].skilldamage / gun[select].damage * Int32.Parse(Ldamage5.Content.ToString())).ToString("0");
-                        Ltime5.Content = gun[select].skilltime;
+                   //     calcskill(combo, select, skillselect);
                         Image5.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[5].shotspeedup * (1 + skillupshotspeed[5]) > 120)
                             Lshotspeed5.Content = 120;
                         else
                             Lshotspeed5.Content = ((baseRate + maxAddRate) * gg[5].shotspeedup * (1 + skillupshotspeed[5])).ToString("0");
-                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[5].rateup) > 1)
-                            Lskillrate5.Content = "100%";
-                        else
-                            Lskillrate5.Content = ((gun[select].skillrate * (1 + gg[5].rateup)) * 100).ToString("0") + "%";
+                        calcprobabiliy(5, select, skillselect); 
                         double crit = gun[select].crit * gg[5].critup;
                         Lcrit5.Content = (crit * 100).ToString("0") + "%";
                         Ldodge5.Content = ((baseDodge + maxAddDodge) * gg[5].dodgeup * (1 + skillupdodge[5])).ToString("0");
                         Lbelt5.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex5.Content = Index(Double.Parse(Lshotspeed5.Content.ToString()), Double.Parse(Ldamage5.Content.ToString()), gun[select].crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit5.Content.ToString()), gun[select].belt, 5).ToString("0.00");
+                        Lindex5.Content = Index(Double.Parse(Lshotspeed5.Content.ToString()), Double.Parse(Ldamage5.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit5.Content.ToString()), gun[select].belt, 5).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         if (rb5.IsChecked == true)
                             calctank(5);
@@ -4722,24 +5643,19 @@ namespace snqxap
                         Lhp6.Content = maxLife;
                         Ldamage6.Content = ((basePow + maxAddPow) * gg[6].damageup * (1 + skillupdamage[6])).ToString("0");
                         Lhit6.Content = ((basehit + maxAddHit) * gg[6].hitup * (1 + skilluphit[6])).ToString("0");
-                        Lskillread6.Content = gun[select].skillcontent;
-                        Lskilldamage6.Content = (gun[select].skilldamage / gun[select].damage * Int32.Parse(Ldamage6.Content.ToString())).ToString("0");
-                        Ltime6.Content = gun[select].skilltime;
+                 //       calcskill(combo, select, skillselect);
                         Image6.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[6].shotspeedup * (1 + skillupshotspeed[6]) > 120)
                             Lshotspeed6.Content = 120;
                         else
                             Lshotspeed6.Content = ((baseRate + maxAddRate) * gg[6].shotspeedup * (1 + skillupshotspeed[6])).ToString("0");
-                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[6].rateup) > 1)
-                            Lskillrate6.Content = "100%";
-                        else
-                            Lskillrate6.Content = ((gun[select].skillrate * (1 + gg[6].rateup)) * 100).ToString("0") + "%";
+                        calcprobabiliy(6, select, skillselect); 
                         double crit = gun[select].crit * gg[6].critup;
                         Lcrit6.Content = (crit * 100).ToString("0") + "%";
                         Ldodge6.Content = ((baseDodge + maxAddDodge) * gg[6].dodgeup * (1 + skillupdodge[6])).ToString("0");
                         Lbelt6.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex6.Content = Index(Double.Parse(Lshotspeed6.Content.ToString()), Double.Parse(Ldamage6.Content.ToString()), gun[select].crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit6.Content.ToString()), gun[select].belt, 6).ToString("0.00");
+                        Lindex6.Content = Index(Double.Parse(Lshotspeed6.Content.ToString()), Double.Parse(Ldamage6.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit6.Content.ToString()), gun[select].belt, 6).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         if (rb6.IsChecked == true)
                             calctank(6);
@@ -4752,24 +5668,19 @@ namespace snqxap
                         Lhp7.Content = maxLife;
                         Ldamage7.Content = ((basePow + maxAddPow) * gg[7].damageup * (1 + skillupdamage[7])).ToString("0");
                         Lhit7.Content = ((basehit + maxAddHit) * gg[7].hitup * (1 + skilluphit[7])).ToString("0");
-                        Lskillread7.Content = gun[select].skillcontent;
-                        Lskilldamage7.Content = (gun[select].skilldamage / gun[select].damage * Int32.Parse(Ldamage7.Content.ToString())).ToString("0");
-                        Ltime7.Content = gun[select].skilltime;
+                    //    calcskill(combo, select, skillselect);
                         Image7.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[7].shotspeedup * (1 + skillupshotspeed[7]) > 120)
                             Lshotspeed7.Content = 120;
                         else
                             Lshotspeed7.Content = ((baseRate + maxAddRate) * gg[7].shotspeedup * (1 + skillupshotspeed[7])).ToString("0");
-                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[7].rateup) > 1)
-                            Lskillrate7.Content = "100%";
-                        else
-                            Lskillrate7.Content = ((gun[select].skillrate * (1 + gg[7].rateup)) * 100).ToString("0") + "%";
+                        calcprobabiliy(7, select, skillselect);
                         double crit = gun[select].crit * gg[7].critup;
                         Lcrit7.Content = (crit * 100).ToString("0") + "%";
                         Ldodge7.Content = ((baseDodge + maxAddDodge) * gg[7].dodgeup * (1 + skillupdodge[7])).ToString("0");
                         Lbelt7.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex7.Content = Index(Double.Parse(Lshotspeed7.Content.ToString()), Double.Parse(Ldamage7.Content.ToString()), gun[select].crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit7.Content.ToString()), gun[select].belt, 7).ToString("0.00");
+                        Lindex7.Content = Index(Double.Parse(Lshotspeed7.Content.ToString()), Double.Parse(Ldamage7.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit7.Content.ToString()), gun[select].belt, 7).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         if (rb7.IsChecked == true)
                             calctank(7);
@@ -4782,24 +5693,19 @@ namespace snqxap
                         Lhp8.Content = maxLife;
                         Ldamage8.Content = ((basePow + maxAddPow) * gg[8].damageup * (1 + skillupdamage[8])).ToString("0");
                         Lhit8.Content = ((basehit + maxAddHit) * gg[8].hitup * (1 + skilluphit[8])).ToString("0");
-                        Lskillread8.Content = gun[select].skillcontent;
-                        Lskilldamage8.Content = (gun[select].skilldamage / gun[select].damage * Int32.Parse(Ldamage8.Content.ToString())).ToString("0");
-                        Ltime8.Content = gun[select].skilltime;
+                 //       calcskill(combo, select, skillselect);
                         Image8.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[8].shotspeedup * (1 + skillupshotspeed[8]) > 120)
                             Lshotspeed8.Content = 120;
                         else
                             Lshotspeed8.Content = ((baseRate + maxAddRate) * gg[8].shotspeedup * (1 + skillupshotspeed[8])).ToString("0");
-                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[8].rateup) > 1)
-                            Lskillrate8.Content = "100%";
-                        else
-                            Lskillrate8.Content = ((gun[select].skillrate * (1 + gg[8].rateup)) * 100).ToString("0") + "%";
+                        calcprobabiliy(8, select, skillselect); 
                         double crit = gun[select].crit * gg[8].critup;
                         Lcrit8.Content = (crit * 100).ToString("0") + "%";
                         Ldodge8.Content = ((baseDodge + maxAddDodge) * gg[8].dodgeup * (1 + skillupdodge[8])).ToString("0");
                         Lbelt8.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex8.Content = Index(Double.Parse(Lshotspeed8.Content.ToString()), Double.Parse(Ldamage8.Content.ToString()), gun[select].crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit8.Content.ToString()), gun[select].belt, 8).ToString("0.00");
+                        Lindex8.Content = Index(Double.Parse(Lshotspeed8.Content.ToString()), Double.Parse(Ldamage8.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit8.Content.ToString()), gun[select].belt, 8).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         if (rb8.IsChecked == true)
                             calctank(8);
@@ -4822,8 +5728,14 @@ namespace snqxap
             int levelselect = Level0.SelectedIndex;
             if (levelselect == -1 || levelselect == 101)
                 return;
-            calclevel(select, levelselect,0);
+            int skillselect = SkillLevel0.SelectedIndex;
+            if (skillselect == -1)
+                return;
 
+            clearskill();
+            calclevel(select, levelselect,0,skillselect);
+            renewskill();
+      //      calcskill(0, select, skillselect, cb0.IsChecked == true, levelselect);
         }
         private void Level1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -4833,7 +5745,13 @@ namespace snqxap
             int levelselect = Level1.SelectedIndex;
             if (levelselect == -1 || levelselect == 101)
                 return;
-            calclevel(select, levelselect, 1);
+            int skillselect = SkillLevel1.SelectedIndex;
+            if (skillselect == -1)
+                return;
+            clearskill();
+            calclevel(select, levelselect, 1,skillselect);
+            renewskill();
+      //      calcskill(1, select, skillselect, cb1.IsChecked == true, levelselect);
         }
         private void Level2_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -4843,7 +5761,13 @@ namespace snqxap
             int levelselect = Level2.SelectedIndex;
             if (levelselect == -1 || levelselect == 101)
                 return;
-            calclevel(select, levelselect, 2);
+            int skillselect = SkillLevel2.SelectedIndex;
+            if (skillselect == -1)
+                return;
+            clearskill();
+            calclevel(select, levelselect, 2,skillselect);
+            renewskill();
+      //      calcskill(2, select, skillselect, cb2.IsChecked == true, levelselect);
         }
         private void Level3_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -4853,7 +5777,13 @@ namespace snqxap
             int levelselect = Level3.SelectedIndex;
             if (levelselect == -1 || levelselect == 101)
                 return;
-            calclevel(select, levelselect, 3);
+            int skillselect = SkillLevel3.SelectedIndex;
+            if (skillselect == -1)
+                return;
+            clearskill();
+            calclevel(select, levelselect, 3,skillselect);
+            renewskill();
+     //       calcskill(3, select, skillselect, cb3.IsChecked == true, levelselect);
         }
         private void Level4_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -4863,7 +5793,13 @@ namespace snqxap
             int levelselect = Level4.SelectedIndex;
             if (levelselect == -1 || levelselect == 101)
                 return;
-            calclevel(select, levelselect, 4);
+            int skillselect = SkillLevel4.SelectedIndex;
+            if (skillselect == -1)
+                return;
+            clearskill();
+            calclevel(select, levelselect, 4,skillselect);
+            renewskill();
+     ///       calcskill(4, select, skillselect, cb4.IsChecked == true, levelselect);
         }
         private void Level5_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -4873,7 +5809,13 @@ namespace snqxap
             int levelselect = Level5.SelectedIndex;
             if (levelselect == -1 || levelselect == 101)
                 return;
-            calclevel(select, levelselect, 5);
+            int skillselect = SkillLevel5.SelectedIndex;
+            if (skillselect == -1)
+                return;
+            clearskill();
+            calclevel(select, levelselect, 5,skillselect);
+            renewskill();
+    //        calcskill(5, select, skillselect, cb5.IsChecked == true, levelselect);
         }
         private void Level6_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -4883,7 +5825,13 @@ namespace snqxap
             int levelselect = Level6.SelectedIndex;
             if (levelselect == -1 || levelselect == 101)
                 return;
-            calclevel(select, levelselect, 6);
+            int skillselect = SkillLevel6.SelectedIndex;
+            if (skillselect == -1)
+                return;
+            clearskill();
+            calclevel(select, levelselect, 6,skillselect);
+            renewskill();
+   //         calcskill(6, select, skillselect, cb6.IsChecked == true, levelselect);
         }
         private void Level7_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -4893,7 +5841,13 @@ namespace snqxap
             int levelselect = Level7.SelectedIndex;
             if (levelselect == -1 || levelselect == 101)
                 return;
-            calclevel(select, levelselect, 7);
+            int skillselect = SkillLevel7.SelectedIndex;
+            if (skillselect == -1)
+                return;
+            clearskill();
+            calclevel(select, levelselect, 7,skillselect);
+            renewskill();
+      //      calcskill(7, select, skillselect, cb7.IsChecked == true, levelselect);
         }
 
         private void Level8_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -4904,7 +5858,784 @@ namespace snqxap
             int levelselect = Level8.SelectedIndex;
             if (levelselect == -1 || levelselect == 101)
                 return;
-            calclevel(select, levelselect, 8);
+            int skillselect = SkillLevel8.SelectedIndex;
+            if (skillselect == -1)
+                return;
+            clearskill();
+            calclevel(select, levelselect, 8,skillselect);
+            renewskill();
+       //     calcskill(8, select, skillselect, cb8.IsChecked == true, levelselect);
+        }
+
+        private void calcprobabiliy(int combo,int index,int skillindex)
+        {
+            if (index == -1||skillindex == -1)
+                return;
+
+            int skilllevel = skillindex + 1;
+            double rootrate = gun[index].probability * (1f + (float)(skilllevel - 1) * gun[index].growth / 9f) * Math.Ceiling((float)skilllevel / 10f) / 100f;
+
+            switch(combo)
+            {
+                case 0:
+                    {
+                        if (gun[index].what == 4 && rootrate * (1 + gg[0].rateup) > 1)
+                            Lskillrate0.Content = "100%";
+                        else
+                            Lskillrate0.Content = ((rootrate * (1 + gg[0].rateup)) * 100).ToString("0.0") + "%";
+                        break;
+                    }
+                case 1:
+                    {
+                        if (gun[index].what == 4 && rootrate * (1 + gg[1].rateup) > 1)
+                            Lskillrate1.Content = "100%";
+                        else
+                            Lskillrate1.Content = ((rootrate * (1 + gg[1].rateup)) * 100).ToString("0.0") + "%";
+                        break;
+                    }
+                case 2:
+                    {
+                        if (gun[index].what == 4 && rootrate * (1 + gg[2].rateup) > 1)
+                            Lskillrate2.Content = "100%";
+                        else
+                            Lskillrate2.Content = ((rootrate * (1 + gg[2].rateup)) * 100).ToString("0.0") + "%";
+                        break;
+                    }
+                case 3:
+                    {
+                        if (gun[index].what == 4 && rootrate * (1 + gg[3].rateup) > 1)
+                            Lskillrate3.Content = "100%";
+                        else
+                            Lskillrate3.Content = ((rootrate * (1 + gg[3].rateup)) * 100).ToString("0.0") + "%";
+                        break;
+                    }
+                case 4:
+                    {
+                        if (gun[index].what == 4 && rootrate * (1 + gg[4].rateup) > 1)
+                            Lskillrate4.Content = "100%";
+                        else
+                            Lskillrate4.Content = ((rootrate * (1 + gg[4].rateup)) * 100).ToString("0.0") + "%";
+                        break;
+                    }
+                case 5:
+                    {
+                        if (gun[index].what == 4 && rootrate * (1 + gg[5].rateup) > 1)
+                            Lskillrate5.Content = "100%";
+                        else
+                            Lskillrate5.Content = ((rootrate * (1 + gg[5].rateup)) * 100).ToString("0.0") + "%";
+                        break;
+                    }
+                case 6:
+                    {
+                        if (gun[index].what == 4 && rootrate * (1 + gg[6].rateup) > 1)
+                            Lskillrate6.Content = "100%";
+                        else
+                            Lskillrate6.Content = ((rootrate * (1 + gg[6].rateup)) * 100).ToString("0.0") + "%";
+                        break;
+                    }
+                case 7:
+                    {
+                        if (gun[index].what == 4 && rootrate * (1 + gg[7].rateup) > 1)
+                            Lskillrate7.Content = "100%";
+                        else
+                            Lskillrate7.Content = ((rootrate * (1 + gg[7].rateup)) * 100).ToString("0.0") + "%";
+                        break;
+                    }
+                case 8:
+                    {
+                        if (gun[index].what == 4 && rootrate * (1 + gg[8].rateup) > 1)
+                            Lskillrate8.Content = "100%";
+                        else
+                            Lskillrate8.Content = ((rootrate * (1 + gg[8].rateup)) * 100).ToString("0.0") + "%";
+                        break;
+                    }
+                default: return;
+            }
+           
+                  
+        }
+
+        private void renewdamage(int combo,double damage)
+        {
+            switch (combo)
+            {
+                case 0:
+                    {
+                        Lskilldamage0.Content = damage.ToString("0");
+                        return;
+                    }
+                case 1:
+                    {
+                        Lskilldamage1.Content = damage.ToString("0");
+                        return;
+                    }
+                case 2:
+                    {
+                        Lskilldamage2.Content = damage.ToString("0");
+                        return;
+                    }
+                case 3:
+                    {
+                        Lskilldamage3.Content = damage.ToString("0");
+                        return;
+                    }
+                case 4:
+                    {
+                        Lskilldamage4.Content = damage.ToString("0");
+                        return;
+                    }
+                case 5:
+                    {
+                        Lskilldamage5.Content = damage.ToString("0");
+                        return;
+                    }
+                case 6:
+                    {
+                        Lskilldamage6.Content = damage.ToString("0");
+                        return;
+                    }
+                case 7:
+                    {
+                        Lskilldamage7.Content = damage.ToString("0");
+                        return;
+                    }
+                case 8:
+                    {
+                        Lskilldamage8.Content = damage.ToString("0");
+                        return;
+                    }
+            }
+        }
+
+        private void renewtime(int combo,double time)
+        {
+            switch (combo)
+            {
+                case 0:
+                    {
+                        Ltime0.Content = time.ToString("0.0");
+                        return;
+                    }
+               case 1:
+                    {
+                        Ltime1.Content = time.ToString("0.0");
+                        return;
+                    }
+               case 2:
+                    {
+                        Ltime2.Content = time.ToString("0.0");
+                        return;
+                    }
+               case 3:
+                    {
+                        Ltime3.Content = time.ToString("0.0");
+                        return;
+                    }
+               case 4:
+                    {
+                        Ltime4.Content = time.ToString("0.0");
+                        return;
+                    }
+               case 5:
+                    {
+                        Ltime5.Content = time.ToString("0.0");
+                        return;
+                    }
+               case 6:
+                    {
+                        Ltime6.Content = time.ToString("0.0");
+                        return;
+                    }
+               case 7:
+                    {
+                        Ltime7.Content = time.ToString("0.0");
+                        return;
+                    }
+               case 8:
+                    {
+                        Ltime8.Content = time.ToString("0.0");
+                        return;
+                    }
+            }
+        }
+
+
+        private void renewread(int combo, string read)
+        {
+            switch (combo)
+            {
+                case 0:
+                    {
+                        Lskillread0.Content = read;
+                        return;
+                    }
+                case 1:
+                    {
+                        Lskillread1.Content = read;
+                        return;
+                    }
+                case 2:
+                    {
+                        Lskillread2.Content = read;
+                        return;
+                    }
+                case 3:
+                    {
+                        Lskillread3.Content = read;
+                        return;
+                    }
+                case 4:
+                    {
+                        Lskillread4.Content = read;
+                        return;
+                    }
+                case 5:
+                    {
+                        Lskillread5.Content = read;
+                        return;
+                    }
+                case 6:
+                    {
+                        Lskillread6.Content = read;
+                        return;
+                    }
+                case 7:
+                    {
+                        Lskillread7.Content = read;
+                        return;
+                    }
+                case 8:
+                    {
+                        Lskillread8.Content = read;
+                        return;
+                    }
+            }
+        }
+        private void calcskill(int combo,int index,int skillindex,bool ischecked,int levelindex)
+        {
+            if (index == -1||skillindex == -1||levelindex == -1)
+                return;
+            double num1 = gun[index].skilleffect1 * (1f + (float)(skillindex) * gun[index].growth / 9f);
+            double num2 = gun[index].skilleffect2 * (1f + (float)(skillindex) * gun[index].growth / 9f);
+             double num3 = gun[index].skilleffect3 * (1f + (float)(skillindex) * gun[index].growth / 9f);
+            double num4 = gun[index].skilleffect4 * (1f + (float)(skillindex) * gun[index].growth / 9f);
+            renewdamage(combo, 0);
+            switch(gun[index].type)
+            {
+                case 1:
+                    {
+                        if (ischecked)
+                        {
+                            for (int i = 0; i < 9; i++)
+                            {
+                                skillupdamage[i] += (Math.Round(num1) / 100);
+                                renewindex(i);
+                            }
+                        }
+                        renewtime(combo, num2);
+                        string read = "提升己方" + num1.ToString("f0") + "%伤害";
+                        renewread(combo, read);
+                  //      MessageBox.Show(num1.ToString());
+                  //    MessageBox.Show(num2.ToString());
+                        return;
+                    }
+                case 2:
+                    {
+                        if (ischecked)
+                        {
+                            for (int i = 0; i < 9; i++)
+                            {
+                                skillupshotspeed[i] += (Math.Round(num1) / 100);
+                                renewindex(i);
+                            }
+                        }
+                        renewtime(combo, num2);
+                        string read = "提升己方" + num1.ToString("f0") + "%射速";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 4:
+                    {
+                        if (ischecked)
+                        {
+                            for (int i = 0; i < 9; i++)
+                            {
+                                skillupdodge[i] += (Math.Round(num1) / 100);
+                                renewindex(i);
+                            }
+                        }
+                        renewtime(combo, num2);
+                        string read = "提升己方" + num1.ToString("f0") + "%闪避";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 31:
+                    {
+                        if (ischecked)
+                        {
+                            for (int i = 0; i < 9; i++)
+                            {
+                                skillupdamage[i] += (Math.Round(num1) / 100);
+                                renewindex(i);
+                            }
+                        }
+                        renewtime(combo, num2);
+                        string read = "(夜)提升己方" + num1.ToString("f0") + "%伤害";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 34:
+                    {
+                        if (ischecked)
+                        {
+                            for (int i = 0; i < 9; i++)
+                            {
+                                skillupdodge[i] += (Math.Round(num1) / 100);
+                                renewindex(i);
+                            }
+                        }
+                        renewtime(combo, num2);
+                        string read = "(夜)提升己方" + num1.ToString("f0") + "%闪避";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 101:
+                    {
+                        if (ischecked)
+                        {
+                                skillupdamage[combo] += (Math.Round(num1) / 100);
+                                renewindex(combo);
+                        }
+
+                        if (gun[index].belt != 0)
+                            renewtime(combo, gun[index].skilleffect2);
+                        else
+                            renewtime(combo, num2);
+                        string read = "提升自身" + num1.ToString("f0") + "%伤害";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 102:
+                    {
+                        if (ischecked)
+                        {
+                            skillupshotspeed[combo] += (Math.Round(num1) / 100);
+                            renewindex(combo);
+                        }
+                        renewtime(combo, num2);
+                        string read = "提升自身" + num1.ToString("f0") + "%射速";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 103:
+                    {
+                        if (ischecked)
+                        {
+                            skilluphit[combo] += (Math.Round(num1) / 100);
+                            renewindex(combo);
+                        }
+                        renewtime(combo, gun[index].skilleffect2);
+                        string read = "提升自身" + num1.ToString("f0") + "%命中";
+                       renewread(combo, read);
+                        return;
+                    }
+                case 104:
+                    {
+                        if (ischecked)
+                        {
+                            skillupdodge[combo] += (Math.Round(num1) / 100);
+                            renewindex(combo);
+                        }
+                        renewtime(combo, num2);
+                        string read = "提升自身" + num1.ToString("f0") + "%闪避";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 106:
+                    {
+                        renewtime(combo, num1);
+                        string read = "力场盾";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 131:
+                    {
+                        if (ischecked)
+                        {
+                            skillupdamage[combo] += (Math.Round(num1) / 100);
+                            renewindex(combo);
+                        }
+                        renewtime(combo, num2);
+                        string read = "(夜)提升自身" + num1.ToString("f0") + "%伤害";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 132:
+                    {
+                        if (ischecked)
+                        {
+                            skillupshotspeed[combo] += (Math.Round(num1) / 100);
+                            renewindex(combo);
+                        }
+                        renewtime(combo, num2);
+                        string read = "(夜)提升自身" + num1.ToString("f0") + "%射速";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 133:
+                    {
+                        if (ischecked)
+                        {
+                            skilluphit[combo] += (Math.Round(num1) / 100);
+                            renewindex(combo);
+                        }
+                        if (index == 92)
+                            renewtime(combo, gun[index].skilleffect2);
+                        else
+                            renewtime(combo, num2);
+                        string read = "(夜)提升自身" + num1.ToString("f0") + "%命中";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 201:
+                    {
+                        renewtime(combo, num2);
+                        string read = "降低敌方" + num1.ToString("f0") + "%伤害(不算)";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 202:
+                    {
+                        renewtime(combo, num2);
+                        string read = "降低敌方" + num1.ToString("f0") + "%射速(不算)";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 203:
+                    {
+                        if (ischecked)
+                        {
+                            skilldownhit -= (Math.Round(num1) / 100);
+                            renewindex(combo);
+                        }
+                        renewtime(combo, num2);
+                        string read = "降低敌方" + num1.ToString("f0") + "%命中";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 204:
+                    {
+                        if (ischecked)
+                        {
+                            skilldowndodge -= (Math.Round(num1) / 100);
+                            renewindex(combo);
+                        }
+                        renewtime(combo, num2);
+                        string read = "降低敌方" + num1.ToString("f0") + "%闪避";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 231:
+                    {
+                        renewtime(combo, num2);
+                        string read = "(夜)降低敌方" + num1.ToString("f0") + "%伤害(不算)";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 233:
+                    {
+                        if (ischecked)
+                        {
+                            skilldownhit -= (Math.Round(num1) / 100);
+                            renewindex(combo);
+                        }
+                        renewtime(combo, num2);
+                        string read = "(夜)降低敌方" + num1.ToString("f0") + "%命中";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 301:
+                    {
+                        renewtime(combo, num2);
+                        string read = "降低目标" + num1.ToString("f0") + "%伤害(不算)";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 302:
+                    {
+                        renewtime(combo, num2);
+                        string read = "降低目标" + num1.ToString("f0") + "%射速(不算)";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 303:
+                    {
+                        renewtime(combo, num2);
+                        string read = "降低目标" + num1.ToString("f0") + "%命中(不算)";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 304:
+                    {
+                        renewtime(combo, num2);
+                        string read = "降低目标" + num1.ToString("f0") + "%闪避(不算)";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 305:
+                    {
+                        renewtime(combo, num2);
+                        string read = "降低目标" + num1.ToString("f0") + "%移速(不算)";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 333:
+                    {
+                        renewtime(combo, num2);
+                        string read = "(夜)降低目标" + num1.ToString("f0") + "%命中(不算)";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 401:
+                    {
+                        float[] array = arrAbilityRatio[gun[index].what];
+       
+                        float base1 = 16f;
+                        float base2 = 100f;
+                        double basePow = Math.Ceiling(base1 * array[1] * gun[index].ratiopow / base2);
+                        base1 = 0.242f;
+                        base2 = 100f;
+                        float base3 = 100f;
+                        double maxAddPow = Math.Ceiling(levelindex * base1 * array[1] * gun[index].ratiopow * gun[index].eatratio / base2 / base3);
+                        if (ischecked)
+                        {
+                            renewdamage(combo, (basePow + maxAddPow) * num1);
+                        }
+                        renewtime(combo, num2);
+                        string read = "手榴弹,半径2.5," + num1.ToString("0.0") + "倍";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 402:
+                    {
+                        if (ischecked)
+                        {
+                            skilldownhit -= (Math.Round(num1) / 100);
+                            renewindex(combo);
+                        }
+                        renewtime(combo, num3);
+                        string read = "烟雾弹,半径2.5,降低" + num1.ToString("f0") + "%命中" + num2.ToString("f0") + "%移速";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 403:
+                    {
+                        renewtime(combo, num1);
+                        string read = "闪光弹,半径2.5";
+                        renewread(combo, read);
+                        return;
+                    }
+
+                case 404:
+                    {
+
+                        float[] array = arrAbilityRatio[gun[index].what];
+
+                        float base1 = 16f;
+                        float base2 = 100f;
+                        double basePow = Math.Ceiling(base1 * array[1] * gun[index].ratiopow / base2);
+                        base1 = 0.242f;
+                        base2 = 100f;
+                        float base3 = 100f;
+                        double maxAddPow = Math.Ceiling(levelindex * base1 * array[1] * gun[index].ratiopow * gun[index].eatratio / base2 / base3);
+                        if (ischecked)
+                        {
+                            renewdamage(combo, (basePow + maxAddPow) * num1);
+                        }
+                        renewtime(combo, num3);
+                        string read = "燃烧弹" + num1.ToString("0.0") + "倍半径2.5不算DOT";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 405:
+                    {
+                        if (ischecked)
+                        {
+                            for (int i = 0; i < 9; i++)
+                            {
+                                skilluphit[i] += (Math.Round(num1) / 100);
+                                renewindex(i);
+                            }
+                        }
+                        renewtime(combo, num2);
+                        string read = "(夜)照明弹,提升己方" + num1.ToString("f0") + "%命中";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 501:
+                    {
+                        float[] array = arrAbilityRatio[gun[index].what];
+
+                        float base1 = 16f;
+                        float base2 = 100f;
+                        double basePow = Math.Ceiling(base1 * array[1] * gun[index].ratiopow / base2);
+                        base1 = 0.242f;
+                        base2 = 100f;
+                        float base3 = 100f;
+                        double maxAddPow = Math.Ceiling(levelindex * base1 * array[1] * gun[index].ratiopow * gun[index].eatratio / base2 / base3);
+                        if (ischecked)
+                        {
+                            renewdamage(combo, (basePow + maxAddPow) * num1);
+                        }
+                        renewtime(combo, gun[index].skilleffect2);
+                        string read = "瞄准射击,当前目标" + num1.ToString("0.0") + "倍";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 502:
+                    {
+                        float[] array = arrAbilityRatio[gun[index].what];
+
+                        float base1 = 16f;
+                        float base2 = 100f;
+                        double basePow = Math.Ceiling(base1 * array[1] * gun[index].ratiopow / base2);
+                        base1 = 0.242f;
+                        base2 = 100f;
+                        float base3 = 100f;
+                        double maxAddPow = Math.Ceiling(levelindex * base1 * array[1] * gun[index].ratiopow * gun[index].eatratio / base2 / base3);
+                        if (ischecked)
+                        {
+                            renewdamage(combo, (basePow + maxAddPow) * num1);
+                        }
+                        renewtime(combo, gun[index].skilleffect2);
+                        string read = "定点射击,最远目标" + num1.ToString("0.0") + "倍";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 503:
+                    {
+                        float[] array = arrAbilityRatio[gun[index].what];
+
+                        float base1 = 16f;
+                        float base2 = 100f;
+                        double basePow = Math.Ceiling(base1 * array[1] * gun[index].ratiopow / base2);
+                        base1 = 0.242f;
+                        base2 = 100f;
+                        float base3 = 100f;
+                        double maxAddPow = Math.Ceiling(levelindex * base1 * array[1] * gun[index].ratiopow * gun[index].eatratio / base2 / base3);
+                        if (ischecked)
+                        {
+                            renewdamage(combo, (basePow + maxAddPow) * num1);
+                        }
+                        renewtime(combo, gun[index].skilleffect2);
+                        string read = "阻断射击,特定目标" + num1.ToString("0.0") + "倍";
+                        renewread(combo, read);
+                        return;
+                    }
+
+                case 601:
+                    {
+                        float[] array = arrAbilityRatio[gun[index].what];
+
+                        float base1 = 16f;
+                        float base2 = 100f;
+                        double basePow = Math.Ceiling(base1 * array[1] * gun[index].ratiopow / base2);
+                        base1 = 0.242f;
+                        base2 = 100f;
+                        float base3 = 100f;
+                        double maxAddPow = Math.Ceiling(levelindex * base1 * array[1] * gun[index].ratiopow * gun[index].eatratio / base2 / base3);
+                        if (ischecked)
+                        {
+                            renewdamage(combo, (basePow + maxAddPow) * num1);
+                        }
+                        renewtime(combo, 0);
+                        string read = "杀伤/爆破榴弹" +gun[index].skilleffect2+"半径"+num1.ToString("0.0") + "倍";
+                        renewread(combo, read);
+                        return;
+                    }
+            }
+        }
+
+        private void SkillLevel0_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int skillindex = SkillLevel0.SelectedIndex;
+            int index = Combo0.SelectedIndex;
+            if(index==-1||skillindex == -1)
+                return;
+            calcprobabiliy(0, index, skillindex);
+            renewskill();
+        }
+        private void SkillLevel1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int skillindex = SkillLevel1.SelectedIndex;
+            int index = Combo1.SelectedIndex;
+            if (index == -1 || skillindex == -1)
+                return;
+            calcprobabiliy(1, index, skillindex);
+            renewskill();
+        }
+        private void SkillLevel2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int skillindex = SkillLevel2.SelectedIndex;
+            int index = Combo2.SelectedIndex;
+            if (index == -1 || skillindex == -1)
+                return;
+            calcprobabiliy(2, index, skillindex);
+            renewskill();
+        }
+        private void SkillLevel3_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int skillindex = SkillLevel3.SelectedIndex;
+            int index = Combo3.SelectedIndex;
+            if (index == -1 || skillindex == -1)
+                return;
+            calcprobabiliy(3, index, skillindex);
+            renewskill();
+        }
+        private void SkillLevel4_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int skillindex = SkillLevel4.SelectedIndex;
+            int index = Combo4.SelectedIndex;
+            if (index == -1 || skillindex == -1)
+                return;
+            calcprobabiliy(4, index, skillindex);
+            renewskill();
+        }
+        private void SkillLevel5_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int skillindex = SkillLevel5.SelectedIndex;
+            int index = Combo5.SelectedIndex;
+            if (index == -1 || skillindex == -1)
+                return;
+            calcprobabiliy(5, index, skillindex);
+            renewskill();
+        }
+        private void SkillLevel6_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int skillindex = SkillLevel6.SelectedIndex;
+            int index = Combo6.SelectedIndex;
+            if (index == -1 || skillindex == -1)
+                return;
+            calcprobabiliy(6, index, skillindex);
+            renewskill();
+        }
+        private void SkillLevel7_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int skillindex = SkillLevel7.SelectedIndex;
+            int index = Combo7.SelectedIndex;
+            if (index == -1 || skillindex == -1)
+                return;
+            calcprobabiliy(7, index, skillindex);
+            renewskill();
+        }
+        private void SkillLevel8_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int skillindex = SkillLevel8.SelectedIndex;
+            int index = Combo8.SelectedIndex;
+            if (index == -1 || skillindex == -1)
+                return;
+            calcprobabiliy(8, index, skillindex);
+            renewskill();
         }
     }
 }

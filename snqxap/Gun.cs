@@ -69,23 +69,19 @@ namespace snqxap
         public double ratiorate { get; set; } //射速
         public double ratiododge { get; set; }//闪避
 
+        public int probability {get;set;}
+        public double skilleffect1 { get; set; }
+        public double skilleffect2 { get; set; }
+        public double skilleffect3 { get; set; }
+        public double skilleffect4 { get; set; }
+        public double growth { get; set; }
+        public int growth_type { get;set;}
+        public int type { get; set; }
+        public string skillname { get; set; }
+
         
 
     }
-
-
-
-
-
-    class Skill
-    {
-        public float skillrate { get; set; }//技能发动率
-        public int skillfor { get; set; }//0 敌人 1 自身 2 全队
-        public bool dayornight { get; set; }//0 day 1 night
-    }
-
-
-
 
     class GunGrid
     {
