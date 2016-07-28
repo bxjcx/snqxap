@@ -91,6 +91,7 @@ namespace snqxap
             this.dodgeup = 1.00;
             this.hitup = 1.00;
             this.shotspeedup = 1.00;
+            this.rateup = 0.00;
         }
     }
 

@@ -58,12 +58,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="enemydata.xaml.cs">
+      <DependentUpon>enemydata.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Summary.xaml.cs">
       <DependentUpon>Summary.xaml</DependentUpon>
     </Compile>
     <Compile Include="UpdateData.xaml.cs">
       <DependentUpon>UpdateData.xaml</DependentUpon>
     </Compile>
+    <Page Include="enemydata.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -222,6 +229,65 @@
     <Resource Include="assets\97.png" />
     <Resource Include="assets\98.png" />
     <Resource Include="assets\99.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Prowler.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Scouts.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Dinergate.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Ripper.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Vespid.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Jaeger.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\JaegerGun.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\ProwlerGun.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\RipperGun.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\VespidGun.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Guard.jpg" />
+    <Resource Include="assets\GuardGun.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Dragoon.jpg" />
+    <Resource Include="assets\DragoonGun.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Jaguar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Drone.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\boss2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\boss4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\boss5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\boss0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\boss3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
