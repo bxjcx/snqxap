@@ -6991,7 +6991,10 @@ namespace snqxap
                             skillupdamage[combo] += (Math.Round(num1) / 100);
                             renewindex(combo);
                         }
-                        renewtime(combo, num2);
+                        if(gun[index].what==6)
+                          renewtime(combo, gun[index].skilleffect2);
+                        else
+                            renewtime(combo, num2);
                         string read = "(夜)提升自身" + num1.ToString("f0") + "%伤害";
                         renewread(combo, read);
                         return;
