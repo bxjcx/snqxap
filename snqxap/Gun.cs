@@ -34,7 +34,7 @@ namespace snqxap
         public double crit { get; set; }//暴击率
         public int hp { get; set; }//血量
         public double dodge { get; set; }//闪避
-        public int what { get; set; }// 2 ar 3 smg 4 hg 5 rf 6 mg
+        public int what { get; set; }// 2 ar 3 smg 4 hg 5 rf 6 mg       
         public int belt { get; set; }//弹链
         public double index { get; set; }//伤害指数
 
@@ -61,7 +61,19 @@ namespace snqxap
         public double skillupalldodge { get; set; }
         public double skillupallhit { get; set; }
         public double skillupallshotspeed { get; set; }
+
+        public double ratiohp { get; set; }//hp
+        public double ratiopow { get; set; }//伤害
+        public double ratiohit { get; set; } //命中
+        public double eatratio { get; set; }
+        public double ratiorate { get; set; } //射速
+        public double ratiododge { get; set; }//闪避
+
+        
+
     }
+
+
 
 
 

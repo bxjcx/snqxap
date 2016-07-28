@@ -33,8 +33,73 @@ namespace snqxap
         double skilldownhit;
         int[] lastgunindex = new int[9];
         int howmany;
-		
-		//部分枪数据错误。。。蛋疼
+
+        public static readonly float[][] arrAbilityRatio = new float[][]
+{
+    new float[]
+    {
+        1f,1f,1f,1f,1f,1f,1f
+    },
+      new float[]  // 2 ar 3 smg 4 hg 5 rf 6 mg       
+    {
+        1f,1f,1f,1f,1f,1f,1f
+    },
+        new float[]  
+	{
+          1f,
+        1f,
+        1f,
+        1f,
+        1f,
+        1f,
+        1f
+    },
+    new float[]  
+	{
+        1.6f,
+        0.6f,
+        1.2f,
+        1.2f,
+        0.3f,
+        1.6f,
+        0.75f
+    },
+    new float[]
+	{
+         0.6f,
+        0.6f,
+        0.8f,
+        1.5f,
+        1.2f,
+        1.8f,
+        0.75f
+    
+    },
+    new float[]
+	{
+          0.8f,
+        2.4f,
+        0.5f,
+        0.7f,
+        1.6f,
+        0.8f,
+        1.4f
+    },
+    new float[]
+	{
+        1.5f,
+        1.8f,
+        1.6f,
+        0.4f,
+        0.6f,
+        0.6f,
+        0.95f
+    }
+};
+
+
+
+        //12燃烧弹 15手榴弹 爆破榴弹/杀伤榴弹 受伤害影响 改 除rf就是了
 
         public MainWindow()
         {
@@ -173,7 +238,7 @@ namespace snqxap
             gun[12].skilltype = 15; gun[12].skillcircle = 2.5; gun[12].skilldamage = gun[12].damage * 4; gun[12].skillrate = 0.5; gun[12].skilltime = 0; gun[12].skillcontent = "手榴弹,半径" + gun[12].skillcircle.ToString();
             gun[13].name = "PP-2000"; gun[13].what = 3; gun[13].hp = 159; gun[13].damage = 29; gun[13].hit = 11; gun[13].dodge = 74; gun[13].shotspeed = 80; gun[13].crit = 0.05; gun[13].belt = 0; gun[13].number = 2; gun[13].effect0 = 1; gun[13].effect1 = 7; gun[13].damageup = 0.1; gun[13].hitup = 0.25; gun[13].shotspeedup = 0; gun[13].critup = 0; gun[13].dodgeup = 0; gun[13].to = 2;
             gun[13].skilltype = 15; gun[13].skillcircle = 2.5; gun[13].skilldamage = gun[13].damage * 4; gun[13].skillrate = 0.45; gun[13].skilltime = 0; gun[13].skillcontent = "手榴弹,半径" + gun[13].skillcircle.ToString();
-            gun[14].name = "MP5"; gun[14].what = 3; gun[14].hp = 168; gun[14].damage = 30; gun[14].hit = 13; gun[14].dodge = 68; gun[14].shotspeed = 89; gun[14].crit = 0.05; gun[14].belt = 0; gun[14].number = 2; gun[14].effect0 = 1; gun[14].effect1 = 7; gun[14].damageup = 0; gun[14].hitup = 0; gun[14].shotspeedup = 0; gun[14].critup = 0.2; gun[14].dodgeup = 0.4; gun[14].to = 2;
+            gun[14].name = "MP5"; gun[14].what = 3; gun[14].hp = 168; gun[14].damage = 30; gun[14].hit = 13; gun[14].dodge = 68; gun[14].shotspeed = 89; gun[14].crit = 0.05; gun[14].belt = 0; gun[14].number = 2; gun[14].effect0 = 1; gun[14].effect1 = 7; gun[14].damageup = 0; gun[14].hitup = 0.4; gun[14].shotspeedup = 0; gun[14].critup = 0.2; gun[14].dodgeup = 0; gun[14].to = 2;
             gun[14].skilltype = 10; gun[14].skillcircle = 0; gun[14].skilldamage = 0; gun[14].skillrate = 0.48; gun[14].skilltime = 3; gun[14].skillcontent = "力场盾";
             gun[15].name = "伯莱塔38型"; gun[15].what = 3; gun[15].hp = 203; gun[15].damage = 32; gun[15].hit = 10; gun[15].dodge = 52; gun[15].shotspeed = 75; gun[15].crit = 0.05; gun[15].belt = 0; gun[15].number = 2; gun[15].effect0 = 1; gun[15].effect1 = 7; gun[15].damageup = 0.05; gun[15].hitup = 0; gun[15].shotspeedup = 0.1; gun[15].critup = 0; gun[15].dodgeup = 0; gun[15].to = 2;
             gun[15].skilltype = 11; gun[15].skillcircle = 2.5; gun[15].skilldamage = 0; gun[15].skillrate = 0.6; gun[15].skilltime = 3; gun[15].skillcontent = "闪光弹,半径" + gun[15].skillcircle.ToString();
@@ -183,9 +248,9 @@ namespace snqxap
             gun[17].skilltype = 15; gun[17].skillcircle = 2.5; gun[17].skilldamage = gun[17].damage * 4; gun[17].skillrate = 0.45; gun[17].skilltime = 0; gun[17].skillcontent = "手榴弹,半径" + gun[17].skillcircle.ToString();
             gun[18].name = "64式"; gun[18].what = 3; gun[18].hp = 176; gun[18].damage = 27; gun[18].hit = 11; gun[18].dodge = 59; gun[18].shotspeed = 93; gun[18].crit = 0.05; gun[18].belt = 0; gun[18].number = 1; gun[18].effect0 = 4; gun[18].damageup = 0; gun[18].hitup = 0; gun[18].shotspeedup = 0.2; gun[18].critup = 0; gun[18].dodgeup = 0; gun[18].to = 2;
             gun[18].skilltype = 11; gun[18].skillcircle = 2.5; gun[18].skilldamage = 0; gun[18].skillrate = 0.6; gun[18].skilltime = 3; gun[18].skillcontent = "闪光弹,半径" + gun[18].skillcircle.ToString();
-            gun[19].name = "UMP45"; gun[19].what = 3; gun[19].hp = 185; gun[19].damage = 27; gun[19].hit = 13; gun[19].dodge = 73; gun[19].shotspeed = 82; gun[19].crit = 0.05; gun[19].belt = 0; gun[19].number = 2; gun[19].effect0 = 1; gun[19].effect1 = 7; gun[19].damageup = 0.15; gun[19].hitup = 0.0; gun[19].shotspeedup = 0; gun[19].critup = 0.5; gun[19].dodgeup = 0; gun[19].to = 2;
+            gun[19].name = "UMP45"; gun[19].what = 3; gun[19].hp = 185; gun[19].damage = 27; gun[19].hit = 13; gun[19].dodge = 73; gun[19].shotspeed = 82; gun[19].crit = 0.05; gun[19].belt = 0; gun[19].number = 3; gun[19].effect0 = 1; gun[19].effect1 = 4; gun[19].effect2 = 7; gun[19].damageup = 0.15; gun[19].hitup = 0.0; gun[19].shotspeedup = 0; gun[19].critup = 0.5; gun[19].dodgeup = 0; gun[19].to = 2;
             gun[19].skilltype = 19; gun[19].skillrate = 0.56; gun[19].skillcircle = 2.5; gun[19].skilltime = 4; gun[19].skilldownallenemyhit = 0.48; gun[19].skillcontent = "降半径" + gun[19].skillcircle.ToString() + "命中48%移速40%";
-            gun[20].name = "索米"; gun[20].what = 3; gun[20].hp = 220; gun[20].damage = 28; gun[20].hit = 15; gun[20].dodge = 56; gun[20].shotspeed = 92; gun[20].crit = 0.05; gun[20].belt = 0; gun[20].number = 3; gun[20].effect0 = 1; gun[20].effect1 = 4; gun[20].effect2 = 7; gun[20].damageup = 0; gun[20].hitup = 0.3; gun[20].shotspeedup = 0.15; gun[20].critup = 0; gun[20].dodgeup = 0; gun[20].to = 2;
+            gun[20].name = "索米"; gun[20].what = 3; gun[20].hp = 220; gun[20].damage = 28; gun[20].hit = 15; gun[20].dodge = 56; gun[20].shotspeed = 92; gun[20].crit = 0.05; gun[20].belt = 0; gun[20].number = 2; gun[20].effect0 = 1; gun[20].effect1 = 7; gun[20].damageup = 0; gun[20].hitup = 0.3; gun[20].shotspeedup = 0.15; gun[20].critup = 0; gun[20].dodgeup = 0; gun[20].to = 2;
             gun[20].skilltype = 23; gun[20].skillrate = 0.45; gun[20].skilltime = 5.4; gun[20].skillupmydodge = 3.6; gun[20].skillcontent = "提升自身闪避360%";
             gun[21].name = "OTs-12"; gun[21].what = 2; gun[21].hp = 105; gun[21].damage = 42; gun[21].hit = 54; gun[21].dodge = 54; gun[21].shotspeed = 72; gun[21].crit = 0.2; gun[21].belt = 0; gun[21].number = 2; gun[21].effect0 = 3; gun[21].effect1 = 6; gun[21].damageup = 0.15; gun[21].hitup = 0; gun[21].shotspeedup = 0.2; gun[21].critup = 0; gun[21].dodgeup = 0; gun[21].to = 3;
             gun[21].skilltype = 18;gun[21].skillrate = 0.64;gun[21].skilltime = 8;gun[21].skillupmyshotspeed =0.64;gun[21].skillcontent = "提升自身射速64%";
@@ -205,7 +270,7 @@ namespace snqxap
             gun[28].skilltype = 11; gun[28].skillcircle = 2.5; gun[28].skilldamage = 0; gun[28].skillrate = 0.6; gun[28].skilltime = 3.6; gun[28].skillcontent = "闪光弹,半径" + gun[28].skillcircle.ToString();
             gun[29].name = "ST AR-15"; gun[29].what = 2; gun[29].hp = 105; gun[29].damage = 48; gun[29].hit = 50; gun[29].dodge = 50; gun[29].shotspeed = 77; gun[29].crit = 0.2; gun[29].belt = 0; gun[29].number = 1; gun[29].effect0 = 9; gun[29].damageup = 0; gun[29].hitup = 0; gun[29].shotspeedup = 0; gun[29].critup = 0; gun[29].dodgeup = 0.36; gun[29].to = 2;
             gun[29].skilltype = 18; gun[29].skillrate = 0.64; gun[29].skilltime = 9.6; gun[29].skillupmyshotspeed = 0.576; gun[29].skillcontent = "提升自身射速57.6%";
-            gun[30].name = "FAMAS"; gun[30].what = 2; gun[30].hp = 121; gun[30].damage = 44; gun[30].hit = 48; gun[30].dodge = 40; gun[30].shotspeed = 81; gun[30].crit = 0.2; gun[30].belt = 0; gun[30].number = 1; gun[30].effect0 = 9; gun[30].damageup = 0.25; gun[30].hitup = 0.6; gun[30].shotspeedup = 0; gun[30].critup = 0; gun[30].dodgeup = 0; gun[30].to = 3;
+            gun[30].name = "FAMAS"; gun[30].what = 2; gun[30].hp = 121; gun[30].damage = 44; gun[30].hit = 48; gun[30].dodge = 40; gun[30].shotspeed = 81; gun[30].crit = 0.2; gun[30].belt = 0; gun[30].number = 1; gun[30].effect0 = 3; gun[30].damageup = 0.25; gun[30].hitup = 0.6; gun[30].shotspeedup = 0; gun[30].critup = 0; gun[30].dodgeup = 0; gun[30].to = 3;
             gun[30].skilltype = 1; gun[30].skilldamage = gun[30].damage * 2; gun[30].skillcircle = 4; gun[30].skillrate = 0.5; gun[30].skillcontent = "爆破榴弹,半径" + gun[30].skillcircle.ToString();
             gun[31].name = "AK-47"; gun[31].what = 2; gun[31].hp = 132; gun[31].damage = 52; gun[31].hit = 35; gun[31].dodge = 34; gun[31].shotspeed = 65; gun[31].crit = 0.2; gun[31].belt = 0; gun[31].number = 1; gun[31].effect0 = 8; gun[31].damageup = 0; gun[31].hitup = 0; gun[31].shotspeedup = 0; gun[31].critup = 0; gun[31].dodgeup = 0.18; gun[31].to = 3;
             gun[31].skilltype = 3;gun[31].skillrate = 0.64;gun[31].skilltime = 4.5;gun[31].skilldownonedamage = 0.96; gun[31].skillcontent = "降低当前目标96%伤害,不算";
@@ -225,7 +290,7 @@ namespace snqxap
             gun[38].skilltype = 1; gun[38].skilldamage = gun[38].damage * 5.5; gun[38].skillcircle = 1; gun[38].skillrate = 0.5; gun[38].skillcontent = "杀伤榴弹,半径" + gun[38].skillcircle.ToString();
             gun[39].name = "F2000"; gun[39].what = 2; gun[39].hp = 105; gun[39].damage = 42; gun[39].hit = 44; gun[39].dodge = 40; gun[39].shotspeed = 81; gun[39].crit = 0.2; gun[39].belt = 0; gun[39].number = 1; gun[39].effect0 = 6; gun[39].damageup = 0.2; gun[39].hitup = 0; gun[39].shotspeedup = 0; gun[39].critup = 0; gun[39].dodgeup = 0.1; gun[39].to = 3;
             gun[39].skilltype = 6; gun[39].skillrate = 0.58; gun[39].skilltime = 3.2; gun[39].skillupmydamage = 1.6; gun[39].skillcontent = "提升自身伤害160%";
-            gun[40].name = "FNC"; gun[40].what = 2; gun[40].hp = 110; gun[40].damage = 51; gun[40].hit = 46; gun[40].dodge = 37; gun[40].shotspeed = 73; gun[40].crit = 0.2; gun[40].belt = 0; gun[40].number = 1; gun[40].effect0 = 3; gun[40].damageup = 0; gun[40].hitup = 0.5; gun[40].shotspeedup = 0; gun[40].critup = 0; gun[40].dodgeup = 0.12; gun[40].to = 3;
+            gun[40].name = "FNC"; gun[40].what = 2; gun[40].hp = 110; gun[40].damage = 51; gun[40].hit = 46; gun[40].dodge = 37; gun[40].shotspeed = 73; gun[40].crit = 0.2; gun[40].belt = 0; gun[40].number = 1; gun[40].effect0 = 9; gun[40].damageup = 0; gun[40].hitup = 0.5; gun[40].shotspeedup = 0; gun[40].critup = 0; gun[40].dodgeup = 0.12; gun[40].to = 3;
             gun[40].skilltype = 6; gun[40].skillrate = 0.64; gun[40].skilltime = 3.2; gun[40].skillupmydamage = 1.6; gun[40].skillcontent = "提升自身伤害160%";
             gun[41].name = "L85A1"; gun[41].what = 2; gun[41].hp = 94; gun[41].damage = 46; gun[41].hit = 43; gun[41].dodge = 43; gun[41].shotspeed = 78; gun[41].crit = 0.2; gun[41].belt = 0; gun[41].number = 1; gun[41].effect0 = 2; gun[41].damageup = 0.2; gun[41].hitup = 0.5; gun[41].shotspeedup = 0; gun[41].critup = 0; gun[41].dodgeup = 0; gun[41].to = 3;
             gun[41].skilltype = 16;gun[41].skillrate = 0.64;gun[41].skilltime = 4;gun[41].skilldownoneshotspeed = 0.96; gun[41].skillcontent = "降低当前目标96%射速,不算";
@@ -293,7 +358,7 @@ namespace snqxap
             gun[72].skilltype = 6; gun[72].skillrate = 0.64; gun[72].skilltime = 3.2; gun[72].skillupmydamage =1.6; gun[72].skillcontent = "提升自身伤害160%";
             gun[73].name = "M21"; gun[73].what = 5; gun[73].hp = 93; gun[73].damage = 118; gun[73].hit = 74; gun[73].dodge = 27; gun[73].shotspeed = 35; gun[73].crit = 0.4; gun[73].belt = 0; gun[73].number = 2; gun[73].effect0 = 2; gun[73].effect1 = 8; gun[73].rateup = 0.2; gun[73].damageup = 0; gun[73].hitup = 0; gun[73].shotspeedup = 0; gun[73].critup = 0; gun[73].dodgeup = 0; gun[73].to = 4;
             gun[73].skilltype = 1; gun[73].skilldamage = gun[73].damage * 4.8; gun[73].skillcircle = 0; gun[73].skillrate = 0.66; gun[73].skillcontent = "阻断射击2s对特定目标";
-            gun[74].name = "BM59"; gun[74].what = 5; gun[74].hp = 97; gun[74].damage = 104; gun[74].hit = 52; gun[74].dodge = 24; gun[74].shotspeed = 38; gun[74].crit = 0.4; gun[74].belt = 0; gun[74].number = 1;gun[74].effect0 = 6;gun[74].rateup = 0.18; gun[74].damageup = 0; gun[74].hitup = 0; gun[74].shotspeedup = 0; gun[74].critup = 0; gun[74].dodgeup = 0; gun[74].to = 4;
+            gun[74].name = "BM59"; gun[74].what = 5; gun[74].hp = 97; gun[74].damage = 104; gun[74].hit = 52; gun[74].dodge = 24; gun[74].shotspeed = 38; gun[74].crit = 0.4; gun[74].belt = 0; gun[74].number = 1; gun[74].effect0 = 6; gun[74].rateup = 0.18; gun[74].damageup = 0; gun[74].hitup = 0; gun[74].shotspeedup = 0; gun[74].critup = 0; gun[74].dodgeup = 0; gun[74].to = 4;
             gun[74].skilltype = 18; gun[74].skillrate = 0.58; gun[74].skilltime = 8; gun[74].skillupmyshotspeed = 0.64; gun[74].skillcontent = "提升自身射速64%";
             gun[75].name = "M1加兰德"; gun[75].what = 5; gun[75].hp = 88; gun[75].damage = 120; gun[75].hit = 62; gun[75].dodge = 28; gun[75].shotspeed = 37; gun[75].crit = 0.4; gun[75].belt = 0; gun[75].number = 1; gun[75].effect0 = 6; gun[75].rateup = 0.2; gun[75].damageup = 0; gun[75].hitup = 0; gun[75].shotspeedup = 0; gun[75].critup = 0; gun[75].dodgeup = 0; gun[75].to = 4;
             gun[75].skilltype = 1; gun[75].skilldamage = gun[75].damage * 4.8; gun[75].skillcircle = 0; gun[75].skillrate = 0.66; gun[75].skillcontent = "瞄准射击2s对当前目标";
@@ -301,7 +366,7 @@ namespace snqxap
             gun[76].skilltype = 1; gun[76].skilldamage = gun[76].damage * 4.8; gun[76].skillcircle = 0; gun[76].skillrate = 0.66; gun[76].skillcontent = "瞄准射击2s对当前目标";
             gun[77].name = "G43"; gun[77].what = 5; gun[77].hp = 80; gun[77].damage = 111; gun[77].hit = 58; gun[77].dodge = 28; gun[77].shotspeed = 40; gun[77].crit = 0.4; gun[77].belt = 0; gun[77].number = 2; gun[77].effect0 = 3; gun[77].effect1 = 9; gun[77].rateup = 0.2; gun[77].damageup = 0; gun[77].hitup = 0; gun[77].shotspeedup = 0; gun[77].critup = 0; gun[77].dodgeup = 0; gun[77].to = 4;
             gun[77].skilltype = 18; gun[77].skillrate = 0.58; gun[77].skilltime = 12.8; gun[77].skillupmyshotspeed = 0.8; gun[77].skillcontent = "(夜)提升自身射速80%";
-            gun[78].name = "汉阳造"; gun[78].what = 5; gun[78].hp = 102; gun[78].damage = 108; gun[78].hit = 60; gun[78].dodge = 37; gun[78].shotspeed = 31; gun[78].crit = 0.4; gun[78].belt = 0; gun[78].number = 1; gun[78].effect0 = 6; gun[78].rateup = 0.22; gun[78].damageup = 0; gun[78].hitup = 0; gun[78].shotspeedup = 0; gun[78].critup = 0; gun[78].dodgeup = 0; gun[78].to = 4;
+            gun[78].name = "汉阳造88式"; gun[78].what = 5; gun[78].hp = 102; gun[78].damage = 108; gun[78].hit = 60; gun[78].dodge = 37; gun[78].shotspeed = 31; gun[78].crit = 0.4; gun[78].belt = 0; gun[78].number = 1; gun[78].effect0 = 6; gun[78].rateup = 0.22; gun[78].damageup = 0; gun[78].hitup = 0; gun[78].shotspeedup = 0; gun[78].critup = 0; gun[78].dodgeup = 0; gun[78].to = 4;
             gun[78].skilltype = 7;gun[78].skillrate = 0.75;gun[78].skilltime = 7.5;gun[78].skilldownonehit = 0.9; gun[78].skillcontent = "(夜)降低目标命中90%,不算"; 
             gun[79].name = "Kar98k"; gun[79].what = 5; gun[79].hp = 84; gun[79].damage = 135; gun[79].hit = 78; gun[79].dodge = 41; gun[79].shotspeed = 34; gun[79].crit = 0.4; gun[79].belt = 0; gun[79].number = 2; gun[79].effect0 = 3; gun[79].effect1 = 9; gun[79].rateup = 0.25; gun[79].damageup = 0; gun[79].hitup = 0; gun[79].shotspeedup = 0; gun[79].critup = 0; gun[79].dodgeup = 0; gun[79].to = 4;
             gun[79].skilltype = 1; gun[79].skilldamage = gun[79].damage * 8.8; gun[79].skillcircle = 0; gun[79].skillrate = 0.35; gun[79].skillcontent = "瞄准射击2s对当前目标";
@@ -389,6 +454,643 @@ namespace snqxap
 
             skilldowndodge = 1;
             skilldownhit = 1;
+
+            for(int i =1;i<=100;i++)
+            {
+                Level0.Items.Add(i);
+                Level1.Items.Add(i);
+                Level2.Items.Add(i);
+                Level3.Items.Add(i);
+                Level4.Items.Add(i);
+                Level5.Items.Add(i);
+                Level6.Items.Add(i);
+                Level7.Items.Add(i);
+                Level8.Items.Add(i);
+            }
+            for (int i = 1; i <= 10; i++)
+            {
+                SkillLevel0.Items.Add(i);
+                SkillLevel1.Items.Add(i);
+                SkillLevel2.Items.Add(i);
+                SkillLevel3.Items.Add(i);
+                SkillLevel4.Items.Add(i);
+                SkillLevel5.Items.Add(i);
+                SkillLevel6.Items.Add(i);
+                SkillLevel7.Items.Add(i);
+                SkillLevel8.Items.Add(i);
+            }
+
+            gun[0].eatratio = 105;
+            gun[1].eatratio = 125;
+            gun[2].eatratio = 110;
+            gun[3].eatratio = 105;
+            gun[4].eatratio = 115;
+            gun[5].eatratio = 115;
+            gun[6].eatratio = 130;
+            gun[7].eatratio = 115;
+            gun[8].eatratio = 115;
+            gun[9].eatratio = 110;
+            gun[10].eatratio = 105;
+            gun[11].eatratio = 100;
+            gun[12].eatratio = 105;
+            gun[13].eatratio = 100;
+            gun[14].eatratio = 105;
+            gun[15].eatratio = 110;
+            gun[16].eatratio = 115;
+            gun[17].eatratio = 105;
+            gun[18].eatratio = 105;
+            gun[19].eatratio = 110;
+            gun[20].eatratio = 105;
+            gun[21].eatratio = 125;
+            gun[22].eatratio = 110;
+            gun[23].eatratio = 115;
+            gun[24].eatratio = 115;
+            gun[25].eatratio = 120;
+            gun[26].eatratio = 110;
+            gun[27].eatratio = 115;
+            gun[28].eatratio = 110;
+            gun[29].eatratio = 120;
+            gun[30].eatratio = 105;
+            gun[31].eatratio = 110;
+            gun[32].eatratio = 120;
+            gun[33].eatratio = 110;
+            gun[34].eatratio = 110;
+            gun[35].eatratio = 115;
+            gun[36].eatratio = 130;
+            gun[37].eatratio = 125;
+            gun[38].eatratio = 120;
+            gun[39].eatratio = 105;
+            gun[40].eatratio = 115;
+            gun[41].eatratio = 125;
+            gun[42].eatratio = 110;
+            gun[43].eatratio = 110;
+            gun[44].eatratio = 140;
+            gun[45].eatratio = 130;
+            gun[46].eatratio = 130;
+            gun[47].eatratio = 125;
+            gun[48].eatratio = 105;
+            gun[49].eatratio = 110;
+            gun[50].eatratio = 130;
+            gun[51].eatratio = 110;
+            gun[52].eatratio = 120;
+            gun[53].eatratio = 130;
+            gun[54].eatratio = 110;
+            gun[55].eatratio = 120;
+            gun[56].eatratio = 125;
+            gun[57].eatratio = 100;
+            gun[58].eatratio = 115;
+            gun[59].eatratio = 125;
+            gun[60].eatratio = 110;
+            gun[61].eatratio = 115;
+            gun[62].eatratio = 110;
+            gun[63].eatratio = 110;
+            gun[64].eatratio = 115;
+            gun[65].eatratio = 105;
+            gun[66].eatratio = 115;
+            gun[67].eatratio = 135;
+            gun[68].eatratio = 130;
+            gun[69].eatratio = 130;
+            gun[70].eatratio = 105;
+            gun[71].eatratio = 120;
+            gun[72].eatratio = 110;
+            gun[73].eatratio = 110;
+            gun[74].eatratio = 95;
+            gun[75].eatratio = 105;
+            gun[76].eatratio = 115;
+            gun[77].eatratio = 115;
+            gun[78].eatratio = 120;
+            gun[79].eatratio = 135;
+            gun[80].eatratio = 130;
+            gun[81].eatratio = 125;
+            gun[82].eatratio = 115;
+            gun[83].eatratio = 110;
+            gun[84].eatratio = 125;
+            gun[85].eatratio = 110;
+            gun[86].eatratio = 110;
+            gun[87].eatratio = 105;
+            gun[88].eatratio = 135;
+            gun[89].eatratio = 130;
+            gun[90].eatratio = 95;
+            gun[91].eatratio = 90;
+            gun[92].eatratio = 135;
+            gun[93].eatratio = 90;
+            gun[94].eatratio = 125;
+            gun[95].eatratio = 115;
+            gun[96].eatratio = 110;
+            gun[97].eatratio = 120;
+            gun[98].eatratio = 100;
+            gun[99].eatratio = 100;
+            gun[100].eatratio = 115;
+
+            gun[0].ratiohit = 100;
+            gun[1].ratiohit = 115;
+            gun[2].ratiohit = 120;
+            gun[3].ratiohit = 90;
+            gun[4].ratiohit = 100;
+            gun[5].ratiohit = 105;
+            gun[6].ratiohit = 110;
+            gun[7].ratiohit = 85;
+            gun[8].ratiohit = 105;
+            gun[9].ratiohit = 90;
+            gun[10].ratiohit = 100;
+            gun[11].ratiohit = 105;
+            gun[12].ratiohit = 110;
+            gun[13].ratiohit = 100;
+            gun[14].ratiohit = 115;
+            gun[15].ratiohit = 80;
+            gun[16].ratiohit = 100;
+            gun[17].ratiohit = 85;
+            gun[18].ratiohit = 90;
+            gun[19].ratiohit = 110;
+            gun[20].ratiohit = 130;
+            gun[21].ratiohit = 125;
+            gun[22].ratiohit = 115;
+            gun[23].ratiohit = 100;
+            gun[24].ratiohit = 115;
+            gun[25].ratiohit = 115;
+            gun[26].ratiohit = 90;
+            gun[27].ratiohit = 120;
+            gun[28].ratiohit = 120;
+            gun[29].ratiohit = 120;
+            gun[30].ratiohit = 130;
+            gun[31].ratiohit = 90;
+            gun[32].ratiohit = 110;
+            gun[33].ratiohit = 125;
+            gun[34].ratiohit = 125;
+            gun[35].ratiohit = 120;
+            gun[36].ratiohit = 100;
+            gun[37].ratiohit = 95;
+            gun[38].ratiohit = 110;
+            gun[39].ratiohit = 120;
+            gun[40].ratiohit = 115;
+            gun[41].ratiohit = 100;
+            gun[42].ratiohit = 125;
+            gun[43].ratiohit = 120;
+            gun[44].ratiohit = 125;
+            gun[45].ratiohit = 85;
+            gun[46].ratiohit = 90;
+            gun[47].ratiohit = 100;
+            gun[48].ratiohit = 105;
+            gun[49].ratiohit = 125;
+            gun[50].ratiohit = 115;
+            gun[51].ratiohit = 95;
+            gun[52].ratiohit = 90;
+            gun[53].ratiohit = 85;
+            gun[54].ratiohit = 115;
+            gun[55].ratiohit = 100;
+            gun[56].ratiohit = 115;
+            gun[57].ratiohit = 95;
+            gun[58].ratiohit = 115;
+            gun[59].ratiohit = 95;
+            gun[60].ratiohit = 120;
+            gun[61].ratiohit = 130;
+            gun[62].ratiohit = 100;
+            gun[63].ratiohit = 115;
+            gun[64].ratiohit = 105;
+            gun[65].ratiohit = 100;
+            gun[66].ratiohit = 95;
+            gun[67].ratiohit = 105;
+            gun[68].ratiohit = 105;
+            gun[69].ratiohit = 105;
+            gun[70].ratiohit = 100;
+            gun[71].ratiohit = 125;
+            gun[72].ratiohit = 115;
+            gun[73].ratiohit = 120;
+            gun[74].ratiohit = 95;
+            gun[75].ratiohit = 105;
+            gun[76].ratiohit = 115;
+            gun[77].ratiohit = 90;
+            gun[78].ratiohit = 90;
+            gun[79].ratiohit = 105;
+            gun[80].ratiohit = 120;
+            gun[81].ratiohit = 105;
+            gun[82].ratiohit = 105;
+            gun[83].ratiohit = 115;
+            gun[84].ratiohit = 120;
+            gun[85].ratiohit = 110;
+            gun[86].ratiohit = 110;
+            gun[87].ratiohit = 90;
+            gun[88].ratiohit = 125;
+            gun[89].ratiohit = 125;
+            gun[90].ratiohit = 85;
+            gun[91].ratiohit = 115;
+            gun[92].ratiohit = 125;
+            gun[93].ratiohit = 110;
+            gun[94].ratiohit = 105;
+            gun[95].ratiohit = 95;
+            gun[96].ratiohit = 95;
+            gun[97].ratiohit = 115;
+            gun[98].ratiohit = 115;
+            gun[99].ratiohit = 110;
+            gun[100].ratiohit = 120;
+
+            gun[0].ratiopow = 120;
+            gun[1].ratiopow = 90;
+            gun[2].ratiopow = 95;
+            gun[3].ratiopow = 115;
+            gun[4].ratiopow = 85;
+            gun[5].ratiopow = 105;
+            gun[6].ratiopow = 90;
+            gun[7].ratiopow = 90;
+            gun[8].ratiopow = 95;
+            gun[9].ratiopow = 105;
+            gun[10].ratiopow = 115;
+            gun[11].ratiopow = 100;
+            gun[12].ratiopow = 130;
+            gun[13].ratiopow = 115;
+            gun[14].ratiopow = 115;
+            gun[15].ratiopow = 125;
+            gun[16].ratiopow = 105;
+            gun[17].ratiopow = 100;
+            gun[18].ratiopow = 105;
+            gun[19].ratiopow = 105;
+            gun[20].ratiopow = 110;
+            gun[21].ratiopow = 90;
+            gun[22].ratiopow = 110;
+            gun[23].ratiopow = 130;
+            gun[24].ratiopow = 115;
+            gun[25].ratiopow = 110;
+            gun[26].ratiopow = 120;
+            gun[27].ratiopow = 105;
+            gun[28].ratiopow = 110;
+            gun[29].ratiopow = 105;
+            gun[30].ratiopow = 105;
+            gun[31].ratiopow = 120;
+            gun[32].ratiopow = 115;
+            gun[33].ratiopow = 100;
+            gun[34].ratiopow = 110;
+            gun[35].ratiopow = 110;
+            gun[36].ratiopow = 105;
+            gun[37].ratiopow = 115;
+            gun[38].ratiopow = 120;
+            gun[39].ratiopow = 100;
+            gun[40].ratiopow = 115;
+            gun[41].ratiopow = 100;
+            gun[42].ratiopow = 95;
+            gun[43].ratiopow = 90;
+            gun[44].ratiopow = 90;
+            gun[45].ratiopow = 110;
+            gun[46].ratiopow = 125;
+            gun[47].ratiopow = 135;
+            gun[48].ratiopow = 120;
+            gun[49].ratiopow = 110;
+            gun[50].ratiopow = 90;
+            gun[51].ratiopow = 105;
+            gun[52].ratiopow = 120;
+            gun[53].ratiopow = 105;
+            gun[54].ratiopow = 110;
+            gun[55].ratiopow = 95;
+            gun[56].ratiopow = 85;
+            gun[57].ratiopow = 115;
+            gun[58].ratiopow = 110;
+            gun[59].ratiopow = 100;
+            gun[60].ratiopow = 110;
+            gun[61].ratiopow = 115;
+            gun[62].ratiopow = 115;
+            gun[63].ratiopow = 105;
+            gun[64].ratiopow = 105;
+            gun[65].ratiopow = 100;
+            gun[66].ratiopow = 105;
+            gun[67].ratiopow = 115;
+            gun[68].ratiopow = 145;
+            gun[69].ratiopow = 140;
+            gun[70].ratiopow = 110;
+            gun[71].ratiopow = 120;
+            gun[72].ratiopow = 105;
+            gun[73].ratiopow = 115;
+            gun[74].ratiopow = 110;
+            gun[75].ratiopow = 120;
+            gun[76].ratiopow = 115;
+            gun[77].ratiopow = 105;
+            gun[78].ratiopow = 100;
+            gun[79].ratiopow = 115;
+            gun[80].ratiopow = 115;
+            gun[81].ratiopow = 115;
+            gun[82].ratiopow = 115;
+            gun[83].ratiopow = 110;
+            gun[84].ratiopow = 115;
+            gun[85].ratiopow = 110;
+            gun[86].ratiopow = 125;
+            gun[87].ratiopow = 125;
+            gun[88].ratiopow = 95;
+            gun[89].ratiopow = 95;
+            gun[90].ratiopow = 145;
+            gun[91].ratiopow = 135;
+            gun[92].ratiopow = 90;
+            gun[93].ratiopow = 115;
+            gun[94].ratiopow = 105;
+            gun[95].ratiopow = 110;
+            gun[96].ratiopow = 110;
+            gun[97].ratiopow = 100;
+            gun[98].ratiopow = 110;
+            gun[99].ratiopow = 125;
+            gun[100].ratiopow = 125;
+
+            gun[0].ratiododge = 90;
+            gun[1].ratiododge = 110;
+            gun[2].ratiododge = 125;
+            gun[3].ratiododge = 120;
+            gun[4].ratiododge = 130;
+            gun[5].ratiododge = 105;
+            gun[6].ratiododge = 120;
+            gun[7].ratiododge = 125;
+            gun[8].ratiododge = 140;
+            gun[9].ratiododge = 110;
+            gun[10].ratiododge = 105;
+            gun[11].ratiododge = 115;
+            gun[12].ratiododge = 110;
+            gun[13].ratiododge = 130;
+            gun[14].ratiododge = 115;
+            gun[15].ratiododge = 85;
+            gun[16].ratiododge = 90;
+            gun[17].ratiododge = 95;
+            gun[18].ratiododge = 100;
+            gun[19].ratiododge = 120;
+            gun[20].ratiododge = 95;
+            gun[21].ratiododge = 125;
+            gun[22].ratiododge = 105;
+            gun[23].ratiododge = 95;
+            gun[24].ratiododge = 105;
+            gun[25].ratiododge = 95;
+            gun[26].ratiododge = 90;
+            gun[27].ratiododge = 120;
+            gun[28].ratiododge = 115;
+            gun[29].ratiododge = 120;
+            gun[30].ratiododge = 105;
+            gun[31].ratiododge = 85;
+            gun[32].ratiododge = 85;
+            gun[33].ratiododge = 105;
+            gun[34].ratiododge = 115;
+            gun[35].ratiododge = 110;
+            gun[36].ratiododge = 95;
+            gun[37].ratiododge = 85;
+            gun[38].ratiododge = 90;
+            gun[39].ratiododge = 105;
+            gun[40].ratiododge = 90;
+            gun[41].ratiododge = 100;
+            gun[42].ratiododge = 130;
+            gun[43].ratiododge = 125;
+            gun[44].ratiododge = 105;
+            gun[45].ratiododge = 115;
+            gun[46].ratiododge = 95;
+            gun[47].ratiododge = 85;
+            gun[48].ratiododge = 100;
+            gun[49].ratiododge = 125;
+            gun[50].ratiododge = 120;
+            gun[51].ratiododge = 95;
+            gun[52].ratiododge = 90;
+            gun[53].ratiododge = 100;
+            gun[54].ratiododge = 95;
+            gun[55].ratiododge = 100;
+            gun[56].ratiododge = 130;
+            gun[57].ratiododge = 95;
+            gun[58].ratiododge = 95;
+            gun[59].ratiododge = 105;
+            gun[60].ratiododge = 95;
+            gun[61].ratiododge = 115;
+            gun[62].ratiododge = 115;
+            gun[63].ratiododge = 120;
+            gun[64].ratiododge = 100;
+            gun[65].ratiododge = 115;
+            gun[66].ratiododge = 100;
+            gun[67].ratiododge = 105;
+            gun[68].ratiododge = 80;
+            gun[69].ratiododge = 80;
+            gun[70].ratiododge = 115;
+            gun[71].ratiododge = 90;
+            gun[72].ratiododge = 85;
+            gun[73].ratiododge = 85;
+            gun[74].ratiododge = 85;
+            gun[75].ratiododge = 95;
+            gun[76].ratiododge = 85;
+            gun[77].ratiododge = 85;
+            gun[78].ratiododge = 110;
+            gun[79].ratiododge = 110;
+            gun[80].ratiododge = 105;
+            gun[81].ratiododge = 115;
+            gun[82].ratiododge = 105;
+            gun[83].ratiododge = 105;
+            gun[84].ratiododge = 125;
+            gun[85].ratiododge = 90;
+            gun[86].ratiododge = 95;
+            gun[87].ratiododge = 100;
+            gun[88].ratiododge = 130;
+            gun[89].ratiododge = 125;
+            gun[90].ratiododge = 75;
+            gun[91].ratiododge = 105;
+            gun[92].ratiododge = 130;
+            gun[93].ratiododge = 110;
+            gun[94].ratiododge = 120;
+            gun[95].ratiododge = 105;
+            gun[96].ratiododge = 105;
+            gun[97].ratiododge = 110;
+            gun[98].ratiododge = 135;
+            gun[99].ratiododge = 120;
+            gun[100].ratiododge = 95;
+
+            gun[0].ratiohp = 135;
+            gun[1].ratiohp = 105;
+            gun[2].ratiohp = 100;
+            gun[3].ratiohp = 105;
+            gun[4].ratiohp = 90;
+            gun[5].ratiohp = 105;
+            gun[6].ratiohp = 85;
+            gun[7].ratiohp = 90;
+            gun[8].ratiohp = 80;
+            gun[9].ratiohp = 100;
+            gun[10].ratiohp = 105;
+            gun[11].ratiohp = 100;
+            gun[12].ratiohp = 100;
+            gun[13].ratiohp = 90;
+            gun[14].ratiohp = 95;
+            gun[15].ratiohp = 115;
+            gun[16].ratiohp = 105;
+            gun[17].ratiohp = 105;
+            gun[18].ratiohp = 100;
+            gun[19].ratiohp = 105;
+            gun[20].ratiohp = 125;
+            gun[21].ratiohp = 95;
+            gun[22].ratiohp = 115;
+            gun[23].ratiohp = 120;
+            gun[24].ratiohp = 110;
+            gun[25].ratiohp = 115;
+            gun[26].ratiohp = 125;
+            gun[27].ratiohp = 100;
+            gun[28].ratiohp = 105;
+            gun[29].ratiohp = 95;
+            gun[30].ratiohp = 110;
+            gun[31].ratiohp = 120;
+            gun[32].ratiohp = 115;
+            gun[33].ratiohp = 105;
+            gun[34].ratiohp = 100;
+            gun[35].ratiohp = 95;
+            gun[36].ratiohp = 95;
+            gun[37].ratiohp = 105;
+            gun[38].ratiohp = 100;
+            gun[39].ratiohp = 95;
+            gun[40].ratiohp = 100;
+            gun[41].ratiohp = 85;
+            gun[42].ratiohp = 105;
+            gun[43].ratiohp = 120;
+            gun[44].ratiohp = 120;
+            gun[45].ratiohp = 105;
+            gun[46].ratiohp = 120;
+            gun[47].ratiohp = 130;
+            gun[48].ratiohp = 130;
+            gun[49].ratiohp = 95;
+            gun[50].ratiohp = 95;
+            gun[51].ratiohp = 125;
+            gun[52].ratiohp = 120;
+            gun[53].ratiohp = 105;
+            gun[54].ratiohp = 120;
+            gun[55].ratiohp = 110;
+            gun[56].ratiohp = 85;
+            gun[57].ratiohp = 125;
+            gun[58].ratiohp = 115;
+            gun[59].ratiohp = 100;
+            gun[60].ratiohp = 115;
+            gun[61].ratiohp = 95;
+            gun[62].ratiohp = 95;
+            gun[63].ratiohp = 90;
+            gun[64].ratiohp = 100;
+            gun[65].ratiohp = 105;
+            gun[66].ratiohp = 105;
+            gun[67].ratiohp = 90;
+            gun[68].ratiohp = 105;
+            gun[69].ratiohp = 105;
+            gun[70].ratiohp = 95;
+            gun[71].ratiohp = 100;
+            gun[72].ratiohp = 95;
+            gun[73].ratiohp = 105;
+            gun[74].ratiohp = 110;
+            gun[75].ratiohp = 100;
+            gun[76].ratiohp = 95;
+            gun[77].ratiohp = 90;
+            gun[78].ratiohp = 115;
+            gun[79].ratiohp = 95;
+            gun[80].ratiohp = 100;
+            gun[81].ratiohp = 95;
+            gun[82].ratiohp = 110;
+            gun[83].ratiohp = 120;
+            gun[84].ratiohp = 95;
+            gun[85].ratiohp = 120;
+            gun[86].ratiohp = 105;
+            gun[87].ratiohp = 115;
+            gun[88].ratiohp = 105;
+            gun[89].ratiohp = 100;
+            gun[90].ratiohp = 130;
+            gun[91].ratiohp = 105;
+            gun[92].ratiohp = 95;
+            gun[93].ratiohp = 110;
+            gun[94].ratiohp = 85;
+            gun[95].ratiohp = 100;
+            gun[96].ratiohp = 95;
+            gun[97].ratiohp = 105;
+            gun[98].ratiohp = 90;
+            gun[99].ratiohp = 105;
+            gun[100].ratiohp = 105;
+
+            gun[0].ratiorate = 105;
+            gun[1].ratiorate = 95;
+            gun[2].ratiorate = 110;
+            gun[3].ratiorate = 130;
+            gun[4].ratiorate = 120;
+            gun[5].ratiorate = 85;
+            gun[6].ratiorate = 90;
+            gun[7].ratiorate = 130;
+            gun[8].ratiorate = 115;
+            gun[9].ratiorate = 115;
+            gun[10].ratiorate = 95;
+            gun[11].ratiorate = 115;
+            gun[12].ratiorate = 95;
+            gun[13].ratiorate = 105;
+            gun[14].ratiorate = 115;
+            gun[15].ratiorate = 95;
+            gun[16].ratiorate = 95;
+            gun[17].ratiorate = 120;
+            gun[18].ratiorate = 120;
+            gun[19].ratiorate = 105;
+            gun[20].ratiorate = 120;
+            gun[21].ratiorate = 105;
+            gun[22].ratiorate = 110;
+            gun[23].ratiorate = 105;
+            gun[24].ratiorate = 115;
+            gun[25].ratiorate = 115;
+            gun[26].ratiorate = 105;
+            gun[27].ratiorate = 120;
+            gun[28].ratiorate = 115;
+            gun[29].ratiorate = 115;
+            gun[30].ratiorate = 125;
+            gun[31].ratiorate = 100;
+            gun[32].ratiorate = 90;
+            gun[33].ratiorate = 115;
+            gun[34].ratiorate = 120;
+            gun[35].ratiorate = 120;
+            gun[36].ratiorate = 95;
+            gun[37].ratiorate = 85;
+            gun[38].ratiorate = 90;
+            gun[39].ratiorate = 125;
+            gun[40].ratiorate = 110;
+            gun[41].ratiorate = 115;
+            gun[42].ratiorate = 120;
+            gun[43].ratiorate = 115;
+            gun[44].ratiorate = 90;
+            gun[45].ratiorate = 80;
+            gun[46].ratiorate = 85;
+            gun[47].ratiorate = 100;
+            gun[48].ratiorate = 100;
+            gun[49].ratiorate = 115;
+            gun[50].ratiorate = 110;
+            gun[51].ratiorate = 125;
+            gun[52].ratiorate = 95;
+            gun[53].ratiorate = 100;
+            gun[54].ratiorate = 120;
+            gun[55].ratiorate = 105;
+            gun[56].ratiorate = 115;
+            gun[57].ratiorate = 120;
+            gun[58].ratiorate = 135;
+            gun[59].ratiorate = 105;
+            gun[60].ratiorate = 115;
+            gun[61].ratiorate = 115;
+            gun[62].ratiorate = 115;
+            gun[63].ratiorate = 115;
+            gun[64].ratiorate = 110;
+            gun[65].ratiorate = 105;
+            gun[66].ratiorate = 95;
+            gun[67].ratiorate = 100;
+            gun[68].ratiorate = 85;
+            gun[69].ratiorate = 80;
+            gun[70].ratiorate = 105;
+            gun[71].ratiorate = 115;
+            gun[72].ratiorate = 130;
+            gun[73].ratiorate = 105;
+            gun[74].ratiorate = 120;
+            gun[75].ratiorate = 115;
+            gun[76].ratiorate = 110;
+            gun[77].ratiorate = 120;
+            gun[78].ratiorate = 90;
+            gun[79].ratiorate = 95;
+            gun[80].ratiorate = 85;
+            gun[81].ratiorate = 90;
+            gun[82].ratiorate = 105;
+            gun[83].ratiorate = 115;
+            gun[84].ratiorate = 105;
+            gun[85].ratiorate = 125;
+            gun[86].ratiorate = 95;
+            gun[87].ratiorate = 80;
+            gun[88].ratiorate = 125;
+            gun[89].ratiorate = 110;
+            gun[90].ratiorate = 100;
+            gun[91].ratiorate = 90;
+            gun[92].ratiorate = 125;
+            gun[93].ratiorate = 120;
+            gun[94].ratiorate = 105;
+            gun[95].ratiorate = 125;
+            gun[96].ratiorate = 115;
+            gun[97].ratiorate = 95;
+            gun[98].ratiorate = 115;
+            gun[99].ratiorate = 110;
+            gun[100].ratiorate = 110;
         }
 
 
@@ -768,13 +1470,17 @@ namespace snqxap
             {
                 case 0:
                     {
-                        select = Combo0.SelectedIndex;
-                        if (select == -1)
+                        
+                       select = Combo0.SelectedIndex;
+                        int levelselect = Level0.SelectedIndex;
+                        calclevel(select, levelselect, 0);
+                        break;
+                   /*     if (select == -1)
                             return;
                         Ldamage0.Content = (gun[select].damage * gg[0].damageup*(1 + skillupdamage[0])).ToString("0");
                         Lhit0.Content = (gun[select].hit * gg[0].hitup * (1 + skilluphit[0])).ToString("0");
                         Lskillread0.Content = gun[select].skillcontent;
-                        Lskilldamage0.Content = (gun[select].skilldamage / gun[select].damage * Int32.Parse(Ldamage0.Content.ToString())).ToString("0");
+                        Lskilldamage0.Content = gun[select].skilldamage.ToString("0");
                         Ltime0.Content = gun[select].skilltime;
                         Image0.Source = new BitmapImage(new Uri(@gun[select].image,UriKind.Relative));
                         if (gun[select].belt == 0 && gun[select].shotspeed * gg[0].shotspeedup*(1 + skillupshotspeed[0]) > 120)
@@ -794,239 +1500,62 @@ namespace snqxap
                         nowdodge.Content = (Double.Parse(enemydodge.Text)*skilldowndodge).ToString("0");
                         Lindex0.Content = (Index(Double.Parse(Lshotspeed0.Content.ToString()), Double.Parse(Ldamage0.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit0.Content.ToString()), gun[select].belt, comboi)).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
-                        break;
+                        break;*/
                     }
                 case 1:
                     {
                         select = Combo1.SelectedIndex;
-                        if (select == -1)
-                            return;
-                        Ldamage1.Content = (gun[select].damage * gg[1].damageup * (1 + skillupdamage[1])).ToString("0");
-                        Lhit1.Content = (gun[select].hit * gg[1].hitup * (1 + skilluphit[1])).ToString("0");
-                        Lskillread1.Content = gun[select].skillcontent;
-                        Lskilldamage1.Content = (gun[select].skilldamage/ gun[select].damage * Int32.Parse(Ldamage1.Content.ToString())).ToString("0");
-                        Ltime1.Content = gun[select].skilltime;
-                        Image1.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
-                        if (gun[select].belt == 0 && gun[select].shotspeed * gg[1].shotspeedup * (1 + skillupshotspeed[1]) > 120)
-                            Lshotspeed1.Content = 120;
-                        else
-                           Lshotspeed1.Content = (gun[select].shotspeed * gg[1].shotspeedup * (1 + skillupshotspeed[1])).ToString("0");
-                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[1].rateup )> 1)
-                            Lskillrate1.Content = "100%";
-                        else
-                            Lskillrate1.Content = ((gun[select].skillrate * (1 + gg[1].rateup)) * 100).ToString() + "%";
-                        double crit = gun[select].crit * gg[1].critup;
-                        Lcrit1.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge1.Content = (gun[select].dodge * gg[1].dodgeup * (1 + skillupdodge[1])).ToString("0");
-                        Lhp1.Content = gun[select].hp;
-                        Lbelt1.Content = gun[select].belt;
-                        nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex1.Content = (Index(Double.Parse(Lshotspeed1.Content.ToString()), Double.Parse(Ldamage1.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit1.Content.ToString()), gun[select].belt, comboi)).ToString("0.00");
-                        allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
+                        int levelselect = Level1.SelectedIndex;
+                        calclevel(select, levelselect, 1);
                         break;
                     }
                 case 2:
                     {
                         select = Combo2.SelectedIndex;
-                        if (select == -1)
-                            return;
-                        Ldamage2.Content = (gun[select].damage * gg[2].damageup * (1 + skillupdamage[2])).ToString("0");
-                        Lhit2.Content = (gun[select].hit * gg[2].hitup * (1 + skilluphit[2])).ToString("0");
-                        Lskillread2.Content = gun[select].skillcontent;
-                        Lskilldamage2.Content = (gun[select].skilldamage/ gun[select].damage * Int32.Parse(Ldamage2.Content.ToString())).ToString("0");
-                        Ltime2.Content = gun[select].skilltime;
-                        Image2.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
-                        if (gun[select].belt == 0 && gun[select].shotspeed * gg[2].shotspeedup * (1 + skillupshotspeed[2]) > 120)
-                               Lshotspeed2.Content = 120.00;
-                        else
-                               Lshotspeed2.Content = (gun[select].shotspeed *gg[2].shotspeedup * (1 + skillupshotspeed[2])).ToString("0");
-                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[2].rateup) > 1)
-                            Lskillrate2.Content = "100%";
-                        else
-                            Lskillrate2.Content = ((gun[select].skillrate * (1 + gg[2].rateup)) * 100).ToString() + "%";
-                        double crit = gun[select].crit * gg[2].critup;
-                        Lcrit2.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge2.Content = (gun[select].dodge *gg[2].dodgeup * (1 + skillupdodge[2])).ToString("0");
-                        Lhp2.Content = gun[select].hp;
-                        Lbelt2.Content = gun[select].belt;
-                        nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex2.Content = (Index(Double.Parse(Lshotspeed2.Content.ToString()), Double.Parse(Ldamage2.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit2.Content.ToString()), gun[select].belt, comboi)).ToString("0.00");
-                        allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
+                        int levelselect = Level2.SelectedIndex;
+                        calclevel(select, levelselect, 2);
                         break;
                     }
                 case 3:
                     {
                         select = Combo3.SelectedIndex;
-                        if (select == -1)
-                            return;
-                        Ldamage3.Content = (gun[select].damage * gg[3].damageup * (1 + skillupdamage[3])).ToString("0");
-                        //   Ldamage3.Content = (gun[select].damage * (gg[3].damageup + skillupdamage[3])).ToString("0.00"); //加法
-                        Lhit3.Content = (gun[select].hit * gg[3].hitup * (1 + skilluphit[3])).ToString("0");
-                        Lskillread3.Content = gun[select].skillcontent;
-                        Lskilldamage3.Content = (gun[select].skilldamage/ gun[select].damage * Int32.Parse(Ldamage3.Content.ToString())).ToString("0");
-                        Ltime3.Content = gun[select].skilltime;
-                        Image3.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
-                        if (gun[select].belt == 0 && gun[select].shotspeed * gg[3].shotspeedup * (1 + skillupshotspeed[3]) > 120)
-                            Lshotspeed3.Content = 120.00;
-                        else
-                              Lshotspeed3.Content = (gun[select].shotspeed * gg[3].shotspeedup * (1 + skillupshotspeed[3])).ToString("0");
-                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[3].rateup) > 1)
-                            Lskillrate3.Content = "100%";
-                        else
-                            Lskillrate3.Content = ((gun[select].skillrate * (1 + gg[3].rateup)) * 100).ToString() + "%";
-                        double crit = gun[select].crit * gg[3].critup;
-                        Lcrit3.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge3.Content = (gun[select].dodge *gg[3].dodgeup * (1 + skillupdodge[3])).ToString("0");
-                        Lhp3.Content = gun[select].hp;
-                        Lbelt3.Content = gun[select].belt;
-                        nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex3.Content = (Index(Double.Parse(Lshotspeed3.Content.ToString()), Double.Parse(Ldamage3.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit3.Content.ToString()), gun[select].belt, comboi)).ToString("0.00");
-                        allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
+                        int levelselect = Level3.SelectedIndex;
+                        calclevel(select, levelselect, 3);
                         break;
                     }
                 case 4:
                     {
                         select = Combo4.SelectedIndex;
-                        if (select == -1)
-                            return;
-                        Ldamage4.Content = (gun[select].damage * gg[4].damageup * (1 + skillupdamage[4])).ToString("0");
-                        Lhit4.Content = (gun[select].hit *gg[4].hitup * (1 + skilluphit[4])).ToString("0");
-                        Lskillread4.Content = gun[select].skillcontent;
-                        Lskilldamage4.Content =( gun[select].skilldamage/ gun[select].damage * Int32.Parse(Ldamage4.Content.ToString())).ToString("0");
-                        Ltime4.Content = gun[select].skilltime;
-                        Image4.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
-                        if (gun[select].belt == 0 && gun[select].shotspeed * gg[4].shotspeedup * (1 + skillupshotspeed[4]) > 120)
-                            Lshotspeed4.Content = 120.00;
-                        else
-                           Lshotspeed4.Content = (gun[select].shotspeed * gg[4].shotspeedup * (1 + skillupshotspeed[4])).ToString("0");
-                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[4].rateup) > 1)
-                            Lskillrate4.Content = "100%";
-                        else
-                            Lskillrate4.Content = ((gun[select].skillrate * (1 + gg[4].rateup) )* 100).ToString() + "%";
-                        double crit = gun[select].crit * gg[4].critup;
-                        Lcrit4.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge4.Content = (gun[select].dodge * gg[4].dodgeup * (1 + skillupdodge[4])).ToString("0");
-                        Lhp4.Content = gun[select].hp;
-                        Lbelt4.Content = gun[select].belt;
-                        nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex4.Content = (Index(Double.Parse(Lshotspeed4.Content.ToString()), Double.Parse(Ldamage4.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit4.Content.ToString()), gun[select].belt, comboi)).ToString("0.00");
-                        allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
+                        int levelselect = Level4.SelectedIndex;
+                        calclevel(select, levelselect, 4);
                         break;
                     }
                 case 5:
                     {
                         select = Combo5.SelectedIndex;
-                        if (select == -1)
-                            return;
-                        Ldamage5.Content = (gun[select].damage * gg[5].damageup * (1 + skillupdamage[5])).ToString("0");
-                        Lhit5.Content = (gun[select].hit * gg[5].hitup * (1 + skilluphit[5])).ToString("0");
-                        Lskillread5.Content = gun[select].skillcontent;
-                        Lskilldamage5.Content = (gun[select].skilldamage/ gun[select].damage * Int32.Parse(Ldamage5.Content.ToString())).ToString("0");
-                        Ltime5.Content = gun[select].skilltime;
-                        Image5.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
-                        if (gun[select].belt == 0 && gun[select].shotspeed * gg[5].shotspeedup * (1 + skillupshotspeed[5]) > 120)
-                            Lshotspeed5.Content = 120.00;
-                        else
-                            Lshotspeed5.Content = (gun[select].shotspeed * gg[5].shotspeedup * (1 + skillupshotspeed[5])).ToString("0");
-                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[5].rateup) > 1)
-                            Lskillrate5.Content = "100%";
-                        else
-                            Lskillrate5.Content = ((gun[select].skillrate * (1 + gg[5].rateup)) * 100).ToString() + "%";
-                        double crit = gun[select].crit * gg[5].critup;
-                        Lcrit5.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge5.Content = (gun[select].dodge * gg[5].dodgeup * (1 + skillupdodge[5])).ToString("0");
-                        Lhp5.Content = gun[select].hp;
-                        Lbelt5.Content = gun[select].belt;
-                        nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex5.Content = (Index(Double.Parse(Lshotspeed5.Content.ToString()), Double.Parse(Ldamage5.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit5.Content.ToString()), gun[select].belt, comboi)).ToString("0.00");
-                        allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
+                        int levelselect = Level5.SelectedIndex;
+                        calclevel(select, levelselect, 5);
                         break;
                     }
                 case 6:
                     {
                         select = Combo6.SelectedIndex;
-                        if (select == -1)
-                            return;
-                        Ldamage6.Content = (gun[select].damage * gg[6].damageup * (1 + skillupdamage[6])).ToString("0");
-                        Lhit6.Content = (gun[select].hit * gg[6].hitup * (1 + skilluphit[6])).ToString("0");
-                        Lskillread6.Content = gun[select].skillcontent;
-                        Lskilldamage6.Content = (gun[select].skilldamage/ gun[select].damage * Int32.Parse(Ldamage6.Content.ToString())).ToString("0");
-                        Ltime6.Content = gun[select].skilltime;
-                        Image6.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
-                        if (gun[select].belt == 0 && gun[select].shotspeed * gg[6].shotspeedup * (1 + skillupshotspeed[6]) > 120)
-                            Lshotspeed6.Content = 120.00;
-                        else
-                          Lshotspeed6.Content = (gun[select].shotspeed * gg[6].shotspeedup * (1 + skillupshotspeed[6])).ToString("0");
-                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[6].rateup) > 1)
-                            Lskillrate6.Content = "100%";
-                        else
-                            Lskillrate6.Content = ((gun[select].skillrate * (1 + gg[6].rateup) )* 100).ToString() + "%";
-                        double crit = gun[select].crit * gg[6].critup;
-                        Lcrit6.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge6.Content = (gun[select].dodge * gg[6].dodgeup * (1 + skillupdodge[6])).ToString("0");
-                        Lhp6.Content = gun[select].hp;
-                        Lbelt6.Content = gun[select].belt;
-                        nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex6.Content = (Index(Double.Parse(Lshotspeed6.Content.ToString()), Double.Parse(Ldamage6.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit6.Content.ToString()), gun[select].belt, comboi)).ToString("0.00");
-                        allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
+                        int levelselect = Level6.SelectedIndex;
+                        calclevel(select, levelselect, 6);
                         break;
                     }
                 case 7:
                     {
                         select = Combo7.SelectedIndex;
-                        if (select == -1)
-                            return;
-                        Ldamage7.Content = (gun[select].damage * gg[7].damageup * (1 + skillupdamage[7])).ToString("0");
-                        Lhit7.Content = (gun[select].hit *gg[7].hitup * (1 + skilluphit[7])).ToString("0");
-                        Lskillread7.Content = gun[select].skillcontent;
-                        Lskilldamage7.Content =( gun[select].skilldamage/ gun[select].damage * Int32.Parse(Ldamage7.Content.ToString())).ToString("0");
-                        Ltime7.Content = gun[select].skilltime;
-                        Image7.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
-                        if (gun[select].belt == 0 && gun[select].shotspeed * gg[7].shotspeedup * (1 + skillupshotspeed[7]) > 120)
-                            Lshotspeed7.Content = 120.00;
-                        else
-                        Lshotspeed7.Content = (gun[select].shotspeed *gg[7].shotspeedup * (1 + skillupshotspeed[7])).ToString("0");
-                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[7].rateup )> 1)
-                            Lskillrate7.Content = "100%";
-                        else
-                            Lskillrate7.Content = ((gun[select].skillrate * (1 + gg[7].rateup) )* 100).ToString() + "%";
-                        double crit = gun[select].crit * gg[7].critup;
-                        Lcrit7.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge7.Content = (gun[select].dodge *gg[7].dodgeup * (1 + skillupdodge[7])).ToString("0");
-                        Lhp7.Content = gun[select].hp;
-                        Lbelt7.Content = gun[select].belt;
-                        nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex7.Content = (Index(Double.Parse(Lshotspeed7.Content.ToString()), Double.Parse(Ldamage7.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit7.Content.ToString()), gun[select].belt, comboi)).ToString("0.00");
-                        allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
+                        int levelselect = Level7.SelectedIndex;
+                        calclevel(select, levelselect, 7);
                         break;
                     }
                 case 8:
                     {
                         select = Combo8.SelectedIndex;
-                        if (select == -1)
-                            return;
-                        Ldamage8.Content = (gun[select].damage * gg[8].damageup * (1 + skillupdamage[8])).ToString("0");
-                        Lhit8.Content = (gun[select].hit * gg[8].hitup * (1 + skilluphit[8])).ToString("0");
-                        Lskillread8.Content = gun[select].skillcontent;
-                        Lskilldamage8.Content = (gun[select].skilldamage/ gun[select].damage * Int32.Parse(Ldamage8.Content.ToString())).ToString("0");
-                        Ltime8.Content = gun[select].skilltime;
-                        Image8.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
-                        if (gun[select].belt == 0 && gun[select].shotspeed * gg[8].shotspeedup * (1 + skillupshotspeed[8]) > 120)
-                            Lshotspeed8.Content = 120.00;
-                        else
-                        Lshotspeed8.Content = (gun[select].shotspeed *gg[8].shotspeedup * (1 + skillupshotspeed[8])).ToString("0");
-                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[8].rateup )> 1)
-                            Lskillrate8.Content = "100%";
-                        else
-                            Lskillrate8.Content = ((gun[select].skillrate * (1 + gg[8].rateup)) * 100).ToString() + "%";
-                        double crit = gun[select].crit * gg[8].critup;
-                        Lcrit8.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge8.Content = (gun[select].dodge * gg[8].dodgeup * (1 + skillupdodge[8])).ToString("0");
-                        Lhp8.Content = gun[select].hp;
-                        Lbelt8.Content = gun[select].belt;
-                        nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex8.Content = (Index(Double.Parse(Lshotspeed8.Content.ToString()), Double.Parse(Ldamage8.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit8.Content.ToString()),gun[select].belt, comboi)).ToString("0.00");
-                        allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
+                        int levelselect = Level8.SelectedIndex;
+                        calclevel(select, levelselect, 8);
                         break;
                     }
             }
@@ -1557,7 +2086,10 @@ namespace snqxap
 
             int select = Combo0.SelectedIndex;
             if (select == -1)
+            {
+                
                 return;
+            }
             for (int i = 0; i < 9; i++)
             {
                 if (getcombogunname(i) != ""&&getcombogunname(i)!=null)
@@ -3010,7 +3542,7 @@ namespace snqxap
                 {
                     case 1:
                         {
-                            if(gun[index].what != 5)
+                            if (gun[index].what != 5)
                             {
                                 Lskilldamage0.Content = (gun[index].skilldamage / gun[index].damage * Int32.Parse(Ldamage0.Content.ToString())).ToString("0");
                                 Lskilldamage1.Content = (gun[index].skilldamage / gun[index].damage * Int32.Parse(Ldamage1.Content.ToString())).ToString("0");
@@ -3024,7 +3556,6 @@ namespace snqxap
                             }
                             break;
                         }
-
                     //   skilltype : 4 upalldamage 6 upmydamage 8downallhit 9upmyhit 18 upmyshotspeed 19 烟雾弹 21 upalldodge 22 downalldodge 23 upmydodge 24 upallhit 26 upallshotspeed
                     case 4:
                         {
@@ -3928,6 +4459,452 @@ namespace snqxap
         {
             enemydata ed = new enemydata();
             ed.Show();
+        }
+
+        private void calclevel(int select,int levelselect,int combo)
+        {
+            if (select == -1)
+                return;
+            if (levelselect == -1 || levelselect == 101)
+                return;
+            float[] array = arrAbilityRatio[gun[select].what];
+            float num = 55f;
+            float num2 = 0.555f;
+            float num3 = 100f;
+            double maxLife = Math.Ceiling((num + levelselect * num2) * array[0] * gun[select].ratiohp / num3);
+
+           // 110 = (55 + 0.555)*1.6*hp/100)
+
+            num = 16f;
+            num2 = 100f;
+            double basePow = Math.Ceiling(num * array[1] * gun[select].ratiopow / num2);
+            num = 0.242f;
+            num2 = 100f;
+            num3 = 100f;
+            double maxAddPow = Math.Ceiling(levelselect  * num * array[1] * gun[select].ratiopow * gun[select].eatratio / num2 / num3);
+            num = 45f;
+            num2 = 100f;
+            double baseRate = Math.Ceiling(num * array[2] * gun[select].ratiorate / num2);
+            num = 0.181f;
+            num2 = 100f;
+            num3 = 100f;
+            double  maxAddRate= Math.Ceiling(levelselect  * num * array[2] * gun[select].ratiorate*gun[select].eatratio / num2 / num3);
+            num = 5f;
+            num2 = 100f;
+            double basehit = Math.Ceiling(num * array[4] * gun[select].ratiohit / num2);
+            num = 0.303f;
+            num2 = 100f;
+            num3 = 100f;
+            double maxAddHit = Math.Ceiling(levelselect  * num * array[4] * gun[select].ratiohit * gun[select].eatratio / num2 / num3);
+            
+            num = 5f;
+            num2 = 100f;
+            double baseDodge = Math.Ceiling(num * array[5] * gun[select].ratiododge / num2);
+            num = 0.303f;
+            num2 = 100f;
+            num3 = 100f;
+            double maxAddDodge = Math.Ceiling(levelselect  * num * array[5] * gun[select].ratiododge *gun[select].eatratio / num2 / num3);
+
+            switch(combo)
+            {
+                case 0:
+                    {
+
+                        /*                        select = Combo0.SelectedIndex;
+                        if (select == -1)
+                            return;
+                        Ldamage0.Content = (gun[select].damage * gg[0].damageup*(1 + skillupdamage[0])).ToString("0");
+                        Lhit0.Content = (gun[select].hit * gg[0].hitup * (1 + skilluphit[0])).ToString("0");
+                        Lskillread0.Content = gun[select].skillcontent;
+                        Lskilldamage0.Content = gun[select].skilldamage.ToString("0");
+                        Ltime0.Content = gun[select].skilltime;
+                        Image0.Source = new BitmapImage(new Uri(@gun[select].image,UriKind.Relative));
+                        if (gun[select].belt == 0 && gun[select].shotspeed * gg[0].shotspeedup*(1 + skillupshotspeed[0]) > 120)
+                            Lshotspeed0.Content = 120;
+                        else
+                            Lshotspeed0.Content = (gun[select].shotspeed * gg[0].shotspeedup * (1 + skillupshotspeed[0])).ToString("0");
+                        if (gun[select].what == 4 && gun[select].skillrate *(1+ gg[0].rateup) > 1)
+                            Lskillrate0.Content = "100%";
+                        else
+                            Lskillrate0.Content = ((gun[select].skillrate * (1+ gg[0].rateup)) * 100).ToString("0") + "%";
+                        double crit = gun[select].crit * gg[0].critup;
+                        Lcrit0.Content = (crit*100).ToString("0")+"%";
+
+                        Ldodge0.Content = (gun[select].dodge * gg[0].dodgeup * (1 + skillupdodge[0])).ToString("0");
+                        Lhp0.Content = gun[select].hp;
+                        Lbelt0.Content = gun[select].belt;
+                        nowdodge.Content = (Double.Parse(enemydodge.Text)*skilldowndodge).ToString("0");
+                        Lindex0.Content = (Index(Double.Parse(Lshotspeed0.Content.ToString()), Double.Parse(Ldamage0.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit0.Content.ToString()), gun[select].belt, comboi)).ToString("0.00");
+                        allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
+                        break;*/
+                        Lhp0.Content = maxLife;
+                        Ldamage0.Content = ((basePow + maxAddPow) * gg[0].damageup * (1 + skillupdamage[0])).ToString("0") ;
+                        Lhit0.Content =(( basehit + maxAddHit) * gg[0].hitup * (1 + skilluphit[0])).ToString("0");
+                        Lskillread0.Content = gun[select].skillcontent;
+              //          Lskilldamage0.Content = gun[select].skilldamage.ToString("0");
+                        Lskilldamage0.Content = (gun[select].skilldamage / gun[select].damage * Int32.Parse(Ldamage0.Content.ToString())).ToString("0");
+
+                        Ltime0.Content = gun[select].skilltime;
+                        Image0.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
+                        if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[0].shotspeedup * (1 + skillupshotspeed[0]) > 120)
+                            Lshotspeed0.Content = 120;
+                        else
+                            Lshotspeed0.Content = ((baseRate + maxAddRate) * gg[0].shotspeedup * (1 + skillupshotspeed[0])).ToString("0");
+                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[0].rateup) > 1)
+                            Lskillrate0.Content = "100%";
+                        else
+                            Lskillrate0.Content = ((gun[select].skillrate * (1 + gg[0].rateup)) * 100).ToString("0") + "%";
+                        double crit = gun[select].crit * gg[0].critup;
+                        Lcrit0.Content = (crit * 100).ToString("0") + "%";
+                        Ldodge0.Content =  ((baseDodge + maxAddDodge) * gg[0].dodgeup * (1 + skillupdodge[0])).ToString("0");
+                        Lbelt0.Content = gun[select].belt;
+                        nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
+                        Lindex0.Content = Index(Double.Parse(Lshotspeed0.Content.ToString()), Double.Parse(Ldamage0.Content.ToString()), gun[select].crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit0.Content.ToString()), gun[select].belt, 0).ToString("0.00");
+                        allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
+                        if(rb0.IsChecked==true)
+                            calctank(0);
+                        if(rbf0.IsChecked==true)
+                            calcftank(0);
+                        break;
+                    }
+                case 1:
+                    {
+                        Lhp1.Content = maxLife;
+                        Ldamage1.Content = ((basePow + maxAddPow) * gg[1].damageup * (1 + skillupdamage[1])).ToString("0");
+                        Lhit1.Content = ((basehit + maxAddHit) * gg[1].hitup * (1 + skilluphit[1])).ToString("0");
+                        Lskillread1.Content = gun[select].skillcontent;
+                        Lskilldamage1.Content = (gun[select].skilldamage / gun[select].damage * Int32.Parse(Ldamage1.Content.ToString())).ToString("0");
+                        Ltime1.Content = gun[select].skilltime;
+                        Image1.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
+                        if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[1].shotspeedup * (1 + skillupshotspeed[1]) > 120)
+                            Lshotspeed1.Content = 120;
+                        else
+                            Lshotspeed1.Content = ((baseRate + maxAddRate) * gg[1].shotspeedup * (1 + skillupshotspeed[1])).ToString("0");
+                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[1].rateup) > 1)
+                            Lskillrate1.Content = "100%";
+                        else
+                            Lskillrate1.Content = ((gun[select].skillrate * (1 + gg[1].rateup)) * 100).ToString("0") + "%";
+                        double crit = gun[select].crit * gg[1].critup;
+                        Lcrit1.Content = (crit * 100).ToString("0") + "%";
+                        Ldodge1.Content = ((baseDodge + maxAddDodge) * gg[1].dodgeup * (1 + skillupdodge[1])).ToString("0");
+                        Lbelt1.Content = gun[select].belt;
+                        nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
+                        Lindex1.Content = Index(Double.Parse(Lshotspeed1.Content.ToString()), Double.Parse(Ldamage1.Content.ToString()), gun[select].crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit1.Content.ToString()), gun[select].belt, 1).ToString("0.00");
+                        allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
+                        if (rb1.IsChecked == true)
+                            calctank(1);
+                        if (rbf1.IsChecked == true)
+                            calcftank(1);
+                        break;
+                    }
+                case 2:
+                    {
+                        Lhp2.Content = maxLife;
+                        Ldamage2.Content = ((basePow + maxAddPow) * gg[2].damageup * (1 + skillupdamage[2])).ToString("0");
+                        Lhit2.Content = ((basehit + maxAddHit) * gg[2].hitup * (1 + skilluphit[2])).ToString("0");
+                        Lskillread2.Content = gun[select].skillcontent;
+                        Lskilldamage2.Content = (gun[select].skilldamage / gun[select].damage * Int32.Parse(Ldamage2.Content.ToString())).ToString("0");
+                        Ltime2.Content = gun[select].skilltime;
+                        Image2.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
+                        if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[2].shotspeedup * (1 + skillupshotspeed[2]) > 120)
+                            Lshotspeed2.Content = 120;
+                        else
+                            Lshotspeed2.Content = ((baseRate + maxAddRate) * gg[2].shotspeedup * (1 + skillupshotspeed[2])).ToString("0");
+                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[2].rateup) > 1)
+                            Lskillrate2.Content = "100%";
+                        else
+                            Lskillrate2.Content = ((gun[select].skillrate * (1 + gg[2].rateup)) * 100).ToString("0") + "%";
+                        double crit = gun[select].crit * gg[2].critup;
+                        Lcrit2.Content = (crit * 100).ToString("0") + "%";
+                        Ldodge2.Content = ((baseDodge + maxAddDodge) * gg[2].dodgeup * (1 + skillupdodge[2])).ToString("0");
+                        Lbelt2.Content = gun[select].belt;
+                        nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
+                        Lindex2.Content = Index(Double.Parse(Lshotspeed2.Content.ToString()), Double.Parse(Ldamage2.Content.ToString()), gun[select].crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit2.Content.ToString()), gun[select].belt, 2).ToString("0.00");
+                        allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
+                        if (rb2.IsChecked == true)
+                            calctank(2);
+                        if (rbf2.IsChecked == true)
+                            calcftank(2);
+                        break;
+                    }
+                case 3:
+                    {
+                        Lhp3.Content = maxLife;
+                        Ldamage3.Content = ((basePow + maxAddPow) * gg[3].damageup * (1 + skillupdamage[3])).ToString("0");
+                        Lhit3.Content = ((basehit + maxAddHit) * gg[3].hitup * (1 + skilluphit[3])).ToString("0");
+                        Lskillread3.Content = gun[select].skillcontent;
+                        Lskilldamage3.Content = (gun[select].skilldamage / gun[select].damage * Int32.Parse(Ldamage3.Content.ToString())).ToString("0");
+                        Ltime3.Content = gun[select].skilltime;
+                        Image3.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
+                        if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[3].shotspeedup * (1 + skillupshotspeed[3]) > 120)
+                            Lshotspeed3.Content = 120;
+                        else
+                            Lshotspeed3.Content = ((baseRate + maxAddRate) * gg[3].shotspeedup * (1 + skillupshotspeed[3])).ToString("0");
+                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[3].rateup) > 1)
+                            Lskillrate3.Content = "100%";
+                        else
+                            Lskillrate3.Content = ((gun[select].skillrate * (1 + gg[3].rateup)) * 100).ToString("0") + "%";
+                        double crit = gun[select].crit * gg[3].critup;
+                        Lcrit3.Content = (crit * 100).ToString("0") + "%";
+                        Ldodge3.Content = ((baseDodge + maxAddDodge) * gg[3].dodgeup * (1 + skillupdodge[3])).ToString("0");
+                        Lbelt3.Content = gun[select].belt;
+                        nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
+                        Lindex3.Content = Index(Double.Parse(Lshotspeed3.Content.ToString()), Double.Parse(Ldamage3.Content.ToString()), gun[select].crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit3.Content.ToString()), gun[select].belt, 3).ToString("0.00");
+                        allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
+                        if (rb3.IsChecked == true)
+                            calctank(3);
+                        if (rbf3.IsChecked == true)
+                            calcftank(3);
+                        break;
+                    }
+                case 4:
+                    {
+                        Lhp4.Content = maxLife;
+                        Ldamage4.Content = ((basePow + maxAddPow) * gg[4].damageup * (1 + skillupdamage[4])).ToString("0");
+                        Lhit4.Content = ((basehit + maxAddHit) * gg[4].hitup * (1 + skilluphit[4])).ToString("0");
+                        Lskillread4.Content = gun[select].skillcontent;
+                        Lskilldamage4.Content = (gun[select].skilldamage / gun[select].damage * Int32.Parse(Ldamage4.Content.ToString())).ToString("0");
+                        Ltime4.Content = gun[select].skilltime;
+                        Image4.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
+                        if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[4].shotspeedup * (1 + skillupshotspeed[4]) > 120)
+                            Lshotspeed4.Content = 120;
+                        else
+                            Lshotspeed4.Content = ((baseRate + maxAddRate) * gg[4].shotspeedup * (1 + skillupshotspeed[4])).ToString("0");
+                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[4].rateup) > 1)
+                            Lskillrate4.Content = "100%";
+                        else
+                            Lskillrate4.Content = ((gun[select].skillrate * (1 + gg[4].rateup)) * 100).ToString("0") + "%";
+                        double crit = gun[select].crit * gg[4].critup;
+                        Lcrit4.Content = (crit * 100).ToString("0") + "%";
+                        Ldodge4.Content = ((baseDodge + maxAddDodge) * gg[4].dodgeup * (1 + skillupdodge[4])).ToString("0");
+                        Lbelt4.Content = gun[select].belt;
+                        nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
+                        Lindex4.Content = Index(Double.Parse(Lshotspeed4.Content.ToString()), Double.Parse(Ldamage4.Content.ToString()), gun[select].crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit4.Content.ToString()), gun[select].belt, 4).ToString("0.00");
+                        allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
+                        if (rb4.IsChecked == true)
+                            calctank(4);
+                        if (rbf4.IsChecked == true)
+                            calcftank(4);
+                        break;
+                    }
+                case 5:
+                    {
+                        Lhp5.Content = maxLife;
+                        Ldamage5.Content = ((basePow + maxAddPow) * gg[5].damageup * (1 + skillupdamage[5])).ToString("0");
+                        Lhit5.Content = ((basehit + maxAddHit) * gg[5].hitup * (1 + skilluphit[5])).ToString("0");
+                        Lskillread5.Content = gun[select].skillcontent;
+                        Lskilldamage5.Content = (gun[select].skilldamage / gun[select].damage * Int32.Parse(Ldamage5.Content.ToString())).ToString("0");
+                        Ltime5.Content = gun[select].skilltime;
+                        Image5.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
+                        if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[5].shotspeedup * (1 + skillupshotspeed[5]) > 120)
+                            Lshotspeed5.Content = 120;
+                        else
+                            Lshotspeed5.Content = ((baseRate + maxAddRate) * gg[5].shotspeedup * (1 + skillupshotspeed[5])).ToString("0");
+                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[5].rateup) > 1)
+                            Lskillrate5.Content = "100%";
+                        else
+                            Lskillrate5.Content = ((gun[select].skillrate * (1 + gg[5].rateup)) * 100).ToString("0") + "%";
+                        double crit = gun[select].crit * gg[5].critup;
+                        Lcrit5.Content = (crit * 100).ToString("0") + "%";
+                        Ldodge5.Content = ((baseDodge + maxAddDodge) * gg[5].dodgeup * (1 + skillupdodge[5])).ToString("0");
+                        Lbelt5.Content = gun[select].belt;
+                        nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
+                        Lindex5.Content = Index(Double.Parse(Lshotspeed5.Content.ToString()), Double.Parse(Ldamage5.Content.ToString()), gun[select].crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit5.Content.ToString()), gun[select].belt, 5).ToString("0.00");
+                        allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
+                        if (rb5.IsChecked == true)
+                            calctank(5);
+                        if (rbf5.IsChecked == true)
+                            calcftank(5);
+                        break;
+                    }
+                case 6:
+                    {
+                        Lhp6.Content = maxLife;
+                        Ldamage6.Content = ((basePow + maxAddPow) * gg[6].damageup * (1 + skillupdamage[6])).ToString("0");
+                        Lhit6.Content = ((basehit + maxAddHit) * gg[6].hitup * (1 + skilluphit[6])).ToString("0");
+                        Lskillread6.Content = gun[select].skillcontent;
+                        Lskilldamage6.Content = (gun[select].skilldamage / gun[select].damage * Int32.Parse(Ldamage6.Content.ToString())).ToString("0");
+                        Ltime6.Content = gun[select].skilltime;
+                        Image6.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
+                        if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[6].shotspeedup * (1 + skillupshotspeed[6]) > 120)
+                            Lshotspeed6.Content = 120;
+                        else
+                            Lshotspeed6.Content = ((baseRate + maxAddRate) * gg[6].shotspeedup * (1 + skillupshotspeed[6])).ToString("0");
+                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[6].rateup) > 1)
+                            Lskillrate6.Content = "100%";
+                        else
+                            Lskillrate6.Content = ((gun[select].skillrate * (1 + gg[6].rateup)) * 100).ToString("0") + "%";
+                        double crit = gun[select].crit * gg[6].critup;
+                        Lcrit6.Content = (crit * 100).ToString("0") + "%";
+                        Ldodge6.Content = ((baseDodge + maxAddDodge) * gg[6].dodgeup * (1 + skillupdodge[6])).ToString("0");
+                        Lbelt6.Content = gun[select].belt;
+                        nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
+                        Lindex6.Content = Index(Double.Parse(Lshotspeed6.Content.ToString()), Double.Parse(Ldamage6.Content.ToString()), gun[select].crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit6.Content.ToString()), gun[select].belt, 6).ToString("0.00");
+                        allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
+                        if (rb6.IsChecked == true)
+                            calctank(6);
+                        if (rbf6.IsChecked == true)
+                            calcftank(6);
+                        break;
+                    }
+                case 7:
+                    {
+                        Lhp7.Content = maxLife;
+                        Ldamage7.Content = ((basePow + maxAddPow) * gg[7].damageup * (1 + skillupdamage[7])).ToString("0");
+                        Lhit7.Content = ((basehit + maxAddHit) * gg[7].hitup * (1 + skilluphit[7])).ToString("0");
+                        Lskillread7.Content = gun[select].skillcontent;
+                        Lskilldamage7.Content = (gun[select].skilldamage / gun[select].damage * Int32.Parse(Ldamage7.Content.ToString())).ToString("0");
+                        Ltime7.Content = gun[select].skilltime;
+                        Image7.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
+                        if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[7].shotspeedup * (1 + skillupshotspeed[7]) > 120)
+                            Lshotspeed7.Content = 120;
+                        else
+                            Lshotspeed7.Content = ((baseRate + maxAddRate) * gg[7].shotspeedup * (1 + skillupshotspeed[7])).ToString("0");
+                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[7].rateup) > 1)
+                            Lskillrate7.Content = "100%";
+                        else
+                            Lskillrate7.Content = ((gun[select].skillrate * (1 + gg[7].rateup)) * 100).ToString("0") + "%";
+                        double crit = gun[select].crit * gg[7].critup;
+                        Lcrit7.Content = (crit * 100).ToString("0") + "%";
+                        Ldodge7.Content = ((baseDodge + maxAddDodge) * gg[7].dodgeup * (1 + skillupdodge[7])).ToString("0");
+                        Lbelt7.Content = gun[select].belt;
+                        nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
+                        Lindex7.Content = Index(Double.Parse(Lshotspeed7.Content.ToString()), Double.Parse(Ldamage7.Content.ToString()), gun[select].crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit7.Content.ToString()), gun[select].belt, 7).ToString("0.00");
+                        allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
+                        if (rb7.IsChecked == true)
+                            calctank(7);
+                        if (rbf7.IsChecked == true)
+                            calcftank(7);
+                        break;
+                    }
+                case 8:
+                    {
+                        Lhp8.Content = maxLife;
+                        Ldamage8.Content = ((basePow + maxAddPow) * gg[8].damageup * (1 + skillupdamage[8])).ToString("0");
+                        Lhit8.Content = ((basehit + maxAddHit) * gg[8].hitup * (1 + skilluphit[8])).ToString("0");
+                        Lskillread8.Content = gun[select].skillcontent;
+                        Lskilldamage8.Content = (gun[select].skilldamage / gun[select].damage * Int32.Parse(Ldamage8.Content.ToString())).ToString("0");
+                        Ltime8.Content = gun[select].skilltime;
+                        Image8.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
+                        if (gun[select].belt == 0 && (baseRate + maxAddRate) * gg[8].shotspeedup * (1 + skillupshotspeed[8]) > 120)
+                            Lshotspeed8.Content = 120;
+                        else
+                            Lshotspeed8.Content = ((baseRate + maxAddRate) * gg[8].shotspeedup * (1 + skillupshotspeed[8])).ToString("0");
+                        if (gun[select].what == 4 && gun[select].skillrate * (1 + gg[8].rateup) > 1)
+                            Lskillrate8.Content = "100%";
+                        else
+                            Lskillrate8.Content = ((gun[select].skillrate * (1 + gg[8].rateup)) * 100).ToString("0") + "%";
+                        double crit = gun[select].crit * gg[8].critup;
+                        Lcrit8.Content = (crit * 100).ToString("0") + "%";
+                        Ldodge8.Content = ((baseDodge + maxAddDodge) * gg[8].dodgeup * (1 + skillupdodge[8])).ToString("0");
+                        Lbelt8.Content = gun[select].belt;
+                        nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
+                        Lindex8.Content = Index(Double.Parse(Lshotspeed8.Content.ToString()), Double.Parse(Ldamage8.Content.ToString()), gun[select].crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit8.Content.ToString()), gun[select].belt, 8).ToString("0.00");
+                        allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
+                        if (rb8.IsChecked == true)
+                            calctank(8);
+                        if (rbf8.IsChecked == true)
+                            calcftank(8);
+                        break;
+                    }
+                default: break;
+            }
+
+         
+         //   MessageBox.Show((baseDodge + maxAddDodge).ToString("0"));
+        }
+
+        private void Level0_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int select = Combo0.SelectedIndex;
+            if (select == -1 || select == 101)
+                return;
+            int levelselect = Level0.SelectedIndex;
+            if (levelselect == -1 || levelselect == 101)
+                return;
+            calclevel(select, levelselect,0);
+
+        }
+        private void Level1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int select = Combo1.SelectedIndex;
+            if (select == -1 || select == 101)
+                return;
+            int levelselect = Level1.SelectedIndex;
+            if (levelselect == -1 || levelselect == 101)
+                return;
+            calclevel(select, levelselect, 1);
+        }
+        private void Level2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int select = Combo2.SelectedIndex;
+            if (select == -1 || select == 101)
+                return;
+            int levelselect = Level2.SelectedIndex;
+            if (levelselect == -1 || levelselect == 101)
+                return;
+            calclevel(select, levelselect, 2);
+        }
+        private void Level3_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int select = Combo3.SelectedIndex;
+            if (select == -1 || select == 101)
+                return;
+            int levelselect = Level3.SelectedIndex;
+            if (levelselect == -1 || levelselect == 101)
+                return;
+            calclevel(select, levelselect, 3);
+        }
+        private void Level4_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int select = Combo4.SelectedIndex;
+            if (select == -1 || select == 101)
+                return;
+            int levelselect = Level4.SelectedIndex;
+            if (levelselect == -1 || levelselect == 101)
+                return;
+            calclevel(select, levelselect, 4);
+        }
+        private void Level5_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int select = Combo5.SelectedIndex;
+            if (select == -1 || select == 101)
+                return;
+            int levelselect = Level5.SelectedIndex;
+            if (levelselect == -1 || levelselect == 101)
+                return;
+            calclevel(select, levelselect, 5);
+        }
+        private void Level6_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int select = Combo6.SelectedIndex;
+            if (select == -1 || select == 101)
+                return;
+            int levelselect = Level6.SelectedIndex;
+            if (levelselect == -1 || levelselect == 101)
+                return;
+            calclevel(select, levelselect, 6);
+        }
+        private void Level7_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int select = Combo7.SelectedIndex;
+            if (select == -1 || select == 101)
+                return;
+            int levelselect = Level7.SelectedIndex;
+            if (levelselect == -1 || levelselect == 101)
+                return;
+            calclevel(select, levelselect, 7);
+        }
+
+        private void Level8_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int select = Combo8.SelectedIndex;
+            if (select == -1 || select == 101)
+                return;
+            int levelselect = Level8.SelectedIndex;
+            if (levelselect == -1 || levelselect == 101)
+                return;
+            calclevel(select, levelselect, 8);
         }
     }
 }
