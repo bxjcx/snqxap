@@ -23,7 +23,7 @@ namespace snqxap
     public partial class MainWindow : Window
     {
 
-        Gun[] gun = new Gun[102];
+        Gun[] gun = new Gun[103];
         GunGrid[] gg = new GunGrid[9];
         Double[] skillupdamage = new Double[9];
         Double[] skilluphit = new Double[9];
@@ -122,32 +122,32 @@ namespace snqxap
             }
             howmany = 0;
 
-            Combo0.SelectedIndex = 101;
+            Combo0.SelectedIndex = 102;
             renewindex(0);
 
             //       Combo0.SelectedIndex = -1;
-            Combo1.SelectedIndex = 101;
+            Combo1.SelectedIndex = 102;
             renewindex(1);
             //       Combo1.SelectedIndex = -1;
-            Combo2.SelectedIndex = 101;
+            Combo2.SelectedIndex = 102;
             renewindex(2);
             //      Combo2.SelectedIndex = -1;
-            Combo3.SelectedIndex = 101;
+            Combo3.SelectedIndex = 102;
             renewindex(3);
             //        Combo3.SelectedIndex = -1;
-            Combo4.SelectedIndex = 101;
+            Combo4.SelectedIndex = 102;
             renewindex(4);
             //       Combo4.SelectedIndex = -1;
-            Combo5.SelectedIndex = 101;
+            Combo5.SelectedIndex = 102;
             renewindex(5);
             //        Combo5.SelectedIndex = -1;
-            Combo6.SelectedIndex = 101;
+            Combo6.SelectedIndex = 102;
             renewindex(6);
             //       Combo6.SelectedIndex = -1;
-            Combo7.SelectedIndex = 101;
+            Combo7.SelectedIndex = 102;
             renewindex(7);
             //        Combo7.SelectedIndex = -1;
-            Combo8.SelectedIndex = 101;
+            Combo8.SelectedIndex = 102;
             renewindex(8);
             //        Combo8.SelectedIndex = -1;
 
@@ -205,7 +205,7 @@ namespace snqxap
 
             howmany = 0;
 
-            for (int i = 0; i < 102; i++)
+            for (int i = 0; i < 103; i++)
             { gun[i] = new Gun();
                 gun[i].index = 0.00;
             }
@@ -412,7 +412,12 @@ namespace snqxap
             gun[99].skilltype = 9; gun[99].skilltime = 8; gun[99].skillrate = 0.9; gun[99].skillupmyhit =  3.6; gun[99].skillcontent = "提升自身命中360%";
             gun[100].name = "谢尔久科夫"; gun[100].what = 4; gun[100].hp = 70; gun[100].damage = 33; gun[100].hit = 58; gun[100].dodge = 68; gun[100].shotspeed = 59; gun[100].crit = 0.2; gun[100].belt = 0; gun[100].number = 3; gun[100].effect0 = 2; gun[100].effect1 = 4; gun[100].effect2 = 8; gun[100].damageup = 0.2; gun[100].hitup = 0.3; gun[100].to = 1;
             gun[100].skilltype = 4; gun[100].skillrate = 0.56; gun[100].skilltime = 8; gun[100].skillupalldamage = 0.2; gun[100].skillcontent = "提升己方20%伤害";
-            for (int i = 0; i < 102; i++)
+
+            gun[101].name = "56式半";gun[101].what = 5; gun[101].crit = 0.4;gun[101].belt = 0;gun[101].number = 2;gun[101].effect0 = 2;gun[101].effect1 = 8;gun[101].rateup = 0.2;gun[101].to = 4;
+            gun[101].eatratio = 110; gun[101].ratiododge = 115; gun[101].ratiohit = 105; gun[101].ratiohp = 105; gun[101].ratiopow = 100;gun[101].ratiorate = 110;
+            gun[101].type = 101;gun[101].probability = 40; gun[101].skilleffect1 = 100; gun[101].skilleffect2 = 2;gun[101].skilleffect3 = 0; gun[101].skilleffect4 = 0; gun[101].growth = 0.6; gun[101].growth_type = 3;
+
+            for (int i = 0; i < 103; i++)
             {
                 Label l = new Label();
                 l.Content = gun[i].name;
@@ -444,7 +449,7 @@ namespace snqxap
                 Combo0.Items.Add(l);
             }
 
-            for (int i = 0; i < 102; i++)
+            for (int i = 0; i < 103; i++)
             {
                 Label l = new Label();
                 l.Content = gun[i].name;
@@ -475,7 +480,7 @@ namespace snqxap
                 }
                 Combo1.Items.Add(l);
             }
-            for (int i = 0; i < 102; i++)
+            for (int i = 0; i < 103; i++)
             {
                 Label l = new Label();
                 l.Content = gun[i].name;
@@ -506,7 +511,7 @@ namespace snqxap
                 }
                 Combo2.Items.Add(l);
             }
-            for (int i = 0; i < 102; i++)
+            for (int i = 0; i < 103; i++)
             {
                 Label l = new Label();
                 l.Content = gun[i].name;
@@ -537,7 +542,7 @@ namespace snqxap
                 }
                 Combo3.Items.Add(l);
             }
-            for (int i = 0; i < 102; i++)
+            for (int i = 0; i < 103; i++)
             {
                 Label l = new Label();
                 l.Content = gun[i].name;
@@ -569,7 +574,7 @@ namespace snqxap
                 Combo4.Items.Add(l);
             }
 
-            for (int i = 0; i < 102; i++)
+            for (int i = 0; i < 103; i++)
             {
                 Label l = new Label();
                 l.Content = gun[i].name;
@@ -600,7 +605,7 @@ namespace snqxap
                 }
                 Combo5.Items.Add(l);
             }
-            for (int i = 0; i < 102; i++)
+            for (int i = 0; i < 103; i++)
             {
                 Label l = new Label();
                 l.Content = gun[i].name;
@@ -631,7 +636,7 @@ namespace snqxap
                 }
                 Combo6.Items.Add(l);
             }
-            for (int i = 0; i < 102; i++)
+            for (int i = 0; i < 103; i++)
             {
                 Label l = new Label();
                 l.Content = gun[i].name;
@@ -662,7 +667,7 @@ namespace snqxap
                 }
                 Combo7.Items.Add(l);
             }
-            for (int i = 0; i < 102; i++)
+            for (int i = 0; i < 103; i++)
             {
                 Label l = new Label();
                 l.Content = gun[i].name;
@@ -693,11 +698,11 @@ namespace snqxap
                 }
                 Combo8.Items.Add(l);
             }
-            for (int i = 0; i < 101; i++)
+            for (int i = 0; i < 102; i++)
             {
                 gun[i].image = "/assets/" + i.ToString() + ".png";
             }
-            gun[101].image = "";
+            gun[102].image = "";
 
                 for (int i = 0; i < 9; i++)
                 {
@@ -723,7 +728,7 @@ namespace snqxap
             skilldowndodge = 1;
             skilldownhit = 1;
 
-            for(int i =1;i<=100;i++)
+            for(int i =1;i<=101;i++)
             {
                 Level0.Items.Add(i);
                 Level1.Items.Add(i);
@@ -2788,9 +2793,9 @@ namespace snqxap
             int index3 = Combo3.SelectedIndex;
             int index4 = Combo4.SelectedIndex;
 
-            if (index0 == -1 || index0 == 101)
+            if (index0 == -1 || index0 == 102)
             {
-                Combo0.SelectedIndex = 101;
+                Combo0.SelectedIndex = 102;
                 renewindex(0);
                 return;
             }
@@ -2829,9 +2834,9 @@ namespace snqxap
             int index4 = Combo4.SelectedIndex;
             int index5 = Combo5.SelectedIndex;
 
-            if (index1 == -1 || index1 == 101)
+            if (index1 == -1 || index1 == 102)
             {
-                Combo1.SelectedIndex = 101;
+                Combo1.SelectedIndex = 102;
                 renewindex(1);
                 return;
             }
@@ -2876,9 +2881,9 @@ namespace snqxap
             int index4 = Combo4.SelectedIndex;
             int index5 = Combo5.SelectedIndex;
 
-            if (index2 == -1 || index2 == 101)
+            if (index2 == -1 || index2 == 102)
             {
-                Combo2.SelectedIndex = 101;
+                Combo2.SelectedIndex = 102;
                 renewindex(2);
                 return;
             }
@@ -2917,9 +2922,9 @@ namespace snqxap
             int index4 = Combo4.SelectedIndex;
             int index7 = Combo7.SelectedIndex;
 
-            if (index3 == -1||index3 == 101)
+            if (index3 == -1||index3 == 102)
             {
-                Combo3.SelectedIndex = 101;
+                Combo3.SelectedIndex = 102;
                 renewindex(3);
                 return;
             }
@@ -2969,9 +2974,9 @@ namespace snqxap
             int index7 = Combo7.SelectedIndex;
             int index8 = Combo8.SelectedIndex;
 
-            if (index4 == -1 || index4 == 101)
+            if (index4 == -1 || index4 == 102)
             {
-                Combo4.SelectedIndex = 101;
+                Combo4.SelectedIndex = 102;
                 renewindex(4);
                 return;
             }
@@ -3029,9 +3034,9 @@ namespace snqxap
             int index4 = Combo4.SelectedIndex;
             int index7 = Combo7.SelectedIndex;
 
-            if (index5 == -1 || index5 == 101)
+            if (index5 == -1 || index5 == 102)
             {
-                Combo5.SelectedIndex = 101;
+                Combo5.SelectedIndex = 102;
                 renewindex(5);
                 return;
             }
@@ -3075,9 +3080,9 @@ namespace snqxap
             int index4 = Combo4.SelectedIndex;
             int index3 = Combo3.SelectedIndex;
 
-            if (index6 == -1 || index6 == 101)
+            if (index6 == -1 || index6 == 102)
             {
-                Combo6.SelectedIndex = 101;
+                Combo6.SelectedIndex = 102;
                 renewindex(6);
                 return;
             }
@@ -3115,9 +3120,9 @@ namespace snqxap
             int index4 = Combo4.SelectedIndex;
             int index7 = Combo7.SelectedIndex;
 
-            if (index7 == -1 || index7 == 101)
+            if (index7 == -1 || index7 == 102)
             {
-                Combo7.SelectedIndex = 101;
+                Combo7.SelectedIndex = 102;
                 renewindex(7);
                 return;
             }
@@ -3161,9 +3166,9 @@ namespace snqxap
             int index4 = Combo4.SelectedIndex;
             int index8 = Combo8.SelectedIndex;
 
-            if (index8 == -1 || index8 == 101)
+            if (index8 == -1 || index8 == 102)
             {
-                Combo8.SelectedIndex = 101;
+                Combo8.SelectedIndex = 102;
                 renewindex(8);
                 return;
             }
@@ -3212,7 +3217,7 @@ namespace snqxap
                     {
                         case 0:
                             {
-                                Combo0.SelectedIndex = 101;
+                                Combo0.SelectedIndex = 102;
                                 Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb0.Text = "无";
                                 Lskilldamage0.Content = 0;
@@ -3222,7 +3227,7 @@ namespace snqxap
                             }
                         case 1:
                             {
-                                Combo1.SelectedIndex = 101;
+                                Combo1.SelectedIndex = 102;
                                 Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb1.Text = "无";
                                 Lskilldamage1.Content = 0;
@@ -3232,7 +3237,7 @@ namespace snqxap
                             }
                         case 2:
                             {
-                                Combo2.SelectedIndex = 101;
+                                Combo2.SelectedIndex = 102;
                                 Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb2.Text = "无";
                                 Lskilldamage2.Content = 0;
@@ -3242,7 +3247,7 @@ namespace snqxap
                             }
                         case 3:
                             {
-                                Combo3.SelectedIndex = 101;
+                                Combo3.SelectedIndex = 102;
                                 Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb3.Text = "无";
                                 Lskilldamage3.Content = 0;
@@ -3252,7 +3257,7 @@ namespace snqxap
                             }
                         case 4:
                             {
-                                Combo4.SelectedIndex = 101;
+                                Combo4.SelectedIndex = 102;
                                 Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb4.Text = "无";
                                 Lskilldamage4.Content = 0;
@@ -3262,7 +3267,7 @@ namespace snqxap
                             }
                         case 5:
                             {
-                                Combo5.SelectedIndex = 101;
+                                Combo5.SelectedIndex = 102;
                                 Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb5.Text = "无";
                                 Lskilldamage5.Content = 0;
@@ -3272,7 +3277,7 @@ namespace snqxap
                             }
                         case 6:
                             {
-                                Combo6.SelectedIndex = 101;
+                                Combo6.SelectedIndex = 102;
                                 Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb6.Text = "无";
                                 Lskilldamage6.Content = 0;
@@ -3282,7 +3287,7 @@ namespace snqxap
                             }
                         case 7:
                             {
-                                Combo7.SelectedIndex = 101;
+                                Combo7.SelectedIndex = 102;
                                 Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb7.Text = "无";
                                 Lskilldamage7.Content = 0;
@@ -3292,7 +3297,7 @@ namespace snqxap
                             }
                         case 8:
                             {
-                                Combo8.SelectedIndex = 101;
+                                Combo8.SelectedIndex = 102;
                                 Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb8.Text = "无";
                                 Lskilldamage8.Content = 0;
@@ -3310,12 +3315,12 @@ namespace snqxap
             if (howmany == 6)
             {
                 howmany = 0;
-                Combo0.SelectedIndex = 101;
+                Combo0.SelectedIndex = 102;
                 return;
             }
             else
                 howmany = 0;
-            if (select != -1 && select != 101)
+            if (select != -1 && select != 102)
                 if (gun[select].name == getcombogunname(1) || gun[select].name == getcombogunname(2) || gun[select].name == getcombogunname(3) || gun[select].name == getcombogunname(4) || gun[select].name == getcombogunname(5) || gun[select].name == getcombogunname(6) || gun[select].name == getcombogunname(7) || gun[select].name == getcombogunname(8))
                 {
                     Combo0.SelectedIndex = lastgunindex[0];
@@ -3371,7 +3376,7 @@ namespace snqxap
                     {
                         case 0:
                             {
-                                Combo0.SelectedIndex = 101;
+                                Combo0.SelectedIndex = 102;
                                 Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb0.Text = "无";
                                 Lskilldamage0.Content = 0;
@@ -3381,7 +3386,7 @@ namespace snqxap
                             }
                         case 1:
                             {
-                                Combo1.SelectedIndex = 101;
+                                Combo1.SelectedIndex = 102;
                                 Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb1.Text = "无";
                                 Lskilldamage1.Content = 0;
@@ -3391,7 +3396,7 @@ namespace snqxap
                             }
                         case 2:
                             {
-                                Combo2.SelectedIndex = 101;
+                                Combo2.SelectedIndex = 102;
                                 Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb2.Text = "无";
                                 Lskilldamage2.Content = 0;
@@ -3401,7 +3406,7 @@ namespace snqxap
                             }
                         case 3:
                             {
-                                Combo3.SelectedIndex = 101;
+                                Combo3.SelectedIndex = 102;
                                 Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb3.Text = "无";
                                 Lskilldamage3.Content = 0;
@@ -3411,7 +3416,7 @@ namespace snqxap
                             }
                         case 4:
                             {
-                                Combo4.SelectedIndex = 101;
+                                Combo4.SelectedIndex = 102;
                                 Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb4.Text = "无";
                                 Lskilldamage4.Content = 0;
@@ -3421,7 +3426,7 @@ namespace snqxap
                             }
                         case 5:
                             {
-                                Combo5.SelectedIndex = 101;
+                                Combo5.SelectedIndex = 102;
                                 Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb5.Text = "无";
                                 Lskilldamage5.Content = 0;
@@ -3431,7 +3436,7 @@ namespace snqxap
                             }
                         case 6:
                             {
-                                Combo6.SelectedIndex = 101;
+                                Combo6.SelectedIndex = 102;
                                 Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb6.Text = "无";
                                 Lskilldamage6.Content = 0;
@@ -3441,7 +3446,7 @@ namespace snqxap
                             }
                         case 7:
                             {
-                                Combo7.SelectedIndex = 101;
+                                Combo7.SelectedIndex = 102;
                                 Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb7.Text = "无";
                                 Lskilldamage7.Content = 0;
@@ -3451,7 +3456,7 @@ namespace snqxap
                             }
                         case 8:
                             {
-                                Combo8.SelectedIndex = 101;
+                                Combo8.SelectedIndex = 102;
                                 Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb8.Text = "无";
                                 Lskilldamage8.Content = 0;
@@ -3469,12 +3474,12 @@ namespace snqxap
             if (howmany == 6)
             {
                 howmany = 0;
-                Combo1.SelectedIndex = 101;
+                Combo1.SelectedIndex = 102;
                 return;
             }
             else
                 howmany = 0;
-            if (select != -1 && select != 101)
+            if (select != -1 && select != 102)
                 if (gun[select].name == getcombogunname(0) || gun[select].name == getcombogunname(2) || gun[select].name == getcombogunname(3) || gun[select].name == getcombogunname(4) || gun[select].name == getcombogunname(5) || gun[select].name == getcombogunname(6) || gun[select].name == getcombogunname(7) || gun[select].name == getcombogunname(8))
                 {
                     Combo1.SelectedIndex = lastgunindex[1];
@@ -3532,7 +3537,7 @@ namespace snqxap
                     {
                         case 0:
                             {
-                                Combo0.SelectedIndex = 101;
+                                Combo0.SelectedIndex = 102;
                                 Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb0.Text = "无";
                                 Lskilldamage0.Content = 0;
@@ -3542,7 +3547,7 @@ namespace snqxap
                             }
                         case 1:
                             {
-                                Combo1.SelectedIndex = 101;
+                                Combo1.SelectedIndex = 102;
                                 Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb1.Text = "无";
                                 Lskilldamage1.Content = 0;
@@ -3552,7 +3557,7 @@ namespace snqxap
                             }
                         case 2:
                             {
-                                Combo2.SelectedIndex = 101;
+                                Combo2.SelectedIndex = 102;
                                 Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb2.Text = "无";
                                 Lskilldamage2.Content = 0;
@@ -3562,7 +3567,7 @@ namespace snqxap
                             }
                         case 3:
                             {
-                                Combo3.SelectedIndex = 101;
+                                Combo3.SelectedIndex = 102;
                                 Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb3.Text = "无";
                                 Lskilldamage3.Content = 0;
@@ -3572,7 +3577,7 @@ namespace snqxap
                             }
                         case 4:
                             {
-                                Combo4.SelectedIndex = 101;
+                                Combo4.SelectedIndex = 102;
                                 Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb4.Text = "无";
                                 Lskilldamage4.Content = 0;
@@ -3582,7 +3587,7 @@ namespace snqxap
                             }
                         case 5:
                             {
-                                Combo5.SelectedIndex = 101;
+                                Combo5.SelectedIndex = 102;
                                 Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb5.Text = "无";
                                 Lskilldamage5.Content = 0;
@@ -3592,7 +3597,7 @@ namespace snqxap
                             }
                         case 6:
                             {
-                                Combo6.SelectedIndex = 101;
+                                Combo6.SelectedIndex = 102;
                                 Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb6.Text = "无";
                                 Lskilldamage6.Content = 0;
@@ -3602,7 +3607,7 @@ namespace snqxap
                             }
                         case 7:
                             {
-                                Combo7.SelectedIndex = 101;
+                                Combo7.SelectedIndex = 102;
                                 Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb7.Text = "无";
                                 Lskilldamage7.Content = 0;
@@ -3612,7 +3617,7 @@ namespace snqxap
                             }
                         case 8:
                             {
-                                Combo8.SelectedIndex = 101;
+                                Combo8.SelectedIndex = 102;
                                 Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb8.Text = "无";
                                 Lskilldamage8.Content = 0;
@@ -3630,12 +3635,12 @@ namespace snqxap
             if (howmany == 6)
             {
                 howmany = 0;
-                Combo2.SelectedIndex = 101;
+                Combo2.SelectedIndex = 102;
                 return;
             }
             else
                 howmany = 0;
-            if (select != -1 && select != 101)
+            if (select != -1 && select != 102)
                 if (gun[select].name == getcombogunname(0) || gun[select].name == getcombogunname(1) || gun[select].name == getcombogunname(3) || gun[select].name == getcombogunname(4) || gun[select].name == getcombogunname(5) || gun[select].name == getcombogunname(6) || gun[select].name == getcombogunname(7) || gun[select].name == getcombogunname(8))
                 {
                     Combo2.SelectedIndex = lastgunindex[2];
@@ -3691,7 +3696,7 @@ namespace snqxap
                     {
                         case 0:
                             {
-                                Combo0.SelectedIndex = 101;
+                                Combo0.SelectedIndex = 102;
                                 Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb0.Text = "无";
                                 Lskilldamage0.Content = 0;
@@ -3701,7 +3706,7 @@ namespace snqxap
                             }
                         case 1:
                             {
-                                Combo1.SelectedIndex = 101;
+                                Combo1.SelectedIndex = 102;
                                 Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb1.Text = "无";
                                 Lskilldamage1.Content = 0;
@@ -3711,7 +3716,7 @@ namespace snqxap
                             }
                         case 2:
                             {
-                                Combo2.SelectedIndex = 101;
+                                Combo2.SelectedIndex = 102;
                                 Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb2.Text = "无";
                                 Lskilldamage2.Content = 0;
@@ -3721,7 +3726,7 @@ namespace snqxap
                             }
                         case 3:
                             {
-                                Combo3.SelectedIndex = 101;
+                                Combo3.SelectedIndex = 102;
                                 Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb3.Text = "无";
                                 Lskilldamage3.Content = 0;
@@ -3731,7 +3736,7 @@ namespace snqxap
                             }
                         case 4:
                             {
-                                Combo4.SelectedIndex = 101;
+                                Combo4.SelectedIndex = 102;
                                 Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb4.Text = "无";
                                 Lskilldamage4.Content = 0;
@@ -3741,7 +3746,7 @@ namespace snqxap
                             }
                         case 5:
                             {
-                                Combo5.SelectedIndex = 101;
+                                Combo5.SelectedIndex = 102;
                                 Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb5.Text = "无";
                                 Lskilldamage5.Content = 0;
@@ -3751,7 +3756,7 @@ namespace snqxap
                             }
                         case 6:
                             {
-                                Combo6.SelectedIndex = 101;
+                                Combo6.SelectedIndex = 102;
                                 Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb6.Text = "无";
                                 Lskilldamage6.Content = 0;
@@ -3761,7 +3766,7 @@ namespace snqxap
                             }
                         case 7:
                             {
-                                Combo7.SelectedIndex = 101;
+                                Combo7.SelectedIndex = 102;
                                 Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb7.Text = "无";
                                 Lskilldamage7.Content = 0;
@@ -3771,7 +3776,7 @@ namespace snqxap
                             }
                         case 8:
                             {
-                                Combo8.SelectedIndex = 101;
+                                Combo8.SelectedIndex = 102;
                                 Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb8.Text = "无";
                                 Lskilldamage8.Content = 0;
@@ -3789,12 +3794,12 @@ namespace snqxap
             if (howmany == 6)
             {
                 howmany = 0;
-                Combo3.SelectedIndex = 101;
+                Combo3.SelectedIndex = 102;
                 return;
             }
             else
                 howmany = 0;
-            if (select != -1 && select != 101)
+            if (select != -1 && select != 102)
                 if (gun[select].name == getcombogunname(0) || gun[select].name == getcombogunname(1) || gun[select].name == getcombogunname(2) || gun[select].name == getcombogunname(4) || gun[select].name == getcombogunname(5) || gun[select].name == getcombogunname(6) || gun[select].name == getcombogunname(7) || gun[select].name == getcombogunname(8))
                 {
                     Combo3.SelectedIndex = lastgunindex[3];
@@ -3956,7 +3961,7 @@ namespace snqxap
                     {
                         case 0:
                             {
-                                Combo0.SelectedIndex = 101;
+                                Combo0.SelectedIndex = 102;
                                 Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb0.Text = "无";
                                 Lskilldamage0.Content = 0;
@@ -3966,7 +3971,7 @@ namespace snqxap
                             }
                         case 1:
                             {
-                                Combo1.SelectedIndex = 101;
+                                Combo1.SelectedIndex = 102;
                                 Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb1.Text = "无";
                                 Lskilldamage1.Content = 0;
@@ -3976,7 +3981,7 @@ namespace snqxap
                             }
                         case 2:
                             {
-                                Combo2.SelectedIndex = 101;
+                                Combo2.SelectedIndex = 102;
                                 Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb2.Text = "无";
                                 Lskilldamage2.Content = 0;
@@ -3986,7 +3991,7 @@ namespace snqxap
                             }
                         case 3:
                             {
-                                Combo3.SelectedIndex = 101;
+                                Combo3.SelectedIndex = 102;
                                 Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb3.Text = "无";
                                 Lskilldamage3.Content = 0;
@@ -3996,7 +4001,7 @@ namespace snqxap
                             }
                         case 4:
                             {
-                                Combo4.SelectedIndex = 101;
+                                Combo4.SelectedIndex = 102;
                                 Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb4.Text = "无";
                                 Lskilldamage4.Content = 0;
@@ -4006,7 +4011,7 @@ namespace snqxap
                             }
                         case 5:
                             {
-                                Combo5.SelectedIndex = 101;
+                                Combo5.SelectedIndex = 102;
                                 Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb5.Text = "无";
                                 Lskilldamage5.Content = 0;
@@ -4016,7 +4021,7 @@ namespace snqxap
                             }
                         case 6:
                             {
-                                Combo6.SelectedIndex = 101;
+                                Combo6.SelectedIndex = 102;
                                 Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb6.Text = "无";
                                 Lskilldamage6.Content = 0;
@@ -4026,7 +4031,7 @@ namespace snqxap
                             }
                         case 7:
                             {
-                                Combo7.SelectedIndex = 101;
+                                Combo7.SelectedIndex = 102;
                                 Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb7.Text = "无";
                                 Lskilldamage7.Content = 0;
@@ -4036,7 +4041,7 @@ namespace snqxap
                             }
                         case 8:
                             {
-                                Combo8.SelectedIndex = 101;
+                                Combo8.SelectedIndex = 102;
                                 Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb8.Text = "无";
                                 Lskilldamage8.Content = 0;
@@ -4054,12 +4059,12 @@ namespace snqxap
             if (howmany == 6)
             {
                 howmany = 0;
-                Combo4.SelectedIndex = 101;
+                Combo4.SelectedIndex = 102;
                 return;
             }
             else
                 howmany = 0;
-            if (select != -1 && select != 101)
+            if (select != -1 && select != 102)
                 if (gun[select].name == getcombogunname(0) || gun[select].name == getcombogunname(1) || gun[select].name == getcombogunname(2) || gun[select].name == getcombogunname(3) || gun[select].name == getcombogunname(5) || gun[select].name == getcombogunname(6) || gun[select].name == getcombogunname(7) || gun[select].name == getcombogunname(8))
                 {
                     Combo4.SelectedIndex = lastgunindex[4];
@@ -4123,7 +4128,7 @@ namespace snqxap
                     {
                         case 0:
                             {
-                                Combo0.SelectedIndex = 101;
+                                Combo0.SelectedIndex = 102;
                                 Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb0.Text = "无";
                                 Lskilldamage0.Content = 0;
@@ -4133,7 +4138,7 @@ namespace snqxap
                             }
                         case 1:
                             {
-                                Combo1.SelectedIndex = 101;
+                                Combo1.SelectedIndex = 102;
                                 Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb1.Text = "无";
                                 Lskilldamage1.Content = 0;
@@ -4143,7 +4148,7 @@ namespace snqxap
                             }
                         case 2:
                             {
-                                Combo2.SelectedIndex = 101;
+                                Combo2.SelectedIndex = 102;
                                 Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb2.Text = "无";
                                 Lskilldamage2.Content = 0;
@@ -4153,7 +4158,7 @@ namespace snqxap
                             }
                         case 3:
                             {
-                                Combo3.SelectedIndex = 101;
+                                Combo3.SelectedIndex = 102;
                                 Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb3.Text = "无";
                                 Lskilldamage3.Content = 0;
@@ -4163,7 +4168,7 @@ namespace snqxap
                             }
                         case 4:
                             {
-                                Combo4.SelectedIndex = 101;
+                                Combo4.SelectedIndex = 102;
                                 Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb4.Text = "无";
                                 Lskilldamage4.Content = 0;
@@ -4173,7 +4178,7 @@ namespace snqxap
                             }
                         case 5:
                             {
-                                Combo5.SelectedIndex = 101;
+                                Combo5.SelectedIndex = 102;
                                 Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb5.Text = "无";
                                 Lskilldamage5.Content = 0;
@@ -4183,7 +4188,7 @@ namespace snqxap
                             }
                         case 6:
                             {
-                                Combo6.SelectedIndex = 101;
+                                Combo6.SelectedIndex = 102;
                                 Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb6.Text = "无";
                                 Lskilldamage6.Content = 0;
@@ -4193,7 +4198,7 @@ namespace snqxap
                             }
                         case 7:
                             {
-                                Combo7.SelectedIndex = 101;
+                                Combo7.SelectedIndex = 102;
                                 Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb7.Text = "无";
                                 Lskilldamage7.Content = 0;
@@ -4203,7 +4208,7 @@ namespace snqxap
                             }
                         case 8:
                             {
-                                Combo8.SelectedIndex = 101;
+                                Combo8.SelectedIndex = 102;
                                 Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb8.Text = "无";
                                 Lskilldamage8.Content = 0;
@@ -4221,12 +4226,12 @@ namespace snqxap
             if (howmany == 6)
             {
                 howmany = 0;
-                Combo5.SelectedIndex = 101;
+                Combo5.SelectedIndex = 102;
                 return;
             }
             else
                 howmany = 0;
-            if (select != -1 && select != 101)
+            if (select != -1 && select != 102)
                 if (gun[select].name == getcombogunname(0) || gun[select].name == getcombogunname(1) || gun[select].name == getcombogunname(2) || gun[select].name == getcombogunname(3) || gun[select].name == getcombogunname(4) || gun[select].name == getcombogunname(6) || gun[select].name == getcombogunname(7) || gun[select].name == getcombogunname(8))
                 {
                     Combo5.SelectedIndex = lastgunindex[5];
@@ -4287,7 +4292,7 @@ namespace snqxap
                     {
                         case 0:
                             {
-                                Combo0.SelectedIndex = 101;
+                                Combo0.SelectedIndex = 102;
                                 Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb0.Text = "无";
                                 Lskilldamage0.Content = 0;
@@ -4297,7 +4302,7 @@ namespace snqxap
                             }
                         case 1:
                             {
-                                Combo1.SelectedIndex = 101;
+                                Combo1.SelectedIndex = 102;
                                 Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb1.Text = "无";
                                 Lskilldamage1.Content = 0;
@@ -4307,7 +4312,7 @@ namespace snqxap
                             }
                         case 2:
                             {
-                                Combo2.SelectedIndex = 101;
+                                Combo2.SelectedIndex = 102;
                                 Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb2.Text = "无";
                                 Lskilldamage2.Content = 0;
@@ -4317,7 +4322,7 @@ namespace snqxap
                             }
                         case 3:
                             {
-                                Combo3.SelectedIndex = 101;
+                                Combo3.SelectedIndex = 102;
                                 Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb3.Text = "无";
                                 Lskilldamage3.Content = 0;
@@ -4327,7 +4332,7 @@ namespace snqxap
                             }
                         case 4:
                             {
-                                Combo4.SelectedIndex = 101;
+                                Combo4.SelectedIndex = 102;
                                 Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb4.Text = "无";
                                 Lskilldamage4.Content = 0;
@@ -4337,7 +4342,7 @@ namespace snqxap
                             }
                         case 5:
                             {
-                                Combo5.SelectedIndex = 101;
+                                Combo5.SelectedIndex = 102;
                                 Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb5.Text = "无";
                                 Lskilldamage5.Content = 0;
@@ -4347,7 +4352,7 @@ namespace snqxap
                             }
                         case 6:
                             {
-                                Combo6.SelectedIndex = 101;
+                                Combo6.SelectedIndex = 102;
                                 Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb6.Text = "无";
                                 Lskilldamage6.Content = 0;
@@ -4357,7 +4362,7 @@ namespace snqxap
                             }
                         case 7:
                             {
-                                Combo7.SelectedIndex = 101;
+                                Combo7.SelectedIndex = 102;
                                 Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb7.Text = "无";
                                 Lskilldamage7.Content = 0;
@@ -4367,7 +4372,7 @@ namespace snqxap
                             }
                         case 8:
                             {
-                                Combo8.SelectedIndex = 101;
+                                Combo8.SelectedIndex = 102;
                                 Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb8.Text = "无";
                                 Lskilldamage8.Content = 0;
@@ -4385,12 +4390,12 @@ namespace snqxap
             if (howmany == 6)
             {
                 howmany = 0;
-                Combo6.SelectedIndex = 101;
+                Combo6.SelectedIndex = 102;
                 return;
             }
             else
                 howmany = 0;
-            if (select != -1 && select != 101)
+            if (select != -1 && select != 102)
                 if (gun[select].name == getcombogunname(0) || gun[select].name == getcombogunname(1) || gun[select].name == getcombogunname(2) || gun[select].name == getcombogunname(3) || gun[select].name == getcombogunname(4) || gun[select].name == getcombogunname(5) || gun[select].name == getcombogunname(7) || gun[select].name == getcombogunname(8))
                 {
                     Combo6.SelectedIndex = lastgunindex[6];
@@ -4450,7 +4455,7 @@ namespace snqxap
                     {
                         case 0:
                             {
-                                Combo0.SelectedIndex = 101;
+                                Combo0.SelectedIndex = 102;
                                 Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb0.Text = "无";
                                 Lskilldamage0.Content = 0;
@@ -4460,7 +4465,7 @@ namespace snqxap
                             }
                         case 1:
                             {
-                                Combo1.SelectedIndex = 101;
+                                Combo1.SelectedIndex = 102;
                                 Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb1.Text = "无";
                                 Lskilldamage1.Content = 0;
@@ -4470,7 +4475,7 @@ namespace snqxap
                             }
                         case 2:
                             {
-                                Combo2.SelectedIndex = 101;
+                                Combo2.SelectedIndex = 102;
                                 Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb2.Text = "无";
                                 Lskilldamage2.Content = 0;
@@ -4480,7 +4485,7 @@ namespace snqxap
                             }
                         case 3:
                             {
-                                Combo3.SelectedIndex = 101;
+                                Combo3.SelectedIndex = 102;
                                 Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb3.Text = "无";
                                 Lskilldamage3.Content = 0;
@@ -4490,7 +4495,7 @@ namespace snqxap
                             }
                         case 4:
                             {
-                                Combo4.SelectedIndex = 101;
+                                Combo4.SelectedIndex = 102;
                                 Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb4.Text = "无";
                                 Lskilldamage4.Content = 0;
@@ -4500,7 +4505,7 @@ namespace snqxap
                             }
                         case 5:
                             {
-                                Combo5.SelectedIndex = 101;
+                                Combo5.SelectedIndex = 102;
                                 Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb5.Text = "无";
                                 Lskilldamage5.Content = 0;
@@ -4510,7 +4515,7 @@ namespace snqxap
                             }
                         case 6:
                             {
-                                Combo6.SelectedIndex = 101;
+                                Combo6.SelectedIndex = 102;
                                 Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb6.Text = "无";
                                 Lskilldamage6.Content = 0;
@@ -4520,7 +4525,7 @@ namespace snqxap
                             }
                         case 7:
                             {
-                                Combo7.SelectedIndex = 101;
+                                Combo7.SelectedIndex = 102;
                                 Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb7.Text = "无";
                                 Lskilldamage7.Content = 0;
@@ -4530,7 +4535,7 @@ namespace snqxap
                             }
                         case 8:
                             {
-                                Combo8.SelectedIndex = 101;
+                                Combo8.SelectedIndex = 102;
                                 Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb8.Text = "无";
                                 Lskilldamage8.Content = 0;
@@ -4548,12 +4553,12 @@ namespace snqxap
             if (howmany == 6)
             {
                 howmany = 0;
-                Combo7.SelectedIndex = 101;
+                Combo7.SelectedIndex = 102;
                 return;
             }
             else
                 howmany = 0;
-            if (select != -1 && select != 101)
+            if (select != -1 && select != 102)
                 if (gun[select].name == getcombogunname(0) || gun[select].name == getcombogunname(1) || gun[select].name == getcombogunname(2) || gun[select].name == getcombogunname(3) || gun[select].name == getcombogunname(4) || gun[select].name == getcombogunname(5) || gun[select].name == getcombogunname(6) || gun[select].name == getcombogunname(8))
                 {
                     Combo7.SelectedIndex = lastgunindex[7];
@@ -4616,7 +4621,7 @@ namespace snqxap
                     {
                         case 0:
                             {
-                                Combo0.SelectedIndex = 101;
+                                Combo0.SelectedIndex = 102;
                                 Image0.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb0.Text = "无";
                                 Lskilldamage0.Content = 0;
@@ -4626,7 +4631,7 @@ namespace snqxap
                             }
                         case 1:
                             {
-                                Combo1.SelectedIndex = 101;
+                                Combo1.SelectedIndex = 102;
                                 Image1.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb1.Text = "无";
                                 Lskilldamage1.Content = 0;
@@ -4636,7 +4641,7 @@ namespace snqxap
                             }
                         case 2:
                             {
-                                Combo2.SelectedIndex = 101;
+                                Combo2.SelectedIndex = 102;
                                 Image2.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb2.Text = "无";
                                 Lskilldamage2.Content = 0;
@@ -4646,7 +4651,7 @@ namespace snqxap
                             }
                         case 3:
                             {
-                                Combo3.SelectedIndex = 101;
+                                Combo3.SelectedIndex = 102;
                                 Image3.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb3.Text = "无";
                                 Lskilldamage3.Content = 0;
@@ -4656,7 +4661,7 @@ namespace snqxap
                             }
                         case 4:
                             {
-                                Combo4.SelectedIndex = 101;
+                                Combo4.SelectedIndex = 102;
                                 Image4.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb4.Text = "无";
                                 Lskilldamage4.Content = 0;
@@ -4666,7 +4671,7 @@ namespace snqxap
                             }
                         case 5:
                             {
-                                Combo5.SelectedIndex = 101;
+                                Combo5.SelectedIndex = 102;
                                 Image5.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb5.Text = "无";
                                 Lskilldamage5.Content = 0;
@@ -4676,7 +4681,7 @@ namespace snqxap
                             }
                         case 6:
                             {
-                                Combo6.SelectedIndex = 101;
+                                Combo6.SelectedIndex = 102;
                                 Image6.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb6.Text = "无";
                                 Lskilldamage6.Content = 0;
@@ -4686,7 +4691,7 @@ namespace snqxap
                             }
                         case 7:
                             {
-                                Combo7.SelectedIndex = 101;
+                                Combo7.SelectedIndex = 102;
                                 Image7.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb7.Text = "无";
                                 Lskilldamage7.Content = 0;
@@ -4696,7 +4701,7 @@ namespace snqxap
                             }
                         case 8:
                             {
-                                Combo8.SelectedIndex = 101;
+                                Combo8.SelectedIndex = 102;
                                 Image8.Source = new BitmapImage(new Uri(@"", UriKind.Relative));
                                 tb8.Text = "无";
                                 Lskilldamage8.Content = 0;
@@ -4714,12 +4719,12 @@ namespace snqxap
             if (howmany == 6)
             {
                 howmany = 0;
-                Combo8.SelectedIndex = 101;
+                Combo8.SelectedIndex = 102;
                 return;
             }
             else
                 howmany = 0;
-            if (select != -1&&select != 101)
+            if (select != -1&&select != 102)
                 if (gun[select].name == getcombogunname(0) || gun[select].name == getcombogunname(1) || gun[select].name == getcombogunname(2) || gun[select].name == getcombogunname(3) || gun[select].name == getcombogunname(4) || gun[select].name == getcombogunname(5) || gun[select].name == getcombogunname(6) || gun[select].name == getcombogunname(7))
                 {
                     Combo8.SelectedIndex = lastgunindex[8]; 
@@ -5129,32 +5134,32 @@ namespace snqxap
             }
             howmany = 0;
 
-            Combo0.SelectedIndex = 101;
+            Combo0.SelectedIndex = 102;
             renewindex(0);
 
      //       Combo0.SelectedIndex = -1;
-            Combo1.SelectedIndex = 101;
+            Combo1.SelectedIndex = 102;
             renewindex(1);
      //       Combo1.SelectedIndex = -1;
-            Combo2.SelectedIndex = 101;
+            Combo2.SelectedIndex = 102;
             renewindex(2);
       //      Combo2.SelectedIndex = -1;
-            Combo3.SelectedIndex = 101;
+            Combo3.SelectedIndex = 102;
             renewindex(3);
     //        Combo3.SelectedIndex = -1;
-            Combo4.SelectedIndex = 101;
+            Combo4.SelectedIndex = 102;
             renewindex(4);
      //       Combo4.SelectedIndex = -1;
-            Combo5.SelectedIndex = 101;
+            Combo5.SelectedIndex = 102;
             renewindex(5);
     //        Combo5.SelectedIndex = -1;
-            Combo6.SelectedIndex = 101;
+            Combo6.SelectedIndex = 102;
             renewindex(6);
      //       Combo6.SelectedIndex = -1;
-            Combo7.SelectedIndex = 101;
+            Combo7.SelectedIndex = 102;
             renewindex(7);
     //        Combo7.SelectedIndex = -1;
-            Combo8.SelectedIndex = 101;
+            Combo8.SelectedIndex = 102;
             renewindex(8);
     //        Combo8.SelectedIndex = -1;
 
@@ -5278,7 +5283,7 @@ namespace snqxap
 
         private void skillon(int index, int combo)
         {
-            if (index != -1 && index != 101)
+            if (index != -1 && index != 102)
             {
                 switch (gun[index].skilltype)
                 {
@@ -5645,7 +5650,7 @@ namespace snqxap
         {
             int ammo = 0;
             int food = 0;
-            if(Combo0.SelectedIndex!=-1&&Combo0.SelectedIndex!=101)//2 ar 3 smg 4 hg 5 rf 6 mg
+            if(Combo0.SelectedIndex!=-1&&Combo0.SelectedIndex!=102)//2 ar 3 smg 4 hg 5 rf 6 mg
             {
                 switch (gun[Combo0.SelectedIndex].what)
                 {
@@ -5683,7 +5688,7 @@ namespace snqxap
             }
 
 
-            if (Combo1.SelectedIndex != -1 && Combo1.SelectedIndex != 101)//2 ar 3 smg 4 hg 5 rf 6 mg
+            if (Combo1.SelectedIndex != -1 && Combo1.SelectedIndex != 102)//2 ar 3 smg 4 hg 5 rf 6 mg
             {
                 switch (gun[Combo1.SelectedIndex].what)
                 {
@@ -5720,7 +5725,7 @@ namespace snqxap
                 }
             }
 
-            if (Combo2.SelectedIndex != -1 && Combo2.SelectedIndex != 101)//2 ar 3 smg 4 hg 5 rf 6 mg
+            if (Combo2.SelectedIndex != -1 && Combo2.SelectedIndex != 102)//2 ar 3 smg 4 hg 5 rf 6 mg
             {
                 switch (gun[Combo2.SelectedIndex].what)
                 {
@@ -5757,7 +5762,7 @@ namespace snqxap
                 }
             }
 
-            if (Combo3.SelectedIndex != -1 && Combo3.SelectedIndex != 101)//2 ar 3 smg 4 hg 5 rf 6 mg
+            if (Combo3.SelectedIndex != -1 && Combo3.SelectedIndex != 102)//2 ar 3 smg 4 hg 5 rf 6 mg
             {
                 switch (gun[Combo3.SelectedIndex].what)
                 {
@@ -5794,7 +5799,7 @@ namespace snqxap
                 }
             }
 
-            if (Combo4.SelectedIndex != -1 && Combo4.SelectedIndex != 101)//2 ar 3 smg 4 hg 5 rf 6 mg
+            if (Combo4.SelectedIndex != -1 && Combo4.SelectedIndex != 102)//2 ar 3 smg 4 hg 5 rf 6 mg
             {
                 switch (gun[Combo4.SelectedIndex].what)
                 {
@@ -5831,7 +5836,7 @@ namespace snqxap
                 }
             }
 
-            if (Combo5.SelectedIndex != -1 && Combo5.SelectedIndex != 101)//2 ar 3 smg 4 hg 5 rf 6 mg
+            if (Combo5.SelectedIndex != -1 && Combo5.SelectedIndex != 102)//2 ar 3 smg 4 hg 5 rf 6 mg
             {
                 switch (gun[Combo5.SelectedIndex].what)
                 {
@@ -5868,7 +5873,7 @@ namespace snqxap
                 }
             }
 
-            if (Combo6.SelectedIndex != -1 && Combo6.SelectedIndex != 101)//2 ar 3 smg 4 hg 5 rf 6 mg
+            if (Combo6.SelectedIndex != -1 && Combo6.SelectedIndex != 102)//2 ar 3 smg 4 hg 5 rf 6 mg
             {
                 switch (gun[Combo6.SelectedIndex].what)
                 {
@@ -5905,7 +5910,7 @@ namespace snqxap
                 }
             }
 
-            if (Combo7.SelectedIndex != -1 && Combo7.SelectedIndex != 101)//2 ar 3 smg 4 hg 5 rf 6 mg
+            if (Combo7.SelectedIndex != -1 && Combo7.SelectedIndex != 102)//2 ar 3 smg 4 hg 5 rf 6 mg
             {
                 switch (gun[Combo7.SelectedIndex].what)
                 {
@@ -5942,7 +5947,7 @@ namespace snqxap
                 }
             }
 
-            if (Combo8.SelectedIndex != -1 && Combo8.SelectedIndex != 101)//2 ar 3 smg 4 hg 5 rf 6 mg
+            if (Combo8.SelectedIndex != -1 && Combo8.SelectedIndex != 102)//2 ar 3 smg 4 hg 5 rf 6 mg
             {
                 switch (gun[Combo8.SelectedIndex].what)
                 {
@@ -5999,7 +6004,7 @@ namespace snqxap
         {
             if (select == -1)
                 return;
-            if (levelselect == -1 || levelselect == 101)
+            if (levelselect == -1 || levelselect == 102)
                 return;
             float[] array = arrAbilityRatio[gun[select].what];
             float num = 55f;
@@ -6449,10 +6454,10 @@ namespace snqxap
         private void Level0_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int select = Combo0.SelectedIndex;
-            if (select == -1 || select == 101)
+            if (select == -1 || select == 102)
                 return;
             int levelselect = Level0.SelectedIndex;
-            if (levelselect == -1 || levelselect == 101)
+            if (levelselect == -1 || levelselect == 102)
                 return;
             int skillselect = SkillLevel0.SelectedIndex;
             if (skillselect == -1)
@@ -6466,10 +6471,10 @@ namespace snqxap
         private void Level1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int select = Combo1.SelectedIndex;
-            if (select == -1 || select == 101)
+            if (select == -1 || select == 102)
                 return;
             int levelselect = Level1.SelectedIndex;
-            if (levelselect == -1 || levelselect == 101)
+            if (levelselect == -1 || levelselect == 102)
                 return;
             int skillselect = SkillLevel1.SelectedIndex;
             if (skillselect == -1)
@@ -6482,10 +6487,10 @@ namespace snqxap
         private void Level2_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int select = Combo2.SelectedIndex;
-            if (select == -1 || select == 101)
+            if (select == -1 || select == 102)
                 return;
             int levelselect = Level2.SelectedIndex;
-            if (levelselect == -1 || levelselect == 101)
+            if (levelselect == -1 || levelselect == 102)
                 return;
             int skillselect = SkillLevel2.SelectedIndex;
             if (skillselect == -1)
@@ -6498,10 +6503,10 @@ namespace snqxap
         private void Level3_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int select = Combo3.SelectedIndex;
-            if (select == -1 || select == 101)
+            if (select == -1 || select == 102)
                 return;
             int levelselect = Level3.SelectedIndex;
-            if (levelselect == -1 || levelselect == 101)
+            if (levelselect == -1 || levelselect == 102)
                 return;
             int skillselect = SkillLevel3.SelectedIndex;
             if (skillselect == -1)
@@ -6514,10 +6519,10 @@ namespace snqxap
         private void Level4_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int select = Combo4.SelectedIndex;
-            if (select == -1 || select == 101)
+            if (select == -1 || select == 102)
                 return;
             int levelselect = Level4.SelectedIndex;
-            if (levelselect == -1 || levelselect == 101)
+            if (levelselect == -1 || levelselect == 102)
                 return;
             int skillselect = SkillLevel4.SelectedIndex;
             if (skillselect == -1)
@@ -6530,10 +6535,10 @@ namespace snqxap
         private void Level5_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int select = Combo5.SelectedIndex;
-            if (select == -1 || select == 101)
+            if (select == -1 || select == 102)
                 return;
             int levelselect = Level5.SelectedIndex;
-            if (levelselect == -1 || levelselect == 101)
+            if (levelselect == -1 || levelselect == 102)
                 return;
             int skillselect = SkillLevel5.SelectedIndex;
             if (skillselect == -1)
@@ -6546,10 +6551,10 @@ namespace snqxap
         private void Level6_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int select = Combo6.SelectedIndex;
-            if (select == -1 || select == 101)
+            if (select == -1 || select == 102)
                 return;
             int levelselect = Level6.SelectedIndex;
-            if (levelselect == -1 || levelselect == 101)
+            if (levelselect == -1 || levelselect == 102)
                 return;
             int skillselect = SkillLevel6.SelectedIndex;
             if (skillselect == -1)
@@ -6562,10 +6567,10 @@ namespace snqxap
         private void Level7_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int select = Combo7.SelectedIndex;
-            if (select == -1 || select == 101)
+            if (select == -1 || select == 102)
                 return;
             int levelselect = Level7.SelectedIndex;
-            if (levelselect == -1 || levelselect == 101)
+            if (levelselect == -1 || levelselect == 102)
                 return;
             int skillselect = SkillLevel7.SelectedIndex;
             if (skillselect == -1)
@@ -6579,10 +6584,10 @@ namespace snqxap
         private void Level8_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int select = Combo8.SelectedIndex;
-            if (select == -1 || select == 101)
+            if (select == -1 || select == 102)
                 return;
             int levelselect = Level8.SelectedIndex;
-            if (levelselect == -1 || levelselect == 101)
+            if (levelselect == -1 || levelselect == 102)
                 return;
             int skillselect = SkillLevel8.SelectedIndex;
             if (skillselect == -1)
