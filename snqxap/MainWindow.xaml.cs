@@ -34,7 +34,7 @@ namespace snqxap
         int[] lastgunindex = new int[9];
         int howmany;
 		
-		//12燃烧弹 15手榴弹 爆破榴弹/杀伤榴弹 受伤害影响 改 除rf就是了
+		//部分枪数据错误。。。蛋疼
 
         public MainWindow()
         {
@@ -293,7 +293,7 @@ namespace snqxap
             gun[72].skilltype = 6; gun[72].skillrate = 0.64; gun[72].skilltime = 3.2; gun[72].skillupmydamage =1.6; gun[72].skillcontent = "提升自身伤害160%";
             gun[73].name = "M21"; gun[73].what = 5; gun[73].hp = 93; gun[73].damage = 118; gun[73].hit = 74; gun[73].dodge = 27; gun[73].shotspeed = 35; gun[73].crit = 0.4; gun[73].belt = 0; gun[73].number = 2; gun[73].effect0 = 2; gun[73].effect1 = 8; gun[73].rateup = 0.2; gun[73].damageup = 0; gun[73].hitup = 0; gun[73].shotspeedup = 0; gun[73].critup = 0; gun[73].dodgeup = 0; gun[73].to = 4;
             gun[73].skilltype = 1; gun[73].skilldamage = gun[73].damage * 4.8; gun[73].skillcircle = 0; gun[73].skillrate = 0.66; gun[73].skillcontent = "阻断射击2s对特定目标";
-            gun[74].name = "BM59"; gun[74].what = 5; gun[74].hp = 93; gun[74].damage = 118; gun[74].hit = 73; gun[74].dodge = 27; gun[74].shotspeed = 35; gun[74].crit = 0.4; gun[74].belt = 0; gun[74].number = 1;gun[74].effect0 = 6;gun[74].rateup = 0.18; gun[74].damageup = 0; gun[74].hitup = 0; gun[74].shotspeedup = 0; gun[74].critup = 0; gun[74].dodgeup = 0; gun[74].to = 4;
+            gun[74].name = "BM59"; gun[74].what = 5; gun[74].hp = 97; gun[74].damage = 104; gun[74].hit = 52; gun[74].dodge = 24; gun[74].shotspeed = 38; gun[74].crit = 0.4; gun[74].belt = 0; gun[74].number = 1;gun[74].effect0 = 6;gun[74].rateup = 0.18; gun[74].damageup = 0; gun[74].hitup = 0; gun[74].shotspeedup = 0; gun[74].critup = 0; gun[74].dodgeup = 0; gun[74].to = 4;
             gun[74].skilltype = 18; gun[74].skillrate = 0.58; gun[74].skilltime = 8; gun[74].skillupmyshotspeed = 0.64; gun[74].skillcontent = "提升自身射速64%";
             gun[75].name = "M1加兰德"; gun[75].what = 5; gun[75].hp = 88; gun[75].damage = 120; gun[75].hit = 62; gun[75].dodge = 28; gun[75].shotspeed = 37; gun[75].crit = 0.4; gun[75].belt = 0; gun[75].number = 1; gun[75].effect0 = 6; gun[75].rateup = 0.2; gun[75].damageup = 0; gun[75].hitup = 0; gun[75].shotspeedup = 0; gun[75].critup = 0; gun[75].dodgeup = 0; gun[75].to = 4;
             gun[75].skilltype = 1; gun[75].skilldamage = gun[75].damage * 4.8; gun[75].skillcircle = 0; gun[75].skillrate = 0.66; gun[75].skillcontent = "瞄准射击2s对当前目标";
@@ -774,7 +774,7 @@ namespace snqxap
                         Ldamage0.Content = (gun[select].damage * gg[0].damageup*(1 + skillupdamage[0])).ToString("0");
                         Lhit0.Content = (gun[select].hit * gg[0].hitup * (1 + skilluphit[0])).ToString("0");
                         Lskillread0.Content = gun[select].skillcontent;
-                        Lskilldamage0.Content = gun[select].skilldamage.ToString("0");
+                        Lskilldamage0.Content = (gun[select].skilldamage / gun[select].damage * Int32.Parse(Ldamage0.Content.ToString())).ToString("0");
                         Ltime0.Content = gun[select].skilltime;
                         Image0.Source = new BitmapImage(new Uri(@gun[select].image,UriKind.Relative));
                         if (gun[select].belt == 0 && gun[select].shotspeed * gg[0].shotspeedup*(1 + skillupshotspeed[0]) > 120)
@@ -804,7 +804,7 @@ namespace snqxap
                         Ldamage1.Content = (gun[select].damage * gg[1].damageup * (1 + skillupdamage[1])).ToString("0");
                         Lhit1.Content = (gun[select].hit * gg[1].hitup * (1 + skilluphit[1])).ToString("0");
                         Lskillread1.Content = gun[select].skillcontent;
-                        Lskilldamage1.Content = gun[select].skilldamage.ToString("0");
+                        Lskilldamage1.Content = (gun[select].skilldamage/ gun[select].damage * Int32.Parse(Ldamage1.Content.ToString())).ToString("0");
                         Ltime1.Content = gun[select].skilltime;
                         Image1.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         if (gun[select].belt == 0 && gun[select].shotspeed * gg[1].shotspeedup * (1 + skillupshotspeed[1]) > 120)
@@ -833,7 +833,7 @@ namespace snqxap
                         Ldamage2.Content = (gun[select].damage * gg[2].damageup * (1 + skillupdamage[2])).ToString("0");
                         Lhit2.Content = (gun[select].hit * gg[2].hitup * (1 + skilluphit[2])).ToString("0");
                         Lskillread2.Content = gun[select].skillcontent;
-                        Lskilldamage2.Content = gun[select].skilldamage.ToString("0");
+                        Lskilldamage2.Content = (gun[select].skilldamage/ gun[select].damage * Int32.Parse(Ldamage2.Content.ToString())).ToString("0");
                         Ltime2.Content = gun[select].skilltime;
                         Image2.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         if (gun[select].belt == 0 && gun[select].shotspeed * gg[2].shotspeedup * (1 + skillupshotspeed[2]) > 120)
@@ -863,7 +863,7 @@ namespace snqxap
                         //   Ldamage3.Content = (gun[select].damage * (gg[3].damageup + skillupdamage[3])).ToString("0.00"); //加法
                         Lhit3.Content = (gun[select].hit * gg[3].hitup * (1 + skilluphit[3])).ToString("0");
                         Lskillread3.Content = gun[select].skillcontent;
-                        Lskilldamage3.Content = gun[select].skilldamage.ToString("0");
+                        Lskilldamage3.Content = (gun[select].skilldamage/ gun[select].damage * Int32.Parse(Ldamage3.Content.ToString())).ToString("0");
                         Ltime3.Content = gun[select].skilltime;
                         Image3.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         if (gun[select].belt == 0 && gun[select].shotspeed * gg[3].shotspeedup * (1 + skillupshotspeed[3]) > 120)
@@ -892,7 +892,7 @@ namespace snqxap
                         Ldamage4.Content = (gun[select].damage * gg[4].damageup * (1 + skillupdamage[4])).ToString("0");
                         Lhit4.Content = (gun[select].hit *gg[4].hitup * (1 + skilluphit[4])).ToString("0");
                         Lskillread4.Content = gun[select].skillcontent;
-                        Lskilldamage4.Content = gun[select].skilldamage.ToString("0");
+                        Lskilldamage4.Content =( gun[select].skilldamage/ gun[select].damage * Int32.Parse(Ldamage4.Content.ToString())).ToString("0");
                         Ltime4.Content = gun[select].skilltime;
                         Image4.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         if (gun[select].belt == 0 && gun[select].shotspeed * gg[4].shotspeedup * (1 + skillupshotspeed[4]) > 120)
@@ -921,7 +921,7 @@ namespace snqxap
                         Ldamage5.Content = (gun[select].damage * gg[5].damageup * (1 + skillupdamage[5])).ToString("0");
                         Lhit5.Content = (gun[select].hit * gg[5].hitup * (1 + skilluphit[5])).ToString("0");
                         Lskillread5.Content = gun[select].skillcontent;
-                        Lskilldamage5.Content = gun[select].skilldamage.ToString("0");
+                        Lskilldamage5.Content = (gun[select].skilldamage/ gun[select].damage * Int32.Parse(Ldamage5.Content.ToString())).ToString("0");
                         Ltime5.Content = gun[select].skilltime;
                         Image5.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         if (gun[select].belt == 0 && gun[select].shotspeed * gg[5].shotspeedup * (1 + skillupshotspeed[5]) > 120)
@@ -950,7 +950,7 @@ namespace snqxap
                         Ldamage6.Content = (gun[select].damage * gg[6].damageup * (1 + skillupdamage[6])).ToString("0");
                         Lhit6.Content = (gun[select].hit * gg[6].hitup * (1 + skilluphit[6])).ToString("0");
                         Lskillread6.Content = gun[select].skillcontent;
-                        Lskilldamage6.Content = gun[select].skilldamage.ToString("0");
+                        Lskilldamage6.Content = (gun[select].skilldamage/ gun[select].damage * Int32.Parse(Ldamage6.Content.ToString())).ToString("0");
                         Ltime6.Content = gun[select].skilltime;
                         Image6.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         if (gun[select].belt == 0 && gun[select].shotspeed * gg[6].shotspeedup * (1 + skillupshotspeed[6]) > 120)
@@ -979,7 +979,7 @@ namespace snqxap
                         Ldamage7.Content = (gun[select].damage * gg[7].damageup * (1 + skillupdamage[7])).ToString("0");
                         Lhit7.Content = (gun[select].hit *gg[7].hitup * (1 + skilluphit[7])).ToString("0");
                         Lskillread7.Content = gun[select].skillcontent;
-                        Lskilldamage7.Content = gun[select].skilldamage.ToString("0");
+                        Lskilldamage7.Content =( gun[select].skilldamage/ gun[select].damage * Int32.Parse(Ldamage7.Content.ToString())).ToString("0");
                         Ltime7.Content = gun[select].skilltime;
                         Image7.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         if (gun[select].belt == 0 && gun[select].shotspeed * gg[7].shotspeedup * (1 + skillupshotspeed[7]) > 120)
@@ -1008,7 +1008,7 @@ namespace snqxap
                         Ldamage8.Content = (gun[select].damage * gg[8].damageup * (1 + skillupdamage[8])).ToString("0");
                         Lhit8.Content = (gun[select].hit * gg[8].hitup * (1 + skilluphit[8])).ToString("0");
                         Lskillread8.Content = gun[select].skillcontent;
-                        Lskilldamage8.Content = gun[select].skilldamage.ToString("0");
+                        Lskilldamage8.Content = (gun[select].skilldamage/ gun[select].damage * Int32.Parse(Ldamage8.Content.ToString())).ToString("0");
                         Ltime8.Content = gun[select].skilltime;
                         Image8.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         if (gun[select].belt == 0 && gun[select].shotspeed * gg[8].shotspeedup * (1 + skillupshotspeed[8]) > 120)
@@ -3008,6 +3008,22 @@ namespace snqxap
             {
                 switch (gun[index].skilltype)
                 {
+                    case 1:
+                        {
+                            if(gun[index].what != 5)
+                            {
+                                Lskilldamage0.Content = (gun[index].skilldamage / gun[index].damage * Int32.Parse(Ldamage0.Content.ToString())).ToString("0");
+                                Lskilldamage1.Content = (gun[index].skilldamage / gun[index].damage * Int32.Parse(Ldamage1.Content.ToString())).ToString("0");
+                                Lskilldamage2.Content = (gun[index].skilldamage / gun[index].damage * Int32.Parse(Ldamage2.Content.ToString())).ToString("0");
+                                Lskilldamage3.Content = (gun[index].skilldamage / gun[index].damage * Int32.Parse(Ldamage3.Content.ToString())).ToString("0");
+                                Lskilldamage4.Content = (gun[index].skilldamage / gun[index].damage * Int32.Parse(Ldamage4.Content.ToString())).ToString("0");
+                                Lskilldamage5.Content = (gun[index].skilldamage / gun[index].damage * Int32.Parse(Ldamage5.Content.ToString())).ToString("0");
+                                Lskilldamage6.Content = (gun[index].skilldamage / gun[index].damage * Int32.Parse(Ldamage6.Content.ToString())).ToString("0");
+                                Lskilldamage7.Content = (gun[index].skilldamage / gun[index].damage * Int32.Parse(Ldamage7.Content.ToString())).ToString("0");
+                                Lskilldamage8.Content = (gun[index].skilldamage / gun[index].damage * Int32.Parse(Ldamage8.Content.ToString())).ToString("0");
+                            }
+                            break;
+                        }
 
                     //   skilltype : 4 upalldamage 6 upmydamage 8downallhit 9upmyhit 18 upmyshotspeed 19 烟雾弹 21 upalldodge 22 downalldodge 23 upmydodge 24 upallhit 26 upallshotspeed
                     case 4:
