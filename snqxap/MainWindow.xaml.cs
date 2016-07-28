@@ -112,8 +112,8 @@ namespace snqxap
             rb8.IsChecked = false;
 
             tank.Content = 0;
-            enemydodge.Text = "0";
-            enemyhit.Text = "0";
+            enemydodge.Text = "15";
+            enemyhit.Text = "20";
 
             rbf0.IsChecked = false;
             rbf1.IsChecked = false;
@@ -784,6 +784,8 @@ namespace snqxap
                 case 0:
                     {
                         select = Combo0.SelectedIndex;
+                        if (select == -1)
+                            return;
                         Ldamage0.Content = (gun[select].damage * gg[0].damageup*(1 + skillupdamage[0])).ToString("0.00");
                         Lhit0.Content = (gun[select].hit * gg[0].hitup * (1 + skilluphit[0])).ToString("0.00");
                         Lskillread0.Content = gun[select].skillcontent;
@@ -803,13 +805,15 @@ namespace snqxap
                         Lhp0.Content = gun[select].hp;
                         Lbelt0.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text)*skilldowndodge).ToString("0.00");
-                        Lindex0.Content = (Index(Double.Parse(Lshotspeed0.Content.ToString()), Double.Parse(Ldamage0.Content.ToString()), Double.Parse(Lcrit0.Content.ToString()), Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit0.Content.ToString()), gun[select].belt)).ToString("0.00");
+                        Lindex0.Content = (Index(Double.Parse(Lshotspeed0.Content.ToString()), Double.Parse(Ldamage0.Content.ToString()), Double.Parse(Lcrit0.Content.ToString()), Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit0.Content.ToString()), gun[select].belt, comboi)).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         break;
                     }
                 case 1:
                     {
                         select = Combo1.SelectedIndex;
+                        if (select == -1)
+                            return;
                         Ldamage1.Content = (gun[select].damage * gg[1].damageup * (1 + skillupdamage[1])).ToString("0.00");
                         Lhit1.Content = (gun[select].hit * gg[1].hitup * (1 + skilluphit[1])).ToString("0.00");
                         Lskillread1.Content = gun[select].skillcontent;
@@ -829,13 +833,15 @@ namespace snqxap
                         Lhp1.Content = gun[select].hp;
                         Lbelt1.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0.00");
-                        Lindex1.Content = (Index(Double.Parse(Lshotspeed1.Content.ToString()), Double.Parse(Ldamage1.Content.ToString()), Double.Parse(Lcrit1.Content.ToString()), Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit1.Content.ToString()), gun[select].belt)).ToString("0.00");
+                        Lindex1.Content = (Index(Double.Parse(Lshotspeed1.Content.ToString()), Double.Parse(Ldamage1.Content.ToString()), Double.Parse(Lcrit1.Content.ToString()), Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit1.Content.ToString()), gun[select].belt, comboi)).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         break;
                     }
                 case 2:
                     {
                         select = Combo2.SelectedIndex;
+                        if (select == -1)
+                            return;
                         Ldamage2.Content = (gun[select].damage * gg[2].damageup * (1 + skillupdamage[2])).ToString("0.00");
                         Lhit2.Content = (gun[select].hit * gg[2].hitup * (1 + skilluphit[2])).ToString("0.00");
                         Lskillread2.Content = gun[select].skillcontent;
@@ -855,14 +861,16 @@ namespace snqxap
                         Lhp2.Content = gun[select].hp;
                         Lbelt2.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0.00");
-                        Lindex2.Content = (Index(Double.Parse(Lshotspeed2.Content.ToString()), Double.Parse(Ldamage2.Content.ToString()), Double.Parse(Lcrit2.Content.ToString()), Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit2.Content.ToString()), gun[select].belt)).ToString("0.00");
+                        Lindex2.Content = (Index(Double.Parse(Lshotspeed2.Content.ToString()), Double.Parse(Ldamage2.Content.ToString()), Double.Parse(Lcrit2.Content.ToString()), Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit2.Content.ToString()), gun[select].belt, comboi)).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         break;
                     }
                 case 3:
                     {
                         select = Combo3.SelectedIndex;
-                          Ldamage3.Content = (gun[select].damage * gg[3].damageup * (1 + skillupdamage[3])).ToString("0.00");
+                        if (select == -1)
+                            return;
+                        Ldamage3.Content = (gun[select].damage * gg[3].damageup * (1 + skillupdamage[3])).ToString("0.00");
                         //   Ldamage3.Content = (gun[select].damage * (gg[3].damageup + skillupdamage[3])).ToString("0.00"); //加法
                         Lhit3.Content = (gun[select].hit * gg[3].hitup * (1 + skilluphit[3])).ToString("0.00");
                         Lskillread3.Content = gun[select].skillcontent;
@@ -882,13 +890,15 @@ namespace snqxap
                         Lhp3.Content = gun[select].hp;
                         Lbelt3.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0.00");
-                        Lindex3.Content = (Index(Double.Parse(Lshotspeed3.Content.ToString()), Double.Parse(Ldamage3.Content.ToString()), Double.Parse(Lcrit3.Content.ToString()), Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit3.Content.ToString()), gun[select].belt)).ToString("0.00");
+                        Lindex3.Content = (Index(Double.Parse(Lshotspeed3.Content.ToString()), Double.Parse(Ldamage3.Content.ToString()), Double.Parse(Lcrit3.Content.ToString()), Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit3.Content.ToString()), gun[select].belt, comboi)).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         break;
                     }
                 case 4:
                     {
                         select = Combo4.SelectedIndex;
+                        if (select == -1)
+                            return;
                         Ldamage4.Content = (gun[select].damage * gg[4].damageup * (1 + skillupdamage[4])).ToString("0.00");
                         Lhit4.Content = (gun[select].hit *gg[4].hitup * (1 + skilluphit[4])).ToString("0.00");
                         Lskillread4.Content = gun[select].skillcontent;
@@ -908,13 +918,15 @@ namespace snqxap
                         Lhp4.Content = gun[select].hp;
                         Lbelt4.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0.00");
-                        Lindex4.Content = (Index(Double.Parse(Lshotspeed4.Content.ToString()), Double.Parse(Ldamage4.Content.ToString()), Double.Parse(Lcrit4.Content.ToString()), Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit4.Content.ToString()), gun[select].belt)).ToString("0.00");
+                        Lindex4.Content = (Index(Double.Parse(Lshotspeed4.Content.ToString()), Double.Parse(Ldamage4.Content.ToString()), Double.Parse(Lcrit4.Content.ToString()), Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit4.Content.ToString()), gun[select].belt, comboi)).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         break;
                     }
                 case 5:
                     {
                         select = Combo5.SelectedIndex;
+                        if (select == -1)
+                            return;
                         Ldamage5.Content = (gun[select].damage * gg[5].damageup * (1 + skillupdamage[5])).ToString("0.00");
                         Lhit5.Content = (gun[select].hit * gg[5].hitup * (1 + skilluphit[5])).ToString("0.00");
                         Lskillread5.Content = gun[select].skillcontent;
@@ -934,13 +946,15 @@ namespace snqxap
                         Lhp5.Content = gun[select].hp;
                         Lbelt5.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0.00");
-                        Lindex5.Content = (Index(Double.Parse(Lshotspeed5.Content.ToString()), Double.Parse(Ldamage5.Content.ToString()), Double.Parse(Lcrit5.Content.ToString()), Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit5.Content.ToString()), gun[select].belt)).ToString("0.00");
+                        Lindex5.Content = (Index(Double.Parse(Lshotspeed5.Content.ToString()), Double.Parse(Ldamage5.Content.ToString()), Double.Parse(Lcrit5.Content.ToString()), Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit5.Content.ToString()), gun[select].belt, comboi)).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         break;
                     }
                 case 6:
                     {
                         select = Combo6.SelectedIndex;
+                        if (select == -1)
+                            return;
                         Ldamage6.Content = (gun[select].damage * gg[6].damageup * (1 + skillupdamage[6])).ToString("0.00");
                         Lhit6.Content = (gun[select].hit * gg[6].hitup * (1 + skilluphit[6])).ToString("0.00");
                         Lskillread6.Content = gun[select].skillcontent;
@@ -960,13 +974,15 @@ namespace snqxap
                         Lhp6.Content = gun[select].hp;
                         Lbelt6.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0.00");
-                        Lindex6.Content = (Index(Double.Parse(Lshotspeed6.Content.ToString()), Double.Parse(Ldamage6.Content.ToString()), Double.Parse(Lcrit6.Content.ToString()), Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit6.Content.ToString()), gun[select].belt)).ToString("0.00");
+                        Lindex6.Content = (Index(Double.Parse(Lshotspeed6.Content.ToString()), Double.Parse(Ldamage6.Content.ToString()), Double.Parse(Lcrit6.Content.ToString()), Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit6.Content.ToString()), gun[select].belt, comboi)).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         break;
                     }
                 case 7:
                     {
                         select = Combo7.SelectedIndex;
+                        if (select == -1)
+                            return;
                         Ldamage7.Content = (gun[select].damage * gg[7].damageup * (1 + skillupdamage[7])).ToString("0.00");
                         Lhit7.Content = (gun[select].hit *gg[7].hitup * (1 + skilluphit[7])).ToString("0.00");
                         Lskillread7.Content = gun[select].skillcontent;
@@ -986,13 +1002,15 @@ namespace snqxap
                         Lhp7.Content = gun[select].hp;
                         Lbelt7.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0.00");
-                        Lindex7.Content = (Index(Double.Parse(Lshotspeed7.Content.ToString()), Double.Parse(Ldamage7.Content.ToString()), Double.Parse(Lcrit7.Content.ToString()), Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit7.Content.ToString()), gun[select].belt)).ToString("0.00");
+                        Lindex7.Content = (Index(Double.Parse(Lshotspeed7.Content.ToString()), Double.Parse(Ldamage7.Content.ToString()), Double.Parse(Lcrit7.Content.ToString()), Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit7.Content.ToString()), gun[select].belt, comboi)).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         break;
                     }
                 case 8:
                     {
                         select = Combo8.SelectedIndex;
+                        if (select == -1)
+                            return;
                         Ldamage8.Content = (gun[select].damage * gg[8].damageup * (1 + skillupdamage[8])).ToString("0.00");
                         Lhit8.Content = (gun[select].hit * gg[8].hitup * (1 + skilluphit[8])).ToString("0.00");
                         Lskillread8.Content = gun[select].skillcontent;
@@ -1012,14 +1030,14 @@ namespace snqxap
                         Lhp8.Content = gun[select].hp;
                         Lbelt8.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0.00");
-                        Lindex8.Content = (Index(Double.Parse(Lshotspeed8.Content.ToString()), Double.Parse(Ldamage8.Content.ToString()), Double.Parse(Lcrit8.Content.ToString()), Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit8.Content.ToString()),gun[select].belt)).ToString("0.00");
+                        Lindex8.Content = (Index(Double.Parse(Lshotspeed8.Content.ToString()), Double.Parse(Ldamage8.Content.ToString()), Double.Parse(Lcrit8.Content.ToString()), Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit8.Content.ToString()),gun[select].belt, comboi)).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         break;
                     }
             }
         }
        
-        public double Index(double shotspeed,double damage,double crit,double enemydodge,double hit,int belt)
+        public double Index(double shotspeed,double damage,double crit,double enemydodge,double hit,int belt,int combo)
        {
             if (hit == 0)
                 return 0;
@@ -1027,6 +1045,7 @@ namespace snqxap
                 return shotspeed * damage / 50 * (1 - crit + crit * 1.5) / (1 + enemydodge / hit);
             else
             {
+                
                 if(slider.Value!=0)
                 {
                     double shottime = (double)belt / 3.0;
@@ -1542,6 +1561,8 @@ namespace snqxap
         {
 
             int select = Combo0.SelectedIndex;
+            if (select == -1)
+                return;
             for (int i = 0; i < 9; i++)
             {
                 if (getcombogunname(i) != ""&&getcombogunname(i)!=null)
@@ -1629,6 +1650,8 @@ namespace snqxap
         private void Combo1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int select = Combo1.SelectedIndex;
+            if (select == -1)
+                return;
             for (int i = 0; i < 9; i++)
             {
                 if (getcombogunname(i) != "" && getcombogunname(i) != null)
@@ -1718,6 +1741,8 @@ namespace snqxap
         private void Combo2_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int select = Combo2.SelectedIndex;
+            if (select == -1)
+                return;
             for (int i = 0; i < 9; i++)
             {
                 if (getcombogunname(i) != "" && getcombogunname(i) != null)
@@ -1805,6 +1830,8 @@ namespace snqxap
         private void Combo3_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int select = Combo3.SelectedIndex;
+            if (select == -1)
+                return;
             for (int i = 0; i < 9; i++)
             {
                 if (getcombogunname(i) != "" && getcombogunname(i) != null)
@@ -2024,6 +2051,8 @@ namespace snqxap
         private void Combo4_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int select = Combo4.SelectedIndex;
+            if (select == -1)
+                return;
             for (int i = 0; i < 9; i++)
             {
                 if (getcombogunname(i) != "" && getcombogunname(i) != null)
@@ -2118,6 +2147,8 @@ namespace snqxap
         private void Combo5_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int select = Combo5.SelectedIndex;
+            if (select == -1)
+                return;
             for (int i = 0; i < 9; i++)
             {
                 if (getcombogunname(i) != "" && getcombogunname(i) != null)
@@ -2209,6 +2240,8 @@ namespace snqxap
         private void Combo6_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int select = Combo6.SelectedIndex;
+            if (select == -1)
+                return;
             for (int i = 0; i < 9; i++)
             {
                 if (getcombogunname(i) != "" && getcombogunname(i) != null)
@@ -2299,6 +2332,8 @@ namespace snqxap
         {
             
             int select = Combo7.SelectedIndex;
+            if (select == -1)
+                return;
             for (int i = 0; i < 9; i++)
             {
                 if (getcombogunname(i) != "" && getcombogunname(i) != null)
@@ -2392,6 +2427,8 @@ namespace snqxap
         private void Combo8_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int select = Combo8.SelectedIndex;
+            if (select == -1)
+                return;
             for (int i = 0; i < 9; i++)
             {
                 if (getcombogunname(i) != "" && getcombogunname(i) != null)
@@ -2884,8 +2921,8 @@ namespace snqxap
             rb8.IsChecked = false;
 
             tank.Content = 0;
-            enemydodge.Text = "0";
-            enemyhit.Text = "0";
+            enemydodge.Text = "15";
+            enemyhit.Text = "20";
 
             rbf0.IsChecked = false;
             rbf1.IsChecked = false;
@@ -3082,6 +3119,34 @@ namespace snqxap
             skilldownhit = 1;
         }
 
+
+        private bool ifcheckboxclick(int comboi)
+        {
+            switch (comboi)
+            {
+                case 0:
+                    return cb0.IsChecked == true;
+                case 1:
+                    return cb1.IsChecked == true;
+                case 2:
+                    return cb2.IsChecked == true;
+                case 3:
+                    return cb3.IsChecked == true;
+                case 4:
+                    return cb4.IsChecked == true;
+                case 5:
+                    return cb5.IsChecked == true;
+                case 6:
+                    return cb6.IsChecked == true;
+                case 7:
+                    return cb7.IsChecked == true;
+                case 8:
+                    return cb8.IsChecked == true;
+                default:
+                    return false;
+            }
+        }
+    
 
         private void cb0_Click(object sender, RoutedEventArgs e)
         {

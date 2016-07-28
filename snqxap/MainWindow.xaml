@@ -14,7 +14,7 @@
                     </Grid.Resources>
                     <Border/>
                     <Image Name="Image0" Source="/assets/1.png" Height="125" Width="70"  Margin="140,45,0,55"/>
-                    <ComboBox Name="Combo0" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="205" Height="30" SelectionChanged="Combo0_SelectionChanged"/>
+                    <ComboBox IsEditable = "true"  Name="Combo0" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="205" Height="30" SelectionChanged="Combo0_SelectionChanged"/>
                     <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,65,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldamage0" Content="0" HorizontalAlignment="Left" Margin="30,65,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="射速:" HorizontalAlignment="Left" Margin="0,85,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -50,7 +50,7 @@
                     </Grid.Resources>
                     <Border Grid.Row="1" Grid.Column="1"></Border>
                     <Image Name="Image1" Source="/assets/1.png" Height="125" Width="70"  Margin="140,45,0,55"/>
-                    <ComboBox Name="Combo1" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="205" Height="30" SelectionChanged="Combo1_SelectionChanged"/>
+                    <ComboBox IsEditable = "true"  Name="Combo1" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="205" Height="30" SelectionChanged="Combo1_SelectionChanged"/>
                     <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,65,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldamage1" Content="0" HorizontalAlignment="Left" Margin="30,65,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="射速:" HorizontalAlignment="Left" Margin="0,85,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -86,7 +86,7 @@
                     </Grid.Resources>
                     <Border Grid.Row="1" Grid.Column="1"></Border>
                     <Image Name="Image2" Source="/assets/1.png" Height="125" Width="70"  Margin="140,45,0,55"/>
-                    <ComboBox Name="Combo2" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="205" Height="30" SelectionChanged="Combo2_SelectionChanged"/>
+                    <ComboBox IsEditable = "true"  Name="Combo2" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="205" Height="30" SelectionChanged="Combo2_SelectionChanged"/>
                     <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,65,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldamage2" Content="0" HorizontalAlignment="Left" Margin="30,65,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="射速:" HorizontalAlignment="Left" Margin="0,85,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -122,7 +122,7 @@
                     </Grid.Resources>
                     <Border Grid.Row="1" Grid.Column="1"></Border>
                     <Image Name="Image3" Source="/assets/1.png" Height="125" Width="70"  Margin="140,45,0,55"/>
-                    <ComboBox Name="Combo3" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="205" Height="30" SelectionChanged="Combo3_SelectionChanged"/>
+                    <ComboBox IsEditable = "true"  Name="Combo3" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="205" Height="30" SelectionChanged="Combo3_SelectionChanged"/>
                     <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,65,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldamage3" Content="0" HorizontalAlignment="Left" Margin="30,65,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="射速:" HorizontalAlignment="Left" Margin="0,85,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -158,7 +158,7 @@
                     </Grid.Resources>
                     <Border Grid.Row="1" Grid.Column="1"></Border>
                     <Image Name="Image4" Source="/assets/1.png" Height="125" Width="70"  Margin="140,45,0,55"/>
-                    <ComboBox Name="Combo4" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="205" Height="30" SelectionChanged="Combo4_SelectionChanged"/>
+                    <ComboBox IsEditable = "true"  Name="Combo4" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="205" Height="30" SelectionChanged="Combo4_SelectionChanged"/>
                     <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,65,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldamage4" Content="0" HorizontalAlignment="Left" Margin="30,65,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="射速:" HorizontalAlignment="Left" Margin="0,85,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -194,7 +194,7 @@
                     </Grid.Resources>
                     <Border Grid.Row="1" Grid.Column="1"></Border>
                     <Image Name="Image5" Source="/assets/1.png" Height="125" Width="70"  Margin="140,45,0,55"/>
-                    <ComboBox Name="Combo5" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="205" Height="30" SelectionChanged="Combo5_SelectionChanged"/>
+                    <ComboBox IsEditable = "true"  Name="Combo5" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="205" Height="30" SelectionChanged="Combo5_SelectionChanged"/>
                     <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,65,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldamage5" Content="0" HorizontalAlignment="Left" Margin="30,65,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="射速:" HorizontalAlignment="Left" Margin="0,85,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -230,7 +230,7 @@
                     </Grid.Resources>
                     <Border Grid.Row="1" Grid.Column="1"></Border>
                     <Image Name="Image6" Source="/assets/1.png" Height="125" Width="70"  Margin="140,45,0,55"/>
-                    <ComboBox Name="Combo6" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="205" Height="30" SelectionChanged="Combo6_SelectionChanged"/>
+                    <ComboBox IsEditable = "true"  Name="Combo6" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="205" Height="30" SelectionChanged="Combo6_SelectionChanged"/>
                     <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,65,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldamage6" Content="0" HorizontalAlignment="Left" Margin="30,65,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="射速:" HorizontalAlignment="Left" Margin="0,85,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -266,7 +266,7 @@
                     </Grid.Resources>
                     <Border Grid.Row="1" Grid.Column="1"></Border>
                     <Image Name="Image7" Source="/assets/1.png" Height="125" Width="70"  Margin="140,45,0,55"/>
-                    <ComboBox Name="Combo7" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="205" Height="30" SelectionChanged="Combo7_SelectionChanged"/>
+                    <ComboBox IsEditable = "true"  Name="Combo7" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="205" Height="30" SelectionChanged="Combo7_SelectionChanged"/>
                     <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,65,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldamage7" Content="0" HorizontalAlignment="Left" Margin="30,65,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="射速:" HorizontalAlignment="Left" Margin="0,85,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -302,7 +302,7 @@
                     </Grid.Resources>
                     <Border Grid.Row="1" Grid.Column="1"></Border>
                     <Image Name="Image8" Source="/assets/1.png" Height="125" Width="70"  Margin="140,45,0,55"/>
-                    <ComboBox Name="Combo8" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="205" Height="30" SelectionChanged="Combo8_SelectionChanged"/>
+                    <ComboBox IsEditable = "true"  Name="Combo8" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="205" Height="30" SelectionChanged="Combo8_SelectionChanged"/>
                     <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,65,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldamage8" Content="0" HorizontalAlignment="Left" Margin="30,65,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="射速:" HorizontalAlignment="Left" Margin="0,85,0,0" VerticalAlignment="Top" FontSize="12"/>
