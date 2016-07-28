@@ -1,0 +1,42 @@
+﻿<Window x:Class="snqxap.UpdateData"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Log" Height="310" Width="560" ResizeMode="NoResize">
+    <Grid>
+
+        <Button Height="20" Width="50" Content="关闭" Click="Button_Click" Margin="484,242,10,10"/>
+        <TextBox IsReadOnly="True" Text="Updates&#13;
+-------------&#13;
+> - This is the updates document for the program named as **snqxap** or **阵型计算器** &#13;
+> - designed by&lt;h@jyying.cn>少女前线ID:**雪风** 贴吧**@真冬死宅酱**&#13;
+> - guns' data from **@两仪双月** test by ハゲ in a group **藏经阁前空地** &#13;
+> - skill data from **@Yuki丸子**&#13;
+> - If the program has any bugs, you can send me an email. &#13;
+&#13;
+###v1.0.4&#13;
+&#13;
+> - update 谢尔久科夫 data.&#13;
+&#13;
+###v1.0.3&#13;
+&#13;
+> - rewrite buff calculate logic.Now you can change the team freely.&#13;
+> - small UI, 800x1366 -> 500x810.&#13;
+> - fix bugs: AR team's buff / UMP45's buff&#13;
+> - add adjunct tank RadioButton and their label.&#13;
+> - now change ComboBox to blank has a small bug.I don't want to fix it nearly.&#13;
+&#13;
+###v1.0.2&#13;
+&#13;
+> - add reinit Button.&#13;
+> - change some guns name to Chinese.&#13;
+> - fix bugs:KP31's buff / gun's name&#13;
+> - change logic.but if it has a lot of buffs,their'll have a bug.&#13;
+> - add hp in each grid.&#13;
+&#13;
+###v1.0.0&#13;
+&#13;
+> - start the project.&#13;
+
+              " VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="237" TextWrapping="Wrap" VerticalAlignment="Top" Width="546"/>
+    </Grid>
+</Window>
