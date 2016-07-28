@@ -7,7 +7,7 @@ using System.Windows;
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("snqxap")]
+[assembly: AssemblyTitle("阵型计算器")]
 [assembly: AssemblyDescription("少女前线阵型好不好？")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("雪风@真冬死宅酱")]

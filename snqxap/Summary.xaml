@@ -1,7 +1,7 @@
 ﻿<Window x:Class="snqxap.Summary"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Summary" Height="310" Width="400" ResizeMode="NoResize">
+        Title="About" Height="310" Width="400" ResizeMode="NoResize">
     <Grid>
         <Label Content="作者：雪风 百度贴吧 @真冬死宅酱                  Email:" HorizontalAlignment="Left"  VerticalAlignment="Top" FontSize="12" Height="27" Width="308"/>
         <Label Content="这个玩意充满了bug，出了什么问题请重置或重启或告诉我。"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,27,0,0"/>

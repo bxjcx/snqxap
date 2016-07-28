@@ -7,7 +7,7 @@
         <Button Height="20" Width="50" Content="关闭" Click="Button_Click" Margin="484,242,10,10"/>
         <TextBox IsReadOnly="True" Text="Updates&#13;
 -------------&#13;
-> - This is the updates document for the program named as **snqxap** or **阵型计算器** &#13;
+> - This is the updates document for the program named as  **阵型计算器** &#13;
 > - designed by&lt;h@jyying.cn>少女前线ID:**雪风** 贴吧**@真冬死宅酱**&#13;
 > - guns' data from **@两仪双月** test by ハゲ in a group **藏经阁前空地** &#13;
 > - skill data from **@Yuki丸子**&#13;
