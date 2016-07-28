@@ -10,7 +10,7 @@ namespace snqxap
 
     class Gun
     {
-
+        public string image { get; set; }
         public int number { get; set; }
         public int effect0 { get; set; }
         public int effect1 { get; set; }

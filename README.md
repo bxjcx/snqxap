@@ -5,6 +5,11 @@ logs
 ###v1.0.4 2016.07.10
 
 > - update 谢尔久科夫 data.
+> - load skill data.
+> - deploy skill logic.check checkbox can show when the skill effective.
+> - add how much the team eat each battle.
+> - add image for each gun.
+> - now you can resize window.
 
 ###v1.0.3 2016.07.09
 

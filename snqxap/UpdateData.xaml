@@ -3,19 +3,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Log" Height="310" Width="560" ResizeMode="NoResize">
     <Grid>
-
-        <Button Height="20" Width="50" Content="关闭" Click="Button_Click" Margin="484,242,10,10"/>
-        <TextBox IsReadOnly="True" Text="Updates&#13;
+        <TextBox IsReadOnly="True" Text="
+Updates&#13;
 -------------&#13;
+&#13;
 > - This is the updates document for the program named as  **阵型计算器** &#13;
-> - designed by&lt;h@jyying.cn>少女前线ID:**雪风** 贴吧**@真冬死宅酱**&#13;
+> - designed by &lt;h@jyying.cn> 少女前线ID:**雪风** 贴吧**@真冬死宅酱**&#13;
 > - guns' data from **@两仪双月** test by ハゲ in a group **藏经阁前空地** &#13;
-> - skill data from **@Yuki丸子**&#13;
+> - skill data from **@星光_爱_彩虹**&#13;
+> - some image data from **@Yuki丸子**&#13;
 > - If the program has any bugs, you can send me an email. &#13;
 &#13;
 ###v1.0.4&#13;
 &#13;
 > - update 谢尔久科夫 data.&#13;
+> - load skill data.&#13;
+> - deploy skill logic.check checkbox can show when the skill effective.&#13;
+> - add how much the team eat each battle.&#13;
+> - add image for each gun.&#13;
+> - now you can resize window.&#13;
 &#13;
 ###v1.0.3&#13;
 &#13;
@@ -37,6 +43,6 @@
 &#13;
 > - start the project.&#13;
 
-              " VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="237" TextWrapping="Wrap" VerticalAlignment="Top" Width="546"/>
+              " VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="282" TextWrapping="Wrap" VerticalAlignment="Top" Width="546"/>
     </Grid>
 </Window>

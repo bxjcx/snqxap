@@ -12,13 +12,12 @@
         <Label Content="伤害指数(机枪)：弹链*伤害*(1-暴击率+暴击率*1.5)/"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,162,0,0" Foreground="Red"/>
         <Label Content="(1+敌回避/命中)/(弹链/3+4+200/射速)   ←机枪指数低于实际。"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,189,0,0" Foreground="Red"/>
         <Label Content="主T肉度：血量/(1/(1+回避/敌命中))"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,215,0,0" Foreground="Red"/>
-        <Label Content="欢迎数据dalao给我更好的算式。"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,242,76,0"/>
+        <Label Content="欢迎数据dalao给我更好的算式。下次可能才会加机枪虚区时间Slider。"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,242,0,0"/>
         
         <TextBlock FontSize="12" Height="27" Margin="300,5,8,250" >
             <Hyperlink>
                 h@jyying.cn
             </Hyperlink>
         </TextBlock>
-        <Button Height="20" Width="50" Content="关闭" Click="Button_Click" Margin="319,242,10,10"/>
     </Grid>
 </Window>
