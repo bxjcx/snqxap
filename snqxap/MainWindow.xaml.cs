@@ -414,17 +414,285 @@ namespace snqxap
             gun[100].skilltype = 4; gun[100].skillrate = 0.56; gun[100].skilltime = 8; gun[100].skillupalldamage = 0.2; gun[100].skillcontent = "提升己方20%伤害";
             for (int i = 0; i < 102; i++)
             {
-                Combo0.Items.Add(gun[i].name);
-                Combo1.Items.Add(gun[i].name);
-                Combo2.Items.Add(gun[i].name);
-                Combo3.Items.Add(gun[i].name);
-                Combo4.Items.Add(gun[i].name);
-                Combo5.Items.Add(gun[i].name);
-                Combo6.Items.Add(gun[i].name);
-                Combo7.Items.Add(gun[i].name);
-                Combo8.Items.Add(gun[i].name);
+                Label l = new Label();
+                l.Content = gun[i].name;
+                if (gun[i].what == 2)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 3)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("darkviolet"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 4)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 5)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 6)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
+                    l.Foreground = br;
+                }
+                Combo0.Items.Add(l);
             }
 
+            for (int i = 0; i < 102; i++)
+            {
+                Label l = new Label();
+                l.Content = gun[i].name;
+                if (gun[i].what == 2)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 3)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("darkviolet"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 4)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 5)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 6)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
+                    l.Foreground = br;
+                }
+                Combo1.Items.Add(l);
+            }
+            for (int i = 0; i < 102; i++)
+            {
+                Label l = new Label();
+                l.Content = gun[i].name;
+                if (gun[i].what == 2)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 3)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("darkviolet"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 4)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 5)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 6)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
+                    l.Foreground = br;
+                }
+                Combo2.Items.Add(l);
+            }
+            for (int i = 0; i < 102; i++)
+            {
+                Label l = new Label();
+                l.Content = gun[i].name;
+                if (gun[i].what == 2)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 3)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("darkviolet"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 4)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 5)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 6)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
+                    l.Foreground = br;
+                }
+                Combo3.Items.Add(l);
+            }
+            for (int i = 0; i < 102; i++)
+            {
+                Label l = new Label();
+                l.Content = gun[i].name;
+                if (gun[i].what == 2)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 3)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("darkviolet"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 4)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 5)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 6)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
+                    l.Foreground = br;
+                }
+                Combo4.Items.Add(l);
+            }
+
+            for (int i = 0; i < 102; i++)
+            {
+                Label l = new Label();
+                l.Content = gun[i].name;
+                if (gun[i].what == 2)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 3)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("darkviolet"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 4)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 5)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 6)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
+                    l.Foreground = br;
+                }
+                Combo5.Items.Add(l);
+            }
+            for (int i = 0; i < 102; i++)
+            {
+                Label l = new Label();
+                l.Content = gun[i].name;
+                if (gun[i].what == 2)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 3)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("darkviolet"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 4)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 5)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 6)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
+                    l.Foreground = br;
+                }
+                Combo6.Items.Add(l);
+            }
+            for (int i = 0; i < 102; i++)
+            {
+                Label l = new Label();
+                l.Content = gun[i].name;
+                if (gun[i].what == 2)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 3)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("darkviolet"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 4)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 5)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 6)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
+                    l.Foreground = br;
+                }
+                Combo7.Items.Add(l);
+            }
+            for (int i = 0; i < 102; i++)
+            {
+                Label l = new Label();
+                l.Content = gun[i].name;
+                if (gun[i].what == 2)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 3)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("darkviolet"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 4)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 5)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
+                    l.Foreground = br;
+                }
+                else if (gun[i].what == 6)
+                {
+                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
+                    l.Foreground = br;
+                }
+                Combo8.Items.Add(l);
+            }
             for (int i = 0; i < 101; i++)
             {
                 gun[i].image = "/assets/" + i.ToString() + ".png";
@@ -1923,6 +2191,8 @@ namespace snqxap
             gun[99].growth_type = 2;
             gun[100].growth_type = 3;
             
+
+            
         }
 
 
@@ -2871,7 +3141,7 @@ namespace snqxap
                 }
                 if (index8 != -1)
                 {
-                    othercombochange(index8, index5, 4, 7);
+                    othercombochange(index8, index7, 4, 7);
                 }
                 renewindex(7);
                 if (rb7.IsChecked == true)
@@ -3051,6 +3321,31 @@ namespace snqxap
                     Combo0.SelectedIndex = lastgunindex[0];
                     return;
                 }
+            if (gun[select].what == 2)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
+                Combo0.Foreground = br;
+            }
+            else if (gun[select].what == 3)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("darkviolet"));
+                Combo0.Foreground = br;
+            }
+            else if (gun[select].what == 4)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
+                Combo0.Foreground = br;
+            }
+            else if (gun[select].what == 5)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
+                Combo0.Foreground = br;
+            }
+            else if (gun[select].what == 6)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
+                Combo0.Foreground = br;
+            }
             if (select!=-1)
                 calccombo0buff();
             calccombo1buff();
@@ -3185,6 +3480,31 @@ namespace snqxap
                     Combo1.SelectedIndex = lastgunindex[1];
                     return;
                 }
+            if (gun[select].what == 2)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
+                Combo1.Foreground = br;
+            }
+            else if (gun[select].what == 3)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("darkviolet"));
+                Combo1.Foreground = br;
+            }
+            else if (gun[select].what == 4)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
+                Combo1.Foreground = br;
+            }
+            else if (gun[select].what == 5)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
+                Combo1.Foreground = br;
+            }
+            else if (gun[select].what == 6)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
+                Combo1.Foreground = br;
+            }
             if (select != -1)
                 calccombo1buff();
             calccombo0buff();
@@ -3321,6 +3641,31 @@ namespace snqxap
                     Combo2.SelectedIndex = lastgunindex[2];
                     return;
                 }
+            if (gun[select].what == 2)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
+                Combo2.Foreground = br;
+            }
+            else if (gun[select].what == 3)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("darkviolet"));
+                Combo2.Foreground = br;
+            }
+            else if (gun[select].what == 4)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
+                Combo2.Foreground = br;
+            }
+            else if (gun[select].what == 5)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
+                Combo2.Foreground = br;
+            }
+            else if (gun[select].what == 6)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
+                Combo2.Foreground = br;
+            }
             if (select != -1)
                 calccombo2buff();
             calccombo1buff();
@@ -3455,6 +3800,32 @@ namespace snqxap
                     Combo3.SelectedIndex = lastgunindex[3];
                     return;
                 }
+
+            if (gun[select].what == 2)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
+                Combo3.Foreground = br;
+            }
+            else if (gun[select].what == 3)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("darkviolet"));
+                Combo3.Foreground = br;
+            }
+            else if (gun[select].what == 4)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
+                Combo3.Foreground = br;
+            }
+            else if (gun[select].what == 5)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
+                Combo3.Foreground = br;
+            }
+            else if (gun[select].what == 6)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
+                Combo3.Foreground = br;
+            }
             if (select != -1)
                 calccombo3buff();
             calccombo0buff();
@@ -3694,6 +4065,32 @@ namespace snqxap
                     Combo4.SelectedIndex = lastgunindex[4];
                     return;
                 }
+
+            if (gun[select].what == 2)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
+                Combo4.Foreground = br;
+            }
+            else if (gun[select].what == 3)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("darkviolet"));
+                Combo4.Foreground = br;
+            }
+            else if (gun[select].what == 4)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
+                Combo4.Foreground = br;
+            }
+            else if (gun[select].what == 5)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
+                Combo4.Foreground = br;
+            }
+            else if (gun[select].what == 6)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
+                Combo4.Foreground = br;
+            }
             if (select != -1)
                 calccombo4buff();
             calccombo0buff();
@@ -3835,6 +4232,32 @@ namespace snqxap
                     Combo5.SelectedIndex = lastgunindex[5];
                     return;
                 }
+
+            if (gun[select].what == 2)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
+                Combo5.Foreground = br;
+            }
+            else if (gun[select].what == 3)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("darkviolet"));
+                Combo5.Foreground = br;
+            }
+            else if (gun[select].what == 4)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
+                Combo5.Foreground = br;
+            }
+            else if (gun[select].what == 5)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
+                Combo5.Foreground = br;
+            }
+            else if (gun[select].what == 6)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
+                Combo5.Foreground = br;
+            }
             if (select != -1)
                 calccombo5buff();
             calccombo1buff();
@@ -3973,6 +4396,32 @@ namespace snqxap
                     Combo6.SelectedIndex = lastgunindex[6];
                     return;
                 }
+
+            if (gun[select].what == 2)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
+                Combo6.Foreground = br;
+            }
+            else if (gun[select].what == 3)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("darkviolet"));
+                Combo6.Foreground = br;
+            }
+            else if (gun[select].what == 4)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
+                Combo6.Foreground = br;
+            }
+            else if (gun[select].what == 5)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
+                Combo6.Foreground = br;
+            }
+            else if (gun[select].what == 6)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
+                Combo6.Foreground = br;
+            }
             if (select != -1)
                 calccombo6buff();
             calccombo3buff();
@@ -4110,6 +4559,32 @@ namespace snqxap
                     Combo7.SelectedIndex = lastgunindex[7];
                     return;
                 }
+
+            if (gun[select].what == 2)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
+                Combo7.Foreground = br;
+            }
+            else if (gun[select].what == 3)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("darkviolet"));
+                Combo7.Foreground = br;
+            }
+            else if (gun[select].what == 4)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
+                Combo7.Foreground = br;
+            }
+            else if (gun[select].what == 5)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
+                Combo7.Foreground = br;
+            }
+            else if (gun[select].what == 6)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
+                Combo7.Foreground = br;
+            }
             if (select != -1)
                 calccombo7buff();
             calccombo3buff();
@@ -4250,6 +4725,32 @@ namespace snqxap
                     Combo8.SelectedIndex = lastgunindex[8]; 
                     return;
                 }
+
+            if (gun[select].what == 2)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
+                Combo8.Foreground = br;
+            }
+            else if (gun[select].what == 3)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("darkviolet"));
+                Combo8.Foreground = br;
+            }
+            else if (gun[select].what == 4)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
+                Combo8.Foreground = br;
+            }
+            else if (gun[select].what == 5)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
+                Combo8.Foreground = br;
+            }
+            else if (gun[select].what == 6)
+            {
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
+                Combo8.Foreground = br;
+            }
             if (select != -1)
                 calccombo8buff();
             calccombo7buff();

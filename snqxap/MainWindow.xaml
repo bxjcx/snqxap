@@ -20,17 +20,17 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="Combo0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo0_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo0_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="#FF454443" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="Level0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level0_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level0_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="SkillLevel0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel0_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel0_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
@@ -72,17 +72,17 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="Combo1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo1_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo1_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="Level1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level1_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level1_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="SkillLevel1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel1_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel1_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
@@ -124,17 +124,17 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="Combo2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo2_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Combo2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo2_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="Level2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level2_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level2_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="SkillLevel2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel2_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel2_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
@@ -176,17 +176,17 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="Combo3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo3_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo3_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="Level3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level3_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level3_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="SkillLevel3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel3_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel3_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
@@ -228,17 +228,17 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="Combo4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo4_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo4_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="Level4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level4_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level4_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="SkillLevel4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0"  SelectionChanged="SkillLevel4_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0"  SelectionChanged="SkillLevel4_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
@@ -280,17 +280,17 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="Combo5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo5_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo5_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="Level5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level5_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level5_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="SkillLevel5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel5_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel5_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
@@ -332,17 +332,17 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="Combo6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo6_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo6_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="Level6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level6_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level6_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="SkillLevel6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel6_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel6_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
@@ -384,17 +384,17 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="Combo7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo7_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo7_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="Level7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level7_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level7_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="SkillLevel7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel7_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel7_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
@@ -436,17 +436,17 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="Combo8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo8_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo8_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="Level8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level8_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level8_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" Foreground="Red" IsEditable = "true"  Name="SkillLevel8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel8_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel8_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
