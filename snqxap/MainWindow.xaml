@@ -1,7 +1,7 @@
 ﻿<Window x:Class="snqxap.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="768" Width="1366">
+        Title="少女前线阵型好不好？ - h@jyying.cn" Height="768" Width="1366">
     <Grid>
         <Grid HorizontalAlignment="Left" Height="720" Margin="62,10,0,0" VerticalAlignment="Top" Width="720">
             <Grid HorizontalAlignment="Left" Height="240" VerticalAlignment="Top" Width="240" Margin="0,0,0,0">
@@ -18,6 +18,8 @@
                 <Label Name="Lcrit0" Content="0" HorizontalAlignment="Left" Margin="55,165,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="10,195,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Name="Lindex0" Content="0" HorizontalAlignment="Left" Margin="85,195,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Label Content="血量:" HorizontalAlignment="Left" Margin="115,45,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Label Name="Lhp0" Content="0" HorizontalAlignment="Left" Margin="160,45,0,0" VerticalAlignment="Top" FontSize="16"/>
             </Grid>
             <Grid HorizontalAlignment="Left" Height="240" VerticalAlignment="Top" Width="240" Margin="240,0,0,0">
                 <ComboBox Name="Combo1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="220" Height="30" SelectionChanged="Combo1_SelectionChanged"/>
@@ -33,9 +35,12 @@
                 <Label Name="Lcrit1" Content="0" HorizontalAlignment="Left" Margin="55,165,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="10,195,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Name="Lindex1" Content="0" HorizontalAlignment="Left" Margin="85,195,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Label Content="血量:" HorizontalAlignment="Left" Margin="115,45,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Label Name="Lhp1" Content="0" HorizontalAlignment="Left" Margin="160,45,0,0" VerticalAlignment="Top" FontSize="16"/>
+
             </Grid>
             <Grid HorizontalAlignment="Left" Height="240" VerticalAlignment="Top" Width="240" Margin="480,0,0,0">
-                <ComboBox Name="Combo2" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="220" Height="30"/>
+                <ComboBox Name="Combo2" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="220" Height="30" SelectionChanged="Combo2_SelectionChanged"/>
                 <Label Content="伤害:" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Name="Ldamage2" Content="0" HorizontalAlignment="Left" Margin="55,45,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Content="射速:" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" FontSize="16"/>
@@ -48,9 +53,11 @@
                 <Label Name="Lcrit2" Content="0" HorizontalAlignment="Left" Margin="55,165,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="10,195,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Name="Lindex2" Content="0" HorizontalAlignment="Left" Margin="85,195,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Label Content="血量:" HorizontalAlignment="Left" Margin="115,45,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Label Name="Lhp2" Content="0" HorizontalAlignment="Left" Margin="160,45,0,0" VerticalAlignment="Top" FontSize="16"/>
             </Grid>
             <Grid HorizontalAlignment="Left" Height="240" VerticalAlignment="Top" Width="240" Margin="0,240,0,0">
-                <ComboBox Name="Combo3" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="220" Height="30"/>
+                <ComboBox Name="Combo3" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="220" Height="30" SelectionChanged="Combo3_SelectionChanged"/>
                 <Label Content="伤害:" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Name="Ldamage3" Content="0" HorizontalAlignment="Left" Margin="55,45,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Content="射速:" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" FontSize="16"/>
@@ -63,9 +70,11 @@
                 <Label Name="Lcrit3" Content="0" HorizontalAlignment="Left" Margin="55,165,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="10,195,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Name="Lindex3" Content="0" HorizontalAlignment="Left" Margin="85,195,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Label Content="血量:" HorizontalAlignment="Left" Margin="115,45,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Label Name="Lhp3" Content="0" HorizontalAlignment="Left" Margin="160,45,0,0" VerticalAlignment="Top" FontSize="16"/>
             </Grid>
             <Grid HorizontalAlignment="Left" Height="240" VerticalAlignment="Top" Width="240" Margin="240,240,0,0">
-                <ComboBox Name="Combo4" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="220" Height="30"/>
+                <ComboBox Name="Combo4" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="220" Height="30" SelectionChanged="Combo4_SelectionChanged"/>
                 <Label Content="伤害:" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Name="Ldamage4" Content="0" HorizontalAlignment="Left" Margin="55,45,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Content="射速:" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" FontSize="16"/>
@@ -78,9 +87,11 @@
                 <Label Name="Lcrit4" Content="0" HorizontalAlignment="Left" Margin="55,165,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="10,195,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Name="Lindex4" Content="0" HorizontalAlignment="Left" Margin="85,195,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Label Content="血量:" HorizontalAlignment="Left" Margin="115,45,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Label Name="Lhp4" Content="0" HorizontalAlignment="Left" Margin="160,45,0,0" VerticalAlignment="Top" FontSize="16"/>
             </Grid>
             <Grid HorizontalAlignment="Left" Height="240" VerticalAlignment="Top" Width="240" Margin="480,240,0,0">
-                <ComboBox Name="Combo5" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="220" Height="30"/>
+                <ComboBox Name="Combo5" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="220" Height="30" SelectionChanged="Combo5_SelectionChanged"/>
                 <Label Content="伤害:" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Name="Ldamage5" Content="0" HorizontalAlignment="Left" Margin="55,45,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Content="射速:" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" FontSize="16"/>
@@ -93,9 +104,11 @@
                 <Label Name="Lcrit5" Content="0" HorizontalAlignment="Left" Margin="55,165,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="10,195,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Name="Lindex5" Content="0" HorizontalAlignment="Left" Margin="85,195,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Label Content="血量:" HorizontalAlignment="Left" Margin="115,45,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Label Name="Lhp5" Content="0" HorizontalAlignment="Left" Margin="160,45,0,0" VerticalAlignment="Top" FontSize="16"/>
             </Grid>
             <Grid HorizontalAlignment="Left" Height="240" VerticalAlignment="Top" Width="240" Margin="0,480,0,0">
-                <ComboBox Name="Combo6" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="220" Height="30"/>
+                <ComboBox Name="Combo6" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="220" Height="30" SelectionChanged="Combo6_SelectionChanged"/>
                 <Label Content="伤害:" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Name="Ldamage6" Content="0" HorizontalAlignment="Left" Margin="55,45,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Content="射速:" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" FontSize="16"/>
@@ -108,9 +121,11 @@
                 <Label Name="Lcrit6" Content="0" HorizontalAlignment="Left" Margin="55,165,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="10,195,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Name="Lindex6" Content="0" HorizontalAlignment="Left" Margin="85,195,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Label Content="血量:" HorizontalAlignment="Left" Margin="115,45,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Label Name="Lhp6" Content="0" HorizontalAlignment="Left" Margin="160,45,0,0" VerticalAlignment="Top" FontSize="16"/>
             </Grid>
             <Grid HorizontalAlignment="Left" Height="240" VerticalAlignment="Top" Width="240" Margin="240,480,0,0">
-                <ComboBox Name="Combo7" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="220" Height="30"/>
+                <ComboBox Name="Combo7" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="220" Height="30" SelectionChanged="Combo7_SelectionChanged"/>
                 <Label Content="伤害:" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Name="Ldamage7" Content="0" HorizontalAlignment="Left" Margin="55,45,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Content="射速:" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" FontSize="16"/>
@@ -123,9 +138,11 @@
                 <Label Name="Lcrit7" Content="0" HorizontalAlignment="Left" Margin="55,165,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="10,195,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Name="Lindex7" Content="0" HorizontalAlignment="Left" Margin="85,195,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Label Content="血量:" HorizontalAlignment="Left" Margin="115,45,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Label Name="Lhp7" Content="0" HorizontalAlignment="Left" Margin="160,45,0,0" VerticalAlignment="Top" FontSize="16"/>
             </Grid>
             <Grid HorizontalAlignment="Left" Height="240" VerticalAlignment="Top" Width="240" Margin="480,480,0,0">
-                <ComboBox Name="Combo8" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="220" Height="30"/>
+                <ComboBox Name="Combo8" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="220" Height="30" SelectionChanged="Combo8_SelectionChanged"/>
                 <Label Content="伤害:" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Name="Ldamage8" Content="0" HorizontalAlignment="Left" Margin="55,45,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Content="射速:" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" FontSize="16"/>
@@ -138,21 +155,41 @@
                 <Label Name="Lcrit8" Content="0" HorizontalAlignment="Left" Margin="55,165,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="10,195,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <Label Name="Lindex8" Content="0" HorizontalAlignment="Left" Margin="85,195,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Label Content="血量:" HorizontalAlignment="Left" Margin="115,45,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Label Name="Lhp8" Content="0" HorizontalAlignment="Left" Margin="160,45,0,0" VerticalAlignment="Top" FontSize="16"/>
             </Grid>
-            <RadioButton Name="rb0" Content="主T" HorizontalAlignment="Left" Margin="200,220,0,0" VerticalAlignment="Top"/>
-            <RadioButton Name="rb1" Content="主T" HorizontalAlignment="Left" Margin="440,220,0,0" VerticalAlignment="Top"/>
-            <RadioButton Name="rb2" Content="主T" HorizontalAlignment="Left" Margin="680,220,0,0" VerticalAlignment="Top"/>
-            <RadioButton Name="rb3" Content="主T" HorizontalAlignment="Left" Margin="200,460,0,0" VerticalAlignment="Top"/>
-            <RadioButton Name="rb4" Content="主T" HorizontalAlignment="Left" Margin="440,460,0,0" VerticalAlignment="Top"/>
-            <RadioButton Name="rb5" Content="主T" HorizontalAlignment="Left" Margin="680,460,0,0" VerticalAlignment="Top"/>
-            <RadioButton Name="rb6" Content="主T" HorizontalAlignment="Left" Margin="200,700,0,0" VerticalAlignment="Top"/>
-            <RadioButton Name="rb7" Content="主T" HorizontalAlignment="Left" Margin="440,700,0,0" VerticalAlignment="Top"/>
-            <RadioButton Name="rb8" Content="主T" HorizontalAlignment="Left" Margin="680,700,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rb0_Checked" Name="rb0" Content="主T" HorizontalAlignment="Left" Margin="200,220,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rb1_Checked" Name="rb1" Content="主T" HorizontalAlignment="Left" Margin="440,220,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rb2_Checked" Name="rb2" Content="主T" HorizontalAlignment="Left" Margin="680,220,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rb3_Checked" Name="rb3" Content="主T" HorizontalAlignment="Left" Margin="200,460,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rb4_Checked" Name="rb4" Content="主T" HorizontalAlignment="Left" Margin="440,460,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rb5_Checked" Name="rb5" Content="主T" HorizontalAlignment="Left" Margin="680,460,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rb6_Checked" Name="rb6" Content="主T" HorizontalAlignment="Left" Margin="200,700,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rb7_Checked" Name="rb7" Content="主T" HorizontalAlignment="Left" Margin="440,700,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rb8_Checked" Name="rb8" Content="主T" HorizontalAlignment="Left" Margin="680,700,0,0" VerticalAlignment="Top"/>
 
         </Grid>
-        <Label Content="对闪避                        敌人战斗力：" HorizontalAlignment="Left" Margin="1000,240,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="enemydodge" Text="0" HorizontalAlignment="Left" Margin="1066,240,0,0" VerticalAlignment="Top" Width="40"/>
-        <Label Name="allindex" Content="0" HorizontalAlignment="Left" Margin="1200,240,0,0" VerticalAlignment="Top" />
+        <Label Content="对回避                  敌人战斗力：" FontSize="15" HorizontalAlignment="Left" Margin="912,322,0,0" VerticalAlignment="Top"/>
+        <Label Content="对命中                  敌人主T肉度：" FontSize="15" HorizontalAlignment="Left" Margin="912,349,0,0" VerticalAlignment="Top"/>
+        <TextBox  TextChanged="TextBox2_TextChanged" Name="enemyhit" Text="0" HorizontalAlignment="Left" Margin="980,354,0,0" VerticalAlignment="Top" Width="40"/>
+        <TextBox  TextChanged="TextBox_TextChanged" Name="enemydodge" Text="0" HorizontalAlignment="Left" Margin="980,327,0,0" VerticalAlignment="Top" Width="40"/>
+        <Label FontSize="15" Name="allindex" Content="0" HorizontalAlignment="Left" Margin="1142,327,0,0" VerticalAlignment="Top" />
+        <Label FontSize="15" Name="tank" Content="0" HorizontalAlignment="Left" Margin="1142,355,0,0" VerticalAlignment="Top" />
+        <Label x:Name="summarylabel1" Content="作者：雪风 @真冬死宅酱 email：h@jyying.cn ←反馈" HorizontalAlignment="Left" Margin="787,10,0,0" VerticalAlignment="Top" FontSize="20" Height="38" Width="561"/>
+        <Label x:Name="summarylabel2" Content="这个玩意充满了bug，出了什么问题请重启。" HorizontalAlignment="Left" Margin="787,53,0,0" VerticalAlignment="Top" FontSize="20" Height="38" Width="472"/>
+        <Label x:Name="summarylabel3" Content="数据来自某圣僧法会。这种东西还是自己群里用着玩吧~" HorizontalAlignment="Left" Margin="787,89,0,0" VerticalAlignment="Top" FontSize="20" Height="38" Width="536"/>
+        <Label x:Name="summarylabel4" Content="伤害指数(非机枪)：" HorizontalAlignment="Left" Margin="787,390,0,0" VerticalAlignment="Top" FontSize="20" Height="33" Width="561"/>
+        <Label x:Name="summarylabel5" Content="射速*伤害/50*(1-暴击率+暴击率*1.5)/(1+敌回避/命中)" HorizontalAlignment="Left" Margin="787,423,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="561"/>
+        <Label x:Name="summarylabel6" Content="伤害指数(机枪)：弹链*伤害*(1-暴击率+暴击率*1.5)/" HorizontalAlignment="Left" Margin="787,463,0,0" VerticalAlignment="Top" FontSize="20" Height="33" Width="561"/>
+        <Label x:Name="summarylabel7" Content="(1+敌回避/命中)/(弹链/3+4+200/射速) ←机枪太烦了简化下" HorizontalAlignment="Left" Margin="787,501,0,0" VerticalAlignment="Top" FontSize="20" Height="45" Width="561"/>
+        <Label Foreground="Red" x:Name="summarylabel8" Content="最好先放同种枪型。比如AR→SMG→HG。手枪最好在最后放。" HorizontalAlignment="Left" Margin="787,601,0,0" VerticalAlignment="Top" FontSize="20" Height="45" Width="561" RenderTransformOrigin="0.474,1.387"/>
+        <Label x:Name="summarylabel9" Content="这个玩意没计算技能，请自行考虑。（我很喜欢手枪及牛头王）"  Foreground="#FF0000" HorizontalAlignment="Left" Margin="787,127,0,0" VerticalAlignment="Top" FontSize="20" Height="45" Width="571" RenderTransformOrigin="0.474,1.387"/>
+        <Label x:Name="summarylabel10" Content="你问我什么时候修bug？ 看心情、会不会以及老板打不打我。"   HorizontalAlignment="Left" Margin="787,172,0,0" VerticalAlignment="Top" FontSize="20" Height="45" Width="561" RenderTransformOrigin="0.474,1.387"/>
+        <Label Foreground="Red" x:Name="summarylabel11" Content="否则非常可能出现数值错误（已知bug）。"   HorizontalAlignment="Left" Margin="787,646,0,0" VerticalAlignment="Top" FontSize="20" Height="45" Width="561" RenderTransformOrigin="0.474,1.387"/>
+        <Label x:Name="summarylabel12" Content="主T肉度：血量/(1/(1+回避/敌命中))"   HorizontalAlignment="Left" Margin="787,556,0,0" VerticalAlignment="Top" FontSize="20" Height="45" Width="561" RenderTransformOrigin="0.474,1.387"/>
+        <Label x:Name="summarylabel13" Content="担心有病毒的请自行寻找身边的计算机小伙伴反编译看看。"   HorizontalAlignment="Left" Margin="797,217,0,0" VerticalAlignment="Top" FontSize="20" Height="45" Width="561" RenderTransformOrigin="0.474,1.387"/>
+        <Label x:Name="summarylabel14" Content="反正WPF反编译和自己写的非常像。"   HorizontalAlignment="Left" Margin="797,262,0,0" VerticalAlignment="Top" FontSize="20" Height="45" Width="561" RenderTransformOrigin="0.474,1.387"/>
+        <Label Foreground="Red" x:Name="summarylabel15" Content="编完一个也最好重启再编另一个。"   HorizontalAlignment="Left" Margin="787,685,0,0" VerticalAlignment="Top" FontSize="20" Height="45" Width="351" RenderTransformOrigin="0.474,1.387"/>
 
     </Grid>
 </Window>

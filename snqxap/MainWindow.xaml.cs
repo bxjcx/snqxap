@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,14 +22,14 @@ namespace snqxap
     public partial class MainWindow : Window
     {
 
-        Gun[] gun = new Gun[101];
+        Gun[] gun = new Gun[102];
         GunGrid[] gg = new GunGrid[9];
 
         int[] lastgunindex = new int[9];
 
         public MainWindow()
         {
-
+            //9个lastindex 直接存储上把枪是什么 修改时先比较上把枪 再比较现枪 最后修改lastindex=index
 
           
             InitializeComponent();
@@ -43,7 +44,7 @@ namespace snqxap
 
 
 
-           for (int i = 0; i < 101; i++)
+           for (int i = 0; i < 102; i++)
            {gun[i] = new Gun();
                gun[i].index = 0.00;
            }
@@ -68,7 +69,7 @@ namespace snqxap
             gun[16].name = "MP40"; gun[16].what = 3; gun[16].hp = 185; gun[16].damage = 29; gun[16].hit = 13; gun[16].dodge = 58; gun[16].shotspeed = 76; gun[16].crit = 0.05; gun[16].belt = 0; gun[16].number = 2; gun[16].effect0 = 1; gun[16].effect1 = 7; gun[16].damageup = 0; gun[16].hitup = 0.25; gun[16].shotspeedup = 0; gun[16].critup = 0; gun[16].dodgeup = 0.2; gun[16].to = 2;
             gun[17].name = "PPSH41"; gun[17].what = 3; gun[17].hp = 185; gun[17].damage = 26; gun[17].hit = 11; gun[17].dodge = 56; gun[17].shotspeed = 93; gun[17].crit = 0.05; gun[17].belt = 0; gun[17].number = 2; gun[17].effect0 = 2; gun[17].effect1 = 8; gun[17].damageup = 0.1; gun[17].hitup = 0; gun[17].shotspeedup = 0.05; gun[17].critup = 0; gun[17].dodgeup = 0; gun[17].to = 2;
             gun[18].name = "64"; gun[18].what = 3; gun[18].hp = 176; gun[18].damage = 27; gun[18].hit = 11; gun[18].dodge = 59; gun[18].shotspeed = 93; gun[18].crit = 0.05; gun[18].belt = 0; gun[18].number = 1; gun[18].effect0 = 4; gun[18].damageup = 0; gun[18].hitup = 0; gun[18].shotspeedup = 0.2; gun[18].critup = 0; gun[18].dodgeup = 0; gun[18].to = 2;
-            gun[19].name = "UMP45"; gun[19].what = 3; gun[19].hp = 185; gun[19].damage = 27; gun[19].hit = 13; gun[19].dodge = 73; gun[19].shotspeed = 82; gun[19].crit = 0.05; gun[19].belt = 0; gun[19].number = 2; gun[19].effect0 = 1; gun[19].effect1 = 7; gun[19].damageup = 0; gun[19].hitup = 0.3; gun[19].shotspeedup = 0.15; gun[19].critup = 0; gun[19].dodgeup = 0; gun[19].to = 2;
+            gun[19].name = "UMP45"; gun[19].what = 3; gun[19].hp = 185; gun[19].damage = 27; gun[19].hit = 13; gun[19].dodge = 73; gun[19].shotspeed = 82; gun[19].crit = 0.05; gun[19].belt = 0; gun[19].number = 2; gun[19].effect0 = 1; gun[19].effect1 = 7; gun[19].damageup = 0.15; gun[19].hitup = 0.0; gun[19].shotspeedup = 0; gun[19].critup = 0.5; gun[19].dodgeup = 0; gun[19].to = 2;
             gun[20].name = "KP31"; gun[20].what = 3; gun[20].hp = 220; gun[20].damage = 28; gun[20].hit = 15; gun[20].dodge = 56; gun[20].shotspeed = 92; gun[20].crit = 0.05; gun[20].belt = 0; gun[20].number = 3; gun[20].effect0 = 1; gun[20].effect1 = 4; gun[20].effect2 = 7; gun[20].damageup = 0.15; gun[20].hitup = 0; gun[20].shotspeedup = 0; gun[20].critup = 0.5; gun[20].dodgeup = 0; gun[20].to = 2;
             gun[21].name = "ots12"; gun[21].what = 2; gun[21].hp = 105; gun[21].damage = 42; gun[21].hit = 54; gun[21].dodge = 54; gun[21].shotspeed = 72; gun[21].crit = 0.2; gun[21].belt = 0; gun[21].number = 2; gun[21].effect0 = 3; gun[21].effect1 = 6; gun[21].damageup = 0.15; gun[21].hitup = 0; gun[21].shotspeedup = 0.2; gun[21].critup = 0; gun[21].dodgeup = 0; gun[21].to = 3;
             gun[22].name = "G36"; gun[22].what = 2; gun[22].hp = 127; gun[22].damage = 47; gun[22].hit = 44; gun[22].dodge = 41; gun[22].shotspeed = 72; gun[22].crit = 0.2; gun[22].belt = 0; gun[22].number = 2; gun[22].effect0 = 6; gun[22].effect1 = 9; gun[22].damageup = 0.3; gun[22].hitup = 0; gun[22].shotspeedup = 0.15; gun[22].critup = 0; gun[22].dodgeup = 0; gun[22].to = 3;
@@ -132,9 +133,9 @@ namespace snqxap
             gun[80].name = "mosin-nagant"; gun[80].what = 5; gun[80].hp = 88; gun[80].damage = 131; gun[80].hit = 85; gun[80].dodge = 38; gun[80].shotspeed = 30; gun[80].crit = 0.4; gun[80].belt = 0; gun[80].number = 0; gun[80].damageup = 0; gun[80].hitup = 0; gun[80].shotspeedup = 0; gun[80].critup = 0; gun[80].dodgeup = 0; gun[80].to = 0;
             gun[81].name = "SpringField"; gun[81].what = 5; gun[81].hp = 84; gun[81].damage = 128; gun[81].hit = 72; gun[81].dodge = 40; gun[81].shotspeed = 32; gun[81].crit = 0.4; gun[81].belt = 0; gun[81].number = 0; gun[81].damageup = 0; gun[81].hitup = 0; gun[81].shotspeedup = 0; gun[81].critup = 0; gun[81].dodgeup = 0; gun[81].to = 0;
             gun[82].name = "M60"; gun[82].what = 6; gun[82].hp = 182; gun[82].damage = 92; gun[82].hit = 26; gun[82].dodge = 26; gun[82].shotspeed = 111; gun[82].crit = 0.05; gun[82].belt = 9; gun[82].number = 0; gun[82].damageup = 0; gun[82].hitup = 0; gun[82].shotspeedup = 0; gun[82].critup = 0; gun[82].dodgeup = 0; gun[82].to = 0;
-            gun[83].name = "65"; gun[83].what = 6; gun[83].hp = 198; gun[83].damage = 85; gun[83].hit = 27; gun[83].dodge = 25; gun[83].shotspeed = 120; gun[83].crit = 0.05; gun[83].belt = 11; gun[83].number = 0; gun[83].damageup = 0; gun[83].hitup = 0; gun[83].shotspeedup = 0; gun[83].critup = 0; gun[83].dodgeup = 0; gun[83].to = 0;
+            gun[83].name = "mg5"; gun[83].what = 6; gun[83].hp = 198; gun[83].damage = 85; gun[83].hit = 27; gun[83].dodge = 25; gun[83].shotspeed = 120; gun[83].crit = 0.05; gun[83].belt = 11; gun[83].number = 0; gun[83].damageup = 0; gun[83].hitup = 0; gun[83].shotspeedup = 0; gun[83].critup = 0; gun[83].dodgeup = 0; gun[83].to = 0;
             gun[84].name = "M1918"; gun[84].what = 6; gun[84].hp = 157; gun[84].damage = 96; gun[84].hit = 31; gun[84].dodge = 33; gun[84].shotspeed = 114; gun[84].crit = 0.05; gun[84].belt = 8; gun[84].number = 0; gun[84].damageup = 0; gun[84].hitup = 0; gun[84].shotspeedup = 0; gun[84].critup = 0; gun[84].dodgeup = 0; gun[84].to = 0;
-            gun[85].name = "63"; gun[85].what = 6; gun[85].hp = 198; gun[85].damage = 85; gun[85].hit = 26; gun[85].dodge = 21; gun[85].shotspeed = 130; gun[85].crit = 0.05; gun[85].belt = 10; gun[85].number = 0; gun[85].damageup = 0; gun[85].hitup = 0; gun[85].shotspeedup = 0; gun[85].critup = 0; gun[85].dodgeup = 0; gun[85].to = 0;
+            gun[85].name = "mg3"; gun[85].what = 6; gun[85].hp = 198; gun[85].damage = 85; gun[85].hit = 26; gun[85].dodge = 21; gun[85].shotspeed = 130; gun[85].crit = 0.05; gun[85].belt = 10; gun[85].number = 0; gun[85].damageup = 0; gun[85].hitup = 0; gun[85].shotspeedup = 0; gun[85].critup = 0; gun[85].dodgeup = 0; gun[85].to = 0;
             gun[86].name = "M1919A4"; gun[86].what = 6; gun[86].hp = 174; gun[86].damage = 96; gun[86].hit = 26; gun[86].dodge = 22; gun[86].shotspeed = 99; gun[86].crit = 0.05; gun[86].belt = 9; gun[86].number = 0; gun[86].damageup = 0; gun[86].hitup = 0; gun[86].shotspeedup = 0; gun[86].critup = 0; gun[86].dodgeup = 0; gun[86].to = 0;
             gun[87].name = "PK"; gun[87].what = 6; gun[87].hp = 190; gun[87].damage = 93; gun[87].hit = 21; gun[87].dodge = 22; gun[87].shotspeed = 83; gun[87].crit = 0.05; gun[87].belt = 11; gun[87].number = 0; gun[87].damageup = 0; gun[87].hitup = 0; gun[87].shotspeedup = 0; gun[87].critup = 0; gun[87].dodgeup = 0; gun[87].to = 0;
             gun[88].name = "Negev"; gun[88].what = 6; gun[88].hp = 174; gun[88].damage = 84; gun[88].hit = 35; gun[88].dodge = 36; gun[88].shotspeed = 139; gun[88].crit = 0.05; gun[88].belt = 9; gun[88].number = 0; gun[88].damageup = 0; gun[88].hitup = 0; gun[88].shotspeedup = 0; gun[88].critup = 0; gun[88].dodgeup = 0; gun[88].to = 0;
@@ -144,14 +145,14 @@ namespace snqxap
             gun[92].name = "M249 SAW"; gun[92].what = 6; gun[92].hp = 157; gun[92].damage = 79; gun[92].hit = 35; gun[92].dodge = 36; gun[92].shotspeed = 139; gun[92].crit = 0.05; gun[92].belt = 8; gun[92].number = 0; gun[92].damageup = 0; gun[92].hitup = 0; gun[92].shotspeedup = 0; gun[92].critup = 0; gun[92].dodgeup = 0; gun[92].to = 0;
             gun[93].name = "aat-52"; gun[93].what = 6; gun[93].hp = 182; gun[93].damage = 79; gun[93].hit = 22; gun[93].dodge = 22; gun[93].shotspeed = 118; gun[93].crit = 0.05; gun[93].belt = 10; gun[93].number = 0; gun[93].damageup = 0; gun[93].hitup = 0; gun[93].shotspeedup = 0; gun[93].critup = 0; gun[93].dodgeup = 0; gun[93].to = 0;
             gun[94].name = "DP28"; gun[94].what = 6; gun[94].hp = 141; gun[94].damage = 88; gun[94].hit = 28; gun[94].dodge = 31; gun[94].shotspeed = 114; gun[94].crit = 0.05; gun[94].belt = 9; gun[94].number = 0; gun[94].damageup = 0; gun[94].hitup = 0; gun[94].shotspeedup = 0; gun[94].critup = 0; gun[94].dodgeup = 0; gun[94].to = 0;
-            gun[95].name = "642"; gun[95].what = 6; gun[95].hp = 165; gun[95].damage = 87; gun[95].hit = 23; gun[95].dodge = 26; gun[95].shotspeed = 132; gun[95].crit = 0.05; gun[95].belt = 10; gun[95].number = 0; gun[95].damageup = 0; gun[95].hitup = 0; gun[95].shotspeedup = 0; gun[95].critup = 0; gun[95].dodgeup = 0; gun[95].to = 0;
-            gun[96].name = "634"; gun[96].what = 6; gun[96].hp = 157; gun[96].damage = 85; gun[96].hit = 22; gun[96].dodge = 25; gun[96].shotspeed = 120; gun[96].crit = 0.05; gun[96].belt = 10; gun[96].number = 0; gun[96].damageup = 0; gun[96].hitup = 0; gun[96].shotspeedup = 0; gun[96].critup = 0; gun[96].dodgeup = 0; gun[96].to = 0;
+            gun[95].name = "mg42"; gun[95].what = 6; gun[95].hp = 165; gun[95].damage = 87; gun[95].hit = 23; gun[95].dodge = 26; gun[95].shotspeed = 132; gun[95].crit = 0.05; gun[95].belt = 10; gun[95].number = 0; gun[95].damageup = 0; gun[95].hitup = 0; gun[95].shotspeedup = 0; gun[95].critup = 0; gun[95].dodgeup = 0; gun[95].to = 0;
+            gun[96].name = "mg34"; gun[96].what = 6; gun[96].hp = 157; gun[96].damage = 85; gun[96].hit = 22; gun[96].dodge = 25; gun[96].shotspeed = 120; gun[96].crit = 0.05; gun[96].belt = 10; gun[96].number = 0; gun[96].damageup = 0; gun[96].hitup = 0; gun[96].shotspeedup = 0; gun[96].critup = 0; gun[96].dodgeup = 0; gun[96].to = 0;
             gun[97].name = "Bren"; gun[97].what = 6; gun[97].hp = 174; gun[97].damage = 81; gun[97].hit = 29; gun[97].dodge = 28; gun[97].shotspeed = 102; gun[97].crit = 0.05; gun[97].belt = 8; gun[97].number = 0; gun[97].damageup = 0; gun[97].hitup = 0; gun[97].shotspeedup = 0; gun[97].critup = 0; gun[97].dodgeup = 0; gun[97].to = 0;
             gun[98].name = "FG42"; gun[98].what = 6; gun[98].hp = 149; gun[98].damage = 80; gun[98].hit = 25; gun[98].dodge = 30; gun[98].shotspeed = 116; gun[98].crit = 0.05; gun[98].belt = 8; gun[98].number = 0; gun[98].damageup = 0; gun[98].hitup = 0; gun[98].shotspeedup = 0; gun[98].critup = 0; gun[98].dodgeup = 0; gun[98].to = 0;
             gun[99].name = "mk48"; gun[99].what = 6; gun[99].hp = 174; gun[99].damage = 90; gun[99].hit = 24; gun[99].dodge = 26; gun[99].shotspeed = 111; gun[99].crit = 0.05; gun[99].belt = 10; gun[99].number = 0; gun[99].damageup = 0; gun[99].hitup = 0; gun[99].shotspeedup = 0; gun[99].critup = 0; gun[99].dodgeup = 0; gun[99].to = 0;
+            gun[100].name = " ";gun[100].what = 0;gun[100].hp = 0;gun[100].damage = 0;gun[100].hit = 0;gun[100].dodge = 0;gun[100].shotspeed = 0;gun[100].crit = 0; gun[100].belt = 0; gun[100].number = 0; gun[100].damageup = 0; gun[100].hitup = 0; gun[100].shotspeedup = 0; gun[100].critup = 0; gun[100].dodgeup = 0; gun[100].to = 0;
 
-
-            for (int i = 0; i < 101; i++)
+            for (int i = 0; i < 102; i++)
             {
                 Combo0.Items.Add(gun[i].name);
                 Combo1.Items.Add(gun[i].name);
@@ -202,9 +203,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                           
-                            if (lastgunindex[0] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[0] = select;
+                                lastgunindex[ggi] = select;
                             }
                    //         MessageBox.Show(lastgunindex[combo].ToString());
                         }
@@ -220,9 +221,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                  //           changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[0] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[0] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect1 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -233,9 +234,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                     //        changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[1] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[1] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         break;
@@ -250,9 +251,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                   //          changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[0] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[0] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect1 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -263,9 +264,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                     //        changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[1] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[1] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect2 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -276,9 +277,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                    //         changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[2] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[2] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         break;
@@ -293,9 +294,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                      //       changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[0] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[0] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect1 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -306,9 +307,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                       //      changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[1] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[1] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect2 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -319,9 +320,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                       //      changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[2] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[2] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect3 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -332,9 +333,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                       //      changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[3] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[3] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         break;
@@ -349,9 +350,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                       //      changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[0] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[0] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect1 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -362,9 +363,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                     //        changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[1] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[1] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect2 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -375,9 +376,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                       //      changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[2] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[2] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect3 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -388,9 +389,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                       //      changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[3] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[3] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect4 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -401,9 +402,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                       //      changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[4] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[4] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         break;
@@ -418,9 +419,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                       //      changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[0] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[0] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect1 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -431,9 +432,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                     //        changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[1] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[1] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect2 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -444,9 +445,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                       //      changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[2] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[2] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect3 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -457,9 +458,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                      //       changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[3] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[3] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect4 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -470,9 +471,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                      //       changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[4] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[4] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect5 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -483,9 +484,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                       //      changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[5] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[5] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         break;
@@ -500,9 +501,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                       //      changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[0] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[0] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect1 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -513,9 +514,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                       //      changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[1] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[1] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect2 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -526,9 +527,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                        //     changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[2] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[2] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect3 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -539,9 +540,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                        //     changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[3] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[3] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect4 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -552,9 +553,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                        //     changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[4] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[4] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect5 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -565,9 +566,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                        //     changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[5] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[5] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect6 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -578,9 +579,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                        //     changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[6] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[6] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         break;
@@ -595,9 +596,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                        //     changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[0] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[0] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect1 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -608,9 +609,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                        //     changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[1] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[1] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect2 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -621,9 +622,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                        //     changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[2] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[2] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect3 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -634,9 +635,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                        //     changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[3] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[3] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect4 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -647,9 +648,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                        //     changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[4] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[4] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect5 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -660,9 +661,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                        //     changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[5] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[5] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect6 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -673,9 +674,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                       //      changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[6] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[6] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         else if (gun[nextselect].effect7 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
@@ -686,9 +687,9 @@ namespace snqxap
                             gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
                             gg[ggi].hitup += gun[nextselect].hitup;
                        //     changeeffect(grid,ggi, combo, nextselect, select);
-                            if (lastgunindex[7] == -1)
+                            if (lastgunindex[ggi] == -1)
                             {
-                                lastgunindex[7] = select;
+                                lastgunindex[ggi] = select;
                             }
                         }
                         break;
@@ -709,108 +710,117 @@ namespace snqxap
                 case 0:
                     {
                         select = Combo0.SelectedIndex;
-                        Ldamage0.Content = gun[select].damage * gg[0].damageup;
-                        Lhit0.Content = gun[select].hit * gg[0].hitup;
-                        Lshotspeed0.Content = gun[select].shotspeed * gg[0].shotspeedup;
-                        Lcrit0.Content = gun[select].crit * gg[0].critup;
-                        Ldodge0.Content = gun[select].dodge * gg[0].dodgeup;
-                        Lindex0.Content = (Index((double)Lshotspeed0.Content, (double)Ldamage0.Content, (double)Lcrit0.Content, Int32.Parse(enemydodge.Text), (double)Lhit0.Content)).ToString("0.00");
+                        Ldamage0.Content = (gun[select].damage * gg[0].damageup).ToString("0.00");
+                        Lhit0.Content = (gun[select].hit * gg[0].hitup).ToString("0.00");
+                        Lshotspeed0.Content = (gun[select].shotspeed * gg[0].shotspeedup).ToString("0.00");
+                        Lcrit0.Content = (gun[select].crit * gg[0].critup).ToString("0.00");
+                        Ldodge0.Content = (gun[select].dodge * gg[0].dodgeup).ToString("0.00");
+                        Lhp0.Content = gun[select].hp;
+                        Lindex0.Content = (Index(Double.Parse(Lshotspeed0.Content.ToString()), Double.Parse(Ldamage0.Content.ToString()), Double.Parse(Lcrit0.Content.ToString()), Int32.Parse(enemydodge.Text), Double.Parse(Lhit0.Content.ToString()), gun[select].belt)).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         break;
                     }
                 case 1:
                     {
                         select = Combo1.SelectedIndex;
-                        Ldamage1.Content = gun[select].damage * gg[1].damageup;
-                        Lhit1.Content = gun[select].hit * gg[1].hitup;
-                        Lshotspeed1.Content = gun[select].shotspeed * gg[1].shotspeedup;
-                        Lcrit1.Content = gun[select].crit * gg[1].critup;
-                        Ldodge1.Content = gun[select].dodge * gg[1].dodgeup;
-                        Lindex1.Content = (Index((double)Lshotspeed1.Content, (double)Ldamage1.Content, (double)Lcrit1.Content, Int32.Parse(enemydodge.Text), (double)Lhit1.Content)).ToString("0.00");
+                        Ldamage1.Content = (gun[select].damage * gg[1].damageup).ToString("0.00");
+                        Lhit1.Content = (gun[select].hit * gg[1].hitup).ToString("0.00");
+                        Lshotspeed1.Content = (gun[select].shotspeed * gg[1].shotspeedup).ToString("0.00");
+                        Lcrit1.Content = (gun[select].crit * gg[1].critup).ToString("0.00");
+                        Ldodge1.Content = (gun[select].dodge * gg[1].dodgeup).ToString("0.00");
+                        Lhp1.Content = gun[select].hp;
+                        Lindex1.Content = (Index(Double.Parse(Lshotspeed1.Content.ToString()), Double.Parse(Ldamage1.Content.ToString()), Double.Parse(Lcrit1.Content.ToString()), Int32.Parse(enemydodge.Text), Double.Parse(Lhit1.Content.ToString()), gun[select].belt)).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         break;
                     }
                 case 2:
                     {
                         select = Combo2.SelectedIndex;
-                        Ldamage2.Content = gun[select].damage * gg[2].damageup;
-                        Lhit2.Content = gun[select].hit * gg[2].hitup;
-                        Lshotspeed2.Content = gun[select].shotspeed * gg[2].shotspeedup;
-                        Lcrit2.Content = gun[select].crit * gg[2].critup;
-                        Ldodge2.Content = gun[select].dodge * gg[2].dodgeup;
-                        Lindex2.Content = (Index((double)Lshotspeed2.Content, (double)Ldamage2.Content, (double)Lcrit2.Content, Int32.Parse(enemydodge.Text), (double)Lhit2.Content)).ToString("0.00");
+                        Ldamage2.Content = (gun[select].damage * gg[2].damageup).ToString("0.00");
+                        Lhit2.Content = (gun[select].hit * gg[2].hitup).ToString("0.00");
+                        Lshotspeed2.Content = (gun[select].shotspeed * gg[2].shotspeedup).ToString("0.00");
+                        Lcrit2.Content = (gun[select].crit * gg[2].critup).ToString("0.00");
+                        Ldodge2.Content = (gun[select].dodge * gg[2].dodgeup).ToString("0.00");
+                        Lhp2.Content = gun[select].hp;
+                        Lindex2.Content = (Index(Double.Parse(Lshotspeed2.Content.ToString()), Double.Parse(Ldamage2.Content.ToString()), Double.Parse(Lcrit2.Content.ToString()), Int32.Parse(enemydodge.Text), Double.Parse(Lhit2.Content.ToString()), gun[select].belt)).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         break;
                     }
                 case 3:
                     {
                         select = Combo3.SelectedIndex;
-                        Ldamage3.Content = gun[select].damage * gg[3].damageup;
-                        Lhit3.Content = gun[select].hit * gg[3].hitup;
-                        Lshotspeed3.Content = gun[select].shotspeed * gg[3].shotspeedup;
-                        Lcrit3.Content = gun[select].crit * gg[3].critup;
-                        Ldodge3.Content = gun[select].dodge * gg[3].dodgeup;
-                        Lindex3.Content = (Index((double)Lshotspeed3.Content, (double)Ldamage3.Content, (double)Lcrit3.Content, Int32.Parse(enemydodge.Text), (double)Lhit3.Content)).ToString("0.00");
+                        Ldamage3.Content = (gun[select].damage * gg[3].damageup).ToString("0.00");
+                        Lhit3.Content = (gun[select].hit * gg[3].hitup).ToString("0.00");
+                        Lshotspeed3.Content = (gun[select].shotspeed * gg[3].shotspeedup).ToString("0.00");
+                        Lcrit3.Content = (gun[select].crit * gg[3].critup).ToString("0.00");
+                        Ldodge3.Content = (gun[select].dodge * gg[3].dodgeup).ToString("0.00");
+                        Lhp3.Content = gun[select].hp;
+                        Lindex3.Content = (Index(Double.Parse(Lshotspeed3.Content.ToString()), Double.Parse(Ldamage3.Content.ToString()), Double.Parse(Lcrit3.Content.ToString()), Int32.Parse(enemydodge.Text), Double.Parse(Lhit3.Content.ToString()), gun[select].belt)).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         break;
                     }
                 case 4:
                     {
                         select = Combo4.SelectedIndex;
-                        Ldamage4.Content = gun[select].damage * gg[4].damageup;
-                        Lhit4.Content = gun[select].hit * gg[4].hitup;
-                        Lshotspeed4.Content = gun[select].shotspeed * gg[4].shotspeedup;
-                        Lcrit4.Content = gun[select].crit * gg[4].critup;
-                        Ldodge4.Content = gun[select].dodge * gg[4].dodgeup;
-                        Lindex4.Content = (Index((double)Lshotspeed4.Content, (double)Ldamage4.Content, (double)Lcrit4.Content, Int32.Parse(enemydodge.Text), (double)Lhit4.Content)).ToString("0.00");
+                        Ldamage4.Content = (gun[select].damage * gg[4].damageup).ToString("0.00");
+                        Lhit4.Content = (gun[select].hit * gg[4].hitup).ToString("0.00");
+                        Lshotspeed4.Content = (gun[select].shotspeed * gg[4].shotspeedup).ToString("0.00");
+                        Lcrit4.Content = (gun[select].crit * gg[4].critup).ToString("0.00");
+                        Ldodge4.Content = (gun[select].dodge * gg[4].dodgeup).ToString("0.00");
+                        Lhp4.Content = gun[select].hp;
+                        Lindex4.Content = (Index(Double.Parse(Lshotspeed4.Content.ToString()), Double.Parse(Ldamage4.Content.ToString()), Double.Parse(Lcrit4.Content.ToString()), Int32.Parse(enemydodge.Text), Double.Parse(Lhit4.Content.ToString()), gun[select].belt)).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         break;
                     }
                 case 5:
                     {
                         select = Combo5.SelectedIndex;
-                        Ldamage5.Content = gun[select].damage * gg[5].damageup;
-                        Lhit5.Content = gun[select].hit * gg[5].hitup;
-                        Lshotspeed5.Content = gun[select].shotspeed * gg[5].shotspeedup;
-                        Lcrit5.Content = gun[select].crit * gg[5].critup;
-                        Ldodge5.Content = gun[select].dodge * gg[5].dodgeup;
-                        Lindex5.Content = (Index((double)Lshotspeed5.Content, (double)Ldamage5.Content, (double)Lcrit5.Content, Int32.Parse(enemydodge.Text), (double)Lhit5.Content)).ToString("0.00");
+                        Ldamage5.Content = (gun[select].damage * gg[5].damageup).ToString("0.00");
+                        Lhit5.Content = (gun[select].hit * gg[5].hitup).ToString("0.00");
+                        Lshotspeed5.Content = (gun[select].shotspeed * gg[5].shotspeedup).ToString("0.00");
+                        Lcrit5.Content = (gun[select].crit * gg[5].critup).ToString("0.00");
+                        Ldodge5.Content = (gun[select].dodge * gg[5].dodgeup).ToString("0.00");
+                        Lhp5.Content = gun[select].hp;
+                        Lindex5.Content = (Index(Double.Parse(Lshotspeed5.Content.ToString()), Double.Parse(Ldamage5.Content.ToString()), Double.Parse(Lcrit5.Content.ToString()), Int32.Parse(enemydodge.Text), Double.Parse(Lhit5.Content.ToString()), gun[select].belt)).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         break;
                     }
                 case 6:
                     {
                         select = Combo6.SelectedIndex;
-                        Ldamage6.Content = gun[select].damage * gg[6].damageup;
-                        Lhit6.Content = gun[select].hit * gg[6].hitup;
-                        Lshotspeed6.Content = gun[select].shotspeed * gg[6].shotspeedup;
-                        Lcrit6.Content = gun[select].crit * gg[6].critup;
-                        Ldodge6.Content = gun[select].dodge * gg[6].dodgeup;
-                        Lindex6.Content = (Index((double)Lshotspeed6.Content, (double)Ldamage6.Content, (double)Lcrit6.Content, Int32.Parse(enemydodge.Text), (double)Lhit6.Content)).ToString("0.00");
+                        Ldamage6.Content = (gun[select].damage * gg[6].damageup).ToString("0.00");
+                        Lhit6.Content = (gun[select].hit * gg[6].hitup).ToString("0.00");
+                        Lshotspeed6.Content = (gun[select].shotspeed * gg[6].shotspeedup).ToString("0.00");
+                        Lcrit6.Content = (gun[select].crit * gg[6].critup).ToString("0.00");
+                        Ldodge6.Content = (gun[select].dodge * gg[6].dodgeup).ToString("0.00");
+                        Lhp6.Content = gun[select].hp;
+                        Lindex6.Content = (Index(Double.Parse(Lshotspeed6.Content.ToString()), Double.Parse(Ldamage6.Content.ToString()), Double.Parse(Lcrit6.Content.ToString()), Int32.Parse(enemydodge.Text), Double.Parse(Lhit6.Content.ToString()), gun[select].belt)).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         break;
                     }
                 case 7:
                     {
                         select = Combo7.SelectedIndex;
-                        Ldamage7.Content = gun[select].damage * gg[7].damageup;
-                        Lhit7.Content = gun[select].hit * gg[7].hitup;
-                        Lshotspeed7.Content = gun[select].shotspeed * gg[7].shotspeedup;
-                        Lcrit7.Content = gun[select].crit * gg[7].critup;
-                        Ldodge7.Content = gun[select].dodge * gg[7].dodgeup;
-                        Lindex7.Content = (Index((double)Lshotspeed7.Content, (double)Ldamage7.Content, (double)Lcrit7.Content, Int32.Parse(enemydodge.Text), (double)Lhit7.Content)).ToString("0.00");
+                        Ldamage7.Content = (gun[select].damage * gg[7].damageup).ToString("0.00");
+                        Lhit7.Content = (gun[select].hit * gg[7].hitup).ToString("0.00");
+                        Lshotspeed7.Content = (gun[select].shotspeed * gg[7].shotspeedup).ToString("0.00");
+                        Lcrit7.Content = (gun[select].crit * gg[7].critup).ToString("0.00");
+                        Ldodge7.Content = (gun[select].dodge * gg[7].dodgeup).ToString("0.00");
+                        Lhp7.Content = gun[select].hp;
+                        Lindex7.Content = (Index(Double.Parse(Lshotspeed7.Content.ToString()), Double.Parse(Ldamage7.Content.ToString()), Double.Parse(Lcrit7.Content.ToString()), Int32.Parse(enemydodge.Text), Double.Parse(Lhit7.Content.ToString()), gun[select].belt)).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         break;
                     }
                 case 8:
                     {
                         select = Combo8.SelectedIndex;
-                        Ldamage8.Content = gun[select].damage * gg[8].damageup;
-                        Lhit8.Content = gun[select].hit * gg[8].hitup;
-                        Lshotspeed8.Content = gun[select].shotspeed * gg[8].shotspeedup;
-                        Lcrit8.Content = gun[select].crit * gg[8].critup;
-                        Ldodge8.Content = gun[select].dodge * gg[8].dodgeup;
-                        Lindex8.Content = (Index((double)Lshotspeed8.Content, (double)Ldamage8.Content, (double)Lcrit8.Content, Int32.Parse(enemydodge.Text), (double)Lhit8.Content)).ToString("0.00");
+                        Ldamage8.Content = (gun[select].damage * gg[8].damageup).ToString("0.00");
+                        Lhit8.Content = (gun[select].hit * gg[8].hitup).ToString("0.00");
+                        Lshotspeed8.Content = (gun[select].shotspeed * gg[8].shotspeedup).ToString("0.00");
+                        Lcrit8.Content = (gun[select].crit * gg[8].critup).ToString("0.00");
+                        Ldodge8.Content = (gun[select].dodge * gg[8].dodgeup).ToString("0.00");
+                        Lhp8.Content = gun[select].hp;
+                        Lindex8.Content = (Index(Double.Parse(Lshotspeed8.Content.ToString()), Double.Parse(Ldamage8.Content.ToString()), Double.Parse(Lcrit8.Content.ToString()), Int32.Parse(enemydodge.Text), Double.Parse(Lhit8.Content.ToString()),gun[select].belt)).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         break;
                     }
@@ -818,11 +828,15 @@ namespace snqxap
         }
        
 
-        public double Index(double shotspeed,double damage,double crit,int enemydodge,double hit)
+        public double Index(double shotspeed,double damage,double crit,int enemydodge,double hit,int belt)
        {
-           double index = shotspeed * damage / 50 * (1 - crit + crit * 1.5) / (1 + enemydodge / hit);
-           return index;
-       }
+            if (hit == 0)
+                return 0;
+           else if(belt == 0)
+                return shotspeed * damage / 50 * (1 - crit + crit * 1.5) / (1 + enemydodge / hit);
+            else
+                return belt * damage * (1 - crit + crit * 1.5) / (1 + enemydodge / hit) / ((double)belt / 3.0 + 4 + 200 / shotspeed);
+        }
 
        public bool ifhaveaura(int togrid,int toindex,int index)
         {
@@ -850,10 +864,12 @@ namespace snqxap
 
         public void changeeffect(int grid,int tocombo,int combo,int toindex,int index)
         {
-
+            bool true1 = false;
+            bool true2 = false;
           //  MessageBox.Show(gun[toindex].name);
-             if (lastgunindex[tocombo]!=-1&&ifhaveaura(grid, toindex, lastgunindex[tocombo]))
+             if (lastgunindex[tocombo]!=-1&&lastgunindex[combo]!=-1&&ifhaveaura(grid, lastgunindex[tocombo], lastgunindex[combo]))
             {
+                
              //   MessageBox.Show(gg[tocombo].damageup.ToString());
                 gg[tocombo].shotspeedup -= gun[lastgunindex[combo]].shotspeedup;
                 gg[tocombo].dodgeup -= gun[lastgunindex[combo]].dodgeup;
@@ -862,15 +878,40 @@ namespace snqxap
                 gg[tocombo].critup -= gun[lastgunindex[combo]].critup;
           //      MessageBox.Show(gg[tocombo].damageup.ToString());
           //      MessageBox.Show(tocombo.ToString());
-                renewindex(combo);
-                lastgunindex[tocombo] = index;
-             //   MessageBox.Show(gun[lastgunindex[combo]].name);
+                renewindex(tocombo);
+                //     lastgunindex[tocombo] = -1;
+                //    lastgunindex[combo] = -1;
+                //   MessageBox.Show(gun[lastgunindex[combo]].name);
+                true1 = true;
             }
-       //     gg[grid].critup -= lastcrit[grid];
-        //    gg[grid].damageup -= lastdamage[grid];
-        //    gg[grid].dodgeup -= lastdodge[grid];
-         //   gg[grid].hitup -= lasthit[grid];
-        //    gg[grid].shotspeedup -= lastshotspeed[grid];
+
+            if (lastgunindex[tocombo] != -1 && lastgunindex[combo] != -1 && ifhaveaura(10-grid, lastgunindex[combo], lastgunindex[tocombo]))
+            {
+                //   MessageBox.Show(gg[tocombo].damageup.ToString());
+                gg[combo].shotspeedup -= gun[lastgunindex[tocombo]].shotspeedup;
+                gg[combo].dodgeup -= gun[lastgunindex[tocombo]].dodgeup;
+                gg[combo].damageup -= gun[lastgunindex[tocombo]].damageup;
+                gg[combo].hitup -= gun[lastgunindex[tocombo]].hitup;
+                gg[combo].critup -= gun[lastgunindex[tocombo]].critup;
+                //      MessageBox.Show(gg[tocombo].damageup.ToString());
+                //      MessageBox.Show(tocombo.ToString());
+                renewindex(combo);
+                //     lastgunindex[tocombo] = -1;
+                //    lastgunindex[combo] = -1;
+                //   MessageBox.Show(gun[lastgunindex[combo]].name);
+                true2 = true;
+            }
+            //     gg[grid].critup -= lastcrit[grid];
+            //    gg[grid].damageup -= lastdamage[grid];
+            //    gg[grid].dodgeup -= lastdodge[grid];
+            //   gg[grid].hitup -= lasthit[grid];
+            //    gg[grid].shotspeedup -= lastshotspeed[grid];
+
+            if(true1&&true2)
+            {
+                lastgunindex[tocombo] = -1;
+                lastgunindex[combo] = -1;
+            }
         }
         
         private void Combo0_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -984,5 +1025,659 @@ namespace snqxap
         }
 
 
+
+        private void Combo2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int select = Combo2.SelectedIndex;
+
+            double roothit = gun[select].hit;
+            double rootdodge = gun[select].dodge;
+            double rootdamage = gun[select].damage;
+            double rootcrit = gun[select].crit;
+            double rootshotspeed = gun[select].shotspeed;
+
+            int nextselect = Combo1.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 6, 2, 1);
+                othercombochange(select, nextselect, 4, 1, 2);
+                renewindex(1);
+            }
+
+            nextselect = Combo4.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 9, 2, 4);
+                othercombochange(select, nextselect, 1, 4, 2);
+                renewindex(4);
+            }
+
+            nextselect = Combo5.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 8, 2, 5);
+                othercombochange(select, nextselect, 2, 5, 2);
+                renewindex(5);
+            }
+
+            renewindex(2);
+        }
+
+        private void Combo3_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int select = Combo3.SelectedIndex;
+
+            double roothit = gun[select].hit;
+            double rootdodge = gun[select].dodge;
+            double rootdamage = gun[select].damage;
+            double rootcrit = gun[select].crit;
+            double rootshotspeed = gun[select].shotspeed;
+
+            int nextselect = Combo0.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 2, 3, 0);
+                othercombochange(select, nextselect, 8, 0, 3);
+                renewindex(0);
+            }
+
+            nextselect = Combo1.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 1, 3, 1);
+                othercombochange(select, nextselect, 9, 1, 3);
+                renewindex(1);
+            }
+
+            nextselect = Combo4.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 4, 3, 4);
+                othercombochange(select, nextselect, 6, 4, 3);
+                renewindex(4);
+            }
+
+            nextselect = Combo6.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 8, 3, 6);
+                othercombochange(select, nextselect, 2, 6, 3);
+                renewindex(6);
+            }
+
+            nextselect = Combo7.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 7, 3, 7);
+                othercombochange(select, nextselect, 3, 7, 3);
+                renewindex(7);
+            }
+
+            renewindex(3);
+
+        }
+
+ 
+
+        private void Combo4_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int select = Combo4.SelectedIndex;
+
+            double roothit = gun[select].hit;
+            double rootdodge = gun[select].dodge;
+            double rootdamage = gun[select].damage;
+            double rootcrit = gun[select].crit;
+            double rootshotspeed = gun[select].shotspeed;
+
+            int nextselect = Combo0.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 3, 4, 0);
+                othercombochange(select, nextselect, 7, 0, 4);
+                renewindex(0);
+            }
+
+            nextselect = Combo1.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 2, 4, 1);
+                othercombochange(select, nextselect, 8, 1, 4);
+                renewindex(1);
+            }
+
+            nextselect = Combo2.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 1, 4, 2);
+                othercombochange(select, nextselect, 9, 2, 4);
+                renewindex(2);
+            }
+
+            nextselect = Combo3.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 6, 4, 3);
+                othercombochange(select, nextselect, 4, 3, 4);
+                renewindex(3);
+            }
+
+            nextselect = Combo5.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 4, 4, 5);
+                othercombochange(select, nextselect, 6, 5, 4);
+                renewindex(5);
+            }
+
+            nextselect = Combo6.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 9, 4, 6);
+                othercombochange(select, nextselect, 1, 6, 4);
+                renewindex(6);
+            }
+
+            nextselect = Combo7.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 8, 4, 7);
+                othercombochange(select, nextselect, 2, 7, 4);
+                renewindex(7);
+            }
+
+            nextselect = Combo8.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 7, 4, 8);
+                othercombochange(select, nextselect, 3, 8, 4);
+                renewindex(8);
+            }
+
+            renewindex(4);
+        }
+
+        private void Combo5_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int select = Combo5.SelectedIndex;
+
+            double roothit = gun[select].hit;
+            double rootdodge = gun[select].dodge;
+            double rootdamage = gun[select].damage;
+            double rootcrit = gun[select].crit;
+            double rootshotspeed = gun[select].shotspeed;
+
+            int nextselect = Combo1.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 3, 5, 1);
+                othercombochange(select, nextselect, 7, 1, 5);
+                renewindex(1);
+            }
+
+            nextselect = Combo2.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 2, 5, 2);
+                othercombochange(select, nextselect, 8, 2, 5);
+                renewindex(2);
+            }
+
+            nextselect = Combo4.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 6, 5, 4);
+                othercombochange(select, nextselect, 4, 4, 5);
+                renewindex(4);
+            }
+
+            nextselect = Combo7.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 9, 5, 7);
+                othercombochange(select, nextselect, 1, 7, 5);
+                renewindex(7);
+            }
+
+            nextselect = Combo8.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 8, 5, 8);
+                othercombochange(select, nextselect, 2, 8, 5);
+                renewindex(8);
+            }
+
+            renewindex(5);
+        }
+
+        private void Combo6_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int select = Combo6.SelectedIndex;
+
+            double roothit = gun[select].hit;
+            double rootdodge = gun[select].dodge;
+            double rootdamage = gun[select].damage;
+            double rootcrit = gun[select].crit;
+            double rootshotspeed = gun[select].shotspeed;
+
+            int nextselect = Combo3.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 2, 6, 3);
+                othercombochange(select, nextselect, 8, 3, 6);
+                renewindex(3);
+            }
+
+            nextselect = Combo4.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 1, 6, 4);
+                othercombochange(select, nextselect, 9, 4, 6);
+                renewindex(4);
+            }
+
+            nextselect = Combo7.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 4, 6, 7);
+                othercombochange(select, nextselect, 6, 7, 6);
+                renewindex(7);
+            }
+
+            renewindex(6);
+        }
+
+        private void Combo7_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int select = Combo7.SelectedIndex;
+
+            double roothit = gun[select].hit;
+            double rootdodge = gun[select].dodge;
+            double rootdamage = gun[select].damage;
+            double rootcrit = gun[select].crit;
+            double rootshotspeed = gun[select].shotspeed;
+
+            int nextselect = Combo3.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 3, 7, 3);
+                othercombochange(select, nextselect, 7, 3, 7);
+                renewindex(3);
+            }
+
+            nextselect = Combo4.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 2, 7, 4);
+                othercombochange(select, nextselect, 8, 4, 7);
+                renewindex(4);
+            }
+
+            nextselect = Combo5.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 1, 7, 5);
+                othercombochange(select, nextselect, 9, 5, 7);
+                renewindex(5);
+            }
+
+            nextselect = Combo6.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 6, 7, 6);
+                othercombochange(select, nextselect, 4, 6, 7);
+                renewindex(6);
+            }
+
+            nextselect = Combo8.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 4, 7, 8);
+                othercombochange(select, nextselect, 6, 8, 7);
+                renewindex(8);
+            }
+
+            renewindex(7);
+        }
+
+        private void Combo8_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int select = Combo8.SelectedIndex;
+
+            double roothit = gun[select].hit;
+            double rootdodge = gun[select].dodge;
+            double rootdamage = gun[select].damage;
+            double rootcrit = gun[select].crit;
+            double rootshotspeed = gun[select].shotspeed;
+
+            int nextselect = Combo4.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 3, 8, 4);
+                othercombochange(select, nextselect, 7, 4, 8);
+                renewindex(4);
+            }
+
+            nextselect = Combo5.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 2, 8, 5);
+                othercombochange(select, nextselect, 8, 5, 8);
+                renewindex(5);
+            }
+
+            nextselect = Combo7.SelectedIndex;
+
+            if (nextselect != -1)
+            {
+                othercombochange(nextselect, select, 6, 8, 7);
+                othercombochange(select, nextselect, 4, 7, 8);
+                renewindex(7);
+            }
+
+            renewindex(8);
+        }
+
+        public bool IsNumber(String strNumber)
+
+        {
+
+            Regex objNotNumberPattern = new Regex("[^0-9.-]");
+
+            Regex objTwoDotPattern = new Regex("[0-9]*[.][0-9]*[.][0-9]*");
+
+            Regex objTwoMinusPattern = new Regex("[0-9]*[-][0-9]*[-][0-9]*");
+
+            String strValidRealPattern = "^([-]|[.]|[-.]|[0-9])[0-9]*[.]*[0-9]+$";
+
+            String strValidIntegerPattern = "^([-]|[0-9])[0-9]*$";
+
+            Regex objNumberPattern = new Regex("(" + strValidRealPattern + ")|(" + strValidIntegerPattern + ")");
+
+            return !objNotNumberPattern.IsMatch(strNumber) &&
+
+                   !objTwoDotPattern.IsMatch(strNumber) &&
+
+                   !objTwoMinusPattern.IsMatch(strNumber) &&
+
+                   objNumberPattern.IsMatch(strNumber);
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!IsNumber(enemydodge.Text))
+                enemydodge.Text = "0";
+            int select = Combo0.SelectedIndex;
+            if(select!=-1)
+                renewindex(0);
+            select = Combo1.SelectedIndex;
+            if (select != -1)
+                renewindex(1);
+            select = Combo2.SelectedIndex;
+            if (select != -1)
+                renewindex(2);
+            select = Combo3.SelectedIndex;
+            if (select != -1)
+                renewindex(3);
+            select = Combo4.SelectedIndex;
+            if (select != -1)
+                renewindex(4);
+            select = Combo5.SelectedIndex;
+            if (select != -1)
+                renewindex(5);
+            select = Combo6.SelectedIndex;
+            if (select != -1)
+                renewindex(6);
+            select = Combo7.SelectedIndex;
+            if (select != -1)
+                renewindex(7);
+            select = Combo8.SelectedIndex;
+            if (select != -1)
+                renewindex(8);
+     
+            //allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
+        }
+
+
+        void   calctank(int combo)
+        {
+            switch(combo)
+            {
+                case 0:
+                    {
+                        if(Combo0.SelectedIndex!=-1)
+                        {
+                            if (Int32.Parse(enemyhit.Text) != 0)
+                                tank.Content = (Double.Parse((Double.Parse(gun[Combo0.SelectedIndex].hp.ToString()) / (1 / (1 + gun[Combo0.SelectedIndex].dodge / Double.Parse(enemyhit.Text)))).ToString())).ToString("0.00");
+                            else
+                                tank.Content = 0;         
+                        }
+                        else
+                            tank.Content = 0;
+                        break;
+                    }
+                case 1:
+                    {
+                        if (Combo1.SelectedIndex != -1)
+                        {
+                            if (Int32.Parse(enemyhit.Text) != 1)
+                                tank.Content = (Double.Parse((Double.Parse(gun[Combo1.SelectedIndex].hp.ToString()) / (1 / (1 + gun[Combo1.SelectedIndex].dodge / Double.Parse(enemyhit.Text)))).ToString())).ToString("0.00");
+                            else
+                                tank.Content = 0;
+                        }
+                        else
+                            tank.Content = 0;
+                        break;
+                    }
+                case 2:
+                    {
+                        if (Combo2.SelectedIndex != -1)
+                        {
+                            if (Int32.Parse(enemyhit.Text) != 2)
+                                tank.Content = (Double.Parse((Double.Parse(gun[Combo2.SelectedIndex].hp.ToString()) / (1 / (1 + gun[Combo2.SelectedIndex].dodge / Double.Parse(enemyhit.Text)))).ToString())).ToString("0.00");
+                            else
+                                tank.Content = 0;
+                        }
+                        else
+                            tank.Content = 0;
+                        break;
+                    }
+                case 3:
+                    {
+                        if (Combo3.SelectedIndex != -1)
+                        {
+                            if (Int32.Parse(enemyhit.Text) != 3)
+                                tank.Content = (Double.Parse((Double.Parse(gun[Combo3.SelectedIndex].hp.ToString()) / (1 / (1 + gun[Combo3.SelectedIndex].dodge / Double.Parse(enemyhit.Text)))).ToString())).ToString("0.00");
+                            else
+                                tank.Content = 0;
+                        }
+                        else
+                            tank.Content = 0;
+                        break;
+                    }
+                case 4:
+                    {
+                        if (Combo4.SelectedIndex != -1)
+                        {
+                            if (Int32.Parse(enemyhit.Text) != 4)
+                                tank.Content = (Double.Parse((Double.Parse(gun[Combo4.SelectedIndex].hp.ToString()) / (1 / (1 + gun[Combo4.SelectedIndex].dodge / Double.Parse(enemyhit.Text)))).ToString())).ToString("0.00");
+                            else
+                                tank.Content = 0;
+                        }
+                        else
+                            tank.Content = 0;
+                        break;
+                    }
+                case 5:
+                    {
+                        if (Combo5.SelectedIndex != -1)
+                        {
+                            if (Int32.Parse(enemyhit.Text) != 5)
+                                tank.Content = (Double.Parse((Double.Parse(gun[Combo5.SelectedIndex].hp.ToString()) / (1 / (1 + gun[Combo5.SelectedIndex].dodge / Double.Parse(enemyhit.Text)))).ToString())).ToString("0.00");
+                            else
+                                tank.Content = 0;
+                        }
+                        else
+                            tank.Content = 0;
+                        break;
+                    }
+                case 6:
+                    {
+                        if (Combo6.SelectedIndex != -1)
+                        {
+                            if (Int32.Parse(enemyhit.Text) != 6)
+                                tank.Content = (Double.Parse((Double.Parse(gun[Combo6.SelectedIndex].hp.ToString()) / (1 / (1 + gun[Combo6.SelectedIndex].dodge / Double.Parse(enemyhit.Text)))).ToString())).ToString("0.00");
+                            else
+                                tank.Content = 0;
+                        }
+                        else
+                            tank.Content = 0;
+                        break;
+                    }
+                case 7:
+                    {
+                        if (Combo7.SelectedIndex != -1)
+                        {
+                            if (Int32.Parse(enemyhit.Text) != 7)
+                                tank.Content = (Double.Parse((Double.Parse(gun[Combo7.SelectedIndex].hp.ToString()) / (1 / (1 + gun[Combo7.SelectedIndex].dodge / Double.Parse(enemyhit.Text)))).ToString())).ToString("0.00");
+                            else
+                                tank.Content = 0;
+                        }
+                        else
+                            tank.Content = 0;
+                        break;
+                    }
+                case 8:
+                    {
+                        if (Combo8.SelectedIndex != -1)
+                        {
+                            if (Int32.Parse(enemyhit.Text) != 8)
+                                tank.Content = (Double.Parse((Double.Parse(gun[Combo8.SelectedIndex].hp.ToString()) / (1 / (1 + gun[Combo8.SelectedIndex].dodge / Double.Parse(enemyhit.Text)))).ToString())).ToString("0.00");
+                            else
+                                tank.Content = 0;
+                        }
+                        else
+                            tank.Content = 0;
+                        break;
+                    }
+                default:
+                    break;
+
+            }
+        }
+
+        private void TextBox2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!IsNumber(enemyhit.Text))
+                enemyhit.Text = "0";
+            if (rb0.IsChecked == true)
+            {
+                calctank(0);
+            }
+            else if(rb1.IsChecked == true)
+            {
+                calctank(1);
+            }
+            else if(rb2.IsChecked == true)
+            {
+                calctank(2);
+            }
+            else if (rb3.IsChecked == true)
+            {
+                calctank(3);
+            }
+            else if (rb4.IsChecked == true)
+            {
+                calctank(4);
+            }
+            else if (rb5.IsChecked == true)
+            {
+                calctank(5);
+            }
+            else if (rb6.IsChecked == true)
+            {
+                calctank(6);
+            }
+            else if (rb7.IsChecked == true)
+            {
+                calctank(7);
+            }
+            else if (rb7.IsChecked == true)
+            {
+                calctank(7);
+            }
+            else if (rb8.IsChecked == true)
+            {
+                calctank(8);
+            }
+        }
+
+        private void rb0_Checked(object sender, RoutedEventArgs e)
+        {
+            calctank(0);
+        }
+        private void rb1_Checked(object sender, RoutedEventArgs e)
+        {
+            calctank(1);
+        }
+        private void rb2_Checked(object sender, RoutedEventArgs e)
+        {
+            calctank(2);
+        }
+        private void rb3_Checked(object sender, RoutedEventArgs e)
+        {
+            calctank(3);
+        }
+        private void rb4_Checked(object sender, RoutedEventArgs e)
+        {
+            calctank(4);
+        }
+        private void rb5_Checked(object sender, RoutedEventArgs e)
+        {
+            calctank(5);
+        }
+        private void rb6_Checked(object sender, RoutedEventArgs e)
+        {
+            calctank(6);
+        }
+        private void rb7_Checked(object sender, RoutedEventArgs e)
+        {
+            calctank(7);
+        }
+        private void rb8_Checked(object sender, RoutedEventArgs e)
+        {
+            calctank(8);
+        }
     }
 }
