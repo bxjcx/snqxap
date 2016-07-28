@@ -4,45 +4,57 @@
         Title="Log" Height="310" Width="560" ResizeMode="NoResize">
     <Grid>
         <TextBox IsReadOnly="True" Text="
-Updates&#13;
+说明&#13;
 -------------&#13;
 &#13;
-> - This is the updates document for the program named as  **阵型计算器** &#13;
-> - designed by &lt;h@jyying.cn> 少女前线ID:**雪风** 贴吧**@真冬死宅酱**&#13;
-> - guns' data from **@两仪双月** test by ハゲ in a group **藏经阁前空地** &#13;
-> - skill data from **@星光_爱_彩虹**&#13;
-> - some image data from **@Yuki丸子**&#13;
-> - If the program has any bugs, you can send me an email. &#13;
+> - 项目名：  **阵型计算器** &#13;
+> - 作者：雪风 贴吧ID：@真冬死宅酱 Email：h@jyying.cn&#13;
+> - 枪娘属性数据来自 **@两仪双月** &#13;
+> - 由 **藏经阁前空地**  的秃子们测试 &#13;
+> - 枪娘技能数据来自 **@星光_爱_彩虹**&#13;
+> - Q版图部分数据来自 **@Yuki丸子**&#13;
+> - 感谢以上。&#13;
+> - 如果发现了什么bug或者有什么建议，欢迎反馈。&#13;
 &#13;
-###v1.0.4&#13;
+###v1.0.5(机枪加强版)&#13;
 &#13;
-> - update 谢尔久科夫 data.&#13;
-> - load skill data.&#13;
-> - deploy skill logic.check checkbox can show when the skill effective.&#13;
-> - add how much the team eat each battle.&#13;
-> - add image for each gun.&#13;
-> - now you can resize window.&#13;
+> - 增加机枪输出时间slider及其相关逻辑。&#13;
+> - 更正部分上一版的bug。&#13;
+> - 现在部署相同的枪娘会移动该枪娘的位置。&#13;
+> - 现在机枪上技能会导致全局都会收到技能加值，这将导致机枪在一轮之后输出大于实际。&#13;
+> - 稍稍的改了一下界面。&#13;
+> - 修改技能buff与光环buff叠加计算逻辑为乘法，之前为加法。&#13;
 &#13;
-###v1.0.3&#13;
+###v1.0.4(技能测试版)&#13;
 &#13;
-> - rewrite buff calculate logic.Now you can change the team freely.&#13;
-> - small UI, 800x1366 -> 500x810.&#13;
-> - fix bugs: AR team's buff / UMP45's buff&#13;
-> - add adjunct tank RadioButton and their label.&#13;
-> - now change ComboBox to blank has a small bug.I don't want to fix it nearly.&#13;
+> - 增加谢尔久科夫的数据。&#13;
+> - 录入技能数据。&#13;
+> - 技能逻辑上线。&#13;
+> - 增加一战消耗计算。&#13;
+> - 增加每个枪娘的Q版图。（谢尔久科夫暂无）&#13;
+> - 现在可以缩放窗口了。&#13;
+> - 修改界面。&#13;
+&#13;
+###v1.0.3(稳定版)&#13;
+&#13;
+> - 重写光环计算逻辑。现在可以自由的修改队伍了。&#13;
+> - 缩小界面大小。&#13;
+> - 修正AR小队和UMP45的光环。&#13;
+> - 增加副T相关。&#13;
+> - 现在ComboBox改为空有个bug，并不想在最近修。&#13;
 &#13;
 ###v1.0.2&#13;
 &#13;
-> - add reinit Button.&#13;
-> - change some guns name to Chinese.&#13;
-> - fix bugs:KP31's buff / gun's name&#13;
-> - change logic.but if it has a lot of buffs,their'll have a bug.&#13;
-> - add hp in each grid.&#13;
+> - 增加重置按钮。&#13;
+> - 部分枪娘改为中文名。&#13;
+> - 更正索米buff，更正部分枪娘名称。&#13;
+> - 更改光环计算逻辑，如果光环过多，还是有bug。&#13;
+> - 增加hp栏。&#13;
 &#13;
 ###v1.0.0&#13;
 &#13;
-> - start the project.&#13;
-
+> - 开始项目。&#13;
+&#13;
               " VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="282" TextWrapping="Wrap" VerticalAlignment="Top" Width="546"/>
     </Grid>
 </Window>

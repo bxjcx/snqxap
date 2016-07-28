@@ -784,22 +784,22 @@ namespace snqxap
                 case 0:
                     {
                         select = Combo0.SelectedIndex;
-                        Ldamage0.Content = (gun[select].damage * (gg[0].damageup + skillupdamage[0])).ToString("0.00");
-                        Lhit0.Content = (gun[select].hit * (gg[0].hitup + skilluphit[0])).ToString("0.00");
+                        Ldamage0.Content = (gun[select].damage * gg[0].damageup*(1 + skillupdamage[0])).ToString("0.00");
+                        Lhit0.Content = (gun[select].hit * gg[0].hitup * (1 + skilluphit[0])).ToString("0.00");
                         Lskillread0.Content = gun[select].skillcontent;
                         Lskilldamage0.Content = gun[select].skilldamage.ToString("0.0");
                         Ltime0.Content = gun[select].skilltime;
                         Image0.Source = new BitmapImage(new Uri(@gun[select].image,UriKind.Relative));
-                        if (gun[select].belt == 0 && gun[select].shotspeed * (gg[0].shotspeedup + skillupshotspeed[0]) > 120)
+                        if (gun[select].belt == 0 && gun[select].shotspeed * gg[0].shotspeedup*(1 + skillupshotspeed[0]) > 120)
                             Lshotspeed0.Content = 120.00;
                         else
-                            Lshotspeed0.Content = (gun[select].shotspeed * (gg[0].shotspeedup + skillupshotspeed[0])).ToString("0.00");
+                            Lshotspeed0.Content = (gun[select].shotspeed * gg[0].shotspeedup * (1 + skillupshotspeed[0])).ToString("0.00");
                         if (gun[select].what == 4 && gun[select].skillrate + gg[0].rateup > 1)
                             Lskillrate0.Content = "100%";
                         else
                             Lskillrate0.Content = ((gun[select].skillrate + gg[0].rateup) * 100).ToString() + "%";
                         Lcrit0.Content = (gun[select].crit * gg[0].critup).ToString("0.00");
-                        Ldodge0.Content = (gun[select].dodge * (gg[0].dodgeup + skillupdodge[0])).ToString("0.00");
+                        Ldodge0.Content = (gun[select].dodge * gg[0].dodgeup * (1 + skillupdodge[0])).ToString("0.00");
                         Lhp0.Content = gun[select].hp;
                         Lbelt0.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text)*skilldowndodge).ToString("0.00");
@@ -810,22 +810,22 @@ namespace snqxap
                 case 1:
                     {
                         select = Combo1.SelectedIndex;
-                        Ldamage1.Content = (gun[select].damage * (gg[1].damageup+skillupdamage[1])).ToString("0.00");
-                        Lhit1.Content = (gun[select].hit * (gg[1].hitup+skilluphit[1])).ToString("0.00");
+                        Ldamage1.Content = (gun[select].damage * gg[1].damageup * (1 + skillupdamage[1])).ToString("0.00");
+                        Lhit1.Content = (gun[select].hit * gg[1].hitup * (1 + skilluphit[1])).ToString("0.00");
                         Lskillread1.Content = gun[select].skillcontent;
                         Lskilldamage1.Content = gun[select].skilldamage.ToString("0.0");
                         Ltime1.Content = gun[select].skilltime;
                         Image1.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
-                        if (gun[select].belt == 0 && gun[select].shotspeed * (gg[1].shotspeedup + skillupshotspeed[1]) > 120)
+                        if (gun[select].belt == 0 && gun[select].shotspeed * gg[1].shotspeedup * (1 + skillupshotspeed[1]) > 120)
                             Lshotspeed1.Content = 120.00;
                         else
-                           Lshotspeed1.Content = (gun[select].shotspeed * (gg[1].shotspeedup + skillupshotspeed[1])).ToString("0.00");
+                           Lshotspeed1.Content = (gun[select].shotspeed * gg[1].shotspeedup * (1 + skillupshotspeed[1])).ToString("0.00");
                         if (gun[select].what == 4 && gun[select].skillrate + gg[1].rateup > 1)
                             Lskillrate1.Content = "100%";
                         else
                             Lskillrate1.Content = ((gun[select].skillrate + gg[1].rateup) * 100).ToString() + "%";
                         Lcrit1.Content = (gun[select].crit * gg[1].critup).ToString("0.00");
-                        Ldodge1.Content = (gun[select].dodge * (gg[1].dodgeup+skillupdodge[1])).ToString("0.00");
+                        Ldodge1.Content = (gun[select].dodge * gg[1].dodgeup * (1 + skillupdodge[1])).ToString("0.00");
                         Lhp1.Content = gun[select].hp;
                         Lbelt1.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0.00");
@@ -836,22 +836,22 @@ namespace snqxap
                 case 2:
                     {
                         select = Combo2.SelectedIndex;
-                        Ldamage2.Content = (gun[select].damage * (gg[2].damageup+skillupdamage[2])).ToString("0.00");
-                        Lhit2.Content = (gun[select].hit * (gg[2].hitup+skilluphit[2])).ToString("0.00");
+                        Ldamage2.Content = (gun[select].damage * gg[2].damageup * (1 + skillupdamage[2])).ToString("0.00");
+                        Lhit2.Content = (gun[select].hit * gg[2].hitup * (1 + skilluphit[2])).ToString("0.00");
                         Lskillread2.Content = gun[select].skillcontent;
                         Lskilldamage2.Content = gun[select].skilldamage.ToString("0.0");
                         Ltime2.Content = gun[select].skilltime;
                         Image2.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
-                        if (gun[select].belt == 0 && gun[select].shotspeed *( gg[2].shotspeedup + skillupshotspeed[2]) > 120)
+                        if (gun[select].belt == 0 && gun[select].shotspeed * gg[2].shotspeedup * (1 + skillupshotspeed[2]) > 120)
                                Lshotspeed2.Content = 120.00;
                         else
-                               Lshotspeed2.Content = (gun[select].shotspeed *( gg[2].shotspeedup + skillupshotspeed[2])).ToString("0.00");
+                               Lshotspeed2.Content = (gun[select].shotspeed *gg[2].shotspeedup * (1 + skillupshotspeed[2])).ToString("0.00");
                         if (gun[select].what == 4 && gun[select].skillrate + gg[2].rateup > 1)
                             Lskillrate2.Content = "100%";
                         else
                             Lskillrate2.Content = ((gun[select].skillrate + gg[2].rateup) * 100).ToString() + "%";
                         Lcrit2.Content = (gun[select].crit * gg[2].critup).ToString("0.00");
-                        Ldodge2.Content = (gun[select].dodge *(gg[2].dodgeup+skillupdodge[2])).ToString("0.00");
+                        Ldodge2.Content = (gun[select].dodge *gg[2].dodgeup * (1 + skillupdodge[2])).ToString("0.00");
                         Lhp2.Content = gun[select].hp;
                         Lbelt2.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0.00");
@@ -862,22 +862,23 @@ namespace snqxap
                 case 3:
                     {
                         select = Combo3.SelectedIndex;
-                        Ldamage3.Content = (gun[select].damage * (gg[3].damageup+skillupdamage[3])).ToString("0.00");
-                        Lhit3.Content = (gun[select].hit * (gg[3].hitup+skilluphit[3])).ToString("0.00");
+                          Ldamage3.Content = (gun[select].damage * gg[3].damageup * (1 + skillupdamage[3])).ToString("0.00");
+                        //   Ldamage3.Content = (gun[select].damage * (gg[3].damageup + skillupdamage[3])).ToString("0.00"); //加法
+                        Lhit3.Content = (gun[select].hit * gg[3].hitup * (1 + skilluphit[3])).ToString("0.00");
                         Lskillread3.Content = gun[select].skillcontent;
                         Lskilldamage3.Content = gun[select].skilldamage.ToString("0.0");
                         Ltime3.Content = gun[select].skilltime;
                         Image3.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
-                        if (gun[select].belt == 0 && gun[select].shotspeed *( gg[3].shotspeedup + skillupshotspeed[3]) > 120)
+                        if (gun[select].belt == 0 && gun[select].shotspeed * gg[3].shotspeedup * (1 + skillupshotspeed[3]) > 120)
                             Lshotspeed3.Content = 120.00;
                         else
-                              Lshotspeed3.Content = (gun[select].shotspeed * (gg[3].shotspeedup + skillupshotspeed[3])).ToString("0.00");
+                              Lshotspeed3.Content = (gun[select].shotspeed * gg[3].shotspeedup * (1 + skillupshotspeed[3])).ToString("0.00");
                         if (gun[select].what == 4 && gun[select].skillrate + gg[3].rateup > 1)
                             Lskillrate3.Content = "100%";
                         else
                             Lskillrate3.Content = ((gun[select].skillrate + gg[3].rateup) * 100).ToString() + "%";
                         Lcrit3.Content = (gun[select].crit * gg[3].critup).ToString("0.00");
-                        Ldodge3.Content = (gun[select].dodge *( gg[3].dodgeup+skillupdodge[3])).ToString("0.00");
+                        Ldodge3.Content = (gun[select].dodge *gg[3].dodgeup * (1 + skillupdodge[3])).ToString("0.00");
                         Lhp3.Content = gun[select].hp;
                         Lbelt3.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0.00");
@@ -888,22 +889,22 @@ namespace snqxap
                 case 4:
                     {
                         select = Combo4.SelectedIndex;
-                        Ldamage4.Content = (gun[select].damage * (gg[4].damageup+skillupdamage[4])).ToString("0.00");
-                        Lhit4.Content = (gun[select].hit *(gg[4].hitup+skilluphit[4])).ToString("0.00");
+                        Ldamage4.Content = (gun[select].damage * gg[4].damageup * (1 + skillupdamage[4])).ToString("0.00");
+                        Lhit4.Content = (gun[select].hit *gg[4].hitup * (1 + skilluphit[4])).ToString("0.00");
                         Lskillread4.Content = gun[select].skillcontent;
                         Lskilldamage4.Content = gun[select].skilldamage.ToString("0.0");
                         Ltime4.Content = gun[select].skilltime;
                         Image4.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
-                        if (gun[select].belt == 0 && gun[select].shotspeed * (gg[4].shotspeedup + skillupshotspeed[4]) > 120)
+                        if (gun[select].belt == 0 && gun[select].shotspeed * gg[4].shotspeedup * (1 + skillupshotspeed[4]) > 120)
                             Lshotspeed4.Content = 120.00;
                         else
-                           Lshotspeed4.Content = (gun[select].shotspeed * (gg[4].shotspeedup + skillupshotspeed[4])).ToString("0.00");
+                           Lshotspeed4.Content = (gun[select].shotspeed * gg[4].shotspeedup * (1 + skillupshotspeed[4])).ToString("0.00");
                         if (gun[select].what == 4 && gun[select].skillrate + gg[4].rateup > 1)
                             Lskillrate4.Content = "100%";
                         else
                             Lskillrate4.Content = ((gun[select].skillrate + gg[4].rateup) * 100).ToString() + "%";
                         Lcrit4.Content = (gun[select].crit * gg[4].critup).ToString("0.00");
-                        Ldodge4.Content = (gun[select].dodge *( gg[4].dodgeup+skillupdodge[4])).ToString("0.00");
+                        Ldodge4.Content = (gun[select].dodge * gg[4].dodgeup * (1 + skillupdodge[4])).ToString("0.00");
                         Lhp4.Content = gun[select].hp;
                         Lbelt4.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0.00");
@@ -914,22 +915,22 @@ namespace snqxap
                 case 5:
                     {
                         select = Combo5.SelectedIndex;
-                        Ldamage5.Content = (gun[select].damage * (gg[5].damageup+skillupdamage[5])).ToString("0.00");
-                        Lhit5.Content = (gun[select].hit * (gg[5].hitup+skilluphit[5])).ToString("0.00");
+                        Ldamage5.Content = (gun[select].damage * gg[5].damageup * (1 + skillupdamage[5])).ToString("0.00");
+                        Lhit5.Content = (gun[select].hit * gg[5].hitup * (1 + skilluphit[5])).ToString("0.00");
                         Lskillread5.Content = gun[select].skillcontent;
                         Lskilldamage5.Content = gun[select].skilldamage.ToString("0.0");
                         Ltime5.Content = gun[select].skilltime;
                         Image5.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
-                        if (gun[select].belt == 0 && gun[select].shotspeed *( gg[5].shotspeedup + skillupshotspeed[5]) > 120)
+                        if (gun[select].belt == 0 && gun[select].shotspeed * gg[5].shotspeedup * (1 + skillupshotspeed[5]) > 120)
                             Lshotspeed5.Content = 120.00;
                         else
-                            Lshotspeed5.Content = (gun[select].shotspeed * (gg[5].shotspeedup + skillupshotspeed[5])).ToString("0.00");
+                            Lshotspeed5.Content = (gun[select].shotspeed * gg[5].shotspeedup * (1 + skillupshotspeed[5])).ToString("0.00");
                         if (gun[select].what == 4 && gun[select].skillrate + gg[5].rateup > 1)
                             Lskillrate5.Content = "100%";
                         else
                             Lskillrate5.Content = ((gun[select].skillrate + gg[5].rateup) * 100).ToString() + "%";
                         Lcrit5.Content = (gun[select].crit * gg[5].critup).ToString("0.00");
-                        Ldodge5.Content = (gun[select].dodge *( gg[5].dodgeup+skillupdodge[5])).ToString("0.00");
+                        Ldodge5.Content = (gun[select].dodge * gg[5].dodgeup * (1 + skillupdodge[5])).ToString("0.00");
                         Lhp5.Content = gun[select].hp;
                         Lbelt5.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0.00");
@@ -940,22 +941,22 @@ namespace snqxap
                 case 6:
                     {
                         select = Combo6.SelectedIndex;
-                        Ldamage6.Content = (gun[select].damage * (gg[6].damageup+skillupdamage[6])).ToString("0.00");
-                        Lhit6.Content = (gun[select].hit *( gg[6].hitup+skilluphit[6])).ToString("0.00");
+                        Ldamage6.Content = (gun[select].damage * gg[6].damageup * (1 + skillupdamage[6])).ToString("0.00");
+                        Lhit6.Content = (gun[select].hit * gg[6].hitup * (1 + skilluphit[6])).ToString("0.00");
                         Lskillread6.Content = gun[select].skillcontent;
                         Lskilldamage6.Content = gun[select].skilldamage.ToString("0.0");
                         Ltime6.Content = gun[select].skilltime;
                         Image6.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
-                        if (gun[select].belt == 0 && gun[select].shotspeed * (gg[6].shotspeedup + skillupshotspeed[6]) > 120)
+                        if (gun[select].belt == 0 && gun[select].shotspeed * gg[6].shotspeedup * (1 + skillupshotspeed[6]) > 120)
                             Lshotspeed6.Content = 120.00;
                         else
-                          Lshotspeed6.Content = (gun[select].shotspeed * (gg[6].shotspeedup + skillupshotspeed[6])).ToString("0.00");
+                          Lshotspeed6.Content = (gun[select].shotspeed * gg[6].shotspeedup * (1 + skillupshotspeed[6])).ToString("0.00");
                         if (gun[select].what == 4 && gun[select].skillrate + gg[6].rateup > 1)
                             Lskillrate6.Content = "100%";
                         else
                             Lskillrate6.Content = ((gun[select].skillrate + gg[6].rateup) * 100).ToString() + "%";
                         Lcrit6.Content = (gun[select].crit * gg[6].critup).ToString("0.00");
-                        Ldodge6.Content = (gun[select].dodge *( gg[6].dodgeup+skillupdodge[6])).ToString("0.00");
+                        Ldodge6.Content = (gun[select].dodge * gg[6].dodgeup * (1 + skillupdodge[6])).ToString("0.00");
                         Lhp6.Content = gun[select].hp;
                         Lbelt6.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0.00");
@@ -966,22 +967,22 @@ namespace snqxap
                 case 7:
                     {
                         select = Combo7.SelectedIndex;
-                        Ldamage7.Content = (gun[select].damage * (gg[7].damageup+skillupdamage[7])).ToString("0.00");
-                        Lhit7.Content = (gun[select].hit *( gg[7].hitup+skilluphit[7])).ToString("0.00");
+                        Ldamage7.Content = (gun[select].damage * gg[7].damageup * (1 + skillupdamage[7])).ToString("0.00");
+                        Lhit7.Content = (gun[select].hit *gg[7].hitup * (1 + skilluphit[7])).ToString("0.00");
                         Lskillread7.Content = gun[select].skillcontent;
                         Lskilldamage7.Content = gun[select].skilldamage.ToString("0.0");
                         Ltime7.Content = gun[select].skilltime;
                         Image7.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
-                        if (gun[select].belt == 0 && gun[select].shotspeed * (gg[7].shotspeedup + skillupshotspeed[7]) > 120)
+                        if (gun[select].belt == 0 && gun[select].shotspeed * gg[7].shotspeedup * (1 + skillupshotspeed[7]) > 120)
                             Lshotspeed7.Content = 120.00;
                         else
-                        Lshotspeed7.Content = (gun[select].shotspeed * (gg[7].shotspeedup + skillupshotspeed[7])).ToString("0.00");
+                        Lshotspeed7.Content = (gun[select].shotspeed *gg[7].shotspeedup * (1 + skillupshotspeed[7])).ToString("0.00");
                         if (gun[select].what == 4 && gun[select].skillrate + gg[7].rateup > 1)
                             Lskillrate7.Content = "100%";
                         else
                             Lskillrate7.Content = ((gun[select].skillrate + gg[7].rateup) * 100).ToString() + "%";
                         Lcrit7.Content = (gun[select].crit * gg[7].critup).ToString("0.00");
-                        Ldodge7.Content = (gun[select].dodge *( gg[7].dodgeup+skillupdodge[7])).ToString("0.00");
+                        Ldodge7.Content = (gun[select].dodge *gg[7].dodgeup * (1 + skillupdodge[7])).ToString("0.00");
                         Lhp7.Content = gun[select].hp;
                         Lbelt7.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0.00");
@@ -992,22 +993,22 @@ namespace snqxap
                 case 8:
                     {
                         select = Combo8.SelectedIndex;
-                        Ldamage8.Content = (gun[select].damage * (gg[8].damageup+skillupdamage[8])).ToString("0.00");
-                        Lhit8.Content = (gun[select].hit * (gg[8].hitup+skilluphit[8])).ToString("0.00");
+                        Ldamage8.Content = (gun[select].damage * gg[8].damageup * (1 + skillupdamage[8])).ToString("0.00");
+                        Lhit8.Content = (gun[select].hit * gg[8].hitup * (1 + skilluphit[8])).ToString("0.00");
                         Lskillread8.Content = gun[select].skillcontent;
                         Lskilldamage8.Content = gun[select].skilldamage.ToString("0.0");
                         Ltime8.Content = gun[select].skilltime;
                         Image8.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
-                        if (gun[select].belt == 0 && gun[select].shotspeed * (gg[8].shotspeedup + skillupshotspeed[8]) > 120)
+                        if (gun[select].belt == 0 && gun[select].shotspeed * gg[8].shotspeedup * (1 + skillupshotspeed[8]) > 120)
                             Lshotspeed8.Content = 120.00;
                         else
-                        Lshotspeed8.Content = (gun[select].shotspeed *( gg[8].shotspeedup + skillupshotspeed[8])).ToString("0.00");
+                        Lshotspeed8.Content = (gun[select].shotspeed *gg[8].shotspeedup * (1 + skillupshotspeed[8])).ToString("0.00");
                         if (gun[select].what == 4 && gun[select].skillrate + gg[8].rateup > 1)
                             Lskillrate8.Content = "100%";
                         else
                             Lskillrate8.Content = ((gun[select].skillrate + gg[8].rateup) * 100).ToString() + "%";
                         Lcrit8.Content = (gun[select].crit * gg[8].critup).ToString("0.00");
-                        Ldodge8.Content = (gun[select].dodge * (gg[8].dodgeup+skillupdodge[8])).ToString("0.00");
+                        Ldodge8.Content = (gun[select].dodge * gg[8].dodgeup * (1 + skillupdodge[8])).ToString("0.00");
                         Lhp8.Content = gun[select].hp;
                         Lbelt8.Content = gun[select].belt;
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0.00");
@@ -1022,10 +1023,31 @@ namespace snqxap
        {
             if (hit == 0)
                 return 0;
-           else if(belt == 0)
+            else if (belt == 0)
                 return shotspeed * damage / 50 * (1 - crit + crit * 1.5) / (1 + enemydodge / hit);
             else
-                return belt * damage * (1 - crit + crit * 1.5) / (1 + enemydodge / hit) / ((double)belt / 3.0 + 4 + 200 / shotspeed);
+            {
+                if(slider.Value!=0)
+                {
+                    double shottime = (double)belt / 3.0;
+                    double roletime = (double)belt / 3.0 + 4 + 200 / shotspeed;
+                    double shotdamage = belt * damage * (1 - crit + crit * 1.5) / (1 + enemydodge / hit);
+                    if (slider.Value < shottime)
+                        return (shotdamage / shottime);
+                    else if (slider.Value < roletime)
+                        return (shotdamage / slider.Value);
+                    else if (slider.Value < (shottime + roletime))
+                        return ((shotdamage + shotdamage / shottime * (slider.Value-roletime)) / slider.Value);
+                    else if (slider.Value < 2 * roletime)
+                        return 2 * shotdamage / slider.Value;
+                    else if (slider.Value < 2 * roletime + 3 * shottime)
+                        return ((2 * shotdamage + shotdamage / shottime * (slider.Value-2*roletime)) / slider.Value);
+                    else
+                        return 3 * shotdamage / slider.Value;
+                }
+                else
+                    return 0;
+            }
         }
 
         string getcombogunname(int combo)
@@ -1524,6 +1546,60 @@ namespace snqxap
             {
                 if (getcombogunname(i) != ""&&getcombogunname(i)!=null)
                     howmany++;
+                if (getcombogunname(i) == gun[select].name&& getcombogunname(i) != "" && getcombogunname(i) != null && i != 0)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            {
+                                Combo0.SelectedIndex = 101;
+                                break;
+                            }
+                        case 1:
+                            {
+                                Combo1.SelectedIndex = 101;
+                                break;
+                            }
+                        case 2:
+                            {
+                                Combo2.SelectedIndex = 101;
+                                break;
+                            }
+                        case 3:
+                            {
+                                Combo3.SelectedIndex = 101;
+                                break;
+                            }
+                        case 4:
+                            {
+                                Combo4.SelectedIndex = 101;
+                                break;
+                            }
+                        case 5:
+                            {
+                                Combo5.SelectedIndex = 101;
+                                break;
+                            }
+                        case 6:
+                            {
+                                Combo6.SelectedIndex = 101;
+                                break;
+                            }
+                        case 7:
+                            {
+                                Combo7.SelectedIndex = 101;
+                                break;
+                            }
+                        case 8:
+                            {
+                                Combo8.SelectedIndex = 101;
+                                break;
+                            }
+                    }
+                    //    if (howmany == 6)
+                    //        howmany = 0;
+                    break;
+                }
             }
 
             if (howmany == 6)
@@ -1557,6 +1633,60 @@ namespace snqxap
             {
                 if (getcombogunname(i) != "" && getcombogunname(i) != null)
                     howmany++;
+                if (getcombogunname(i) == gun[select].name && getcombogunname(i) != "" && getcombogunname(i) != null && i != 1)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            {
+                                Combo0.SelectedIndex = 101;
+                                break;
+                            }
+                        case 1:
+                            {
+                                Combo1.SelectedIndex = 101;
+                                break;
+                            }
+                        case 2:
+                            {
+                                Combo2.SelectedIndex = 101;
+                                break;
+                            }
+                        case 3:
+                            {
+                                Combo3.SelectedIndex = 101;
+                                break;
+                            }
+                        case 4:
+                            {
+                                Combo4.SelectedIndex = 101;
+                                break;
+                            }
+                        case 5:
+                            {
+                                Combo5.SelectedIndex = 101;
+                                break;
+                            }
+                        case 6:
+                            {
+                                Combo6.SelectedIndex = 101;
+                                break;
+                            }
+                        case 7:
+                            {
+                                Combo7.SelectedIndex = 101;
+                                break;
+                            }
+                        case 8:
+                            {
+                                Combo8.SelectedIndex = 101;
+                                break;
+                            }
+                    }
+                    //    if (howmany == 6)
+                    //        howmany = 0;
+                    break;
+                }
             }
 
             if (howmany == 6)
@@ -1592,6 +1722,60 @@ namespace snqxap
             {
                 if (getcombogunname(i) != "" && getcombogunname(i) != null)
                     howmany++;
+                if (getcombogunname(i) == gun[select].name && getcombogunname(i) != "" && getcombogunname(i) != null && i != 2)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            {
+                                Combo0.SelectedIndex = 101;
+                                break;
+                            }
+                        case 1:
+                            {
+                                Combo1.SelectedIndex = 101;
+                                break;
+                            }
+                        case 2:
+                            {
+                                Combo2.SelectedIndex = 101;
+                                break;
+                            }
+                        case 3:
+                            {
+                                Combo3.SelectedIndex = 101;
+                                break;
+                            }
+                        case 4:
+                            {
+                                Combo4.SelectedIndex = 101;
+                                break;
+                            }
+                        case 5:
+                            {
+                                Combo5.SelectedIndex = 101;
+                                break;
+                            }
+                        case 6:
+                            {
+                                Combo6.SelectedIndex = 101;
+                                break;
+                            }
+                        case 7:
+                            {
+                                Combo7.SelectedIndex = 101;
+                                break;
+                            }
+                        case 8:
+                            {
+                                Combo8.SelectedIndex = 101;
+                                break;
+                            }
+                    }
+                    //    if (howmany == 6)
+                    //        howmany = 0;
+                    break;
+                }
             }
 
             if (howmany == 6)
@@ -1625,6 +1809,60 @@ namespace snqxap
             {
                 if (getcombogunname(i) != "" && getcombogunname(i) != null)
                     howmany++;
+                if (getcombogunname(i) == gun[select].name && getcombogunname(i) != "" && getcombogunname(i) != null && i != 3)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            {
+                                Combo0.SelectedIndex = 101;
+                                break;
+                            }
+                        case 1:
+                            {
+                                Combo1.SelectedIndex = 101;
+                                break;
+                            }
+                        case 2:
+                            {
+                                Combo2.SelectedIndex = 101;
+                                break;
+                            }
+                        case 3:
+                            {
+                                Combo3.SelectedIndex = 101;
+                                break;
+                            }
+                        case 4:
+                            {
+                                Combo4.SelectedIndex = 101;
+                                break;
+                            }
+                        case 5:
+                            {
+                                Combo5.SelectedIndex = 101;
+                                break;
+                            }
+                        case 6:
+                            {
+                                Combo6.SelectedIndex = 101;
+                                break;
+                            }
+                        case 7:
+                            {
+                                Combo7.SelectedIndex = 101;
+                                break;
+                            }
+                        case 8:
+                            {
+                                Combo8.SelectedIndex = 101;
+                                break;
+                            }
+                    }
+                    //    if (howmany == 6)
+                    //        howmany = 0;
+                    break;
+                }
             }
 
             if (howmany == 6)
@@ -1790,6 +2028,60 @@ namespace snqxap
             {
                 if (getcombogunname(i) != "" && getcombogunname(i) != null)
                     howmany++;
+                if (getcombogunname(i) == gun[select].name && getcombogunname(i) != "" && getcombogunname(i) != null && i != 4)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            {
+                                Combo0.SelectedIndex = 101;
+                                break;
+                            }
+                        case 1:
+                            {
+                                Combo1.SelectedIndex = 101;
+                                break;
+                            }
+                        case 2:
+                            {
+                                Combo2.SelectedIndex = 101;
+                                break;
+                            }
+                        case 3:
+                            {
+                                Combo3.SelectedIndex = 101;
+                                break;
+                            }
+                        case 4:
+                            {
+                                Combo4.SelectedIndex = 101;
+                                break;
+                            }
+                        case 5:
+                            {
+                                Combo5.SelectedIndex = 101;
+                                break;
+                            }
+                        case 6:
+                            {
+                                Combo6.SelectedIndex = 101;
+                                break;
+                            }
+                        case 7:
+                            {
+                                Combo7.SelectedIndex = 101;
+                                break;
+                            }
+                        case 8:
+                            {
+                                Combo8.SelectedIndex = 101;
+                                break;
+                            }
+                    }
+                    //    if (howmany == 6)
+                    //        howmany = 0;
+                    break;
+                }
             }
 
             if (howmany == 6)
@@ -1830,6 +2122,60 @@ namespace snqxap
             {
                 if (getcombogunname(i) != "" && getcombogunname(i) != null)
                     howmany++;
+                   if(getcombogunname(i) == gun[select].name && getcombogunname(i) != "" && getcombogunname(i) != null && i != 5)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            {
+                                Combo0.SelectedIndex = 101;
+                                break;
+                            }
+                        case 1:
+                            {
+                                Combo1.SelectedIndex = 101;
+                                break;
+                            }
+                        case 2:
+                            {
+                                Combo2.SelectedIndex = 101;
+                                break;
+                            }
+                        case 3:
+                            {
+                                Combo3.SelectedIndex = 101;
+                                break;
+                            }
+                        case 4:
+                            {
+                                Combo4.SelectedIndex = 101;
+                                break;
+                            }
+                        case 5:
+                            {
+                                Combo5.SelectedIndex = 101;
+                                break;
+                            }
+                        case 6:
+                            {
+                                Combo6.SelectedIndex = 101;
+                                break;
+                            }
+                        case 7:
+                            {
+                                Combo7.SelectedIndex = 101;
+                                break;
+                            }
+                        case 8:
+                            {
+                                Combo8.SelectedIndex = 101;
+                                break;
+                            }
+                    }
+                //    if (howmany == 6)
+                //        howmany = 0;
+                    break;
+                }
             }
 
             if (howmany == 6)
@@ -1867,6 +2213,60 @@ namespace snqxap
             {
                 if (getcombogunname(i) != "" && getcombogunname(i) != null)
                     howmany++;
+                if (getcombogunname(i) == gun[select].name && getcombogunname(i) != "" && getcombogunname(i) != null && i != 6)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            {
+                                Combo0.SelectedIndex = 101;
+                                break;
+                            }
+                        case 1:
+                            {
+                                Combo1.SelectedIndex = 101;
+                                break;
+                            }
+                        case 2:
+                            {
+                                Combo2.SelectedIndex = 101;
+                                break;
+                            }
+                        case 3:
+                            {
+                                Combo3.SelectedIndex = 101;
+                                break;
+                            }
+                        case 4:
+                            {
+                                Combo4.SelectedIndex = 101;
+                                break;
+                            }
+                        case 5:
+                            {
+                                Combo5.SelectedIndex = 101;
+                                break;
+                            }
+                        case 6:
+                            {
+                                Combo6.SelectedIndex = 101;
+                                break;
+                            }
+                        case 7:
+                            {
+                                Combo7.SelectedIndex = 101;
+                                break;
+                            }
+                        case 8:
+                            {
+                                Combo8.SelectedIndex = 101;
+                                break;
+                            }
+                    }
+                    //    if (howmany == 6)
+                    //        howmany = 0;
+                    break;
+                }
             }
 
             if (howmany == 6)
@@ -1897,11 +2297,66 @@ namespace snqxap
 
         private void Combo7_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
             int select = Combo7.SelectedIndex;
             for (int i = 0; i < 9; i++)
             {
                 if (getcombogunname(i) != "" && getcombogunname(i) != null)
                     howmany++;
+                if(getcombogunname(i) == gun[select].name && getcombogunname(i) != "" && getcombogunname(i) != null && i != 7)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            {
+                                Combo0.SelectedIndex = 101;
+                                break;
+                            }
+                        case 1:
+                            {
+                                Combo1.SelectedIndex = 101;
+                                break;
+                            }
+                        case 2:
+                            {
+                                Combo2.SelectedIndex = 101;
+                                break;
+                            }
+                        case 3:
+                            {
+                                Combo3.SelectedIndex = 101;
+                                break;
+                            }
+                        case 4:
+                            {
+                                Combo4.SelectedIndex = 101;
+                                break;
+                            }
+                        case 5:
+                            {
+                                Combo5.SelectedIndex = 101;
+                                break;
+                            }
+                        case 6:
+                            {
+                                Combo6.SelectedIndex = 101;
+                                break;
+                            }
+                        case 7:
+                            {
+                                Combo7.SelectedIndex = 101;
+                                break;
+                            }
+                        case 8:
+                            {
+                                Combo8.SelectedIndex = 101;
+                                break;
+                            }
+                    }
+                //    if (howmany == 6)
+                //        howmany = 0;
+                    break;
+                }
             }
 
             if (howmany == 6)
@@ -1941,6 +2396,60 @@ namespace snqxap
             {
                 if (getcombogunname(i) != "" && getcombogunname(i) != null)
                     howmany++;
+                if (getcombogunname(i) == gun[select].name && getcombogunname(i) != "" && getcombogunname(i) != null&&i!=8)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            {
+                                Combo0.SelectedIndex = 101;
+                                break;
+                            }
+                        case 1:
+                            {
+                                Combo1.SelectedIndex = 101;
+                                break;
+                            }
+                        case 2:
+                            {
+                                Combo2.SelectedIndex = 101;
+                                break;
+                            }
+                        case 3:
+                            {
+                                Combo3.SelectedIndex = 101;
+                                break;
+                            }
+                        case 4:
+                            {
+                                Combo4.SelectedIndex = 101;
+                                break;
+                            }
+                        case 5:
+                            {
+                                Combo5.SelectedIndex = 101;
+                                break;
+                            }
+                        case 6:
+                            {
+                                Combo6.SelectedIndex = 101;
+                                break;
+                            }
+                        case 7:
+                            {
+                                Combo7.SelectedIndex = 101;
+                                break;
+                            }
+                        case 8:
+                            {
+                                Combo8.SelectedIndex = 101;
+                                break;
+                            }
+                    }
+                    //    if (howmany == 6)
+                    //        howmany = 0;
+                    break;
+                }
             }
 
             if (howmany == 6)
@@ -3329,6 +3838,14 @@ namespace snqxap
                 }
             }
             waste.Content = ammo.ToString() + "弹药 " + food.ToString() + "口粮";
+        }
+
+        private void slider_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            for(int i =0;i<9;i++)
+            {
+                renewindex(i);
+            }
         }
     }
 }

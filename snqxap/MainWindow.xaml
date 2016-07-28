@@ -1,7 +1,7 @@
 ﻿<Window x:Class="snqxap.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="「干死雪球」阵型计算器 - h@jyying.cn - v1.0.4技能测试版" Height="800" Width="700">
+        Title="「干死雪球」阵型计算器 - h@jyying.cn - v1.0.5机枪加强版" Height="810" Width="700">
     <Viewbox Stretch="Fill">
         <Grid>
             <Grid HorizontalAlignment="Left" Height="660" Margin="10,10,0,0" VerticalAlignment="Top" Width="660">
@@ -352,22 +352,27 @@
                 <RadioButton Checked="rbf7_Checked" Name="rbf7" Content="副T" HorizontalAlignment="Left" Margin="350,655,0,0" VerticalAlignment="Top"/>
                 <RadioButton Checked="rbf8_Checked" Name="rbf8" Content="副T" HorizontalAlignment="Left" Margin="570,655,0,0" VerticalAlignment="Top"/>
             </Grid>
-            <Button Content="About" HorizontalAlignment="Left" Margin="607,700,0,0" VerticalAlignment="Top" Width="75" Click="About_Click"/>
-            <Button Content="Log" HorizontalAlignment="Left" Margin="607,725,0,0" VerticalAlignment="Top" Width="75" Click="UpdateData_Click"/>
-            <Label Content="对回避                        敌人伤害指数：" FontSize="15" HorizontalAlignment="Left" Margin="162,675,0,0" VerticalAlignment="Top"/>
-            <Label Content="对命中                        敌人主T肉度 ：" FontSize="15" HorizontalAlignment="Left" Margin="162,705,0,0" VerticalAlignment="Top"/>
-            <Label Content="一战消耗资源 ：" FontSize="15" HorizontalAlignment="Left" Margin="70,735,0,0" VerticalAlignment="Top"/>
-            <Label Content="  副T肉度：" FontSize="15" HorizontalAlignment="Left" Margin="338,735,0,0" VerticalAlignment="Top"/>
-            <TextBox  TextChanged="TextBox2_TextChanged" Name="enemyhit" Text="0" HorizontalAlignment="Left" Margin="218,710,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="-0.15,0.55"/>
-            <TextBox  TextChanged="TextBox_TextChanged" Name="enemydodge" Text="0" HorizontalAlignment="Left" Margin="218,680,0,0" VerticalAlignment="Top" Width="40"/>
-            <Label FontSize="15" Name="allindex" Content="0" HorizontalAlignment="Left" Margin="421,675,0,0" VerticalAlignment="Top"/>
-            <Label FontSize="15" Name="tank" Content="0" HorizontalAlignment="Left" Margin="421,705,0,0" VerticalAlignment="Top" />
-            <Label FontSize="15" Name="ftank" Content="0" HorizontalAlignment="Left" Margin="421,735,0,0" VerticalAlignment="Top" />
-            <Label FontSize="15" Name="waste" Content="0" HorizontalAlignment="Left" Margin="195,735,0,0" VerticalAlignment="Top" />
-            <Label FontSize="15" Name="nowdodge" Content="0" HorizontalAlignment="Left" Margin="260,675,0,0" VerticalAlignment="Top" Foreground="Chocolate" />
-            <Label FontSize="15" Name="nowhit" Content="0" HorizontalAlignment="Left" Margin="260,705,0,0" VerticalAlignment="Top" Foreground="Chocolate" />
-            <Button Name="reinit" Click="reinit_Click" Content="重置" FontSize="25" Foreground="Red" HorizontalAlignment="Left" Margin="81,679,0,0" VerticalAlignment="Top" Width="60" Height="60"/>
-            <Grid Height="100" Width="100" Margin="502,670,90,0">
+            <Slider PreviewMouseUp="slider_PreviewMouseUp" Minimum="0" TickFrequency="1" Maximum="23" x:Name="slider" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Margin="90,740,0,0" VerticalAlignment="Top" Width="305" Height="32"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="400,740,0,0" TextWrapping="Wrap" Text="{Binding ElementName=slider, Path=Value}" FontSize="15" VerticalAlignment="Top"/>
+            <Label Margin="414,735,129,38" FontSize="15" Content="秒 ←机枪输出时间"/>
+            <Button Content="About" HorizontalAlignment="Left" Margin="5,740,0,0" VerticalAlignment="Top" Width="75" Click="About_Click"/>
+            <Button Content="Log" HorizontalAlignment="Left" Margin="605,740,0,0" VerticalAlignment="Top" Width="75" Click="UpdateData_Click"/>
+            <Label Content="对回避：" FontSize="15" HorizontalAlignment="Left" Margin="75,675,0,0" VerticalAlignment="Top"/>
+            <Label Content="敌人伤害指数：" FontSize="15" HorizontalAlignment="Left" Margin="234,675,0,0" VerticalAlignment="Top" Width="108"/>
+            <Label Content="对命中" FontSize="15" HorizontalAlignment="Left" Margin="75,705,0,0" VerticalAlignment="Top"/>
+            <Label Content="敌人主T肉度 ：" FontSize="15" HorizontalAlignment="Left" Margin="234,705,0,0" VerticalAlignment="Top" Width="108"/>
+            <Label Content="一战消耗资源 ：" FontSize="15" HorizontalAlignment="Left" Margin="406,675,0,0" VerticalAlignment="Top" Width="114"/>
+            <Label Content="  副T肉度：" FontSize="15" HorizontalAlignment="Left" Margin="400,705,0,0" VerticalAlignment="Top"/>
+            <TextBox  TextChanged="TextBox2_TextChanged" Name="enemyhit" Text="0" HorizontalAlignment="Left" Margin="145,710,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="-0.15,0.55"/>
+            <TextBox  TextChanged="TextBox_TextChanged" Name="enemydodge" Text="0" HorizontalAlignment="Left" Margin="145,680,0,0" VerticalAlignment="Top" Width="40"/>
+            <Label FontSize="15" Name="allindex" Content="0" HorizontalAlignment="Left" Margin="340,675,0,0" VerticalAlignment="Top"/>
+            <Label FontSize="15" Name="tank" Content="0" HorizontalAlignment="Left" Margin="340,705,0,0" VerticalAlignment="Top" />
+            <Label FontSize="15" Name="ftank" Content="0" HorizontalAlignment="Left" Margin="487,705,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.737,-0.067" />
+            <Label FontSize="15" Name="waste" Content="0" HorizontalAlignment="Left" Margin="519,675,0,0" VerticalAlignment="Top" />
+            <Label FontSize="15" Name="nowdodge" Content="0" HorizontalAlignment="Left" Margin="190,675,0,0" VerticalAlignment="Top" Foreground="Chocolate" />
+            <Label FontSize="15" Name="nowhit" Content="0" HorizontalAlignment="Left" Margin="190,705,0,0" VerticalAlignment="Top" Foreground="Chocolate" />
+            <Button Name="reinit" Click="reinit_Click" Content="重置" FontSize="25" Foreground="Red" HorizontalAlignment="Left" Margin="10,675,0,0" VerticalAlignment="Top" Width="60" Height="60"/>
+            <Grid Height="60" Width="60" Margin="620,675,12,75">
                 <Image Visibility="Hidden" Name="bignews"  Source="zhaijiang.jpg" HorizontalAlignment="Left" Height="100" Margin="0,0,0,0" VerticalAlignment="Top" Width="100"/>
             </Grid>
         </Grid>
