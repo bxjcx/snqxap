@@ -1,536 +1,593 @@
 ﻿<Window x:Class="snqxap.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="「干死雪球」阵型计算器 - h@jyying.cn - v1.1  圣建大胜利版（flag）" Height="800" Width="670">
-  
-    <Viewbox Stretch="Fill">
-        <Grid  Height="770" Width="660">
-            <Grid HorizontalAlignment="Left" Height="660" Margin="0,0,0,0" VerticalAlignment="Top" Width="660">
-                <Grid.Background>
-                    <ImageBrush ImageSource="/assets/yushe1.png"/>
-                </Grid.Background>
-                <Grid HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="220" Margin="0,0,0,0">
-                    <Image Name="Image0" Width="100"  Height="150" Margin="115,35,5,35">
-                        <Image.ToolTip>
-                            <ToolTip>
-                                <StackPanel>
-                                    <TextBlock FontWeight="Heavy" Text="生效光环："/>
-                                    <TextBlock Name="tb0" Text="无"/>
-                                </StackPanel>
-                            </ToolTip>
-                        </Image.ToolTip>
-                    </Image>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo0_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="#FF454443" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level0_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel0_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,55,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ldamage0" Content="0" HorizontalAlignment="Left" Margin="30,55,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="射速:" HorizontalAlignment="Left" Margin="0,75,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lshotspeed0" Content="0" HorizontalAlignment="Left" Margin="30,75,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="命中:" HorizontalAlignment="Left" Margin="55,35,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lhit0" Content="0" HorizontalAlignment="Left" Margin= "85,35,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,55,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ldodge0" Content="0" HorizontalAlignment="Left" Margin="85,55,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,95,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lcrit0" Content="0" HorizontalAlignment="Left" Margin="30,95,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="0,135,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
-                    <Label Name="Lindex0" Content="0" HorizontalAlignment="Left" Margin="55,135,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
-                    <Label Content="时间:" HorizontalAlignment="Left" Margin="55,95,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ltime0" Content="0" HorizontalAlignment="Left" Margin="85,95,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="血量:" HorizontalAlignment="Left" Margin="0,35,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lhp0" Content="0" HorizontalAlignment="Left" Margin="30,35,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能说明:"  HorizontalAlignment="Left" Margin="0,175,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskillread0" Content="" HorizontalAlignment="Left" Margin="55,175,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能触发率:"  HorizontalAlignment="Left" Margin="0,155,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskillrate0" Content="0" HorizontalAlignment="Left" Margin="65,155,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="弹链:" HorizontalAlignment="Left" Margin="55,75,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lbelt0" Content="0" HorizontalAlignment="Left" Margin="85,75,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,115,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskilldamage0" Content="0" HorizontalAlignment="Left" Margin="55,115,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <CheckBox  Click="cb0_Click" Name="cb0" Content="技能发动" HorizontalAlignment="Left" Margin="10,200,0,0"/>
-                </Grid>
-                <Grid HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="220" Margin="220,0,0,0">
-                    <Image Name="Image1" Width="100"  Height="150" Margin="115,35,5,35">
-                        <Image.ToolTip>
-                            <ToolTip>
-                                <StackPanel>
-                                    <TextBlock FontWeight="Heavy" Text="生效光环："/>
-                                    <TextBlock Name="tb1" Text="无"/>
-                                </StackPanel>
-                            </ToolTip>
-                        </Image.ToolTip>
-                    </Image>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo1_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level1_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel1_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,55,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ldamage1" Content="0" HorizontalAlignment="Left" Margin="30,55,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="射速:" HorizontalAlignment="Left" Margin="0,75,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lshotspeed1" Content="0" HorizontalAlignment="Left" Margin="30,75,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="命中:" HorizontalAlignment="Left" Margin="55,35,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lhit1" Content="0" HorizontalAlignment="Left" Margin= "85,35,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,55,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ldodge1" Content="0" HorizontalAlignment="Left" Margin="85,55,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,95,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lcrit1" Content="0" HorizontalAlignment="Left" Margin="30,95,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="0,135,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
-                    <Label Name="Lindex1" Content="0" HorizontalAlignment="Left" Margin="55,135,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
-                    <Label Content="时间:" HorizontalAlignment="Left" Margin="55,95,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ltime1" Content="0" HorizontalAlignment="Left" Margin="85,95,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="血量:" HorizontalAlignment="Left" Margin="0,35,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lhp1" Content="0" HorizontalAlignment="Left" Margin="30,35,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能说明:"  HorizontalAlignment="Left" Margin="0,175,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskillread1" Content="" HorizontalAlignment="Left" Margin="55,175,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能触发率:"  HorizontalAlignment="Left" Margin="0,155,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskillrate1" Content="0" HorizontalAlignment="Left" Margin="65,155,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="弹链:" HorizontalAlignment="Left" Margin="55,75,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lbelt1" Content="0" HorizontalAlignment="Left" Margin="85,75,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,115,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskilldamage1" Content="0" HorizontalAlignment="Left" Margin="55,115,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <CheckBox Click="cb1_Click" Name="cb1" Content="技能发动" HorizontalAlignment="Left" Margin="10,200,0,0"/>
-                </Grid>
-                <Grid HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="220" Margin="440,0,0,0">
-                    <Image Name="Image2" Width="100"  Height="150" Margin="115,35,5,35">
-                        <Image.ToolTip>
-                            <ToolTip>
-                                <StackPanel>
-                                    <TextBlock FontWeight="Heavy" Text="生效光环："/>
-                                    <TextBlock Name="tb2" Text="无"/>
-                                </StackPanel>
-                            </ToolTip>
-                        </Image.ToolTip>
-                    </Image>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Combo2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo2_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level2_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel2_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,55,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ldamage2" Content="0" HorizontalAlignment="Left" Margin="30,55,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="射速:" HorizontalAlignment="Left" Margin="0,75,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lshotspeed2" Content="0" HorizontalAlignment="Left" Margin="30,75,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="命中:" HorizontalAlignment="Left" Margin="55,35,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lhit2" Content="0" HorizontalAlignment="Left" Margin= "85,35,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,55,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ldodge2" Content="0" HorizontalAlignment="Left" Margin="85,55,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,95,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lcrit2" Content="0" HorizontalAlignment="Left" Margin="30,95,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="0,135,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
-                    <Label Name="Lindex2" Content="0" HorizontalAlignment="Left" Margin="55,135,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
-                    <Label Content="时间:" HorizontalAlignment="Left" Margin="55,95,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ltime2" Content="0" HorizontalAlignment="Left" Margin="85,95,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="血量:" HorizontalAlignment="Left" Margin="0,35,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lhp2" Content="0" HorizontalAlignment="Left" Margin="30,35,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能说明:"  HorizontalAlignment="Left" Margin="0,175,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskillread2" Content="" HorizontalAlignment="Left" Margin="55,175,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能触发率:"  HorizontalAlignment="Left" Margin="0,155,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskillrate2" Content="0" HorizontalAlignment="Left" Margin="65,155,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="弹链:" HorizontalAlignment="Left" Margin="55,75,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lbelt2" Content="0" HorizontalAlignment="Left" Margin="85,75,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,115,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskilldamage2" Content="0" HorizontalAlignment="Left" Margin="55,115,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <CheckBox Click="cb2_Click" Name="cb2" Content="技能发动" HorizontalAlignment="Left" Margin="10,200,0,0"/>
-                </Grid>
-                <Grid HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="220" Margin="0,220,0,0">
-                    <Image Name="Image3" Width="100"  Height="150" Margin="115,35,5,35">
-                        <Image.ToolTip>
-                            <ToolTip>
-                                <StackPanel>
-                                    <TextBlock FontWeight="Heavy" Text="生效光环："/>
-                                    <TextBlock Name="tb3" Text="无"/>
-                                </StackPanel>
-                            </ToolTip>
-                        </Image.ToolTip>
-                    </Image>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo3_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level3_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel3_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,53,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ldamage3" Content="0" HorizontalAlignment="Left" Margin="30,53,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="射速:" HorizontalAlignment="Left" Margin="0,73,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lshotspeed3" Content="0" HorizontalAlignment="Left" Margin="30,73,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="命中:" HorizontalAlignment="Left" Margin="55,33,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lhit3" Content="0" HorizontalAlignment="Left" Margin= "85,33,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,53,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ldodge3" Content="0" HorizontalAlignment="Left" Margin="85,53,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,93,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lcrit3" Content="0" HorizontalAlignment="Left" Margin="30,93,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="0,133,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
-                    <Label Name="Lindex3" Content="0" HorizontalAlignment="Left" Margin="55,133,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
-                    <Label Content="时间:" HorizontalAlignment="Left" Margin="55,93,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ltime3" Content="0" HorizontalAlignment="Left" Margin="85,93,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="血量:" HorizontalAlignment="Left" Margin="0,33,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lhp3" Content="0" HorizontalAlignment="Left" Margin="30,33,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能说明:"  HorizontalAlignment="Left" Margin="0,173,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskillread3" Content="" HorizontalAlignment="Left" Margin="55,173,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能触发率:"  HorizontalAlignment="Left" Margin="0,153,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskillrate3" Content="0" HorizontalAlignment="Left" Margin="65,153,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="弹链:" HorizontalAlignment="Left" Margin="55,73,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lbelt3" Content="0" HorizontalAlignment="Left" Margin="85,73,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,113,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskilldamage3" Content="0" HorizontalAlignment="Left" Margin="55,113,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <CheckBox Click="cb3_Click" Name="cb3" Content="技能发动" HorizontalAlignment="Left" Margin="10,198,0,0"/>
-                </Grid>
-                <Grid HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="220" Margin="220,220,0,0">
-                    <Image Name="Image4" Width="100"  Height="150" Margin="115,35,5,35">
-                        <Image.ToolTip>
-                            <ToolTip>
-                                <StackPanel>
-                                    <TextBlock FontWeight="Heavy" Text="生效光环："/>
-                                    <TextBlock Name="tb4" Text="无"/>
-                                </StackPanel>
-                            </ToolTip>
-                        </Image.ToolTip>
-                    </Image>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo4_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level4_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0"  SelectionChanged="SkillLevel4_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,53,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ldamage4" Content="0" HorizontalAlignment="Left" Margin="30,53,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="射速:" HorizontalAlignment="Left" Margin="0,73,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lshotspeed4" Content="0" HorizontalAlignment="Left" Margin="30,73,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="命中:" HorizontalAlignment="Left" Margin="55,33,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lhit4" Content="0" HorizontalAlignment="Left" Margin= "85,33,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,53,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ldodge4" Content="0" HorizontalAlignment="Left" Margin="85,53,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,93,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lcrit4" Content="0" HorizontalAlignment="Left" Margin="30,93,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="0,133,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
-                    <Label Name="Lindex4" Content="0" HorizontalAlignment="Left" Margin="55,133,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
-                    <Label Content="时间:" HorizontalAlignment="Left" Margin="55,93,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ltime4" Content="0" HorizontalAlignment="Left" Margin="85,93,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="血量:" HorizontalAlignment="Left" Margin="0,33,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lhp4" Content="0" HorizontalAlignment="Left" Margin="30,33,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能说明:"  HorizontalAlignment="Left" Margin="0,173,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskillread4" Content="" HorizontalAlignment="Left" Margin="55,173,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能触发率:"  HorizontalAlignment="Left" Margin="0,153,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskillrate4" Content="0" HorizontalAlignment="Left" Margin="65,153,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="弹链:" HorizontalAlignment="Left" Margin="55,73,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lbelt4" Content="0" HorizontalAlignment="Left" Margin="85,73,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,113,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskilldamage4" Content="0" HorizontalAlignment="Left" Margin="55,113,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <CheckBox Click="cb4_Click" Name="cb4" Content="技能发动" HorizontalAlignment="Left" Margin="10,198,0,0"/>
-                </Grid>
-                <Grid HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="220" Margin="440,220,0,0">
-                    <Image Name="Image5" Width="100"  Height="150" Margin="115,35,5,35">
-                        <Image.ToolTip>
-                            <ToolTip>
-                                <StackPanel>
-                                    <TextBlock FontWeight="Heavy" Text="生效光环："/>
-                                    <TextBlock Name="tb5" Text="无"/>
-                                </StackPanel>
-                            </ToolTip>
-                        </Image.ToolTip>
-                    </Image>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo5_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level5_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel5_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,53,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ldamage5" Content="0" HorizontalAlignment="Left" Margin="30,53,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="射速:" HorizontalAlignment="Left" Margin="0,73,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lshotspeed5" Content="0" HorizontalAlignment="Left" Margin="30,73,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="命中:" HorizontalAlignment="Left" Margin="55,33,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lhit5" Content="0" HorizontalAlignment="Left" Margin= "85,33,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,53,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ldodge5" Content="0" HorizontalAlignment="Left" Margin="85,53,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,93,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lcrit5" Content="0" HorizontalAlignment="Left" Margin="30,93,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="0,133,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
-                    <Label Name="Lindex5" Content="0" HorizontalAlignment="Left" Margin="55,133,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
-                    <Label Content="时间:" HorizontalAlignment="Left" Margin="55,93,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ltime5" Content="0" HorizontalAlignment="Left" Margin="85,93,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="血量:" HorizontalAlignment="Left" Margin="0,33,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lhp5" Content="0" HorizontalAlignment="Left" Margin="30,33,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能说明:"  HorizontalAlignment="Left" Margin="0,173,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskillread5" Content="" HorizontalAlignment="Left" Margin="55,173,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能触发率:"  HorizontalAlignment="Left" Margin="0,153,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskillrate5" Content="0" HorizontalAlignment="Left" Margin="65,153,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="弹链:" HorizontalAlignment="Left" Margin="55,73,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lbelt5" Content="0" HorizontalAlignment="Left" Margin="85,73,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,113,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskilldamage5" Content="0" HorizontalAlignment="Left" Margin="55,113,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <CheckBox Click="cb5_Click" Name="cb5" Content="技能发动" HorizontalAlignment="Left" Margin="10,198,0,0"/>
-                </Grid>
-                <Grid HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="220" Margin="0,440,0,0">
-                    <Image Name="Image6" Width="100"  Height="150" Margin="115,35,5,35">
-                        <Image.ToolTip>
-                            <ToolTip>
-                                <StackPanel>
-                                    <TextBlock FontWeight="Heavy" Text="生效光环："/>
-                                    <TextBlock Name="tb6" Text="无"/>
-                                </StackPanel>
-                            </ToolTip>
-                        </Image.ToolTip>
-                    </Image>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo6_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level6_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel6_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,51,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ldamage6" Content="0" HorizontalAlignment="Left" Margin="30,51,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="射速:" HorizontalAlignment="Left" Margin="0,71,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lshotspeed6" Content="0" HorizontalAlignment="Left" Margin="30,71,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="命中:" HorizontalAlignment="Left" Margin="55,31,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lhit6" Content="0" HorizontalAlignment="Left" Margin= "85,31,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,51,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ldodge6" Content="0" HorizontalAlignment="Left" Margin="85,51,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,91,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lcrit6" Content="0" HorizontalAlignment="Left" Margin="30,91,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="0,131,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
-                    <Label Name="Lindex6" Content="0" HorizontalAlignment="Left" Margin="55,131,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
-                    <Label Content="时间:" HorizontalAlignment="Left" Margin="55,91,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ltime6" Content="0" HorizontalAlignment="Left" Margin="85,91,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="血量:" HorizontalAlignment="Left" Margin="0,31,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lhp6" Content="0" HorizontalAlignment="Left" Margin="30,31,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能说明:"  HorizontalAlignment="Left" Margin="0,171,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskillread6" Content="" HorizontalAlignment="Left" Margin="55,171,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能触发率:"  HorizontalAlignment="Left" Margin="0,151,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskillrate6" Content="0" HorizontalAlignment="Left" Margin="65,151,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="弹链:" HorizontalAlignment="Left" Margin="55,71,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lbelt6" Content="0" HorizontalAlignment="Left" Margin="85,71,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,111,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskilldamage6" Content="0" HorizontalAlignment="Left" Margin="55,111,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <CheckBox Click="cb6_Click" Name="cb6" Content="技能发动" HorizontalAlignment="Left" Margin="10,196,0,0"/>
-                </Grid>
-                <Grid HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="220" Margin="220,440,0,0">
-                    <Image Name="Image7" Width="100"  Height="150" Margin="115,35,5,35">
-                        <Image.ToolTip>
-                            <ToolTip>
-                                <StackPanel>
-                                    <TextBlock FontWeight="Heavy" Text="生效光环："/>
-                                    <TextBlock Name="tb7" Text="无"/>
-                                </StackPanel>
-                            </ToolTip>
-                        </Image.ToolTip>
-                    </Image>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo7_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level7_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel7_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,51,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ldamage7" Content="0" HorizontalAlignment="Left" Margin="30,51,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="射速:" HorizontalAlignment="Left" Margin="0,71,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lshotspeed7" Content="0" HorizontalAlignment="Left" Margin="30,71,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="命中:" HorizontalAlignment="Left" Margin="55,31,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lhit7" Content="0" HorizontalAlignment="Left" Margin= "85,31,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,51,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ldodge7" Content="0" HorizontalAlignment="Left" Margin="85,51,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,91,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lcrit7" Content="0" HorizontalAlignment="Left" Margin="30,91,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="0,131,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
-                    <Label Name="Lindex7" Content="0" HorizontalAlignment="Left" Margin="55,131,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
-                    <Label Content="时间:" HorizontalAlignment="Left" Margin="55,91,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ltime7" Content="0" HorizontalAlignment="Left" Margin="85,91,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="血量:" HorizontalAlignment="Left" Margin="0,31,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lhp7" Content="0" HorizontalAlignment="Left" Margin="30,31,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能说明:"  HorizontalAlignment="Left" Margin="0,171,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskillread7" Content="" HorizontalAlignment="Left" Margin="55,171,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能触发率:"  HorizontalAlignment="Left" Margin="0,151,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskillrate7" Content="0" HorizontalAlignment="Left" Margin="65,151,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="弹链:" HorizontalAlignment="Left" Margin="55,71,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lbelt7" Content="0" HorizontalAlignment="Left" Margin="85,71,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,111,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskilldamage7" Content="0" HorizontalAlignment="Left" Margin="55,111,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <CheckBox Click="cb7_Click" Name="cb7" Content="技能发动" HorizontalAlignment="Left" Margin="10,196,0,0"/>
-                </Grid>
-                <Grid HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="220" Margin="440,440,0,0">
-                    <Image Name="Image8" Width="100"  Height="150" Margin="115,35,5,35">
-                        <Image.ToolTip>
-                            <ToolTip>
-                                <StackPanel>
-                                    <TextBlock FontWeight="Heavy" Text="生效光环："/>
-                                    <TextBlock Name="tb8" Text="无"/>
-                                </StackPanel>
-                            </ToolTip>
-                        </Image.ToolTip>
-                    </Image>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo8_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level8_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel8_SelectionChanged">
-                        <ComboBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0"/>
-                        </ComboBox.Background>
-                    </ComboBox>
-                    <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,51,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ldamage8" Content="0" HorizontalAlignment="Left" Margin="30,51,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="射速:" HorizontalAlignment="Left" Margin="0,71,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lshotspeed8" Content="0" HorizontalAlignment="Left" Margin="30,71,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="命中:" HorizontalAlignment="Left" Margin="55,31,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lhit8" Content="0" HorizontalAlignment="Left" Margin= "85,31,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,51,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ldodge8" Content="0" HorizontalAlignment="Left" Margin="85,51,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,91,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lcrit8" Content="0" HorizontalAlignment="Left" Margin="30,91,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="0,131,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
-                    <Label Name="Lindex8" Content="0" HorizontalAlignment="Left" Margin="55,131,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
-                    <Label Content="时间:" HorizontalAlignment="Left" Margin="55,91,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Ltime8" Content="0" HorizontalAlignment="Left" Margin="85,91,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="血量:" HorizontalAlignment="Left" Margin="0,31,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lhp8" Content="0" HorizontalAlignment="Left" Margin="30,31,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能说明:"  HorizontalAlignment="Left" Margin="0,171,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskillread8" Content="" HorizontalAlignment="Left" Margin="55,171,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能触发率:"  HorizontalAlignment="Left" Margin="0,151,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskillrate8" Content="0" HorizontalAlignment="Left" Margin="65,151,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="弹链:" HorizontalAlignment="Left" Margin="55,71,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Name="Lbelt8" Content="0" HorizontalAlignment="Left" Margin="85,71,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,111,0,0" VerticalAlignment="Top" FontSize="12" />
-                    <Label Name="Lskilldamage8" Content="0" HorizontalAlignment="Left" Margin="55,111,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <CheckBox Click="cb8_Click" Name="cb8" Content="技能发动" HorizontalAlignment="Left" Margin="10,196,0,0"/>
-                </Grid>
-            </Grid>
-            <Grid>
-                <RadioButton Checked="rb0_Checked" Name="rb0" Content="主T" HorizontalAlignment="Left" Margin="180,200,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rb1_Checked" Name="rb1" Content="主T" HorizontalAlignment="Left" Margin="398,200,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rb2_Checked" Name="rb2" Content="主T" HorizontalAlignment="Left" Margin="616,200,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rb3_Checked" Name="rb3" Content="主T" HorizontalAlignment="Left" Margin="180,418,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rb4_Checked" Name="rb4" Content="主T" HorizontalAlignment="Left" Margin="398,418,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rb5_Checked" Name="rb5" Content="主T" HorizontalAlignment="Left" Margin="616,418,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rb6_Checked" Name="rb6" Content="主T" HorizontalAlignment="Left" Margin="180,636,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rb7_Checked" Name="rb7" Content="主T" HorizontalAlignment="Left" Margin="398,636,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rb8_Checked" Name="rb8" Content="主T" HorizontalAlignment="Left" Margin="616,636,0,0" VerticalAlignment="Top"/>
-            </Grid>
-            <Grid>
-                <RadioButton Checked="rbf0_Checked" Name="rbf0" Content="副T" HorizontalAlignment="Left" Margin="130,200,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rbf1_Checked" Name="rbf1" Content="副T" HorizontalAlignment="Left" Margin="348,200,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rbf2_Checked" Name="rbf2" Content="副T" HorizontalAlignment="Left" Margin="566,200,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rbf3_Checked" Name="rbf3" Content="副T" HorizontalAlignment="Left" Margin="130,418,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rbf4_Checked" Name="rbf4" Content="副T" HorizontalAlignment="Left" Margin="348,418,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rbf5_Checked" Name="rbf5" Content="副T" HorizontalAlignment="Left" Margin="566,418,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rbf6_Checked" Name="rbf6" Content="副T" HorizontalAlignment="Left" Margin="130,636,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rbf7_Checked" Name="rbf7" Content="副T" HorizontalAlignment="Left" Margin="348,636,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rbf8_Checked" Name="rbf8" Content="副T" HorizontalAlignment="Left" Margin="566,636,0,0" VerticalAlignment="Top"/>
-            </Grid>
+        Title="「干死雪球」阵型计算器 - h@jyying.cn - v1.2  夏活版" Height="815" Width="850">
 
-            <Grid Margin="0,660,0,0">
-                <Grid.Background>
-                    <ImageBrush ImageSource="/assets/yushe3.png"/>
-                </Grid.Background>
-                <Slider PreviewMouseUp="slider_PreviewMouseUp" Minimum="0" TickFrequency="1" Maximum="23" x:Name="slider" IsSnapToTickEnabled="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="281" Height="32" Margin="10,78,0,0" Opacity="0.8"/>
-                <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ElementName=slider, Path=Value}" FontSize="15" VerticalAlignment="Top" Margin="296,80,0,0"/>
-                <Label  FontSize="15" Content="秒 ←机枪输出时间" Margin="323,75,192,6"/>
-                <Button Content="About" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Click="About_Click" Margin="480,30,0,0" Opacity="0.6"/>
-                <Button Content="Log" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Click="UpdateData_Click" Margin="480,3,0,0" Opacity="0.6"/>
-                <Button x:Name="button" Content="敌方数据" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="button_Click" Margin="480,57,0,0" Opacity="0.6"/>
-                <Button IsEnabled="False" Content="凑数用按钮" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="480,84,0,0" Opacity="0.6"/>
-                <Label Content="对闪避" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="113,0,0,0"/>
-                <Label Content="敌人伤害指数：" FontSize="15" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="108" Margin="280,0,0,0"/>
-                <Label Content="对命中" FontSize="15" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="113,24,0,0" Width="55"/>
-                <Label Content="敌人主坦肉度：" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="280,24,0,0"/>
-                <Label Content="一战消耗资源：" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114" Margin="75,48,0,0"/>
-                <Label Content="副坦肉度：" FontSize="15" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="310,48,0,0"/>
-                <TextBox  TextChanged="TextBox2_TextChanged" Name="enemyhit" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="173,28,0,0" Opacity="0.5"/>
-                <TextBox  TextChanged="TextBox_TextChanged" Name="enemydodge" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="173,4,0,0" Opacity="0.5"/>
-                <Label Foreground="Red" FontSize="15" Name="allindex" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="385,0,0,0"/>
-                <Label Foreground="Red" FontSize="15" Name="tank" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="385,24,0,0" />
-                <Label Foreground="Red" FontSize="15" Name="ftank" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="385,48,0,0" />
-                <Label FontSize="15" Name="waste" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,48,0,0" />
-                <Label FontSize="15" Name="nowdodge" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Chocolate" Margin="218,0,0,0" />
-                <Label FontSize="15" Name="nowhit" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Chocolate" Margin="218,24,0,0" />
-                <Button Name="reinit" Click="reinit_Click" Content="重置" FontSize="18" Foreground="Red" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="60" Height="60" Margin="10,10,0,0" Opacity="0.6" BorderThickness="0"/>
-                <Grid Width="100" Height="100" Margin="560,4,0,6" >
-                    <Image Visibility="Hidden" Name="bignews"  Source="zhaijiang.jpg" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
-                </Grid>
+     <Viewbox Stretch="Fill">
+    <Grid  Height="785" Width="840">
+        <Grid HorizontalAlignment="Left" Height="675" Margin="0,0,0,0" VerticalAlignment="Top" Width="675">
+            <Grid.Background>
+                <ImageBrush ImageSource="/assets/yushe1.png"/>
+            </Grid.Background>
+            <Grid HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="225" Margin="0,0,0,0">
+                <Image Name="Image0" Width="100"  Height="150" Margin="115,35,5,35">
+                    <Image.ToolTip>
+                        <ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Heavy" Text="生效光环："/>
+                                <TextBlock Name="tb0" Text="无"/>
+                            </StackPanel>
+                        </ToolTip>
+                    </Image.ToolTip>
+                </Image>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo0_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="#FF454443" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level0_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel0_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,55,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ldamage0" Content="0" HorizontalAlignment="Left" Margin="30,55,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="射速:" HorizontalAlignment="Left" Margin="0,75,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lshotspeed0" Content="0" HorizontalAlignment="Left" Margin="30,75,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="命中:" HorizontalAlignment="Left" Margin="55,35,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lhit0" Content="0" HorizontalAlignment="Left" Margin= "85,35,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,55,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ldodge0" Content="0" HorizontalAlignment="Left" Margin="85,55,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,95,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lcrit0" Content="0" HorizontalAlignment="Left" Margin="30,95,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="0,135,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
+                <Label Name="Lindex0" Content="0" HorizontalAlignment="Left" Margin="55,135,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
+                <Label Content="时间:" HorizontalAlignment="Left" Margin="55,95,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ltime0" Content="0" HorizontalAlignment="Left" Margin="85,95,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="血量:" HorizontalAlignment="Left" Margin="0,35,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lhp0" Content="0" HorizontalAlignment="Left" Margin="30,35,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能说明:"  HorizontalAlignment="Left" Margin="0,175,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskillread0" Content="" HorizontalAlignment="Left" Margin="55,175,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能触发率:"  HorizontalAlignment="Left" Margin="0,155,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskillrate0" Content="0" HorizontalAlignment="Left" Margin="65,155,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="弹链:" HorizontalAlignment="Left" Margin="55,75,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lbelt0" Content="0" HorizontalAlignment="Left" Margin="85,75,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,115,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskilldamage0" Content="0" HorizontalAlignment="Left" Margin="55,115,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <CheckBox  Click="cb0_Click" Name="cb0" Content="技能发动" HorizontalAlignment="Left" Margin="10,200,0,0"/>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="225" Margin="225,0,0,0">
+                <Image Name="Image1" Width="100"  Height="150" Margin="115,35,5,35">
+                    <Image.ToolTip>
+                        <ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Heavy" Text="生效光环："/>
+                                <TextBlock Name="tb1" Text="无"/>
+                            </StackPanel>
+                        </ToolTip>
+                    </Image.ToolTip>
+                </Image>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo1_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level1_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel1_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,55,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ldamage1" Content="0" HorizontalAlignment="Left" Margin="30,55,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="射速:" HorizontalAlignment="Left" Margin="0,75,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lshotspeed1" Content="0" HorizontalAlignment="Left" Margin="30,75,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="命中:" HorizontalAlignment="Left" Margin="55,35,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lhit1" Content="0" HorizontalAlignment="Left" Margin= "85,35,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,55,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ldodge1" Content="0" HorizontalAlignment="Left" Margin="85,55,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,95,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lcrit1" Content="0" HorizontalAlignment="Left" Margin="30,95,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="0,135,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
+                <Label Name="Lindex1" Content="0" HorizontalAlignment="Left" Margin="55,135,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
+                <Label Content="时间:" HorizontalAlignment="Left" Margin="55,95,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ltime1" Content="0" HorizontalAlignment="Left" Margin="85,95,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="血量:" HorizontalAlignment="Left" Margin="0,35,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lhp1" Content="0" HorizontalAlignment="Left" Margin="30,35,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能说明:"  HorizontalAlignment="Left" Margin="0,175,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskillread1" Content="" HorizontalAlignment="Left" Margin="55,175,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能触发率:"  HorizontalAlignment="Left" Margin="0,155,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskillrate1" Content="0" HorizontalAlignment="Left" Margin="65,155,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="弹链:" HorizontalAlignment="Left" Margin="55,75,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lbelt1" Content="0" HorizontalAlignment="Left" Margin="85,75,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,115,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskilldamage1" Content="0" HorizontalAlignment="Left" Margin="55,115,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <CheckBox Click="cb1_Click" Name="cb1" Content="技能发动" HorizontalAlignment="Left" Margin="10,200,0,0"/>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="225" Margin="450,0,0,0">
+                <Image Name="Image2" Width="100"  Height="150" Margin="115,35,5,35">
+                    <Image.ToolTip>
+                        <ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Heavy" Text="生效光环："/>
+                                <TextBlock Name="tb2" Text="无"/>
+                            </StackPanel>
+                        </ToolTip>
+                    </Image.ToolTip>
+                </Image>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Combo2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo2_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level2_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel2_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,55,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ldamage2" Content="0" HorizontalAlignment="Left" Margin="30,55,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="射速:" HorizontalAlignment="Left" Margin="0,75,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lshotspeed2" Content="0" HorizontalAlignment="Left" Margin="30,75,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="命中:" HorizontalAlignment="Left" Margin="55,35,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lhit2" Content="0" HorizontalAlignment="Left" Margin= "85,35,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,55,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ldodge2" Content="0" HorizontalAlignment="Left" Margin="85,55,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,95,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lcrit2" Content="0" HorizontalAlignment="Left" Margin="30,95,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="0,135,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
+                <Label Name="Lindex2" Content="0" HorizontalAlignment="Left" Margin="55,135,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
+                <Label Content="时间:" HorizontalAlignment="Left" Margin="55,95,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ltime2" Content="0" HorizontalAlignment="Left" Margin="85,95,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="血量:" HorizontalAlignment="Left" Margin="0,35,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lhp2" Content="0" HorizontalAlignment="Left" Margin="30,35,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能说明:"  HorizontalAlignment="Left" Margin="0,175,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskillread2" Content="" HorizontalAlignment="Left" Margin="55,175,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能触发率:"  HorizontalAlignment="Left" Margin="0,155,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskillrate2" Content="0" HorizontalAlignment="Left" Margin="65,155,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="弹链:" HorizontalAlignment="Left" Margin="55,75,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lbelt2" Content="0" HorizontalAlignment="Left" Margin="85,75,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,115,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskilldamage2" Content="0" HorizontalAlignment="Left" Margin="55,115,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <CheckBox Click="cb2_Click" Name="cb2" Content="技能发动" HorizontalAlignment="Left" Margin="10,200,0,0"/>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="225" Margin="0,225,0,0">
+                <Image Name="Image3" Width="100"  Height="150" Margin="115,35,5,35">
+                    <Image.ToolTip>
+                        <ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Heavy" Text="生效光环："/>
+                                <TextBlock Name="tb3" Text="无"/>
+                            </StackPanel>
+                        </ToolTip>
+                    </Image.ToolTip>
+                </Image>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo3_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level3_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel3_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,53,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ldamage3" Content="0" HorizontalAlignment="Left" Margin="30,53,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="射速:" HorizontalAlignment="Left" Margin="0,73,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lshotspeed3" Content="0" HorizontalAlignment="Left" Margin="30,73,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="命中:" HorizontalAlignment="Left" Margin="55,33,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lhit3" Content="0" HorizontalAlignment="Left" Margin= "85,33,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,53,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ldodge3" Content="0" HorizontalAlignment="Left" Margin="85,53,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,93,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lcrit3" Content="0" HorizontalAlignment="Left" Margin="30,93,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="0,133,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
+                <Label Name="Lindex3" Content="0" HorizontalAlignment="Left" Margin="55,133,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
+                <Label Content="时间:" HorizontalAlignment="Left" Margin="55,93,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ltime3" Content="0" HorizontalAlignment="Left" Margin="85,93,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="血量:" HorizontalAlignment="Left" Margin="0,33,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lhp3" Content="0" HorizontalAlignment="Left" Margin="30,33,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能说明:"  HorizontalAlignment="Left" Margin="0,173,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskillread3" Content="" HorizontalAlignment="Left" Margin="55,173,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能触发率:"  HorizontalAlignment="Left" Margin="0,153,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskillrate3" Content="0" HorizontalAlignment="Left" Margin="65,153,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="弹链:" HorizontalAlignment="Left" Margin="55,73,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lbelt3" Content="0" HorizontalAlignment="Left" Margin="85,73,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,113,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskilldamage3" Content="0" HorizontalAlignment="Left" Margin="55,113,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <CheckBox Click="cb3_Click" Name="cb3" Content="技能发动" HorizontalAlignment="Left" Margin="10,198,0,0"/>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="225" Margin="225,225,0,0">
+                <Image Name="Image4" Width="100"  Height="150" Margin="115,35,5,35">
+                    <Image.ToolTip>
+                        <ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Heavy" Text="生效光环："/>
+                                <TextBlock Name="tb4" Text="无"/>
+                            </StackPanel>
+                        </ToolTip>
+                    </Image.ToolTip>
+                </Image>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo4_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level4_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0"  SelectionChanged="SkillLevel4_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,53,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ldamage4" Content="0" HorizontalAlignment="Left" Margin="30,53,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="射速:" HorizontalAlignment="Left" Margin="0,73,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lshotspeed4" Content="0" HorizontalAlignment="Left" Margin="30,73,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="命中:" HorizontalAlignment="Left" Margin="55,33,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lhit4" Content="0" HorizontalAlignment="Left" Margin= "85,33,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,53,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ldodge4" Content="0" HorizontalAlignment="Left" Margin="85,53,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,93,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lcrit4" Content="0" HorizontalAlignment="Left" Margin="30,93,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="0,133,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
+                <Label Name="Lindex4" Content="0" HorizontalAlignment="Left" Margin="55,133,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
+                <Label Content="时间:" HorizontalAlignment="Left" Margin="55,93,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ltime4" Content="0" HorizontalAlignment="Left" Margin="85,93,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="血量:" HorizontalAlignment="Left" Margin="0,33,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lhp4" Content="0" HorizontalAlignment="Left" Margin="30,33,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能说明:"  HorizontalAlignment="Left" Margin="0,173,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskillread4" Content="" HorizontalAlignment="Left" Margin="55,173,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能触发率:"  HorizontalAlignment="Left" Margin="0,153,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskillrate4" Content="0" HorizontalAlignment="Left" Margin="65,153,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="弹链:" HorizontalAlignment="Left" Margin="55,73,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lbelt4" Content="0" HorizontalAlignment="Left" Margin="85,73,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,113,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskilldamage4" Content="0" HorizontalAlignment="Left" Margin="55,113,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <CheckBox Click="cb4_Click" Name="cb4" Content="技能发动" HorizontalAlignment="Left" Margin="10,198,0,0"/>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="225" Margin="450,225,0,0">
+                <Image Name="Image5" Width="100"  Height="150" Margin="115,35,5,35">
+                    <Image.ToolTip>
+                        <ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Heavy" Text="生效光环："/>
+                                <TextBlock Name="tb5" Text="无"/>
+                            </StackPanel>
+                        </ToolTip>
+                    </Image.ToolTip>
+                </Image>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo5_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level5_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel5_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,53,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ldamage5" Content="0" HorizontalAlignment="Left" Margin="30,53,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="射速:" HorizontalAlignment="Left" Margin="0,73,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lshotspeed5" Content="0" HorizontalAlignment="Left" Margin="30,73,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="命中:" HorizontalAlignment="Left" Margin="55,33,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lhit5" Content="0" HorizontalAlignment="Left" Margin= "85,33,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,53,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ldodge5" Content="0" HorizontalAlignment="Left" Margin="85,53,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,93,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lcrit5" Content="0" HorizontalAlignment="Left" Margin="30,93,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="0,133,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
+                <Label Name="Lindex5" Content="0" HorizontalAlignment="Left" Margin="55,133,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
+                <Label Content="时间:" HorizontalAlignment="Left" Margin="55,93,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ltime5" Content="0" HorizontalAlignment="Left" Margin="85,93,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="血量:" HorizontalAlignment="Left" Margin="0,33,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lhp5" Content="0" HorizontalAlignment="Left" Margin="30,33,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能说明:"  HorizontalAlignment="Left" Margin="0,173,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskillread5" Content="" HorizontalAlignment="Left" Margin="55,173,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能触发率:"  HorizontalAlignment="Left" Margin="0,153,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskillrate5" Content="0" HorizontalAlignment="Left" Margin="65,153,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="弹链:" HorizontalAlignment="Left" Margin="55,73,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lbelt5" Content="0" HorizontalAlignment="Left" Margin="85,73,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,113,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskilldamage5" Content="0" HorizontalAlignment="Left" Margin="55,113,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <CheckBox Click="cb5_Click" Name="cb5" Content="技能发动" HorizontalAlignment="Left" Margin="10,198,0,0"/>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="225" Margin="0,450,0,0">
+                <Image Name="Image6" Width="100"  Height="150" Margin="115,35,5,35">
+                    <Image.ToolTip>
+                        <ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Heavy" Text="生效光环："/>
+                                <TextBlock Name="tb6" Text="无"/>
+                            </StackPanel>
+                        </ToolTip>
+                    </Image.ToolTip>
+                </Image>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo6_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level6_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel6_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,51,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ldamage6" Content="0" HorizontalAlignment="Left" Margin="30,51,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="射速:" HorizontalAlignment="Left" Margin="0,71,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lshotspeed6" Content="0" HorizontalAlignment="Left" Margin="30,71,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="命中:" HorizontalAlignment="Left" Margin="55,31,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lhit6" Content="0" HorizontalAlignment="Left" Margin= "85,31,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,51,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ldodge6" Content="0" HorizontalAlignment="Left" Margin="85,51,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,91,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lcrit6" Content="0" HorizontalAlignment="Left" Margin="30,91,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="0,131,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
+                <Label Name="Lindex6" Content="0" HorizontalAlignment="Left" Margin="55,131,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
+                <Label Content="时间:" HorizontalAlignment="Left" Margin="55,91,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ltime6" Content="0" HorizontalAlignment="Left" Margin="85,91,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="血量:" HorizontalAlignment="Left" Margin="0,31,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lhp6" Content="0" HorizontalAlignment="Left" Margin="30,31,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能说明:"  HorizontalAlignment="Left" Margin="0,171,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskillread6" Content="" HorizontalAlignment="Left" Margin="55,171,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能触发率:"  HorizontalAlignment="Left" Margin="0,151,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskillrate6" Content="0" HorizontalAlignment="Left" Margin="65,151,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="弹链:" HorizontalAlignment="Left" Margin="55,71,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lbelt6" Content="0" HorizontalAlignment="Left" Margin="85,71,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,111,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskilldamage6" Content="0" HorizontalAlignment="Left" Margin="55,111,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <CheckBox Click="cb6_Click" Name="cb6" Content="技能发动" HorizontalAlignment="Left" Margin="10,196,0,0"/>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="225" Margin="225,450,0,0">
+                <Image Name="Image7" Width="100"  Height="150" Margin="115,35,5,35">
+                    <Image.ToolTip>
+                        <ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Heavy" Text="生效光环："/>
+                                <TextBlock Name="tb7" Text="无"/>
+                            </StackPanel>
+                        </ToolTip>
+                    </Image.ToolTip>
+                </Image>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo7_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level7_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel7_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,51,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ldamage7" Content="0" HorizontalAlignment="Left" Margin="30,51,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="射速:" HorizontalAlignment="Left" Margin="0,71,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lshotspeed7" Content="0" HorizontalAlignment="Left" Margin="30,71,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="命中:" HorizontalAlignment="Left" Margin="55,31,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lhit7" Content="0" HorizontalAlignment="Left" Margin= "85,31,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,51,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ldodge7" Content="0" HorizontalAlignment="Left" Margin="85,51,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,91,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lcrit7" Content="0" HorizontalAlignment="Left" Margin="30,91,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="0,131,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
+                <Label Name="Lindex7" Content="0" HorizontalAlignment="Left" Margin="55,131,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
+                <Label Content="时间:" HorizontalAlignment="Left" Margin="55,91,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ltime7" Content="0" HorizontalAlignment="Left" Margin="85,91,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="血量:" HorizontalAlignment="Left" Margin="0,31,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lhp7" Content="0" HorizontalAlignment="Left" Margin="30,31,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能说明:"  HorizontalAlignment="Left" Margin="0,171,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskillread7" Content="" HorizontalAlignment="Left" Margin="55,171,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能触发率:"  HorizontalAlignment="Left" Margin="0,151,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskillrate7" Content="0" HorizontalAlignment="Left" Margin="65,151,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="弹链:" HorizontalAlignment="Left" Margin="55,71,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lbelt7" Content="0" HorizontalAlignment="Left" Margin="85,71,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,111,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskilldamage7" Content="0" HorizontalAlignment="Left" Margin="55,111,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <CheckBox Click="cb7_Click" Name="cb7" Content="技能发动" HorizontalAlignment="Left" Margin="10,196,0,0"/>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="225" Margin="450,450,0,0">
+                <Image Name="Image8" Width="100"  Height="150" Margin="115,35,5,35">
+                    <Image.ToolTip>
+                        <ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Heavy" Text="生效光环："/>
+                                <TextBlock Name="tb8" Text="无"/>
+                            </StackPanel>
+                        </ToolTip>
+                    </Image.ToolTip>
+                </Image>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo8_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="117,0,0,0" SelectedIndex="0" SelectionChanged="Level8_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="170,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel8_SelectionChanged">
+                    <ComboBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0"/>
+                    </ComboBox.Background>
+                </ComboBox>
+                <Label Content="伤害:" HorizontalAlignment="Left" Margin="0,51,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ldamage8" Content="0" HorizontalAlignment="Left" Margin="30,51,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="射速:" HorizontalAlignment="Left" Margin="0,71,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lshotspeed8" Content="0" HorizontalAlignment="Left" Margin="30,71,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="命中:" HorizontalAlignment="Left" Margin="55,31,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lhit8" Content="0" HorizontalAlignment="Left" Margin= "85,31,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,51,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ldodge8" Content="0" HorizontalAlignment="Left" Margin="85,51,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,91,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lcrit8" Content="0" HorizontalAlignment="Left" Margin="30,91,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="伤害指数:" HorizontalAlignment="Left" Margin="0,131,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
+                <Label Name="Lindex8" Content="0" HorizontalAlignment="Left" Margin="55,131,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red"/>
+                <Label Content="时间:" HorizontalAlignment="Left" Margin="55,91,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Ltime8" Content="0" HorizontalAlignment="Left" Margin="85,91,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="血量:" HorizontalAlignment="Left" Margin="0,31,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lhp8" Content="0" HorizontalAlignment="Left" Margin="30,31,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能说明:"  HorizontalAlignment="Left" Margin="0,171,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskillread8" Content="" HorizontalAlignment="Left" Margin="55,171,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能触发率:"  HorizontalAlignment="Left" Margin="0,151,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskillrate8" Content="0" HorizontalAlignment="Left" Margin="65,151,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="弹链:" HorizontalAlignment="Left" Margin="55,71,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Name="Lbelt8" Content="0" HorizontalAlignment="Left" Margin="85,71,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,111,0,0" VerticalAlignment="Top" FontSize="12" />
+                <Label Name="Lskilldamage8" Content="0" HorizontalAlignment="Left" Margin="55,111,0,0" VerticalAlignment="Top" FontSize="12"/>
+                <CheckBox Click="cb8_Click" Name="cb8" Content="技能发动" HorizontalAlignment="Left" Margin="10,196,0,0"/>
             </Grid>
         </Grid>
-    </Viewbox>
+        <Grid>
+            <RadioButton Checked="rb0_Checked" Name="rb0" Content="主T" HorizontalAlignment="Left" Margin="180,200,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rb1_Checked" Name="rb1" Content="主T" HorizontalAlignment="Left" Margin="398,200,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rb2_Checked" Name="rb2" Content="主T" HorizontalAlignment="Left" Margin="616,200,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rb3_Checked" Name="rb3" Content="主T" HorizontalAlignment="Left" Margin="180,423,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rb4_Checked" Name="rb4" Content="主T" HorizontalAlignment="Left" Margin="398,423,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rb5_Checked" Name="rb5" Content="主T" HorizontalAlignment="Left" Margin="616,423,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rb6_Checked" Name="rb6" Content="主T" HorizontalAlignment="Left" Margin="180,646,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rb7_Checked" Name="rb7" Content="主T" HorizontalAlignment="Left" Margin="398,646,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rb8_Checked" Name="rb8" Content="主T" HorizontalAlignment="Left" Margin="616,646,0,0" VerticalAlignment="Top"/>
+        </Grid>
+        <Grid>
+            <RadioButton Checked="rbf0_Checked" Name="rbf0" Content="副T" HorizontalAlignment="Left" Margin="130,200,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rbf1_Checked" Name="rbf1" Content="副T" HorizontalAlignment="Left" Margin="348,200,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rbf2_Checked" Name="rbf2" Content="副T" HorizontalAlignment="Left" Margin="566,200,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rbf3_Checked" Name="rbf3" Content="副T" HorizontalAlignment="Left" Margin="130,423,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rbf4_Checked" Name="rbf4" Content="副T" HorizontalAlignment="Left" Margin="348,423,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rbf5_Checked" Name="rbf5" Content="副T" HorizontalAlignment="Left" Margin="566,423,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rbf6_Checked" Name="rbf6" Content="副T" HorizontalAlignment="Left" Margin="130,646,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rbf7_Checked" Name="rbf7" Content="副T" HorizontalAlignment="Left" Margin="348,646,0,0" VerticalAlignment="Top"/>
+            <RadioButton Checked="rbf8_Checked" Name="rbf8" Content="副T" HorizontalAlignment="Left" Margin="566,646,0,0" VerticalAlignment="Top"/>
+        </Grid>
+
+        <Grid Margin="0,675,165,0">
+            <Grid.Background>
+                <ImageBrush ImageSource="/assets/yushe3.png"/>
+            </Grid.Background>
+            <Slider PreviewMouseUp="slider_PreviewMouseUp" Minimum="0" TickFrequency="1" Maximum="23" x:Name="slider" IsSnapToTickEnabled="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="281" Height="32" Margin="10,78,0,0" Opacity="0.8"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ElementName=slider, Path=Value}" FontSize="15" VerticalAlignment="Top" Margin="296,80,0,0"/>
+            <Label  FontSize="15" Content="秒 ←机枪输出时间" Margin="323,75,192,6"/>
+            <Button Content="About" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Click="About_Click" Margin="480,30,0,0" Opacity="0.6"/>
+            <Button Content="Log" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Click="UpdateData_Click" Margin="480,3,0,0" Opacity="0.6"/>
+            <Button x:Name="button" Content="敌方数据" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="button_Click" Margin="480,57,0,0" Opacity="0.6"/>
+            <!--      <Button IsEnabled="False" Content="凑数用按钮" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="480,84,0,0" Opacity="0.6"/>  -->
+            <Label Content="对闪避" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="113,0,0,0"/>
+            <Label Content="敌人伤害指数：" FontSize="15" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="108" Margin="280,0,0,0"/>
+            <Label Content="对命中" FontSize="15" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="113,24,0,0" Width="55"/>
+            <Label Content="敌人主坦肉度：" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="280,24,0,0"/>
+            <Label Content="一战消耗资源：" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114" Margin="75,48,0,0"/>
+            <Label Content="副坦肉度：" FontSize="15" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="310,48,0,0"/>
+            <TextBox  TextChanged="TextBox2_TextChanged" Name="enemyhit" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="173,28,0,0" Opacity="0.5"/>
+            <TextBox  TextChanged="TextBox_TextChanged" Name="enemydodge" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="173,4,0,0" Opacity="0.5"/>
+            <Label Foreground="Red" FontSize="15" Name="allindex" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="385,0,0,0"/>
+            <Label Foreground="Red" FontSize="15" Name="tank" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="385,24,0,0" />
+            <Label Foreground="Red" FontSize="15" Name="ftank" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="385,48,0,0" />
+            <Label FontSize="15" Name="waste" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,48,0,0" />
+            <Label FontSize="15" Name="nowdodge" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Chocolate" Margin="218,0,0,0" />
+            <Label FontSize="15" Name="nowhit" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Chocolate" Margin="218,24,0,0" />
+            <Button Name="reinit" Click="reinit_Click" Content="重置" FontSize="18" Foreground="Red" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="60" Height="60" Margin="10,10,0,0" Opacity="0.6" BorderThickness="0"/>
+            <Grid Width="100" Height="100" Margin="560,4,0,6" >
+                <Image Visibility="Hidden" Name="bignews"  Source="zhaijiang.jpg" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                <TextBlock Name="UpdateTb"  HorizontalAlignment="Right"  Margin="-80,84,10,0" Width="170" ToolTip="更新信息">
+                       <Hyperlink IsEnabled="False" Name="hyperLink" NavigateUri="http://tieba.baidu.com/p/4660523760" Click="Hyperlink_Click">可更新新版本</Hyperlink>
+                </TextBlock>
+            </Grid>
+
+        </Grid>
+        <Grid Margin="675,0,0,0">
+            <Grid Height="75" Margin="0,0,0,710">
+                <ComboBox IsEnabled="False" Name="equipcb01" Height="25" Width="140" Margin="0,0,25,50" SelectionChanged="equipcb01_SelectionChanged"/>
+                <ComboBox IsEnabled="False" Name="equipcb02" Height="25" Width="140" Margin="0,0,25,0" SelectionChanged="equipcb02_SelectionChanged"/>
+                <ComboBox IsEnabled="False" Name="equipcb03" Height="25" Width="140" Margin="0,0,25,-50" SelectionChanged="equipcb03_SelectionChanged"/>
+            </Grid>
+            <Grid Height="75" Margin="0,75,0,635">
+                <ComboBox IsEnabled="False" Name="equipcb11" Height="25" Width="140" Margin="25,0,0,50" SelectionChanged="equipcb11_SelectionChanged"/>
+                <ComboBox IsEnabled="False" Name="equipcb12" Height="25" Width="140" Margin="25,0,0,0" SelectionChanged="equipcb12_SelectionChanged"/>
+                <ComboBox IsEnabled="False" Name="equipcb13" Height="25" Width="140" Margin="25,0,0,-50" SelectionChanged="equipcb13_SelectionChanged"/>
+            </Grid>
+            <Grid Height="75" Margin="0,150,0,560">
+                <ComboBox IsEnabled="False" Name="equipcb21" Height="25" Width="140" Margin="0,0,25,50" SelectionChanged="equipcb21_SelectionChanged"/>
+                <ComboBox IsEnabled="False" Name="equipcb22" Height="25" Width="140" Margin="0,0,25,0" SelectionChanged="equipcb22_SelectionChanged"/>
+                <ComboBox IsEnabled="False" Name="equipcb23" Height="25" Width="140" Margin="0,0,25,-50" SelectionChanged="equipcb23_SelectionChanged"/>
+            </Grid>
+            <Grid Height="75" Margin="0,225,0,485">
+                <ComboBox IsEnabled="False" Name="equipcb31" Height="25" Width="140" Margin="25,0,0,50" SelectionChanged="equipcb31_SelectionChanged"/>
+                <ComboBox IsEnabled="False" Name="equipcb32" Height="25" Width="140" Margin="25,0,0,0" SelectionChanged="equipcb32_SelectionChanged"/>
+                <ComboBox IsEnabled="False" Name="equipcb33" Height="25" Width="140" Margin="25,0,0,-50" SelectionChanged="equipcb33_SelectionChanged"/>
+            </Grid>
+            <Grid Height="75" Margin="0,300,0,410">
+                <ComboBox IsEnabled="False" Name="equipcb41" Height="25" Width="140" Margin="0,0,25,50" SelectionChanged="equipcb41_SelectionChanged"/>
+                <ComboBox IsEnabled="False" Name="equipcb42" Height="25" Width="140" Margin="0,0,25,0" SelectionChanged="equipcb42_SelectionChanged"/>
+                <ComboBox IsEnabled="False" Name="equipcb43" Height="25" Width="140" Margin="0,0,25,-50" SelectionChanged="equipcb43_SelectionChanged"/>
+            </Grid>
+            <Grid Height="75" Margin="0,375,0,335">
+                <ComboBox IsEnabled="False" Name="equipcb51" Height="25" Width="140" Margin="25,0,0,50" SelectionChanged="equipcb51_SelectionChanged"/>
+                <ComboBox IsEnabled="False" Name="equipcb52" Height="25" Width="140" Margin="25,0,0,0" SelectionChanged="equipcb52_SelectionChanged"/>
+                <ComboBox IsEnabled="False" Name="equipcb53" Height="25" Width="140" Margin="25,0,0,-50" SelectionChanged="equipcb53_SelectionChanged"/>
+            </Grid>
+            <Grid Height="75" Margin="0,450,0,260">
+                <ComboBox IsEnabled="False" Name="equipcb61" Height="25" Width="140" Margin="0,0,25,50" SelectionChanged="equipcb61_SelectionChanged"/>
+                <ComboBox IsEnabled="False" Name="equipcb62" Height="25" Width="140" Margin="0,0,25,0" SelectionChanged="equipcb62_SelectionChanged"/>
+                <ComboBox IsEnabled="False" Name="equipcb63" Height="25" Width="140" Margin="0,0,25,-50" SelectionChanged="equipcb63_SelectionChanged"/>
+            </Grid>
+            <Grid Height="75" Margin="0,525,0,185">
+                <ComboBox IsEnabled="False" Name="equipcb71" Height="25" Width="140" Margin="25,0,0,50" SelectionChanged="equipcb71_SelectionChanged"/>
+                <ComboBox IsEnabled="False" Name="equipcb72" Height="25" Width="140" Margin="25,0,0,0" SelectionChanged="equipcb72_SelectionChanged"/>
+                <ComboBox IsEnabled="False" Name="equipcb73" Height="25" Width="140" Margin="25,0,0,-50" SelectionChanged="equipcb73_SelectionChanged"/>
+            </Grid>
+            <Grid Height="75" Margin="0,600,0,110">
+                <ComboBox IsEnabled="False" Name="equipcb81" Height="25" Width="140" Margin="0,0,25,50" SelectionChanged="equipcb81_SelectionChanged"/>
+                <ComboBox IsEnabled="False" Name="equipcb82" Height="25" Width="140" Margin="0,0,25,0" SelectionChanged="equipcb82_SelectionChanged"/>
+                <ComboBox IsEnabled="False" Name="equipcb83" Height="25" Width="140" Margin="0,50,25,0" SelectionChanged="equipcb83_SelectionChanged"/>
+            </Grid>
+            <Grid Margin="0,675,0,0">
+                <CheckBox Name="cbIsnight" Content="夜战" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="cbIsnight_Click"/>
+                    <Label Content="敌人护甲值：" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="10,30,0,0"/>
+                    <TextBox  TextChanged="enemyarmor_TextChanged" Name="enemyarmor" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="115,33,0,0" Opacity="0.5"/>
+                    <Button x:Name="xhbutton" Content="夏活相关" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="xhbutton_Click" Margin="80,78,0,0" Opacity="0.6"/>
+                </Grid>
+        </Grid>
+    </Grid>
+     </Viewbox>
 </Window>
