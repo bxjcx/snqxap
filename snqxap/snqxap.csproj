@@ -43,6 +43,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xaml">
@@ -57,6 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Aboutxh.xaml.cs">
+      <DependentUpon>Aboutxh.xaml</DependentUpon>
+    </Compile>
     <Compile Include="buffOn.xaml.cs">
       <DependentUpon>buffOn.xaml</DependentUpon>
     </Compile>
@@ -69,6 +73,10 @@
     <Compile Include="UpdateData.xaml.cs">
       <DependentUpon>UpdateData.xaml</DependentUpon>
     </Compile>
+    <Page Include="Aboutxh.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="buffOn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -122,7 +130,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -309,6 +316,38 @@
     <Resource Include="assets\b_rate.png" />
     <Resource Include="assets\b_shotspeed.png" />
     <Resource Include="assets\yushe2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\101.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\104.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\102.png" />
+    <Resource Include="assets\103.png" />
+    <Resource Include="assets\105.png" />
+    <Resource Include="assets\106.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Aegis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Striker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Nemeum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Manticore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\e2boss.png" />
+    <Resource Include="assets\e3boss.png" />
+    <Resource Include="assets\e4boss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\107.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

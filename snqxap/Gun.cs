@@ -7,6 +7,24 @@ using System.Threading.Tasks;
 namespace snqxap
 {
 
+    class Equip
+    {
+        public string name { get; set; }
+        public double critup { get; set; }
+        public int breakarmor { get; set; }
+        public int damage { get; set; }
+        public int shotspeed { get; set; }
+        public int hit { get; set; }
+        public double nightsee { get; set; }
+        public int dodge { get; set; }
+        public int rank { get; set; }
+        /// <summary>
+        /// 1光瞄/2全息/3acog/4夜视/5穿甲/6震撼/7燃烧/8高速/9芯片/10外骨/11插板/12勋章
+        /// </summary>
+        public int type { get; set; }
+
+        public string tooltip { get; set; }
+    }
 
     class Gun
     {
@@ -28,39 +46,12 @@ namespace snqxap
         public double rateup { get; set; }
         public int to { get; set; } // all 1 ar 2 smg 3 no 0 
         public string name { get; set; } //名字
-        public double hit { get; set; }//命中
-        public double shotspeed { get; set; }//射速
-        public double damage { get; set; }//伤害
         public double crit { get; set; }//暴击率
-        public int hp { get; set; }//血量
-        public double dodge { get; set; }//闪避
-        public int what { get; set; }// 2 ar 3 smg 4 hg 5 rf 6 mg       
+        /// <summary>
+        /// 2 ar 3 smg 4 hg 5 rf 6 mg    
+        /// </summary>
+        public int what { get; set; }   
         public int belt { get; set; }//弹链
-        public double index { get; set; }//伤害指数
-
-        public int skilltype { get; set; }//   skilltype : 0 无 1 爆破榴弹/杀伤榴弹/瞄准/定点/阻断 2 downspeed 3 downonedamage 4 upalldamage 5 downalldamage 6 upmydamage 7downonehit 8downallhit 9upmyhit 10 力场盾 11闪光弹 12燃烧弹  15手榴弹 16 downoneshotspeed 17 downallshotspeed  18 upmyshotspeed 19 烟雾弹 20 downonedodge 21 upalldodge 22 downalldodge 23 upmydodge 24 upallhit 26 upallshotspeed
-        public double skillcircle { get; set; }// 技能半径
-        public double skilltime { get; set; }//持续时间
-        public double skillrate { get; set; }//发动率
-        public double skilldamage { get; set; }//固伤
-        public string skillcontent { get; set; }//说明（十二个字）
-
-        public double skillupmydodge { get; set;}
-        public double skillupmyshotspeed { get; set; }
-        public double skillupmydamage { get; set; }
-        public double skillupmyhit { get; set; }
-        public double skilldownonedodge { get; set; }
-        public double skilldownonedamage { get; set; }
-        public double skilldownoneshotspeed { get; set; }
-        public double skilldownonehit { get; set; }
-        public double skilldownallenemydamage { get; set; }
-        public double skilldownallenemyhit { get; set; }
-        public double skilldownallenemydodge { get; set; }
-        public double skilldownallenemyshotspeed { get; set; }
-        public double skillupalldamage { get; set; }
-        public double skillupalldodge { get; set; }
-        public double skillupallhit { get; set; }
-        public double skillupallshotspeed { get; set; }
 
         public double ratiohp { get; set; }//hp
         public double ratiopow { get; set; }//伤害
@@ -76,10 +67,8 @@ namespace snqxap
         public double skilleffect4 { get; set; }
         public double growth { get; set; }
         public int growth_type { get;set;}
-        public int type { get; set; }
-        public string skillname { get; set; }
-
-        
+        public int type { get; set; } 
+        public Equip equip { get; set; }
 
     }
 
@@ -91,6 +80,7 @@ namespace snqxap
         public double dodgeup { get; set; }
         public double critup { get; set; }
         public double rateup { get; set; }
+
 
         public void cleargg()
         {
