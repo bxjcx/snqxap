@@ -263,7 +263,7 @@ namespace snqxap
             gun[14].name = "MP5"; gun[14].what = 3; gun[14].crit = 0.05; gun[14].belt = 0; gun[14].number = 2; gun[14].effect0 = 1; gun[14].effect1 = 7; gun[14].damageup = 0; gun[14].hitup = 0.4; gun[14].shotspeedup = 0; gun[14].critup = 0.2; gun[14].dodgeup = 0; gun[14].to = 2;
             gun[15].name = "伯莱塔38型"; gun[15].what = 3;gun[15].crit = 0.05; gun[15].belt = 0; gun[15].number = 2; gun[15].effect0 = 1; gun[15].effect1 = 7; gun[15].damageup = 0.05; gun[15].hitup = 0; gun[15].shotspeedup = 0.1; gun[15].critup = 0; gun[15].dodgeup = 0; gun[15].to = 2;
             gun[16].name = "MP40"; gun[16].what = 3; gun[16].crit = 0.05; gun[16].belt = 0; gun[16].number = 2; gun[16].effect0 = 1; gun[16].effect1 = 7; gun[16].damageup = 0; gun[16].hitup = 0.25; gun[16].shotspeedup = 0; gun[16].critup = 0; gun[16].dodgeup = 0.2; gun[16].to = 2;
-            gun[17].name = "PPSh-41"; gun[17].crit = 0.05; gun[17].belt = 0; gun[17].number = 2; gun[17].effect0 = 2; gun[17].effect1 = 8; gun[17].damageup = 0.1; gun[17].hitup = 0; gun[17].shotspeedup = 0.05; gun[17].critup = 0; gun[17].dodgeup = 0; gun[17].to = 2;
+            gun[17].name = "PPSh-41"; gun[17].what = 3; gun[17].crit = 0.05; gun[17].belt = 0; gun[17].number = 2; gun[17].effect0 = 2; gun[17].effect1 = 8; gun[17].damageup = 0.1; gun[17].hitup = 0; gun[17].shotspeedup = 0.05; gun[17].critup = 0; gun[17].dodgeup = 0; gun[17].to = 2;
             gun[18].name = "64式"; gun[18].what = 3; gun[18].crit = 0.05; gun[18].belt = 0; gun[18].number = 1; gun[18].effect0 = 4; gun[18].damageup = 0; gun[18].hitup = 0; gun[18].shotspeedup = 0.2; gun[18].critup = 0; gun[18].dodgeup = 0; gun[18].to = 2;
             gun[19].name = "UMP45"; gun[19].what = 3;  gun[19].crit = 0.05; gun[19].belt = 0; gun[19].number = 3; gun[19].effect0 = 1; gun[19].effect1 = 4; gun[19].effect2 = 7; gun[19].damageup = 0.15; gun[19].hitup = 0.0; gun[19].shotspeedup = 0; gun[19].critup = 0.5; gun[19].dodgeup = 0; gun[19].to = 2;
             gun[20].name = "索米"; gun[20].what = 3; gun[20].crit = 0.05; gun[20].belt = 0; gun[20].number = 2; gun[20].effect0 = 1; gun[20].effect1 = 7; gun[20].damageup = 0; gun[20].hitup = 0.3; gun[20].shotspeedup = 0.15; gun[20].critup = 0; gun[20].dodgeup = 0; gun[20].to = 2;
@@ -2174,7 +2174,7 @@ namespace snqxap
            // equip = new Equip[EQUIP_NUMBER];
             for (int i = 0; i < EQUIP_NUMBER; i++)
                 equip[i] = new Equip();
-            equip[0].name = "IOP T1外骨骼"; equip[0].dodge = 8; equip[0].damage = -1; equip[0].type = 10;equip[0].tooltip = "回避+8,伤害-1";
+            equip[0].name = "IOP T1外骨骼"; equip[0].dodge = 8; equip[0].damage = -1; equip[0].type = 10; equip[0].tooltip = "回避+8,伤害-1";
             equip[1].name = "IOP T2外骨骼"; equip[1].dodge = 12; equip[1].damage = -3; equip[1].type = 10; equip[1].tooltip = "回避+12,伤害-3";
             equip[2].name = "IOP T3外骨骼"; equip[2].dodge = 16; equip[2].damage = -5; equip[2].type = 10; equip[2].tooltip = "回避+16,伤害-5";
             equip[3].name = "IOP T4外骨骼"; equip[3].dodge = 25; equip[3].damage = -7; equip[3].type = 10; equip[3].tooltip = "回避+25,伤害-7";
@@ -2182,18 +2182,18 @@ namespace snqxap
             equip[5].name = "M993穿甲弹"; equip[5].breakarmor = 50; equip[5].type = 5; equip[5].tooltip = "穿甲+50";
             equip[6].name = "Mk169穿甲弹"; equip[6].breakarmor = 65; equip[6].type = 5; equip[6].tooltip = "穿甲+65";
             equip[7].name = "Mk211高爆穿甲弹"; equip[7].breakarmor = 80; equip[7].type = 5; equip[7].tooltip = "穿甲+80";
-            equip[8].name = "FMJ高速弹"; equip[8].damage = 1; equip[8].type = 8; equip[8].tooltip = "伤害+1";
-            equip[9].name = "JSP高速弹"; equip[9].damage = 2; equip[9].type = 8; equip[9].tooltip = "伤害+2";
-            equip[10].name = "JHP高速弹"; equip[10].damage = 4; equip[10].type = 8; equip[10].tooltip = "伤害+4";
-            equip[11].name = "PMC高速弹"; equip[11].damage = 8; equip[11].type = 8; equip[11].tooltip = "伤害+8";
+            equip[8].name = "JHP高速弹"; equip[8].damage = 1; equip[8].type = 8; equip[8].tooltip = "伤害+1";
+            equip[9].name = "三星FMJ高速弹"; equip[9].damage = 2; equip[9].type = 8; equip[9].tooltip = "伤害+2";
+            equip[10].name = "四星FMJ高速弹"; equip[10].damage = 4; equip[10].type = 8; equip[10].tooltip = "伤害+4";
+            equip[11].name = "HVAP高速弹"; equip[11].damage = 8; equip[11].type = 8; equip[11].tooltip = "伤害+8";
             equip[12].name = "光瞄 - BM 3-12X40"; equip[12].critup = 0.08; equip[12].type = 1; equip[12].tooltip = "暴击率+8%";
             equip[13].name = "光瞄 - LRA 2-12X50"; equip[13].critup = 0.12; equip[13].type = 1; equip[13].tooltip = "暴击率+12%";
             equip[14].name = "光瞄 - PSO-1"; equip[14].critup = 0.16; equip[14].type = 1; equip[14].tooltip = "暴击率+16%";
             equip[15].name = "光瞄 - VFL 6-24X56"; equip[15].critup = 0.24; equip[15].type = 1; equip[15].tooltip = "暴击率+24%";
             equip[16].name = "全息 - EOT 506"; equip[16].hit = 1; equip[16].damage = 1; equip[16].shotspeed = -1; equip[16].type = 2; equip[16].tooltip = "命中+1,伤害+1,射速-1";
-            equip[17].name = "全息 - ETO 512"; equip[17].hit = 2; equip[17].damage = 2; equip[17].shotspeed = -2; equip[17].type = 2; equip[17].tooltip = "命中+2,伤害+2,射速-2";
-            equip[18].name = "全息 - ETO 516"; equip[18].hit = 5; equip[18].damage = 3; equip[18].shotspeed = -3; equip[18].type = 2; equip[18].tooltip = "命中+5,伤害+3,射速-3";
-            equip[19].name = "全息 - ETO 518"; equip[19].hit = 10; equip[19].damage = 6; equip[19].shotspeed = -4; equip[19].type = 2; equip[19].tooltip = "命中+10,伤害+6,射速-4";
+            equip[17].name = "全息 - EOT 512"; equip[17].hit = 2; equip[17].damage = 2; equip[17].shotspeed = -2; equip[17].type = 2; equip[17].tooltip = "命中+2,伤害+2,射速-2";
+            equip[18].name = "全息 - EOT 516"; equip[18].hit = 5; equip[18].damage = 3; equip[18].shotspeed = -3; equip[18].type = 2; equip[18].tooltip = "命中+5,伤害+3,射速-3";
+            equip[19].name = "全息 - EOT 518"; equip[19].hit = 10; equip[19].damage = 6; equip[19].shotspeed = -4; equip[19].type = 2; equip[19].tooltip = "命中+10,伤害+6,射速-4";
             equip[20].name = "ACOG - AMP COMPM2"; equip[20].hit = 3; equip[20].shotspeed = -1; equip[20].type = 3; equip[20].tooltip = "命中+3,射速-1";
             equip[21].name = "ACOG - AMP COMPM4"; equip[21].hit = 6; equip[21].shotspeed = -1; equip[21].type = 3; equip[21].tooltip = "命中+6,射速-1";
             equip[22].name = "ACOG - COG M150"; equip[22].hit = 10; equip[22].shotspeed = -1; equip[22].type = 3; equip[22].tooltip = "命中+10,射速-1";
@@ -2205,6 +2205,7 @@ namespace snqxap
             equip[28].name = "16Lab次口径穿甲弹"; equip[28].breakarmor = 80; equip[28].type = 5; equip[28].tooltip = "穿甲+80";
             equip[29].name = "16Lab红外指示器"; equip[29].nightsee = 100; equip[29].type = 4; equip[29].tooltip = "夜战命中抵消100%";
             equip[30].name = " "; equip[30].type = 13; equip[30].rank = 2;
+
             equip[0].rank = 2;
             equip[1].rank = 3;
             equip[2].rank = 4;
@@ -2213,8 +2214,8 @@ namespace snqxap
             equip[5].rank = 3;
             equip[6].rank = 4;
             equip[7].rank = 5;
-            equip[4].rank = 2;
-            equip[5].rank = 3;
+            equip[8].rank = 2;
+            equip[9].rank = 3;
             equip[10].rank = 4;
             equip[11].rank = 5;
             equip[12].rank = 2;
@@ -2235,11 +2236,15 @@ namespace snqxap
             equip[27].rank = 5;
             equip[28].rank = 5;
             equip[29].rank = 5;
+           
             //检查更新
             string strGatherJsonUrl = "http://jyying.cn/snqxap/AssemblyInfo";
             //string strGatherJsonUrl = "http://www.google.com";
-            string strContent = Get(strGatherJsonUrl);  
-            if(strContent=="")
+            string strContent = Get(strGatherJsonUrl);
+            string Pattren = @"(\d\.){3}\d";
+            Regex regex = new Regex(Pattren);
+            Match m = regex.Match(strContent);
+            if(!m.Success||strContent.Length>10)
             {
                 UpdateTb.Text = "无法获取服务器版本信息";
             }
@@ -7318,7 +7323,7 @@ namespace snqxap
              double num3 = gun[index].skilleffect3 * (1f + (float)(skillindex) * gun[index].growth / 9f);
             double num4 = gun[index].skilleffect4 * (1f + (float)(skillindex) * gun[index].growth / 9f);
             renewdamage(combo, 0);
-            switch(gun[index].type)
+            switch(gun[index].type) 
             {
                 case 1:
                     {
@@ -7693,7 +7698,7 @@ namespace snqxap
                             renewdamage(combo, (basePow + maxAddPow + equipdamage[combo]) * num1);
                         }
                         renewtime(combo, num3);
-                        string read = "燃烧弹" + num1.ToString("0.0") + "倍半径2.5不算DOT";
+                        string read = "燃烧弹" + num1.ToString("0.0") + "倍半径1.0不算DOT";
                         renewread(combo, read);
                         return;
                     }
@@ -15673,7 +15678,7 @@ namespace snqxap
         {
        
 
-            switch (equip[equipindex].type)
+            switch (equip[equipindex].type) 
             {
                 case 1:
                     {
@@ -15714,6 +15719,8 @@ namespace snqxap
                         equipdamage[combo] += equip[equipindex].damage;
                         break;
                     }
+                case 13:
+                    break;
             }
 
         }
@@ -15871,11 +15878,11 @@ namespace snqxap
                 if (equipindex01 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex01].type)
-                                equipcb01.SelectedIndex = 0;
+                        if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex01].type) {
+                                equipcb01.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb01.SelectedIndex > -1)
                     calcequip(0, equipindex01);
                     
 
@@ -15909,17 +15916,17 @@ namespace snqxap
                 if (equipindex02 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb03.SelectedItem != null && equipcb03.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb03.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type)
-                                equipcb01.SelectedIndex = 0;
+                        if (equipcb03.SelectedItem != null && equipcb03.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb03.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type) {
+                              equipcb01.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb01.SelectedItem != null && equipcb01.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb01.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type)
-                                equipcb01.SelectedIndex = 0;
+                        if (equipcb01.SelectedItem != null && equipcb01.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb01.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type) {
+                               equipcb01.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb01.SelectedIndex > -1)
                        calcequip(0, equipindex02);
             }
             if (equipcb03.SelectedItem != null)
@@ -15929,12 +15936,12 @@ namespace snqxap
                 if (equipindex03 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex03].type)
-                                equipcb01.SelectedIndex = 0;
+                        if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex03].type) {
+                                equipcb01.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb01.SelectedIndex > -1)
                          calcequip(0, equipindex03);
             }
 
@@ -15954,11 +15961,12 @@ namespace snqxap
                 if (equipindex01 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex01].type)
-                                equipcb02.SelectedIndex = 0;
+                        if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex01].type) {
+                                equipcb02.SelectedIndex = 0; return; }
+                          
                     }
-                    else 
+                if (equipcb02.SelectedIndex > -1)
                     calcequip(0, equipindex01);
             }
             if (equipcb02.SelectedItem != null)
@@ -15968,17 +15976,17 @@ namespace snqxap
                 if (equipindex02 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb03.SelectedItem != null && equipcb03.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb03.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type)
-                                equipcb02.SelectedIndex = 0;
+                        if (equipcb03.SelectedItem != null && equipcb03.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb03.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type) {
+                                equipcb02.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb01.SelectedItem != null && equipcb01.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb01.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type)
-                                equipcb02.SelectedIndex = 0;
+                        if (equipcb01.SelectedItem != null && equipcb01.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb01.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type) {
+                                equipcb02.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb02.SelectedIndex > -1)
                     calcequip(0, equipindex02);
                 if (equip[equipindex02].rank == 2)
                 {
@@ -16009,12 +16017,12 @@ namespace snqxap
                 if (equipindex03 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex03].type)
-                                equipcb02.SelectedIndex = 0;
+                        if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex03].type) {
+                                equipcb02.SelectedIndex = 0; return; }
                     }
 
-                    else   
+                if (equipcb02.SelectedIndex > -1)
                     calcequip(0, equipindex03);
             }
             renewindex(0);
@@ -16031,11 +16039,11 @@ namespace snqxap
                 if (equipindex01 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex01].type)
-                                equipcb03.SelectedIndex = 0;
+                        if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex01].type) {
+                                equipcb03.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb03.SelectedIndex > -1)
                     calcequip(0, equipindex01);
             }
             if (equipcb02.SelectedItem != null)
@@ -16045,17 +16053,17 @@ namespace snqxap
                 if (equipindex02 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb03.SelectedItem != null && equipcb03.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb03.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type)
-                                equipcb03.SelectedIndex = 0;
+                        if (equipcb03.SelectedItem != null && equipcb03.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb03.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type) {
+                                equipcb03.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb01.SelectedItem != null && equipcb01.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb01.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type)
-                                equipcb03.SelectedIndex = 0;
+                        if (equipcb01.SelectedItem != null && equipcb01.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb01.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type) {
+                                equipcb03.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb03.SelectedIndex > -1)
                     calcequip(0, equipindex02);
             }
             if (equipcb03.SelectedItem != null)
@@ -16065,12 +16073,13 @@ namespace snqxap
                 if (equipindex03 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex03].type)
-                                equipcb03.SelectedIndex = 0;
+                        if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex03].type) {
+                                equipcb03.SelectedIndex = 0; return; }
                     }
 
-                    else
+
+                if (equipcb03.SelectedIndex > -1) 
                     calcequip(0, equipindex03);
                 if (equip[equipindex03].rank == 2)
                 {
@@ -16108,11 +16117,11 @@ namespace snqxap
                 if (equipindex11 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex11].type)
-                                equipcb11.SelectedIndex = 0;
+                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex11].type) {
+                                equipcb11.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb11.SelectedIndex > -1)
                     calcequip(1, equipindex11);
                 if (equip[equipindex11].rank == 2)
                 {
@@ -16143,17 +16152,17 @@ namespace snqxap
                 if (equipindex12 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb13.SelectedItem != null && equipcb13.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb13.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type)
-                                equipcb11.SelectedIndex = 0;
+                        if (equipcb13.SelectedItem != null && equipcb13.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb13.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type) {
+                                equipcb11.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb11.SelectedItem != null && equipcb11.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb11.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type)
-                                equipcb11.SelectedIndex = 0;
+                        if (equipcb11.SelectedItem != null && equipcb11.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb11.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type) {
+                                equipcb11.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb11.SelectedIndex > -1)
                     calcequip(1, equipindex12);
             }
             if (equipcb13.SelectedItem != null)
@@ -16163,12 +16172,12 @@ namespace snqxap
                 if (equipindex13 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex13].type)
-                                equipcb11.SelectedIndex = 0;
+                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex13].type) {
+                                equipcb11.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb11.SelectedIndex > -1)
                     calcequip(1, equipindex13);
             }
             renewindex(1);
@@ -16185,11 +16194,11 @@ namespace snqxap
                 if (equipindex11 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex11].type)
-                                equipcb12.SelectedIndex = 0;
+                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex11].type) {
+                                equipcb12.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb12.SelectedIndex > -1)
                     calcequip(1, equipindex11);
             }
             if (equipcb12.SelectedItem != null)
@@ -16199,17 +16208,17 @@ namespace snqxap
                 if (equipindex12 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb13.SelectedItem != null && equipcb13.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb13.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type)
-                                equipcb12.SelectedIndex = 0;
+                        if (equipcb13.SelectedItem != null && equipcb13.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb13.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type) {
+                                equipcb12.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb11.SelectedItem != null && equipcb11.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb11.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type)
-                                equipcb12.SelectedIndex = 0;
+                        if (equipcb11.SelectedItem != null && equipcb11.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb11.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type) {
+                                equipcb12.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb12.SelectedIndex > -1)
                     calcequip(1, equipindex12);
                 if (equip[equipindex12].rank == 2)
                 {
@@ -16240,12 +16249,12 @@ namespace snqxap
                 if (equipindex13 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex13].type)
-                                equipcb12.SelectedIndex = 0;
+                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex13].type) {
+                                equipcb12.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb12.SelectedIndex > -1)
                     calcequip(1, equipindex13);
             }
             renewindex(1);
@@ -16262,11 +16271,11 @@ namespace snqxap
                 if (equipindex11 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex11].type)
-                                equipcb13.SelectedIndex = 0;
+                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex11].type) {
+                                equipcb13.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb13.SelectedIndex > -1)
                     calcequip(1, equipindex11);
             }
             if (equipcb12.SelectedItem != null)
@@ -16276,17 +16285,17 @@ namespace snqxap
                 if (equipindex12 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb13.SelectedItem != null && equipcb13.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb13.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type)
-                                equipcb13.SelectedIndex = 0;
+                        if (equipcb13.SelectedItem != null && equipcb13.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb13.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type) {
+                                equipcb13.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb11.SelectedItem != null && equipcb11.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb11.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type)
-                                equipcb13.SelectedIndex = 0;
+                        if (equipcb11.SelectedItem != null && equipcb11.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb11.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type) {
+                                equipcb13.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb13.SelectedIndex > -1)
                     calcequip(1, equipindex12);
             }
             if (equipcb13.SelectedItem != null)
@@ -16296,12 +16305,12 @@ namespace snqxap
                 if (equipindex13 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex13].type)
-                                equipcb13.SelectedIndex = 0;
+                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex13].type) {
+                                equipcb13.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb13.SelectedIndex > -1)
                     calcequip(1, equipindex13);
                 if (equip[equipindex13].rank == 2)
                 {
@@ -16338,11 +16347,11 @@ namespace snqxap
                 if (equipindex21 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex21].type)
-                                equipcb21.SelectedIndex = 0;
+                        if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex21].type) {
+                                equipcb21.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb21.SelectedIndex > -1)
                     calcequip(2, equipindex21);
                 if (equip[equipindex21].rank == 2)
                 {
@@ -16373,17 +16382,17 @@ namespace snqxap
                 if (equipindex22 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb23.SelectedItem != null && equipcb23.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb23.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type)
-                                equipcb21.SelectedIndex = 0;
+                        if (equipcb23.SelectedItem != null && equipcb23.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb23.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type) {
+                                equipcb21.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb21.SelectedItem != null && equipcb21.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb21.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type)
-                                equipcb21.SelectedIndex = 0;
+                        if (equipcb21.SelectedItem != null && equipcb21.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb21.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type) {
+                                equipcb21.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb21.SelectedIndex > -1)
                     calcequip(2, equipindex22);
             }
             if (equipcb23.SelectedItem != null)
@@ -16393,12 +16402,12 @@ namespace snqxap
                 if (equipindex23 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex23].type)
-                                equipcb21.SelectedIndex = 0;
+                        if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex23].type) {
+                                equipcb21.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb21.SelectedIndex > -1)
                     calcequip(2, equipindex23);
             }
             renewindex(2);
@@ -16415,11 +16424,11 @@ namespace snqxap
                     if (equipindex21 != -1)
                         if (comboindex == 29 || comboindex == 34)
                         {
-                            if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString() != " ")
-                                if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex21].type)
-                                    equipcb22.SelectedIndex = 0;
+                            if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31)!= " ")
+                                if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex21].type) {
+                                    equipcb22.SelectedIndex = 0; return; }
                         }
-                        else 
+                if (equipcb22.SelectedIndex > -1)
                     calcequip(2, equipindex21);
             }
             if (equipcb22.SelectedItem != null)
@@ -16429,17 +16438,17 @@ namespace snqxap
                 if (equipindex22 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb23.SelectedItem != null && equipcb23.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb23.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type)
-                                equipcb22.SelectedIndex = 0;
+                        if (equipcb23.SelectedItem != null && equipcb23.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb23.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type) {
+                                equipcb22.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb21.SelectedItem != null && equipcb21.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb21.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type)
-                                equipcb22.SelectedIndex = 0;
+                        if (equipcb21.SelectedItem != null && equipcb21.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb21.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type) {
+                                equipcb22.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb22.SelectedIndex > -1)
                     calcequip(2, equipindex22);
                 if (equip[equipindex22].rank == 2)
                 {
@@ -16470,12 +16479,12 @@ namespace snqxap
                 if (equipindex23 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex23].type)
-                                equipcb22.SelectedIndex = 0;
+                        if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex23].type) {
+                                equipcb22.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb22.SelectedIndex > -1)
                     calcequip(2, equipindex23);
             }
             renewindex(2);
@@ -16492,11 +16501,11 @@ namespace snqxap
                     if (equipindex21 != -1)
                         if (comboindex == 29 || comboindex == 34)
                         {
-                            if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString() != " ")
-                                if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex21].type)
-                                    equipcb23.SelectedIndex = 0;
+                            if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31)!= " ")
+                                if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex21].type) {
+                                    equipcb23.SelectedIndex = 0; return; }
                         }
-                        else 
+                if (equipcb23.SelectedIndex > -1)
                     calcequip(2, equipindex21);
             }
             if (equipcb22.SelectedItem != null)
@@ -16506,17 +16515,17 @@ namespace snqxap
                 if (equipindex22 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb23.SelectedItem != null && equipcb23.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb23.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type)
-                                equipcb23.SelectedIndex = 0;
+                        if (equipcb23.SelectedItem != null && equipcb23.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb23.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type) {
+                                equipcb23.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb21.SelectedItem != null && equipcb21.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb21.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type)
-                                equipcb23.SelectedIndex = 0;
+                        if (equipcb21.SelectedItem != null && equipcb21.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb21.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type) {
+                                equipcb23.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb23.SelectedIndex > -1)
                     calcequip(2, equipindex22);
             }
             if (equipcb23.SelectedItem != null)
@@ -16526,12 +16535,12 @@ namespace snqxap
                 if (equipindex23 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex23].type)
-                                equipcb23.SelectedIndex = 0;
+                        if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex23].type) {
+                                equipcb23.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb23.SelectedIndex > -1)
                     calcequip(2, equipindex23);
                 if (equip[equipindex23].rank == 2)
                 {
@@ -16569,11 +16578,11 @@ namespace snqxap
                     if (equipindex31 != -1)
                         if (comboindex == 29 || comboindex == 34)
                         {
-                            if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString() != " ")
-                                if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex31].type)
-                                    equipcb31.SelectedIndex = 0;
+                            if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31)!= " ")
+                                if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex31].type) {
+                                    equipcb31.SelectedIndex = 0; return; }
                         }
-                        else 
+                if (equipcb31.SelectedIndex > -1)
                     calcequip(3, equipindex31);
                 if (equip[equipindex31].rank == 2)
                 {
@@ -16604,17 +16613,17 @@ namespace snqxap
                 if (equipindex32 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb33.SelectedItem != null && equipcb33.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb33.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type)
-                                equipcb31.SelectedIndex = 0;
+                        if (equipcb33.SelectedItem != null && equipcb33.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb33.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type) {
+                                equipcb31.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb31.SelectedItem != null && equipcb31.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb31.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type)
-                                equipcb31.SelectedIndex = 0;
+                        if (equipcb31.SelectedItem != null && equipcb31.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb31.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type) {
+                                equipcb31.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb31.SelectedIndex > -1)
                     calcequip(3, equipindex32);
             }
             if (equipcb33.SelectedItem != null)
@@ -16624,12 +16633,12 @@ namespace snqxap
                 if (equipindex33 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex33].type)
-                                equipcb31.SelectedIndex = 0;
+                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex33].type) {
+                                equipcb31.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb31.SelectedIndex > -1)
                     calcequip(3, equipindex33);
             }
             renewindex(3);
@@ -16645,11 +16654,11 @@ namespace snqxap
                 if (equipindex31 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex31].type)
-                                equipcb32.SelectedIndex = 0;
+                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex31].type) {
+                                equipcb32.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb32.SelectedIndex > -1)
                     calcequip(3, equipindex31);
             }
             if (equipcb32.SelectedItem != null)
@@ -16659,17 +16668,17 @@ namespace snqxap
                 if (equipindex32 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb33.SelectedItem != null && equipcb33.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb33.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type)
-                                equipcb32.SelectedIndex = 0;
+                        if (equipcb33.SelectedItem != null && equipcb33.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb33.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type) {
+                                equipcb32.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb33.SelectedItem != null && equipcb33.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb33.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type)
-                                equipcb32.SelectedIndex = 0;
+                        if (equipcb31.SelectedItem != null && equipcb31.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb31.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type) {
+                                equipcb32.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb32.SelectedIndex > -1)
                     calcequip(3, equipindex32);
                 if (equip[equipindex32].rank == 2)
                 {
@@ -16700,12 +16709,12 @@ namespace snqxap
                 if (equipindex33 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex33].type)
-                                equipcb32.SelectedIndex = 0;
+                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex33].type) {
+                                equipcb32.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb32.SelectedIndex > -1)
                     calcequip(3, equipindex33);
             }
             renewindex(3);
@@ -16721,11 +16730,11 @@ namespace snqxap
                 if (equipindex31 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex31].type)
-                                equipcb33.SelectedIndex = 0;
+                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex31].type) {
+                                equipcb33.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb33.SelectedIndex > -1)
                     calcequip(3, equipindex31);
             }
             if (equipcb32.SelectedItem != null)
@@ -16735,17 +16744,17 @@ namespace snqxap
                 if (equipindex32 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb33.SelectedItem != null && equipcb33.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb33.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type)
-                                equipcb33.SelectedIndex = 0;
+                        if (equipcb33.SelectedItem != null && equipcb33.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb33.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type) {
+                                equipcb33.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb31.SelectedItem != null && equipcb31.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb31.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type)
-                                equipcb33.SelectedIndex = 0;
+                        if (equipcb31.SelectedItem != null && equipcb31.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb31.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type) {
+                                equipcb33.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb33.SelectedIndex > -1)
                     calcequip(3, equipindex32);
             }
             if (equipcb33.SelectedItem != null)
@@ -16755,12 +16764,12 @@ namespace snqxap
                 if (equipindex33 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex33].type)
-                                equipcb33.SelectedIndex = 0;
+                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex33].type) {
+                                equipcb33.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb33.SelectedIndex > -1)
                     calcequip(3, equipindex33);
                 if (equip[equipindex33].rank == 2)
                 {
@@ -16797,11 +16806,11 @@ namespace snqxap
                 if (equipindex41 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex41].type)
-                                equipcb41.SelectedIndex = 0;
+                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex41].type) {
+                                equipcb41.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb41.SelectedIndex > -1)
                     calcequip(4, equipindex41);
                 if (equip[equipindex41].rank == 2)
                 {
@@ -16832,17 +16841,17 @@ namespace snqxap
                 if (equipindex42 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb43.SelectedItem != null && equipcb43.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb43.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type)
-                                equipcb41.SelectedIndex = 0;
+                        if (equipcb43.SelectedItem != null && equipcb43.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb43.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type) {
+                                equipcb41.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb41.SelectedItem != null && equipcb41.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb41.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type)
-                                equipcb41.SelectedIndex = 0;
+                        if (equipcb41.SelectedItem != null && equipcb41.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb41.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type) {
+                                equipcb41.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb41.SelectedIndex > -1)
                     calcequip(4, equipindex42);
             }
             if (equipcb43.SelectedItem != null)
@@ -16852,12 +16861,12 @@ namespace snqxap
                 if (equipindex43 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex43].type)
-                                equipcb41.SelectedIndex = 0;
+                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex43].type) {
+                                equipcb41.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb41.SelectedIndex > -1)
                     calcequip(4, equipindex43);
             }
             renewindex(4);
@@ -16873,11 +16882,11 @@ namespace snqxap
                 if (equipindex41 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex41].type)
-                                equipcb42.SelectedIndex = 0;
+                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex41].type) {
+                                equipcb42.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb42.SelectedIndex > -1 )
                     calcequip(4, equipindex41);
             }
             if (equipcb42.SelectedItem != null)
@@ -16887,17 +16896,18 @@ namespace snqxap
                 if (equipindex42 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb43.SelectedItem != null && equipcb43.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb43.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type)
-                                equipcb42.SelectedIndex = 0;
+                        if (equipcb43.SelectedItem != null && equipcb43.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb43.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type) {
+                                equipcb42.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb41.SelectedItem != null && equipcb41.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb41.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type)
-                                equipcb42.SelectedIndex = 0;
+                        if (equipcb41.SelectedItem != null && equipcb41.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb41.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type) {
+                                equipcb42.SelectedIndex = 0; return; }
                     }
-                    else
+
+                if (equipcb42.SelectedIndex > -1)
                     calcequip(4, equipindex42);
                 if (equip[equipindex42].rank == 2)
                 {
@@ -16928,12 +16938,12 @@ namespace snqxap
                 if (equipindex43 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex43].type)
-                                equipcb42.SelectedIndex = 0;
+                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex43].type) {
+                                equipcb42.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb42.SelectedIndex > -1)
                     calcequip(4, equipindex43);
             }
             renewindex(4);
@@ -16949,11 +16959,11 @@ namespace snqxap
                 if (equipindex41 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex41].type)
-                                equipcb43.SelectedIndex = 0;
+                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex41].type) {
+                                equipcb43.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb43.SelectedIndex > -1)
                     calcequip(4, equipindex41);
             }
             if (equipcb42.SelectedItem != null)
@@ -16963,17 +16973,17 @@ namespace snqxap
                 if (equipindex42 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb43.SelectedItem != null && equipcb43.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb43.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type)
-                                equipcb43.SelectedIndex = 0;
+                        if (equipcb43.SelectedItem != null && equipcb43.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb43.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type) {
+                                equipcb43.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb41.SelectedItem != null && equipcb41.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type)
-                                equipcb43.SelectedIndex = 0;
+                        if (equipcb41.SelectedItem != null && equipcb41.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb41.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type) {
+                                equipcb43.SelectedIndex = 0; return; }
                     }
-                    else
+                if (equipcb43.SelectedIndex > -1)
                     calcequip(4, equipindex42);
             }
             if (equipcb43.SelectedItem != null)
@@ -16983,12 +16993,12 @@ namespace snqxap
                 if (equipindex43 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex43].type)
-                                equipcb43.SelectedIndex = 0;
+                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex43].type) {
+                                equipcb43.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb43.SelectedIndex > -1)
                     calcequip(4, equipindex43);
                 if (equip[equipindex43].rank == 2)
                 {
@@ -17025,11 +17035,11 @@ namespace snqxap
                 if (equipindex51 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex51].type)
-                                equipcb51.SelectedIndex = 0;
+                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex51].type) {
+                                equipcb51.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb51.SelectedIndex > -1)
                     calcequip(5, equipindex51);
                 if (equip[equipindex51].rank == 2)
                 {
@@ -17060,17 +17070,17 @@ namespace snqxap
                 if (equipindex52 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb53.SelectedItem != null && equipcb53.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb53.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type)
-                                equipcb51.SelectedIndex = 0;
+                        if (equipcb53.SelectedItem != null && equipcb53.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb53.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type) {
+                                equipcb51.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb51.SelectedItem != null && equipcb51.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb51.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type)
-                                equipcb51.SelectedIndex = 0;
+                        if (equipcb51.SelectedItem != null && equipcb51.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb51.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type) {
+                                equipcb51.SelectedIndex = 0; return; }
                     }
-                    else
+                if (equipcb51.SelectedIndex > -1)
                     calcequip(5, equipindex52);
             }
             if (equipcb53.SelectedItem != null)
@@ -17080,12 +17090,12 @@ namespace snqxap
                 if (equipindex53 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex53].type)
-                                equipcb51.SelectedIndex = 0;
+                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex53].type) {
+                                equipcb51.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb51.SelectedIndex > -1)
                     calcequip(5, equipindex53);
             }
             renewindex(5);
@@ -17101,11 +17111,11 @@ namespace snqxap
                 if (equipindex51 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex51].type)
-                                equipcb52.SelectedIndex = 0;
+                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex51].type) {
+                                equipcb52.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb52.SelectedIndex > -1)
                     calcequip(5, equipindex51);
             }
             if (equipcb52.SelectedItem != null)
@@ -17115,17 +17125,17 @@ namespace snqxap
                 if (equipindex52 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb53.SelectedItem != null && equipcb53.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb53.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type)
-                                equipcb52.SelectedIndex = 0;
+                        if (equipcb53.SelectedItem != null && equipcb53.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb53.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type) {
+                                equipcb52.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb51.SelectedItem != null && equipcb51.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb51.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type)
-                                equipcb52.SelectedIndex = 0;
+                        if (equipcb51.SelectedItem != null && equipcb51.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb51.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type) {
+                                equipcb52.SelectedIndex = 0; return; }
                     }
-                    else
+                if (equipcb52.SelectedIndex > -1)
                     calcequip(5, equipindex52);
                 if (equip[equipindex52].rank == 2)
                 {
@@ -17156,12 +17166,12 @@ namespace snqxap
                 if (equipindex53 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex53].type)
-                                equipcb52.SelectedIndex = 0;
+                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex53].type) {
+                                equipcb52.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb52.SelectedIndex > -1)
                     calcequip(5, equipindex53);
             }
             renewindex(5);
@@ -17177,11 +17187,11 @@ namespace snqxap
                 if (equipindex51 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex51].type)
-                                equipcb53.SelectedIndex = 0;
+                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex51].type) {
+                                equipcb53.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb53.SelectedIndex > -1)
                     calcequip(5, equipindex51);
             }
             if (equipcb52.SelectedItem != null)
@@ -17191,17 +17201,17 @@ namespace snqxap
                 if (equipindex52 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb53.SelectedItem != null && equipcb53.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb53.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type)
-                                equipcb53.SelectedIndex = 0;
+                        if (equipcb53.SelectedItem != null && equipcb53.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb53.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type) {
+                                equipcb53.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb51.SelectedItem != null && equipcb51.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb51.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type)
-                                equipcb53.SelectedIndex = 0;
+                        if (equipcb51.SelectedItem != null && equipcb51.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb51.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type) {
+                                equipcb53.SelectedIndex = 0; return; }
                     }
-                    else
+                if (equipcb53.SelectedIndex > -1)
                     calcequip(5, equipindex52);
             }
             if (equipcb53.SelectedItem != null)
@@ -17211,12 +17221,12 @@ namespace snqxap
                 if (equipindex53 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex53].type)
-                                equipcb53.SelectedIndex = 0;
+                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex53].type) {
+                                equipcb53.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb53.SelectedIndex > -1)
                     calcequip(5, equipindex53);
                 if (equip[equipindex53].rank == 2)
                 {
@@ -17253,11 +17263,11 @@ namespace snqxap
                 if (equipindex61 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex61].type)
-                                equipcb61.SelectedIndex = 0;
+                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex61].type) {
+                                equipcb61.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb61.SelectedIndex > -1)
                     calcequip(6, equipindex61);
                 if (equip[equipindex61].rank == 2)
                 {
@@ -17288,17 +17298,17 @@ namespace snqxap
                 if (equipindex62 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb63.SelectedItem != null && equipcb63.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb63.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type)
-                                equipcb61.SelectedIndex = 0;
+                        if (equipcb63.SelectedItem != null && equipcb63.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb63.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type) {
+                                equipcb61.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb61.SelectedItem != null && equipcb61.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb61.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type)
-                                equipcb61.SelectedIndex = 0;
+                        if (equipcb61.SelectedItem != null && equipcb61.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb61.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type) {
+                                equipcb61.SelectedIndex = 0; return; }
                     }
-                    else
+                if (equipcb61.SelectedIndex > -1)
                     calcequip(6, equipindex62);
             }
             if (equipcb63.SelectedItem != null)
@@ -17308,12 +17318,12 @@ namespace snqxap
                 if (equipindex63 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex63].type)
-                                equipcb61.SelectedIndex = 0;
+                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex63].type) {
+                                equipcb61.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb61.SelectedIndex > -1)
                     calcequip(6, equipindex63);
             }
                 renewindex(6);
@@ -17330,11 +17340,11 @@ namespace snqxap
                 if (equipindex61 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex61].type)
-                                equipcb62.SelectedIndex = 0;
+                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex61].type) {
+                                equipcb62.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb62.SelectedIndex > -1)
                     calcequip(6, equipindex61);
             }
             if (equipcb62.SelectedItem != null)
@@ -17344,17 +17354,17 @@ namespace snqxap
                 if (equipindex62 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb63.SelectedItem != null && equipcb63.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb63.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type)
-                                equipcb62.SelectedIndex = 0;
+                        if (equipcb63.SelectedItem != null && equipcb63.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb63.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type) {
+                                equipcb62.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb61.SelectedItem != null && equipcb61.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb61.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type)
-                                equipcb62.SelectedIndex = 0;
+                        if (equipcb61.SelectedItem != null && equipcb61.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb61.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type) {
+                                equipcb62.SelectedIndex = 0; return; }
                     }
-                    else
+                if (equipcb62.SelectedIndex > -1)
                     calcequip(6, equipindex62);
                 if (equip[equipindex62].rank == 2)
                 {
@@ -17385,12 +17395,12 @@ namespace snqxap
                 if (equipindex63 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex63].type)
-                                equipcb62.SelectedIndex = 0;
+                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex63].type) {
+                                equipcb62.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb62.SelectedIndex > -1)
                     calcequip(6, equipindex63);
 
             }
@@ -17407,11 +17417,11 @@ namespace snqxap
                 if (equipindex61 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex61].type)
-                                equipcb63.SelectedIndex = 0;
+                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex61].type) {
+                                equipcb63.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb63.SelectedIndex > -1)
                     calcequip(6, equipindex61);
             }
             if (equipcb62.SelectedItem != null)
@@ -17421,17 +17431,17 @@ namespace snqxap
                 if (equipindex62 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb63.SelectedItem != null && equipcb63.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb63.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type)
-                                equipcb63.SelectedIndex = 0;
+                        if (equipcb63.SelectedItem != null && equipcb63.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb63.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type) {
+                                equipcb63.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb61.SelectedItem != null && equipcb61.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb61.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type)
-                                equipcb63.SelectedIndex = 0;
+                        if (equipcb61.SelectedItem != null && equipcb61.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb61.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type) {
+                                equipcb63.SelectedIndex = 0; return; }
                     }
-                    else
+                if (equipcb63.SelectedIndex > -1)
                     calcequip(6, equipindex62);
             }
             if (equipcb63.SelectedItem != null)
@@ -17441,12 +17451,12 @@ namespace snqxap
                 if (equipindex63 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex63].type)
-                                equipcb63.SelectedIndex = 0;
+                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex63].type) {
+                                equipcb63.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb63.SelectedIndex > -1)
                     calcequip(6, equipindex63);
                 if (equip[equipindex63].rank == 2)
                 {
@@ -17483,11 +17493,11 @@ namespace snqxap
                 if (equipindex71 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex71].type)
-                                equipcb71.SelectedIndex = 0;
+                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex71].type) {
+                                equipcb71.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb71.SelectedIndex > -1)
                     calcequip(7, equipindex71);
                 if (equip[equipindex71].rank == 2)
                 {
@@ -17518,17 +17528,17 @@ namespace snqxap
                 if (equipindex72 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb73.SelectedItem != null && equipcb73.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb73.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type)
-                                equipcb71.SelectedIndex = 0;
+                        if (equipcb73.SelectedItem != null && equipcb73.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb73.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type) {
+                                equipcb71.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb71.SelectedItem != null && equipcb71.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb71.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type)
-                                equipcb71.SelectedIndex = 0;
+                        if (equipcb71.SelectedItem != null && equipcb71.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb71.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type) {
+                                equipcb71.SelectedIndex = 0; return; }
                     }
-                    else
+                if (equipcb71.SelectedIndex > -1)
                     calcequip(7, equipindex72);
             }
             if (equipcb73.SelectedItem != null)
@@ -17538,12 +17548,12 @@ namespace snqxap
                 if (equipindex73 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex73].type)
-                                equipcb71.SelectedIndex = 0;
+                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex73].type) {
+                                equipcb71.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb71.SelectedIndex > -1)
                     calcequip(7, equipindex73);
             }
             renewindex(7);
@@ -17559,11 +17569,11 @@ namespace snqxap
                 if (equipindex71 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex71].type)
-                                equipcb72.SelectedIndex = 0;
+                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex71].type) {
+                                equipcb72.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb72.SelectedIndex > -1)
                     calcequip(7, equipindex71);
             }
             if (equipcb72.SelectedItem != null)
@@ -17573,17 +17583,17 @@ namespace snqxap
                 if (equipindex72 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb73.SelectedItem != null && equipcb73.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb73.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type)
-                                equipcb72.SelectedIndex = 0;
+                        if (equipcb73.SelectedItem != null && equipcb73.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb73.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type) {
+                                equipcb72.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb71.SelectedItem != null && equipcb71.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb71.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type)
-                                equipcb72.SelectedIndex = 0;
+                        if (equipcb71.SelectedItem != null && equipcb71.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb71.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type) {
+                                equipcb72.SelectedIndex = 0; return; }
                     }
-                    else
+                if (equipcb72.SelectedIndex > -1)
                     calcequip(7, equipindex72);
                 if (equip[equipindex72].rank == 2)
                 {
@@ -17614,12 +17624,12 @@ namespace snqxap
                 if (equipindex73 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex73].type)
-                                equipcb72.SelectedIndex = 0;
+                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex73].type) {
+                                equipcb72.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb72.SelectedIndex > -1)
                     calcequip(7, equipindex73);
             }
             renewindex(7);
@@ -17636,11 +17646,11 @@ namespace snqxap
                 if (equipindex71 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex71].type)
-                                equipcb73.SelectedIndex = 0;
+                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex71].type) {
+                                equipcb73.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb73.SelectedIndex > -1)
                     calcequip(7, equipindex71);
             }
             if (equipcb72.SelectedItem != null)
@@ -17650,17 +17660,17 @@ namespace snqxap
                 if (equipindex72 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb73.SelectedItem != null && equipcb73.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb73.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type)
-                                equipcb73.SelectedIndex = 0;
+                        if (equipcb73.SelectedItem != null && equipcb73.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb73.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type) {
+                                equipcb73.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb71.SelectedItem != null && equipcb71.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb71.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type)
-                                equipcb73.SelectedIndex = 0;
+                        if (equipcb71.SelectedItem != null && equipcb71.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb71.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type) {
+                                equipcb73.SelectedIndex = 0; return; }
                     }
-                    else
+                if (equipcb73.SelectedIndex > -1)
                     calcequip(7, equipindex72);
             }
             if (equipcb73.SelectedItem != null)
@@ -17670,12 +17680,12 @@ namespace snqxap
                 if (equipindex73 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex73].type)
-                                equipcb73.SelectedIndex = 0;
+                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex73].type) {
+                                equipcb73.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb73.SelectedIndex > -1)
                     calcequip(7, equipindex73);
                 if (equip[equipindex73].rank == 2)
                 {
@@ -17712,11 +17722,11 @@ namespace snqxap
                 if (equipindex81 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex81].type)
-                                equipcb81.SelectedIndex = 0;
+                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex81].type) {
+                                equipcb81.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb81.SelectedIndex > -1)
                     calcequip(8, equipindex81);
                 if (equip[equipindex81].rank == 2)
                 {
@@ -17747,17 +17757,17 @@ namespace snqxap
                 if (equipindex82 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb83.SelectedItem != null && equipcb83.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb83.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type)
-                                equipcb81.SelectedIndex = 0;
+                        if (equipcb83.SelectedItem != null && equipcb83.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb83.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type) {
+                                equipcb81.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb81.SelectedItem != null && equipcb81.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb81.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type)
-                                equipcb81.SelectedIndex = 0;
+                        if (equipcb81.SelectedItem != null && equipcb81.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb81.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type) {
+                                equipcb81.SelectedIndex = 0; return; }
                     }
-                    else
+                if (equipcb81.SelectedIndex > -1)
                     calcequip(8, equipindex82);
             }
             if (equipcb83.SelectedItem != null)
@@ -17767,12 +17777,12 @@ namespace snqxap
                 if (equipindex83 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex83].type)
-                                equipcb81.SelectedIndex = 0;
+                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex83].type) {
+                                equipcb81.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb81.SelectedIndex > -1)
                     calcequip(8, equipindex83);
             }
             renewindex(8);
@@ -17788,11 +17798,11 @@ namespace snqxap
                 if (equipindex81 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex81].type)
-                                equipcb82.SelectedIndex = 0;
+                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex81].type) {
+                                equipcb82.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb82.SelectedIndex > -1)
                     calcequip(8, equipindex81);
             }
             if (equipcb82.SelectedItem != null)
@@ -17802,17 +17812,17 @@ namespace snqxap
                 if (equipindex82 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb83.SelectedItem != null && equipcb83.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb83.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type)
-                                equipcb82.SelectedIndex = 0;
+                        if (equipcb83.SelectedItem != null && equipcb83.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb83.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type) {
+                                equipcb82.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb81.SelectedItem != null && equipcb81.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb81.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type)
-                                equipcb82.SelectedIndex = 0;
+                        if (equipcb81.SelectedItem != null && equipcb81.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb81.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type) {
+                                equipcb82.SelectedIndex = 0; return; }
                     }
-                    else
+                if (equipcb82.SelectedIndex > -1)
                     calcequip(8, equipindex82);
                 if (equip[equipindex82].rank == 2)
                 {
@@ -17843,12 +17853,12 @@ namespace snqxap
                 if (equipindex83 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex83].type)
-                                equipcb82.SelectedIndex = 0;
+                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex83].type) {
+                                equipcb82.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb82.SelectedIndex > -1)
                     calcequip(8, equipindex83);
             }
             renewindex(8);
@@ -17864,11 +17874,11 @@ namespace snqxap
                 if (equipindex81 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex81].type)
-                                equipcb83.SelectedIndex = 0;
+                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex81].type) {
+                                equipcb83.SelectedIndex = 0; return; }
                     }
-                    else 
+                if (equipcb83.SelectedIndex > -1)
                     calcequip(8, equipindex81);
             }
             if (equipcb82.SelectedItem != null)
@@ -17878,17 +17888,17 @@ namespace snqxap
                 if (equipindex82 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb83.SelectedItem != null && equipcb83.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb83.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type)
-                                equipcb83.SelectedIndex = 0;
+                        if (equipcb83.SelectedItem != null && equipcb83.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb83.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type) {
+                                equipcb83.SelectedIndex = 0; return; }
                     }
                     else if (comboindex == 29 || comboindex == 34)
                     {
-                        if (equipcb81.SelectedItem != null && equipcb81.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb81.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type)
-                                equipcb83.SelectedIndex = 0;
+                        if (equipcb81.SelectedItem != null && equipcb81.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb81.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type) {
+                                equipcb83.SelectedIndex = 0; return; }
                     }
-                    else
+                if (equipcb83.SelectedIndex > -1)
                     calcequip(8, equipindex82);
             }
             if (equipcb83.SelectedItem != null)
@@ -17898,12 +17908,12 @@ namespace snqxap
                 if (equipindex83 != -1)
                     if (comboindex == 28)           //16
                     {
-                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString() != " ")
-                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex83].type)
-                                equipcb83.SelectedIndex = 0;
+                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31)!= " ")
+                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex83].type) {
+                                equipcb83.SelectedIndex = 0; return; }
                     }
 
-                    else
+                if (equipcb83.SelectedIndex > -1)
                     calcequip(8, equipindex83);
                 if (equip[equipindex83].rank == 2)
                 {
