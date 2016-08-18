@@ -289,7 +289,7 @@ namespace snqxap
             gun[40].name = "FNC"; gun[40].what = 2; gun[40].crit = 0.2; gun[40].belt = 0; gun[40].number = 1; gun[40].effect0 = 9; gun[40].damageup = 0; gun[40].hitup = 0.5; gun[40].shotspeedup = 0; gun[40].critup = 0; gun[40].dodgeup = 0.12; gun[40].to = 3;
             gun[41].name = "L85A1"; gun[41].what = 2; gun[41].crit = 0.2; gun[41].belt = 0; gun[41].number = 1; gun[41].effect0 = 2; gun[41].damageup = 0.2; gun[41].hitup = 0.5; gun[41].shotspeedup = 0; gun[41].critup = 0; gun[41].dodgeup = 0; gun[41].to = 3;
             gun[42].name = "9a91"; gun[42].what = 2;  gun[42].crit = 0.2; gun[42].belt = 0; gun[42].number = 2; gun[42].effect0 = 3; gun[42].effect1 = 9; gun[42].damageup = 0; gun[42].hitup = 0; gun[42].shotspeedup = 0.1; gun[42].critup = 0; gun[42].dodgeup = 0.15; gun[42].to = 3;
-            gun[43].name = "AS Val"; gun[43].what = 2; gun[43].crit = 0.2; gun[43].belt = 0; gun[43].number = 1; gun[43].effect0 = 2; gun[43].damageup = 0.25; gun[43].hitup = 0; gun[43].shotspeedup = 0.1; gun[43].critup = 0; gun[43].dodgeup = 0; gun[43].to = 3;
+            gun[43].name = "AS Val"; gun[43].what = 2; gun[43].crit = 0.2; gun[43].belt = 0; gun[43].number = 1; gun[43].effect0 = 8; gun[43].damageup = 0.25; gun[43].hitup = 0; gun[43].shotspeedup = 0.1; gun[43].critup = 0; gun[43].dodgeup = 0; gun[43].to = 3;
             gun[44].name = "维尔德"; gun[44].what = 4; gun[44].crit = 0.2; gun[44].belt = 0; gun[44].number = 4; gun[44].effect0 = 1; gun[44].effect1 = 2; gun[44].effect2 = 4; gun[44].effect3 = 7; gun[44].damageup = 0.18; gun[44].hitup = 0; gun[44].shotspeedup = 0.1; gun[44].critup = 0; gun[44].dodgeup = 0; gun[44].to = 1;
             gun[45].name = "纳甘左轮"; gun[45].what = 4; gun[45].crit = 0.2; gun[45].belt = 0; gun[45].number = 2; gun[45].effect0 = 2; gun[45].effect1 = 8; gun[45].damageup = 0.25; gun[45].hitup = 0; gun[45].shotspeedup = 0; gun[45].critup = 0.1; gun[45].dodgeup = 0; gun[45].to = 1;
             gun[46].name = "柯尔特左轮"; gun[46].what = 4; gun[46].crit = 0.2; gun[46].belt = 0; gun[46].number = 4; gun[46].effect0 = 2; gun[46].effect1 = 4; gun[46].effect2 = 6; gun[46].effect3 = 8; gun[46].damageup = 0.15; gun[46].hitup = 0.5; gun[46].shotspeedup = 0; gun[46].critup = 0; gun[46].dodgeup = 0; gun[46].to = 1;
@@ -368,7 +368,7 @@ namespace snqxap
             gun[105].eatratio = 125; gun[105].ratiododge = 125; gun[105].ratiohit = 125; gun[105].ratiohp = 100; gun[105].ratiopow = 105; gun[105].ratiorate = 110;
             gun[105].type = 131; gun[105].probability = 32; gun[105].skilleffect1 = 120; gun[105].skilleffect2 = 5; gun[105].skilleffect3 = 0; gun[105].skilleffect4 = 0; gun[105].growth = 0.6; gun[105].growth_type = 3;
 
-            gun[106].name = "ARX-160"; gun[106].what = 2; gun[106].crit = 0.2; gun[106].belt = 0; gun[106].number = 1; gun[106].effect0 = 9; gun[106].damageup = 0.25; gun[106].hitup = 0.5; gun[106].to = 3;
+            gun[106].name = "ARX-160"; gun[106].what = 2; gun[106].crit = 0.2; gun[106].belt = 0; gun[106].number = 1; gun[106].effect0 = 3; gun[106].damageup = 0.25; gun[106].hitup = 0.5; gun[106].to = 3;
             gun[106].eatratio = 115; gun[106].ratiododge = 120; gun[106].ratiohit = 120; gun[106].ratiohp = 90; gun[106].ratiopow = 110; gun[106].ratiorate = 110;
             gun[106].type = 601; gun[106].probability = 22; gun[106].skilleffect1 = 2.2; gun[106].skilleffect2 = 1; gun[106].skilleffect3 = 0; gun[106].skilleffect4 = 0; gun[106].growth = 1.5; gun[106].growth_type = 2;
 
