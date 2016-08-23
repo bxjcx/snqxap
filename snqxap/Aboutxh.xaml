@@ -10,8 +10,8 @@
         <Label FontSize="14" Content="一些新计算公式：" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,0,0,0" Width="205"/>
         <Label FontSize="14" Content="加属性的装备直接算作基础属性。暴击镜加成为加法。" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,23,0,0" Width="582"/>
         <Label FontSize="14" Content="不带护甲铁血计算公式左转About。甲的数值不高。带甲的铁血回避很低或者也不高。" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,51,0,0" Width="572"/>
-        <Label FontSize="14" Content="伤害：穿甲-护甲>=0正常计算   &lt;0 （基础伤害+装备+穿甲-护甲）*光环加成*技能加成" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,79,0,0" Width="572"/>
-        <Label FontSize="14" Content="基础伤害+装备+穿甲-护甲&lt;0 这里恒定为2。" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,107,0,0" Width="572"/>
+        <Label FontSize="14" Content="穿甲-护甲>0 伤害：正常公式+2点   " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,79,0,0" Width="572"/>
+        <Label FontSize="14" Content=" &lt;=0 伤害：Max((基础伤害+装备)*光环*技能/10,(基础伤害+装备)*光环*技能+穿甲-护甲)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,107,0,0" Width="572"/>
         <Label FontSize="14" Content="夜战命中=（枪娘命中+装备命中）*光环加成*技能加成*【1-0.9*（1-夜视仪）】" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,135,0,0" Width="572"/>
         <Label FontSize="14" Content="夏活存在的新铁血（没属性）：" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,157,0,0" Width="221"/>
 

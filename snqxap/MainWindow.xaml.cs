@@ -20,7 +20,6 @@ using System.Windows.Shapes;
 //待编写的部分：       
 //               先不管非夜战能放非夜战技能
 
-
 namespace snqxap
 {
 
@@ -6292,12 +6291,10 @@ namespace snqxap
                         else
                         {
                             if (equipbreakarmor[0] > Int32.Parse(enemyarmor.Text))
-                                Ldamage0.Content = ((basePow + maxAddPow + equipdamage[0]) * gg[0].damageup * (1 + skillupdamage[0])).ToString("0");
+                                Ldamage0.Content = ((basePow + maxAddPow + equipdamage[0]) * gg[0].damageup * (1 + skillupdamage[0]) + 2).ToString("0");
                             else
-                                Ldamage0.Content = ((basePow + maxAddPow + equipdamage[0] + equipbreakarmor[0] - Int32.Parse(enemyarmor.Text)) * gg[0].damageup * (1 + skillupdamage[0])).ToString("0");
+                                Ldamage0.Content = Math.Floor(Math.Max(((basePow + maxAddPow + equipdamage[0]) * gg[0].damageup * (1 + skillupdamage[0]))/10,(((basePow + maxAddPow + equipdamage[0]) * gg[0].damageup * (1 + skillupdamage[0])) + equipbreakarmor[0] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
-                        if (Int32.Parse(Ldamage0.Content.ToString()) < 0)
-                            Ldamage0.Content = 2;
                         if (Int32.Parse(Lhp0.Content.ToString()) == 0)
                             Ldamage0.Content = 0;
                         if (innight)
@@ -6348,12 +6345,10 @@ namespace snqxap
                         else
                         {
                             if (equipbreakarmor[1] > Int32.Parse(enemyarmor.Text))
-                                Ldamage1.Content = ((basePow + maxAddPow + equipdamage[1]) * gg[1].damageup * (1 + skillupdamage[1])).ToString("0");
+                                Ldamage1.Content = ((basePow + maxAddPow + equipdamage[1]) * gg[1].damageup * (1 + skillupdamage[1]) + 2).ToString("0");
                             else
-                                Ldamage1.Content = ((basePow + maxAddPow + equipdamage[1] + equipbreakarmor[1] - Int32.Parse(enemyarmor.Text)) * gg[1].damageup * (1 + skillupdamage[1])).ToString("0");
+                                Ldamage1.Content = Math.Floor(Math.Max(((basePow + maxAddPow + equipdamage[1]) * gg[1].damageup * (1 + skillupdamage[1]))/10, (((basePow + maxAddPow + equipdamage[1]) * gg[1].damageup * (1 + skillupdamage[1])) + equipbreakarmor[1] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
-                        if (Int32.Parse(Ldamage1.Content.ToString()) < 0)
-                            Ldamage1.Content = 2;
                         if (Int32.Parse(Lhp1.Content.ToString()) == 0)
                             Ldamage1.Content = 0;
                         if (innight)
@@ -6405,12 +6400,10 @@ namespace snqxap
                         else
                         {
                             if (equipbreakarmor[2] > Int32.Parse(enemyarmor.Text))
-                                Ldamage2.Content = ((basePow + maxAddPow + equipdamage[2]) * gg[2].damageup * (1 + skillupdamage[2])).ToString("0");
+                                Ldamage2.Content = ((basePow + maxAddPow + equipdamage[2]) * gg[2].damageup * (1 + skillupdamage[2]) + 2).ToString("0");
                             else
-                                Ldamage2.Content = ((basePow + maxAddPow + equipdamage[2] + equipbreakarmor[2] - Int32.Parse(enemyarmor.Text)) * gg[2].damageup * (1 + skillupdamage[2])).ToString("0");
+                                Ldamage2.Content = Math.Floor(Math.Max(((basePow + maxAddPow + equipdamage[2]) * gg[2].damageup * (1 + skillupdamage[2]))/10, (((basePow + maxAddPow + equipdamage[2]) * gg[2].damageup * (1 + skillupdamage[2])) + equipbreakarmor[2] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
-                        if (Int32.Parse(Ldamage2.Content.ToString()) < 0)
-                            Ldamage2.Content = 2;
                         if (Int32.Parse(Lhp2.Content.ToString()) == 0)
                             Ldamage2.Content = 0;
                         if (innight)
@@ -6461,12 +6454,10 @@ namespace snqxap
                         else
                         {
                             if (equipbreakarmor[3] > Int32.Parse(enemyarmor.Text))
-                                Ldamage3.Content = ((basePow + maxAddPow + equipdamage[3]) * gg[3].damageup * (1 + skillupdamage[3])).ToString("0");
+                                Ldamage3.Content = ((basePow + maxAddPow + equipdamage[3]) * gg[3].damageup * (1 + skillupdamage[3]) + 2).ToString("0");
                             else
-                                Ldamage3.Content = ((basePow + maxAddPow + equipdamage[3] + equipbreakarmor[3] - Int32.Parse(enemyarmor.Text)) * gg[3].damageup * (1 + skillupdamage[3])).ToString("0");
+                                Ldamage3.Content = Math.Floor(Math.Max(((basePow + maxAddPow + equipdamage[3]) * gg[3].damageup * (1 + skillupdamage[3]))/10, (((basePow + maxAddPow + equipdamage[3]) * gg[3].damageup * (1 + skillupdamage[3])) + equipbreakarmor[3] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
-                        if (Int32.Parse(Ldamage3.Content.ToString()) < 0)
-                            Ldamage3.Content = 2;
                         if (Int32.Parse(Lhp3.Content.ToString()) == 0)
                             Ldamage3.Content = 0;
                         if (innight)
@@ -6517,12 +6508,10 @@ namespace snqxap
                         else
                         {
                             if (equipbreakarmor[4] > Int32.Parse(enemyarmor.Text))
-                                Ldamage4.Content = ((basePow + maxAddPow + equipdamage[4]) * gg[4].damageup * (1 + skillupdamage[4])).ToString("0");
+                                Ldamage4.Content = ((basePow + maxAddPow + equipdamage[4]) * gg[4].damageup * (1 + skillupdamage[4]) + 2).ToString("0");
                             else
-                                Ldamage4.Content = ((basePow + maxAddPow + equipdamage[4] + equipbreakarmor[4] - Int32.Parse(enemyarmor.Text)) * gg[4].damageup * (1 + skillupdamage[4])).ToString("0");
+                                Ldamage4.Content = Math.Floor(Math.Max(((basePow + maxAddPow + equipdamage[4]) * gg[4].damageup * (1 + skillupdamage[4]))/10, (((basePow + maxAddPow + equipdamage[4]) * gg[4].damageup * (1 + skillupdamage[4])) + equipbreakarmor[4] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
-                        if (Int32.Parse(Ldamage4.Content.ToString()) < 0)
-                            Ldamage4.Content = 2;
                         if (Int32.Parse(Lhp4.Content.ToString()) == 0)
                             Ldamage4.Content = 0;
                         if (innight)
@@ -6573,12 +6562,10 @@ namespace snqxap
                         else
                         {
                             if (equipbreakarmor[5] > Int32.Parse(enemyarmor.Text))
-                                Ldamage5.Content = ((basePow + maxAddPow + equipdamage[5]) * gg[5].damageup * (1 + skillupdamage[5])).ToString("0");
+                                Ldamage5.Content = ((basePow + maxAddPow + equipdamage[5]) * gg[5].damageup * (1 + skillupdamage[5]) + 2).ToString("0");
                             else
-                                Ldamage5.Content = ((basePow + maxAddPow + equipdamage[5] + equipbreakarmor[5] - Int32.Parse(enemyarmor.Text)) * gg[5].damageup * (1 + skillupdamage[5])).ToString("0");
+                                Ldamage5.Content = Math.Floor(Math.Max(((basePow + maxAddPow + equipdamage[5]) * gg[5].damageup * (1 + skillupdamage[5]))/10, (((basePow + maxAddPow + equipdamage[5]) * gg[5].damageup * (1 + skillupdamage[5])) + equipbreakarmor[5] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
-                        if (Int32.Parse(Ldamage5.Content.ToString()) < 0)
-                            Ldamage5.Content = 2;
                         if (Int32.Parse(Lhp5.Content.ToString()) == 0)
                             Ldamage5.Content = 0;
                         if (innight)
@@ -6629,12 +6616,10 @@ namespace snqxap
                         else
                         {
                             if (equipbreakarmor[6] > Int32.Parse(enemyarmor.Text))
-                                Ldamage6.Content = ((basePow + maxAddPow + equipdamage[6]) * gg[6].damageup * (1 + skillupdamage[6])).ToString("0");
+                                Ldamage6.Content = ((basePow + maxAddPow + equipdamage[6]) * gg[6].damageup * (1 + skillupdamage[6]) + 2).ToString("0");
                             else
-                                Ldamage6.Content = ((basePow + maxAddPow + equipdamage[6] + equipbreakarmor[6] - Int32.Parse(enemyarmor.Text)) * gg[6].damageup * (1 + skillupdamage[6])).ToString("0");
+                                Ldamage6.Content = Math.Floor(Math.Max(((basePow + maxAddPow + equipdamage[6]) * gg[6].damageup * (1 + skillupdamage[6]))/10, (((basePow + maxAddPow + equipdamage[6]) * gg[6].damageup * (1 + skillupdamage[6])) + equipbreakarmor[6] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
-                        if (Int32.Parse(Ldamage6.Content.ToString()) < 0)
-                            Ldamage6.Content = 2;
                         if (Int32.Parse(Lhp6.Content.ToString()) == 0)
                             Ldamage6.Content = 0;
                         if (innight)
@@ -6685,12 +6670,10 @@ namespace snqxap
                         else
                         {
                             if (equipbreakarmor[7] > Int32.Parse(enemyarmor.Text))
-                                Ldamage7.Content = ((basePow + maxAddPow + equipdamage[7]) * gg[7].damageup * (1 + skillupdamage[7])).ToString("0");
+                                Ldamage7.Content = ((basePow + maxAddPow + equipdamage[7]) * gg[7].damageup * (1 + skillupdamage[7]) + 2).ToString("0");
                             else
-                                Ldamage7.Content = ((basePow + maxAddPow + equipdamage[7] + equipbreakarmor[7] - Int32.Parse(enemyarmor.Text)) * gg[7].damageup * (1 + skillupdamage[7])).ToString("0");
+                                Ldamage7.Content = Math.Floor(Math.Max(((basePow + maxAddPow + equipdamage[7]) * gg[7].damageup * (1 + skillupdamage[7]))/10, (((basePow + maxAddPow + equipdamage[7]) * gg[7].damageup * (1 + skillupdamage[7])) + equipbreakarmor[7] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
-                        if (Int32.Parse(Ldamage7.Content.ToString()) < 0)
-                            Ldamage7.Content = 2;
                         if (Int32.Parse(Lhp7.Content.ToString()) == 0)
                             Ldamage7.Content = 0;
                         if (innight)
@@ -6741,12 +6724,10 @@ namespace snqxap
                         else
                         {
                             if (equipbreakarmor[8] > Int32.Parse(enemyarmor.Text))
-                                Ldamage8.Content = ((basePow + maxAddPow + equipdamage[8]) * gg[8].damageup * (1 + skillupdamage[8])).ToString("0");
+                                Ldamage8.Content = ((basePow + maxAddPow + equipdamage[8]) * gg[8].damageup * (1 + skillupdamage[8]) + 2).ToString("0");
                             else
-                                Ldamage8.Content = ((basePow + maxAddPow + equipdamage[8] + equipbreakarmor[8] - Int32.Parse(enemyarmor.Text)) * gg[8].damageup * (1 + skillupdamage[8])).ToString("0");
+                                Ldamage8.Content = Math.Floor(Math.Max(((basePow + maxAddPow + equipdamage[8]) * gg[8].damageup * (1 + skillupdamage[8]))/10, (((basePow + maxAddPow + equipdamage[8]) * gg[8].damageup * (1 + skillupdamage[8])) + equipbreakarmor[8] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
-                        if (Int32.Parse(Ldamage8.Content.ToString()) < 0)
-                            Ldamage8.Content = 2;
                         if (Int32.Parse(Lhp8.Content.ToString()) == 0)
                             Ldamage8.Content = 0;
                         if (innight)
