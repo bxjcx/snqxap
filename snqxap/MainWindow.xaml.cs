@@ -29,8 +29,8 @@ namespace snqxap
     public partial class MainWindow : Window
     {
         
-        public const int GUN_NUMBER = 108; //枪娘总数
-        public const int EQUIP_NUMBER = 31;
+        public const int GUN_NUMBER = 109; //枪娘总数
+        public const int EQUIP_NUMBER = 35;
         /// <summary>
         /// 0-3 外骨骼 4-7 穿甲弹 8-11 高速弹 12-15 光学瞄具 16-19 全息 20-23 红点 24-27夜视 28五星穿甲 29五星夜视
         /// AR 全息/光喵/ACOG/夜视 高速弹 外骨 smg 外骨 空 全息/光喵/ACOG/夜视
@@ -289,7 +289,7 @@ namespace snqxap
             gun[41].name = "L85A1"; gun[41].what = 2; gun[41].crit = 0.2; gun[41].belt = 0; gun[41].number = 1; gun[41].effect0 = 2; gun[41].damageup = 0.2; gun[41].hitup = 0.5; gun[41].shotspeedup = 0; gun[41].critup = 0; gun[41].dodgeup = 0; gun[41].to = 3;
             gun[42].name = "9a91"; gun[42].what = 2;  gun[42].crit = 0.2; gun[42].belt = 0; gun[42].number = 2; gun[42].effect0 = 3; gun[42].effect1 = 9; gun[42].damageup = 0; gun[42].hitup = 0; gun[42].shotspeedup = 0.1; gun[42].critup = 0; gun[42].dodgeup = 0.15; gun[42].to = 3;
             gun[43].name = "AS Val"; gun[43].what = 2; gun[43].crit = 0.2; gun[43].belt = 0; gun[43].number = 1; gun[43].effect0 = 8; gun[43].damageup = 0.25; gun[43].hitup = 0; gun[43].shotspeedup = 0.1; gun[43].critup = 0; gun[43].dodgeup = 0; gun[43].to = 3;
-            gun[44].name = "维尔德"; gun[44].what = 4; gun[44].crit = 0.2; gun[44].belt = 0; gun[44].number = 4; gun[44].effect0 = 1; gun[44].effect1 = 2; gun[44].effect2 = 4; gun[44].effect3 = 7; gun[44].damageup = 0.18; gun[44].hitup = 0; gun[44].shotspeedup = 0.1; gun[44].critup = 0; gun[44].dodgeup = 0; gun[44].to = 1;
+            gun[44].name = "维尔德"; gun[44].what = 4; gun[44].crit = 0.2; gun[44].belt = 0; gun[44].number = 5; gun[44].effect0 = 1; gun[44].effect1 = 2; gun[44].effect2 = 4; gun[44].effect3 = 7;gun[44].effect4 = 8; gun[44].damageup = 0.18; gun[44].hitup = 0; gun[44].shotspeedup = 0.1; gun[44].critup = 0; gun[44].dodgeup = 0; gun[44].to = 1;
             gun[45].name = "纳甘左轮"; gun[45].what = 4; gun[45].crit = 0.2; gun[45].belt = 0; gun[45].number = 2; gun[45].effect0 = 2; gun[45].effect1 = 8; gun[45].damageup = 0.25; gun[45].hitup = 0; gun[45].shotspeedup = 0; gun[45].critup = 0.1; gun[45].dodgeup = 0; gun[45].to = 1;
             gun[46].name = "柯尔特左轮"; gun[46].what = 4; gun[46].crit = 0.2; gun[46].belt = 0; gun[46].number = 4; gun[46].effect0 = 2; gun[46].effect1 = 4; gun[46].effect2 = 6; gun[46].effect3 = 8; gun[46].damageup = 0.15; gun[46].hitup = 0.5; gun[46].shotspeedup = 0; gun[46].critup = 0; gun[46].dodgeup = 0; gun[46].to = 1;
             gun[47].name = "灰熊MkⅤ"; gun[47].what = 4; gun[47].crit = 0.2; gun[47].belt = 0; gun[47].number = 5; gun[47].effect0 = 1; gun[47].effect1 = 2; gun[47].effect2 = 6; gun[47].effect3 = 7; gun[47].effect4 = 8; gun[47].damageup = 0.18; gun[47].hitup = 0; gun[47].shotspeedup = 0; gun[47].critup = 0; gun[47].dodgeup = 0.2; gun[47].to = 1;
@@ -374,6 +374,10 @@ namespace snqxap
             gun[107].name = "G11"; gun[107].what = 2; gun[107].crit = 0.2; gun[107].belt = 0; gun[107].number = 1; gun[107].effect0 = 6; gun[107].damageup = 0.3; gun[107].dodgeup = 0.1; gun[107].to = 3;
             gun[107].eatratio = 110; gun[107].ratiododge = 105; gun[107].ratiohit = 115; gun[107].ratiohp = 110; gun[107].ratiopow = 100; gun[107].ratiorate = 145;
             gun[107].type = 108; gun[107].probability = 32; gun[107].skilleffect1 = 2.2; gun[107].skilleffect2 = 3; gun[107].skilleffect3 = 0; gun[107].skilleffect4 = 0; gun[107].growth = 0.5; gun[107].growth_type = 3;
+
+            gun[108].name = "Super SASS";gun[108].what = 5; gun[108].crit = 0.4; gun[108].belt = 0; gun[108].number = 1; gun[108].effect0 = 9; gun[108].rateup = 0.20; gun[108].to = 4;
+            gun[108].eatratio = 105; gun[108].ratiododge = 90; gun[108].ratiohit = 110; gun[108].ratiohp = 100; gun[108].ratiopow = 115; gun[108].ratiorate = 120;
+            gun[108].type = 503; gun[108].probability = 30; gun[108].skilleffect1 = 2.2; gun[108].skilleffect2 = 2; gun[108].skilleffect3 = 0; gun[108].skilleffect4 = 0; gun[108].growth = 1.2; gun[108].growth_type = 2;
 
             for (int i = 0; i < GUN_NUMBER + 1; i++)//加颜色
             {
@@ -625,7 +629,7 @@ namespace snqxap
                 }
                 Combo7.Items.Add(l);
             }
-            for (int i = 0; i < 109; i++)
+            for (int i = 0; i < GUN_NUMBER+1; i++)
             {
                 Label l = new Label();
                 l.Content = gun[i].name;
@@ -666,7 +670,7 @@ namespace snqxap
     //        gun[105].image = "/assets/71.png";
     //        gun[106].image = "/assets/71.png";
       //      gun[107].image = "/assets/71.png";//G11
-            gun[108].image = "";
+            gun[109].image = "";
 
                 for (int i = 0; i < 9; i++)
                 {
@@ -2204,6 +2208,10 @@ namespace snqxap
             equip[28].name = "16Lab次口径穿甲弹"; equip[28].breakarmor = 80; equip[28].type = 5; equip[28].tooltip = "穿甲+80";
             equip[29].name = "16Lab红外指示器"; equip[29].nightsee = 100; equip[29].type = 4; equip[29].tooltip = "夜战命中抵消100%";
             equip[30].name = " "; equip[30].type = 13; equip[30].rank = 2;
+            equip[31].name = "IOP X1外骨骼"; equip[31].dodge = 3; equip[31].damage = 0; equip[31].type = 10; equip[31].tooltip = "回避+3"; equip[31].rank = 2;
+            equip[32].name = "IOP X2外骨骼"; equip[32].dodge = 5; equip[32].damage = 0; equip[32].type = 10; equip[32].tooltip = "回避+5"; equip[32].rank = 3;
+            equip[33].name = "IOP X3外骨骼"; equip[33].dodge = 7; equip[33].damage = 0; equip[33].type = 10; equip[33].tooltip = "回避+7"; equip[33].rank = 4;
+            equip[34].name = "IOP X4外骨骼"; equip[34].dodge = 12; equip[34].damage = 0; equip[34].type = 10; equip[34].tooltip = "回避+12"; equip[34].rank = 5;
 
             equip[0].rank = 2;
             equip[1].rank = 3;
@@ -8035,6 +8043,7 @@ namespace snqxap
                                         equipcb01.Items.Clear();
                                         equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                         equipcb01.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
+                                        equipcb01.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
                                         break;
                                     }
                                 case 4:
@@ -8089,6 +8098,7 @@ namespace snqxap
                                         equipcb11.Items.Clear();
                                         equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                         equipcb11.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
+                                        equipcb11.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
                                         break;
                                     }
                                 case 4:
@@ -8144,6 +8154,7 @@ namespace snqxap
                                         equipcb21.Items.Clear();
                                         equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                         equipcb21.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
+                                        equipcb21.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
                                         break;
                                     }
                                 case 4:
@@ -8199,6 +8210,7 @@ namespace snqxap
                                         equipcb31.Items.Clear();
                                         equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                         equipcb31.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
+                                        equipcb31.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
                                         break;
                                     }
                                 case 4:
@@ -8254,6 +8266,7 @@ namespace snqxap
                                         equipcb41.Items.Clear();
                                         equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                         equipcb41.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
+                                        equipcb41.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
                                         break;
                                     }
                                 case 4:
@@ -8309,6 +8322,7 @@ namespace snqxap
                                         equipcb51.Items.Clear();
                                         equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                         equipcb51.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
+                                        equipcb51.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
                                         break;
                                     }
                                 case 4:
@@ -8364,6 +8378,7 @@ namespace snqxap
                                         equipcb61.Items.Clear();
                                         equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                         equipcb61.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
+                                        equipcb61.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
                                         break;
                                     }
                                 case 4:
@@ -8419,6 +8434,7 @@ namespace snqxap
                                         equipcb71.Items.Clear();
                                         equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                         equipcb71.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
+                                        equipcb71.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
                                         break;
                                     }
                                 case 4:
@@ -8474,6 +8490,7 @@ namespace snqxap
                                         equipcb81.Items.Clear();
                                         equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                         equipcb81.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
+                                        equipcb81.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
                                         break;
                                     }
                                 case 4:
@@ -8541,6 +8558,8 @@ namespace snqxap
                                         equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                         equipcb01.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb01.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
+                                        equipcb01.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb01.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
                                         break;
                                     }
                                 case 4:
@@ -8603,6 +8622,8 @@ namespace snqxap
                                         equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                         equipcb11.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb11.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
+                                        equipcb11.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb11.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
                                         break;
                                     }
                                 case 4:
@@ -8666,6 +8687,8 @@ namespace snqxap
                                         equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                         equipcb21.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb21.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
+                                        equipcb21.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb21.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
                                         break;
                                     }
                                 case 4:
@@ -8729,6 +8752,8 @@ namespace snqxap
                                         equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                         equipcb31.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb31.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
+                                        equipcb31.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb31.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
                                         break;
                                     }
                                 case 4:
@@ -8792,6 +8817,8 @@ namespace snqxap
                                         equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                         equipcb41.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb41.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
+                                        equipcb41.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb41.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
                                         break;
                                     }
                                 case 4:
@@ -8855,6 +8882,8 @@ namespace snqxap
                                         equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                         equipcb51.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb51.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
+                                        equipcb51.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb51.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
                                         break;
                                     }
                                 case 4:
@@ -8918,6 +8947,8 @@ namespace snqxap
                                         equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                         equipcb61.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb61.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
+                                        equipcb61.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb61.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
                                         break;
                                     }
                                 case 4:
@@ -8981,6 +9012,8 @@ namespace snqxap
                                         equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                         equipcb71.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb71.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
+                                        equipcb71.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb71.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
                                         break;
                                     }
                                 case 4:
@@ -9044,6 +9077,8 @@ namespace snqxap
                                         equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                         equipcb81.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb81.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
+                                        equipcb81.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb81.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
                                         break;
                                     }
                                 case 4:
@@ -9117,6 +9152,9 @@ namespace snqxap
                                         equipcb01.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb01.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                         equipcb01.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                        equipcb01.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb01.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                        equipcb01.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                         break;
                                     }
                                 case 4:
@@ -9187,6 +9225,9 @@ namespace snqxap
                                         equipcb11.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb11.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                         equipcb11.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                        equipcb11.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb11.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                        equipcb11.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                         break;
                                     }
                                 case 4:
@@ -9258,6 +9299,9 @@ namespace snqxap
                                         equipcb21.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb21.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                         equipcb21.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                        equipcb21.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb21.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                        equipcb21.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                         break;
                                     }
                                 case 4:
@@ -9329,6 +9373,9 @@ namespace snqxap
                                         equipcb31.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb31.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                         equipcb31.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                        equipcb31.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb31.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                        equipcb31.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                         break;
                                     }
                                 case 4:
@@ -9400,6 +9447,9 @@ namespace snqxap
                                         equipcb41.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb41.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                         equipcb41.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                        equipcb41.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb41.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                        equipcb41.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                         break;
                                     }
                                 case 4:
@@ -9471,6 +9521,9 @@ namespace snqxap
                                         equipcb51.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb51.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                         equipcb51.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                        equipcb51.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb51.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                        equipcb51.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                         break;
                                     }
                                 case 4:
@@ -9542,6 +9595,9 @@ namespace snqxap
                                         equipcb61.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb61.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                         equipcb61.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                        equipcb61.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb61.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                        equipcb61.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                         break;
                                     }
                                 case 4:
@@ -9613,6 +9669,9 @@ namespace snqxap
                                         equipcb71.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb71.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                         equipcb71.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                        equipcb71.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb71.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                        equipcb71.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                         break;
                                     }
                                 case 4:
@@ -9684,6 +9743,9 @@ namespace snqxap
                                         equipcb81.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb81.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                         equipcb81.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                        equipcb81.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb81.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                        equipcb81.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                         break;
                                     }
                                 case 4:
@@ -9768,6 +9830,9 @@ namespace snqxap
                                         equipcb01.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb01.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                         equipcb01.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                        equipcb01.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb01.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                        equipcb01.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                         break;
                                     }
                                 case 4:
@@ -9869,6 +9934,9 @@ namespace snqxap
                                         equipcb11.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb11.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                         equipcb11.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                        equipcb11.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb11.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                        equipcb11.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                         break;
                                     }
                                 case 4:
@@ -9970,6 +10038,9 @@ namespace snqxap
                                         equipcb21.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb21.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                         equipcb21.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                        equipcb21.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb21.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                        equipcb21.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                         break;
                                     }
                                 case 4:
@@ -10071,6 +10142,9 @@ namespace snqxap
                                         equipcb31.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb31.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                         equipcb31.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                        equipcb31.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb31.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                        equipcb31.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                         break;
                                     }
                                 case 4:
@@ -10172,6 +10246,9 @@ namespace snqxap
                                         equipcb41.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb41.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                         equipcb41.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                        equipcb41.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb41.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                        equipcb41.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                         break;
                                     }
                                 case 4:
@@ -10273,6 +10350,9 @@ namespace snqxap
                                         equipcb51.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb51.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                         equipcb51.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                        equipcb51.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb51.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                        equipcb51.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                         break;
                                     }
                                 case 4:
@@ -10374,6 +10454,9 @@ namespace snqxap
                                         equipcb61.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb61.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                         equipcb61.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                        equipcb61.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb61.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                        equipcb61.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                         break;
                                     }
                                 case 4:
@@ -10475,6 +10558,9 @@ namespace snqxap
                                         equipcb71.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb71.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                         equipcb71.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                        equipcb71.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb71.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                        equipcb71.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                         break;
                                     }
                                 case 4:
@@ -10576,6 +10662,9 @@ namespace snqxap
                                         equipcb81.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                         equipcb81.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                         equipcb81.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                        equipcb81.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                        equipcb81.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                        equipcb81.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                         break;
                                     }
                                 case 4:
@@ -10687,11 +10776,9 @@ namespace snqxap
                                         equipcb01.IsEnabled = true;
                                         equipcb01.Items.Clear();
                                         equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
-
+                                        for (int i =0;i<EQUIP_NUMBER;i++)
+                                            if(equip[i].type == 10)
+                                         equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                         break;
                                     }
                                 case 4:
@@ -10813,10 +10900,9 @@ namespace snqxap
                                         equipcb11.IsEnabled = true;
                                         equipcb11.Items.Clear();
                                         equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         break;
                                     }
@@ -10936,10 +11022,9 @@ namespace snqxap
                                         equipcb21.IsEnabled = true;
                                         equipcb21.Items.Clear();
                                         equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         break;
                                     }
@@ -11059,10 +11144,9 @@ namespace snqxap
                                         equipcb31.IsEnabled = true;
                                         equipcb31.Items.Clear();
                                         equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         break;
                                     }
@@ -11182,11 +11266,9 @@ namespace snqxap
                                         equipcb41.IsEnabled = true;
                                         equipcb41.Items.Clear();
                                         equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
-
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                         break;
                                     }
                                 case 4:
@@ -11305,11 +11387,9 @@ namespace snqxap
                                         equipcb51.IsEnabled = true;
                                         equipcb51.Items.Clear();
                                         equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
-
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                         break;
                                     }
                                 case 4:
@@ -11428,11 +11508,9 @@ namespace snqxap
                                         equipcb61.IsEnabled = true;
                                         equipcb61.Items.Clear();
                                         equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
-
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                         break;
                                     }
                                 case 4:
@@ -11551,10 +11629,9 @@ namespace snqxap
                                         equipcb71.IsEnabled = true;
                                         equipcb71.Items.Clear();
                                         equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         break;
                                     }
@@ -11674,10 +11751,9 @@ namespace snqxap
                                         equipcb81.IsEnabled = true;
                                         equipcb81.Items.Clear();
                                         equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         break;
                                     }
@@ -11797,10 +11873,9 @@ namespace snqxap
                                         equipcb03.IsEnabled = true;
                                         equipcb03.Items.Clear();
                                         equipcb03.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         break;
                                     }
@@ -11810,10 +11885,9 @@ namespace snqxap
                                         equipcb01.IsEnabled = true;
                                         equipcb01.Items.Clear();
                                         equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         equipcb03.IsEnabled = true;
                                         equipcb03.Items.Clear();
@@ -11852,10 +11926,9 @@ namespace snqxap
                                         equipcb03.IsEnabled = true;
                                         equipcb03.Items.Clear();
                                         equipcb03.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                         break;
                                     }
                                 case 5:
@@ -11954,10 +12027,9 @@ namespace snqxap
                                         equipcb13.IsEnabled = true;
                                         equipcb13.Items.Clear();
                                         equipcb13.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         break;
                                     }
@@ -11967,10 +12039,9 @@ namespace snqxap
                                         equipcb11.IsEnabled = true;
                                         equipcb11.Items.Clear();
                                         equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         equipcb13.IsEnabled = true;
                                         equipcb13.Items.Clear();
@@ -12009,10 +12080,9 @@ namespace snqxap
                                         equipcb13.IsEnabled = true;
                                         equipcb13.Items.Clear();
                                         equipcb13.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                         break;
                                     }
                                 case 5:
@@ -12114,10 +12184,9 @@ namespace snqxap
                                         equipcb23.IsEnabled = true;
                                         equipcb23.Items.Clear();
                                         equipcb23.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         break;
                                     }
@@ -12127,10 +12196,9 @@ namespace snqxap
                                         equipcb21.IsEnabled = true;
                                         equipcb21.Items.Clear();
                                         equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         equipcb23.IsEnabled = true;
                                         equipcb23.Items.Clear();
@@ -12267,10 +12335,9 @@ namespace snqxap
                                         equipcb33.IsEnabled = true;
                                         equipcb33.Items.Clear();
                                         equipcb33.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         break;
                                     }
@@ -12280,10 +12347,9 @@ namespace snqxap
                                         equipcb31.IsEnabled = true;
                                         equipcb31.Items.Clear();
                                         equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         equipcb33.IsEnabled = true;
                                         equipcb33.Items.Clear();
@@ -12322,10 +12388,9 @@ namespace snqxap
                                         equipcb33.IsEnabled = true;
                                         equipcb33.Items.Clear();
                                         equipcb33.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                         break;
                                     }
                                 case 5:
@@ -12427,10 +12492,9 @@ namespace snqxap
                                         equipcb43.IsEnabled = true;
                                         equipcb43.Items.Clear();
                                         equipcb43.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         break;
                                     }
@@ -12440,10 +12504,9 @@ namespace snqxap
                                         equipcb41.IsEnabled = true;
                                         equipcb41.Items.Clear();
                                         equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         equipcb43.IsEnabled = true;
                                         equipcb43.Items.Clear();
@@ -12482,10 +12545,9 @@ namespace snqxap
                                         equipcb43.IsEnabled = true;
                                         equipcb43.Items.Clear();
                                         equipcb43.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                         break;
                                     }
                                 case 5:
@@ -12587,10 +12649,9 @@ namespace snqxap
                                         equipcb53.IsEnabled = true;
                                         equipcb53.Items.Clear();
                                         equipcb53.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         break;
                                     }
@@ -12600,10 +12661,9 @@ namespace snqxap
                                         equipcb51.IsEnabled = true;
                                         equipcb51.Items.Clear();
                                         equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         equipcb53.IsEnabled = true;
                                         equipcb53.Items.Clear();
@@ -12642,10 +12702,9 @@ namespace snqxap
                                         equipcb53.IsEnabled = true;
                                         equipcb53.Items.Clear();
                                         equipcb53.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                         break;
                                     }
                                 case 5:
@@ -12745,10 +12804,9 @@ namespace snqxap
                                         equipcb63.IsEnabled = true;
                                         equipcb63.Items.Clear();
                                         equipcb63.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         break;
                                     }
@@ -12758,10 +12816,9 @@ namespace snqxap
                                         equipcb61.IsEnabled = true;
                                         equipcb61.Items.Clear();
                                         equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         equipcb63.IsEnabled = true;
                                         equipcb63.Items.Clear();
@@ -12800,10 +12857,9 @@ namespace snqxap
                                         equipcb63.IsEnabled = true;
                                         equipcb63.Items.Clear();
                                         equipcb63.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                         break;
                                     }
                                 case 5:
@@ -12904,10 +12960,9 @@ namespace snqxap
                                         equipcb73.IsEnabled = true;
                                         equipcb73.Items.Clear();
                                         equipcb73.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         break;
                                     }
@@ -12917,10 +12972,9 @@ namespace snqxap
                                         equipcb71.IsEnabled = true;
                                         equipcb71.Items.Clear();
                                         equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         equipcb73.IsEnabled = true;
                                         equipcb73.Items.Clear();
@@ -12959,10 +13013,9 @@ namespace snqxap
                                         equipcb73.IsEnabled = true;
                                         equipcb73.Items.Clear();
                                         equipcb73.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                         break;
                                     }
                                 case 5:
@@ -13063,10 +13116,9 @@ namespace snqxap
                                         equipcb83.IsEnabled = true;
                                         equipcb83.Items.Clear();
                                         equipcb83.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         break;
                                     }
@@ -13076,10 +13128,9 @@ namespace snqxap
                                         equipcb81.IsEnabled = true;
                                         equipcb81.Items.Clear();
                                         equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                         equipcb83.IsEnabled = true;
                                         equipcb83.Items.Clear();
@@ -13118,10 +13169,9 @@ namespace snqxap
                                         equipcb83.IsEnabled = true;
                                         equipcb83.Items.Clear();
                                         equipcb83.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                        for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            if (equip[i].type == 10)
+                                                equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                         break;
                                     }
                                 case 5:
@@ -13469,6 +13519,9 @@ namespace snqxap
                                 equipcb02.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                 equipcb02.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                 equipcb02.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                equipcb02.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                equipcb02.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                equipcb02.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
 
                                 break;
                             }
@@ -13486,6 +13539,9 @@ namespace snqxap
                                 equipcb12.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                 equipcb12.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                 equipcb12.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                equipcb12.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                equipcb12.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                equipcb12.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                 break;
                             }
                         case 2:
@@ -13502,6 +13558,9 @@ namespace snqxap
                                 equipcb22.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                 equipcb22.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                 equipcb22.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                equipcb22.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                equipcb22.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                equipcb22.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                 break;
                             }
                         case 3:
@@ -13518,6 +13577,9 @@ namespace snqxap
                                 equipcb32.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                 equipcb32.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                 equipcb32.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                equipcb32.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                equipcb32.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                equipcb32.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                 break;
                             }
                         case 4:
@@ -13534,6 +13596,9 @@ namespace snqxap
                                 equipcb42.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                 equipcb42.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                 equipcb42.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                equipcb42.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                equipcb42.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                equipcb42.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                 break;
                             }
                         case 5:
@@ -13550,6 +13615,9 @@ namespace snqxap
                                 equipcb52.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                 equipcb52.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                 equipcb52.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                equipcb52.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                equipcb52.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                equipcb52.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                 break;
                             }
                         case 6:
@@ -13566,6 +13634,9 @@ namespace snqxap
                                 equipcb62.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                 equipcb62.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                 equipcb62.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                equipcb62.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                equipcb62.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                equipcb62.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                 break;
                             }
                         case 7:
@@ -13582,6 +13653,9 @@ namespace snqxap
                                 equipcb72.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                 equipcb72.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                 equipcb72.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                equipcb72.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                equipcb72.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                equipcb72.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                 break;
                             }
                         case 8:
@@ -13598,6 +13672,9 @@ namespace snqxap
                                 equipcb82.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
                                 equipcb82.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
                                 equipcb82.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
+                                equipcb82.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
+                                equipcb82.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
+                                equipcb82.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
                                 break;
                             }
                     }
@@ -13619,10 +13696,9 @@ namespace snqxap
                                 equipcb02.IsEnabled = true;
                                 equipcb02.Items.Clear();
                                 equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                 break;
                             }
@@ -13638,10 +13714,9 @@ namespace snqxap
                                 equipcb12.IsEnabled = true;
                                 equipcb12.Items.Clear();
                                 equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                 break;
                             }
                         case 2:
@@ -13656,10 +13731,9 @@ namespace snqxap
                                 equipcb22.IsEnabled = true;
                                 equipcb22.Items.Clear();
                                 equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                 break;
                             }
                         case 3:
@@ -13674,10 +13748,9 @@ namespace snqxap
                                 equipcb32.IsEnabled = true;
                                 equipcb32.Items.Clear();
                                 equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                 break;
                             }
                         case 4:
@@ -13692,10 +13765,9 @@ namespace snqxap
                                 equipcb42.IsEnabled = true;
                                 equipcb42.Items.Clear();
                                 equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                 break;
                             }
                         case 5:
@@ -13710,10 +13782,9 @@ namespace snqxap
                                 equipcb52.IsEnabled = true;
                                 equipcb52.Items.Clear();
                                 equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                 break;
                             }
                         case 6:
@@ -13728,10 +13799,9 @@ namespace snqxap
                                 equipcb62.IsEnabled = true;
                                 equipcb62.Items.Clear();
                                 equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                 break;
                             }
                         case 7:
@@ -13746,10 +13816,9 @@ namespace snqxap
                                 equipcb72.IsEnabled = true;
                                 equipcb72.Items.Clear();
                                 equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                 break;
                             }
                         case 8:
@@ -13764,10 +13833,9 @@ namespace snqxap
                                 equipcb82.IsEnabled = true;
                                 equipcb82.Items.Clear();
                                 equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                 break;
                             }
                     }
@@ -13789,18 +13857,16 @@ namespace snqxap
                                 equipcb02.IsEnabled = true;
                                 equipcb02.Items.Clear();
                                 equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                 equipcb03.IsEnabled = true;
                                 equipcb03.Items.Clear();
                                 equipcb03.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb03.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb03.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb03.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb03.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                 break;
                             }
@@ -13816,17 +13882,15 @@ namespace snqxap
                                 equipcb12.IsEnabled = true;
                                 equipcb12.Items.Clear();
                                 equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                 equipcb13.IsEnabled = true;
                                 equipcb13.Items.Clear();
                                 equipcb13.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb13.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb13.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb13.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb13.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                 break;
                             }
@@ -13842,17 +13906,15 @@ namespace snqxap
                                 equipcb22.IsEnabled = true;
                                 equipcb22.Items.Clear();
                                 equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                 equipcb23.IsEnabled = true;
                                 equipcb23.Items.Clear();
                                 equipcb23.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb23.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb23.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb23.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb23.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
 
                                 break;
                             }
@@ -13868,17 +13930,15 @@ namespace snqxap
                                 equipcb32.IsEnabled = true;
                                 equipcb32.Items.Clear();
                                 equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                 equipcb33.IsEnabled = true;
                                 equipcb33.Items.Clear();
                                 equipcb33.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb33.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb33.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb33.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb33.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                 break;
                             }
                         case 4:
@@ -13893,17 +13953,15 @@ namespace snqxap
                                 equipcb42.IsEnabled = true;
                                 equipcb42.Items.Clear();
                                 equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                 equipcb43.IsEnabled = true;
                                 equipcb43.Items.Clear();
                                 equipcb43.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb43.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb43.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb43.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb43.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                 break;
                             }
                         case 5:
@@ -13918,17 +13976,15 @@ namespace snqxap
                                 equipcb52.IsEnabled = true;
                                 equipcb52.Items.Clear();
                                 equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                 equipcb53.IsEnabled = true;
                                 equipcb53.Items.Clear();
                                 equipcb53.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb53.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb53.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb53.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb53.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                 break;
                             }
                         case 6:
@@ -13943,17 +13999,15 @@ namespace snqxap
                                 equipcb62.IsEnabled = true;
                                 equipcb62.Items.Clear();
                                 equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                 equipcb63.IsEnabled = true;
                                 equipcb63.Items.Clear();
                                 equipcb63.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb63.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb63.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb63.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb63.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                 break;
                             }
                         case 7:
@@ -13968,17 +14022,15 @@ namespace snqxap
                                 equipcb72.IsEnabled = true;
                                 equipcb72.Items.Clear();
                                 equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                 equipcb73.IsEnabled = true;
                                 equipcb73.Items.Clear();
                                 equipcb73.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb73.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb73.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb73.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb73.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                 break;
                             }
                         case 8:
@@ -13993,17 +14045,15 @@ namespace snqxap
                                 equipcb82.IsEnabled = true;
                                 equipcb82.Items.Clear();
                                 equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                 equipcb83.IsEnabled = true;
                                 equipcb83.Items.Clear();
                                 equipcb83.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb83.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb83.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb83.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb83.Items.Add(BrushEquipCombobox(equip[3].rank, equip[3].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                    if (equip[i].type == 10)
+                                        equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                 break;
                             }
                     }
