@@ -585,7 +585,8 @@
                 <CheckBox Name="cbIsnight" Content="夜战" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="cbIsnight_Click"/>
                     <Label Content="敌人护甲值：" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="10,30,0,0"/>
                     <TextBox  TextChanged="enemyarmor_TextChanged" Name="enemyarmor" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="115,33,0,0" Opacity="0.5"/>
-                    <Button x:Name="xhbutton" Content="夏活相关" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="xhbutton_Click" Margin="80,78,0,0" Opacity="0.6"/>
+                    <Button x:Name="xhbutton" Content="夏活相关" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="xhbutton_Click" Margin="85,78,0,0" Opacity="0.6"/>
+                    <Button x:Name="calclevelupbutton" Content="练级计算器" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="calclevelup_Click" Margin="5,78,0,0" Opacity="0.6"/>
                 </Grid>
         </Grid>
     </Grid>

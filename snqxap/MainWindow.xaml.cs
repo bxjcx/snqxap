@@ -18035,6 +18035,10 @@ namespace snqxap
             s.ShowDialog();
         }
 
-
+        private void calclevelup_Click(object sender, RoutedEventArgs e)
+        {
+            calclevelup c = new calclevelup();
+            c.Show();
+        }
     }
 }

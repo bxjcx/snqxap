@@ -64,6 +64,9 @@
     <Compile Include="buffOn.xaml.cs">
       <DependentUpon>buffOn.xaml</DependentUpon>
     </Compile>
+    <Compile Include="calclevelup.xaml.cs">
+      <DependentUpon>calclevelup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="enemydata.xaml.cs">
       <DependentUpon>enemydata.xaml</DependentUpon>
     </Compile>
@@ -78,6 +81,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="buffOn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="calclevelup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
