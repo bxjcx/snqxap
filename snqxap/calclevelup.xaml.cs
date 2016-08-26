@@ -141,7 +141,8 @@ namespace snqxap
             leveldata[96] = 137900;
             leveldata[97] = 141800;
             leveldata[98] = 145700;
-
+            for(int i = 0;i<MAP_NUMBER;i++)
+                allmap[i] = new map();
             allmap[0].name = "01"; allmap[0].exp = 480; allmap[0].downlevel = 100;
             allmap[1].name = "02"; allmap[1].exp = 490; allmap[1].downlevel = 100;
             allmap[2].name = "03"; allmap[2].exp = 500; allmap[2].downlevel = 100;
@@ -227,10 +228,14 @@ namespace snqxap
 
         private void nowleveltb_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (nowleveltb.Text == "")
+                return;
             if (IsNumber(nowleveltb.Text))
             {
                 int nowlevel = int.Parse(nowleveltb.Text);
-                if (nowlevel >= 100 || nowlevel < 1)
+                if (nowlevel >= 100 )
+                    nowleveltb.Text = "99";
+                else if(nowlevel < 1)
                     nowleveltb.Text = "1";
                 nowdatatb.Text = "0";
             }
@@ -238,48 +243,221 @@ namespace snqxap
 
         private void nowdatatb_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (nowdatatb.Text == "")
+                return;
             if (IsNumber(nowdatatb.Text))
             {
                 int nowdata = int.Parse(nowdatatb.Text);
                 int nowlevel = int.Parse(nowleveltb.Text);
-                if (nowdata >= leveldata[nowlevel-1] || nowlevel < 0)
+                if (nowlevel < 0)
                     nowdatatb.Text = "0";
+                else if (nowdata >= leveldata[nowlevel - 1])
+                    nowdatatb.Text = (leveldata[nowlevel - 1] - 1).ToString();
+
             }
         }
 
         private void toleveltb_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (toleveltb.Text == "")
+                return;
             if (IsNumber(toleveltb.Text))
             {
                 int tolevel = int.Parse(toleveltb.Text);
                 int nowlevel = int.Parse(nowleveltb.Text);
-                if (tolevel >= 100 || tolevel <= nowlevel)
-                    toleveltb.Text = (nowlevel+1).ToString();
+                if (tolevel <= 0)
+                    toleveltb.Text = "1";
+                else if(tolevel > 100)
+                    toleveltb.Text = "100";
             }
+        }
+
+        private double switchteam(int nowlevel)
+        {
+            if (nowlevel < 10)
+                return 1;
+            else if (nowlevel < 30)
+                return 1.5;
+            else if (nowlevel < 70)
+                return 2;
+            else if (nowlevel < 90)
+                return 2.5;
+            else
+                return 3;
+        }
+
+        private double switchdownlevel(int nowlevel,int downlevel)
+        {
+            if (nowlevel < downlevel)
+                return 1;
+            else if (nowlevel < downlevel + 10)
+                return 0.8;
+            else if (nowlevel < downlevel + 20)
+                return 0.6;
+            else if (nowlevel < downlevel + 30)
+                return 0.4;
+            else if (nowlevel < downlevel + 40)
+                return 0.2;
+            else if (nowlevel < downlevel + 50)
+                return 0;
+            else
+                return -1;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             int mapselect = mapcb.SelectedIndex;
+            if (nowleveltb.Text == ""|| toleveltb.Text==""||nowdatatb.Text==""||mapselect==-1)
+                return;
             int nowlevel = int.Parse(nowleveltb.Text);
             int tolevel = int.Parse(toleveltb.Text);
-            int allexp = int.Parse(nowdatatb.Text);
-            int to10exp = int.Parse(nowdatatb.Text);
-            int t030exp = int.Parse(nowdatatb.Text);
-            int to70exp = int.Parse(nowdatatb.Text);
-            int to90exp = int.Parse(nowdatatb.Text);
-            int to100exp = int.Parse(nowdatatb.Text);
-            if (mapselect == -1)
-                return;
-            for (int i = nowlevel; i < tolevel; i++)
-                 allexp += leveldata[i - 1];
-            if (tolevel > 10 && nowlevel < 10)
-                for (int i = nowlevel; i < 10; i++)
-                    to10exp += leveldata[i - 1];
-            if (tolevel > 30 && nowlevel < 30)
-                for (int i = nowlevel; i < 10; i++)
-                    to10exp += leveldata[i - 1];
+            int nowexp = int.Parse(nowdatatb.Text);
 
+            int allcountpt = 0;
+            int allcountdz = 0;
+            int allcountmvp = 0;
+            int allcountdzmvp = 0;
+            double team = 1;
+            double shengganri = 1;
+            int exp = 0;
+            double downlevel = 1;
+            if (checkBox.IsChecked == true)
+                shengganri = 1.5;
+
+            for(int i = nowlevel; i < tolevel; i++)
+            {
+                team = switchteam(i);
+                downlevel = switchdownlevel(i, allmap[mapselect].downlevel);
+                    exp = leveldata[i - 1] - nowexp;
+                if (exp < 0)
+                {
+                    exp += leveldata[i - 1];
+                    nowexp -= leveldata[i - 1];
+                    continue;
+                }
+                if (downlevel > 0)
+                {
+                    int nowcount = (int)Math.Ceiling((double)exp / downlevel / allmap[mapselect].exp / shengganri / team);
+                    nowexp = (int)(nowcount * allmap[mapselect].exp * shengganri * downlevel * team) - exp;
+                    allcountpt += nowcount;
+                }
+                else if(downlevel == 0)
+                {
+                    int nowcount = (int)Math.Ceiling((double)exp / 5 / shengganri / team);
+                    nowexp = (int)(nowcount  * shengganri * 5) - exp;
+                    allcountpt += nowcount;
+                }
+                else if (downlevel < 0)
+                {
+                    int nowcount = (int)Math.Ceiling((double)exp / 3 / shengganri / team);
+                    nowexp = (int)(nowcount * shengganri * 3) - exp;
+                    allcountpt += nowcount;
+                }
+            }
+
+            nowexp = int.Parse(nowdatatb.Text);
+
+            for (int i = nowlevel; i < tolevel; i++)
+            {
+                team = switchteam(i);
+                downlevel = switchdownlevel(i, allmap[mapselect].downlevel);
+                exp = leveldata[i - 1] - nowexp;
+                if (exp < 0)
+                {
+                    exp += leveldata[i - 1];
+                    nowexp -= leveldata[i - 1];
+                    continue;
+                }
+                if (downlevel > 0)
+                {
+                    int nowcount = (int)Math.Ceiling((double)exp / downlevel / allmap[mapselect].exp / shengganri / team / 1.2);
+                    nowexp = (int)(nowcount * allmap[mapselect].exp * shengganri * downlevel * 1.2 * team) - exp;
+                    allcountdz += nowcount;
+                }
+                else if (downlevel == 0)
+                {
+                    int nowcount = (int)Math.Ceiling((double)exp / 5 / shengganri / team / 1.2);
+                    nowexp = (int)(nowcount * shengganri * 5 * 1.2) - exp;
+                    allcountdz += nowcount;
+                }
+                else if (downlevel < 0)
+                {
+                    int nowcount = (int)Math.Ceiling((double)exp / 3 / shengganri / team / 1.2);
+                    nowexp = (int)(nowcount * shengganri * 3 * 1.2) - exp;
+                    allcountdz += nowcount;
+                }
+            }
+
+            nowexp = int.Parse(nowdatatb.Text);
+
+            for (int i = nowlevel; i < tolevel; i++)
+            {
+                team = switchteam(i);
+                downlevel = switchdownlevel(i, allmap[mapselect].downlevel);
+                exp = leveldata[i - 1] - nowexp;
+                if (exp < 0)
+                {
+                    exp += leveldata[i - 1];
+                    nowexp -= leveldata[i - 1];
+                    continue;
+                }
+                if (downlevel > 0)
+                {
+                    int nowcount = (int)Math.Ceiling((double)exp / downlevel / allmap[mapselect].exp / shengganri / team / 1.3);
+                    nowexp = (int)(nowcount * allmap[mapselect].exp * shengganri * downlevel * 1.3 * team) - exp;
+                    allcountmvp += nowcount;
+                }
+                else if (downlevel == 0)
+                {
+                    int nowcount = (int)Math.Ceiling((double)exp / 5 / shengganri / team / 1.3);
+                    nowexp = (int)(nowcount * shengganri * 5 * 1.3) - exp;
+                    allcountmvp += nowcount;
+                }
+                else if (downlevel < 0)
+                {
+                    int nowcount = (int)Math.Ceiling((double)exp / 3 / shengganri / team / 1.3);
+                    nowexp = (int)(nowcount * shengganri * 3 * 1.3) - exp;
+                    allcountmvp += nowcount;
+                }
+            }
+
+            nowexp = int.Parse(nowdatatb.Text);
+
+            for (int i = nowlevel; i < tolevel; i++)
+            {
+                team = switchteam(i);
+                downlevel = switchdownlevel(i, allmap[mapselect].downlevel);
+                exp = leveldata[i - 1] - nowexp;
+                if (exp < 0)
+                {
+                    exp += leveldata[i - 1];
+                    nowexp -= leveldata[i - 1];
+                    continue;
+                }
+                if (downlevel > 0)
+                {
+                    int nowcount = (int)Math.Ceiling((double)exp / downlevel / allmap[mapselect].exp / shengganri / team / 1.5);
+                    nowexp = (int)(nowcount * allmap[mapselect].exp * shengganri * downlevel * 1.5 * team) - exp;
+                    allcountdzmvp += nowcount;
+                }
+                else if (downlevel == 0)
+                {
+                    int nowcount = (int)Math.Ceiling((double)exp / 5 / shengganri / team / 1.5);
+                    nowexp = (int)(nowcount * shengganri * 5 * 1.5) - exp;
+                    allcountdzmvp += nowcount;
+                }
+                else if (downlevel < 0)
+                {
+                    int nowcount = (int)Math.Ceiling((double)exp / 3 / shengganri / team / 1.5);
+                    nowexp = (int)(nowcount * shengganri * 3 * 1.5) - exp;
+                    allcountdzmvp += nowcount;
+                }
+            }
+
+            calclbpt.Content = allcountpt.ToString() + "次";
+                    calclbdz.Content = allcountdz.ToString() + "次";
+                    calclbmvp.Content = allcountmvp.ToString() + "次";
+                    calclbdzmvp.Content = allcountdzmvp.ToString() + "次";
         }
     }
 }
