@@ -5,19 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:snqxap"
         mc:Ignorable="d"
-           Title="练级计算器" Height="210" Width="460">
+           Title="练级计算器" Height="240" Width="460">
     <Viewbox Stretch="Fill">
-        <Grid  Height="180" Width="450">
-            <TextBox x:Name="nowleveltb" HorizontalAlignment="Left" Height="20" Margin="75,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50" TextChanged="nowleveltb_TextChanged"/>
-            <TextBox x:Name="nowdatatb" HorizontalAlignment="Left" Height="20" Margin="225,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50" TextChanged="nowdatatb_TextChanged"/>
-            <TextBox x:Name="toleveltb" HorizontalAlignment="Left" Height="20" Margin="378,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50" TextChanged="toleveltb_TextChanged"/>
-            <ComboBox x:Name="mapcb" HorizontalAlignment="Left" Margin="5,47,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
-            <Button x:Name="button" Content="计算" HorizontalAlignment="Left" Margin="155,47,0,0" VerticalAlignment="Top" Width="120" Click="button_Click"/>
-            <CheckBox x:Name="checkBox" Content="圣肝日" HorizontalAlignment="Left" Margin="308,50,0,0" VerticalAlignment="Top" Height="19" Width="70"/>
+        <Grid  Height="210" Width="450">
+            <TextBox x:Name="nowleveltb" HorizontalAlignment="Left" Height="20" Margin="75,18,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50" TextChanged="nowleveltb_TextChanged"/>
+            <TextBox x:Name="nowdatatb" HorizontalAlignment="Left" Height="20" Margin="225,18,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50" TextChanged="nowdatatb_TextChanged"/>
+            <TextBox x:Name="toleveltb" HorizontalAlignment="Left" Height="20" Margin="378,18,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50" TextChanged="toleveltb_TextChanged"/>
+            <ComboBox x:Name="mapcb" HorizontalAlignment="Left" Margin="5,53,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
+            <Button x:Name="button" Content="计算" HorizontalAlignment="Left" Margin="155,53,0,0" VerticalAlignment="Top" Width="120" Click="button_Click"/>
+            <CheckBox x:Name="checkBox" Content="圣肝日" HorizontalAlignment="Left" Margin="308,56,0,0" VerticalAlignment="Top" Height="19" Width="70"/>
             <Label x:Name="label" Content="还需战斗：普通：" HorizontalAlignment="Left" Margin="0,84,0,0" FontSize="15" VerticalAlignment="Top"/>
-            <Label x:Name="label2" Content="当前等级：" HorizontalAlignment="Left" Margin="5,7,0,0" FontSize="12" VerticalAlignment="Top"/>
-            <Label x:Name="label3" Content="当前经验：" HorizontalAlignment="Left" Margin="155,7,0,0" FontSize="12" VerticalAlignment="Top"/>
-            <Label x:Name="label4" Content="目标等级：" HorizontalAlignment="Left" Margin="308,7,0,0" FontSize="12" VerticalAlignment="Top"/>
+            <Label x:Name="label2" Content="当前等级：" HorizontalAlignment="Left" Margin="5,15,0,0" FontSize="12" VerticalAlignment="Top"/>
+            <Label x:Name="label3" Content="当前经验：" HorizontalAlignment="Left" Margin="155,15,0,0" FontSize="12" VerticalAlignment="Top"/>
+            <Label x:Name="label4" Content="目标等级：" HorizontalAlignment="Left" Margin="308,15,0,0" FontSize="12" VerticalAlignment="Top"/>
             <Label x:Name="calclbpt" Content="" HorizontalAlignment="Left" Margin="120,84,0,0" FontSize="15" VerticalAlignment="Top"/>
             <Label x:Name="label5" Content="队长：" HorizontalAlignment="Left" Margin="265,84,0,0" FontSize="15" VerticalAlignment="Top"/>
             <Label x:Name="label6" Content="MVP：" HorizontalAlignment="Left" Margin="71,116,0,0" FontSize="15" VerticalAlignment="Top"/>
@@ -25,7 +25,8 @@
             <Label x:Name="calclbdz" Content="" HorizontalAlignment="Left" Margin="313,84,0,0" FontSize="15" VerticalAlignment="Top"/>
             <Label x:Name="calclbmvp" Content="" HorizontalAlignment="Left" Margin="120,116,0,0" FontSize="15" VerticalAlignment="Top"/>
         <Label x:Name="calclbdzmvp" Content="" HorizontalAlignment="Left" Margin="313,116,0,0" FontSize="15" VerticalAlignment="Top"/>
-        <Label  Content="说明：…好像没什么好说明的。次数为战斗次数，不是进图次数。以上です。" HorizontalAlignment="Left" Margin="18,146,0,0" FontSize="12" VerticalAlignment="Top"/>
-    </Grid>
+            <Label  Content="说明：…好像没什么好说明的。次数为战斗次数，不是进图次数。以上です。" HorizontalAlignment="Left" Margin="18,146,0,0" FontSize="12" VerticalAlignment="Top"/>
+            <Label  Content="枪娘升级经验来自作者表格，衰减和各图经验来deathmoon1。（均是精品贴）" HorizontalAlignment="Left" Margin="18,169,0,0" FontSize="12" VerticalAlignment="Top"/>
+        </Grid>
     </Viewbox>
 </Window>

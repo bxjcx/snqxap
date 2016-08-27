@@ -146,7 +146,7 @@ namespace snqxap
             allmap[0].name = "01"; allmap[0].exp = 480; allmap[0].downlevel = 100;
             allmap[1].name = "02"; allmap[1].exp = 490; allmap[1].downlevel = 100;
             allmap[2].name = "03"; allmap[2].exp = 500; allmap[2].downlevel = 100;
-            allmap[3].name = "04"; allmap[3].exp = 510; allmap[3].downlevel = 100;
+            allmap[3].name = "04"; allmap[3].exp = 500; allmap[3].downlevel = 100;
             allmap[4].name = "11"; allmap[4].exp = 150; allmap[4].downlevel = 11;
             allmap[5].name = "12"; allmap[5].exp = 160; allmap[5].downlevel = 15;
             allmap[6].name = "13"; allmap[6].exp = 170; allmap[6].downlevel = 18;
@@ -436,20 +436,20 @@ namespace snqxap
                 }
                 if (downlevel > 0)
                 {
-                    int nowcount = (int)Math.Ceiling((double)exp / downlevel / allmap[mapselect].exp / shengganri / team / 1.5);
-                    nowexp = (int)(nowcount * allmap[mapselect].exp * shengganri * downlevel * 1.5 * team) - exp;
+                    int nowcount = (int)Math.Ceiling((double)exp / downlevel / allmap[mapselect].exp / shengganri / team / 1.2 / 1.3);
+                    nowexp = (int)(nowcount * allmap[mapselect].exp * shengganri * downlevel * 1.2 * 1.3 * team) - exp;
                     allcountdzmvp += nowcount;
                 }
                 else if (downlevel == 0)
                 {
-                    int nowcount = (int)Math.Ceiling((double)exp / 5 / shengganri / team / 1.5);
-                    nowexp = (int)(nowcount * shengganri * 5 * 1.5) - exp;
+                    int nowcount = (int)Math.Ceiling((double)exp / 5 / shengganri / team / 1.2 / 1.3);
+                    nowexp = (int)(nowcount * shengganri * 5 * 1.2 * 1.3) - exp;
                     allcountdzmvp += nowcount;
                 }
                 else if (downlevel < 0)
                 {
-                    int nowcount = (int)Math.Ceiling((double)exp / 3 / shengganri / team / 1.5);
-                    nowexp = (int)(nowcount * shengganri * 3 * 1.5) - exp;
+                    int nowcount = (int)Math.Ceiling((double)exp / 3 / shengganri / team / 1.2 / 1.3);
+                    nowexp = (int)(nowcount * shengganri * 3 * 1.2 * 1.3) - exp;
                     allcountdzmvp += nowcount;
                 }
             }
