@@ -344,13 +344,13 @@ namespace snqxap
                 else if(downlevel == 0)
                 {
                     int nowcount = (int)Math.Ceiling((double)exp / 5 / shengganri / team);
-                    nowexp = (int)(nowcount  * shengganri * 5) - exp;
+                    nowexp = (int)(nowcount  * shengganri * 5 * team) - exp;
                     allcountpt += nowcount;
                 }
                 else if (downlevel < 0)
                 {
                     int nowcount = (int)Math.Ceiling((double)exp / 3 / shengganri / team);
-                    nowexp = (int)(nowcount * shengganri * 3) - exp;
+                    nowexp = (int)(nowcount * shengganri * 3 * team) - exp;
                     allcountpt += nowcount;
                 }
             }
@@ -377,13 +377,13 @@ namespace snqxap
                 else if (downlevel == 0)
                 {
                     int nowcount = (int)Math.Ceiling((double)exp / 5 / shengganri / team / 1.2);
-                    nowexp = (int)(nowcount * shengganri * 5 * 1.2) - exp;
+                    nowexp = (int)(nowcount * shengganri * 5 * 1.2 * team) - exp;
                     allcountdz += nowcount;
                 }
                 else if (downlevel < 0)
                 {
                     int nowcount = (int)Math.Ceiling((double)exp / 3 / shengganri / team / 1.2);
-                    nowexp = (int)(nowcount * shengganri * 3 * 1.2) - exp;
+                    nowexp = (int)(nowcount * shengganri * 3 * 1.2 * team) - exp;
                     allcountdz += nowcount;
                 }
             }
@@ -410,13 +410,13 @@ namespace snqxap
                 else if (downlevel == 0)
                 {
                     int nowcount = (int)Math.Ceiling((double)exp / 5 / shengganri / team / 1.3);
-                    nowexp = (int)(nowcount * shengganri * 5 * 1.3) - exp;
+                    nowexp = (int)(nowcount * shengganri * 5 * 1.3 * team) - exp;
                     allcountmvp += nowcount;
                 }
                 else if (downlevel < 0)
                 {
                     int nowcount = (int)Math.Ceiling((double)exp / 3 / shengganri / team / 1.3);
-                    nowexp = (int)(nowcount * shengganri * 3 * 1.3) - exp;
+                    nowexp = (int)(nowcount * shengganri * 3 * 1.3 * team) - exp;
                     allcountmvp += nowcount;
                 }
             }
@@ -443,13 +443,13 @@ namespace snqxap
                 else if (downlevel == 0)
                 {
                     int nowcount = (int)Math.Ceiling((double)exp / 5 / shengganri / team / 1.2 / 1.3);
-                    nowexp = (int)(nowcount * shengganri * 5 * 1.2 * 1.3) - exp;
+                    nowexp = (int)(nowcount * shengganri * 5 * 1.2 * 1.3 * team) - exp;
                     allcountdzmvp += nowcount;
                 }
                 else if (downlevel < 0)
                 {
                     int nowcount = (int)Math.Ceiling((double)exp / 3 / shengganri / team / 1.2 / 1.3);
-                    nowexp = (int)(nowcount * shengganri * 3 * 1.2 * 1.3) - exp;
+                    nowexp = (int)(nowcount * shengganri * 3 * 1.2 * 1.3 * team) - exp;
                     allcountdzmvp += nowcount;
                 }
             }
