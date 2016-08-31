@@ -679,9 +679,7 @@ namespace snqxap
     //        gun[102].image = "/assets/71.png";
      //       gun[103].image = "/assets/71.png";
      //       gun[104].image = "/assets/71.png";
-           gun[109].image = "/assets/71.png";
-            gun[110].image = "/assets/71.png";
-            gun[111].image = "/assets/71.png";//G11
+
             gun[GUN_NUMBER].image = "";
 
                 for (int i = 0; i < 9; i++)
