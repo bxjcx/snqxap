@@ -53,6 +53,7 @@ namespace snqxap
         int[] equipbreakarmor = new int[9];
         double skilldowndodge;//对敌人技能debuff
         double skilldownhit;
+        double skilldowndamage;
         int[] lastgunindex = new int[9];//存上次格内枪娘
         int howmany;//计算在场枪娘数用
         bool innight;
@@ -169,6 +170,7 @@ namespace snqxap
             tank.Content = 0;
             enemydodge.Text = "10";
             enemyhit.Text = "20";
+            enemydamage.Text = "30";
 
             rbf0.IsChecked = false;
             rbf1.IsChecked = false;
@@ -714,6 +716,7 @@ namespace snqxap
 
             skilldowndodge = 1;
             skilldownhit = 1;
+            skilldowndamage = 1;
 
             for(int i =1;i<=101;i++)
             {
@@ -5089,17 +5092,18 @@ namespace snqxap
         /// 计算主T肉度
         /// </summary>
         /// <param name="combo">哪一格</param>
-        void   calctank(int combo)
+        void calctank(int combo)
         {
-            nowhit.Content = (Double.Parse(enemyhit.Text) * skilldownhit).ToString("0.00");  
-            switch(combo)
+            nowhit.Content = (Double.Parse(enemyhit.Text) * skilldownhit).ToString("0");  
+            nowdamage.Content = (Double.Parse(enemydamage.Text) * skilldowndamage).ToString("0");
+            switch (combo)
             {
                 case 0:
                     {
                         if(Combo0.SelectedIndex!=-1)
                         {
-                            if (Double.Parse(nowhit.Content.ToString()) != 0)
-                                tank.Content = (Double.Parse((Double.Parse(Lhp0.Content.ToString()) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             else
                                 tank.Content = 0;         
                         }
@@ -5111,8 +5115,8 @@ namespace snqxap
                     {
                         if (Combo1.SelectedIndex != -1)
                         {
-                            if (Double.Parse(nowhit.Content.ToString()) != 0)
-                                tank.Content = (Double.Parse((Double.Parse(Lhp1.Content.ToString()) / (1 / (1 + Double.Parse(Ldodge1.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp1.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge1.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             else
                                 tank.Content = 0;
                         }
@@ -5124,8 +5128,8 @@ namespace snqxap
                     {
                         if (Combo2.SelectedIndex != -1)
                         {
-                            if (Double.Parse(nowhit.Content.ToString()) != 0)
-                                tank.Content = (Double.Parse((Double.Parse(Lhp2.Content.ToString()) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp2.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             else
                                 tank.Content = 0;
                         }
@@ -5137,8 +5141,8 @@ namespace snqxap
                     {
                         if (Combo3.SelectedIndex != -1)
                         {
-                            if (Double.Parse(nowhit.Content.ToString()) != 0)
-                                tank.Content = (Double.Parse((Double.Parse(Lhp3.Content.ToString()) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp3.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             else
                                 tank.Content = 0;
                         }
@@ -5150,8 +5154,8 @@ namespace snqxap
                     {
                         if (Combo4.SelectedIndex != -1)
                         {
-                            if (Double.Parse(nowhit.Content.ToString()) != 0)
-                                tank.Content = (Double.Parse((Double.Parse(Lhp4.Content.ToString()) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp4.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             else
                                 tank.Content = 0;
                         }
@@ -5163,8 +5167,8 @@ namespace snqxap
                     {
                         if (Combo5.SelectedIndex != -1)
                         {
-                            if (Double.Parse(nowhit.Content.ToString()) != 0)
-                                tank.Content = (Double.Parse((Double.Parse(Lhp5.Content.ToString()) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp5.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             else
                                 tank.Content = 0;
                         }
@@ -5176,8 +5180,8 @@ namespace snqxap
                     {
                         if (Combo6.SelectedIndex != -1)
                         {
-                            if (Double.Parse(nowhit.Content.ToString()) != 0)
-                                tank.Content = (Double.Parse((Double.Parse(Lhp6.Content.ToString()) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp6.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             else
                                 tank.Content = 0;
                         }
@@ -5189,8 +5193,8 @@ namespace snqxap
                     {
                         if (Combo7.SelectedIndex != -1)
                         {
-                            if (Double.Parse(nowhit.Content.ToString()) != 0)
-                                tank.Content = (Double.Parse((Double.Parse(Lhp7.Content.ToString()) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp7.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             else
                                 tank.Content = 0;
                         }
@@ -5202,8 +5206,8 @@ namespace snqxap
                     {
                         if (Combo8.SelectedIndex != -1)
                         {
-                            if (Double.Parse(nowhit.Content.ToString()) != 0)
-                                tank.Content = (Double.Parse((Double.Parse(Lhp8.Content.ToString()) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp8.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             else
                                 tank.Content = 0;
                         }
@@ -5222,15 +5226,16 @@ namespace snqxap
         /// <param name="combo">哪一格</param>
         void calcftank(int combo)
         {
-            nowhit.Content = (Double.Parse(enemyhit.Text) * skilldownhit).ToString("0.00");  
+            nowhit.Content = (Double.Parse(enemyhit.Text) * skilldownhit).ToString("0");
+            nowdamage.Content = (Double.Parse(enemydamage.Text) * skilldowndamage).ToString("0");
             switch (combo)
             {
                 case 0:
                     {
                         if (Combo0.SelectedIndex != -1)
                         {
-                            if (Double.Parse(nowhit.Content.ToString()) != 0)
-                                ftank.Content = (Double.Parse((Double.Parse(Lhp0.Content.ToString()) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
+                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             else
                                 ftank.Content = 0;
                         }
@@ -5242,8 +5247,8 @@ namespace snqxap
                     {
                         if (Combo1.SelectedIndex != -1)
                         {
-                            if (Double.Parse(nowhit.Content.ToString()) != 0)
-                                ftank.Content = (Double.Parse((Double.Parse(Lhp1.Content.ToString()) / (1 / (1 + Double.Parse(Ldodge1.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
+                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp1.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge1.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             else
                                 ftank.Content = 0;
                         }
@@ -5255,8 +5260,8 @@ namespace snqxap
                     {
                         if (Combo2.SelectedIndex != -1)
                         {
-                            if (Double.Parse(nowhit.Content.ToString()) != 0)
-                                ftank.Content = (Double.Parse((Double.Parse(Lhp2.Content.ToString()) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
+                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp2.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             else
                                 ftank.Content = 0;
                         }
@@ -5268,8 +5273,8 @@ namespace snqxap
                     {
                         if (Combo3.SelectedIndex != -1)
                         {
-                            if (Double.Parse(nowhit.Content.ToString()) != 0)
-                                ftank.Content = (Double.Parse((Double.Parse(Lhp3.Content.ToString()) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
+                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp3.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             else
                                 ftank.Content = 0;
                         }
@@ -5281,8 +5286,8 @@ namespace snqxap
                     {
                         if (Combo4.SelectedIndex != -1)
                         {
-                            if (Double.Parse(nowhit.Content.ToString()) != 0)
-                                ftank.Content = (Double.Parse((Double.Parse(Lhp4.Content.ToString()) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
+                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp4.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             else
                                 ftank.Content = 0;
                         }
@@ -5294,8 +5299,8 @@ namespace snqxap
                     {
                         if (Combo5.SelectedIndex != -1)
                         {
-                            if (Double.Parse(nowhit.Content.ToString()) != 0)
-                                ftank.Content = (Double.Parse((Double.Parse(Lhp5.Content.ToString()) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
+                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp5.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             else
                                 ftank.Content = 0;
                         }
@@ -5307,8 +5312,8 @@ namespace snqxap
                     {
                         if (Combo6.SelectedIndex != -1)
                         {
-                            if (Double.Parse(nowhit.Content.ToString()) != 0)
-                                ftank.Content = (Double.Parse((Double.Parse(Lhp6.Content.ToString()) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
+                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp6.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             else
                                 ftank.Content = 0;
                         }
@@ -5320,8 +5325,8 @@ namespace snqxap
                     {
                         if (Combo7.SelectedIndex != -1)
                         {
-                            if (Double.Parse(nowhit.Content.ToString()) != 0)
-                                ftank.Content = (Double.Parse((Double.Parse(Lhp7.Content.ToString()) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
+                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp7.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             else
                                 ftank.Content = 0;
                         }
@@ -5333,8 +5338,8 @@ namespace snqxap
                     {
                         if (Combo8.SelectedIndex != -1)
                         {
-                            if (Double.Parse(nowhit.Content.ToString()) != 0)
-                                ftank.Content = (Double.Parse((Double.Parse(Lhp8.Content.ToString()) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
+                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp8.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             else
                                 ftank.Content = 0;
                         }
@@ -5503,6 +5508,7 @@ namespace snqxap
             tank.Content = 0;
             enemydodge.Text = "10";
             enemyhit.Text = "20";
+            enemydamage.Text = "30";
 
             rbf0.IsChecked = false;
             rbf1.IsChecked = false;
@@ -5676,6 +5682,7 @@ namespace snqxap
 
             skilldowndodge = 1;
             skilldownhit = 1;
+            skilldowndamage = 1;
         }
         /// <summary>
         /// 左上格技能打勾事件
@@ -5931,44 +5938,159 @@ namespace snqxap
             renewtank();
         }
         /// <summary>
-        /// 计算一战消耗 需修改
+        /// 计算一战消耗
         /// </summary>
         private void calceat()
         {
-            int ammo = 0;
-            int food = 0;
+            double ammo = 0;
+            double food = 0;
             if(Combo0.SelectedIndex!=-1&&Combo0.SelectedIndex!=GUN_NUMBER)//2 ar 3 smg 4 hg 5 rf 6 mg
             {
                 switch (gun[Combo0.SelectedIndex].what)
                 {
                     case 2:
                         {
-                            ammo += 12;
-                            food += 6;
+                            if (Level0.SelectedIndex >= 89)
+                            {
+                                ammo += 12;
+                                food += 6;
+                            }
+                            else if (Level0.SelectedIndex >= 69)
+                            {
+                                ammo += 10;
+                                food += 5;
+                            }
+                            else if (Level0.SelectedIndex >= 29)
+                            {
+                                ammo += 8;
+                                food += 4;
+                            }
+                            else if (Level0.SelectedIndex >= 9)
+                            {
+                                ammo += 6;
+                                food += 3;
+                            }
+                            else 
+                            {
+                                ammo += 4;
+                                food += 2;
+                            }
                             break;
                         }
                     case 3:
                         {
-                            ammo += 17;
-                            food += 6;
+                            if (Level0.SelectedIndex >= 89)
+                            {
+                                ammo += 17;
+                                food += 6;
+                            }
+                            else if (Level0.SelectedIndex >= 69)
+                            {
+                                ammo += 14;
+                                food += 5;
+                            }
+                            else if (Level0.SelectedIndex >= 29)
+                            {
+                                ammo += 11;
+                                food += 4;
+                            }
+                            else if (Level0.SelectedIndex >= 9)
+                            {
+                                ammo += 8;
+                                food += 3;
+                            }
+                            else
+                            {
+                                ammo += 5;
+                                food += 2;
+                            }
                             break;
                         }
                     case 4:
                         {
-                            ammo += 6;
-                            food += 3;
+                            if (Level0.SelectedIndex >= 89)
+                            {
+                                ammo += 6;
+                                food += 3;
+                            }
+                            else if (Level0.SelectedIndex >= 69)
+                            {
+                                ammo += 5;
+                                food += 2.5;
+                            }
+                            else if (Level0.SelectedIndex >= 29)
+                            {
+                                ammo += 4;
+                                food += 2;
+                            }
+                            else if (Level0.SelectedIndex >= 9)
+                            {
+                                ammo += 3;
+                                food += 1.5;
+                            }
+                            else
+                            {
+                                ammo += 2;
+                                food += 1;
+                            }
                             break;
                         }
                     case 5:
                         {
-                            ammo += 11;
-                            food += 9;
+                            if (Level0.SelectedIndex >= 89)
+                            {
+                                ammo += 11;
+                                food += 9;
+                            }
+                            else if (Level0.SelectedIndex >= 69)
+                            {
+                                ammo += 9;
+                                food += 7.5;
+                            }
+                            else if (Level0.SelectedIndex >= 29)
+                            {
+                                ammo += 7;
+                                food += 6;
+                            }
+                            else if (Level0.SelectedIndex >= 9)
+                            {
+                                ammo += 5;
+                                food += 4.5;
+                            }
+                            else
+                            {
+                                ammo += 3;
+                                food += 3;
+                            }
                             break;
                         }
                     case 6:
                         {
-                            ammo += 28;
-                            food += 9;
+                            if (Level0.SelectedIndex >= 89)
+                            {
+                                ammo += 28;
+                                food += 9;
+                            }
+                            else if (Level0.SelectedIndex >= 69)
+                            {
+                                ammo += 23;
+                                food += 7.5;
+                            }
+                            else if (Level0.SelectedIndex >= 29)
+                            {
+                                ammo += 18;
+                                food += 6;
+                            }
+                            else if (Level0.SelectedIndex >= 9)
+                            {
+                                ammo += 13;
+                                food += 4.5;
+                            }
+                            else
+                            {
+                                ammo += 8;
+                                food += 3;
+                            }
                             break;
                         }
                 }
@@ -5979,32 +6101,147 @@ namespace snqxap
                 {
                     case 2:
                         {
-                            ammo += 12;
-                            food += 6;
+                            if (Level1.SelectedIndex >= 89)
+                            {
+                                ammo += 12;
+                                food += 6;
+                            }
+                            else if (Level1.SelectedIndex >= 69)
+                            {
+                                ammo += 10;
+                                food += 5;
+                            }
+                            else if (Level1.SelectedIndex >= 29)
+                            {
+                                ammo += 8;
+                                food += 4;
+                            }
+                            else if (Level1.SelectedIndex >= 9)
+                            {
+                                ammo += 6;
+                                food += 3;
+                            }
+                            else
+                            {
+                                ammo += 4;
+                                food += 2;
+                            }
                             break;
                         }
                     case 3:
                         {
-                            ammo += 17;
-                            food += 6;
+                            if (Level1.SelectedIndex >= 89)
+                            {
+                                ammo += 17;
+                                food += 6;
+                            }
+                            else if (Level1.SelectedIndex >= 69)
+                            {
+                                ammo += 14;
+                                food += 5;
+                            }
+                            else if (Level1.SelectedIndex >= 29)
+                            {
+                                ammo += 11;
+                                food += 4;
+                            }
+                            else if (Level1.SelectedIndex >= 9)
+                            {
+                                ammo += 8;
+                                food += 3;
+                            }
+                            else
+                            {
+                                ammo += 5;
+                                food += 2;
+                            }
                             break;
                         }
                     case 4:
                         {
-                            ammo += 6;
-                            food += 3;
+                            if (Level1.SelectedIndex >= 89)
+                            {
+                                ammo += 6;
+                                food += 3;
+                            }
+                            else if (Level1.SelectedIndex >= 69)
+                            {
+                                ammo += 5;
+                                food += 2.5;
+                            }
+                            else if (Level1.SelectedIndex >= 29)
+                            {
+                                ammo += 4;
+                                food += 2;
+                            }
+                            else if (Level1.SelectedIndex >= 9)
+                            {
+                                ammo += 3;
+                                food += 1.5;
+                            }
+                            else
+                            {
+                                ammo += 2;
+                                food += 1;
+                            }
                             break;
                         }
                     case 5:
                         {
-                            ammo += 11;
-                            food += 9;
+                            if (Level1.SelectedIndex >= 89)
+                            {
+                                ammo += 11;
+                                food += 9;
+                            }
+                            else if (Level1.SelectedIndex >= 69)
+                            {
+                                ammo += 9;
+                                food += 7.5;
+                            }
+                            else if (Level1.SelectedIndex >= 29)
+                            {
+                                ammo += 7;
+                                food += 6;
+                            }
+                            else if (Level1.SelectedIndex >= 9)
+                            {
+                                ammo += 5;
+                                food += 4.5;
+                            }
+                            else
+                            {
+                                ammo += 3;
+                                food += 3;
+                            }
                             break;
                         }
                     case 6:
                         {
-                            ammo += 28;
-                            food += 9;
+                            if (Level1.SelectedIndex >= 89)
+                            {
+                                ammo += 28;
+                                food += 9;
+                            }
+                            else if (Level1.SelectedIndex >= 69)
+                            {
+                                ammo += 23;
+                                food += 7.5;
+                            }
+                            else if (Level1.SelectedIndex >= 29)
+                            {
+                                ammo += 18;
+                                food += 6;
+                            }
+                            else if (Level1.SelectedIndex >= 9)
+                            {
+                                ammo += 13;
+                                food += 4.5;
+                            }
+                            else
+                            {
+                                ammo += 8;
+                                food += 3;
+                            }
                             break;
                         }
                 }
@@ -6016,32 +6253,147 @@ namespace snqxap
                 {
                     case 2:
                         {
-                            ammo += 12;
-                            food += 6;
+                            if (Level2.SelectedIndex >= 89)
+                            {
+                                ammo += 12;
+                                food += 6;
+                            }
+                            else if (Level2.SelectedIndex >= 69)
+                            {
+                                ammo += 10;
+                                food += 5;
+                            }
+                            else if (Level2.SelectedIndex >= 29)
+                            {
+                                ammo += 8;
+                                food += 4;
+                            }
+                            else if (Level2.SelectedIndex >= 9)
+                            {
+                                ammo += 6;
+                                food += 3;
+                            }
+                            else
+                            {
+                                ammo += 4;
+                                food += 2;
+                            }
                             break;
                         }
                     case 3:
                         {
-                            ammo += 17;
-                            food += 6;
+                            if (Level2.SelectedIndex >= 89)
+                            {
+                                ammo += 17;
+                                food += 6;
+                            }
+                            else if (Level2.SelectedIndex >= 69)
+                            {
+                                ammo += 14;
+                                food += 5;
+                            }
+                            else if (Level2.SelectedIndex >= 29)
+                            {
+                                ammo += 11;
+                                food += 4;
+                            }
+                            else if (Level2.SelectedIndex >= 9)
+                            {
+                                ammo += 8;
+                                food += 3;
+                            }
+                            else
+                            {
+                                ammo += 5;
+                                food += 2;
+                            }
                             break;
                         }
                     case 4:
                         {
-                            ammo += 6;
-                            food += 3;
+                            if (Level2.SelectedIndex >= 89)
+                            {
+                                ammo += 6;
+                                food += 3;
+                            }
+                            else if (Level2.SelectedIndex >= 69)
+                            {
+                                ammo += 5;
+                                food += 2.5;
+                            }
+                            else if (Level2.SelectedIndex >= 29)
+                            {
+                                ammo += 4;
+                                food += 2;
+                            }
+                            else if (Level2.SelectedIndex >= 9)
+                            {
+                                ammo += 3;
+                                food += 1.5;
+                            }
+                            else
+                            {
+                                ammo += 2;
+                                food += 1;
+                            }
                             break;
                         }
                     case 5:
                         {
-                            ammo += 11;
-                            food += 9;
+                            if (Level2.SelectedIndex >= 89)
+                            {
+                                ammo += 11;
+                                food += 9;
+                            }
+                            else if (Level2.SelectedIndex >= 69)
+                            {
+                                ammo += 9;
+                                food += 7.5;
+                            }
+                            else if (Level2.SelectedIndex >= 29)
+                            {
+                                ammo += 7;
+                                food += 6;
+                            }
+                            else if (Level2.SelectedIndex >= 9)
+                            {
+                                ammo += 5;
+                                food += 4.5;
+                            }
+                            else
+                            {
+                                ammo += 3;
+                                food += 3;
+                            }
                             break;
                         }
                     case 6:
                         {
-                            ammo += 28;
-                            food += 9;
+                            if (Level2.SelectedIndex >= 89)
+                            {
+                                ammo += 28;
+                                food += 9;
+                            }
+                            else if (Level2.SelectedIndex >= 69)
+                            {
+                                ammo += 23;
+                                food += 7.5;
+                            }
+                            else if (Level2.SelectedIndex >= 29)
+                            {
+                                ammo += 18;
+                                food += 6;
+                            }
+                            else if (Level2.SelectedIndex >= 9)
+                            {
+                                ammo += 13;
+                                food += 4.5;
+                            }
+                            else
+                            {
+                                ammo += 8;
+                                food += 3;
+                            }
                             break;
                         }
                 }
@@ -6053,32 +6405,147 @@ namespace snqxap
                 {
                     case 2:
                         {
-                            ammo += 12;
-                            food += 6;
+                            if (Level3.SelectedIndex >= 89)
+                            {
+                                ammo += 12;
+                                food += 6;
+                            }
+                            else if (Level3.SelectedIndex >= 69)
+                            {
+                                ammo += 10;
+                                food += 5;
+                            }
+                            else if (Level3.SelectedIndex >= 29)
+                            {
+                                ammo += 8;
+                                food += 4;
+                            }
+                            else if (Level3.SelectedIndex >= 9)
+                            {
+                                ammo += 6;
+                                food += 3;
+                            }
+                            else
+                            {
+                                ammo += 4;
+                                food += 2;
+                            }
                             break;
                         }
                     case 3:
                         {
-                            ammo += 17;
-                            food += 6;
+                            if (Level3.SelectedIndex >= 89)
+                            {
+                                ammo += 17;
+                                food += 6;
+                            }
+                            else if (Level3.SelectedIndex >= 69)
+                            {
+                                ammo += 14;
+                                food += 5;
+                            }
+                            else if (Level3.SelectedIndex >= 29)
+                            {
+                                ammo += 11;
+                                food += 4;
+                            }
+                            else if (Level3.SelectedIndex >= 9)
+                            {
+                                ammo += 8;
+                                food += 3;
+                            }
+                            else
+                            {
+                                ammo += 5;
+                                food += 2;
+                            }
                             break;
                         }
                     case 4:
                         {
-                            ammo += 6;
-                            food += 3;
+                            if (Level3.SelectedIndex >= 89)
+                            {
+                                ammo += 6;
+                                food += 3;
+                            }
+                            else if (Level3.SelectedIndex >= 69)
+                            {
+                                ammo += 5;
+                                food += 2.5;
+                            }
+                            else if (Level3.SelectedIndex >= 29)
+                            {
+                                ammo += 4;
+                                food += 2;
+                            }
+                            else if (Level3.SelectedIndex >= 9)
+                            {
+                                ammo += 3;
+                                food += 1.5;
+                            }
+                            else
+                            {
+                                ammo += 2;
+                                food += 1;
+                            }
                             break;
                         }
                     case 5:
                         {
-                            ammo += 11;
-                            food += 9;
+                            if (Level3.SelectedIndex >= 89)
+                            {
+                                ammo += 11;
+                                food += 9;
+                            }
+                            else if (Level3.SelectedIndex >= 69)
+                            {
+                                ammo += 9;
+                                food += 7.5;
+                            }
+                            else if (Level3.SelectedIndex >= 29)
+                            {
+                                ammo += 7;
+                                food += 6;
+                            }
+                            else if (Level3.SelectedIndex >= 9)
+                            {
+                                ammo += 5;
+                                food += 4.5;
+                            }
+                            else
+                            {
+                                ammo += 3;
+                                food += 3;
+                            }
                             break;
                         }
                     case 6:
                         {
-                            ammo += 28;
-                            food += 9;
+                            if (Level3.SelectedIndex >= 89)
+                            {
+                                ammo += 28;
+                                food += 9;
+                            }
+                            else if (Level3.SelectedIndex >= 69)
+                            {
+                                ammo += 23;
+                                food += 7.5;
+                            }
+                            else if (Level3.SelectedIndex >= 29)
+                            {
+                                ammo += 18;
+                                food += 6;
+                            }
+                            else if (Level3.SelectedIndex >= 9)
+                            {
+                                ammo += 13;
+                                food += 4.5;
+                            }
+                            else
+                            {
+                                ammo += 8;
+                                food += 3;
+                            }
                             break;
                         }
                 }
@@ -6090,32 +6557,147 @@ namespace snqxap
                 {
                     case 2:
                         {
-                            ammo += 12;
-                            food += 6;
+                            if (Level4.SelectedIndex >= 89)
+                            {
+                                ammo += 12;
+                                food += 6;
+                            }
+                            else if (Level4.SelectedIndex >= 69)
+                            {
+                                ammo += 10;
+                                food += 5;
+                            }
+                            else if (Level4.SelectedIndex >= 29)
+                            {
+                                ammo += 8;
+                                food += 4;
+                            }
+                            else if (Level4.SelectedIndex >= 9)
+                            {
+                                ammo += 6;
+                                food += 3;
+                            }
+                            else
+                            {
+                                ammo += 4;
+                                food += 2;
+                            }
                             break;
                         }
                     case 3:
                         {
-                            ammo += 17;
-                            food += 6;
+                            if (Level4.SelectedIndex >= 89)
+                            {
+                                ammo += 17;
+                                food += 6;
+                            }
+                            else if (Level4.SelectedIndex >= 69)
+                            {
+                                ammo += 14;
+                                food += 5;
+                            }
+                            else if (Level4.SelectedIndex >= 29)
+                            {
+                                ammo += 11;
+                                food += 4;
+                            }
+                            else if (Level4.SelectedIndex >= 9)
+                            {
+                                ammo += 8;
+                                food += 3;
+                            }
+                            else
+                            {
+                                ammo += 5;
+                                food += 2;
+                            }
                             break;
                         }
                     case 4:
                         {
-                            ammo += 6;
-                            food += 3;
+                            if (Level4.SelectedIndex >= 89)
+                            {
+                                ammo += 6;
+                                food += 3;
+                            }
+                            else if (Level4.SelectedIndex >= 69)
+                            {
+                                ammo += 5;
+                                food += 2.5;
+                            }
+                            else if (Level4.SelectedIndex >= 29)
+                            {
+                                ammo += 4;
+                                food += 2;
+                            }
+                            else if (Level4.SelectedIndex >= 9)
+                            {
+                                ammo += 3;
+                                food += 1.5;
+                            }
+                            else
+                            {
+                                ammo += 2;
+                                food += 1;
+                            }
                             break;
                         }
                     case 5:
                         {
-                            ammo += 11;
-                            food += 9;
+                            if (Level4.SelectedIndex >= 89)
+                            {
+                                ammo += 11;
+                                food += 9;
+                            }
+                            else if (Level4.SelectedIndex >= 69)
+                            {
+                                ammo += 9;
+                                food += 7.5;
+                            }
+                            else if (Level4.SelectedIndex >= 29)
+                            {
+                                ammo += 7;
+                                food += 6;
+                            }
+                            else if (Level4.SelectedIndex >= 9)
+                            {
+                                ammo += 5;
+                                food += 4.5;
+                            }
+                            else
+                            {
+                                ammo += 3;
+                                food += 3;
+                            }
                             break;
                         }
                     case 6:
                         {
-                            ammo += 28;
-                            food += 9;
+                            if (Level4.SelectedIndex >= 89)
+                            {
+                                ammo += 28;
+                                food += 9;
+                            }
+                            else if (Level4.SelectedIndex >= 69)
+                            {
+                                ammo += 23;
+                                food += 7.5;
+                            }
+                            else if (Level4.SelectedIndex >= 29)
+                            {
+                                ammo += 18;
+                                food += 6;
+                            }
+                            else if (Level4.SelectedIndex >= 9)
+                            {
+                                ammo += 13;
+                                food += 4.5;
+                            }
+                            else
+                            {
+                                ammo += 8;
+                                food += 3;
+                            }
                             break;
                         }
                 }
@@ -6127,32 +6709,147 @@ namespace snqxap
                 {
                     case 2:
                         {
-                            ammo += 12;
-                            food += 6;
+                            if (Level5.SelectedIndex >= 89)
+                            {
+                                ammo += 12;
+                                food += 6;
+                            }
+                            else if (Level5.SelectedIndex >= 69)
+                            {
+                                ammo += 10;
+                                food += 5;
+                            }
+                            else if (Level5.SelectedIndex >= 29)
+                            {
+                                ammo += 8;
+                                food += 4;
+                            }
+                            else if (Level5.SelectedIndex >= 9)
+                            {
+                                ammo += 6;
+                                food += 3;
+                            }
+                            else
+                            {
+                                ammo += 4;
+                                food += 2;
+                            }
                             break;
                         }
                     case 3:
                         {
-                            ammo += 17;
-                            food += 6;
+                            if (Level5.SelectedIndex >= 89)
+                            {
+                                ammo += 17;
+                                food += 6;
+                            }
+                            else if (Level5.SelectedIndex >= 69)
+                            {
+                                ammo += 14;
+                                food += 5;
+                            }
+                            else if (Level5.SelectedIndex >= 29)
+                            {
+                                ammo += 11;
+                                food += 4;
+                            }
+                            else if (Level5.SelectedIndex >= 9)
+                            {
+                                ammo += 8;
+                                food += 3;
+                            }
+                            else
+                            {
+                                ammo += 5;
+                                food += 2;
+                            }
                             break;
                         }
                     case 4:
                         {
-                            ammo += 6;
-                            food += 3;
+                            if (Level5.SelectedIndex >= 89)
+                            {
+                                ammo += 6;
+                                food += 3;
+                            }
+                            else if (Level5.SelectedIndex >= 69)
+                            {
+                                ammo += 5;
+                                food += 2.5;
+                            }
+                            else if (Level5.SelectedIndex >= 29)
+                            {
+                                ammo += 4;
+                                food += 2;
+                            }
+                            else if (Level5.SelectedIndex >= 9)
+                            {
+                                ammo += 3;
+                                food += 1.5;
+                            }
+                            else
+                            {
+                                ammo += 2;
+                                food += 1;
+                            }
                             break;
                         }
                     case 5:
                         {
-                            ammo += 11;
-                            food += 9;
+                            if (Level5.SelectedIndex >= 89)
+                            {
+                                ammo += 11;
+                                food += 9;
+                            }
+                            else if (Level5.SelectedIndex >= 69)
+                            {
+                                ammo += 9;
+                                food += 7.5;
+                            }
+                            else if (Level5.SelectedIndex >= 29)
+                            {
+                                ammo += 7;
+                                food += 6;
+                            }
+                            else if (Level5.SelectedIndex >= 9)
+                            {
+                                ammo += 5;
+                                food += 4.5;
+                            }
+                            else
+                            {
+                                ammo += 3;
+                                food += 3;
+                            }
                             break;
                         }
                     case 6:
                         {
-                            ammo += 28;
-                            food += 9;
+                            if (Level5.SelectedIndex >= 89)
+                            {
+                                ammo += 28;
+                                food += 9;
+                            }
+                            else if (Level5.SelectedIndex >= 69)
+                            {
+                                ammo += 23;
+                                food += 7.5;
+                            }
+                            else if (Level5.SelectedIndex >= 29)
+                            {
+                                ammo += 18;
+                                food += 6;
+                            }
+                            else if (Level5.SelectedIndex >= 9)
+                            {
+                                ammo += 13;
+                                food += 4.5;
+                            }
+                            else
+                            {
+                                ammo += 8;
+                                food += 3;
+                            }
                             break;
                         }
                 }
@@ -6164,32 +6861,147 @@ namespace snqxap
                 {
                     case 2:
                         {
-                            ammo += 12;
-                            food += 6;
+                            if (Level6.SelectedIndex >= 89)
+                            {
+                                ammo += 12;
+                                food += 6;
+                            }
+                            else if (Level6.SelectedIndex >= 69)
+                            {
+                                ammo += 10;
+                                food += 5;
+                            }
+                            else if (Level6.SelectedIndex >= 29)
+                            {
+                                ammo += 8;
+                                food += 4;
+                            }
+                            else if (Level6.SelectedIndex >= 9)
+                            {
+                                ammo += 6;
+                                food += 3;
+                            }
+                            else
+                            {
+                                ammo += 4;
+                                food += 2;
+                            }
                             break;
                         }
                     case 3:
                         {
-                            ammo += 17;
-                            food += 6;
+                            if (Level6.SelectedIndex >= 89)
+                            {
+                                ammo += 17;
+                                food += 6;
+                            }
+                            else if (Level6.SelectedIndex >= 69)
+                            {
+                                ammo += 14;
+                                food += 5;
+                            }
+                            else if (Level6.SelectedIndex >= 29)
+                            {
+                                ammo += 11;
+                                food += 4;
+                            }
+                            else if (Level6.SelectedIndex >= 9)
+                            {
+                                ammo += 8;
+                                food += 3;
+                            }
+                            else
+                            {
+                                ammo += 5;
+                                food += 2;
+                            }
                             break;
                         }
                     case 4:
                         {
-                            ammo += 6;
-                            food += 3;
+                            if (Level6.SelectedIndex >= 89)
+                            {
+                                ammo += 6;
+                                food += 3;
+                            }
+                            else if (Level6.SelectedIndex >= 69)
+                            {
+                                ammo += 5;
+                                food += 2.5;
+                            }
+                            else if (Level6.SelectedIndex >= 29)
+                            {
+                                ammo += 4;
+                                food += 2;
+                            }
+                            else if (Level6.SelectedIndex >= 9)
+                            {
+                                ammo += 3;
+                                food += 1.5;
+                            }
+                            else
+                            {
+                                ammo += 2;
+                                food += 1;
+                            }
                             break;
                         }
                     case 5:
                         {
-                            ammo += 11;
-                            food += 9;
+                            if (Level6.SelectedIndex >= 89)
+                            {
+                                ammo += 11;
+                                food += 9;
+                            }
+                            else if (Level6.SelectedIndex >= 69)
+                            {
+                                ammo += 9;
+                                food += 7.5;
+                            }
+                            else if (Level6.SelectedIndex >= 29)
+                            {
+                                ammo += 7;
+                                food += 6;
+                            }
+                            else if (Level6.SelectedIndex >= 9)
+                            {
+                                ammo += 5;
+                                food += 4.5;
+                            }
+                            else
+                            {
+                                ammo += 3;
+                                food += 3;
+                            }
                             break;
                         }
                     case 6:
                         {
-                            ammo += 28;
-                            food += 9;
+                            if (Level6.SelectedIndex >= 89)
+                            {
+                                ammo += 28;
+                                food += 9;
+                            }
+                            else if (Level6.SelectedIndex >= 69)
+                            {
+                                ammo += 23;
+                                food += 7.5;
+                            }
+                            else if (Level6.SelectedIndex >= 29)
+                            {
+                                ammo += 18;
+                                food += 6;
+                            }
+                            else if (Level6.SelectedIndex >= 9)
+                            {
+                                ammo += 13;
+                                food += 4.5;
+                            }
+                            else
+                            {
+                                ammo += 8;
+                                food += 3;
+                            }
                             break;
                         }
                 }
@@ -6201,32 +7013,147 @@ namespace snqxap
                 {
                     case 2:
                         {
-                            ammo += 12;
-                            food += 6;
+                            if (Level7.SelectedIndex >= 89)
+                            {
+                                ammo += 12;
+                                food += 6;
+                            }
+                            else if (Level7.SelectedIndex >= 69)
+                            {
+                                ammo += 10;
+                                food += 5;
+                            }
+                            else if (Level7.SelectedIndex >= 29)
+                            {
+                                ammo += 8;
+                                food += 4;
+                            }
+                            else if (Level7.SelectedIndex >= 9)
+                            {
+                                ammo += 6;
+                                food += 3;
+                            }
+                            else
+                            {
+                                ammo += 4;
+                                food += 2;
+                            }
                             break;
                         }
                     case 3:
                         {
-                            ammo += 17;
-                            food += 6;
+                            if (Level7.SelectedIndex >= 89)
+                            {
+                                ammo += 17;
+                                food += 6;
+                            }
+                            else if (Level7.SelectedIndex >= 69)
+                            {
+                                ammo += 14;
+                                food += 5;
+                            }
+                            else if (Level7.SelectedIndex >= 29)
+                            {
+                                ammo += 11;
+                                food += 4;
+                            }
+                            else if (Level7.SelectedIndex >= 9)
+                            {
+                                ammo += 8;
+                                food += 3;
+                            }
+                            else
+                            {
+                                ammo += 5;
+                                food += 2;
+                            }
                             break;
                         }
                     case 4:
                         {
-                            ammo += 6;
-                            food += 3;
+                            if (Level7.SelectedIndex >= 89)
+                            {
+                                ammo += 6;
+                                food += 3;
+                            }
+                            else if (Level7.SelectedIndex >= 69)
+                            {
+                                ammo += 5;
+                                food += 2.5;
+                            }
+                            else if (Level7.SelectedIndex >= 29)
+                            {
+                                ammo += 4;
+                                food += 2;
+                            }
+                            else if (Level7.SelectedIndex >= 9)
+                            {
+                                ammo += 3;
+                                food += 1.5;
+                            }
+                            else
+                            {
+                                ammo += 2;
+                                food += 1;
+                            }
                             break;
                         }
                     case 5:
                         {
-                            ammo += 11;
-                            food += 9;
+                            if (Level7.SelectedIndex >= 89)
+                            {
+                                ammo += 11;
+                                food += 9;
+                            }
+                            else if (Level7.SelectedIndex >= 69)
+                            {
+                                ammo += 9;
+                                food += 7.5;
+                            }
+                            else if (Level7.SelectedIndex >= 29)
+                            {
+                                ammo += 7;
+                                food += 6;
+                            }
+                            else if (Level7.SelectedIndex >= 9)
+                            {
+                                ammo += 5;
+                                food += 4.5;
+                            }
+                            else
+                            {
+                                ammo += 3;
+                                food += 3;
+                            }
                             break;
                         }
                     case 6:
                         {
-                            ammo += 28;
-                            food += 9;
+                            if (Level7.SelectedIndex >= 89)
+                            {
+                                ammo += 28;
+                                food += 9;
+                            }
+                            else if (Level7.SelectedIndex >= 69)
+                            {
+                                ammo += 23;
+                                food += 7.5;
+                            }
+                            else if (Level7.SelectedIndex >= 29)
+                            {
+                                ammo += 18;
+                                food += 6;
+                            }
+                            else if (Level7.SelectedIndex >= 9)
+                            {
+                                ammo += 13;
+                                food += 4.5;
+                            }
+                            else
+                            {
+                                ammo += 8;
+                                food += 3;
+                            }
                             break;
                         }
                 }
@@ -6238,32 +7165,147 @@ namespace snqxap
                 {
                     case 2:
                         {
-                            ammo += 12;
-                            food += 6;
+                            if (Level8.SelectedIndex >= 89)
+                            {
+                                ammo += 12;
+                                food += 6;
+                            }
+                            else if (Level8.SelectedIndex >= 69)
+                            {
+                                ammo += 10;
+                                food += 5;
+                            }
+                            else if (Level8.SelectedIndex >= 29)
+                            {
+                                ammo += 8;
+                                food += 4;
+                            }
+                            else if (Level8.SelectedIndex >= 9)
+                            {
+                                ammo += 6;
+                                food += 3;
+                            }
+                            else
+                            {
+                                ammo += 4;
+                                food += 2;
+                            }
                             break;
                         }
                     case 3:
                         {
-                            ammo += 17;
-                            food += 6;
+                            if (Level8.SelectedIndex >= 89)
+                            {
+                                ammo += 17;
+                                food += 6;
+                            }
+                            else if (Level8.SelectedIndex >= 69)
+                            {
+                                ammo += 14;
+                                food += 5;
+                            }
+                            else if (Level8.SelectedIndex >= 29)
+                            {
+                                ammo += 11;
+                                food += 4;
+                            }
+                            else if (Level8.SelectedIndex >= 9)
+                            {
+                                ammo += 8;
+                                food += 3;
+                            }
+                            else
+                            {
+                                ammo += 5;
+                                food += 2;
+                            }
                             break;
                         }
                     case 4:
                         {
-                            ammo += 6;
-                            food += 3;
+                            if (Level8.SelectedIndex >= 89)
+                            {
+                                ammo += 6;
+                                food += 3;
+                            }
+                            else if (Level8.SelectedIndex >= 69)
+                            {
+                                ammo += 5;
+                                food += 2.5;
+                            }
+                            else if (Level8.SelectedIndex >= 29)
+                            {
+                                ammo += 4;
+                                food += 2;
+                            }
+                            else if (Level8.SelectedIndex >= 9)
+                            {
+                                ammo += 3;
+                                food += 1.5;
+                            }
+                            else
+                            {
+                                ammo += 2;
+                                food += 1;
+                            }
                             break;
                         }
                     case 5:
                         {
-                            ammo += 11;
-                            food += 9;
+                            if (Level8.SelectedIndex >= 89)
+                            {
+                                ammo += 11;
+                                food += 9;
+                            }
+                            else if (Level8.SelectedIndex >= 69)
+                            {
+                                ammo += 9;
+                                food += 7.5;
+                            }
+                            else if (Level8.SelectedIndex >= 29)
+                            {
+                                ammo += 7;
+                                food += 6;
+                            }
+                            else if (Level8.SelectedIndex >= 9)
+                            {
+                                ammo += 5;
+                                food += 4.5;
+                            }
+                            else
+                            {
+                                ammo += 3;
+                                food += 3;
+                            }
                             break;
                         }
                     case 6:
                         {
-                            ammo += 28;
-                            food += 9;
+                            if (Level8.SelectedIndex >= 89)
+                            {
+                                ammo += 28;
+                                food += 9;
+                            }
+                            else if (Level8.SelectedIndex >= 69)
+                            {
+                                ammo += 23;
+                                food += 7.5;
+                            }
+                            else if (Level8.SelectedIndex >= 29)
+                            {
+                                ammo += 18;
+                                food += 6;
+                            }
+                            else if (Level8.SelectedIndex >= 9)
+                            {
+                                ammo += 13;
+                                food += 4.5;
+                            }
+                            else
+                            {
+                                ammo += 8;
+                                food += 3;
+                            }
                             break;
                         }
                 }
@@ -6893,6 +7935,8 @@ namespace snqxap
             equipcb03.Items.Clear();
             equipcb03.IsEnabled = false;
             loadequipcb(select, levelselect, 0);
+
+            calceat();
       //      calcskill(0, select, skillselect, cb0.IsChecked == true, levelselect);
         }
         /// <summary>
@@ -6925,6 +7969,8 @@ namespace snqxap
             equipcb13.IsEnabled = false;
             equipcb13.ToolTip = null;
             loadequipcb(select, levelselect, 1);
+
+            calceat();
             //      calcskill(1, select, skillselect, cb1.IsChecked == true, levelselect);
         }
         /// <summary>
@@ -6957,6 +8003,8 @@ namespace snqxap
             equipcb23.IsEnabled = false;
             equipcb23.ToolTip = null;
             loadequipcb(select, levelselect, 2);
+
+            calceat();
             //      calcskill(2, select, skillselect, cb2.IsChecked == true, levelselect);
         }
         /// <summary>
@@ -6989,6 +8037,8 @@ namespace snqxap
             equipcb33.IsEnabled = false;
             equipcb33.ToolTip = null;
             loadequipcb(select, levelselect, 3);
+
+            calceat();
             //       calcskill(3, select, skillselect, cb3.IsChecked == true, levelselect);
         }
         /// <summary>
@@ -7021,6 +8071,8 @@ namespace snqxap
             equipcb43.IsEnabled = false;
             equipcb43.ToolTip = null;
             loadequipcb(select, levelselect, 4);
+
+            calceat();
             ///       calcskill(4, select, skillselect, cb4.IsChecked == true, levelselect);
         }
         /// <summary>
@@ -7053,6 +8105,8 @@ namespace snqxap
             equipcb53.IsEnabled = false;
             equipcb53.ToolTip = null;
             loadequipcb(select, levelselect, 5);
+
+            calceat();
             //        calcskill(5, select, skillselect, cb5.IsChecked == true, levelselect);
         }
         /// <summary>
@@ -7085,6 +8139,8 @@ namespace snqxap
             equipcb63.IsEnabled = false;
             equipcb63.ToolTip = null;
             loadequipcb(select, levelselect, 6);
+
+            calceat();
             //         calcskill(6, select, skillselect, cb6.IsChecked == true, levelselect);
         }
         /// <summary>
@@ -7117,6 +8173,8 @@ namespace snqxap
             equipcb73.IsEnabled = false;
             equipcb73.ToolTip = null;
             loadequipcb(select, levelselect, 7);
+
+            calceat();
             //      calcskill(7, select, skillselect, cb7.IsChecked == true, levelselect);
         }
         /// <summary>
@@ -7149,6 +8207,8 @@ namespace snqxap
             equipcb83.IsEnabled = false;
             equipcb83.ToolTip = null;
             loadequipcb(select, levelselect, 8);
+
+            calceat();
             //     calcskill(8, select, skillselect, cb8.IsChecked == true, levelselect);
         }
         /// <summary>
@@ -7636,8 +8696,13 @@ namespace snqxap
                     }
                 case 201:
                     {
+                        if (ischecked)
+                        {
+                            skilldowndamage *= 1 - (Math.Round(num1) / 100);
+                            renewtank();
+                        }
                         renewtime(combo, num2);
-                        string read = "降低敌方" + num1.ToString("f0") + "%伤害(不算)";
+                        string read = "降低敌方" + num1.ToString("f0") + "%伤害";
                         renewread(combo, read);
                         return;
                     }
@@ -7665,8 +8730,6 @@ namespace snqxap
                         if (ischecked)
                         {
                             skilldowndodge *= 1- (Math.Round(num1) / 100);
-                            if (skilldowndodge < 0)
-                                skilldowndodge = 0;
                             for (int i = 0; i < 9; i++)
                             {
                                 renewindex(i);
@@ -7679,8 +8742,13 @@ namespace snqxap
                     }
                 case 231:
                     {
+                        if (ischecked)
+                        {
+                            skilldowndamage *= 1 - (Math.Round(num1) / 100);
+                            renewtank();
+                        }
                         renewtime(combo, num2);
-                        string read = "(夜)降低敌方" + num1.ToString("f0") + "%伤害(不算)";
+                        string read = "(夜)降低敌方" + num1.ToString("f0") + "%伤害";
                         renewread(combo, read);
                         return;
                     }
@@ -7698,8 +8766,13 @@ namespace snqxap
                     }
                 case 301:
                     {
+                        if (ischecked)
+                        {
+                            skilldowndamage *= 1 - (Math.Round(num1) / 100);
+                            renewtank();
+                        }
                         renewtime(combo, num2);
-                        string read = "降低目标" + num1.ToString("f0") + "%伤害(不算)";
+                        string read = "降低目标" + num1.ToString("f0") + "%伤害";
                         renewread(combo, read);
                         return;
                     }
@@ -18121,7 +19194,7 @@ namespace snqxap
         private void enemyarmor_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!IsNumber(enemyarmor.Text))
-                enemyhit.Text = "0";
+                enemyarmor.Text = "0";
             for (int i = 0; i < 9; i++)
             {
                 renewindex(i);
@@ -18139,6 +19212,13 @@ namespace snqxap
         {
             calclevelup c = new calclevelup();
             c.Show();
+        }
+
+        private void TextBox3_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!IsNumber(enemydamage.Text))
+                enemydamage.Text = "0";
+            renewtank();
         }
     }
 }
