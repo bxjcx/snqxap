@@ -29,7 +29,7 @@ namespace snqxap
     public partial class MainWindow : Window
     {
         
-        public const int GUN_NUMBER = 112; //枪娘总数
+        public const int GUN_NUMBER = 113; //枪娘总数
         public const int EQUIP_NUMBER = 35;
         /// <summary>
         /// 0-3 外骨骼 4-7 穿甲弹 8-11 高速弹 12-15 光学瞄具 16-19 全息 20-23 红点 24-27夜视 28五星穿甲 29五星夜视
@@ -393,6 +393,10 @@ namespace snqxap
             gun[111].eatratio = 135; gun[111].ratiododge = 120; gun[111].ratiohit = 120; gun[111].ratiohp = 110; gun[111].ratiopow = 95; gun[111].ratiorate = 125;
             gun[111].type = 101; gun[111].probability = 32; gun[111].skilleffect1 = 30; gun[111].skilleffect2 = 8; gun[111].skilleffect3 = 0; gun[111].skilleffect4 = 0; gun[111].growth = 1.2; gun[111].growth_type = 2;
 
+            gun[112].name = "G36C"; gun[112].what = 3; gun[112].crit = 0.05; gun[112].belt = 0; gun[112].number = 3; gun[112].effect0 = 1; gun[112].effect1 = 4; gun[112].effect2 = 7; gun[112].damageup = 0.1; gun[112].shotspeedup = 0.08; gun[112].to = 2;
+            gun[112].eatratio = 95; gun[112].ratiododge = 120; gun[112].ratiohit = 110; gun[112].ratiohp = 115; gun[112].ratiopow = 135; gun[112].ratiorate = 110;
+            gun[112].type = 106; gun[112].probability = 20; gun[112].skilleffect1 = 2; gun[112].skilleffect2 = 0; gun[112].skilleffect3 = 0; gun[112].skilleffect4 = 0; gun[112].growth = 1; gun[112].growth_type = 2;
+
             for (int i = 0; i < GUN_NUMBER + 1; i++)//加颜色
             {
                 Label l = new Label();
@@ -681,7 +685,7 @@ namespace snqxap
     //        gun[102].image = "/assets/71.png";
      //       gun[103].image = "/assets/71.png";
      //       gun[104].image = "/assets/71.png";
-
+            gun[112].image = "/assets/71.png";
             gun[GUN_NUMBER].image = "";
 
                 for (int i = 0; i < 9; i++)
