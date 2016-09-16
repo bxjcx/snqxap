@@ -25,7 +25,7 @@
             <Label x:Name="calclbdz" Content="" HorizontalAlignment="Left" Margin="313,84,0,0" FontSize="15" VerticalAlignment="Top"/>
             <Label x:Name="calclbmvp" Content="" HorizontalAlignment="Left" Margin="120,116,0,0" FontSize="15" VerticalAlignment="Top"/>
             <Label x:Name="calclbdzmvp" Content="" HorizontalAlignment="Left" Margin="313,116,0,0" FontSize="15" VerticalAlignment="Top"/>
-            <Label  Content="说明：…好像没什么好说明的。次数为战斗次数，不是进图次数。以上です。" HorizontalAlignment="Left" Margin="18,146,0,0" FontSize="12" VerticalAlignment="Top"/>
+            <Label  Content="网页版：jyying.cn/snqxap/calclevel.html。次数为战斗次数，不是进图次数。" HorizontalAlignment="Left" Margin="11,146,0,0" FontSize="12" VerticalAlignment="Top"/>
             <Label  Content="枪娘升级经验来自作者表格，衰减和各图经验来自deathmoon1。（均是精品贴）" HorizontalAlignment="Left" Margin="5,172,0,0" FontSize="12" VerticalAlignment="Top"/>
         </Grid>
     </Viewbox>
