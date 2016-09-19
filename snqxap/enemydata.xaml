@@ -12,37 +12,37 @@
             <ColumnDefinition Width="100*"/>
         </Grid.ColumnDefinitions>
         <Label Foreground="Chocolate" FontSize="14" Content="Prowler(轱辘车)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="205"/>
-        <Label FontSize="14" Content="命中3-18 闪避1-3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,40,0,0" Width="205"/>
+        <Label FontSize="14" Content="伤害1-3 命中3-18 闪避1-3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,40,0,0" Width="205"/>
         <Image  Source="/assets/Prowler.jpg" Margin="220,10,7,554"/>
-        <Image  Source="/assets/ProwlerGun.jpg" Margin="148,10,82,554"/>
+       <!-- <Image  Source="/assets/ProwlerGun.jpg" Margin="148,10,82,554"/>-->
         <Label Foreground="Chocolate" FontSize="14" Content="Scouts(侦察兵火箭)" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="79,77,0,0" Width="205"/>
-        <Label Foreground="Chocolate" FontSize="14" Content="命中3-18 闪避2-15" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="79,107,0,0" Width="205"/>
+        <Label FontSize="14" Content="伤害2-6 命中3-18 闪避2-15" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="79,107,0,0" Width="205"/>
         <Image  Source="/assets/Scouts.jpg" Margin="10,70,223,487"/>
-        <Label FontSize="14" Content="Dinergate(机械狗)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,137,0,0" Width="205"/>
-        <Label FontSize="14" Content="命中10-25 闪避1-5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,167,0,0" Width="205"/>
+        <Label Foreground="Chocolate" FontSize="14" Content="Dinergate(机械狗)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,137,0,0" Width="205"/>
+        <Label FontSize="14" Content="伤害3-9 命中10-25 闪避1-5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,167,0,0" Width="205"/>
         <Image  Source="/assets/Dinergate.jpg" Margin="220,135,7,425"/>
         <Label Foreground="Chocolate" FontSize="14" Content="Ripper(紫头发SMG)" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="79,197,0,0" Width="205"/>
-        <Label FontSize="14" Content="命中5-20 闪避2-13" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="79,227,0,0" Width="205"/>
-        <Image  Source="/assets/Ripper.jpg" Margin="74,190,154,365"/>
-        <Image  Source="/assets/RipperGun.jpg" Margin="10,190,228,369"/>
+        <Label FontSize="14" Content="伤害2-6 命中5-20 闪避2-13" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="79,227,0,0" Width="205"/>
+    <!--    <Image  Source="/assets/RipperGun.jpg" Margin="74,190,154,365"/> -->
+        <Image  Source="/assets/Ripper.jpg" Margin="10,190,228,369"/>
         <Label Foreground="Chocolate" FontSize="14" Content="Vespid(光头AR)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,257,0,0" Width="205"/>
-        <Label FontSize="14" Content="命中5-20 闪避1-10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,287,0,0" Width="205"/>
+        <Label FontSize="14" Content="伤害3-9 命中5-20 闪避1-10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,287,0,0" Width="205"/>
         <Image  Source="/assets/Vespid.jpg" Margin="220,255,7,304"/>
-        <Image  Source="/assets/VespidGun.jpg" Margin="148,257,82,304"/>
+    <!--    <Image  Source="/assets/VespidGun.jpg" Margin="148,257,82,304"/> -->
         <Label Foreground="Chocolate" FontSize="14" Content="Jaeger(RF)" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="79,317,0,0" Width="205"/>
-        <Label FontSize="14" Content="命中10-40 闪避1-5" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="79,347,0,0" Width="205"/>
-        <Image  Source="/assets/Jaeger.jpg" Margin="79,310,154,245"/>
-        <Image  Source="/assets/JaegerGun.jpg" Margin="5,310,228,245"/>
+        <Label FontSize="14" Content="伤害6-18 命中10-40 闪避1-5" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="79,347,0,0" Width="205"/>
+   <!--     <Image  Source="/assets/JaegerGun.jpg" Margin="79,310,154,245"/> -->
+        <Image  Source="/assets/Jaeger.jpg" Margin="5,310,228,245"/>
         <Label Foreground="Chocolate" FontSize="14" Content="Guard(盾娘)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,377,0,0" Width="205"/>
-        <Label FontSize="14" Content="命中4-34 闪避1-3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,407,0,0" Width="205"/>
+        <Label FontSize="14" Content="伤害3-7 命中4-34 闪避1-3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,407,0,0" Width="205"/>
         <Image  Source="/assets/Guard.jpg" Margin="220,375,10,185"/>
-        <Image  Source="/assets/GuardGun.jpg" Margin="148,375,82,185"/>
+   <!--     <Image  Source="/assets/GuardGun.jpg" Margin="148,375,82,185"/> -->
         <Label Foreground="Chocolate" FontSize="14" Content="Dragoon(高达MG)" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="79,437,0,0" Width="205"/>
-        <Label FontSize="14" Content="命中6-36 闪避2-15" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="79,467,0,0" Width="205"/>
-        <Image  Source="/assets/Dragoon.jpg" Margin="79,430,148,125"/>
-        <Image  Source="/assets/DragoonGun.jpg" Margin="5,430,223,125"/>
+        <Label FontSize="14" Content="伤害4-11 命中6-36 闪避2-15" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="79,467,0,0" Width="205"/>
+      <!--  <Image  Source="/assets/DragoonGun.jpg" Margin="79,430,148,125"/> -->
+        <Image  Source="/assets/Dragoon.jpg" Margin="5,430,223,125"/> 
         <Label Foreground="Chocolate"  FontSize="14" Content="Jaguar(迫击炮)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,497,0,0" Width="205"/>
-        <Label FontSize="14" Content="命中4-34 闪避1-8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,527,0,0" Width="205"/>
+        <Label FontSize="14" Content="伤害9-27 命中4-34 闪避1-8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,527,0,0" Width="205"/>
         <Image  Source="/assets/Jaguar.jpg" Margin="220,495,10,67"/>
         <Label Foreground="Chocolate" FontSize="14" Content="Drone(靶子)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="205" Grid.Column="1"/>
         <Label FontSize="14" Content="伤害0 命中1 闪避0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,40,0,0" Width="205" Grid.Column="1"/>
