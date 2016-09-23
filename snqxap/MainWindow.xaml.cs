@@ -28,9 +28,14 @@ namespace snqxap
     /// </summary>
     public partial class MainWindow : Window
     {
-        
-        public const int GUN_NUMBER = 113; //枪娘总数
-        public const int EQUIP_NUMBER = 35;
+        /// <summary>
+        /// 枪娘总数
+        /// </summary>
+        public const int GUN_NUMBER = 113; 
+        /// <summary>
+        /// 装备总数
+        /// </summary>
+        public const int EQUIP_NUMBER = 46;
         /// <summary>
         /// 0-3 外骨骼 4-7 穿甲弹 8-11 高速弹 12-15 光学瞄具 16-19 全息 20-23 红点 24-27夜视 28五星穿甲 29五星夜视
         /// AR 全息/光喵/ACOG/夜视 高速弹 外骨 smg 外骨 空 全息/光喵/ACOG/夜视
@@ -48,6 +53,7 @@ namespace snqxap
         int[] equiphit = new int[9];
         int[] equipshotspeed = new int[9];
         int[] equipdodge = new int[9];
+        int[] equipbelt = new int[9];
         double[] equipcrit = new double[9];
         double[] equipnightsee = new double[9];
         int[] equipbreakarmor = new int[9];
@@ -57,6 +63,7 @@ namespace snqxap
         int[] lastgunindex = new int[9];//存上次格内枪娘
         int howmany;//计算在场枪娘数用
         bool innight;
+        double[] merry = new double[9];
 
         public static readonly float[][] arrAbilityRatio = new float[][]  //各类枪娘属性成长基础
 {
@@ -310,7 +317,7 @@ namespace snqxap
             gun[60].name = "M9"; gun[60].what = 4; gun[60].crit = 0.2; gun[60].belt = 0; gun[60].number = 4; gun[60].effect0 = 1; gun[60].effect1 = 2; gun[60].effect2 = 7; gun[60].effect3 = 8; gun[60].damageup = 0; gun[60].hitup = 0; gun[60].shotspeedup = 0; gun[60].critup = 0; gun[60].dodgeup = 0.4; gun[60].to = 1;
             gun[61].name = "P7"; gun[61].what = 4; gun[61].crit = 0.2; gun[61].belt = 0; gun[61].number = 6; gun[61].effect0 = 1; gun[61].effect1 = 2; gun[61].effect2 = 3; gun[61].effect3 = 7; gun[61].effect4 = 8; gun[61].effect5 = 9; gun[61].damageup = 0; gun[61].hitup = 0; gun[61].shotspeedup = 0.1; gun[61].critup = 0; gun[61].dodgeup = 0.2; gun[61].to = 1;
             gun[62].name = "92式"; gun[62].what = 4; gun[62].crit = 0.2; gun[62].belt = 0; gun[62].number = 8; gun[62].effect0 = 1; gun[62].effect1 = 2; gun[62].effect2 = 3; gun[62].effect3 = 4; gun[62].effect4 = 6; gun[62].effect5 = 7; gun[62].effect6 = 8; gun[62].effect7 = 9; gun[62].damageup = 0; gun[62].hitup = 0.35; gun[62].shotspeedup = 0; gun[62].critup = 0; gun[62].dodgeup = 0.25; gun[62].to = 1;
-            gun[63].name = "FNP-9"; gun[63].what = 4; gun[63].crit = 0.2; gun[63].belt = 0; gun[63].number = 5; gun[63].effect0 = 2; gun[63].effect1 = 3; gun[63].effect2 = 6; gun[63].effect3 = 8; gun[63].effect4 = 9; gun[63].damageup = 0; gun[63].hitup = 0; gun[63].shotspeedup = 0.1; gun[63].critup = 0; gun[63].dodgeup = 0; gun[63].to = 1;
+            gun[63].name = "FNP-9"; gun[63].what = 4; gun[63].crit = 0.2; gun[63].belt = 0; gun[63].number = 5; gun[63].effect0 = 2; gun[63].effect1 = 3; gun[63].effect2 = 6; gun[63].effect3 = 8; gun[63].effect4 = 9; gun[63].damageup = 0; gun[63].hitup = 0.5; gun[63].shotspeedup = 0.1; gun[63].critup = 0; gun[63].dodgeup = 0; gun[63].to = 1;
             gun[64].name = "MP-446"; gun[64].what = 4; gun[64].crit = 0.2; gun[64].belt = 0; gun[64].number = 5; gun[64].effect0 = 1; gun[64].effect1 = 2; gun[64].effect2 = 4; gun[64].effect3 = 7; gun[64].effect4 = 8; gun[64].damageup = 0.2; gun[64].hitup = 0; gun[64].shotspeedup = 0; gun[64].critup = 0; gun[64].dodgeup = 0; gun[64].to = 1;
             gun[65].name = "西蒙诺夫"; gun[65].what = 5; gun[65].crit = 0.4; gun[65].belt = 0; gun[65].number = 2;gun[65].effect0 = 2;gun[65].effect1 = 8; gun[65].rateup = 0.18; gun[65].damageup = 0; gun[65].hitup = 0; gun[65].shotspeedup = 0; gun[65].critup = 0; gun[65].dodgeup = 0; gun[65].to = 4;
             gun[66].name = "FN-49"; gun[66].what = 5;  gun[66].crit = 0.4; gun[66].belt = 0; gun[66].number = 2; gun[66].effect0 = 3; gun[66].effect1 = 9; gun[66].rateup = 0.18; gun[66].damageup = 0; gun[66].hitup = 0; gun[66].shotspeedup = 0; gun[66].critup = 0; gun[66].dodgeup = 0; gun[66].to = 4;
@@ -678,6 +685,29 @@ namespace snqxap
                 }
                 Combo8.Items.Add(l);
             }
+            if (true)
+            {
+                Merry0.Content = "♡";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
+                Merry0.Foreground = br;
+                Merry1.Content = "♡";
+                Merry1.Foreground = br;
+                Merry2.Content = "♡";
+                Merry2.Foreground = br;
+                Merry3.Content = "♡";
+                Merry3.Foreground = br;
+                Merry4.Content = "♡";
+                Merry4.Foreground = br;
+                Merry5.Content = "♡";
+                Merry5.Foreground = br;
+                Merry6.Content = "♡";
+                Merry6.Foreground = br;
+                Merry0.Content = "♡";
+                Merry0.Foreground = br;
+                Merry8.Content = "♡";
+                Merry8.Foreground = br;
+            }
+
             for (int i = 0; i < GUN_NUMBER; i++) //加图像
             {
                 gun[i].image = "/assets/" + i.ToString() + ".png";
@@ -711,10 +741,12 @@ namespace snqxap
                     equipdamage[i] = 0;
                     equiphit[i] = 0;
                     equipdodge[i] = 0;
+                    equipbelt[i] = 0;
                     equipcrit[i] =0;
                     equipnightsee[i] = 0;
                     equipshotspeed[i] = 0;      
                     equipbreakarmor[i] = 0;
+                merry[i] = 1;
 
                 }
 
@@ -2194,72 +2226,52 @@ namespace snqxap
            // equip = new Equip[EQUIP_NUMBER];
             for (int i = 0; i < EQUIP_NUMBER; i++)
                 equip[i] = new Equip();
-            equip[0].name = "IOP T1外骨骼"; equip[0].dodge = 8; equip[0].damage = -1; equip[0].type = 10; equip[0].tooltip = "回避+8,伤害-1";
-            equip[1].name = "IOP T2外骨骼"; equip[1].dodge = 12; equip[1].damage = -3; equip[1].type = 10; equip[1].tooltip = "回避+12,伤害-3";
-            equip[2].name = "IOP T3外骨骼"; equip[2].dodge = 16; equip[2].damage = -5; equip[2].type = 10; equip[2].tooltip = "回避+16,伤害-5";
-            equip[3].name = "IOP T4外骨骼"; equip[3].dodge = 25; equip[3].damage = -6; equip[3].type = 10; equip[3].tooltip = "回避+25,伤害-6";
-            equip[4].name = "M61穿甲弹"; equip[4].breakarmor = 35; equip[4].type = 5; equip[4].tooltip = "穿甲+35";
-            equip[5].name = "M993穿甲弹"; equip[5].breakarmor = 50; equip[5].type = 5; equip[5].tooltip = "穿甲+50";
-            equip[6].name = "Mk169穿甲弹"; equip[6].breakarmor = 65; equip[6].type = 5; equip[6].tooltip = "穿甲+65";
-            equip[7].name = "Mk211高爆穿甲弹"; equip[7].breakarmor = 80; equip[7].type = 5; equip[7].tooltip = "穿甲+80";
-            equip[8].name = "JHP高速弹"; equip[8].damage = 1; equip[8].type = 8; equip[8].tooltip = "伤害+1";
-            equip[9].name = "三星FMJ高速弹"; equip[9].damage = 2; equip[9].type = 8; equip[9].tooltip = "伤害+2";
-            equip[10].name = "四星FMJ高速弹"; equip[10].damage = 4; equip[10].type = 8; equip[10].tooltip = "伤害+4";
-            equip[11].name = "HVAP高速弹"; equip[11].damage = 8; equip[11].type = 8; equip[11].tooltip = "伤害+8";
-            equip[12].name = "光瞄 - BM 3-12X40"; equip[12].critup = 0.08; equip[12].type = 1; equip[12].tooltip = "暴击率+8%";
-            equip[13].name = "光瞄 - LRA 2-12X50"; equip[13].critup = 0.12; equip[13].type = 1; equip[13].tooltip = "暴击率+12%";
-            equip[14].name = "光瞄 - PSO-1"; equip[14].critup = 0.16; equip[14].type = 1; equip[14].tooltip = "暴击率+16%";
-            equip[15].name = "光瞄 - VFL 6-24X56"; equip[15].critup = 0.24; equip[15].type = 1; equip[15].tooltip = "暴击率+24%";
-            equip[16].name = "全息 - EOT 506"; equip[16].hit = 1; equip[16].damage = 1; equip[16].shotspeed = -1; equip[16].type = 2; equip[16].tooltip = "命中+1,伤害+1,射速-1";
-            equip[17].name = "全息 - EOT 512"; equip[17].hit = 2; equip[17].damage = 2; equip[17].shotspeed = -2; equip[17].type = 2; equip[17].tooltip = "命中+2,伤害+2,射速-2";
-            equip[18].name = "全息 - EOT 516"; equip[18].hit = 5; equip[18].damage = 3; equip[18].shotspeed = -3; equip[18].type = 2; equip[18].tooltip = "命中+5,伤害+3,射速-3";
-            equip[19].name = "全息 - EOT 518"; equip[19].hit = 10; equip[19].damage = 6; equip[19].shotspeed = -4; equip[19].type = 2; equip[19].tooltip = "命中+10,伤害+6,射速-4";
-            equip[20].name = "ACOG - AMP COMPM2"; equip[20].hit = 3; equip[20].shotspeed = -1; equip[20].type = 3; equip[20].tooltip = "命中+3,射速-1";
-            equip[21].name = "ACOG - AMP COMPM4"; equip[21].hit = 6; equip[21].shotspeed = -1; equip[21].type = 3; equip[21].tooltip = "命中+6,射速-1";
-            equip[22].name = "ACOG - COG M150"; equip[22].hit = 10; equip[22].shotspeed = -1; equip[22].type = 3; equip[22].tooltip = "命中+10,射速-1";
-            equip[23].name = "ACOG - ITI MARS"; equip[23].hit = 15; equip[23].shotspeed = -1; equip[23].type = 3; equip[23].tooltip = "命中+15,射速-1";
-            equip[24].name = "夜视 - PEQ-2"; equip[24].nightsee = 55; equip[24].type = 4; equip[24].tooltip = "夜战命中抵消55%";
-            equip[25].name = "夜视 - PEQ-5"; equip[25].nightsee = 70; equip[25].type = 4; equip[25].tooltip = "夜战命中抵消70%";
-            equip[26].name = "夜视 - PEQ-15"; equip[26].nightsee = 85; equip[26].type = 4; equip[26].tooltip = "夜战命中抵消85%";
-            equip[27].name = "夜视 - PEQ-16A"; equip[27].nightsee = 100; equip[27].type = 4; equip[27].tooltip = "夜战命中抵消100%";
-            equip[28].name = "16Lab次口径穿甲弹"; equip[28].breakarmor = 80; equip[28].type = 5; equip[28].tooltip = "穿甲+80";
-            equip[29].name = "16Lab红外指示器"; equip[29].nightsee = 100; equip[29].type = 4; equip[29].tooltip = "夜战命中抵消100%";
+            equip[0].name = "IOP T1外骨骼"; equip[0].dodge = 8; equip[0].damage = -1; equip[0].type = 10; equip[0].tooltip = "回避+8,伤害-1"; equip[0].rank = 2;
+            equip[1].name = "IOP T2外骨骼"; equip[1].dodge = 12; equip[1].damage = -3; equip[1].type = 10; equip[1].tooltip = "回避+12,伤害-3"; equip[1].rank = 3;
+            equip[2].name = "IOP T3外骨骼"; equip[2].dodge = 16; equip[2].damage = -5; equip[2].type = 10; equip[2].tooltip = "回避+16,伤害-5"; equip[2].rank = 4;
+            equip[3].name = "（顶配）IOP T4外骨骼"; equip[3].dodge = 25; equip[3].damage = -6; equip[3].type = 10; equip[3].tooltip = "回避+25,伤害-6"; equip[3].rank = 5;
+            equip[4].name = "（常值）IOP T4外骨骼"; equip[4].dodge = 21; equip[4].damage = -7; equip[4].type = 10; equip[4].tooltip = "回避+21,伤害-7"; equip[4].rank = 5;
+            equip[5].name = "M61穿甲弹"; equip[5].breakarmor = 35; equip[5].type = 5; equip[5].tooltip = "穿甲+35"; equip[5].rank = 2;
+            equip[6].name = "M993穿甲弹"; equip[6].breakarmor = 50; equip[6].type = 5; equip[6].tooltip = "穿甲+50"; equip[6].rank = 3;
+            equip[7].name = "Mk169穿甲弹"; equip[7].breakarmor = 65; equip[7].type = 5; equip[7].tooltip = "穿甲+65"; equip[7].rank = 4;
+            equip[8].name = "（顶配）Mk211高爆穿甲弹"; equip[8].breakarmor = 80; equip[8].type = 5; equip[8].tooltip = "穿甲+80"; equip[8].rank = 5;
+            equip[9].name = "（常值）Mk211高爆穿甲弹"; equip[9].breakarmor = 80; equip[9].type = 5; equip[9].tooltip = "穿甲+74";equip[9].rank = 5;
+            equip[10].name = "JHP高速弹"; equip[10].damage = 1; equip[10].type = 8; equip[10].tooltip = "伤害+1"; equip[10].rank = 2;
+            equip[11].name = "三星FMJ高速弹"; equip[11].damage = 2; equip[11].type = 8; equip[11].tooltip = "伤害+2"; equip[11].rank = 3;
+            equip[12].name = "四星FMJ高速弹"; equip[12].damage = 4; equip[12].type = 8; equip[12].tooltip = "伤害+4"; equip[12].rank = 4;
+            equip[13].name = "（顶配）HVAP高速弹"; equip[13].damage = 8; equip[13].type = 8; equip[13].tooltip = "伤害+8"; equip[13].rank = 5;
+            equip[14].name = "（常值）HVAP高速弹"; equip[14].damage = 6; equip[14].type = 8; equip[14].tooltip = "伤害+6"; equip[14].rank = 5;
+            equip[15].name = "光瞄 - BM 3-12X40"; equip[15].critup = 0.08; equip[15].type = 1; equip[15].tooltip = "暴击率+8%"; equip[15].rank = 2;
+            equip[16].name = "光瞄 - LRA 2-12X50"; equip[16].critup = 0.12; equip[16].type = 1; equip[16].tooltip = "暴击率+12%"; equip[16].rank = 3;
+            equip[17].name = "光瞄 - PSO-1"; equip[17].critup = 0.16; equip[17].type = 1; equip[17].tooltip = "暴击率+16%"; equip[17].rank = 4;
+            equip[18].name = "（顶配）光瞄 - VFL 6-24X56"; equip[18].critup = 0.24; equip[18].type = 1; equip[18].tooltip = "暴击率+24%"; equip[18].rank = 5;
+            equip[19].name = "（常值）光瞄 - VFL 6-24X56"; equip[19].critup = 0.2; equip[19].type = 1; equip[19].tooltip = "暴击率+20%";equip[19].rank = 5;
+            equip[20].name = "全息 - EOT 506"; equip[20].hit = 1; equip[20].damage = 1; equip[20].shotspeed = -1; equip[20].type = 2; equip[20].tooltip = "命中+1,伤害+1,射速-1"; equip[20].rank = 2;
+            equip[21].name = "全息 - EOT 512"; equip[21].hit = 2; equip[21].damage = 2; equip[21].shotspeed = -2; equip[21].type = 2; equip[21].tooltip = "命中+2,伤害+2,射速-2"; equip[21].rank = 3;
+            equip[22].name = "全息 - EOT 516"; equip[22].hit = 5; equip[22].damage = 3; equip[22].shotspeed = -3; equip[22].type = 2; equip[22].tooltip = "命中+5,伤害+3,射速-3"; equip[22].rank = 4;
+            equip[23].name = "（顶配）全息 - EOT 518"; equip[23].hit = 10; equip[23].damage = 6; equip[23].shotspeed = -4; equip[23].type = 2; equip[23].tooltip = "命中+10,伤害+6,射速-4"; equip[23].rank = 5;
+            equip[24].name = "（常值）全息 - EOT 518"; equip[24].hit = 8; equip[24].damage = 5; equip[24].shotspeed = -5; equip[24].type = 2; equip[24].tooltip = "命中+8,伤害+5,射速-5"; equip[24].rank = 5;
+            equip[25].name = "ACOG - AMP COMPM2"; equip[25].hit = 3; equip[25].shotspeed = -1; equip[25].type = 3; equip[25].tooltip = "命中+3,射速-1"; equip[25].rank = 2;
+            equip[26].name = "ACOG - AMP COMPM4"; equip[26].hit = 6; equip[26].shotspeed = -1; equip[26].type = 3; equip[26].tooltip = "命中+6,射速-1"; equip[26].rank = 3;
+            equip[27].name = "ACOG - COG M150"; equip[27].hit = 10; equip[27].shotspeed = -1; equip[27].type = 3; equip[27].tooltip = "命中+10,射速-1"; equip[27].rank = 4;
+            equip[28].name = "（顶配）ACOG - ITI MARS"; equip[28].hit = 15; equip[28].shotspeed = -1; equip[28].type = 3; equip[28].tooltip = "命中+15,射速-1"; equip[28].rank = 5;
+            equip[29].name = "（常值）ACOG - ITI MARS"; equip[29].hit = 12; equip[29].shotspeed = -2; equip[29].type = 3; equip[29].tooltip = "命中+12,射速-2"; equip[29].rank = 5;
+            equip[31].name = "夜视 - PEQ-2"; equip[31].nightsee = 55; equip[31].type = 4; equip[31].tooltip = "夜战命中抵消55%"; equip[31].rank = 2;
+            equip[32].name = "夜视 - PEQ-5"; equip[32].nightsee = 70; equip[32].type = 4; equip[32].tooltip = "夜战命中抵消70%"; equip[32].rank = 3;
+            equip[33].name = "夜视 - PEQ-15"; equip[33].nightsee = 85; equip[33].type = 4; equip[33].tooltip = "夜战命中抵消85%"; equip[33].rank = 4;
+            equip[34].name = "（顶配）夜视 - PEQ-16A"; equip[34].nightsee = 100; equip[34].type = 4; equip[34].tooltip = "夜战命中抵消100%"; equip[34].rank = 5;
+            equip[35].name = "（常值）夜视 - PEQ-16A"; equip[35].nightsee = 93; equip[35].type = 4; equip[35].tooltip = "夜战命中抵消93%"; equip[35].rank = 5;
+            equip[36].name = "16Lab次口径穿甲弹"; equip[36].breakarmor = 80; equip[36].type = 5; equip[36].tooltip = "穿甲+80"; equip[36].rank = 5;
+            equip[37].name = "16Lab红外指示器"; equip[37].nightsee = 100; equip[37].type = 4; equip[37].tooltip = "夜战命中抵消100%"; equip[37].rank = 5;
             equip[30].name = " "; equip[30].type = 13; equip[30].rank = 2;
-            equip[31].name = "IOP X1外骨骼"; equip[31].dodge = 3; equip[31].damage = 0; equip[31].type = 10; equip[31].tooltip = "回避+3"; equip[31].rank = 2;
-            equip[32].name = "IOP X2外骨骼"; equip[32].dodge = 5; equip[32].damage = 0; equip[32].type = 10; equip[32].tooltip = "回避+5"; equip[32].rank = 3;
-            equip[33].name = "IOP X3外骨骼"; equip[33].dodge = 7; equip[33].damage = 0; equip[33].type = 10; equip[33].tooltip = "回避+7"; equip[33].rank = 4;
-            equip[34].name = "IOP X4外骨骼"; equip[34].dodge = 12; equip[34].damage = 0; equip[34].type = 10; equip[34].tooltip = "回避+12"; equip[34].rank = 5;
-
-            equip[0].rank = 2;
-            equip[1].rank = 3;
-            equip[2].rank = 4;
-            equip[3].rank = 5;
-            equip[4].rank = 2;
-            equip[5].rank = 3;
-            equip[6].rank = 4;
-            equip[7].rank = 5;
-            equip[8].rank = 2;
-            equip[9].rank = 3;
-            equip[10].rank = 4;
-            equip[11].rank = 5;
-            equip[12].rank = 2;
-            equip[13].rank = 3;
-            equip[14].rank = 4;
-            equip[15].rank = 5;
-            equip[16].rank = 2;
-            equip[17].rank = 3;
-            equip[18].rank = 4;
-            equip[19].rank = 5;
-            equip[20].rank = 2;
-            equip[21].rank = 3;
-            equip[22].rank = 4;
-            equip[23].rank = 5;
-            equip[24].rank = 2;
-            equip[25].rank = 3;
-            equip[26].rank = 4;
-            equip[27].rank = 5;
-            equip[28].rank = 5;
-            equip[29].rank = 5;
+            equip[38].name = "IOP X1外骨骼"; equip[38].dodge = 3; equip[38].damage = 0; equip[38].type = 10; equip[38].tooltip = "回避+3"; equip[38].rank = 2;
+            equip[39].name = "IOP X2外骨骼"; equip[39].dodge = 5; equip[39].damage = 0; equip[39].type = 10; equip[39].tooltip = "回避+5"; equip[39].rank = 3;
+            equip[40].name = "IOP X3外骨骼"; equip[40].dodge = 7; equip[40].damage = 0; equip[40].type = 10; equip[40].tooltip = "回避+7"; equip[40].rank = 4;
+            equip[41].name = "（顶配）IOP X4外骨骼"; equip[41].dodge = 12; equip[41].damage = 0; equip[41].type = 10; equip[41].tooltip = "回避+12"; equip[41].rank = 5;
+            equip[42].name = "（常值）IOP X4外骨骼"; equip[42].dodge = 10; equip[42].damage = 0; equip[42].type = 10; equip[42].tooltip = "回避+10"; equip[42].rank = 5;
+            equip[43].name = "国家竞赛穿甲弹";equip[43].shotspeed = 8; equip[43].breakarmor = 85; equip[43].type = 5; equip[43].tooltip = "射速+8,穿甲+85"; equip[43].rank = 5;equip[43].forwhat = 81;
+            equip[44].name = ".300BLK高速弹"; equip[44].damage = 12; equip[44].hit = -1; equip[44].type = 8; equip[44].tooltip = "伤害+12,命中-1"; equip[44].rank = 5;equip[44].forwhat = 29;
+            equip[45].name = "Titan火控芯片"; equip[45].damage = -2; equip[45].shotspeed = -1; equip[45].belt = 2; equip[45].type = 9; equip[45].tooltip = "伤害-2,射速-1,弹链+2"; equip[45].rank = 5;equip[45].forwhat = 84;
            
             //检查更新
             string strGatherJsonUrl = "http://jyying.cn/snqxap/AssemblyInfo";
@@ -5467,6 +5479,7 @@ namespace snqxap
                 lastgunindex[i] = -1;
                 gg[i].rateup = 0;
                 clearequip(i);
+                merry[i] = 1;
             }
             howmany = 0;
 
@@ -5565,8 +5578,25 @@ namespace snqxap
             SkillLevel7.SelectedIndex = 9;
             SkillLevel8.SelectedIndex = 9;
 
-
-            
+            Merry0.Content = "♡";
+            Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
+            Merry0.Foreground = br;
+            Merry1.Content = "♡";
+            Merry1.Foreground = br;
+            Merry2.Content = "♡";
+            Merry2.Foreground = br;
+            Merry3.Content = "♡";
+            Merry3.Foreground = br;
+            Merry4.Content = "♡";
+            Merry4.Foreground = br;
+            Merry5.Content = "♡";
+            Merry5.Foreground = br;
+            Merry6.Content = "♡";
+            Merry6.Foreground = br;
+            Merry0.Content = "♡";
+            Merry0.Foreground = br;
+            Merry8.Content = "♡";
+            Merry8.Foreground = br;
         }
         /// <summary>
         /// 选中左上格副T
@@ -7396,22 +7426,22 @@ namespace snqxap
                         Lhp0.Content = maxLife;
                         if (enemyarmor.Text == "0")
                             if (equipbreakarmor[0] > Int32.Parse(enemyarmor.Text))
-                                Ldamage0.Content = ((basePow + maxAddPow + equipdamage[0]) * gg[0].damageup * (skillupdamage[0]) + 2).ToString("0");
+                                Ldamage0.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[0])+ equipdamage[0]) * gg[0].damageup * (skillupdamage[0]) + 2).ToString("0");
                             else
-                                Ldamage0.Content = ((basePow + maxAddPow + equipdamage[0]) * gg[0].damageup * (skillupdamage[0])).ToString("0");
+                                Ldamage0.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[0])+ equipdamage[0]) * gg[0].damageup * (skillupdamage[0])).ToString("0");
                         else
                         {
                             if (equipbreakarmor[0] > Int32.Parse(enemyarmor.Text))
-                                Ldamage0.Content = ((basePow + maxAddPow + equipdamage[0]) * gg[0].damageup * (skillupdamage[0]) + 2).ToString("0");
+                                Ldamage0.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[0])+ equipdamage[0]) * gg[0].damageup * (skillupdamage[0]) + 2).ToString("0");
                             else
-                                Ldamage0.Content = Math.Ceiling(Math.Max(((basePow + maxAddPow + equipdamage[0]) * gg[0].damageup * (skillupdamage[0])) / 10, (((basePow + maxAddPow + equipdamage[0]) * gg[0].damageup * (skillupdamage[0])) + equipbreakarmor[0] - Int32.Parse(enemyarmor.Text)))).ToString();
+                                Ldamage0.Content = Math.Ceiling(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[0])+ equipdamage[0]) * gg[0].damageup * (skillupdamage[0])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[0])+ equipdamage[0]) * gg[0].damageup * (skillupdamage[0])) + equipbreakarmor[0] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
                         if (Int32.Parse(Lhp0.Content.ToString()) == 0)
                             Ldamage0.Content = 0;
                         if (innight)
-                            Lhit0.Content = ((basehit + maxAddHit + equiphit[0]) * (100 - 0.9 * (100 - equipnightsee[0])) / 100 * gg[0].hitup * (skilluphit[0])).ToString("0");
+                            Lhit0.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[0]) + equiphit[0]) * (100 - 0.9 * (100 - equipnightsee[0])) / 100 * gg[0].hitup * (skilluphit[0])).ToString();
                         else
-                            Lhit0.Content = ((basehit + maxAddHit + equiphit[0]) * gg[0].hitup * (skilluphit[0])).ToString("0");
+                            Lhit0.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[0]) + equiphit[0]) * gg[0].hitup * (skilluphit[0])).ToString("0");
                         //        calcskill(combo, select, skillselect);
                         Image0.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
@@ -7437,10 +7467,10 @@ namespace snqxap
                         calcprobabiliy(0, select, skillselect);
                         double crit = (gun[select].crit + equipcrit[0]) * gg[0].critup;
                         Lcrit0.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge0.Content = ((baseDodge + maxAddDodge + equipdodge[0]) * gg[0].dodgeup * (skillupdodge[0])).ToString("0");
-                        Lbelt0.Content = gun[select].belt;
+                        Ldodge0.Content = ((Math.Ceiling((baseDodge + maxAddDodge) * merry[0]) + equipdodge[0]) * gg[0].dodgeup * (skillupdodge[0])).ToString("0");
+                        Lbelt0.Content = gun[select].belt + equipbelt[0];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex0.Content = Index(Double.Parse(Lshotspeed0.Content.ToString()), Double.Parse(Ldamage0.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit0.Content.ToString()), gun[select].belt, 0, skilldamageagain[0]).ToString("0.00");
+                        Lindex0.Content = Index(Double.Parse(Lshotspeed0.Content.ToString()), Double.Parse(Ldamage0.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit0.Content.ToString()), int.Parse(Lbelt0.Content.ToString()), 0, skilldamageagain[0]).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         if (rb0.IsChecked == true)
                             calctank(0);
@@ -7453,22 +7483,22 @@ namespace snqxap
                         Lhp1.Content = maxLife;
                         if (enemyarmor.Text == "0")
                             if (equipbreakarmor[1] > 0)
-                                Ldamage1.Content = ((basePow + maxAddPow + equipdamage[1]) * gg[1].damageup * (skillupdamage[1]) + 2).ToString("0");
+                                Ldamage1.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[1])+ equipdamage[1]) * gg[1].damageup * (skillupdamage[1]) + 2).ToString("0");
                             else
-                                Ldamage1.Content = ((basePow + maxAddPow + equipdamage[1]) * gg[1].damageup * (skillupdamage[1])).ToString("0");
+                                Ldamage1.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[1])+ equipdamage[1]) * gg[1].damageup * (skillupdamage[1])).ToString("0");
                         else
                         {
                             if (equipbreakarmor[1] > Int32.Parse(enemyarmor.Text))
-                                Ldamage1.Content = ((basePow + maxAddPow + equipdamage[1]) * gg[1].damageup * (skillupdamage[1]) + 2).ToString("0");
+                                Ldamage1.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[1])+ equipdamage[1]) * gg[1].damageup * (skillupdamage[1]) + 2).ToString("0");
                             else
-                                Ldamage1.Content = Math.Ceiling(Math.Max(((basePow + maxAddPow + equipdamage[1]) * gg[1].damageup * (skillupdamage[1])) / 10, (((basePow + maxAddPow + equipdamage[1]) * gg[1].damageup * (skillupdamage[1])) + equipbreakarmor[1] - Int32.Parse(enemyarmor.Text)))).ToString();
+                                Ldamage1.Content = Math.Ceiling(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[1])+ equipdamage[1]) * gg[1].damageup * (skillupdamage[1])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[1])+ equipdamage[1]) * gg[1].damageup * (skillupdamage[1])) + equipbreakarmor[1] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
                         if (Int32.Parse(Lhp1.Content.ToString()) == 0)
                             Ldamage1.Content = 0;
                         if (innight)
-                            Lhit1.Content = ((basehit + maxAddHit + equiphit[1]) * (100 - 0.9 * (100 - equipnightsee[1])) / 100 * gg[1].hitup * (skilluphit[1])).ToString("0");
+                            Lhit1.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[1] )+ equiphit[1]) * (100 - 0.9 * (100 - equipnightsee[1])) / 100 * gg[1].hitup * (skilluphit[1])).ToString();
                         else
-                            Lhit1.Content = ((basehit + maxAddHit + equiphit[1]) * gg[1].hitup * (skilluphit[1])).ToString("0");
+                            Lhit1.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[1] )+ equiphit[1]) * gg[1].hitup * (skilluphit[1])).ToString("0");
 
                         //      calcskill(combo, select, skillselect); 
                         Image1.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
@@ -7495,10 +7525,10 @@ namespace snqxap
                         calcprobabiliy(1, select, skillselect);
                         double crit = (gun[select].crit + equipcrit[1]) * gg[1].critup;
                         Lcrit1.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge1.Content = ((baseDodge + maxAddDodge + equipdodge[1]) * gg[1].dodgeup * (skillupdodge[1])).ToString("0");
-                        Lbelt1.Content = gun[select].belt;
+                        Ldodge1.Content = ((Math.Ceiling((baseDodge + maxAddDodge) * merry[1]) + equipdodge[1]) * gg[1].dodgeup * (skillupdodge[1])).ToString("0");
+                        Lbelt1.Content = gun[select].belt + equipbelt[1];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex1.Content = Index(Double.Parse(Lshotspeed1.Content.ToString()), Double.Parse(Ldamage1.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit1.Content.ToString()), gun[select].belt, 1, skilldamageagain[1]).ToString("0.00");
+                        Lindex1.Content = Index(Double.Parse(Lshotspeed1.Content.ToString()), Double.Parse(Ldamage1.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit1.Content.ToString()), int.Parse(Lbelt1.Content.ToString()), 1, skilldamageagain[1]).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         if (rb1.IsChecked == true)
                             calctank(1);
@@ -7511,22 +7541,22 @@ namespace snqxap
                         Lhp2.Content = maxLife;
                         if (enemyarmor.Text == "0")
                             if (equipbreakarmor[2] > 0)
-                                Ldamage2.Content = ((basePow + maxAddPow + equipdamage[2]) * gg[2].damageup * (skillupdamage[2]) + 2).ToString("0");
+                                Ldamage2.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[2])+ equipdamage[2]) * gg[2].damageup * (skillupdamage[2]) + 2).ToString("0");
                             else
-                                Ldamage2.Content = ((basePow + maxAddPow + equipdamage[2]) * gg[2].damageup * (skillupdamage[2])).ToString("0");
+                                Ldamage2.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[2])+ equipdamage[2]) * gg[2].damageup * (skillupdamage[2])).ToString("0");
                         else
                         {
                             if (equipbreakarmor[2] > Int32.Parse(enemyarmor.Text))
-                                Ldamage2.Content = ((basePow + maxAddPow + equipdamage[2]) * gg[2].damageup * (skillupdamage[2]) + 2).ToString("0");
+                                Ldamage2.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[2])+ equipdamage[2]) * gg[2].damageup * (skillupdamage[2]) + 2).ToString("0");
                             else
-                                Ldamage2.Content = Math.Ceiling(Math.Max(((basePow + maxAddPow + equipdamage[2]) * gg[2].damageup * (skillupdamage[2])) / 10, (((basePow + maxAddPow + equipdamage[2]) * gg[2].damageup * (skillupdamage[2])) + equipbreakarmor[2] - Int32.Parse(enemyarmor.Text)))).ToString();
+                                Ldamage2.Content = Math.Ceiling(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[2])+ equipdamage[2]) * gg[2].damageup * (skillupdamage[2])) / 10, ((((Math.Ceiling(basePow + maxAddPow ) * merry[2])+ equipdamage[2]) * gg[2].damageup * (skillupdamage[2])) + equipbreakarmor[2] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
                         if (Int32.Parse(Lhp2.Content.ToString()) == 0)
                             Ldamage2.Content = 0;
                         if (innight)
-                            Lhit2.Content = ((basehit + maxAddHit + equiphit[2]) * (100 - 0.9 * (100 - equipnightsee[2])) / 100 * gg[2].hitup * (skilluphit[2])).ToString("0");
+                            Lhit2.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[2]) + equiphit[2]) * (100 - 0.9 * (100 - equipnightsee[2])) / 100 * gg[2].hitup * (skilluphit[2])).ToString();
                         else
-                            Lhit2.Content = ((basehit + maxAddHit + equiphit[2]) * gg[2].hitup * (skilluphit[2])).ToString("0");
+                            Lhit2.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[2]) + equiphit[2]) * gg[2].hitup * (skilluphit[2])).ToString("0");
                         //            calcskill(combo, select, skillselect);
                         Image2.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
@@ -7552,10 +7582,10 @@ namespace snqxap
                         calcprobabiliy(2, select, skillselect);
                         double crit = (gun[select].crit + equipcrit[2]) * gg[2].critup;
                         Lcrit2.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge2.Content = ((baseDodge + maxAddDodge + equipdodge[2]) * gg[2].dodgeup * (skillupdodge[2])).ToString("0");
-                        Lbelt2.Content = gun[select].belt;
+                        Ldodge2.Content = ((Math.Ceiling((baseDodge + maxAddDodge) * merry[2]) + equipdodge[2]) * gg[2].dodgeup * (skillupdodge[2])).ToString("0");
+                        Lbelt2.Content = gun[select].belt +equipbelt[2];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex2.Content = Index(Double.Parse(Lshotspeed2.Content.ToString()), Double.Parse(Ldamage2.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit2.Content.ToString()), gun[select].belt, 2, skilldamageagain[2]).ToString("0.00");
+                        Lindex2.Content = Index(Double.Parse(Lshotspeed2.Content.ToString()), Double.Parse(Ldamage2.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit2.Content.ToString()), int.Parse(Lbelt2.Content.ToString()), 2, skilldamageagain[2]).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         if (rb2.IsChecked == true)
                             calctank(2);
@@ -7568,22 +7598,22 @@ namespace snqxap
                         Lhp3.Content = maxLife;
                         if (enemyarmor.Text == "0")
                             if (equipbreakarmor[3] > 0)
-                                Ldamage3.Content = ((basePow + maxAddPow + equipdamage[3]) * gg[3].damageup * (skillupdamage[3]) + 2).ToString("0");
+                                Ldamage3.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[3])+ equipdamage[3]) * gg[3].damageup * (skillupdamage[3]) + 2).ToString("0");
                             else
-                                Ldamage3.Content = ((basePow + maxAddPow + equipdamage[3]) * gg[3].damageup * (skillupdamage[3])).ToString("0");
+                                Ldamage3.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[3])+ equipdamage[3]) * gg[3].damageup * (skillupdamage[3])).ToString("0");
                         else
                         {
                             if (equipbreakarmor[3] > Int32.Parse(enemyarmor.Text))
-                                Ldamage3.Content = ((basePow + maxAddPow + equipdamage[3]) * gg[3].damageup * (skillupdamage[3]) + 2).ToString("0");
+                                Ldamage3.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[3])+ equipdamage[3]) * gg[3].damageup * (skillupdamage[3]) + 2).ToString("0");
                             else
-                                Ldamage3.Content = Math.Ceiling(Math.Max(((basePow + maxAddPow + equipdamage[3]) * gg[3].damageup * (skillupdamage[3])) / 10, (((basePow + maxAddPow + equipdamage[3]) * gg[3].damageup * (skillupdamage[3])) + equipbreakarmor[3] - Int32.Parse(enemyarmor.Text)))).ToString();
+                                Ldamage3.Content = Math.Ceiling(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[3])+ equipdamage[3]) * gg[3].damageup * (skillupdamage[3])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[3])+ equipdamage[3]) * gg[3].damageup * (skillupdamage[3])) + equipbreakarmor[3] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
                         if (Int32.Parse(Lhp3.Content.ToString()) == 0)
                             Ldamage3.Content = 0;
                         if (innight)
-                            Lhit3.Content = ((basehit + maxAddHit + equiphit[3]) * (100 - 0.9 * (100 - equipnightsee[3])) / 100 * gg[3].hitup * (skilluphit[3])).ToString("0");
+                            Lhit3.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[3]) + equiphit[3]) * (100 - 0.9 * (100 - equipnightsee[3])) / 100 * gg[3].hitup * (skilluphit[3])).ToString();
                         else
-                            Lhit3.Content = ((basehit + maxAddHit + equiphit[3]) * gg[3].hitup * (skilluphit[3])).ToString("0");
+                            Lhit3.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[3]) + equiphit[3]) * gg[3].hitup * (skilluphit[3])).ToString("0");
                         //       calcskill(combo, select, skillselect);
                         Image3.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
@@ -7609,10 +7639,10 @@ namespace snqxap
                         calcprobabiliy(3, select, skillselect);
                         double crit = (gun[select].crit + equipcrit[3]) * gg[3].critup;
                         Lcrit3.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge3.Content = ((baseDodge + maxAddDodge + equipdodge[3]) * gg[3].dodgeup * (skillupdodge[3])).ToString("0");
-                        Lbelt3.Content = gun[select].belt;
+                        Ldodge3.Content = ((Math.Ceiling((baseDodge + maxAddDodge) * merry[3]) + equipdodge[3]) * gg[3].dodgeup * (skillupdodge[3])).ToString("0");
+                        Lbelt3.Content = gun[select].belt +equipbelt[3];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex3.Content = Index(Double.Parse(Lshotspeed3.Content.ToString()), Double.Parse(Ldamage3.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit3.Content.ToString()), gun[select].belt, 3, skilldamageagain[3]).ToString("0.00");
+                        Lindex3.Content = Index(Double.Parse(Lshotspeed3.Content.ToString()), Double.Parse(Ldamage3.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit3.Content.ToString()), int.Parse(Lbelt3.Content.ToString()), 3, skilldamageagain[3]).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         if (rb3.IsChecked == true)
                             calctank(3);
@@ -7625,22 +7655,22 @@ namespace snqxap
                         Lhp4.Content = maxLife;
                         if (enemyarmor.Text == "0")
                             if (equipbreakarmor[4] > 0)
-                                Ldamage4.Content = ((basePow + maxAddPow + equipdamage[4]) * gg[4].damageup * (skillupdamage[4]) + 2).ToString("0");
+                                Ldamage4.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[4])+ equipdamage[4]) * gg[4].damageup * (skillupdamage[4]) + 2).ToString("0");
                             else
-                                Ldamage4.Content = ((basePow + maxAddPow + equipdamage[4]) * gg[4].damageup * (skillupdamage[4])).ToString("0");
+                                Ldamage4.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[4])+ equipdamage[4]) * gg[4].damageup * (skillupdamage[4])).ToString("0");
                         else
                         {
                             if (equipbreakarmor[4] > Int32.Parse(enemyarmor.Text))
-                                Ldamage4.Content = ((basePow + maxAddPow + equipdamage[4]) * gg[4].damageup * (skillupdamage[4]) + 2).ToString("0");
+                                Ldamage4.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[4])+ equipdamage[4]) * gg[4].damageup * (skillupdamage[4]) + 2).ToString("0");
                             else
-                                Ldamage4.Content = Math.Ceiling(Math.Max(((basePow + maxAddPow + equipdamage[4]) * gg[4].damageup * (skillupdamage[4])) / 10, (((basePow + maxAddPow + equipdamage[4]) * gg[4].damageup * (skillupdamage[4])) + equipbreakarmor[4] - Int32.Parse(enemyarmor.Text)))).ToString();
+                                Ldamage4.Content = Math.Ceiling(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[4])+ equipdamage[4]) * gg[4].damageup * (skillupdamage[4])) / 10, (((Math.Ceiling(basePow + maxAddPow ) * merry[4]+ equipdamage[4]) * gg[4].damageup * (skillupdamage[4])) + equipbreakarmor[4] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
                         if (Int32.Parse(Lhp4.Content.ToString()) == 0)
                             Ldamage4.Content = 0;
                         if (innight)
-                            Lhit4.Content = ((basehit + maxAddHit + equiphit[4]) * (100 - 0.9 * (100 - equipnightsee[4])) / 100 * gg[4].hitup * (skilluphit[4])).ToString("0");
+                            Lhit4.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[4] )+ equiphit[4]) * (100 - 0.9 * (100 - equipnightsee[4])) / 100 * gg[4].hitup * (skilluphit[4])).ToString();
                         else
-                            Lhit4.Content = ((basehit + maxAddHit + equiphit[4]) * gg[4].hitup * (skilluphit[4])).ToString("0");
+                            Lhit4.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[4] )+ equiphit[4]) * gg[4].hitup * (skilluphit[4])).ToString("0");
                         //      calcskill(combo, select, skillselect);
                         Image4.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
@@ -7666,10 +7696,10 @@ namespace snqxap
                         calcprobabiliy(4, select, skillselect);
                         double crit = (gun[select].crit + equipcrit[4]) * gg[4].critup;
                         Lcrit4.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge4.Content = ((baseDodge + maxAddDodge + equipdodge[4]) * gg[4].dodgeup * (skillupdodge[4])).ToString("0");
-                        Lbelt4.Content = gun[select].belt;
+                        Ldodge4.Content = ((Math.Ceiling((baseDodge + maxAddDodge) * merry[4]) + equipdodge[4]) * gg[4].dodgeup * (skillupdodge[4])).ToString("0");
+                        Lbelt4.Content = gun[select].belt+equipbelt[4];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex4.Content = Index(Double.Parse(Lshotspeed4.Content.ToString()), Double.Parse(Ldamage4.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit4.Content.ToString()), gun[select].belt, 4, skilldamageagain[4]).ToString("0.00");
+                        Lindex4.Content = Index(Double.Parse(Lshotspeed4.Content.ToString()), Double.Parse(Ldamage4.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit4.Content.ToString()), int.Parse(Lbelt4.Content.ToString()), 4, skilldamageagain[4]).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         if (rb4.IsChecked == true)
                             calctank(4);
@@ -7682,22 +7712,22 @@ namespace snqxap
                         Lhp5.Content = maxLife;
                         if (enemyarmor.Text == "0")
                             if (equipbreakarmor[5] > 0)
-                                Ldamage5.Content = ((basePow + maxAddPow + equipdamage[5]) * gg[5].damageup * (skillupdamage[5]) + 2).ToString("0");
+                                Ldamage5.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[5])+ equipdamage[5]) * gg[5].damageup * (skillupdamage[5]) + 2).ToString("0");
                             else
-                                Ldamage5.Content = ((basePow + maxAddPow + equipdamage[5]) * gg[5].damageup * (skillupdamage[5])).ToString("0");
+                                Ldamage5.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[5])+ equipdamage[5]) * gg[5].damageup * (skillupdamage[5])).ToString("0");
                         else
                         {
                             if (equipbreakarmor[5] > Int32.Parse(enemyarmor.Text))
-                                Ldamage5.Content = ((basePow + maxAddPow + equipdamage[5]) * gg[5].damageup * (skillupdamage[5]) + 2).ToString("0");
+                                Ldamage5.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[5])+ equipdamage[5]) * gg[5].damageup * (skillupdamage[5]) + 2).ToString("0");
                             else
-                                Ldamage5.Content = Math.Ceiling(Math.Max(((basePow + maxAddPow + equipdamage[5]) * gg[5].damageup * (skillupdamage[5])) / 10, (((basePow + maxAddPow + equipdamage[5]) * gg[5].damageup * (skillupdamage[5])) + equipbreakarmor[5] - Int32.Parse(enemyarmor.Text)))).ToString();
+                                Ldamage5.Content = Math.Ceiling(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[5])+ equipdamage[5]) * gg[5].damageup * (skillupdamage[5])) / 10, (((Math.Ceiling(basePow + maxAddPow ) * merry[5]+ equipdamage[5]) * gg[5].damageup * (skillupdamage[5])) + equipbreakarmor[5] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
                         if (Int32.Parse(Lhp5.Content.ToString()) == 0)
                             Ldamage5.Content = 0;
                         if (innight)
-                            Lhit5.Content = ((basehit + maxAddHit + equiphit[5]) * (100 - 0.9 * (100 - equipnightsee[5])) / 100 * gg[5].hitup * (skilluphit[5])).ToString("0");
+                            Lhit5.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[5]) + equiphit[5]) * (100 - 0.9 * (100 - equipnightsee[5])) / 100 * gg[5].hitup * (skilluphit[5])).ToString();
                         else
-                            Lhit5.Content = ((basehit + maxAddHit + equiphit[5]) * gg[5].hitup * (skilluphit[5])).ToString("0");
+                            Lhit5.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[5] )+ equiphit[5]) * gg[5].hitup * (skilluphit[5])).ToString("0");
                         //     calcskill(combo, select, skillselect);
                         Image5.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
@@ -7723,10 +7753,10 @@ namespace snqxap
                         calcprobabiliy(5, select, skillselect);
                         double crit = (gun[select].crit + equipcrit[5]) * gg[5].critup;
                         Lcrit5.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge5.Content = ((baseDodge + maxAddDodge + equipdodge[5]) * gg[5].dodgeup * (skillupdodge[5])).ToString("0");
-                        Lbelt5.Content = gun[select].belt;
+                        Ldodge5.Content = ((Math.Ceiling((baseDodge + maxAddDodge) * merry[5]) + equipdodge[5]) * gg[5].dodgeup * (skillupdodge[5])).ToString("0");
+                        Lbelt5.Content = gun[select].belt+equipbelt[5];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex5.Content = Index(Double.Parse(Lshotspeed5.Content.ToString()), Double.Parse(Ldamage5.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit5.Content.ToString()), gun[select].belt, 5, skilldamageagain[5]).ToString("0.00");
+                        Lindex5.Content = Index(Double.Parse(Lshotspeed5.Content.ToString()), Double.Parse(Ldamage5.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit5.Content.ToString()), int.Parse(Lbelt5.Content.ToString()), 5, skilldamageagain[5]).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         if (rb5.IsChecked == true)
                             calctank(5);
@@ -7739,22 +7769,22 @@ namespace snqxap
                         Lhp6.Content = maxLife;
                         if (enemyarmor.Text == "0")
                             if (equipbreakarmor[6] > 0)
-                                Ldamage6.Content = ((basePow + maxAddPow + equipdamage[6]) * gg[6].damageup * (skillupdamage[6]) + 2).ToString("0");
+                                Ldamage6.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[6])+ equipdamage[6]) * gg[6].damageup * (skillupdamage[6]) + 2).ToString("0");
                             else
-                                Ldamage6.Content = ((basePow + maxAddPow + equipdamage[6]) * gg[6].damageup * (skillupdamage[6])).ToString("0");
+                                Ldamage6.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[6])+ equipdamage[6]) * gg[6].damageup * (skillupdamage[6])).ToString("0");
                         else
                         {
                             if (equipbreakarmor[6] > Int32.Parse(enemyarmor.Text))
-                                Ldamage6.Content = ((basePow + maxAddPow + equipdamage[6]) * gg[6].damageup * (skillupdamage[6]) + 2).ToString("0");
+                                Ldamage6.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[6])+ equipdamage[6]) * gg[6].damageup * (skillupdamage[6]) + 2).ToString("0");
                             else
-                                Ldamage6.Content = Math.Ceiling(Math.Max(((basePow + maxAddPow + equipdamage[6]) * gg[6].damageup * (skillupdamage[6])) / 10, (((basePow + maxAddPow + equipdamage[6]) * gg[6].damageup * (skillupdamage[6])) + equipbreakarmor[6] - Int32.Parse(enemyarmor.Text)))).ToString();
+                                Ldamage6.Content = Math.Ceiling(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[6])+ equipdamage[6]) * gg[6].damageup * (skillupdamage[6])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[6])+ equipdamage[6]) * gg[6].damageup * (skillupdamage[6])) + equipbreakarmor[6] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
                         if (Int32.Parse(Lhp6.Content.ToString()) == 0)
                             Ldamage6.Content = 0;
                         if (innight)
-                            Lhit6.Content = ((basehit + maxAddHit + equiphit[6]) * (100 - 0.9 * (100 - equipnightsee[6])) / 100 * gg[6].hitup * (skilluphit[6])).ToString("0");
+                            Lhit6.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[6]) + equiphit[6]) * (100 - 0.9 * (100 - equipnightsee[6])) / 100 * gg[6].hitup * (skilluphit[6])).ToString();
                         else
-                            Lhit6.Content = ((basehit + maxAddHit + equiphit[6]) * gg[6].hitup * (skilluphit[6])).ToString("0");
+                            Lhit6.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[6] )+ equiphit[6]) * gg[6].hitup * (skilluphit[6])).ToString("0");
                         //       calcskill(combo, select, skillselect);
                         Image6.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
@@ -7780,10 +7810,10 @@ namespace snqxap
                         calcprobabiliy(6, select, skillselect);
                         double crit = (gun[select].crit + equipcrit[6]) * gg[6].critup;
                         Lcrit6.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge6.Content = ((baseDodge + maxAddDodge + equipdodge[6]) * gg[6].dodgeup * (skillupdodge[6])).ToString("0");
-                        Lbelt6.Content = gun[select].belt;
+                        Ldodge6.Content = ((Math.Ceiling((baseDodge + maxAddDodge) * merry[6] )+ equipdodge[6]) * gg[6].dodgeup * (skillupdodge[6])).ToString("0");
+                        Lbelt6.Content = gun[select].belt+equipbelt[6];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex6.Content = Index(Double.Parse(Lshotspeed6.Content.ToString()), Double.Parse(Ldamage6.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit6.Content.ToString()), gun[select].belt, 6, skilldamageagain[6]).ToString("0.00");
+                        Lindex6.Content = Index(Double.Parse(Lshotspeed6.Content.ToString()), Double.Parse(Ldamage6.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit6.Content.ToString()), int.Parse(Lbelt6.Content.ToString()), 6, skilldamageagain[6]).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         if (rb6.IsChecked == true)
                             calctank(6);
@@ -7796,22 +7826,22 @@ namespace snqxap
                         Lhp7.Content = maxLife;
                         if (enemyarmor.Text == "0")
                             if (equipbreakarmor[7] > 0)
-                                Ldamage7.Content = ((basePow + maxAddPow + equipdamage[7]) * gg[7].damageup * (skillupdamage[7]) + 2).ToString("0");
+                                Ldamage7.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[7])+ equipdamage[7]) * gg[7].damageup * (skillupdamage[7]) + 2).ToString("0");
                             else
-                                Ldamage7.Content = ((basePow + maxAddPow + equipdamage[7]) * gg[7].damageup * (skillupdamage[7])).ToString("0");
+                                Ldamage7.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[7])+ equipdamage[7]) * gg[7].damageup * (skillupdamage[7])).ToString("0");
                         else
                         {
                             if (equipbreakarmor[7] > Int32.Parse(enemyarmor.Text))
-                                Ldamage7.Content = ((basePow + maxAddPow + equipdamage[7]) * gg[7].damageup * (skillupdamage[7]) + 2).ToString("0");
+                                Ldamage7.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[7])+ equipdamage[7]) * gg[7].damageup * (skillupdamage[7]) + 2).ToString("0");
                             else
-                                Ldamage7.Content = Math.Ceiling(Math.Max(((basePow + maxAddPow + equipdamage[7]) * gg[7].damageup * (skillupdamage[7])) / 10, (((basePow + maxAddPow + equipdamage[7]) * gg[7].damageup * (skillupdamage[7])) + equipbreakarmor[7] - Int32.Parse(enemyarmor.Text)))).ToString();
+                                Ldamage7.Content = Math.Ceiling(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[7])+ equipdamage[7]) * gg[7].damageup * (skillupdamage[7])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[7])+ equipdamage[7]) * gg[7].damageup * (skillupdamage[7])) + equipbreakarmor[7] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
                         if (Int32.Parse(Lhp7.Content.ToString()) == 0)
                             Ldamage7.Content = 0;
                         if (innight)
-                            Lhit7.Content = ((basehit + maxAddHit + equiphit[7]) * (100 - 0.9 * (100 - equipnightsee[7])) / 100 * gg[7].hitup * (skilluphit[7])).ToString("0");
+                            Lhit7.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[7]) + equiphit[7]) * (100 - 0.9 * (100 - equipnightsee[7])) / 100 * gg[7].hitup * (skilluphit[7])).ToString();
                         else
-                            Lhit7.Content = ((basehit + maxAddHit + equiphit[7]) * gg[7].hitup * (skilluphit[7])).ToString("0");
+                            Lhit7.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[7] )+ equiphit[7]) * gg[7].hitup * (skilluphit[7])).ToString("0");
                         //    calcskill(combo, select, skillselect);
                         Image7.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
@@ -7837,10 +7867,10 @@ namespace snqxap
                         calcprobabiliy(7, select, skillselect);
                         double crit = (gun[select].crit + equipcrit[7]) * gg[7].critup;
                         Lcrit7.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge7.Content = ((baseDodge + maxAddDodge + equipdodge[7]) * gg[7].dodgeup * (skillupdodge[7])).ToString("0");
-                        Lbelt7.Content = gun[select].belt;
+                        Ldodge7.Content = ((Math.Ceiling((baseDodge + maxAddDodge) * merry[7] )+ equipdodge[7]) * gg[7].dodgeup * (skillupdodge[7])).ToString("0");
+                        Lbelt7.Content = gun[select].belt+equipbelt[7];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex7.Content = Index(Double.Parse(Lshotspeed7.Content.ToString()), Double.Parse(Ldamage7.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit7.Content.ToString()), gun[select].belt, 7, skilldamageagain[7]).ToString("0.00");
+                        Lindex7.Content = Index(Double.Parse(Lshotspeed7.Content.ToString()), Double.Parse(Ldamage7.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit7.Content.ToString()), int.Parse(Lbelt7.Content.ToString()), 7, skilldamageagain[7]).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         if (rb7.IsChecked == true)
                             calctank(7);
@@ -7853,22 +7883,22 @@ namespace snqxap
                         Lhp8.Content = maxLife;
                         if (enemyarmor.Text == "0")
                             if (equipbreakarmor[8] > 0)
-                                Ldamage8.Content = ((basePow + maxAddPow + equipdamage[8]) * gg[8].damageup * (skillupdamage[8]) + 2).ToString("0");
+                                Ldamage8.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[8])+ equipdamage[8]) * gg[8].damageup * (skillupdamage[8]) + 2).ToString("0");
                             else
-                                Ldamage8.Content = ((basePow + maxAddPow + equipdamage[8]) * gg[8].damageup * (skillupdamage[8])).ToString("0");
+                                Ldamage8.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[8])+ equipdamage[8]) * gg[8].damageup * (skillupdamage[8])).ToString("0");
                         else
                         {
                             if (equipbreakarmor[8] > Int32.Parse(enemyarmor.Text))
-                                Ldamage8.Content = ((basePow + maxAddPow + equipdamage[8]) * gg[8].damageup * (skillupdamage[8]) + 2).ToString("0");
+                                Ldamage8.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[8])+ equipdamage[8]) * gg[8].damageup * (skillupdamage[8]) + 2).ToString("0");
                             else
-                                Ldamage8.Content = Math.Ceiling(Math.Max(((basePow + maxAddPow + equipdamage[8]) * gg[8].damageup * (skillupdamage[8])) / 10, (((basePow + maxAddPow + equipdamage[8]) * gg[8].damageup * (skillupdamage[8])) + equipbreakarmor[8] - Int32.Parse(enemyarmor.Text)))).ToString();
+                                Ldamage8.Content = Math.Ceiling(Math.Max(((Math.Ceiling((basePow + maxAddPow )) * merry[8]+ equipdamage[8]) * gg[8].damageup * (skillupdamage[8])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[8])+ equipdamage[8]) * gg[8].damageup * (skillupdamage[8])) + equipbreakarmor[8] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
                         if (Int32.Parse(Lhp8.Content.ToString()) == 0)
                             Ldamage8.Content = 0;
                         if (innight)
-                            Lhit8.Content = ((basehit + maxAddHit + equiphit[8]) * (100 - 0.9 * (100 - equipnightsee[8])) / 100 * gg[8].hitup * (skilluphit[8])).ToString("0");
+                            Lhit8.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[8] )+ equiphit[8]) * (100 - 0.9 * (100 - equipnightsee[8])) / 100 * gg[8].hitup * (skilluphit[8])).ToString();
                         else
-                            Lhit8.Content = ((basehit + maxAddHit + equiphit[8]) * gg[8].hitup * (skilluphit[8])).ToString("0");
+                            Lhit8.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[8] )+ equiphit[8]) * gg[8].hitup * (skilluphit[8])).ToString("0");
                         //       calcskill(combo, select, skillselect);
                         Image8.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
@@ -7894,10 +7924,10 @@ namespace snqxap
                         calcprobabiliy(8, select, skillselect);
                         double crit = (gun[select].crit + equipcrit[8]) * gg[8].critup;
                         Lcrit8.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge8.Content = ((baseDodge + maxAddDodge + equipdodge[8]) * gg[8].dodgeup * (skillupdodge[8])).ToString("0");
-                        Lbelt8.Content = gun[select].belt;
+                        Ldodge8.Content = ((Math.Ceiling((baseDodge + maxAddDodge) * merry[8] )+ equipdodge[8]) * gg[8].dodgeup * (skillupdodge[8])).ToString("0");
+                        Lbelt8.Content = gun[select].belt+equipbelt[8];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
-                        Lindex8.Content = Index(Double.Parse(Lshotspeed8.Content.ToString()), Double.Parse(Ldamage8.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit8.Content.ToString()), gun[select].belt, 8, skilldamageagain[8]).ToString("0.00");
+                        Lindex8.Content = Index(Double.Parse(Lshotspeed8.Content.ToString()), Double.Parse(Ldamage8.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit8.Content.ToString()), int.Parse(Lbelt8.Content.ToString()), 8, skilldamageagain[8]).ToString("0.00");
                         allindex.Content = (Double.Parse(Lindex0.Content.ToString()) + Double.Parse(Lindex1.Content.ToString()) + Double.Parse(Lindex2.Content.ToString()) + Double.Parse(Lindex3.Content.ToString()) + Double.Parse(Lindex4.Content.ToString()) + Double.Parse(Lindex5.Content.ToString()) + Double.Parse(Lindex6.Content.ToString()) + Double.Parse(Lindex7.Content.ToString()) + Double.Parse(Lindex8.Content.ToString())).ToString("0.00");
                         if (rb8.IsChecked == true)
                             calctank(8);
@@ -7907,9 +7937,7 @@ namespace snqxap
                     }
                 default: break;
             }
-
-         
-         //   MessageBox.Show((baseDodge + maxAddDodge).ToString("0"));
+         //   renewskill();
         }
         /// <summary>
         /// 左上格等级改变事件
@@ -8478,7 +8506,11 @@ namespace snqxap
             }
         }
 
-
+        /// <summary>
+        /// 判断是否是夜战技能（暂时不用）
+        /// </summary>
+        /// <param name="skilltype">技能类型</param>
+        /// <returns></returns>
         private bool isnightskill(int skilltype) //31 34 131 132 133 231 233 333 405
         {
             if (skilltype == 31 || skilltype == 34 || skilltype == 131 || skilltype == 132 || skilltype == 133 || skilltype == 231 || skilltype == 233 || skilltype == 333 || skilltype == 405)
@@ -8848,7 +8880,7 @@ namespace snqxap
                         double maxAddPow = Math.Ceiling(levelindex * base1 * array[1] * gun[index].ratiopow * gun[index].eatratio / base2 / base3);
                         if (ischecked)
                         {
-                            renewdamage(combo, (basePow + maxAddPow + equipdamage[combo]) * num1);
+                            renewdamage(combo, (Math.Ceiling((basePow + maxAddPow)*merry[combo]) + equipdamage[combo]) * num1);
                         }
                         renewtime(combo, num2);
                         string read = "手榴弹,半径2.5," + num1.ToString("0.0") + "倍";
@@ -8889,7 +8921,7 @@ namespace snqxap
                         double maxAddPow = Math.Ceiling(levelindex * base1 * array[1] * gun[index].ratiopow * gun[index].eatratio / base2 / base3);
                         if (ischecked)
                         {
-                            renewdamage(combo, (basePow + maxAddPow + equipdamage[combo]) * num1);
+                            renewdamage(combo, (Math.Ceiling((basePow + maxAddPow)*merry[combo]) + equipdamage[combo]) * num1);
                         }
                         renewtime(combo, num3);
                         string read = "燃烧弹" + num1.ToString("0.0") + "倍半径1.0不算DOT";
@@ -8925,9 +8957,9 @@ namespace snqxap
                         if (ischecked)
                         {
                             if (equipbreakarmor[combo] > Int32.Parse(enemyarmor.Text))
-                                renewdamage(combo, (basePow + maxAddPow) * num1);
+                                renewdamage(combo, (Math.Ceiling((basePow + maxAddPow) * merry[combo]) + equipdamage[combo]) * num1);
                             else
-                                renewdamage(combo, Math.Max((basePow + maxAddPow + equipbreakarmor[combo] - Int32.Parse(enemyarmor.Text)),0) * num1);
+                                renewdamage(combo, Math.Max(((Math.Ceiling((basePow + maxAddPow) * merry[combo]) + equipdamage[combo]) + equipbreakarmor[combo] - Int32.Parse(enemyarmor.Text)),0) * num1);
                         }
                         renewtime(combo, gun[index].skilleffect2);
                         string read = "瞄准射击,最左目标" + num1.ToString("0.0") + "倍";
@@ -8948,9 +8980,9 @@ namespace snqxap
                         if (ischecked)
                         {
                             if (equipbreakarmor[combo] > Int32.Parse(enemyarmor.Text))
-                                renewdamage(combo, (basePow + maxAddPow) * num1);
+                                renewdamage(combo, (Math.Ceiling((basePow + maxAddPow) * merry[combo]) + equipdamage[combo]) * num1);
                             else
-                                renewdamage(combo, Math.Max((basePow + maxAddPow + equipbreakarmor[combo] - Int32.Parse(enemyarmor.Text)), 0) * num1);
+                                renewdamage(combo, Math.Max(((Math.Ceiling((basePow + maxAddPow) * merry[combo]) + equipdamage[combo]) + equipbreakarmor[combo] - Int32.Parse(enemyarmor.Text)), 0) * num1);
                         }
                         renewtime(combo, gun[index].skilleffect2);
                         string read = "定点射击,最右目标" + num1.ToString("0.0") + "倍";
@@ -8971,9 +9003,9 @@ namespace snqxap
                         if (ischecked)
                         {
                             if (equipbreakarmor[combo] > Int32.Parse(enemyarmor.Text))
-                                renewdamage(combo, (basePow + maxAddPow) * num1);
+                                renewdamage(combo, (Math.Ceiling((basePow + maxAddPow) * merry[combo]) + equipdamage[combo]) * num1);
                             else
-                                renewdamage(combo, Math.Max((basePow + maxAddPow + equipbreakarmor[combo] - Int32.Parse(enemyarmor.Text)), 0) * num1);
+                                renewdamage(combo, Math.Max(((Math.Ceiling((basePow + maxAddPow) * merry[combo]) + equipdamage[combo]) + equipbreakarmor[combo] - Int32.Parse(enemyarmor.Text)), 0) * num1);
                         }
                         renewtime(combo, gun[index].skilleffect2);
                         string read = "阻断射击,特定目标" + num1.ToString("0.0") + "倍";
@@ -9151,6 +9183,11 @@ namespace snqxap
             bo.ShowDialog();
         }
 
+        /// <summary>
+        /// 点击更新链接
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
 
@@ -9158,8 +9195,12 @@ namespace snqxap
           //  proc.Start();
         }
 
-
-
+        /// <summary>
+        /// 给装备选项上色
+        /// </summary>
+        /// <param name="rank">星级</param>
+        /// <param name="str">名称</param>
+        /// <returns></returns>
         public Label BrushEquipCombobox(int rank,string str)
         {
             Label l = new Label();
@@ -9187,3829 +9228,50 @@ namespace snqxap
             return l;
         }
 
-
+        /// <summary>
+        /// 导入枪娘可用装备数据
+        /// </summary>
+        /// <param name="index">该格枪娘index</param>
+        /// <param name="levelindex">该格枪娘等级index</param>
+        /// <param name="combo">哪一格</param>
         public void loadequipcb(int index, int levelindex, int combo)
         {
             if (levelindex == -1)
                 return;
             if (index == -1 || index == GUN_NUMBER || levelindex < 19)
                 return;
+            int ranklevel = 0;
+            int cardlevel = 0;
             if (levelindex < 29)
             {
-                switch (combo)
-                {
-                    case 0:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-                    case 1:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 2:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 3:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 4:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 5:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 6:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 7:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 8:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                }
+                ranklevel = 2;
+                cardlevel = 1;
             }
-
             else if (levelindex < 44)
             {
-                switch (combo)
-                {
-                    case 0:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-                    case 1:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 2:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 3:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 4:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 5:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 6:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 7:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 8:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-                }
+                ranklevel = 3;
+                cardlevel = 1;
             }
             else if (levelindex < 49)
             {
-                switch (combo)
-                {
-                    case 0:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-                    case 1:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 2:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 3:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 4:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 5:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 6:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 7:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 8:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-                }
+                ranklevel = 4;
+                cardlevel = 1;
             }
-            else if (levelindex < 59)   
+            else if (levelindex < 59)
             {
-                switch (combo)
-                {
-                    case 0:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        equipcb02.IsEnabled = true;
-                                        equipcb02.Items.Clear();
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb02.IsEnabled = true;
-                                        equipcb02.Items.Clear();
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb02.IsEnabled = true;
-                                        equipcb02.Items.Clear();
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-                    case 1:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb12.IsEnabled = true;
-                                        equipcb12.Items.Clear();
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb12.IsEnabled = true;
-                                        equipcb12.Items.Clear();
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb12.IsEnabled = true;
-                                        equipcb12.Items.Clear();
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 2:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb22.IsEnabled = true;
-                                        equipcb22.Items.Clear();
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb22.IsEnabled = true;
-                                        equipcb22.Items.Clear();
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb22.IsEnabled = true;
-                                        equipcb22.Items.Clear();
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 3:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb32.IsEnabled = true;
-                                        equipcb32.Items.Clear();
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb32.IsEnabled = true;
-                                        equipcb32.Items.Clear();
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb32.IsEnabled = true;
-                                        equipcb32.Items.Clear();
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 4:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb42.IsEnabled = true;
-                                        equipcb42.Items.Clear();
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb42.IsEnabled = true;
-                                        equipcb42.Items.Clear();
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb42.IsEnabled = true;
-                                        equipcb42.Items.Clear();
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 5:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb52.IsEnabled = true;
-                                        equipcb52.Items.Clear();
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb52.IsEnabled = true;
-                                        equipcb52.Items.Clear();
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb52.IsEnabled = true;
-                                        equipcb52.Items.Clear();
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 6:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb62.IsEnabled = true;
-                                        equipcb62.Items.Clear();
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb62.IsEnabled = true;
-                                        equipcb62.Items.Clear();
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb62.IsEnabled = true;
-                                        equipcb62.Items.Clear();
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 7:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb72.IsEnabled = true;
-                                        equipcb72.Items.Clear();
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb72.IsEnabled = true;
-                                        equipcb72.Items.Clear();
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb72.IsEnabled = true;
-                                        equipcb72.Items.Clear();
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 8:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb82.IsEnabled = true;
-                                        equipcb82.Items.Clear();
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb82.IsEnabled = true;
-                                        equipcb82.Items.Clear();
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb82.IsEnabled = true;
-                                        equipcb82.Items.Clear();
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-                }
+                ranklevel = 4;
+                cardlevel = 2;
             }
             else if (levelindex < 79)
             {
-                switch (combo)
-                {
-                    case 0:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb02.IsEnabled = true;
-                                        equipcb02.Items.Clear();
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i =0;i<EQUIP_NUMBER;i++)
-                                            if(equip[i].type == 10)
-                                         equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb02.IsEnabled = true;
-                                        equipcb02.Items.Clear();
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb02.IsEnabled = true;
-                                        equipcb02.Items.Clear();
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-                    case 1:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb12.IsEnabled = true;
-                                        equipcb12.Items.Clear();
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
-                                        break;
-                                    }
-                                case 4:
-                                    {
-
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb12.IsEnabled = true;
-                                        equipcb12.Items.Clear();
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb12.IsEnabled = true;
-                                        equipcb12.Items.Clear();
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 2:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb22.IsEnabled = true;
-                                        equipcb22.Items.Clear();
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
-                                        break;
-                                    }
-                                case 4:
-                                    {
-
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb22.IsEnabled = true;
-                                        equipcb22.Items.Clear();
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb22.IsEnabled = true;
-                                        equipcb22.Items.Clear();
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 3:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb32.IsEnabled = true;
-                                        equipcb32.Items.Clear();
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
-                                        break;
-                                    }
-                                case 4:
-                                    {
-
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb32.IsEnabled = true;
-                                        equipcb32.Items.Clear();
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb32.IsEnabled = true;
-                                        equipcb32.Items.Clear();
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 4:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb42.IsEnabled = true;
-                                        equipcb42.Items.Clear();
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb42.IsEnabled = true;
-                                        equipcb42.Items.Clear();
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb42.IsEnabled = true;
-                                        equipcb42.Items.Clear();
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 5:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb52.IsEnabled = true;
-                                        equipcb52.Items.Clear();
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb52.IsEnabled = true;
-                                        equipcb52.Items.Clear();
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb52.IsEnabled = true;
-                                        equipcb52.Items.Clear();
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 6:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb62.IsEnabled = true;
-                                        equipcb62.Items.Clear();
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb62.IsEnabled = true;
-                                        equipcb62.Items.Clear();
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb62.IsEnabled = true;
-                                        equipcb62.Items.Clear();
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 7:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb72.IsEnabled = true;
-                                        equipcb72.Items.Clear();
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
-                                        break;
-                                    }
-                                case 4:
-                                    {
-
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb72.IsEnabled = true;
-                                        equipcb72.Items.Clear();
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb72.IsEnabled = true;
-                                        equipcb72.Items.Clear();
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-
-                    case 8:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb82.IsEnabled = true;
-                                        equipcb82.Items.Clear();
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-
-                                        break;
-                                    }
-                                case 3:
-                                    {
-
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
-                                        break;
-                                    }
-                                case 4:
-                                    {
-
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb82.IsEnabled = true;
-                                        equipcb82.Items.Clear();
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb82.IsEnabled = true;
-                                        equipcb82.Items.Clear();
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                        break;
-                                    }
-                            }
-                            break;
-                        }
-                }
+                ranklevel = 5;
+                cardlevel = 2;
             }
             else
             {
+                ranklevel = 5;
+                cardlevel = 3;
+            }
                 switch (combo)
                 {
                     case 0:
@@ -13018,150 +9280,263 @@ namespace snqxap
                             {
                                 case 2:
                                     {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb02.IsEnabled = true;
-                                        equipcb02.Items.Clear();
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-
-                                        equipcb03.IsEnabled = true;
-                                        equipcb03.Items.Clear();
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb01.IsEnabled = true;
+                                            equipcb01.Items.Clear();
+                                            equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb02.IsEnabled = true;
+                                            equipcb02.Items.Clear();
+                                            equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb03.IsEnabled = true;
+                                            equipcb03.Items.Clear();
+                                            equipcb03.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 3:
                                     {
-
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
-                                        equipcb03.IsEnabled = true;
-                                        equipcb03.Items.Clear();
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb01.IsEnabled = true;
+                                            equipcb01.Items.Clear();
+                                            equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb02.IsEnabled = true;
+                                            equipcb02.Items.Clear();
+                                            equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb03.IsEnabled = true;
+                                            equipcb03.Items.Clear();
+                                            equipcb03.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 4:
                                     {
-
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb03.IsEnabled = true;
-                                        equipcb03.Items.Clear();
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb01.IsEnabled = true;
+                                            equipcb01.Items.Clear();
+                                            equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb02.IsEnabled = true;
+                                            equipcb02.Items.Clear();
+                                            equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb03.IsEnabled = true;
+                                            equipcb03.Items.Clear();
+                                            equipcb03.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 5:
                                     {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb02.IsEnabled = true;
-                                        equipcb02.Items.Clear();
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                             break;
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb01.IsEnabled = true;
+                                            equipcb01.Items.Clear();
+                                            equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb02.IsEnabled = true;
+                                            equipcb02.Items.Clear();
+                                            equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb03.IsEnabled = true;
+                                            equipcb03.Items.Clear();
+                                            equipcb03.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        break;
                                     }
                                 case 6:
                                     {
-                                        equipcb01.IsEnabled = true;
-                                        equipcb01.Items.Clear();
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb01.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb02.IsEnabled = true;
-                                        equipcb02.Items.Clear();
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                           break;
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb01.IsEnabled = true;
+                                            equipcb01.Items.Clear();
+                                            equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb02.IsEnabled = true;
+                                            equipcb02.Items.Clear();
+                                            equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb03.IsEnabled = true;
+                                            equipcb03.Items.Clear();
+                                            equipcb03.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 9) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        break;
                                     }
                             }
                             break;
@@ -13172,152 +9547,262 @@ namespace snqxap
                             {
                                 case 2:
                                     {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb12.IsEnabled = true;
-                                        equipcb12.Items.Clear();
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-
-                                        equipcb13.IsEnabled = true;
-                                        equipcb13.Items.Clear();
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb11.IsEnabled = true;
+                                            equipcb11.Items.Clear();
+                                            equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb12.IsEnabled = true;
+                                            equipcb12.Items.Clear();
+                                            equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb13.IsEnabled = true;
+                                            equipcb13.Items.Clear();
+                                            equipcb13.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 3:
                                     {
-
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
-                                        equipcb13.IsEnabled = true;
-                                        equipcb13.Items.Clear();
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb11.IsEnabled = true;
+                                            equipcb11.Items.Clear();
+                                            equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb12.IsEnabled = true;
+                                            equipcb12.Items.Clear();
+                                            equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb13.IsEnabled = true;
+                                            equipcb13.Items.Clear();
+                                            equipcb13.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 4:
                                     {
-
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb13.IsEnabled = true;
-                                        equipcb13.Items.Clear();
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb11.IsEnabled = true;
+                                            equipcb11.Items.Clear();
+                                            equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb12.IsEnabled = true;
+                                            equipcb12.Items.Clear();
+                                            equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb13.IsEnabled = true;
+                                            equipcb13.Items.Clear();
+                                            equipcb13.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 5:
                                     {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb12.IsEnabled = true;
-                                        equipcb12.Items.Clear();
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                      
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb11.IsEnabled = true;
+                                            equipcb11.Items.Clear();
+                                            equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb12.IsEnabled = true;
+                                            equipcb12.Items.Clear();
+                                            equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb13.IsEnabled = true;
+                                            equipcb13.Items.Clear();
+                                            equipcb13.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 6:
                                     {
-                                        equipcb11.IsEnabled = true;
-                                        equipcb11.Items.Clear();
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb11.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb12.IsEnabled = true;
-                                        equipcb12.Items.Clear();
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                             
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb11.IsEnabled = true;
+                                            equipcb11.Items.Clear();
+                                            equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb12.IsEnabled = true;
+                                            equipcb12.Items.Clear();
+                                            equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb13.IsEnabled = true;
+                                            equipcb13.Items.Clear();
+                                            equipcb13.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 9) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                             }
@@ -13329,146 +9814,262 @@ namespace snqxap
                             {
                                 case 2:
                                     {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb22.IsEnabled = true;
-                                        equipcb22.Items.Clear();
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-
-                                        equipcb23.IsEnabled = true;
-                                        equipcb23.Items.Clear();
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb21.IsEnabled = true;
+                                            equipcb21.Items.Clear();
+                                            equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb22.IsEnabled = true;
+                                            equipcb22.Items.Clear();
+                                            equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb23.IsEnabled = true;
+                                            equipcb23.Items.Clear();
+                                            equipcb23.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 3:
                                     {
-
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
-                                        equipcb23.IsEnabled = true;
-                                        equipcb23.Items.Clear();
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb21.IsEnabled = true;
+                                            equipcb21.Items.Clear();
+                                            equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb22.IsEnabled = true;
+                                            equipcb22.Items.Clear();
+                                            equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb23.IsEnabled = true;
+                                            equipcb23.Items.Clear();
+                                            equipcb23.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 4:
                                     {
-
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                            break;
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb21.IsEnabled = true;
+                                            equipcb21.Items.Clear();
+                                            equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb22.IsEnabled = true;
+                                            equipcb22.Items.Clear();
+                                            equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb23.IsEnabled = true;
+                                            equipcb23.Items.Clear();
+                                            equipcb23.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        break;
                                     }
                                 case 5:
                                     {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb22.IsEnabled = true;
-                                        equipcb22.Items.Clear();
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                          
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb21.IsEnabled = true;
+                                            equipcb21.Items.Clear();
+                                            equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb22.IsEnabled = true;
+                                            equipcb22.Items.Clear();
+                                            equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb23.IsEnabled = true;
+                                            equipcb23.Items.Clear();
+                                            equipcb23.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 6:
                                     {
-                                        equipcb21.IsEnabled = true;
-                                        equipcb21.Items.Clear();
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb21.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb22.IsEnabled = true;
-                                        equipcb22.Items.Clear();
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                      
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb21.IsEnabled = true;
+                                            equipcb21.Items.Clear();
+                                            equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb22.IsEnabled = true;
+                                            equipcb22.Items.Clear();
+                                            equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb23.IsEnabled = true;
+                                            equipcb23.Items.Clear();
+                                            equipcb23.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 9) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                             }
@@ -13480,152 +10081,262 @@ namespace snqxap
                             {
                                 case 2:
                                     {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb32.IsEnabled = true;
-                                        equipcb32.Items.Clear();
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-
-                                        equipcb33.IsEnabled = true;
-                                        equipcb33.Items.Clear();
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb31.IsEnabled = true;
+                                            equipcb31.Items.Clear();
+                                            equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb32.IsEnabled = true;
+                                            equipcb32.Items.Clear();
+                                            equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb33.IsEnabled = true;
+                                            equipcb33.Items.Clear();
+                                            equipcb33.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 3:
                                     {
-
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
-                                        equipcb33.IsEnabled = true;
-                                        equipcb33.Items.Clear();
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb31.IsEnabled = true;
+                                            equipcb31.Items.Clear();
+                                            equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb32.IsEnabled = true;
+                                            equipcb32.Items.Clear();
+                                            equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb33.IsEnabled = true;
+                                            equipcb33.Items.Clear();
+                                            equipcb33.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 4:
                                     {
-
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb33.IsEnabled = true;
-                                        equipcb33.Items.Clear();
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb31.IsEnabled = true;
+                                            equipcb31.Items.Clear();
+                                            equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb32.IsEnabled = true;
+                                            equipcb32.Items.Clear();
+                                            equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb33.IsEnabled = true;
+                                            equipcb33.Items.Clear();
+                                            equipcb33.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 5:
                                     {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb32.IsEnabled = true;
-                                        equipcb32.Items.Clear();
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb31.IsEnabled = true;
+                                            equipcb31.Items.Clear();
+                                            equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb32.IsEnabled = true;
+                                            equipcb32.Items.Clear();
+                                            equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb33.IsEnabled = true;
+                                            equipcb33.Items.Clear();
+                                            equipcb33.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 6:
                                     {
-                                        equipcb31.IsEnabled = true;
-                                        equipcb31.Items.Clear();
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb31.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb32.IsEnabled = true;
-                                        equipcb32.Items.Clear();
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                         
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb31.IsEnabled = true;
+                                            equipcb31.Items.Clear();
+                                            equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb32.IsEnabled = true;
+                                            equipcb32.Items.Clear();
+                                            equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb33.IsEnabled = true;
+                                            equipcb33.Items.Clear();
+                                            equipcb33.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 9) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                             }
@@ -13637,152 +10348,262 @@ namespace snqxap
                             {
                                 case 2:
                                     {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb42.IsEnabled = true;
-                                        equipcb42.Items.Clear();
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-
-                                        equipcb43.IsEnabled = true;
-                                        equipcb43.Items.Clear();
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb41.IsEnabled = true;
+                                            equipcb41.Items.Clear();
+                                            equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb42.IsEnabled = true;
+                                            equipcb42.Items.Clear();
+                                            equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb43.IsEnabled = true;
+                                            equipcb43.Items.Clear();
+                                            equipcb43.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 3:
                                     {
-
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
-                                        equipcb43.IsEnabled = true;
-                                        equipcb43.Items.Clear();
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb41.IsEnabled = true;
+                                            equipcb41.Items.Clear();
+                                            equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb42.IsEnabled = true;
+                                            equipcb42.Items.Clear();
+                                            equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb43.IsEnabled = true;
+                                            equipcb43.Items.Clear();
+                                            equipcb43.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 4:
                                     {
-
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb43.IsEnabled = true;
-                                        equipcb43.Items.Clear();
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb41.IsEnabled = true;
+                                            equipcb41.Items.Clear();
+                                            equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb42.IsEnabled = true;
+                                            equipcb42.Items.Clear();
+                                            equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb43.IsEnabled = true;
+                                            equipcb43.Items.Clear();
+                                            equipcb43.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 5:
                                     {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb42.IsEnabled = true;
-                                        equipcb42.Items.Clear();
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                              
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb41.IsEnabled = true;
+                                            equipcb41.Items.Clear();
+                                            equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb42.IsEnabled = true;
+                                            equipcb42.Items.Clear();
+                                            equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb43.IsEnabled = true;
+                                            equipcb43.Items.Clear();
+                                            equipcb43.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 6:
                                     {
-                                        equipcb41.IsEnabled = true;
-                                        equipcb41.Items.Clear();
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb41.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb42.IsEnabled = true;
-                                        equipcb42.Items.Clear();
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                           
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb41.IsEnabled = true;
+                                            equipcb41.Items.Clear();
+                                            equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb42.IsEnabled = true;
+                                            equipcb42.Items.Clear();
+                                            equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb43.IsEnabled = true;
+                                            equipcb43.Items.Clear();
+                                            equipcb43.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 9) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                             }
@@ -13794,151 +10615,263 @@ namespace snqxap
                             {
                                 case 2:
                                     {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb52.IsEnabled = true;
-                                        equipcb52.Items.Clear();
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-
-                                        equipcb53.IsEnabled = true;
-                                        equipcb53.Items.Clear();
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb51.IsEnabled = true;
+                                            equipcb51.Items.Clear();
+                                            equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb52.IsEnabled = true;
+                                            equipcb52.Items.Clear();
+                                            equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb53.IsEnabled = true;
+                                            equipcb53.Items.Clear();
+                                            equipcb53.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 3:
                                     {
-
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
-                                        equipcb53.IsEnabled = true;
-                                        equipcb53.Items.Clear();
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb51.IsEnabled = true;
+                                            equipcb51.Items.Clear();
+                                            equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb52.IsEnabled = true;
+                                            equipcb52.Items.Clear();
+                                            equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb53.IsEnabled = true;
+                                            equipcb53.Items.Clear();
+                                            equipcb53.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 4:
                                     {
-
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb53.IsEnabled = true;
-                                        equipcb53.Items.Clear();
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb51.IsEnabled = true;
+                                            equipcb51.Items.Clear();
+                                            equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb52.IsEnabled = true;
+                                            equipcb52.Items.Clear();
+                                            equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb53.IsEnabled = true;
+                                            equipcb53.Items.Clear();
+                                            equipcb53.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 5:
                                     {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb52.IsEnabled = true;
-                                        equipcb52.Items.Clear();
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                           break;
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb51.IsEnabled = true;
+                                            equipcb51.Items.Clear();
+                                            equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb52.IsEnabled = true;
+                                            equipcb52.Items.Clear();
+                                            equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb53.IsEnabled = true;
+                                            equipcb53.Items.Clear();
+                                            equipcb53.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        break;
                                     }
                                 case 6:
                                     {
-                                        equipcb51.IsEnabled = true;
-                                        equipcb51.Items.Clear();
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb51.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb52.IsEnabled = true;
-                                        equipcb52.Items.Clear();
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                                    break;
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb51.IsEnabled = true;
+                                            equipcb51.Items.Clear();
+                                            equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb52.IsEnabled = true;
+                                            equipcb52.Items.Clear();
+                                            equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb53.IsEnabled = true;
+                                            equipcb53.Items.Clear();
+                                            equipcb53.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 9) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        break;
                                     }
                             }
                             break;
@@ -13949,151 +10882,262 @@ namespace snqxap
                             {
                                 case 2:
                                     {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb62.IsEnabled = true;
-                                        equipcb62.Items.Clear();
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-
-                                        equipcb63.IsEnabled = true;
-                                        equipcb63.Items.Clear();
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb61.IsEnabled = true;
+                                            equipcb61.Items.Clear();
+                                            equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb62.IsEnabled = true;
+                                            equipcb62.Items.Clear();
+                                            equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb63.IsEnabled = true;
+                                            equipcb63.Items.Clear();
+                                            equipcb63.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 3:
                                     {
-
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
-                                        equipcb63.IsEnabled = true;
-                                        equipcb63.Items.Clear();
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb61.IsEnabled = true;
+                                            equipcb61.Items.Clear();
+                                            equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb62.IsEnabled = true;
+                                            equipcb62.Items.Clear();
+                                            equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb63.IsEnabled = true;
+                                            equipcb63.Items.Clear();
+                                            equipcb63.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 4:
                                     {
-
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb63.IsEnabled = true;
-                                        equipcb63.Items.Clear();
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb61.IsEnabled = true;
+                                            equipcb61.Items.Clear();
+                                            equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb62.IsEnabled = true;
+                                            equipcb62.Items.Clear();
+                                            equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb63.IsEnabled = true;
+                                            equipcb63.Items.Clear();
+                                            equipcb63.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 5:
                                     {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb62.IsEnabled = true;
-                                        equipcb62.Items.Clear();
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                               break;
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb61.IsEnabled = true;
+                                            equipcb61.Items.Clear();
+                                            equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb62.IsEnabled = true;
+                                            equipcb62.Items.Clear();
+                                            equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb63.IsEnabled = true;
+                                            equipcb63.Items.Clear();
+                                            equipcb63.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        break;
                                     }
                                 case 6:
                                     {
-                                        equipcb61.IsEnabled = true;
-                                        equipcb61.Items.Clear();
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb61.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb62.IsEnabled = true;
-                                        equipcb62.Items.Clear();
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                              
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb61.IsEnabled = true;
+                                            equipcb61.Items.Clear();
+                                            equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb62.IsEnabled = true;
+                                            equipcb62.Items.Clear();
+                                            equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb63.IsEnabled = true;
+                                            equipcb63.Items.Clear();
+                                            equipcb63.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 9) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                             }
@@ -14105,151 +11149,262 @@ namespace snqxap
                             {
                                 case 2:
                                     {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb72.IsEnabled = true;
-                                        equipcb72.Items.Clear();
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-
-                                        equipcb73.IsEnabled = true;
-                                        equipcb73.Items.Clear();
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb71.IsEnabled = true;
+                                            equipcb71.Items.Clear();
+                                            equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb72.IsEnabled = true;
+                                            equipcb72.Items.Clear();
+                                            equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb73.IsEnabled = true;
+                                            equipcb73.Items.Clear();
+                                            equipcb73.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 3:
                                     {
-
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
-                                        equipcb73.IsEnabled = true;
-                                        equipcb73.Items.Clear();
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb71.IsEnabled = true;
+                                            equipcb71.Items.Clear();
+                                            equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb72.IsEnabled = true;
+                                            equipcb72.Items.Clear();
+                                            equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb73.IsEnabled = true;
+                                            equipcb73.Items.Clear();
+                                            equipcb73.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 4:
                                     {
-
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb73.IsEnabled = true;
-                                        equipcb73.Items.Clear();
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb71.IsEnabled = true;
+                                            equipcb71.Items.Clear();
+                                            equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb72.IsEnabled = true;
+                                            equipcb72.Items.Clear();
+                                            equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb73.IsEnabled = true;
+                                            equipcb73.Items.Clear();
+                                            equipcb73.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 5:
                                     {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb72.IsEnabled = true;
-                                        equipcb72.Items.Clear();
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                             break;
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb71.IsEnabled = true;
+                                            equipcb71.Items.Clear();
+                                            equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb72.IsEnabled = true;
+                                            equipcb72.Items.Clear();
+                                            equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb73.IsEnabled = true;
+                                            equipcb73.Items.Clear();
+                                            equipcb73.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        break;
                                     }
                                 case 6:
                                     {
-                                        equipcb71.IsEnabled = true;
-                                        equipcb71.Items.Clear();
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb71.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb72.IsEnabled = true;
-                                        equipcb72.Items.Clear();
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                  
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb71.IsEnabled = true;
+                                            equipcb71.Items.Clear();
+                                            equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb72.IsEnabled = true;
+                                            equipcb72.Items.Clear();
+                                            equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb73.IsEnabled = true;
+                                            equipcb73.Items.Clear();
+                                            equipcb73.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 9) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                             }
@@ -14261,2640 +11416,1224 @@ namespace snqxap
                             {
                                 case 2:
                                     {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb82.IsEnabled = true;
-                                        equipcb82.Items.Clear();
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-
-                                        equipcb83.IsEnabled = true;
-                                        equipcb83.Items.Clear();
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb81.IsEnabled = true;
+                                            equipcb81.Items.Clear();
+                                            equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb82.IsEnabled = true;
+                                            equipcb82.Items.Clear();
+                                            equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb83.IsEnabled = true;
+                                            equipcb83.Items.Clear();
+                                            equipcb83.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 3:
                                     {
-
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
-                                        equipcb83.IsEnabled = true;
-                                        equipcb83.Items.Clear();
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb81.IsEnabled = true;
+                                            equipcb81.Items.Clear();
+                                            equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb82.IsEnabled = true;
+                                            equipcb82.Items.Clear();
+                                            equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb83.IsEnabled = true;
+                                            equipcb83.Items.Clear();
+                                            equipcb83.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 4:
                                     {
-
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                        equipcb83.IsEnabled = true;
-                                        equipcb83.Items.Clear();
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            if (equip[i].type == 10)
-                                                equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb81.IsEnabled = true;
+                                            equipcb81.Items.Clear();
+                                            equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb82.IsEnabled = true;
+                                            equipcb82.Items.Clear();
+                                            equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb83.IsEnabled = true;
+                                            equipcb83.Items.Clear();
+                                            equipcb83.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 5:
                                     {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb82.IsEnabled = true;
-                                        equipcb82.Items.Clear();
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                            
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb81.IsEnabled = true;
+                                            equipcb81.Items.Clear();
+                                            equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb82.IsEnabled = true;
+                                            equipcb82.Items.Clear();
+                                            equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb83.IsEnabled = true;
+                                            equipcb83.Items.Clear();
+                                            equipcb83.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((false) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                                 case 6:
                                     {
-                                        equipcb81.IsEnabled = true;
-                                        equipcb81.Items.Clear();
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[4].rank, equip[4].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[5].rank, equip[5].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[6].rank, equip[6].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[7].rank, equip[7].name));
-                                        equipcb81.Items.Add(BrushEquipCombobox(equip[28].rank, equip[28].name));
-                                        equipcb82.IsEnabled = true;
-                                        equipcb82.Items.Clear();
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-
-                                   
+                                        if (cardlevel >= 1)
+                                        {
+                                            equipcb81.IsEnabled = true;
+                                            equipcb81.Items.Clear();
+                                            equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 2)
+                                        {
+                                            equipcb82.IsEnabled = true;
+                                            equipcb82.Items.Clear();
+                                            equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
+                                        if (cardlevel >= 3)
+                                        {
+                                            equipcb83.IsEnabled = true;
+                                            equipcb83.Items.Clear();
+                                            equipcb83.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                                            for (int i = 0; i < EQUIP_NUMBER; i++)
+                                            {
+                                                if ((equip[i].type == 9) && equip[i].rank <= ranklevel)
+                                                {
+                                                    if (equip[i].forwhat == 0)
+                                                        equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                    else if (equip[i].forwhat == index)
+                                                        equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                                }
+                                            }
+                                        }
                                         break;
                                     }
                             }
                             break;
                         }
                 }
-            }
+        
             if (index == 28)
             {
-                if (levelindex < 29)
+                switch (combo)
                 {
-                    switch (combo)
-                    {
-                        case 0:
+                    case 0:
+                        {
+                            if (cardlevel >= 1)
                             {
                                 equipcb01.IsEnabled = true;
                                 equipcb01.Items.Clear();
                                 equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                break;
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
                             }
-                        case 1:
+                            if (cardlevel >= 2)
                             {
-                                equipcb11.IsEnabled = true;
-                                equipcb11.Items.Clear();
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                break;
-                            }
-                        case 2:
-                            {
-                                equipcb21.IsEnabled = true;
-                                equipcb21.Items.Clear();
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                break;
-                            }
-                        case 3:
-                            {
-                                equipcb31.IsEnabled = true;
-                                equipcb31.Items.Clear();
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                break;
-                            }
-                        case 4:
-                            {
-                                equipcb41.IsEnabled = true;
-                                equipcb41.Items.Clear();
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                break;
-                            }
-                        case 5:
-                            {
-                                equipcb51.IsEnabled = true;
-                                equipcb51.Items.Clear();
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                break;
-                            }
-                        case 6:
-                            {
-                                equipcb61.IsEnabled = true;
-                                equipcb61.Items.Clear();
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                break;
-                            }
-                        case 7:
-                            {
-                                equipcb71.IsEnabled = true;
-                                equipcb71.Items.Clear();
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                break;
-                            }
-                        case 8:
-                            {
-                                equipcb81.IsEnabled = true;
-                                equipcb81.Items.Clear();
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                break;
-                            }
-                    }
-                }
-                else if (levelindex < 44)
-                {
-                    switch (combo)
-                    {
-                        case 0:
-                            {
-                                equipcb01.IsEnabled = true;
-                                equipcb01.Items.Clear();
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                break;
-                            }
-                        case 1:
-                            {
-                                equipcb11.IsEnabled = true;
-                                equipcb11.Items.Clear();
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                break;
-                            }
-                        case 2:
-                            {
-                                equipcb21.IsEnabled = true;
-                                equipcb21.Items.Clear();
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                break;
-                            }
-                        case 3:
-                            {
-                                equipcb31.IsEnabled = true;
-                                equipcb31.Items.Clear();
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                break;
-                            }
-                        case 4:
-                            {
-                                equipcb41.IsEnabled = true;
-                                equipcb41.Items.Clear();
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                break;
-                            }
-                        case 5:
-                            {
-                                equipcb51.IsEnabled = true;
-                                equipcb51.Items.Clear();
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                break;
-                            }
-                        case 6:
-                            {
-                                equipcb61.IsEnabled = true;
-                                equipcb61.Items.Clear();
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                break;
-                            }
-                        case 7:
-                            {
-                                equipcb71.IsEnabled = true;
-                                equipcb71.Items.Clear();
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                break;
-                            }
-                        case 8:
-                            {
-                                equipcb81.IsEnabled = true;
-                                equipcb81.Items.Clear();
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                break;
-                            }
-                    }
-                }
-                else if (levelindex < 49)
-                {
-                    switch (combo)
-                    {
-                        case 0:
-                            {
-                                equipcb01.IsEnabled = true;
-                                equipcb01.Items.Clear();
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                break;
-                            }
-                        case 1:
-                            {
-                                equipcb11.IsEnabled = true;
-                                equipcb11.Items.Clear();
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                break;
-                            }
-                        case 2:
-                            {
-                                equipcb21.IsEnabled = true;
-                                equipcb21.Items.Clear();
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                break;
-                            }
-                        case 3:
-                            {
-                                equipcb31.IsEnabled = true;
-                                equipcb31.Items.Clear();
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                break;
-                            }
-                        case 4:
-                            {
-                                equipcb41.IsEnabled = true;
-                                equipcb41.Items.Clear();
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                break;
-                            }
-                        case 5:
-                            {
-                                equipcb51.IsEnabled = true;
-                                equipcb51.Items.Clear();
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                break;
-                            }
-                        case 6:
-                            {
-                                equipcb61.IsEnabled = true;
-                                equipcb61.Items.Clear();
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                break;
-                            }
-                        case 7:
-                            {
-                                equipcb71.IsEnabled = true;
-                                equipcb71.Items.Clear();
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                break;
-                            }
-                        case 8:
-                            {
-                                equipcb81.IsEnabled = true;
-                                equipcb81.Items.Clear();
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                break;
-                            }
-                    }
-                }
-                else if (levelindex < 59)
-                {
-                    switch (combo)
-                    {
-                        case 0:
-                            {
-                                equipcb01.IsEnabled = true;
-                                equipcb01.Items.Clear();
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-
-                                equipcb02.IsEnabled = true;
-                                equipcb02.Items.Clear();
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-
-                                break;
-                            }
-                        case 1:
-                            {
-                                equipcb11.IsEnabled = true;
-                                equipcb11.Items.Clear();
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb12.IsEnabled = true;
-                                equipcb12.Items.Clear();
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                break;
-                            }
-                        case 2:
-                            {
-                                equipcb21.IsEnabled = true;
-                                equipcb21.Items.Clear();
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb22.IsEnabled = true;
-                                equipcb22.Items.Clear();
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                break;
-                            }
-                        case 3:
-                            {
-                                equipcb31.IsEnabled = true;
-                                equipcb31.Items.Clear();
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb32.IsEnabled = true;
-                                equipcb32.Items.Clear();
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                break;
-                            }
-                        case 4:
-                            {
-                                equipcb41.IsEnabled = true;
-                                equipcb41.Items.Clear();
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb42.IsEnabled = true;
-                                equipcb42.Items.Clear();
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                break;
-                            }
-                        case 5:
-                            {
-                                equipcb51.IsEnabled = true;
-                                equipcb51.Items.Clear();
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb52.IsEnabled = true;
-                                equipcb52.Items.Clear();
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                break;
-                            }
-                        case 6:
-                            {
-                                equipcb61.IsEnabled = true;
-                                equipcb61.Items.Clear();
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb62.IsEnabled = true;
-                                equipcb62.Items.Clear();
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                break;
-                            }
-                        case 7:
-                            {
-                                equipcb71.IsEnabled = true;
-                                equipcb71.Items.Clear();
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb72.IsEnabled = true;
-                                equipcb72.Items.Clear();
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                break;
-                            }
-                        case 8:
-                            {
-                                equipcb81.IsEnabled = true;
-                                equipcb81.Items.Clear();
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb82.IsEnabled = true;
-                                equipcb82.Items.Clear();
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[0].rank, equip[0].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[1].rank, equip[1].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[2].rank, equip[2].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[31].rank, equip[31].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[32].rank, equip[32].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[33].rank, equip[33].name));
-                                break;
-                            }
-                    }
-                }
-                else if (levelindex < 79)
-                {
-                    switch (combo)
-                    {
-                        case 0:
-                            {
-                                equipcb01.IsEnabled = true;
-                                equipcb01.Items.Clear();
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-
                                 equipcb02.IsEnabled = true;
                                 equipcb02.Items.Clear();
                                 equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
-                                break;
+                                {
+                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
                             }
-                        case 1:
+                            if (cardlevel >= 3)
                             {
-                                equipcb11.IsEnabled = true;
-                                equipcb11.Items.Clear();
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-                                equipcb12.IsEnabled = true;
-                                equipcb12.Items.Clear();
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                break;
-                            }
-                        case 2:
-                            {
-                                equipcb21.IsEnabled = true;
-                                equipcb21.Items.Clear();
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-                                equipcb22.IsEnabled = true;
-                                equipcb22.Items.Clear();
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                break;
-                            }
-                        case 3:
-                            {
-                                equipcb31.IsEnabled = true;
-                                equipcb31.Items.Clear();
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-                                equipcb32.IsEnabled = true;
-                                equipcb32.Items.Clear();
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                break;
-                            }
-                        case 4:
-                            {
-                                equipcb41.IsEnabled = true;
-                                equipcb41.Items.Clear();
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-                                equipcb42.IsEnabled = true;
-                                equipcb42.Items.Clear();
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                break;
-                            }
-                        case 5:
-                            {
-                                equipcb51.IsEnabled = true;
-                                equipcb51.Items.Clear();
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-                                equipcb52.IsEnabled = true;
-                                equipcb52.Items.Clear();
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                break;
-                            }
-                        case 6:
-                            {
-                                equipcb61.IsEnabled = true;
-                                equipcb61.Items.Clear();
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-                                equipcb62.IsEnabled = true;
-                                equipcb62.Items.Clear();
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                break;
-                            }
-                        case 7:
-                            {
-                                equipcb71.IsEnabled = true;
-                                equipcb71.Items.Clear();
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-                                equipcb72.IsEnabled = true;
-                                equipcb72.Items.Clear();
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                break;
-                            }
-                        case 8:
-                            {
-                                equipcb81.IsEnabled = true;
-                                equipcb81.Items.Clear();
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-                                equipcb82.IsEnabled = true;
-                                equipcb82.Items.Clear();
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                break;
-                            }
-                    }
-                }
-                else
-                {
-                    switch (combo)
-                    {
-                        case 0:
-                            {
-                                equipcb01.IsEnabled = true;
-                                equipcb01.Items.Clear();
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-
-                                equipcb02.IsEnabled = true;
-                                equipcb02.Items.Clear();
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
                                 equipcb03.IsEnabled = true;
                                 equipcb03.Items.Clear();
                                 equipcb03.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
-                                break;
+                                {
+                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
                             }
-                        case 1:
+                            break;
+                        }
+                    case 1:
+                        {
+                            if (cardlevel >= 1)
                             {
                                 equipcb11.IsEnabled = true;
                                 equipcb11.Items.Clear();
                                 equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 2)
+                            {
                                 equipcb12.IsEnabled = true;
                                 equipcb12.Items.Clear();
                                 equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                {
+                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 3)
+                            {
                                 equipcb13.IsEnabled = true;
                                 equipcb13.Items.Clear();
                                 equipcb13.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
-                                break;
+                                {
+                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
                             }
-                        case 2:
+                            break;
+                        }
+                    case 2:
+                        {
+                            if (cardlevel >= 1)
                             {
                                 equipcb21.IsEnabled = true;
                                 equipcb21.Items.Clear();
                                 equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 2)
+                            {
                                 equipcb22.IsEnabled = true;
                                 equipcb22.Items.Clear();
                                 equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                {
+                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 3)
+                            {
                                 equipcb23.IsEnabled = true;
                                 equipcb23.Items.Clear();
                                 equipcb23.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-
-                                break;
+                                {
+                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
                             }
-                        case 3:
+                            break;
+                        }
+                    case 3:
+                        {
+                            if (cardlevel >= 1)
                             {
                                 equipcb31.IsEnabled = true;
                                 equipcb31.Items.Clear();
                                 equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 2)
+                            {
                                 equipcb32.IsEnabled = true;
                                 equipcb32.Items.Clear();
                                 equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                {
+                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 3)
+                            {
                                 equipcb33.IsEnabled = true;
                                 equipcb33.Items.Clear();
                                 equipcb33.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                break;
+                                {
+                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
                             }
-                        case 4:
+                            break;
+                        }
+                    case 4:
+                        {
+                            if (cardlevel >= 1)
                             {
                                 equipcb41.IsEnabled = true;
                                 equipcb41.Items.Clear();
                                 equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 2)
+                            {
                                 equipcb42.IsEnabled = true;
                                 equipcb42.Items.Clear();
                                 equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                {
+                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 3)
+                            {
                                 equipcb43.IsEnabled = true;
                                 equipcb43.Items.Clear();
                                 equipcb43.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                break;
+                                {
+                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
                             }
-                        case 5:
+                            break;
+                        }
+                    case 5:
+                        {
+                            if (cardlevel >= 1)
                             {
                                 equipcb51.IsEnabled = true;
                                 equipcb51.Items.Clear();
                                 equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 2)
+                            {
                                 equipcb52.IsEnabled = true;
                                 equipcb52.Items.Clear();
                                 equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                {
+                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 3)
+                            {
                                 equipcb53.IsEnabled = true;
                                 equipcb53.Items.Clear();
                                 equipcb53.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                break;
+                                {
+                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
                             }
-                        case 6:
+                            break;
+                        }
+                    case 6:
+                        {
+                            if (cardlevel >= 1)
                             {
                                 equipcb61.IsEnabled = true;
                                 equipcb61.Items.Clear();
                                 equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 2)
+                            {
                                 equipcb62.IsEnabled = true;
                                 equipcb62.Items.Clear();
                                 equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                {
+                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 3)
+                            {
                                 equipcb63.IsEnabled = true;
                                 equipcb63.Items.Clear();
                                 equipcb63.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                break;
+                                {
+                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
                             }
-                        case 7:
+                            break;
+                        }
+                    case 7:
+                        {
+                            if (cardlevel >= 1)
                             {
                                 equipcb71.IsEnabled = true;
                                 equipcb71.Items.Clear();
                                 equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 2)
+                            {
                                 equipcb72.IsEnabled = true;
                                 equipcb72.Items.Clear();
                                 equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                {
+                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 3)
+                            {
                                 equipcb73.IsEnabled = true;
                                 equipcb73.Items.Clear();
                                 equipcb73.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                break;
+                                {
+                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
                             }
-                        case 8:
+                            break;
+                        }
+                    case 8:
+                        {
+                            if (cardlevel >= 1)
                             {
                                 equipcb81.IsEnabled = true;
                                 equipcb81.Items.Clear();
                                 equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 2)
+                            {
                                 equipcb82.IsEnabled = true;
                                 equipcb82.Items.Clear();
                                 equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                {
+                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 3)
+                            {
                                 equipcb83.IsEnabled = true;
                                 equipcb83.Items.Clear();
                                 equipcb83.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
-                                    if (equip[i].type == 10)
-                                        equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                break;
+                                {
+                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
                             }
-                    }
+                            break;
+                        }
                 }
             }
             if (index == 29||index == 34)
             {
-                if (levelindex < 29)
+                switch (combo)
                 {
-                    switch (combo)
-                    {
-                        case 0:
+                    case 0:
+                        {
+                            if (cardlevel >= 1)
                             {
                                 equipcb01.IsEnabled = true;
                                 equipcb01.Items.Clear();
                                 equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                break;
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
                             }
-                        case 1:
+                            if (cardlevel >= 2)
                             {
-                                equipcb11.IsEnabled = true;
-                                equipcb11.Items.Clear();
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                break;
-                            }
-                        case 2:
-                            {
-                                equipcb21.IsEnabled = true;
-                                equipcb21.Items.Clear();
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                break;
-                            }
-                        case 3:
-                            {
-                                equipcb31.IsEnabled = true;
-                                equipcb31.Items.Clear();
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                break;
-                            }
-                        case 4:
-                            {
-                                equipcb41.IsEnabled = true;
-                                equipcb41.Items.Clear();
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                break;
-                            }
-                        case 5:
-                            {
-                                equipcb51.IsEnabled = true;
-                                equipcb51.Items.Clear();
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                break;
-                            }
-                        case 6:
-                            {
-                                equipcb61.IsEnabled = true;
-                                equipcb61.Items.Clear();
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                break;
-                            }
-                        case 7:
-                            {
-                                equipcb71.IsEnabled = true;
-                                equipcb71.Items.Clear();
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                break;
-                            }
-                        case 8:
-                            {
-                                equipcb81.IsEnabled = true;
-                                equipcb81.Items.Clear();
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                break;
-                            }
-                    }
-                }
-                else if (levelindex < 44)
-                {
-                    switch (combo)
-                    {
-                        case 0:
-                            {
-                                equipcb01.IsEnabled = true;
-                                equipcb01.Items.Clear();
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                break;
-                            }
-                        case 1:
-                            {
-                                equipcb11.IsEnabled = true;
-                                equipcb11.Items.Clear();
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                break;
-                            }
-                        case 2:
-                            {
-                                equipcb21.IsEnabled = true;
-                                equipcb21.Items.Clear();
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                break;
-                            }
-                        case 3:
-                            {
-                                equipcb31.IsEnabled = true;
-                                equipcb31.Items.Clear();
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                break;
-
-                            }
-                        case 4:
-                            {
-                                equipcb41.IsEnabled = true;
-                                equipcb41.Items.Clear();
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                break;
-
-                            }
-                        case 5:
-                            {
-                                equipcb51.IsEnabled = true;
-                                equipcb51.Items.Clear();
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                break;
-
-                            }
-                        case 6:
-                            {
-                                equipcb61.IsEnabled = true;
-                                equipcb61.Items.Clear();
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                break;
-
-                            }
-                        case 7:
-                            {
-                                equipcb71.IsEnabled = true;
-                                equipcb71.Items.Clear();
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                break;
-
-                            }
-                        case 8:
-                            {
-                                equipcb81.IsEnabled = true;
-                                equipcb81.Items.Clear();
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                break;
-
-                            }
-                    }
-                }
-                else if (levelindex < 49)
-                {
-                    switch (combo)
-                    {
-                        case 0:
-                            {
-                                equipcb01.IsEnabled = true;
-                                equipcb01.Items.Clear();
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                break;
-
-                            }
-                        case 1:
-                            {
-                                equipcb11.IsEnabled = true;
-                                equipcb11.Items.Clear();
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                break;
-                            }
-                        case 2:
-                            {
-                                equipcb21.IsEnabled = true;
-                                equipcb21.Items.Clear();
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                break;
-                            }
-                        case 3:
-                            {
-                                equipcb31.IsEnabled = true;
-                                equipcb31.Items.Clear();
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                break;
-
-                            }
-                        case 4:
-                            {
-                                equipcb41.IsEnabled = true;
-                                equipcb41.Items.Clear();
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                break;
-
-                            }
-                        case 5:
-                            {
-                                equipcb51.IsEnabled = true;
-                                equipcb51.Items.Clear();
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                break;
-
-                            }
-                        case 6:
-                            {
-                                equipcb61.IsEnabled = true;
-                                equipcb61.Items.Clear();
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                break;
-
-                            }
-                        case 7:
-                            {
-                                equipcb71.IsEnabled = true;
-                                equipcb71.Items.Clear();
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                break;
-
-                            }
-                        case 8:
-                            {
-                                equipcb81.IsEnabled = true;
-                                equipcb81.Items.Clear();
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                break;
-
-                            }
-                    }
-                }
-                else if (levelindex < 59)
-                {
-                    switch (combo)
-                    {
-                        case 0:
-                            {
-                                equipcb01.IsEnabled = true;
-                                equipcb01.Items.Clear();
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
                                 equipcb02.IsEnabled = true;
                                 equipcb02.Items.Clear();
                                 equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                break;
-
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
                             }
-                        case 1:
+                            if (cardlevel >= 3)
                             {
-                                equipcb11.IsEnabled = true;
-                                equipcb11.Items.Clear();
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                equipcb12.IsEnabled = true;
-                                equipcb12.Items.Clear();
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                break;
-                            }
-                        case 2:
-                            {
-                                equipcb21.IsEnabled = true;
-                                equipcb21.Items.Clear();
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                equipcb22.IsEnabled = true;
-                                equipcb22.Items.Clear();
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                break;
-                            }
-                        case 3:
-                            {
-                                equipcb31.IsEnabled = true;
-                                equipcb31.Items.Clear();
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                equipcb32.IsEnabled = true;
-                                equipcb32.Items.Clear();
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                break;
-                            }
-                        case 4:
-                            {
-                                equipcb41.IsEnabled = true;
-                                equipcb41.Items.Clear();
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                equipcb42.IsEnabled = true;
-                                equipcb42.Items.Clear();
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                break;
-                            }
-                        case 5:
-                            {
-                                equipcb51.IsEnabled = true;
-                                equipcb51.Items.Clear();
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                equipcb52.IsEnabled = true;
-                                equipcb52.Items.Clear();
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                break;
-                            }
-                        case 6:
-                            {
-                                equipcb61.IsEnabled = true;
-                                equipcb61.Items.Clear();
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                equipcb62.IsEnabled = true;
-                                equipcb62.Items.Clear();
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                break;
-                            }
-                        case 7:
-                            {
-                                equipcb71.IsEnabled = true;
-                                equipcb71.Items.Clear();
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                equipcb72.IsEnabled = true;
-                                equipcb72.Items.Clear();
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                break;
-                            }
-                        case 8:
-                            {
-                                equipcb81.IsEnabled = true;
-                                equipcb81.Items.Clear();
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-
-                                equipcb82.IsEnabled = true;
-                                equipcb82.Items.Clear();
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                break;
-                            }
-                    }
-                }
-                else if (levelindex < 79)
-                {
-                    switch (combo)
-                    {
-                        case 0:
-                            {
-                                equipcb01.IsEnabled = true;
-                                equipcb01.Items.Clear();
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                equipcb02.IsEnabled = true;
-                                equipcb02.Items.Clear();
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-                                break;
-                            }
-                        case 1:
-                            {
-                                equipcb11.IsEnabled = true;
-                                equipcb11.Items.Clear();
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                equipcb12.IsEnabled = true;
-                                equipcb12.Items.Clear();
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-                                break;
-                            }
-                        case 2:
-                            {
-                                equipcb21.IsEnabled = true;
-                                equipcb21.Items.Clear();
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                equipcb22.IsEnabled = true;
-                                equipcb22.Items.Clear();
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-                                break;
-                            }
-                        case 3:
-                            {
-                                equipcb31.IsEnabled = true;
-                                equipcb31.Items.Clear();
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                equipcb32.IsEnabled = true;
-                                equipcb32.Items.Clear();
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-                                break;
-                            }
-                        case 4:
-                            {
-                                equipcb41.IsEnabled = true;
-                                equipcb41.Items.Clear();
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                equipcb42.IsEnabled = true;
-                                equipcb42.Items.Clear();
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-                                break;
-                            }
-                        case 5:
-                            {
-                                equipcb51.IsEnabled = true;
-                                equipcb51.Items.Clear();
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                equipcb52.IsEnabled = true;
-                                equipcb52.Items.Clear();
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-                                break;
-                            }
-                        case 6:
-                            {
-                                equipcb61.IsEnabled = true;
-                                equipcb61.Items.Clear();
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                equipcb62.IsEnabled = true;
-                                equipcb62.Items.Clear();
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-                                break;
-                            }
-                        case 7:
-                            {
-                                equipcb71.IsEnabled = true;
-                                equipcb71.Items.Clear();
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                equipcb72.IsEnabled = true;
-                                equipcb72.Items.Clear();
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-                                break;
-                            }
-                        case 8:
-                            {
-                                equipcb81.IsEnabled = true;
-                                equipcb81.Items.Clear();
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                equipcb82.IsEnabled = true;
-                                equipcb82.Items.Clear();
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-                                break;
-                            }
-                            }
-                }
-                else
-                {
-                    switch (combo)
-                    {
-                        case 0:
-                            {
-                                equipcb01.IsEnabled = true;
-                                equipcb01.Items.Clear();
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
-                                equipcb02.IsEnabled = true;
-                                equipcb02.Items.Clear();
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
                                 equipcb03.IsEnabled = true;
                                 equipcb03.Items.Clear();
                                 equipcb03.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb03.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb03.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb03.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb03.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-
-                                break;
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
                             }
-                        case 1:
+                            break;
+                        }
+                    case 1:
+                        {
+                            if (cardlevel >= 1)
                             {
                                 equipcb11.IsEnabled = true;
                                 equipcb11.Items.Clear();
                                 equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 2)
+                            {
                                 equipcb12.IsEnabled = true;
                                 equipcb12.Items.Clear();
                                 equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 3)
+                            {
                                 equipcb13.IsEnabled = true;
                                 equipcb13.Items.Clear();
                                 equipcb13.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb13.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb13.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb13.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb13.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-                                break;
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
                             }
-                        case 2:
+                            break;
+                        }
+                    case 2:
+                        {
+                            if (cardlevel >= 1)
                             {
                                 equipcb21.IsEnabled = true;
                                 equipcb21.Items.Clear();
                                 equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 2)
+                            {
                                 equipcb22.IsEnabled = true;
                                 equipcb22.Items.Clear();
                                 equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 3)
+                            {
                                 equipcb23.IsEnabled = true;
                                 equipcb23.Items.Clear();
                                 equipcb23.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb23.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb23.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb23.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb23.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-                                break;
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
                             }
-                        case 3:
+                            break;
+                        }
+                    case 3:
+                        {
+                            if (cardlevel >= 1)
                             {
                                 equipcb31.IsEnabled = true;
                                 equipcb31.Items.Clear();
                                 equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 2)
+                            {
                                 equipcb32.IsEnabled = true;
                                 equipcb32.Items.Clear();
                                 equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 3)
+                            {
                                 equipcb33.IsEnabled = true;
                                 equipcb33.Items.Clear();
                                 equipcb33.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb33.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb33.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb33.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb33.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-                                break;
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
                             }
-                        case 4:
+                            break;
+                        }
+                    case 4:
+                        {
+                            if (cardlevel >= 1)
                             {
                                 equipcb41.IsEnabled = true;
                                 equipcb41.Items.Clear();
                                 equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 2)
+                            {
                                 equipcb42.IsEnabled = true;
                                 equipcb42.Items.Clear();
                                 equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 3)
+                            {
                                 equipcb43.IsEnabled = true;
                                 equipcb43.Items.Clear();
                                 equipcb43.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb43.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb43.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb43.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb43.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-                                break;
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
                             }
-                        case 5:
+                            break;
+                        }
+                    case 5:
+                        {
+                            if (cardlevel >= 1)
                             {
                                 equipcb51.IsEnabled = true;
                                 equipcb51.Items.Clear();
                                 equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 2)
+                            {
                                 equipcb52.IsEnabled = true;
                                 equipcb52.Items.Clear();
                                 equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 3)
+                            {
                                 equipcb53.IsEnabled = true;
                                 equipcb53.Items.Clear();
                                 equipcb53.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb53.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb53.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb53.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb53.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-                                break;
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
                             }
-                        case 6:
+                            break;
+                        }
+                    case 6:
+                        {
+                            if (cardlevel >= 1)
                             {
                                 equipcb61.IsEnabled = true;
                                 equipcb61.Items.Clear();
                                 equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 2)
+                            {
                                 equipcb62.IsEnabled = true;
                                 equipcb62.Items.Clear();
                                 equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 3)
+                            {
                                 equipcb63.IsEnabled = true;
                                 equipcb63.Items.Clear();
                                 equipcb63.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb63.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb63.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb63.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb63.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-                                break;
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
                             }
-                        case 7:
+                            break;
+                        }
+                    case 7:
+                        {
+                            if (cardlevel >= 1)
                             {
                                 equipcb71.IsEnabled = true;
                                 equipcb71.Items.Clear();
                                 equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 2)
+                            {
                                 equipcb72.IsEnabled = true;
                                 equipcb72.Items.Clear();
                                 equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 3)
+                            {
                                 equipcb73.IsEnabled = true;
                                 equipcb73.Items.Clear();
                                 equipcb73.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb73.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb73.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb73.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb73.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-                                break;
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
                             }
-                        case 8:
+                            break;
+                        }
+                    case 8:
+                        {
+                            if (cardlevel >= 1)
                             {
                                 equipcb81.IsEnabled = true;
                                 equipcb81.Items.Clear();
                                 equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 2)
+                            {
                                 equipcb82.IsEnabled = true;
                                 equipcb82.Items.Clear();
                                 equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[16].rank, equip[16].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[17].rank, equip[17].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[18].rank, equip[18].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[19].rank, equip[19].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[12].rank, equip[12].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[13].rank, equip[13].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[14].rank, equip[14].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[15].rank, equip[15].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[20].rank, equip[20].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[21].rank, equip[21].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[22].rank, equip[22].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[23].rank, equip[23].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[24].rank, equip[24].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[25].rank, equip[25].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[26].rank, equip[26].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[27].rank, equip[27].name));
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[29].rank, equip[29].name));
-
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                            if (cardlevel >= 3)
+                            {
                                 equipcb83.IsEnabled = true;
                                 equipcb83.Items.Clear();
                                 equipcb83.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                equipcb83.Items.Add(BrushEquipCombobox(equip[8].rank, equip[8].name));
-                                equipcb83.Items.Add(BrushEquipCombobox(equip[9].rank, equip[9].name));
-                                equipcb83.Items.Add(BrushEquipCombobox(equip[10].rank, equip[10].name));
-                                equipcb83.Items.Add(BrushEquipCombobox(equip[11].rank, equip[11].name));
-                                break;
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
                             }
-                    }
+                            break;
+                        }
                 }
             }
         }
 
-
+        /// <summary>
+        /// 得到装备index
+        /// </summary>
+        /// <param name="name">装备名称</param>
+        /// <returns></returns>
         public int getequipindex(string name)
         {
             if (name == null)
@@ -16907,18 +12646,26 @@ namespace snqxap
             }
             return equipindex;
         }
-
+        /// <summary>
+        /// 清空装备栏
+        /// </summary>
+        /// <param name="combo">哪一格</param>
         public void clearequip(int combo)
         {
-                      equipdamage[combo] = 0;
+                    equipdamage[combo] = 0;
                     equiphit[combo] = 0;
                     equipdodge[combo] = 0;
+                    equipbelt[combo] = 0;
                     equipcrit[combo] =0;
                     equipnightsee[combo] = 0;
                     equipshotspeed[combo] = 0;      
                     equipbreakarmor[combo] = 0;
         }
-
+        /// <summary>
+        /// 计算装备加成
+        /// </summary>
+        /// <param name="combo">哪一格</param>
+        /// <param name="equipindex">装备index</param>
         public void calcequip(int combo,int equipindex)
         {
        
@@ -16951,11 +12698,20 @@ namespace snqxap
                 case 5:
                     {
                         equipbreakarmor[combo] += equip[equipindex].breakarmor;
+                        equipshotspeed[combo] += equip[equipindex].shotspeed;
                         break;
                     }
                 case 8:
                     {
                         equipdamage[combo] += equip[equipindex].damage;
+                        equiphit[combo] += equip[equipindex].hit;
+                        break;
+                    }
+                case 9:
+                    {
+                        equipshotspeed[combo] += equip[equipindex].shotspeed;
+                        equipdamage[combo] += equip[equipindex].damage;
+                        equipbelt[combo] += equip[equipindex].belt;
                         break;
                     }
                 case 10:
@@ -16969,7 +12725,11 @@ namespace snqxap
             }
 
         }
-
+        /// <summary>
+        /// 设置装备tooltips
+        /// </summary>
+        /// <param name="combo">哪一格装备格</param>
+        /// <param name="index">装备index</param>
         private void setequiptooltips(int combo,int index)
         {
             switch(combo)
@@ -17111,7 +12871,11 @@ namespace snqxap
                     }
             }
         }
-
+        /// <summary>
+        /// 01装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb01_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo0.SelectedIndex;
@@ -17189,12 +12953,13 @@ namespace snqxap
                 if (equipcb01.SelectedIndex > -1)
                          calcequip(0, equipindex03);
             }
-
-
-
-            renewindex(0);
+            renewskill();
         }
-
+        /// <summary>
+        /// 02装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb02_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo0.SelectedIndex;
@@ -17270,9 +13035,13 @@ namespace snqxap
                 if (equipcb02.SelectedIndex > -1)
                     calcequip(0, equipindex03);
             }
-            renewindex(0);
+            renewskill();
         }
-
+        /// <summary>
+        /// 03装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb03_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo0.SelectedIndex;
@@ -17348,9 +13117,13 @@ namespace snqxap
                 }
                 setequiptooltips(3, equipindex03);
             }
-            renewindex(0);
+            renewskill();
         }
-
+        /// <summary>
+        /// 11装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb11_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo1.SelectedIndex;
@@ -17425,9 +13198,13 @@ namespace snqxap
                 if (equipcb11.SelectedIndex > -1)
                     calcequip(1, equipindex13);
             }
-            renewindex(1);
+            renewskill();
         }
-
+        /// <summary>
+        /// 12装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb12_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo1.SelectedIndex;
@@ -17502,9 +13279,13 @@ namespace snqxap
                 if (equipcb12.SelectedIndex > -1)
                     calcequip(1, equipindex13);
             }
-            renewindex(1);
+            renewskill();
         }
-
+        /// <summary>
+        ///13装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb13_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo1.SelectedIndex;
@@ -17579,8 +13360,13 @@ namespace snqxap
                 }
                 setequiptooltips(13, equipindex13);
             }
-            renewindex(1);
+            renewskill();
         }
+        /// <summary>
+        /// 21装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb21_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo2.SelectedIndex;
@@ -17655,8 +13441,13 @@ namespace snqxap
                 if (equipcb21.SelectedIndex > -1)
                     calcequip(2, equipindex23);
             }
-            renewindex(2);
+            renewskill();
         }
+        /// <summary>
+        /// 22装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb22_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo2.SelectedIndex;
@@ -17732,8 +13523,13 @@ namespace snqxap
                 if (equipcb22.SelectedIndex > -1)
                     calcequip(2, equipindex23);
             }
-            renewindex(2);
+            renewskill();
         }
+        /// <summary>
+        /// 23装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb23_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo2.SelectedIndex;
@@ -17809,8 +13605,13 @@ namespace snqxap
                 }
                 setequiptooltips(23, equipindex23);
             }
-            renewindex(2);
+            renewskill();
         }
+        /// <summary>
+        ///31装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb31_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo3.SelectedIndex;
@@ -17886,8 +13687,13 @@ namespace snqxap
                 if (equipcb31.SelectedIndex > -1)
                     calcequip(3, equipindex33);
             }
-            renewindex(3);
+            renewskill();
         }
+        /// <summary>
+        ///32装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb32_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo3.SelectedIndex;
@@ -17962,8 +13768,13 @@ namespace snqxap
                 if (equipcb32.SelectedIndex > -1)
                     calcequip(3, equipindex33);
             }
-            renewindex(3);
+            renewskill();
         }
+        /// <summary>
+        ///33装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb33_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo3.SelectedIndex;
@@ -18038,8 +13849,13 @@ namespace snqxap
                 }
                 setequiptooltips(33, equipindex33);
             }
-            renewindex(3);
+            renewskill();
         }
+        /// <summary>
+        ///41装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb41_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo4.SelectedIndex;
@@ -18114,8 +13930,13 @@ namespace snqxap
                 if (equipcb41.SelectedIndex > -1)
                     calcequip(4, equipindex43);
             }
-            renewindex(4);
+            renewskill();
         }
+        /// <summary>
+        ///42装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb42_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo4.SelectedIndex;
@@ -18191,8 +14012,13 @@ namespace snqxap
                 if (equipcb42.SelectedIndex > -1)
                     calcequip(4, equipindex43);
             }
-            renewindex(4);
+            renewskill();
         }
+        /// <summary>
+        ///43装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb43_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo4.SelectedIndex;
@@ -18267,8 +14093,13 @@ namespace snqxap
                 }
                 setequiptooltips(43, equipindex43);
             }
-            renewindex(4);
+            renewskill();
         }
+        /// <summary>
+        ///51装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb51_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo5.SelectedIndex;
@@ -18343,8 +14174,13 @@ namespace snqxap
                 if (equipcb51.SelectedIndex > -1)
                     calcequip(5, equipindex53);
             }
-            renewindex(5);
+            renewskill();
         }
+        /// <summary>
+        ///52装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb52_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo5.SelectedIndex;
@@ -18419,8 +14255,13 @@ namespace snqxap
                 if (equipcb52.SelectedIndex > -1)
                     calcequip(5, equipindex53);
             }
-            renewindex(5);
+            renewskill();
         }
+        /// <summary>
+        ///53装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb53_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo5.SelectedIndex;
@@ -18495,8 +14336,13 @@ namespace snqxap
                 }
                 setequiptooltips(53, equipindex53);
             }
-            renewindex(5);
+            renewskill();
         }
+        /// <summary>
+        ///61装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb61_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo6.SelectedIndex;
@@ -18571,8 +14417,13 @@ namespace snqxap
                 if (equipcb61.SelectedIndex > -1)
                     calcequip(6, equipindex63);
             }
-                renewindex(6);
+            renewskill();
         }
+        /// <summary>
+        ///62装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb62_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -18649,8 +14500,13 @@ namespace snqxap
                     calcequip(6, equipindex63);
 
             }
-            renewindex(6);
+            renewskill();
         }
+        /// <summary>
+        ///63装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb63_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo6.SelectedIndex;
@@ -18725,8 +14581,13 @@ namespace snqxap
                 }
                 setequiptooltips(63, equipindex63);
             }
-            renewindex(6);
+            renewskill();
         }
+        /// <summary>
+        ///71装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb71_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo7.SelectedIndex;
@@ -18801,8 +14662,13 @@ namespace snqxap
                 if (equipcb71.SelectedIndex > -1)
                     calcequip(7, equipindex73);
             }
-            renewindex(7);
+            renewskill();
         }
+        /// <summary>
+        ///72装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb72_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo7.SelectedIndex;
@@ -18877,9 +14743,14 @@ namespace snqxap
                 if (equipcb72.SelectedIndex > -1)
                     calcequip(7, equipindex73);
             }
-            renewindex(7);
+            renewskill();
 
         }
+        /// <summary>
+        ///73装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb73_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo7.SelectedIndex;
@@ -18954,8 +14825,13 @@ namespace snqxap
                 }
                 setequiptooltips(73, equipindex73);
             }
-            renewindex(7);
+            renewskill();
         }
+        /// <summary>
+        ///81装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb81_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo8.SelectedIndex;
@@ -19030,8 +14906,13 @@ namespace snqxap
                 if (equipcb81.SelectedIndex > -1)
                     calcequip(8, equipindex83);
             }
-            renewindex(8);
+            renewskill();
         }
+        /// <summary>
+        ///82装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb82_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo8.SelectedIndex;
@@ -19106,8 +14987,13 @@ namespace snqxap
                 if (equipcb82.SelectedIndex > -1)
                     calcequip(8, equipindex83);
             }
-            renewindex(8);
+            renewskill();
         }
+        /// <summary>
+        ///83装备格选项变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void equipcb83_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int comboindex = Combo8.SelectedIndex;
@@ -19182,9 +15068,13 @@ namespace snqxap
                 }
                 setequiptooltips(83, equipindex83);
             }
-            renewindex(8);
+            renewskill();
         }
-
+        /// <summary>
+        /// 点击夜战checkbox事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbIsnight_Click(object sender, RoutedEventArgs e)
         {
             if (cbIsnight.IsChecked == true)
@@ -19194,7 +15084,11 @@ namespace snqxap
             for (int i = 0; i < 9;i++ )
                 renewindex(i);
         }
-
+        /// <summary>
+        /// 敌方护甲值变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void enemyarmor_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!IsNumber(enemyarmor.Text))
@@ -19205,24 +15099,459 @@ namespace snqxap
             }
                 renewskill();
         }
-
+        /// <summary>
+        /// 夏活相关按钮点击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void xhbutton_Click(object sender, RoutedEventArgs e)
         {
             Aboutxh s = new Aboutxh();
             s.ShowDialog();
         }
-
+        /// <summary>
+        /// 练级计算器点击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void calclevelup_Click(object sender, RoutedEventArgs e)
         {
             calclevelup c = new calclevelup();
             c.Show();
         }
-
+        /// <summary>
+        /// 敌方伤害变化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBox3_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!IsNumber(enemydamage.Text))
                 enemydamage.Text = "0";
             renewtank();
+        }
+        /// <summary>
+        /// 点击左上格心事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Merry0_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (merry[0] == 1.1)
+            {
+                merry[0] = 0.95;
+                Merry0.Content = "💔";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
+                Merry0.Foreground = br;
+            }
+            else if(merry[0] == 0.95)
+            {
+                merry[0] = 1;
+                Merry0.Content = "♡";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
+                Merry0.Foreground = br;
+            }
+            else if (merry[0] == 1)
+            {
+                merry[0] = 1.05;
+                Merry0.Content = "❤";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Orange"));
+                Merry0.Foreground = br;
+            }
+            else if(merry[0] == 1.05)
+            {
+                merry[0] = 1.1;
+                Merry0.Content = "💘";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
+                Merry0.Foreground = br;
+            }
+
+            int select = Combo0.SelectedIndex;
+            if (select == -1 || select == GUN_NUMBER)
+                return;
+            int levelselect = Level0.SelectedIndex;
+            if (levelselect == -1 || levelselect == 100)
+                return;
+            int skillselect = SkillLevel0.SelectedIndex;
+            if (skillselect == -1)
+                return;
+            renewskill();
+        }
+        /// <summary>
+        /// 点击上格心事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Merry1_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (merry[1] == 1.1)
+            {
+                merry[1] = 0.95;
+                Merry1.Content = "💔";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
+                Merry1.Foreground = br;
+            }
+            else if (merry[1] == 0.95)
+            {
+                merry[1] = 1;
+                Merry1.Content = "♡";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
+                Merry1.Foreground = br;
+            }
+            else if (merry[1] == 1)
+            {
+                merry[1] = 1.05;
+                Merry1.Content = "❤";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Orange"));
+                Merry1.Foreground = br;
+            }
+            else if (merry[1] == 1.05)
+            {
+                merry[1] = 1.1;
+                Merry1.Content = "💘";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
+                Merry1.Foreground = br;
+            }
+
+            int select = Combo1.SelectedIndex;
+            if (select == -1 || select == GUN_NUMBER)
+                return;
+            int levelselect = Level1.SelectedIndex;
+            if (levelselect == -1 || levelselect == 100)
+                return;
+            int skillselect = SkillLevel1.SelectedIndex;
+            if (skillselect == -1)
+                return;
+            renewskill();
+        }
+        /// <summary>
+        /// 点击右上格心事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Merry2_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (merry[2] == 1.1)
+            {
+                merry[2] = 0.95;
+                Merry2.Content = "💔";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
+                Merry2.Foreground = br;
+            }
+            else if (merry[2] == 0.95)
+            {
+                merry[2] = 1;
+                Merry2.Content = "♡";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
+                Merry2.Foreground = br;
+            }
+            else if (merry[2] == 1)
+            {
+                merry[2] = 1.05;
+                Merry2.Content = "❤";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Orange"));
+                Merry2.Foreground = br;
+            }
+            else if (merry[2] == 1.05)
+            {
+                merry[2] = 1.1;
+                Merry2.Content = "💘";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
+                Merry2.Foreground = br;
+            }
+
+            int select = Combo2.SelectedIndex;
+            if (select == -1 || select == GUN_NUMBER)
+                return;
+            int levelselect = Level2.SelectedIndex;
+            if (levelselect == -1 || levelselect == 100)
+                return;
+            int skillselect = SkillLevel2.SelectedIndex;
+            if (skillselect == -1)
+                return;
+            renewskill();
+        }
+        /// <summary>
+        /// 点击左中格心事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Merry3_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (merry[3] == 1.1)
+            {
+                merry[3] = 0.95;
+                Merry3.Content = "💔";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
+                Merry3.Foreground = br;
+            }
+            else if (merry[3] == 0.95)
+            {
+                merry[3] = 1;
+                Merry3.Content = "♡";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
+                Merry3.Foreground = br;
+            }
+            else if (merry[3] == 1)
+            {
+                merry[3] = 1.05;
+                Merry3.Content = "❤";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Orange"));
+                Merry3.Foreground = br;
+            }
+            else if (merry[3] == 1.05)
+            {
+                merry[3] = 1.1;
+                Merry3.Content = "💘";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
+                Merry3.Foreground = br;
+            }
+
+            int select = Combo3.SelectedIndex;
+            if (select == -1 || select == GUN_NUMBER)
+                return;
+            int levelselect = Level3.SelectedIndex;
+            if (levelselect == -1 || levelselect == 100)
+                return;
+            int skillselect = SkillLevel3.SelectedIndex;
+            if (skillselect == -1)
+                return;
+            renewskill();
+        }
+        /// <summary>
+        /// 点击中格心事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Merry4_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (merry[4] == 1.1)
+            {
+                merry[4] = 0.95;
+                Merry4.Content = "💔";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
+                Merry4.Foreground = br;
+            }
+            else if (merry[4] == 0.95)
+            {
+                merry[4] = 1;
+                Merry4.Content = "♡";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
+                Merry4.Foreground = br;
+            }
+            else if (merry[4] == 1)
+            {
+                merry[4] = 1.05;
+                Merry4.Content = "❤";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Orange"));
+                Merry4.Foreground = br;
+            }
+            else if (merry[4] == 1.05)
+            {
+                merry[4] = 1.1;
+                Merry4.Content = "💘";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
+                Merry4.Foreground = br;
+            }
+
+            int select = Combo4.SelectedIndex;
+            if (select == -1 || select == GUN_NUMBER)
+                return;
+            int levelselect = Level4.SelectedIndex;
+            if (levelselect == -1 || levelselect == 100)
+                return;
+            int skillselect = SkillLevel4.SelectedIndex;
+            if (skillselect == -1)
+                return;
+            renewskill();
+        }
+        /// <summary>
+        /// 点击右中格心事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Merry5_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (merry[5] == 1.1)
+            {
+                merry[5] = 0.95;
+                Merry5.Content = "💔";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
+                Merry5.Foreground = br;
+            }
+            else if (merry[5] == 0.95)
+            {
+                merry[5] = 1;
+                Merry5.Content = "♡";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
+                Merry5.Foreground = br;
+            }
+            else if (merry[5] == 1)
+            {
+                merry[5] = 1.05;
+                Merry5.Content = "❤";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Orange"));
+                Merry5.Foreground = br;
+            }
+            else if (merry[5] == 1.05)
+            {
+                merry[5] = 1.1;
+                Merry5.Content = "💘";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
+                Merry5.Foreground = br;
+            }
+
+            int select = Combo5.SelectedIndex;
+            if (select == -1 || select == GUN_NUMBER)
+                return;
+            int levelselect = Level5.SelectedIndex;
+            if (levelselect == -1 || levelselect == 100)
+                return;
+            int skillselect = SkillLevel5.SelectedIndex;
+            if (skillselect == -1)
+                return;
+            renewskill();
+        }
+        /// <summary>
+        /// 点击左下格心事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Merry6_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (merry[6] == 1.1)
+            {
+                merry[6] = 0.95;
+                Merry6.Content = "💔";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
+                Merry6.Foreground = br;
+            }
+            else if (merry[6] == 0.95)
+            {
+                merry[6] = 1;
+                Merry6.Content = "♡";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
+                Merry6.Foreground = br;
+            }
+            else if (merry[6] == 1)
+            {
+                merry[6] = 1.05;
+                Merry6.Content = "❤";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Orange"));
+                Merry6.Foreground = br;
+            }
+            else if (merry[6] == 1.05)
+            {
+                merry[6] = 1.1;
+                Merry6.Content = "💘";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
+                Merry6.Foreground = br;
+            }
+
+            int select = Combo6.SelectedIndex;
+            if (select == -1 || select == GUN_NUMBER)
+                return;
+            int levelselect = Level6.SelectedIndex;
+            if (levelselect == -1 || levelselect == 100)
+                return;
+            int skillselect = SkillLevel6.SelectedIndex;
+            if (skillselect == -1)
+                return;
+            renewskill();
+        }
+        /// <summary>
+        /// 点击下格心事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Merry7_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (merry[7] == 1.1)
+            {
+                merry[7] = 0.95;
+                Merry7.Content = "💔";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
+                Merry7.Foreground = br;
+            }
+            else if (merry[7] == 0.95)
+            {
+                merry[7] = 1;
+                Merry7.Content = "♡";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
+                Merry7.Foreground = br;
+            }
+            else if (merry[7] == 1)
+            {
+                merry[7] = 1.05;
+                Merry7.Content = "❤";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Orange"));
+                Merry7.Foreground = br;
+            }
+            else if (merry[7] == 1.05)
+            {
+                merry[7] = 1.1;
+                Merry7.Content = "💘";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
+                Merry7.Foreground = br;
+            }
+
+            int select = Combo7.SelectedIndex;
+            if (select == -1 || select == GUN_NUMBER)
+                return;
+            int levelselect = Level7.SelectedIndex;
+            if (levelselect == -1 || levelselect == 100)
+                return;
+            int skillselect = SkillLevel7.SelectedIndex;
+            if (skillselect == -1)
+                return;
+            renewskill();
+        }
+        /// <summary>
+        /// 点击右下格心事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Merry8_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (merry[8] == 1.1)
+            {
+                merry[8] = 0.95;
+                Merry8.Content = "💔";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
+                Merry8.Foreground = br;
+            }
+            else if (merry[8] == 0.95)
+            {
+                merry[8] = 1;
+                Merry8.Content = "♡";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
+                Merry8.Foreground = br;
+            }
+            else if (merry[8] == 1)
+            {
+                merry[8] = 1.05;
+                Merry8.Content = "❤";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Orange"));
+                Merry8.Foreground = br;
+            }
+            else if (merry[8] == 1.05)
+            {
+                merry[8] = 1.1;
+                Merry8.Content = "💘";
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
+                Merry8.Foreground = br;
+            }
+
+            int select = Combo8.SelectedIndex;
+            if (select == -1 || select == GUN_NUMBER)
+                return;
+            int levelselect = Level8.SelectedIndex;
+            if (levelselect == -1 || levelselect == 100)
+                return;
+            int skillselect = SkillLevel8.SelectedIndex;
+            if (skillselect == -1)
+                return;
+            renewskill();
         }
     }
 }

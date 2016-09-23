@@ -18,6 +18,8 @@ namespace snqxap
         public double nightsee { get; set; }
         public int dodge { get; set; }
         public int rank { get; set; }
+        public int belt { get; set; }
+        public int forwhat {get;set;}
         /// <summary>
         /// 1光瞄/2全息/3acog/4夜视/5穿甲/6震撼/7燃烧/8高速/9芯片/10外骨/11插板/12勋章
         /// </summary>

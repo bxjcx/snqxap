@@ -1,7 +1,7 @@
 ﻿<Window x:Class="snqxap.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="「干死雪球」阵型计算器 - h@jyying.cn - v1.2.9  天台的风好喧嚣啊版" Height="825" Width="850">
+        Title="「干死雪球」阵型计算器 - h@jyying.cn - v1.3.0 \结婚~/版" Height="825" Width="850">
 
     <Viewbox Stretch="Fill">
         <Grid  Height="795" Width="840">
@@ -20,6 +20,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
+                    <Label Name="Merry0" Content="♡" FontSize="16" Margin="90,193,108,0" MouseUp="Merry0_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo0_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="#FF454443" Opacity="0"/>
@@ -72,6 +73,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
+                    <Label Name="Merry1" Content="♡" FontSize="16" Margin="90,193,108,0" MouseUp="Merry1_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo1_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -124,6 +126,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
+                    <Label Name="Merry2" Content="♡" FontSize="16" Margin="90,193,108,0" MouseUp="Merry2_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Combo2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo2_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -176,6 +179,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
+                    <Label Name="Merry3" Content="♡" FontSize="16" Margin="90,191,108,0" MouseUp="Merry3_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo3_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -228,6 +232,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
+                    <Label Name="Merry4" Content="♡" FontSize="16" Margin="90,191,108,0" MouseUp="Merry4_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo4_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -280,6 +285,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
+                    <Label Name="Merry5" Content="♡" FontSize="16" Margin="90,191,108,0" MouseUp="Merry5_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo5_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -332,6 +338,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
+                    <Label Name="Merry6" Content="♡" FontSize="16" Margin="90,190,108,0" MouseUp="Merry6_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo6_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -384,6 +391,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
+                    <Label Name="Merry7" Content="♡" FontSize="16" Margin="90,190,108,0" MouseUp="Merry7_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo7_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -436,6 +444,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
+                    <Label Name="Merry8" Content="♡" FontSize="16" Margin="90,190,108,0" MouseUp="Merry8_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo8_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -480,25 +489,25 @@
             </Grid>
             <Grid>
                 <RadioButton Checked="rb0_Checked" Name="rb0" Content="主T" HorizontalAlignment="Left" Margin="180,200,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rb1_Checked" Name="rb1" Content="主T" HorizontalAlignment="Left" Margin="398,200,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rb2_Checked" Name="rb2" Content="主T" HorizontalAlignment="Left" Margin="616,200,0,0" VerticalAlignment="Top"/>
+                <RadioButton Checked="rb1_Checked" Name="rb1" Content="主T" HorizontalAlignment="Left" Margin="408,200,0,0" VerticalAlignment="Top"/>
+                <RadioButton Checked="rb2_Checked" Name="rb2" Content="主T" HorizontalAlignment="Left" Margin="631,200,0,0" VerticalAlignment="Top"/>
                 <RadioButton Checked="rb3_Checked" Name="rb3" Content="主T" HorizontalAlignment="Left" Margin="180,423,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rb4_Checked" Name="rb4" Content="主T" HorizontalAlignment="Left" Margin="398,423,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rb5_Checked" Name="rb5" Content="主T" HorizontalAlignment="Left" Margin="616,423,0,0" VerticalAlignment="Top"/>
+                <RadioButton Checked="rb4_Checked" Name="rb4" Content="主T" HorizontalAlignment="Left" Margin="408,423,0,0" VerticalAlignment="Top"/>
+                <RadioButton Checked="rb5_Checked" Name="rb5" Content="主T" HorizontalAlignment="Left" Margin="631,423,0,0" VerticalAlignment="Top"/>
                 <RadioButton Checked="rb6_Checked" Name="rb6" Content="主T" HorizontalAlignment="Left" Margin="180,646,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rb7_Checked" Name="rb7" Content="主T" HorizontalAlignment="Left" Margin="398,646,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rb8_Checked" Name="rb8" Content="主T" HorizontalAlignment="Left" Margin="616,646,0,0" VerticalAlignment="Top"/>
+                <RadioButton Checked="rb7_Checked" Name="rb7" Content="主T" HorizontalAlignment="Left" Margin="408,646,0,0" VerticalAlignment="Top"/>
+                <RadioButton Checked="rb8_Checked" Name="rb8" Content="主T" HorizontalAlignment="Left" Margin="631,646,0,0" VerticalAlignment="Top"/>
             </Grid>
             <Grid>
                 <RadioButton Checked="rbf0_Checked" Name="rbf0" Content="副T" HorizontalAlignment="Left" Margin="130,200,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rbf1_Checked" Name="rbf1" Content="副T" HorizontalAlignment="Left" Margin="348,200,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rbf2_Checked" Name="rbf2" Content="副T" HorizontalAlignment="Left" Margin="566,200,0,0" VerticalAlignment="Top"/>
+                <RadioButton Checked="rbf1_Checked" Name="rbf1" Content="副T" HorizontalAlignment="Left" Margin="358,200,0,0" VerticalAlignment="Top"/>
+                <RadioButton Checked="rbf2_Checked" Name="rbf2" Content="副T" HorizontalAlignment="Left" Margin="581,200,0,0" VerticalAlignment="Top"/>
                 <RadioButton Checked="rbf3_Checked" Name="rbf3" Content="副T" HorizontalAlignment="Left" Margin="130,423,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rbf4_Checked" Name="rbf4" Content="副T" HorizontalAlignment="Left" Margin="348,423,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rbf5_Checked" Name="rbf5" Content="副T" HorizontalAlignment="Left" Margin="566,423,0,0" VerticalAlignment="Top"/>
+                <RadioButton Checked="rbf4_Checked" Name="rbf4" Content="副T" HorizontalAlignment="Left" Margin="358,423,0,0" VerticalAlignment="Top"/>
+                <RadioButton Checked="rbf5_Checked" Name="rbf5" Content="副T" HorizontalAlignment="Left" Margin="581,423,0,0" VerticalAlignment="Top"/>
                 <RadioButton Checked="rbf6_Checked" Name="rbf6" Content="副T" HorizontalAlignment="Left" Margin="130,646,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rbf7_Checked" Name="rbf7" Content="副T" HorizontalAlignment="Left" Margin="348,646,0,0" VerticalAlignment="Top"/>
-                <RadioButton Checked="rbf8_Checked" Name="rbf8" Content="副T" HorizontalAlignment="Left" Margin="566,646,0,0" VerticalAlignment="Top"/>
+                <RadioButton Checked="rbf7_Checked" Name="rbf7" Content="副T" HorizontalAlignment="Left" Margin="358,646,0,0" VerticalAlignment="Top"/>
+                <RadioButton Checked="rbf8_Checked" Name="rbf8" Content="副T" HorizontalAlignment="Left" Margin="581,646,0,0" VerticalAlignment="Top"/>
             </Grid>
 
             <Grid Margin="0,675,165,0">
@@ -589,7 +598,7 @@
                     <Label Content="敌人护甲值：" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="10,30,0,0"/>
                     <TextBox  TextChanged="enemyarmor_TextChanged" Name="enemyarmor" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="115,33,0,0" Opacity="0.5"/>
                     <Button x:Name="xhbutton" Content="夏活相关" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="xhbutton_Click" Margin="85,78,0,0" Opacity="0.6"/>
-                    <Button x:Name="calclevelupbutton" Content="练级计算器" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="calclevelup_Click" Margin="5,78,0,0" Opacity="0.6"/>
+                    <Button x:Name="calclevelupbutton" Content="其他计算器" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="calclevelup_Click" Margin="5,78,0,0" Opacity="0.6"/>
                 </Grid>
             </Grid>
         </Grid>

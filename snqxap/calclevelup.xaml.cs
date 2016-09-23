@@ -29,7 +29,7 @@ namespace snqxap
     public partial class calclevelup : Window
     {
         public const int MAX_LEVEL = 100; 
-        public const int MAP_NUMBER = 54; 
+        public const int MAP_NUMBER = 66; 
         int[] leveldata = new int[MAX_LEVEL-1];
         map[] allmap = new map[MAP_NUMBER];
 
@@ -197,14 +197,24 @@ namespace snqxap
             allmap[51].name = "52e"; allmap[51].exp = 410; allmap[51].downlevel = 88;
             allmap[52].name = "53e"; allmap[52].exp = 420; allmap[52].downlevel = 90;
             allmap[53].name = "54e"; allmap[53].exp = 430; allmap[53].downlevel = 93;
-            //    allmap[54].name = "e1"; allmap[54].exp = 400; allmap[54].downlevel = 85;
-            //    allmap[55].name = "e2"; allmap[55].exp = 410; allmap[55].downlevel = 88;
-            //    allmap[56].name = "e3"; allmap[56].exp = 420; allmap[56].downlevel = 90;
-            //     allmap[57].name = "e4"; allmap[57].exp = 430; allmap[57].downlevel = 93;
+            allmap[54].name = "11n"; allmap[54].exp = 140; allmap[54].downlevel = 45;
+            allmap[55].name = "12n"; allmap[55].exp = 200; allmap[55].downlevel = 50;
+            allmap[56].name = "13n"; allmap[56].exp = 200; allmap[56].downlevel = 55;
+            allmap[57].name = "14n"; allmap[57].exp = 280; allmap[57].downlevel = 60;
+            allmap[58].name = "21n"; allmap[58].exp = 200; allmap[58].downlevel = 65;
+            allmap[59].name = "22n"; allmap[59].exp = 280; allmap[59].downlevel = 70;
+            allmap[60].name = "23n"; allmap[60].exp = 360; allmap[60].downlevel = 75;
+            allmap[61].name = "24n"; allmap[61].exp = 460; allmap[61].downlevel = 80;
+            allmap[62].name = "31n"; allmap[62].exp = 400; allmap[62].downlevel = 85;
+            allmap[63].name = "32n"; allmap[63].exp = 450; allmap[63].downlevel = 87;
+            allmap[64].name = "33n"; allmap[64].exp = 500; allmap[64].downlevel = 91;
+            allmap[65].name = "34n"; allmap[65].exp = 600; allmap[65].downlevel = 97;
 
             for (int i = 0; i < MAP_NUMBER; i++)
+            {
                 mapcb.Items.Add(allmap[i].name);
-
+                mapcbl.Items.Add(allmap[i].name);
+            }
         }
 
         /// <summary>
@@ -233,12 +243,14 @@ namespace snqxap
             if (IsNumber(nowleveltb.Text))
             {
                 int nowlevel = int.Parse(nowleveltb.Text);
-                if (nowlevel >= 100 )
+                if (nowlevel >= 100)
                     nowleveltb.Text = "99";
-                else if(nowlevel < 1)
+                else if (nowlevel < 1)
                     nowleveltb.Text = "1";
                 nowdatatb.Text = "0";
             }
+            else
+                nowleveltb.Text = "0";
         }
 
         private void nowdatatb_TextChanged(object sender, TextChangedEventArgs e)
@@ -248,13 +260,19 @@ namespace snqxap
             if (IsNumber(nowdatatb.Text))
             {
                 int nowdata = int.Parse(nowdatatb.Text);
-                int nowlevel = int.Parse(nowleveltb.Text);
-                if (nowlevel < 0)
+                if (IsNumber(nowleveltb.Text))
+                {
+                    int nowlevel = int.Parse(nowleveltb.Text);
+                    if (nowlevel < 0)
+                        nowdatatb.Text = "0";
+                    else if (nowdata >= leveldata[nowlevel - 1])
+                        nowdatatb.Text = (leveldata[nowlevel - 1] - 1).ToString();
+                }
+                else
                     nowdatatb.Text = "0";
-                else if (nowdata >= leveldata[nowlevel - 1])
-                    nowdatatb.Text = (leveldata[nowlevel - 1] - 1).ToString();
-
             }
+            else
+                nowdatatb.Text = "0";
         }
 
         private void toleveltb_TextChanged(object sender, TextChangedEventArgs e)
@@ -264,12 +282,13 @@ namespace snqxap
             if (IsNumber(toleveltb.Text))
             {
                 int tolevel = int.Parse(toleveltb.Text);
-                int nowlevel = int.Parse(nowleveltb.Text);
                 if (tolevel <= 0)
                     toleveltb.Text = "1";
                 else if(tolevel > 100)
                     toleveltb.Text = "100";
             }
+            else
+                toleveltb.Text = "1";
         }
 
         private double switchteam(int nowlevel)
@@ -458,6 +477,89 @@ namespace snqxap
                     calclbdz.Content = allcountdz.ToString() + "次";
                     calclbmvp.Content = allcountmvp.ToString() + "次";
                     calclbdzmvp.Content = allcountdzmvp.ToString() + "次";
+        }
+
+        private void nowlovetb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (nowlovetb.Text == "")
+                return;
+            if (IsNumber(nowlovetb.Text))
+            {
+                int nowlove = int.Parse(nowlovetb.Text);
+                if (nowlove >= 150)
+                    nowlovetb.Text = "149";
+                else if (nowlove < 0)
+                    nowlovetb.Text = "0";
+            }
+            else
+                nowlovetb.Text = "0";
+        }
+
+        private void tolovetb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (tolovetb.Text == "")
+                return;
+            if (IsNumber(tolovetb.Text))
+            {
+                int tolove = int.Parse(tolovetb.Text);
+                if (tolove <= 0)
+                    tolovetb.Text = "1";
+                else if (tolove > 150)
+                    tolovetb.Text = "150";
+            }
+            else
+                tolovetb.Text = "1";
+        }
+
+        private void buttonl_Click(object sender, RoutedEventArgs e)
+        {
+            int mapselect = mapcbl.SelectedIndex;
+            if (nowlovetb.Text == "" || tolovetb.Text == "" || mapselect == -1)
+                return;
+            int nowlove = int.Parse(nowlovetb.Text);
+            int tolove = int.Parse(tolovetb.Text);
+
+            int allcountpt = 0;
+            int allcountdz = 0;
+            int allcountdzmvp = 0;
+            double shengganri = 1;
+    //        int exp = 0;
+            int full = 1;
+            if (checkBox2.IsChecked == true)
+                shengganri = 1.5;
+            if (checkBox3.IsChecked == true)
+                full = 3;
+            if (nowlove<50&&tolove<=50)
+            {
+                int allloveexp = (tolove - nowlove) * 10000;
+                allcountpt += (int)Math.Ceiling(allloveexp / shengganri / allmap[mapselect].exp / full / 1);
+                allcountdz += (int)Math.Ceiling(allloveexp / shengganri / allmap[mapselect].exp / full / 1);
+                allcountdzmvp += (int)Math.Ceiling(allloveexp / shengganri / allmap[mapselect].exp / full / 1.7);
+            }
+            else if(nowlove < 50 && tolove > 50)
+            {
+                int oneloveexp = (50 - nowlove) * 10000;
+                allcountpt += (int)Math.Ceiling(oneloveexp / shengganri / allmap[mapselect].exp / full / 1);
+                allcountdz += (int)Math.Ceiling(oneloveexp / shengganri / allmap[mapselect].exp / full / 1);
+                allcountdzmvp += (int)Math.Ceiling(oneloveexp / shengganri / allmap[mapselect].exp / full / 1.7);
+
+                int twoloveexp = (tolove - 50) * 10000;
+                allcountpt += (int)Math.Ceiling(twoloveexp / shengganri / allmap[mapselect].exp / full / 0.3);
+                allcountdz += (int)Math.Ceiling(twoloveexp / shengganri / allmap[mapselect].exp / full / 1);
+                allcountdzmvp += (int)Math.Ceiling(twoloveexp / shengganri / allmap[mapselect].exp / full / 1.7);
+            }
+            else
+            {
+                int allloveexp = (tolove - nowlove) * 10000;
+                //         int nowcount = (int)Math.Ceiling((double)exp / 3 / shengganri / team / 1.2 / 1.3);
+                allcountpt += (int)Math.Ceiling(allloveexp / shengganri / allmap[mapselect].exp / full / 0.3);
+                allcountdz += (int)Math.Ceiling(allloveexp / shengganri / allmap[mapselect].exp / full / 1);
+                allcountdzmvp += (int)Math.Ceiling(allloveexp / shengganri / allmap[mapselect].exp / full / 1.7);
+            }
+            calclbptl.Content = allcountpt.ToString() + "次";
+            calclbdzl.Content = allcountdz.ToString() + "次";
+     //       calclbmvp.Content = allcountmvp.ToString() + "次";
+            calclbdzmvpl.Content = allcountdzmvp.ToString() + "次";
         }
     }
 }
