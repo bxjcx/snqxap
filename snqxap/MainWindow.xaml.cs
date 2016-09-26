@@ -35,7 +35,7 @@ namespace snqxap
         /// <summary>
         /// 装备总数
         /// </summary>
-        public const int EQUIP_NUMBER = 46;
+        public const int EQUIP_NUMBER = 49;
         /// <summary>
         /// 0-3 外骨骼 4-7 穿甲弹 8-11 高速弹 12-15 光学瞄具 16-19 全息 20-23 红点 24-27夜视 28五星穿甲 29五星夜视
         /// AR 全息/光喵/ACOG/夜视 高速弹 外骨 smg 外骨 空 全息/光喵/ACOG/夜视
@@ -2269,10 +2269,13 @@ namespace snqxap
             equip[40].name = "IOP X3外骨骼"; equip[40].dodge = 7; equip[40].damage = 0; equip[40].type = 10; equip[40].tooltip = "回避+7"; equip[40].rank = 4;
             equip[41].name = "（顶配）IOP X4外骨骼"; equip[41].dodge = 12; equip[41].damage = 0; equip[41].type = 10; equip[41].tooltip = "回避+12"; equip[41].rank = 5;
             equip[42].name = "（常值）IOP X4外骨骼"; equip[42].dodge = 10; equip[42].damage = 0; equip[42].type = 10; equip[42].tooltip = "回避+10"; equip[42].rank = 5;
-            equip[43].name = "国家竞赛穿甲弹";equip[43].shotspeed = 8; equip[43].breakarmor = 85; equip[43].type = 5; equip[43].tooltip = "射速+8,穿甲+85"; equip[43].rank = 5;equip[43].forwhat = 81;
-            equip[44].name = ".300BLK高速弹"; equip[44].damage = 12; equip[44].hit = -1; equip[44].type = 8; equip[44].tooltip = "伤害+12,命中-1"; equip[44].rank = 5;equip[44].forwhat = 29;
-            equip[45].name = "Titan火控芯片"; equip[45].damage = -2; equip[45].shotspeed = -1; equip[45].belt = 2; equip[45].type = 9; equip[45].tooltip = "伤害-2,射速-1,弹链+2"; equip[45].rank = 5;equip[45].forwhat = 84;
-           
+            equip[43].name = "（顶配）国家竞赛穿甲弹"; equip[43].shotspeed = 8; equip[43].breakarmor = 85; equip[43].type = 5; equip[43].tooltip = "射速+8,穿甲+85"; equip[43].rank = 5; equip[43].forwhat = 81;
+            equip[44].name = "（常值）国家竞赛穿甲弹"; equip[44].shotspeed = 3; equip[44].breakarmor = 80; equip[44].type = 5; equip[44].tooltip = "射速+3,穿甲+80"; equip[44].rank = 5; equip[44].forwhat = 81;
+            equip[45].name = "（顶配）.300BLK高速弹"; equip[45].damage = 12; equip[45].hit = -1; equip[45].type = 8; equip[45].tooltip = "伤害+12,命中-1"; equip[45].rank = 5; equip[45].forwhat = 29;
+            equip[46].name = "（常值）.300BLK高速弹"; equip[46].damage = 10; equip[46].hit = -3; equip[46].type = 8; equip[46].tooltip = "伤害+10,命中-3"; equip[46].rank = 5; equip[46].forwhat = 29;
+            equip[47].name = "（顶配）Titan火控芯片"; equip[47].damage = -2; equip[47].shotspeed = -1; equip[47].belt = 2; equip[47].type = 9; equip[47].tooltip = "伤害-2,射速-1,弹链+2"; equip[47].rank = 5; equip[47].forwhat = 84;
+            equip[48].name = "（常值）Titan火控芯片"; equip[48].damage = -4; equip[48].shotspeed = -3; equip[48].belt = 1; equip[48].type = 9; equip[48].tooltip = "伤害-4,射速-3,弹链+1"; equip[48].rank = 5; equip[48].forwhat = 84;
+
             //检查更新
             string strGatherJsonUrl = "http://jyying.cn/snqxap/AssemblyInfo";
             //string strGatherJsonUrl = "http://www.google.com";
@@ -8891,7 +8894,7 @@ namespace snqxap
                     {
                         if (ischecked)
                         {
-                            skilldownhit -= (Math.Round(num1) / 100);
+                            skilldownhit *= 1 - (Math.Round(num1) / 100);
                             renewindex(combo);
                         }
                         renewtime(combo, num3);

@@ -30,8 +30,8 @@
             <Label  Content="枪娘升级经验来自作者表格，衰减和各图经验来自deathmoon1。（均是精品贴）" HorizontalAlignment="Left" Margin="5,172,0,0" FontSize="12" VerticalAlignment="Top"/>
         </Grid>
         <Grid Width="450" Margin="0,210,0,0">
-            <Label Foreground="red" x:Name="label13" Content="好感度计算器（测试，很可能有误）" HorizontalAlignment="Left" Margin="155,-3,0,0" FontSize="12" VerticalAlignment="Top"/>
-            <Label Foreground="red" x:Name="label14" Content="（受衰减影响，未算）" HorizontalAlignment="Left" Margin="153,16,0,0" FontSize="12" VerticalAlignment="Top"/>
+            <Label Foreground="red" x:Name="label13" Content="好感度计算器（测试）" HorizontalAlignment="Left" Margin="155,-3,0,0" FontSize="12" VerticalAlignment="Top"/>
+            <Label  x:Name="label14" Content="算法见贴吧精品 相忘鳞3" HorizontalAlignment="Left" Margin="147,23,0,0" FontSize="12" VerticalAlignment="Top"/>
             <Label x:Name="label8" Content="当前好感：" HorizontalAlignment="Left" Margin="5,15,0,0" FontSize="12" VerticalAlignment="Top"/>
             <TextBox x:Name="nowlovetb" HorizontalAlignment="Left" Height="20" Margin="75,18,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50" TextChanged="nowlovetb_TextChanged"/>
             <Label x:Name="label9" Content="目标好感：" HorizontalAlignment="Left" Margin="308,15,0,0" FontSize="12" VerticalAlignment="Top"/>
@@ -39,7 +39,7 @@
             <ComboBox x:Name="mapcbl" HorizontalAlignment="Left" Margin="5,53,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
             <Button x:Name="buttonl" Content="计算" HorizontalAlignment="Left" Margin="155,53,0,0" VerticalAlignment="Top" Width="120" Click="buttonl_Click"/>
             <CheckBox x:Name="checkBox3" Content="满级" HorizontalAlignment="Left" Margin="378,56,0,0" VerticalAlignment="Top" Height="19" Width="70"/>
-            <CheckBox x:Name="checkBox2" Content="圣肝日" HorizontalAlignment="Left" Margin="308,56,0,0" VerticalAlignment="Top" Height="19" Width="70"/>
+            <CheckBox x:Name="checkBox2" Content="BOSS" HorizontalAlignment="Left" Margin="308,56,0,0" VerticalAlignment="Top" Height="19" Width="70"/>
             <Label x:Name="label10" Content="还需战斗：普通：" HorizontalAlignment="Left" Margin="40,84,0,0" FontSize="15" VerticalAlignment="Top"/>
             <Label x:Name="calclbptl" Content="" HorizontalAlignment="Left" Margin="160,84,0,0" FontSize="15" VerticalAlignment="Top"/>
             <Label x:Name="label11" Content="队长/MVP：" HorizontalAlignment="Left" Margin="75,116,0,0" FontSize="15" VerticalAlignment="Top"/>

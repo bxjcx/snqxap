@@ -1,7 +1,7 @@
 ﻿<Window x:Class="snqxap.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="「干死雪球」阵型计算器 - h@jyying.cn - v1.3.0 \结婚~/版" Height="825" Width="850">
+        Title="「干死雪球」阵型计算器 - h@jyying.cn - v1.3.1 好感度计算器版" Height="825" Width="850">
 
     <Viewbox Stretch="Fill">
         <Grid  Height="795" Width="840">
@@ -20,7 +20,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <Label Name="Merry0" Content="♡" FontSize="16" Margin="90,193,108,0" MouseUp="Merry0_MouseUp"/>
+                    <Label Name="Merry0" Content="♡" FontSize="16" Margin="90,193,98,0" MouseUp="Merry0_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo0_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="#FF454443" Opacity="0"/>
@@ -73,7 +73,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <Label Name="Merry1" Content="♡" FontSize="16" Margin="90,193,108,0" MouseUp="Merry1_MouseUp"/>
+                    <Label Name="Merry1" Content="♡" FontSize="16" Margin="90,193,98,0" MouseUp="Merry1_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo1_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -126,7 +126,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <Label Name="Merry2" Content="♡" FontSize="16" Margin="90,193,108,0" MouseUp="Merry2_MouseUp"/>
+                    <Label Name="Merry2" Content="♡" FontSize="16" Margin="90,193,98,0" MouseUp="Merry2_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Combo2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo2_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -179,7 +179,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <Label Name="Merry3" Content="♡" FontSize="16" Margin="90,191,108,0" MouseUp="Merry3_MouseUp"/>
+                    <Label Name="Merry3" Content="♡" FontSize="16" Margin="90,191,98,0" MouseUp="Merry3_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo3_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -232,7 +232,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <Label Name="Merry4" Content="♡" FontSize="16" Margin="90,191,108,0" MouseUp="Merry4_MouseUp"/>
+                    <Label Name="Merry4" Content="♡" FontSize="16" Margin="90,191,98,0" MouseUp="Merry4_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo4_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -285,7 +285,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <Label Name="Merry5" Content="♡" FontSize="16" Margin="90,191,108,0" MouseUp="Merry5_MouseUp"/>
+                    <Label Name="Merry5" Content="♡" FontSize="16" Margin="90,191,98,0" MouseUp="Merry5_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo5_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -338,7 +338,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <Label Name="Merry6" Content="♡" FontSize="16" Margin="90,190,108,0" MouseUp="Merry6_MouseUp"/>
+                    <Label Name="Merry6" Content="♡" FontSize="16" Margin="90,189,98,0" MouseUp="Merry6_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo6_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -391,7 +391,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <Label Name="Merry7" Content="♡" FontSize="16" Margin="90,190,108,0" MouseUp="Merry7_MouseUp"/>
+                    <Label Name="Merry7" Content="♡" FontSize="16" Margin="90,189,98,0" MouseUp="Merry7_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo7_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -444,7 +444,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <Label Name="Merry8" Content="♡" FontSize="16" Margin="90,190,108,0" MouseUp="Merry8_MouseUp"/>
+                    <Label Name="Merry8" Content="♡" FontSize="16" Margin="90,189,98,0" MouseUp="Merry8_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo8_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>

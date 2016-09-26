@@ -197,18 +197,18 @@ namespace snqxap
             allmap[51].name = "52e"; allmap[51].exp = 410; allmap[51].downlevel = 88;
             allmap[52].name = "53e"; allmap[52].exp = 420; allmap[52].downlevel = 90;
             allmap[53].name = "54e"; allmap[53].exp = 430; allmap[53].downlevel = 93;
-            allmap[54].name = "11n"; allmap[54].exp = 140; allmap[54].downlevel = 45;
-            allmap[55].name = "12n"; allmap[55].exp = 200; allmap[55].downlevel = 50;
-            allmap[56].name = "13n"; allmap[56].exp = 200; allmap[56].downlevel = 55;
-            allmap[57].name = "14n"; allmap[57].exp = 280; allmap[57].downlevel = 60;
-            allmap[58].name = "21n"; allmap[58].exp = 200; allmap[58].downlevel = 65;
-            allmap[59].name = "22n"; allmap[59].exp = 280; allmap[59].downlevel = 70;
+            allmap[54].name = "11n"; allmap[54].exp = 280; allmap[54].downlevel = 45;
+            allmap[55].name = "12n"; allmap[55].exp = 290; allmap[55].downlevel = 50;
+            allmap[56].name = "13n"; allmap[56].exp = 300; allmap[56].downlevel = 55;
+            allmap[57].name = "14n"; allmap[57].exp = 320; allmap[57].downlevel = 60;
+            allmap[58].name = "21n"; allmap[58].exp = 330; allmap[58].downlevel = 65;
+            allmap[59].name = "22n"; allmap[59].exp = 350; allmap[59].downlevel = 70;
             allmap[60].name = "23n"; allmap[60].exp = 360; allmap[60].downlevel = 75;
-            allmap[61].name = "24n"; allmap[61].exp = 460; allmap[61].downlevel = 80;
+            allmap[61].name = "24n"; allmap[61].exp = 380; allmap[61].downlevel = 80;
             allmap[62].name = "31n"; allmap[62].exp = 400; allmap[62].downlevel = 85;
-            allmap[63].name = "32n"; allmap[63].exp = 450; allmap[63].downlevel = 87;
-            allmap[64].name = "33n"; allmap[64].exp = 500; allmap[64].downlevel = 91;
-            allmap[65].name = "34n"; allmap[65].exp = 600; allmap[65].downlevel = 97;
+            allmap[63].name = "32n"; allmap[63].exp = 410; allmap[63].downlevel = 87;
+            allmap[64].name = "33n"; allmap[64].exp = 420; allmap[64].downlevel = 91;
+            allmap[65].name = "34n"; allmap[65].exp = 450; allmap[65].downlevel = 97;
 
             for (int i = 0; i < MAP_NUMBER; i++)
             {
@@ -522,39 +522,43 @@ namespace snqxap
             int allcountpt = 0;
             int allcountdz = 0;
             int allcountdzmvp = 0;
-            double shengganri = 1;
+            double boss = 1;
     //        int exp = 0;
             int full = 1;
-            if (checkBox2.IsChecked == true)
-                shengganri = 1.5;
+            if(checkBox2.IsChecked == true)
+                boss = 2;
             if (checkBox3.IsChecked == true)
                 full = 3;
             if (nowlove<50&&tolove<=50)
             {
                 int allloveexp = (tolove - nowlove) * 10000;
-                allcountpt += (int)Math.Ceiling(allloveexp / shengganri / allmap[mapselect].exp / full / 1);
-                allcountdz += (int)Math.Ceiling(allloveexp / shengganri / allmap[mapselect].exp / full / 1);
-                allcountdzmvp += (int)Math.Ceiling(allloveexp / shengganri / allmap[mapselect].exp / full / 1.7);
+                allcountpt += (int)Math.Ceiling(allloveexp / boss / allmap[mapselect].exp / full / 1);
+                allcountdz += (int)Math.Ceiling(allloveexp / boss / allmap[mapselect].exp / full / 1);
+                allcountdzmvp += (int)Math.Ceiling(allloveexp / boss / allmap[mapselect].exp / full / 1.7);
             }
             else if(nowlove < 50 && tolove > 50)
             {
                 int oneloveexp = (50 - nowlove) * 10000;
-                allcountpt += (int)Math.Ceiling(oneloveexp / shengganri / allmap[mapselect].exp / full / 1);
-                allcountdz += (int)Math.Ceiling(oneloveexp / shengganri / allmap[mapselect].exp / full / 1);
-                allcountdzmvp += (int)Math.Ceiling(oneloveexp / shengganri / allmap[mapselect].exp / full / 1.7);
-
-                int twoloveexp = (tolove - 50) * 10000;
-                allcountpt += (int)Math.Ceiling(twoloveexp / shengganri / allmap[mapselect].exp / full / 0.3);
-                allcountdz += (int)Math.Ceiling(twoloveexp / shengganri / allmap[mapselect].exp / full / 1);
-                allcountdzmvp += (int)Math.Ceiling(twoloveexp / shengganri / allmap[mapselect].exp / full / 1.7);
+                allcountpt += (int)Math.Ceiling(oneloveexp / boss / allmap[mapselect].exp / full / 1);
+                allcountdz += (int)Math.Ceiling(oneloveexp / boss / allmap[mapselect].exp / full / 1);
+                allcountdzmvp += (int)Math.Ceiling(oneloveexp / boss / allmap[mapselect].exp / full / 1.7);
+                int nextexppt = int.Parse((allcountpt * boss * allmap[mapselect].exp * full * 1 - oneloveexp).ToString());
+                int twoloveexppt = (tolove - 50) * 10000 - nextexppt;
+                int nextexpdz = int.Parse((allcountpt * boss * allmap[mapselect].exp * full * 1 - oneloveexp).ToString());
+                int twoloveexpdz = (tolove - 50) * 10000 - nextexpdz;
+                int nextexpdzmvp = int.Parse((allcountpt * boss * allmap[mapselect].exp * full * 1.7 - oneloveexp).ToString());
+                int twoloveexpdzmvp = (tolove - 50) * 10000 - nextexpdzmvp;
+                allcountpt += (int)Math.Ceiling(twoloveexppt / boss / allmap[mapselect].exp / full / 0.3);
+                allcountdz += (int)Math.Ceiling(twoloveexpdz / boss / allmap[mapselect].exp / full / 1);
+                allcountdzmvp += (int)Math.Ceiling(twoloveexpdzmvp / boss / allmap[mapselect].exp / full / 1.7);
             }
             else
             {
                 int allloveexp = (tolove - nowlove) * 10000;
-                //         int nowcount = (int)Math.Ceiling((double)exp / 3 / shengganri / team / 1.2 / 1.3);
-                allcountpt += (int)Math.Ceiling(allloveexp / shengganri / allmap[mapselect].exp / full / 0.3);
-                allcountdz += (int)Math.Ceiling(allloveexp / shengganri / allmap[mapselect].exp / full / 1);
-                allcountdzmvp += (int)Math.Ceiling(allloveexp / shengganri / allmap[mapselect].exp / full / 1.7);
+                //         int nowcount = (int)Math.Ceiling((double)exp / 3 / boss / team / 1.2 / 1.3);
+                allcountpt += (int)Math.Ceiling(allloveexp / boss / allmap[mapselect].exp / full / 0.3);
+                allcountdz += (int)Math.Ceiling(allloveexp / boss / allmap[mapselect].exp / full / 1);
+                allcountdzmvp += (int)Math.Ceiling(allloveexp / boss / allmap[mapselect].exp / full / 1.7);
             }
             calclbptl.Content = allcountpt.ToString() + "次";
             calclbdzl.Content = allcountdz.ToString() + "次";
