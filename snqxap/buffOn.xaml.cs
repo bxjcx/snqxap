@@ -32,7 +32,7 @@ namespace snqxap
 
         public void baka()
         {
-
+            MessageBox.Show("baka!!!");
 
         }
 

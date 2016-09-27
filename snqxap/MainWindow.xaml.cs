@@ -75,7 +75,7 @@ namespace snqxap
       {
         1f,1f,1f,1f,1f,1f,1f
     },
-        new float[]   // 2 ar 3 smg 4 hg 5 rf 6 mg    
+        new float[]   //2 ar 3 smg 4 hg 5 rf 6 mg    
 	{
           1f,
         1f,
@@ -135,34 +135,24 @@ namespace snqxap
      
             baka();
 
-          //  bignews.Visibility = Visibility.Visible;
             Combo0.SelectedIndex = GUN_NUMBER;
             renewindex(0);
-            //       Combo0.SelectedIndex = -1;
             Combo1.SelectedIndex = GUN_NUMBER;
             renewindex(1);
-            //       Combo1.SelectedIndex = -1;
             Combo2.SelectedIndex = GUN_NUMBER;
             renewindex(2);
-            //      Combo2.SelectedIndex = -1;
             Combo3.SelectedIndex = GUN_NUMBER;
             renewindex(3);
-            //        Combo3.SelectedIndex = -1;
             Combo4.SelectedIndex = GUN_NUMBER;
             renewindex(4);
-            //       Combo4.SelectedIndex = -1;
             Combo5.SelectedIndex = GUN_NUMBER;
             renewindex(5);
-            //        Combo5.SelectedIndex = -1;
             Combo6.SelectedIndex = GUN_NUMBER;
             renewindex(6);
-            //       Combo6.SelectedIndex = -1;
             Combo7.SelectedIndex = GUN_NUMBER;
             renewindex(7);
-            //        Combo7.SelectedIndex = -1;
             Combo8.SelectedIndex = GUN_NUMBER;
             renewindex(8);
-            //        Combo8.SelectedIndex = -1;
 
             rb0.IsChecked = false;
             rb1.IsChecked = false;
@@ -241,7 +231,6 @@ namespace snqxap
             {
                 return "";
             }
-     //       return request.GetResponse() as HttpWebResponse;
         }
 
         /// <summary>
@@ -685,37 +674,30 @@ namespace snqxap
                 }
                 Combo8.Items.Add(l);
             }
-            if (true)
-            {
                 Merry0.Content = "♡";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
-                Merry0.Foreground = br;
+                Brush br2 = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
+                Merry0.Foreground = br2;
                 Merry1.Content = "♡";
-                Merry1.Foreground = br;
+                Merry1.Foreground = br2;
                 Merry2.Content = "♡";
-                Merry2.Foreground = br;
+                Merry2.Foreground = br2;
                 Merry3.Content = "♡";
-                Merry3.Foreground = br;
+                Merry3.Foreground = br2;
                 Merry4.Content = "♡";
-                Merry4.Foreground = br;
+                Merry4.Foreground = br2;
                 Merry5.Content = "♡";
-                Merry5.Foreground = br;
+                Merry5.Foreground = br2;
                 Merry6.Content = "♡";
-                Merry6.Foreground = br;
+                Merry6.Foreground = br2;
                 Merry0.Content = "♡";
-                Merry0.Foreground = br;
+                Merry0.Foreground = br2;
                 Merry8.Content = "♡";
-                Merry8.Foreground = br;
-            }
+                Merry8.Foreground = br2;
 
             for (int i = 0; i < GUN_NUMBER; i++) //加图像
             {
                 gun[i].image = "/assets/" + i.ToString() + ".png";
             }
-    //        gun[102].image = "/assets/71.png";
-     //       gun[103].image = "/assets/71.png";
-     //       gun[104].image = "/assets/71.png";
-       //     gun[112].image = "/assets/71.png";
             gun[GUN_NUMBER].image = "";
 
                 for (int i = 0; i < 9; i++)
@@ -2222,8 +2204,6 @@ namespace snqxap
             gun[99].growth_type = 2;
             gun[100].growth_type = 3;
 
-
-           // equip = new Equip[EQUIP_NUMBER];
             for (int i = 0; i < EQUIP_NUMBER; i++)
                 equip[i] = new Equip();
             equip[0].name = "IOP T1外骨骼"; equip[0].dodge = 8; equip[0].damage = -1; equip[0].type = 10; equip[0].tooltip = "回避+8,伤害-1"; equip[0].rank = 2;
@@ -2752,6 +2732,8 @@ namespace snqxap
                         calclevel(select, levelselect, 8,skillselect);
                         break;
                     }
+                default:
+                    break;
             }
         }
        /// <summary>
@@ -3419,9 +3401,11 @@ namespace snqxap
                                 Lskillread8.Content = 0;
                                 break;
                             }
+                        default:
+                            break;
                     }
-                    //    if (howmany == 6)
-                    //        howmany = 0;
+           
+
                     break;
                 }
             }
@@ -3471,12 +3455,6 @@ namespace snqxap
             calccombo3buff();
             calccombo4buff();
             lastgunindex[0] = select;
-
-       /*     cb0.IsChecked = false;
-            if (isnightskill(gun[select].type) && cbIsnight.IsChecked == false)
-                cb0.IsEnabled = false;
-            else
-                cb0.IsEnabled = true;*/
 
             renewskill();
             calceat();
@@ -3600,9 +3578,9 @@ namespace snqxap
                                 Lskillread8.Content = 0;
                                 break;
                             }
+                        default:
+                            break;
                     }
-                    //    if (howmany == 6)
-                    //        howmany = 0;
                     break;
                 }
             }
@@ -3654,11 +3632,6 @@ namespace snqxap
             calccombo4buff();
             calccombo5buff();
             lastgunindex[1] = select;
-     /*       cb1.IsChecked = false;
-            if (isnightskill(gun[select].type) && cbIsnight.IsChecked == false)
-                cb1.IsEnabled = false;
-            else
-                cb1.IsEnabled = true;*/
             renewskill();
             calceat();
             equipcb11.Items.Clear();
@@ -3780,9 +3753,9 @@ namespace snqxap
                                 Lskillread8.Content = 0;
                                 break;
                             }
+                        default:
+                            break;
                     }
-                    //    if (howmany == 6)
-                    //        howmany = 0;
                     break;
                 }
             }
@@ -3832,12 +3805,6 @@ namespace snqxap
             calccombo5buff();
             calccombo4buff();
             lastgunindex[2] = select;
-
-      /*      cb2.IsChecked = false;
-            if (isnightskill(gun[select].type) && cbIsnight.IsChecked == false)
-                cb2.IsEnabled = false;
-            else
-                cb2.IsEnabled = true;*/
             renewskill();
             calceat();
             equipcb21.Items.Clear();
@@ -3959,9 +3926,11 @@ namespace snqxap
                                 Lskillread8.Content = 0;
                                 break;
                             }
+                        default:
+                            break;
                     }
-                    //    if (howmany == 6)
-                    //        howmany = 0;
+           
+
                     break;
                 }
             }
@@ -4248,9 +4217,11 @@ namespace snqxap
                                 Lskillread8.Content = 0;
                                 break;
                             }
+                        default:
+                            break;
                     }
-                    //    if (howmany == 6)
-                    //        howmany = 0;
+           
+
                     break;
                 }
             }
@@ -4433,9 +4404,9 @@ namespace snqxap
                                 Lskillread8.Content = 0;
                                 break;
                             }
+                        default:
+                            break;
                     }
-                //    if (howmany == 6)
-                //        howmany = 0;
                     break;
                 }
             }
@@ -4615,9 +4586,11 @@ namespace snqxap
                                 Lskillread8.Content = 0;
                                 break;
                             }
+                        default:
+                            break;
                     }
-                    //    if (howmany == 6)
-                    //        howmany = 0;
+           
+
                     break;
                 }
             }
@@ -4795,9 +4768,9 @@ namespace snqxap
                                 Lskillread8.Content = 0;
                                 break;
                             }
+                        default:
+                            break;
                     }
-                //    if (howmany == 6)
-                //        howmany = 0;
                     break;
                 }
             }
@@ -4978,9 +4951,11 @@ namespace snqxap
                                 Lskillread8.Content = 0;
                                 break;
                             }
+                        default:
+                            break;
                     }
-                    //    if (howmany == 6)
-                    //        howmany = 0;
+           
+
                     break;
                 }
             }
@@ -5488,32 +5463,22 @@ namespace snqxap
 
             Combo0.SelectedIndex = GUN_NUMBER;
             renewindex(0);
-
-     //       Combo0.SelectedIndex = -1;
             Combo1.SelectedIndex = GUN_NUMBER;
             renewindex(1);
-     //       Combo1.SelectedIndex = -1;
             Combo2.SelectedIndex = GUN_NUMBER;
             renewindex(2);
-      //      Combo2.SelectedIndex = -1;
             Combo3.SelectedIndex = GUN_NUMBER;
             renewindex(3);
-    //        Combo3.SelectedIndex = -1;
             Combo4.SelectedIndex = GUN_NUMBER;
             renewindex(4);
-     //       Combo4.SelectedIndex = -1;
             Combo5.SelectedIndex = GUN_NUMBER;
             renewindex(5);
-    //        Combo5.SelectedIndex = -1;
             Combo6.SelectedIndex = GUN_NUMBER;
             renewindex(6);
-     //       Combo6.SelectedIndex = -1;
             Combo7.SelectedIndex = GUN_NUMBER;
             renewindex(7);
-    //        Combo7.SelectedIndex = -1;
             Combo8.SelectedIndex = GUN_NUMBER;
             renewindex(8);
-    //        Combo8.SelectedIndex = -1;
 
             rb0.IsChecked = false;
             rb1.IsChecked = false;
@@ -6130,6 +6095,8 @@ namespace snqxap
                             }
                             break;
                         }
+                    default:
+                        break;
                 }
             }
             if (Combo1.SelectedIndex != -1 && Combo1.SelectedIndex != GUN_NUMBER)//2 ar 3 smg 4 hg 5 rf 6 mg
@@ -6281,6 +6248,8 @@ namespace snqxap
                             }
                             break;
                         }
+                    default:
+                        break;
                 }
             }
 
@@ -6433,6 +6402,8 @@ namespace snqxap
                             }
                             break;
                         }
+                    default:
+                        break;
                 }
             }
 
@@ -6585,6 +6556,8 @@ namespace snqxap
                             }
                             break;
                         }
+                    default:
+                        break;
                 }
             }
 
@@ -6737,6 +6710,8 @@ namespace snqxap
                             }
                             break;
                         }
+                    default:
+                        break;
                 }
             }
 
@@ -6889,6 +6864,8 @@ namespace snqxap
                             }
                             break;
                         }
+                    default:
+                        break;
                 }
             }
 
@@ -7041,6 +7018,8 @@ namespace snqxap
                             }
                             break;
                         }
+                    default:
+                        break;
                 }
             }
 
@@ -7193,6 +7172,8 @@ namespace snqxap
                             }
                             break;
                         }
+                    default:
+                        break;
                 }
             }
 
@@ -7345,6 +7326,8 @@ namespace snqxap
                             }
                             break;
                         }
+                    default:
+                        break;
                 }
             }
             waste.Content = ammo.ToString() + "弹药 " + food.ToString() + "口粮";
@@ -7389,8 +7372,6 @@ namespace snqxap
             float num2 = 0.555f;
             float num3 = 100f;
             double maxLife = Math.Ceiling((num + levelselect * num2) * array[0] * gun[select].ratiohp / num3);
-
-           // 110 = (55 + 0.555)*1.6*hp/100)
 
             num = 16f;
             num2 = 100f;
@@ -7445,7 +7426,7 @@ namespace snqxap
                             Lhit0.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[0]) + equiphit[0]) * (100 - 0.9 * (100 - equipnightsee[0])) / 100 * gg[0].hitup * (skilluphit[0])).ToString();
                         else
                             Lhit0.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[0]) + equiphit[0]) * gg[0].hitup * (skilluphit[0])).ToString("0");
-                        //        calcskill(combo, select, skillselect);
+
                         Image0.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[0].damageup != 1)
@@ -7503,7 +7484,7 @@ namespace snqxap
                         else
                             Lhit1.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[1] )+ equiphit[1]) * gg[1].hitup * (skilluphit[1])).ToString("0");
 
-                        //      calcskill(combo, select, skillselect); 
+           
                         Image1.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[1].damageup != 1)
@@ -7560,7 +7541,6 @@ namespace snqxap
                             Lhit2.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[2]) + equiphit[2]) * (100 - 0.9 * (100 - equipnightsee[2])) / 100 * gg[2].hitup * (skilluphit[2])).ToString();
                         else
                             Lhit2.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[2]) + equiphit[2]) * gg[2].hitup * (skilluphit[2])).ToString("0");
-                        //            calcskill(combo, select, skillselect);
                         Image2.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[2].damageup != 1)
@@ -7617,7 +7597,6 @@ namespace snqxap
                             Lhit3.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[3]) + equiphit[3]) * (100 - 0.9 * (100 - equipnightsee[3])) / 100 * gg[3].hitup * (skilluphit[3])).ToString();
                         else
                             Lhit3.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[3]) + equiphit[3]) * gg[3].hitup * (skilluphit[3])).ToString("0");
-                        //       calcskill(combo, select, skillselect);
                         Image3.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[3].damageup != 1)
@@ -7674,7 +7653,6 @@ namespace snqxap
                             Lhit4.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[4] )+ equiphit[4]) * (100 - 0.9 * (100 - equipnightsee[4])) / 100 * gg[4].hitup * (skilluphit[4])).ToString();
                         else
                             Lhit4.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[4] )+ equiphit[4]) * gg[4].hitup * (skilluphit[4])).ToString("0");
-                        //      calcskill(combo, select, skillselect);
                         Image4.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[4].damageup != 1)
@@ -7731,7 +7709,6 @@ namespace snqxap
                             Lhit5.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[5]) + equiphit[5]) * (100 - 0.9 * (100 - equipnightsee[5])) / 100 * gg[5].hitup * (skilluphit[5])).ToString();
                         else
                             Lhit5.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[5] )+ equiphit[5]) * gg[5].hitup * (skilluphit[5])).ToString("0");
-                        //     calcskill(combo, select, skillselect);
                         Image5.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[5].damageup != 1)
@@ -7788,7 +7765,6 @@ namespace snqxap
                             Lhit6.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[6]) + equiphit[6]) * (100 - 0.9 * (100 - equipnightsee[6])) / 100 * gg[6].hitup * (skilluphit[6])).ToString();
                         else
                             Lhit6.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[6] )+ equiphit[6]) * gg[6].hitup * (skilluphit[6])).ToString("0");
-                        //       calcskill(combo, select, skillselect);
                         Image6.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[6].damageup != 1)
@@ -7845,7 +7821,6 @@ namespace snqxap
                             Lhit7.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[7]) + equiphit[7]) * (100 - 0.9 * (100 - equipnightsee[7])) / 100 * gg[7].hitup * (skilluphit[7])).ToString();
                         else
                             Lhit7.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[7] )+ equiphit[7]) * gg[7].hitup * (skilluphit[7])).ToString("0");
-                        //    calcskill(combo, select, skillselect);
                         Image7.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[7].damageup != 1)
@@ -7902,7 +7877,6 @@ namespace snqxap
                             Lhit8.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[8] )+ equiphit[8]) * (100 - 0.9 * (100 - equipnightsee[8])) / 100 * gg[8].hitup * (skilluphit[8])).ToString();
                         else
                             Lhit8.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[8] )+ equiphit[8]) * gg[8].hitup * (skilluphit[8])).ToString("0");
-                        //       calcskill(combo, select, skillselect);
                         Image8.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[8].damageup != 1)
@@ -7940,7 +7914,6 @@ namespace snqxap
                     }
                 default: break;
             }
-         //   renewskill();
         }
         /// <summary>
         /// 左上格等级改变事件
@@ -7972,7 +7945,6 @@ namespace snqxap
             loadequipcb(select, levelselect, 0);
 
             calceat();
-      //      calcskill(0, select, skillselect, cb0.IsChecked == true, levelselect);
         }
         /// <summary>
         /// 上格等级改变事件
@@ -8006,7 +7978,6 @@ namespace snqxap
             loadequipcb(select, levelselect, 1);
 
             calceat();
-            //      calcskill(1, select, skillselect, cb1.IsChecked == true, levelselect);
         }
         /// <summary>
         /// 右上格等级改变事件
@@ -8040,7 +8011,6 @@ namespace snqxap
             loadequipcb(select, levelselect, 2);
 
             calceat();
-            //      calcskill(2, select, skillselect, cb2.IsChecked == true, levelselect);
         }
         /// <summary>
         /// 左中格等级改变事件
@@ -8074,7 +8044,6 @@ namespace snqxap
             loadequipcb(select, levelselect, 3);
 
             calceat();
-            //       calcskill(3, select, skillselect, cb3.IsChecked == true, levelselect);
         }
         /// <summary>
         /// 中格等级改变事件
@@ -8142,7 +8111,6 @@ namespace snqxap
             loadequipcb(select, levelselect, 5);
 
             calceat();
-            //        calcskill(5, select, skillselect, cb5.IsChecked == true, levelselect);
         }
         /// <summary>
         /// 左下格等级改变事件
@@ -8176,7 +8144,6 @@ namespace snqxap
             loadequipcb(select, levelselect, 6);
 
             calceat();
-            //         calcskill(6, select, skillselect, cb6.IsChecked == true, levelselect);
         }
         /// <summary>
         /// 下格等级改变事件
@@ -8210,7 +8177,6 @@ namespace snqxap
             loadequipcb(select, levelselect, 7);
 
             calceat();
-            //      calcskill(7, select, skillselect, cb7.IsChecked == true, levelselect);
         }
         /// <summary>
         /// 右下格等级改变事件
@@ -8244,7 +8210,6 @@ namespace snqxap
             loadequipcb(select, levelselect, 8);
 
             calceat();
-            //     calcskill(8, select, skillselect, cb8.IsChecked == true, levelselect);
         }
         /// <summary>
         /// 计算技能发动率
@@ -8393,6 +8358,8 @@ namespace snqxap
                         Lskilldamage8.Content = damage.ToString("0");
                         return;
                     }
+                default:
+                    return;
             }
         }
         /// <summary>
@@ -8449,6 +8416,8 @@ namespace snqxap
                         Ltime8.Content = time.ToString("0.0");
                         return;
                     }
+                default:
+                    return;
             }
         }
 
@@ -8506,6 +8475,8 @@ namespace snqxap
                         Lskillread8.Content = read;
                         return;
                     }
+                default:
+                    return;
             }
         }
 
@@ -8554,8 +8525,6 @@ namespace snqxap
                         renewtime(combo, num2);
                         string read = "提升己方" + num1.ToString("f0") + "%伤害";
                         renewread(combo, read);
-                  //      MessageBox.Show(num1.ToString());
-                  //    MessageBox.Show(num2.ToString());
                         return;
                     }
                 case 2:
@@ -9036,6 +9005,8 @@ namespace snqxap
                         renewread(combo, read);
                         return;
                     }
+                default:
+                    return;
             }
         }
         /// <summary>
@@ -9193,9 +9164,7 @@ namespace snqxap
         /// <param name="e"></param>
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
-
             System.Diagnostics.Process.Start("iexplore.exe", hyperLink.NavigateUri.ToString());
-          //  proc.Start();
         }
 
         /// <summary>
@@ -9541,7 +9510,9 @@ namespace snqxap
                                         }
                                         break;
                                     }
-                            }
+                            default:
+                                break;
+                        }
                             break;
                         }
                     case 1:
@@ -9808,7 +9779,10 @@ namespace snqxap
                                         }
                                         break;
                                     }
-                            }
+
+                            default:
+                                break;
+                        }
                             break;
                         }
                     case 2:
@@ -10075,7 +10049,9 @@ namespace snqxap
                                         }
                                         break;
                                     }
-                            }
+                            default:
+                                break;
+                        }
                             break;
                         }
                     case 3:
@@ -10342,7 +10318,9 @@ namespace snqxap
                                         }
                                         break;
                                     }
-                            }
+                            default:
+                                break;
+                        }
                             break;
                         }
                     case 4:
@@ -10609,7 +10587,9 @@ namespace snqxap
                                         }
                                         break;
                                     }
-                            }
+                            default:
+                                break;
+                        }
                             break;
                         }
                     case 5:
@@ -10876,7 +10856,9 @@ namespace snqxap
                                         }
                                         break;
                                     }
-                            }
+                            default:
+                                break;
+                        }
                             break;
                         }
                     case 6:
@@ -11143,7 +11125,9 @@ namespace snqxap
                                         }
                                         break;
                                     }
-                            }
+                            default:
+                                break;
+                        }
                             break;
                         }
                     case 7:
@@ -11410,7 +11394,9 @@ namespace snqxap
                                         }
                                         break;
                                     }
-                            }
+                            default:
+                                break;
+                        }
                             break;
                         }
                     case 8:
@@ -11677,7 +11663,9 @@ namespace snqxap
                                         }
                                         break;
                                     }
-                            }
+                            default:
+                                break;
+                        }
                             break;
                         }
                 }
@@ -12154,6 +12142,8 @@ namespace snqxap
                             }
                             break;
                         }
+                    default:
+                        break;
                 }
             }
             if (index == 29||index == 34)
@@ -12628,6 +12618,8 @@ namespace snqxap
                             }
                             break;
                         }
+                    default:
+                        break;
                 }
             }
         }
@@ -12724,6 +12716,8 @@ namespace snqxap
                         break;
                     }
                 case 13:
+                    break;
+                default:
                     break;
             }
 

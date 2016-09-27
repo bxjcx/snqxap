@@ -523,46 +523,47 @@ namespace snqxap
             int allcountdz = 0;
             int allcountdzmvp = 0;
             double boss = 1;
-    //        int exp = 0;
+            int dal = 1;
             int full = 1;
             if(checkBox2.IsChecked == true)
                 boss = 2;
             if (checkBox3.IsChecked == true)
                 full = 3;
+            if (checkBox4.IsChecked == true)
+                dal = 3;
+
             if (nowlove<50&&tolove<=50)
             {
                 int allloveexp = (tolove - nowlove) * 10000;
-                allcountpt += (int)Math.Ceiling(allloveexp / boss / allmap[mapselect].exp / full / 1);
-                allcountdz += (int)Math.Ceiling(allloveexp / boss / allmap[mapselect].exp / full / 1);
-                allcountdzmvp += (int)Math.Ceiling(allloveexp / boss / allmap[mapselect].exp / full / 1.7);
+                allcountpt += (int)Math.Ceiling(allloveexp / boss  / dal / allmap[mapselect].exp / full / 1);
+                allcountdz += (int)Math.Ceiling(allloveexp / boss  / dal / allmap[mapselect].exp / full / 1);
+                allcountdzmvp += (int)Math.Ceiling(allloveexp / boss  / dal / allmap[mapselect].exp / full / 1.7);
             }
             else if(nowlove < 50 && tolove > 50)
             {
                 int oneloveexp = (50 - nowlove) * 10000;
-                allcountpt += (int)Math.Ceiling(oneloveexp / boss / allmap[mapselect].exp / full / 1);
-                allcountdz += (int)Math.Ceiling(oneloveexp / boss / allmap[mapselect].exp / full / 1);
-                allcountdzmvp += (int)Math.Ceiling(oneloveexp / boss / allmap[mapselect].exp / full / 1.7);
-                int nextexppt = int.Parse((allcountpt * boss * allmap[mapselect].exp * full * 1 - oneloveexp).ToString());
+                allcountpt += (int)Math.Ceiling(oneloveexp / boss  / dal / allmap[mapselect].exp / full / 1);
+                allcountdz += (int)Math.Ceiling(oneloveexp / boss  / dal / allmap[mapselect].exp / full / 1);
+                allcountdzmvp += (int)Math.Ceiling(oneloveexp / boss  / dal / allmap[mapselect].exp / full / 1.7);
+                int nextexppt = int.Parse((allcountpt * boss * dal * allmap[mapselect].exp * full * 1 - oneloveexp).ToString());
                 int twoloveexppt = (tolove - 50) * 10000 - nextexppt;
-                int nextexpdz = int.Parse((allcountpt * boss * allmap[mapselect].exp * full * 1 - oneloveexp).ToString());
+                int nextexpdz = int.Parse((allcountpt * boss * dal * allmap[mapselect].exp * full * 1 - oneloveexp).ToString());
                 int twoloveexpdz = (tolove - 50) * 10000 - nextexpdz;
-                int nextexpdzmvp = int.Parse((allcountpt * boss * allmap[mapselect].exp * full * 1.7 - oneloveexp).ToString());
+                int nextexpdzmvp = int.Parse((allcountpt * boss * dal * allmap[mapselect].exp * full * 1.7 - oneloveexp).ToString());
                 int twoloveexpdzmvp = (tolove - 50) * 10000 - nextexpdzmvp;
-                allcountpt += (int)Math.Ceiling(twoloveexppt / boss / allmap[mapselect].exp / full / 0.3);
-                allcountdz += (int)Math.Ceiling(twoloveexpdz / boss / allmap[mapselect].exp / full / 1);
-                allcountdzmvp += (int)Math.Ceiling(twoloveexpdzmvp / boss / allmap[mapselect].exp / full / 1.7);
+                allcountpt += (int)Math.Ceiling(twoloveexppt / boss  / dal / allmap[mapselect].exp / full / 0.3);
+                allcountdz += (int)Math.Ceiling(twoloveexpdz / boss  / dal / allmap[mapselect].exp / full / 1);
+                allcountdzmvp += (int)Math.Ceiling(twoloveexpdzmvp / boss  / dal / allmap[mapselect].exp / full / 1.7);
             }
             else
             {
                 int allloveexp = (tolove - nowlove) * 10000;
-                //         int nowcount = (int)Math.Ceiling((double)exp / 3 / boss / team / 1.2 / 1.3);
-                allcountpt += (int)Math.Ceiling(allloveexp / boss / allmap[mapselect].exp / full / 0.3);
-                allcountdz += (int)Math.Ceiling(allloveexp / boss / allmap[mapselect].exp / full / 1);
-                allcountdzmvp += (int)Math.Ceiling(allloveexp / boss / allmap[mapselect].exp / full / 1.7);
+                allcountpt += (int)Math.Ceiling(allloveexp / boss  / dal / allmap[mapselect].exp / full / 0.3);
+                allcountdz += (int)Math.Ceiling(allloveexp / boss  / dal / allmap[mapselect].exp / full / 1);
+                allcountdzmvp += (int)Math.Ceiling(allloveexp / boss  / dal / allmap[mapselect].exp / full / 1.7);
             }
             calclbptl.Content = allcountpt.ToString() + "次";
             calclbdzl.Content = allcountdz.ToString() + "次";
-     //       calclbmvp.Content = allcountmvp.ToString() + "次";
             calclbdzmvpl.Content = allcountdzmvp.ToString() + "次";
         }
     }
