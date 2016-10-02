@@ -31,7 +31,7 @@ namespace snqxap
         /// <summary>
         /// 枪娘总数
         /// </summary>
-        public const int GUN_NUMBER = 113; 
+        public const int GUN_NUMBER = 119; 
         /// <summary>
         /// 装备总数
         /// </summary>
@@ -392,6 +392,31 @@ namespace snqxap
             gun[112].name = "G36C"; gun[112].what = 3; gun[112].crit = 0.05; gun[112].belt = 0; gun[112].number = 3; gun[112].effect0 = 1; gun[112].effect1 = 4; gun[112].effect2 = 7; gun[112].damageup = 0.1; gun[112].shotspeedup = 0.08; gun[112].to = 2;
             gun[112].eatratio = 95; gun[112].ratiododge = 120; gun[112].ratiohit = 110; gun[112].ratiohp = 115; gun[112].ratiopow = 135; gun[112].ratiorate = 110;
             gun[112].type = 106; gun[112].probability = 20; gun[112].skilleffect1 = 2; gun[112].skilleffect2 = 0; gun[112].skilleffect3 = 0; gun[112].skilleffect4 = 0; gun[112].growth = 1; gun[112].growth_type = 2;
+
+            gun[113].name = "NZ75"; gun[113].what = 4; gun[113].crit = 0.2; gun[113].belt = 0; gun[113].number = 6; gun[113].effect0 = 1; gun[113].effect1 = 4; gun[113].effect2 = 7; gun[113].effect3 = 3; gun[113].effect4 = 6; gun[113].effect5 = 9; gun[113].damageup = 0.1; gun[113].dodgeup = 0.25; gun[113].to = 1;
+            gun[113].eatratio = 125; gun[113].ratiododge = 95; gun[113].ratiohit = 120; gun[113].ratiohp = 110; gun[113].ratiopow = 115; gun[113].ratiorate = 115;
+            gun[113].type = 202; gun[113].probability = 20; gun[113].skilleffect1 = 15; gun[113].skilleffect2 = 8; gun[113].skilleffect3 = 0; gun[113].skilleffect4 = 0; gun[113].growth = 0.6; gun[113].growth_type = 3;
+
+            gun[114].name = "79式"; gun[114].what = 3; gun[114].crit = 0.05; gun[114].belt = 0; gun[114].number = 2; gun[114].effect0 = 1; gun[114].effect1 = 7; gun[114].damageup = 0.2; gun[114].to = 2;
+            gun[114].eatratio = 100; gun[114].ratiododge = 125; gun[114].ratiohit = 110; gun[114].ratiohp = 110; gun[114].ratiopow = 130; gun[114].ratiorate = 115;
+            gun[114].type = 403; gun[114].probability = 30; gun[114].skilleffect1 = 2; gun[114].skilleffect2 = 2.5; gun[114].skilleffect3 = 0; gun[114].skilleffect4 = 0; gun[114].growth = 1; gun[114].growth_type = 2;
+
+            gun[115].name = "M99"; gun[115].what = 5; gun[115].crit = 0.4; gun[115].belt = 0; gun[115].number = 2; gun[115].effect0 = 3; gun[115].effect1 = 9; gun[115].rateup = 0.25; gun[115].to = 4;
+            gun[115].eatratio = 135; gun[115].ratiododge = 85; gun[115].ratiohit = 110; gun[115].ratiohp = 100; gun[115].ratiopow = 135; gun[115].ratiorate = 90;
+            gun[115].type = 502; gun[115].probability = 16; gun[115].skilleffect1 = 4; gun[115].skilleffect2 = 2; gun[115].skilleffect3 = 0; gun[115].skilleffect4 = 0; gun[115].growth = 1.2; gun[115].growth_type = 2;
+
+            gun[116].name = "95式"; gun[116].what = 2; gun[116].crit = 0.2; gun[116].belt = 0; gun[116].number = 1; gun[116].effect0 = 3; gun[116].damageup = 0.1; gun[116].dodgeup = 0.18; gun[116].to = 3;
+            gun[116].eatratio = 120; gun[116].ratiododge = 110; gun[116].ratiohit = 120; gun[116].ratiohp = 105; gun[116].ratiopow = 120; gun[116].ratiorate = 105;
+            gun[116].type = 101; gun[116].probability = 40; gun[116].skilleffect1 = 30; gun[116].skilleffect2 = 8; gun[116].skilleffect3 = 0; gun[116].skilleffect4 = 0; gun[116].growth = 0.6; gun[116].growth_type = 3;
+
+            gun[117].name = "97式"; gun[117].what = 2; gun[117].crit = 0.2; gun[117].belt = 0; gun[117].number = 1; gun[117].effect0 = 9; gun[117].shotspeedup = 0.1; gun[117].dodgeup = 0.18; gun[117].to = 3;
+            gun[117].eatratio = 125; gun[117].ratiododge = 105; gun[117].ratiohit = 120; gun[117].ratiohp = 105; gun[117].ratiopow = 115; gun[117].ratiorate = 105;
+            gun[117].type = 102; gun[117].probability = 40; gun[117].skilleffect1 = 30; gun[117].skilleffect2 = 8; gun[117].skilleffect3 = 0; gun[117].skilleffect4 = 0; gun[117].growth = 0.6; gun[117].growth_type = 3;
+
+            gun[118].name = "EVO 3"; gun[118].what = 3; gun[118].crit = 0.05; gun[118].belt = 0; gun[118].number = 1; gun[118].effect0 = 4; gun[118].hitup = 0.55; gun[118].to = 2;
+            gun[118].eatratio = 105; gun[118].ratiododge = 115; gun[118].ratiohit = 115; gun[118].ratiohp = 110; gun[118].ratiopow = 90; gun[118].ratiorate = 120;
+            gun[118].type = 401; gun[118].probability = 20; gun[118].skilleffect1 = 1.6; gun[118].skilleffect2 = 2.5; gun[118].skilleffect3 = 0; gun[118].skilleffect4 = 0; gun[118].growth = 1.5; gun[118].growth_type = 2;
+
 
             for (int i = 0; i < GUN_NUMBER + 1; i++)//加颜色
             {
@@ -2254,7 +2279,7 @@ namespace snqxap
             equip[45].name = "（顶配）.300BLK高速弹"; equip[45].damage = 12; equip[45].hit = -1; equip[45].type = 8; equip[45].tooltip = "伤害+12,命中-1"; equip[45].rank = 5; equip[45].forwhat = 29;
             equip[46].name = "（常值）.300BLK高速弹"; equip[46].damage = 10; equip[46].hit = -3; equip[46].type = 8; equip[46].tooltip = "伤害+10,命中-3"; equip[46].rank = 5; equip[46].forwhat = 29;
             equip[47].name = "（顶配）Titan火控芯片"; equip[47].damage = -2; equip[47].shotspeed = -1; equip[47].belt = 2; equip[47].type = 9; equip[47].tooltip = "伤害-2,射速-1,弹链+2"; equip[47].rank = 5; equip[47].forwhat = 84;
-            equip[48].name = "（常值）Titan火控芯片"; equip[48].damage = -4; equip[48].shotspeed = -3; equip[48].belt = 1; equip[48].type = 9; equip[48].tooltip = "伤害-4,射速-3,弹链+1"; equip[48].rank = 5; equip[48].forwhat = 84;
+            equip[48].name = "（常值）Titan火控芯片"; equip[48].damage = -3; equip[48].shotspeed = -3; equip[48].belt = 1; equip[48].type = 9; equip[48].tooltip = "伤害-3,射速-3,弹链+1"; equip[48].rank = 5; equip[48].forwhat = 84;
 
             //检查更新
             string strGatherJsonUrl = "http://jyying.cn/snqxap/AssemblyInfo";
@@ -2759,8 +2784,8 @@ namespace snqxap
                 
                 if(slider.Value!=0)
                 {
-                    double shottime = (double)belt / 3.0;
-                    double roletime = (double)belt / 3.0 + 4 + 200 / shotspeed;
+                    double shottime = (double)belt * 0.4;
+                    double roletime = (double)belt * 0.4 + 4 + 200 / shotspeed;
                     double shotdamage = belt * damage * (1 - crit + crit * 1.5) / (1 + enemydodge / hit);
                     if (slider.Value < shottime)
                         return (shotdamage / shottime);
@@ -8998,7 +9023,7 @@ namespace snqxap
                         double maxAddPow = Math.Ceiling(levelindex * base1 * array[1] * gun[index].ratiopow * gun[index].eatratio / base2 / base3);
                         if (ischecked)
                         {
-                            renewdamage(combo, (basePow + maxAddPow + equipdamage[combo]) * num1);
+                           renewdamage(combo, (Math.Ceiling((basePow + maxAddPow)*merry[combo]) + equipdamage[combo]) * num1);
                         }
                         renewtime(combo, 0);
                         string read = "杀伤/爆破榴弹" +gun[index].skilleffect2+"半径"+num1.ToString("0.0") + "倍";

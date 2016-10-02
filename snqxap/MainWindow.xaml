@@ -1,7 +1,7 @@
 ﻿<Window x:Class="snqxap.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="「干死雪球」阵型计算器 - h@jyying.cn - v1.3.1 好感度计算器版" Height="825" Width="850">
+        Title="「干死雪球」阵型计算器 - h@jyying.cn - v1.3.2 国庆/约会大作战版" Height="825" Width="850">
 
     <Viewbox Stretch="Fill">
         <Grid  Height="795" Width="840">
