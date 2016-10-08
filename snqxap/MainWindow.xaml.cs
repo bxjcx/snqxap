@@ -281,7 +281,7 @@ namespace snqxap
             gun[35].name = "TAR-21"; gun[35].what = 2;  gun[35].crit = 0.2; gun[35].belt = 0; gun[35].number = 2; gun[35].effect0 = 3; gun[35].effect1 = 9; gun[35].damageup = 0; gun[35].hitup = 0; gun[35].shotspeedup = 0; gun[35].critup = 0; gun[35].dodgeup = 0.18; gun[35].to = 3;
             gun[36].name = "加利尔"; gun[36].what = 2; gun[36].crit = 0.2; gun[36].belt = 0; gun[36].number = 1; gun[36].effect0 = 6; gun[36].damageup = 0; gun[36].hitup = 0.5; gun[36].shotspeedup = 0; gun[36].critup = 0; gun[36].dodgeup = 0.1; gun[36].to = 3;
             gun[37].name = "SIG-510"; gun[37].what = 2; gun[37].crit = 0.2; gun[37].belt = 0; gun[37].number = 2; gun[37].effect0 = 3; gun[37].effect1 = 9; gun[37].damageup = 0.2; gun[37].hitup = 0; gun[37].shotspeedup = 0.1; gun[37].critup = 0; gun[37].dodgeup = 0; gun[37].to = 3;
-            gun[38].name = "G3"; gun[38].what = 2; gun[38].crit = 0.2; gun[38].belt = 0; gun[38].number = 1; gun[38].effect0 = 2; gun[38].damageup = 0; gun[38].hitup = 0.5; gun[38].shotspeedup = 0.2; gun[38].critup = 0; gun[38].dodgeup = 0; gun[38].to = 3;
+            gun[38].name = "G3"; gun[38].what = 2; gun[38].crit = 0.2; gun[38].belt = 0; gun[38].number = 1; gun[38].effect0 = 8; gun[38].damageup = 0; gun[38].hitup = 0.5; gun[38].shotspeedup = 0.2; gun[38].critup = 0; gun[38].dodgeup = 0; gun[38].to = 3;
             gun[39].name = "F2000"; gun[39].what = 2; gun[39].crit = 0.2; gun[39].belt = 0; gun[39].number = 1; gun[39].effect0 = 6; gun[39].damageup = 0.2; gun[39].hitup = 0; gun[39].shotspeedup = 0; gun[39].critup = 0; gun[39].dodgeup = 0.1; gun[39].to = 3;
             gun[40].name = "FNC"; gun[40].what = 2; gun[40].crit = 0.2; gun[40].belt = 0; gun[40].number = 1; gun[40].effect0 = 9; gun[40].damageup = 0; gun[40].hitup = 0.5; gun[40].shotspeedup = 0; gun[40].critup = 0; gun[40].dodgeup = 0.12; gun[40].to = 3;
             gun[41].name = "L85A1"; gun[41].what = 2; gun[41].crit = 0.2; gun[41].belt = 0; gun[41].number = 1; gun[41].effect0 = 2; gun[41].damageup = 0.2; gun[41].hitup = 0.5; gun[41].shotspeedup = 0; gun[41].critup = 0; gun[41].dodgeup = 0; gun[41].to = 3;
@@ -1105,7 +1105,7 @@ namespace snqxap
             gun[94].ratiopow = 105;
             gun[95].ratiopow = 110;
             gun[96].ratiopow = 110;
-            gun[97].ratiopow = 100;
+            gun[97].ratiopow = 110;
             gun[98].ratiopow = 110;
             gun[99].ratiopow = 125;
             gun[100].ratiopow = 125;
