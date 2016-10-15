@@ -3477,8 +3477,13 @@ namespace snqxap
             if (select!=-1)
                 calccombo0buff();
             calccombo1buff();
+            calccombo2buff();
             calccombo3buff();
             calccombo4buff();
+            calccombo5buff();
+            calccombo6buff();
+            calccombo7buff();
+            calccombo8buff();
             lastgunindex[0] = select;
 
             renewskill();
@@ -3656,6 +3661,9 @@ namespace snqxap
             calccombo3buff();
             calccombo4buff();
             calccombo5buff();
+            calccombo6buff();
+            calccombo7buff();
+            calccombo8buff();
             lastgunindex[1] = select;
             renewskill();
             calceat();
@@ -3826,9 +3834,14 @@ namespace snqxap
             }
             if (select != -1)
                 calccombo2buff();
+            calccombo0buff();
             calccombo1buff();
-            calccombo5buff();
+            calccombo3buff();
             calccombo4buff();
+            calccombo5buff();
+            calccombo6buff();
+            calccombo7buff();
+            calccombo8buff();
             lastgunindex[2] = select;
             renewskill();
             calceat();
@@ -4003,10 +4016,13 @@ namespace snqxap
             if (select != -1)
                 calccombo3buff();
             calccombo0buff();
-            calccombo6buff();
             calccombo1buff();
+            calccombo3buff();
             calccombo4buff();
+            calccombo5buff();
+            calccombo6buff();
             calccombo7buff();
+            calccombo8buff();
             lastgunindex[3] = select;
 /*
             cb3.IsChecked = false;
@@ -4478,10 +4494,13 @@ namespace snqxap
             }
             if (select != -1)
                 calccombo5buff();
+            calccombo0buff();
             calccombo1buff();
             calccombo2buff();
+            calccombo3buff();
+            calccombo5buff();
+            calccombo6buff();
             calccombo7buff();
-            calccombo4buff();
             calccombo8buff();
 
             lastgunindex[5] = select;
@@ -4662,9 +4681,14 @@ namespace snqxap
             }
             if (select != -1)
                 calccombo6buff();
+            calccombo0buff();
+            calccombo1buff();
+            calccombo2buff();
             calccombo3buff();
             calccombo4buff();
+            calccombo5buff();
             calccombo7buff();
+            calccombo8buff();
             lastgunindex[6] = select;
     /*        cb6.IsChecked = false;
             if (isnightskill(gun[select].type) && cbIsnight.IsChecked == false)
@@ -4842,6 +4866,9 @@ namespace snqxap
             }
             if (select != -1)
                 calccombo7buff();
+            calccombo0buff();
+            calccombo1buff();
+            calccombo2buff();
             calccombo3buff();
             calccombo4buff();
             calccombo5buff();
@@ -5027,9 +5054,14 @@ namespace snqxap
             }
             if (select != -1)
                 calccombo8buff();
-            calccombo7buff();
+            calccombo0buff();
+            calccombo1buff();
+            calccombo2buff();
+            calccombo3buff();
             calccombo4buff();
             calccombo5buff();
+            calccombo6buff();
+            calccombo7buff();
 
             lastgunindex[8] = select;
    /*         cb8.IsChecked = false;
