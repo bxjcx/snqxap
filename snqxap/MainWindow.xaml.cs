@@ -64,6 +64,7 @@ namespace snqxap
         int howmany;//计算在场枪娘数用
         bool innight;
         double[] merry = new double[9];
+        List<Border>[] gridlist = new List<Border>[9];
 
         public static readonly float[][] arrAbilityRatio = new float[][]  //各类枪娘属性成长基础
 {
@@ -753,7 +754,8 @@ namespace snqxap
                     equipnightsee[i] = 0;
                     equipshotspeed[i] = 0;      
                     equipbreakarmor[i] = 0;
-                merry[i] = 1;
+                    merry[i] = 1;
+                    gridlist[i] = new List<Border>();
 
                 }
 
@@ -2280,6 +2282,19 @@ namespace snqxap
             equip[46].name = "（常值）.300BLK高速弹"; equip[46].damage = 10; equip[46].hit = -3; equip[46].type = 8; equip[46].tooltip = "伤害+10,命中-3"; equip[46].rank = 5; equip[46].forwhat = 29;
             equip[47].name = "（顶配）Titan火控芯片"; equip[47].damage = -2; equip[47].shotspeed = -1; equip[47].belt = 2; equip[47].type = 9; equip[47].tooltip = "伤害-2,射速-1,弹链+2"; equip[47].rank = 5; equip[47].forwhat = 84;
             equip[48].name = "（常值）Titan火控芯片"; equip[48].damage = -3; equip[48].shotspeed = -3; equip[48].belt = 1; equip[48].type = 9; equip[48].tooltip = "伤害-3,射速-3,弹链+1"; equip[48].rank = 5; equip[48].forwhat = 84;
+                 
+
+            gridlist[0].Add(buffGrid01); gridlist[0].Add(buffGrid02); gridlist[0].Add(buffGrid03); gridlist[0].Add(buffGrid04); gridlist[0].Add(buffGrid05); gridlist[0].Add(buffGrid06); gridlist[0].Add(buffGrid07); gridlist[0].Add(buffGrid08); gridlist[0].Add(buffGrid09);
+            gridlist[1].Add(buffGrid11); gridlist[1].Add(buffGrid12); gridlist[1].Add(buffGrid13); gridlist[1].Add(buffGrid14); gridlist[1].Add(buffGrid15); gridlist[1].Add(buffGrid16); gridlist[1].Add(buffGrid17); gridlist[1].Add(buffGrid18); gridlist[1].Add(buffGrid19);
+            gridlist[2].Add(buffGrid21); gridlist[2].Add(buffGrid22); gridlist[2].Add(buffGrid23); gridlist[2].Add(buffGrid24); gridlist[2].Add(buffGrid25); gridlist[2].Add(buffGrid26); gridlist[2].Add(buffGrid27); gridlist[2].Add(buffGrid28); gridlist[2].Add(buffGrid29);
+            gridlist[3].Add(buffGrid31); gridlist[3].Add(buffGrid32); gridlist[3].Add(buffGrid33); gridlist[3].Add(buffGrid34); gridlist[3].Add(buffGrid35); gridlist[3].Add(buffGrid36); gridlist[3].Add(buffGrid37); gridlist[3].Add(buffGrid38); gridlist[3].Add(buffGrid39);
+            gridlist[4].Add(buffGrid41); gridlist[4].Add(buffGrid42); gridlist[4].Add(buffGrid43); gridlist[4].Add(buffGrid44); gridlist[4].Add(buffGrid45); gridlist[4].Add(buffGrid46); gridlist[4].Add(buffGrid47); gridlist[4].Add(buffGrid48); gridlist[4].Add(buffGrid49);
+            gridlist[5].Add(buffGrid51); gridlist[5].Add(buffGrid52); gridlist[5].Add(buffGrid53); gridlist[5].Add(buffGrid54); gridlist[5].Add(buffGrid55); gridlist[5].Add(buffGrid56); gridlist[5].Add(buffGrid57); gridlist[5].Add(buffGrid58); gridlist[5].Add(buffGrid59);
+            gridlist[6].Add(buffGrid61); gridlist[6].Add(buffGrid62); gridlist[6].Add(buffGrid63); gridlist[6].Add(buffGrid64); gridlist[6].Add(buffGrid65); gridlist[6].Add(buffGrid66); gridlist[6].Add(buffGrid67); gridlist[6].Add(buffGrid68); gridlist[6].Add(buffGrid69);
+            gridlist[7].Add(buffGrid71); gridlist[7].Add(buffGrid72); gridlist[7].Add(buffGrid73); gridlist[7].Add(buffGrid74); gridlist[7].Add(buffGrid75); gridlist[7].Add(buffGrid76); gridlist[7].Add(buffGrid77); gridlist[7].Add(buffGrid78); gridlist[7].Add(buffGrid79);
+            gridlist[8].Add(buffGrid81); gridlist[8].Add(buffGrid82); gridlist[8].Add(buffGrid83); gridlist[8].Add(buffGrid84); gridlist[8].Add(buffGrid85); gridlist[8].Add(buffGrid86); gridlist[8].Add(buffGrid87); gridlist[8].Add(buffGrid88); gridlist[8].Add(buffGrid89);
+
+
 
             //检查更新
             string strGatherJsonUrl = "http://jyying.cn/snqxap/AssemblyInfo";
@@ -2767,7 +2782,7 @@ namespace snqxap
        /// <param name="shotspeed">射速</param>
        /// <param name="damage">伤害</param>
        /// <param name="crit">暴击</param>
-       /// <param name="enemydodge">敌方闪避</param>
+       /// <param name="enemydodge">敌方回避</param>
        /// <param name="hit">命中</param>
        /// <param name="belt">弹链</param>
        /// <param name="combo">哪一格（目前没有用该参数）</param>
@@ -5102,7 +5117,7 @@ namespace snqxap
                    objNumberPattern.IsMatch(strNumber);
         }
         /// <summary>
-        /// 闪避输入框数值改变事件
+        /// 回避输入框数值改变事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -7424,6 +7439,7 @@ namespace snqxap
                 return;
             if (levelselect == -1 || levelselect == 100)
                 return;
+            showbuff(combo, select);
             float[] array = arrAbilityRatio[gun[select].what];
             float num = 55f;
             float num2 = 0.555f;
@@ -7493,7 +7509,7 @@ namespace snqxap
                         if (gg[0].hitup != 1)
                             tbt += "命中+" + ((gg[0].hitup - 1) * 100).ToString("0") + "% ";
                         if (gg[0].dodgeup != 1)
-                            tbt += "闪避+" + ((gg[0].dodgeup - 1) * 100).ToString("0") + "% ";
+                            tbt += "回避+" + ((gg[0].dodgeup - 1) * 100).ToString("0") + "% ";
                         if (gg[0].critup != 1)
                             tbt += "暴击率+" + ((gg[0].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[0].rateup != 0)
@@ -7551,7 +7567,7 @@ namespace snqxap
                         if (gg[1].hitup != 1)
                             tbt += "命中+" + ((gg[1].hitup - 1) * 100).ToString("0") + "% ";
                         if (gg[1].dodgeup != 1)
-                            tbt += "闪避+" + ((gg[1].dodgeup - 1) * 100).ToString("0") + "% ";
+                            tbt += "回避+" + ((gg[1].dodgeup - 1) * 100).ToString("0") + "% ";
                         if (gg[1].critup != 1)
                             tbt += "暴击率+" + ((gg[1].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[1].rateup != 0)
@@ -7607,7 +7623,7 @@ namespace snqxap
                         if (gg[2].hitup != 1)
                             tbt += "命中+" + ((gg[2].hitup - 1) * 100).ToString("0") + "% ";
                         if (gg[2].dodgeup != 1)
-                            tbt += "闪避+" + ((gg[2].dodgeup - 1) * 100).ToString("0") + "% ";
+                            tbt += "回避+" + ((gg[2].dodgeup - 1) * 100).ToString("0") + "% ";
                         if (gg[2].critup != 1)
                             tbt += "暴击率+" + ((gg[2].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[2].rateup != 0)
@@ -7663,7 +7679,7 @@ namespace snqxap
                         if (gg[3].hitup != 1)
                             tbt += "命中+" + ((gg[3].hitup - 1) * 100).ToString("0") + "% ";
                         if (gg[3].dodgeup != 1)
-                            tbt += "闪避+" + ((gg[3].dodgeup - 1) * 100).ToString("0") + "% ";
+                            tbt += "回避+" + ((gg[3].dodgeup - 1) * 100).ToString("0") + "% ";
                         if (gg[3].critup != 1)
                             tbt += "暴击率+" + ((gg[3].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[3].rateup != 0)
@@ -7719,7 +7735,7 @@ namespace snqxap
                         if (gg[4].hitup != 1)
                             tbt += "命中+" + ((gg[4].hitup - 1) * 100).ToString("0") + "% ";
                         if (gg[4].dodgeup != 1)
-                            tbt += "闪避+" + ((gg[4].dodgeup - 1) * 100).ToString("0") + "% ";
+                            tbt += "回避+" + ((gg[4].dodgeup - 1) * 100).ToString("0") + "% ";
                         if (gg[4].critup != 1)
                             tbt += "暴击率+" + ((gg[4].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[4].rateup != 0)
@@ -7775,7 +7791,7 @@ namespace snqxap
                         if (gg[5].hitup != 1)
                             tbt += "命中+" + ((gg[5].hitup - 1) * 100).ToString("0") + "% ";
                         if (gg[5].dodgeup != 1)
-                            tbt += "闪避+" + ((gg[5].dodgeup - 1) * 100).ToString("0") + "% ";
+                            tbt += "回避+" + ((gg[5].dodgeup - 1) * 100).ToString("0") + "% ";
                         if (gg[5].critup != 1)
                             tbt += "暴击率+" + ((gg[5].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[5].rateup != 0)
@@ -7831,7 +7847,7 @@ namespace snqxap
                         if (gg[6].hitup != 1)
                             tbt += "命中+" + ((gg[6].hitup - 1) * 100).ToString("0") + "% ";
                         if (gg[6].dodgeup != 1)
-                            tbt += "闪避+" + ((gg[6].dodgeup - 1) * 100).ToString("0") + "% ";
+                            tbt += "回避+" + ((gg[6].dodgeup - 1) * 100).ToString("0") + "% ";
                         if (gg[6].critup != 1)
                             tbt += "暴击率+" + ((gg[6].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[6].rateup != 0)
@@ -7887,7 +7903,7 @@ namespace snqxap
                         if (gg[7].hitup != 1)
                             tbt += "命中+" + ((gg[7].hitup - 1) * 100).ToString("0") + "% ";
                         if (gg[7].dodgeup != 1)
-                            tbt += "闪避+" + ((gg[7].dodgeup - 1) * 100).ToString("0") + "% ";
+                            tbt += "回避+" + ((gg[7].dodgeup - 1) * 100).ToString("0") + "% ";
                         if (gg[7].critup != 1)
                             tbt += "暴击率+" + ((gg[7].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[7].rateup != 0)
@@ -7943,7 +7959,7 @@ namespace snqxap
                         if (gg[8].hitup != 1)
                             tbt += "命中+" + ((gg[8].hitup - 1) * 100).ToString("0") + "% ";
                         if (gg[8].dodgeup != 1)
-                            tbt += "闪避+" + ((gg[8].dodgeup - 1) * 100).ToString("0") + "% ";
+                            tbt += "回避+" + ((gg[8].dodgeup - 1) * 100).ToString("0") + "% ";
                         if (gg[8].critup != 1)
                             tbt += "暴击率+" + ((gg[8].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[8].rateup != 0)
@@ -8610,7 +8626,7 @@ namespace snqxap
                             }
                         }
                         renewtime(combo, num2);
-                        string read = "提升己方" + num1.ToString("f0") + "%闪避";
+                        string read = "提升己方" + num1.ToString("f0") + "%回避";
                         renewread(combo, read);
                         return;
                     }
@@ -8640,7 +8656,7 @@ namespace snqxap
                             }
                         }
                         renewtime(combo, num2);
-                        string read = "(夜)提升己方" + num1.ToString("f0") + "%闪避";
+                        string read = "(夜)提升己方" + num1.ToString("f0") + "%回避";
                         renewread(combo, read);
                         return;
                     }
@@ -8692,7 +8708,7 @@ namespace snqxap
                             renewindex(combo);
                         }
                         renewtime(combo, num2);
-                        string read = "提升自身" + num1.ToString("f0") + "%闪避";
+                        string read = "提升自身" + num1.ToString("f0") + "%回避";
                         renewread(combo, read);
                         return;
                     }
@@ -8801,7 +8817,7 @@ namespace snqxap
                             }
                         }
                         renewtime(combo, num2);
-                        string read = "降低敌方" + num1.ToString("f0") + "%闪避";
+                        string read = "降低敌方" + num1.ToString("f0") + "%回避";
                         renewread(combo, read);
                         return;
                     }
@@ -8873,7 +8889,7 @@ namespace snqxap
                             }
                         }
                         renewtime(combo, num2);
-                        string read = "降低目标" + num1.ToString("f0") + "%闪避";
+                        string read = "降低目标" + num1.ToString("f0") + "%回避";
                         renewread(combo, read);
                         return;
                     }
@@ -15606,6 +15622,866 @@ namespace snqxap
             if (skillselect == -1)
                 return;
             renewskill();
+        }
+
+        private void showbuff(int combo,int index)
+        {
+            if (index == -1)
+                return;
+            string tbt = "";
+            switch (gun[index].to)
+            {
+                case 1:
+                    {
+                        tbt += "对所有枪种：";
+                        break;
+                    }
+                case 2:
+                    {
+                        tbt += "对突击步枪：";
+                        break;
+                    }
+                case 3:
+                    {
+                        tbt += "对冲锋枪：";
+                        break;
+                    }
+                case 4:
+                    {
+                        tbt += "对手枪：";
+                        break;
+                    }
+                case 5:
+                    {
+                        tbt += "对狙击枪：";
+                        break;
+                    }
+                case 6:
+                    {
+                        tbt += "对机枪：";
+                        break;
+                    }
+                default: break;
+            }
+            if (gun[index].damageup != 0)
+                tbt += "伤害+" + ((gun[index].damageup) * 100).ToString("0") + "% ";
+            if (gun[index].shotspeedup != 0)
+                tbt += "射速+" + ((gun[index].shotspeedup) * 100).ToString("0") + "% ";
+            if (gun[index].hitup != 0)
+                tbt += "命中+" + ((gun[index].hitup) * 100).ToString("0") + "% ";
+            if (gun[index].dodgeup != 0)
+                tbt += "回避+" + ((gun[index].dodgeup) * 100).ToString("0") + "% ";
+            if (gun[index].critup != 0)
+                tbt += "暴击率+" + ((gun[index].critup) * 100).ToString("0") + "% ";
+            if (gun[index].rateup != 0)
+                tbt += "发动率+" + (gun[index].rateup * 100).ToString("0") + "% ";
+            if (tbt == "")
+                tbt = "无";
+            Brush br = new SolidColorBrush(Color.FromRgb(0,255,222));
+            switch (combo)
+            {
+                case 0:
+                    {
+                        clearshowbuff(0);
+                        buffGrids0.ToolTip = tbt;
+                        switch(gun[index].number)
+                        {
+                            case 1:
+                                {
+                                    gridlist[0][gun[index].effect0 - 1].Background = br;
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    gridlist[0][gun[index].effect0 - 1].Background = br;
+                                    gridlist[0][gun[index].effect1 - 1].Background = br;
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    gridlist[0][gun[index].effect0 - 1].Background = br;
+                                    gridlist[0][gun[index].effect1 - 1].Background = br;
+                                    gridlist[0][gun[index].effect2 - 1].Background = br;
+                                    break;
+                                }
+                            case 4:
+                                {
+                                    gridlist[0][gun[index].effect0 - 1].Background = br;
+                                    gridlist[0][gun[index].effect1 - 1].Background = br;
+                                    gridlist[0][gun[index].effect2 - 1].Background = br;
+                                    gridlist[0][gun[index].effect3 - 1].Background = br;
+                                    break;
+                                }
+                            case 5:
+                                {
+                                    gridlist[0][gun[index].effect0 - 1].Background = br;
+                                    gridlist[0][gun[index].effect1 - 1].Background = br;
+                                    gridlist[0][gun[index].effect2 - 1].Background = br;
+                                    gridlist[0][gun[index].effect3 - 1].Background = br;
+                                    gridlist[0][gun[index].effect4 - 1].Background = br;
+                                    break;
+                                }
+                            case 6:
+                                {
+                                    gridlist[0][gun[index].effect0 - 1].Background = br;
+                                    gridlist[0][gun[index].effect1 - 1].Background = br;
+                                    gridlist[0][gun[index].effect2 - 1].Background = br;
+                                    gridlist[0][gun[index].effect3 - 1].Background = br;
+                                    gridlist[0][gun[index].effect4 - 1].Background = br;
+                                    gridlist[0][gun[index].effect5 - 1].Background = br;
+                                    break;
+                                }
+                            case 7:
+                                {
+                                    gridlist[0][gun[index].effect0 - 1].Background = br;
+                                    gridlist[0][gun[index].effect1 - 1].Background = br;
+                                    gridlist[0][gun[index].effect2 - 1].Background = br;
+                                    gridlist[0][gun[index].effect3 - 1].Background = br;
+                                    gridlist[0][gun[index].effect4 - 1].Background = br;
+                                    gridlist[0][gun[index].effect5 - 1].Background = br;
+                                    gridlist[0][gun[index].effect6 - 1].Background = br;
+                                    break;
+                                }
+                            case 8:
+                                {
+                                    gridlist[0][gun[index].effect0 - 1].Background = br;
+                                    gridlist[0][gun[index].effect1 - 1].Background = br;
+                                    gridlist[0][gun[index].effect2 - 1].Background = br;
+                                    gridlist[0][gun[index].effect3 - 1].Background = br;
+                                    gridlist[0][gun[index].effect4 - 1].Background = br;
+                                    gridlist[0][gun[index].effect5 - 1].Background = br;
+                                    gridlist[0][gun[index].effect6 - 1].Background = br;
+                                    gridlist[0][gun[index].effect7 - 1].Background = br;
+                                    break;
+                                }
+                            default:
+                                break;
+                        }
+                        break;
+                    }
+                case 1:
+                    {
+                        clearshowbuff(1);
+                        buffGrids1.ToolTip = tbt;
+                        switch (gun[index].number)
+                        {
+                            case 1:
+                                {
+                                    gridlist[1][gun[index].effect0 - 1].Background = br;
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    gridlist[1][gun[index].effect0 - 1].Background = br;
+                                    gridlist[1][gun[index].effect1 - 1].Background = br;
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    gridlist[1][gun[index].effect0 - 1].Background = br;
+                                    gridlist[1][gun[index].effect1 - 1].Background = br;
+                                    gridlist[1][gun[index].effect2 - 1].Background = br;
+                                    break;
+                                }
+                            case 4:
+                                {
+                                    gridlist[1][gun[index].effect0 - 1].Background = br;
+                                    gridlist[1][gun[index].effect1 - 1].Background = br;
+                                    gridlist[1][gun[index].effect2 - 1].Background = br;
+                                    gridlist[1][gun[index].effect3 - 1].Background = br;
+                                    break;
+                                }
+                            case 5:
+                                {
+                                    gridlist[1][gun[index].effect0 - 1].Background = br;
+                                    gridlist[1][gun[index].effect1 - 1].Background = br;
+                                    gridlist[1][gun[index].effect2 - 1].Background = br;
+                                    gridlist[1][gun[index].effect3 - 1].Background = br;
+                                    gridlist[1][gun[index].effect4 - 1].Background = br;
+                                    break;
+                                }
+                            case 6:
+                                {
+                                    gridlist[1][gun[index].effect0 - 1].Background = br;
+                                    gridlist[1][gun[index].effect1 - 1].Background = br;
+                                    gridlist[1][gun[index].effect2 - 1].Background = br;
+                                    gridlist[1][gun[index].effect3 - 1].Background = br;
+                                    gridlist[1][gun[index].effect4 - 1].Background = br;
+                                    gridlist[1][gun[index].effect5 - 1].Background = br;
+                                    break;
+                                }
+                            case 7:
+                                {
+                                    gridlist[1][gun[index].effect0 - 1].Background = br;
+                                    gridlist[1][gun[index].effect1 - 1].Background = br;
+                                    gridlist[1][gun[index].effect2 - 1].Background = br;
+                                    gridlist[1][gun[index].effect3 - 1].Background = br;
+                                    gridlist[1][gun[index].effect4 - 1].Background = br;
+                                    gridlist[1][gun[index].effect5 - 1].Background = br;
+                                    gridlist[1][gun[index].effect6 - 1].Background = br;
+                                    break;
+                                }
+                            case 8:
+                                {
+                                    gridlist[1][gun[index].effect0 - 1].Background = br;
+                                    gridlist[1][gun[index].effect1 - 1].Background = br;
+                                    gridlist[1][gun[index].effect2 - 1].Background = br;
+                                    gridlist[1][gun[index].effect3 - 1].Background = br;
+                                    gridlist[1][gun[index].effect4 - 1].Background = br;
+                                    gridlist[1][gun[index].effect5 - 1].Background = br;
+                                    gridlist[1][gun[index].effect6 - 1].Background = br;
+                                    gridlist[1][gun[index].effect7 - 1].Background = br;
+                                    break;
+                                }
+                            default:
+                                break;
+                        }
+                        break;
+                    }
+                case 2:
+                    {
+                        clearshowbuff(2);
+                        buffGrids2.ToolTip = tbt;
+                        switch (gun[index].number)
+                        {
+                            case 1:
+                                {
+                                    gridlist[2][gun[index].effect0 - 1].Background = br;
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    gridlist[2][gun[index].effect0 - 1].Background = br;
+                                    gridlist[2][gun[index].effect1 - 1].Background = br;
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    gridlist[2][gun[index].effect0 - 1].Background = br;
+                                    gridlist[2][gun[index].effect1 - 1].Background = br;
+                                    gridlist[2][gun[index].effect2 - 1].Background = br;
+                                    break;
+                                }
+                            case 4:
+                                {
+                                    gridlist[2][gun[index].effect0 - 1].Background = br;
+                                    gridlist[2][gun[index].effect1 - 1].Background = br;
+                                    gridlist[2][gun[index].effect2 - 1].Background = br;
+                                    gridlist[2][gun[index].effect3 - 1].Background = br;
+                                    break;
+                                }
+                            case 5:
+                                {
+                                    gridlist[2][gun[index].effect0 - 1].Background = br;
+                                    gridlist[2][gun[index].effect1 - 1].Background = br;
+                                    gridlist[2][gun[index].effect2 - 1].Background = br;
+                                    gridlist[2][gun[index].effect3 - 1].Background = br;
+                                    gridlist[2][gun[index].effect4 - 1].Background = br;
+                                    break;
+                                }
+                            case 6:
+                                {
+                                    gridlist[2][gun[index].effect0 - 1].Background = br;
+                                    gridlist[2][gun[index].effect1 - 1].Background = br;
+                                    gridlist[2][gun[index].effect2 - 1].Background = br;
+                                    gridlist[2][gun[index].effect3 - 1].Background = br;
+                                    gridlist[2][gun[index].effect4 - 1].Background = br;
+                                    gridlist[2][gun[index].effect5 - 1].Background = br;
+                                    break;
+                                }
+                            case 7:
+                                {
+                                    gridlist[2][gun[index].effect0 - 1].Background = br;
+                                    gridlist[2][gun[index].effect1 - 1].Background = br;
+                                    gridlist[2][gun[index].effect2 - 1].Background = br;
+                                    gridlist[2][gun[index].effect3 - 1].Background = br;
+                                    gridlist[2][gun[index].effect4 - 1].Background = br;
+                                    gridlist[2][gun[index].effect5 - 1].Background = br;
+                                    gridlist[2][gun[index].effect6 - 1].Background = br;
+                                    break;
+                                }
+                            case 8:
+                                {
+                                    gridlist[2][gun[index].effect0 - 1].Background = br;
+                                    gridlist[2][gun[index].effect1 - 1].Background = br;
+                                    gridlist[2][gun[index].effect2 - 1].Background = br;
+                                    gridlist[2][gun[index].effect3 - 1].Background = br;
+                                    gridlist[2][gun[index].effect4 - 1].Background = br;
+                                    gridlist[2][gun[index].effect5 - 1].Background = br;
+                                    gridlist[2][gun[index].effect6 - 1].Background = br;
+                                    gridlist[2][gun[index].effect7 - 1].Background = br;
+                                    break;
+                                }
+                            default:
+                                break;
+                        }
+                        break;
+                    }
+                case 3:
+                    {
+                        clearshowbuff(3);
+                        buffGrids3.ToolTip = tbt;
+                        switch (gun[index].number)
+                        {
+                            case 1:
+                                {
+                                    gridlist[3][gun[index].effect0 - 1].Background = br;
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    gridlist[3][gun[index].effect0 - 1].Background = br;
+                                    gridlist[3][gun[index].effect1 - 1].Background = br;
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    gridlist[3][gun[index].effect0 - 1].Background = br;
+                                    gridlist[3][gun[index].effect1 - 1].Background = br;
+                                    gridlist[3][gun[index].effect2 - 1].Background = br;
+                                    break;
+                                }
+                            case 4:
+                                {
+                                    gridlist[3][gun[index].effect0 - 1].Background = br;
+                                    gridlist[3][gun[index].effect1 - 1].Background = br;
+                                    gridlist[3][gun[index].effect2 - 1].Background = br;
+                                    gridlist[3][gun[index].effect3 - 1].Background = br;
+                                    break;
+                                }
+                            case 5:
+                                {
+                                    gridlist[3][gun[index].effect0 - 1].Background = br;
+                                    gridlist[3][gun[index].effect1 - 1].Background = br;
+                                    gridlist[3][gun[index].effect2 - 1].Background = br;
+                                    gridlist[3][gun[index].effect3 - 1].Background = br;
+                                    gridlist[3][gun[index].effect4 - 1].Background = br;
+                                    break;
+                                }
+                            case 6:
+                                {
+                                    gridlist[3][gun[index].effect0 - 1].Background = br;
+                                    gridlist[3][gun[index].effect1 - 1].Background = br;
+                                    gridlist[3][gun[index].effect2 - 1].Background = br;
+                                    gridlist[3][gun[index].effect3 - 1].Background = br;
+                                    gridlist[3][gun[index].effect4 - 1].Background = br;
+                                    gridlist[3][gun[index].effect5 - 1].Background = br;
+                                    break;
+                                }
+                            case 7:
+                                {
+                                    gridlist[3][gun[index].effect0 - 1].Background = br;
+                                    gridlist[3][gun[index].effect1 - 1].Background = br;
+                                    gridlist[3][gun[index].effect2 - 1].Background = br;
+                                    gridlist[3][gun[index].effect3 - 1].Background = br;
+                                    gridlist[3][gun[index].effect4 - 1].Background = br;
+                                    gridlist[3][gun[index].effect5 - 1].Background = br;
+                                    gridlist[3][gun[index].effect6 - 1].Background = br;
+                                    break;
+                                }
+                            case 8:
+                                {
+                                    gridlist[3][gun[index].effect0 - 1].Background = br;
+                                    gridlist[3][gun[index].effect1 - 1].Background = br;
+                                    gridlist[3][gun[index].effect2 - 1].Background = br;
+                                    gridlist[3][gun[index].effect3 - 1].Background = br;
+                                    gridlist[3][gun[index].effect4 - 1].Background = br;
+                                    gridlist[3][gun[index].effect5 - 1].Background = br;
+                                    gridlist[3][gun[index].effect6 - 1].Background = br;
+                                    gridlist[3][gun[index].effect7 - 1].Background = br;
+                                    break;
+                                }
+                            default:
+                                break;
+                        }
+                        break;
+                    }
+                case 4:
+                    {
+                        clearshowbuff(4);
+                        buffGrids4.ToolTip = tbt;
+                        switch (gun[index].number)
+                        {
+                            case 1:
+                                {
+                                    gridlist[4][gun[index].effect0 - 1].Background = br;
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    gridlist[4][gun[index].effect0 - 1].Background = br;
+                                    gridlist[4][gun[index].effect1 - 1].Background = br;
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    gridlist[4][gun[index].effect0 - 1].Background = br;
+                                    gridlist[4][gun[index].effect1 - 1].Background = br;
+                                    gridlist[4][gun[index].effect2 - 1].Background = br;
+                                    break;
+                                }
+                            case 4:
+                                {
+                                    gridlist[4][gun[index].effect0 - 1].Background = br;
+                                    gridlist[4][gun[index].effect1 - 1].Background = br;
+                                    gridlist[4][gun[index].effect2 - 1].Background = br;
+                                    gridlist[4][gun[index].effect3 - 1].Background = br;
+                                    break;
+                                }
+                            case 5:
+                                {
+                                    gridlist[4][gun[index].effect0 - 1].Background = br;
+                                    gridlist[4][gun[index].effect1 - 1].Background = br;
+                                    gridlist[4][gun[index].effect2 - 1].Background = br;
+                                    gridlist[4][gun[index].effect3 - 1].Background = br;
+                                    gridlist[4][gun[index].effect4 - 1].Background = br;
+                                    break;
+                                }
+                            case 6:
+                                {
+                                    gridlist[4][gun[index].effect0 - 1].Background = br;
+                                    gridlist[4][gun[index].effect1 - 1].Background = br;
+                                    gridlist[4][gun[index].effect2 - 1].Background = br;
+                                    gridlist[4][gun[index].effect3 - 1].Background = br;
+                                    gridlist[4][gun[index].effect4 - 1].Background = br;
+                                    gridlist[4][gun[index].effect5 - 1].Background = br;
+                                    break;
+                                }
+                            case 7:
+                                {
+                                    gridlist[4][gun[index].effect0 - 1].Background = br;
+                                    gridlist[4][gun[index].effect1 - 1].Background = br;
+                                    gridlist[4][gun[index].effect2 - 1].Background = br;
+                                    gridlist[4][gun[index].effect3 - 1].Background = br;
+                                    gridlist[4][gun[index].effect4 - 1].Background = br;
+                                    gridlist[4][gun[index].effect5 - 1].Background = br;
+                                    gridlist[4][gun[index].effect6 - 1].Background = br;
+                                    break;
+                                }
+                            case 8:
+                                {
+                                    gridlist[4][gun[index].effect0 - 1].Background = br;
+                                    gridlist[4][gun[index].effect1 - 1].Background = br;
+                                    gridlist[4][gun[index].effect2 - 1].Background = br;
+                                    gridlist[4][gun[index].effect3 - 1].Background = br;
+                                    gridlist[4][gun[index].effect4 - 1].Background = br;
+                                    gridlist[4][gun[index].effect5 - 1].Background = br;
+                                    gridlist[4][gun[index].effect6 - 1].Background = br;
+                                    gridlist[4][gun[index].effect7 - 1].Background = br;
+                                    break;
+                                }
+                            default:
+                                break;
+                        }
+                        break;
+                    }
+                case 5:
+                    {
+                        clearshowbuff(5);
+                        buffGrids5.ToolTip = tbt;
+                        switch (gun[index].number)
+                        {
+                            case 1:
+                                {
+                                    gridlist[5][gun[index].effect0 - 1].Background = br;
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    gridlist[5][gun[index].effect0 - 1].Background = br;
+                                    gridlist[5][gun[index].effect1 - 1].Background = br;
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    gridlist[5][gun[index].effect0 - 1].Background = br;
+                                    gridlist[5][gun[index].effect1 - 1].Background = br;
+                                    gridlist[5][gun[index].effect2 - 1].Background = br;
+                                    break;
+                                }
+                            case 4:
+                                {
+                                    gridlist[5][gun[index].effect0 - 1].Background = br;
+                                    gridlist[5][gun[index].effect1 - 1].Background = br;
+                                    gridlist[5][gun[index].effect2 - 1].Background = br;
+                                    gridlist[5][gun[index].effect3 - 1].Background = br;
+                                    break;
+                                }
+                            case 5:
+                                {
+                                    gridlist[5][gun[index].effect0 - 1].Background = br;
+                                    gridlist[5][gun[index].effect1 - 1].Background = br;
+                                    gridlist[5][gun[index].effect2 - 1].Background = br;
+                                    gridlist[5][gun[index].effect3 - 1].Background = br;
+                                    gridlist[5][gun[index].effect4 - 1].Background = br;
+                                    break;
+                                }
+                            case 6:
+                                {
+                                    gridlist[5][gun[index].effect0 - 1].Background = br;
+                                    gridlist[5][gun[index].effect1 - 1].Background = br;
+                                    gridlist[5][gun[index].effect2 - 1].Background = br;
+                                    gridlist[5][gun[index].effect3 - 1].Background = br;
+                                    gridlist[5][gun[index].effect4 - 1].Background = br;
+                                    gridlist[5][gun[index].effect5 - 1].Background = br;
+                                    break;
+                                }
+                            case 7:
+                                {
+                                    gridlist[5][gun[index].effect0 - 1].Background = br;
+                                    gridlist[5][gun[index].effect1 - 1].Background = br;
+                                    gridlist[5][gun[index].effect2 - 1].Background = br;
+                                    gridlist[5][gun[index].effect3 - 1].Background = br;
+                                    gridlist[5][gun[index].effect4 - 1].Background = br;
+                                    gridlist[5][gun[index].effect5 - 1].Background = br;
+                                    gridlist[5][gun[index].effect6 - 1].Background = br;
+                                    break;
+                                }
+                            case 8:
+                                {
+                                    gridlist[5][gun[index].effect0 - 1].Background = br;
+                                    gridlist[5][gun[index].effect1 - 1].Background = br;
+                                    gridlist[5][gun[index].effect2 - 1].Background = br;
+                                    gridlist[5][gun[index].effect3 - 1].Background = br;
+                                    gridlist[5][gun[index].effect4 - 1].Background = br;
+                                    gridlist[5][gun[index].effect5 - 1].Background = br;
+                                    gridlist[5][gun[index].effect6 - 1].Background = br;
+                                    gridlist[5][gun[index].effect7 - 1].Background = br;
+                                    break;
+                                }
+                            default:
+                                break;
+                        }
+                        break;
+                    }
+                case 6:
+                    {
+                        clearshowbuff(6);
+                        buffGrids6.ToolTip = tbt;
+                        switch (gun[index].number)
+                        {
+                            case 1:
+                                {
+                                    gridlist[6][gun[index].effect0 - 1].Background = br;
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    gridlist[6][gun[index].effect0 - 1].Background = br;
+                                    gridlist[6][gun[index].effect1 - 1].Background = br;
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    gridlist[6][gun[index].effect0 - 1].Background = br;
+                                    gridlist[6][gun[index].effect1 - 1].Background = br;
+                                    gridlist[6][gun[index].effect2 - 1].Background = br;
+                                    break;
+                                }
+                            case 4:
+                                {
+                                    gridlist[6][gun[index].effect0 - 1].Background = br;
+                                    gridlist[6][gun[index].effect1 - 1].Background = br;
+                                    gridlist[6][gun[index].effect2 - 1].Background = br;
+                                    gridlist[6][gun[index].effect3 - 1].Background = br;
+                                    break;
+                                }
+                            case 5:
+                                {
+                                    gridlist[6][gun[index].effect0 - 1].Background = br;
+                                    gridlist[6][gun[index].effect1 - 1].Background = br;
+                                    gridlist[6][gun[index].effect2 - 1].Background = br;
+                                    gridlist[6][gun[index].effect3 - 1].Background = br;
+                                    gridlist[6][gun[index].effect4 - 1].Background = br;
+                                    break;
+                                }
+                            case 6:
+                                {
+                                    gridlist[6][gun[index].effect0 - 1].Background = br;
+                                    gridlist[6][gun[index].effect1 - 1].Background = br;
+                                    gridlist[6][gun[index].effect2 - 1].Background = br;
+                                    gridlist[6][gun[index].effect3 - 1].Background = br;
+                                    gridlist[6][gun[index].effect4 - 1].Background = br;
+                                    gridlist[6][gun[index].effect5 - 1].Background = br;
+                                    break;
+                                }
+                            case 7:
+                                {
+                                    gridlist[6][gun[index].effect0 - 1].Background = br;
+                                    gridlist[6][gun[index].effect1 - 1].Background = br;
+                                    gridlist[6][gun[index].effect2 - 1].Background = br;
+                                    gridlist[6][gun[index].effect3 - 1].Background = br;
+                                    gridlist[6][gun[index].effect4 - 1].Background = br;
+                                    gridlist[6][gun[index].effect5 - 1].Background = br;
+                                    gridlist[6][gun[index].effect6 - 1].Background = br;
+                                    break;
+                                }
+                            case 8:
+                                {
+                                    gridlist[6][gun[index].effect0 - 1].Background = br;
+                                    gridlist[6][gun[index].effect1 - 1].Background = br;
+                                    gridlist[6][gun[index].effect2 - 1].Background = br;
+                                    gridlist[6][gun[index].effect3 - 1].Background = br;
+                                    gridlist[6][gun[index].effect4 - 1].Background = br;
+                                    gridlist[6][gun[index].effect5 - 1].Background = br;
+                                    gridlist[6][gun[index].effect6 - 1].Background = br;
+                                    gridlist[6][gun[index].effect7 - 1].Background = br;
+                                    break;
+                                }
+                            default:
+                                break;
+                        }
+                        break;
+                    }
+                case 7:
+                    {
+                        clearshowbuff(7);
+                        buffGrids7.ToolTip = tbt;
+                        switch (gun[index].number)
+                        {
+                            case 1:
+                                {
+                                    gridlist[7][gun[index].effect0 - 1].Background = br;
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    gridlist[7][gun[index].effect0 - 1].Background = br;
+                                    gridlist[7][gun[index].effect1 - 1].Background = br;
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    gridlist[7][gun[index].effect0 - 1].Background = br;
+                                    gridlist[7][gun[index].effect1 - 1].Background = br;
+                                    gridlist[7][gun[index].effect2 - 1].Background = br;
+                                    break;
+                                }
+                            case 4:
+                                {
+                                    gridlist[7][gun[index].effect0 - 1].Background = br;
+                                    gridlist[7][gun[index].effect1 - 1].Background = br;
+                                    gridlist[7][gun[index].effect2 - 1].Background = br;
+                                    gridlist[7][gun[index].effect3 - 1].Background = br;
+                                    break;
+                                }
+                            case 5:
+                                {
+                                    gridlist[7][gun[index].effect0 - 1].Background = br;
+                                    gridlist[7][gun[index].effect1 - 1].Background = br;
+                                    gridlist[7][gun[index].effect2 - 1].Background = br;
+                                    gridlist[7][gun[index].effect3 - 1].Background = br;
+                                    gridlist[7][gun[index].effect4 - 1].Background = br;
+                                    break;
+                                }
+                            case 6:
+                                {
+                                    gridlist[7][gun[index].effect0 - 1].Background = br;
+                                    gridlist[7][gun[index].effect1 - 1].Background = br;
+                                    gridlist[7][gun[index].effect2 - 1].Background = br;
+                                    gridlist[7][gun[index].effect3 - 1].Background = br;
+                                    gridlist[7][gun[index].effect4 - 1].Background = br;
+                                    gridlist[7][gun[index].effect5 - 1].Background = br;
+                                    break;
+                                }
+                            case 7:
+                                {
+                                    gridlist[7][gun[index].effect0 - 1].Background = br;
+                                    gridlist[7][gun[index].effect1 - 1].Background = br;
+                                    gridlist[7][gun[index].effect2 - 1].Background = br;
+                                    gridlist[7][gun[index].effect3 - 1].Background = br;
+                                    gridlist[7][gun[index].effect4 - 1].Background = br;
+                                    gridlist[7][gun[index].effect5 - 1].Background = br;
+                                    gridlist[7][gun[index].effect6 - 1].Background = br;
+                                    break;
+                                }
+                            case 8:
+                                {
+                                    gridlist[7][gun[index].effect0 - 1].Background = br;
+                                    gridlist[7][gun[index].effect1 - 1].Background = br;
+                                    gridlist[7][gun[index].effect2 - 1].Background = br;
+                                    gridlist[7][gun[index].effect3 - 1].Background = br;
+                                    gridlist[7][gun[index].effect4 - 1].Background = br;
+                                    gridlist[7][gun[index].effect5 - 1].Background = br;
+                                    gridlist[7][gun[index].effect6 - 1].Background = br;
+                                    gridlist[7][gun[index].effect7 - 1].Background = br;
+                                    break;
+                                }
+                            default:
+                                break;
+                        }
+                        break;
+                    }
+                case 8:
+                    {
+                        clearshowbuff(8);
+                        buffGrids8.ToolTip = tbt;
+                        switch (gun[index].number)
+                        {
+                            case 1:
+                                {
+                                    gridlist[8][gun[index].effect0 - 1].Background = br;
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    gridlist[8][gun[index].effect0 - 1].Background = br;
+                                    gridlist[8][gun[index].effect1 - 1].Background = br;
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    gridlist[8][gun[index].effect0 - 1].Background = br;
+                                    gridlist[8][gun[index].effect1 - 1].Background = br;
+                                    gridlist[8][gun[index].effect2 - 1].Background = br;
+                                    break;
+                                }
+                            case 4:
+                                {
+                                    gridlist[8][gun[index].effect0 - 1].Background = br;
+                                    gridlist[8][gun[index].effect1 - 1].Background = br;
+                                    gridlist[8][gun[index].effect2 - 1].Background = br;
+                                    gridlist[8][gun[index].effect3 - 1].Background = br;
+                                    break;
+                                }
+                            case 5:
+                                {
+                                    gridlist[8][gun[index].effect0 - 1].Background = br;
+                                    gridlist[8][gun[index].effect1 - 1].Background = br;
+                                    gridlist[8][gun[index].effect2 - 1].Background = br;
+                                    gridlist[8][gun[index].effect3 - 1].Background = br;
+                                    gridlist[8][gun[index].effect4 - 1].Background = br;
+                                    break;
+                                }
+                            case 6:
+                                {
+                                    gridlist[8][gun[index].effect0 - 1].Background = br;
+                                    gridlist[8][gun[index].effect1 - 1].Background = br;
+                                    gridlist[8][gun[index].effect2 - 1].Background = br;
+                                    gridlist[8][gun[index].effect3 - 1].Background = br;
+                                    gridlist[8][gun[index].effect4 - 1].Background = br;
+                                    gridlist[8][gun[index].effect5 - 1].Background = br;
+                                    break;
+                                }
+                            case 7:
+                                {
+                                    gridlist[8][gun[index].effect0 - 1].Background = br;
+                                    gridlist[8][gun[index].effect1 - 1].Background = br;
+                                    gridlist[8][gun[index].effect2 - 1].Background = br;
+                                    gridlist[8][gun[index].effect3 - 1].Background = br;
+                                    gridlist[8][gun[index].effect4 - 1].Background = br;
+                                    gridlist[8][gun[index].effect5 - 1].Background = br;
+                                    gridlist[8][gun[index].effect6 - 1].Background = br;
+                                    break;
+                                }
+                            case 8:
+                                {
+                                    gridlist[8][gun[index].effect0 - 1].Background = br;
+                                    gridlist[8][gun[index].effect1 - 1].Background = br;
+                                    gridlist[8][gun[index].effect2 - 1].Background = br;
+                                    gridlist[8][gun[index].effect3 - 1].Background = br;
+                                    gridlist[8][gun[index].effect4 - 1].Background = br;
+                                    gridlist[8][gun[index].effect5 - 1].Background = br;
+                                    gridlist[8][gun[index].effect6 - 1].Background = br;
+                                    gridlist[8][gun[index].effect7 - 1].Background = br;
+                                    break;
+                                }
+                            default:
+                                break;
+                        }
+                        break;
+                    }
+            }
+        }
+
+        private void clearshowbuff(int combo)
+        {
+            Brush br = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+            Brush inner = new SolidColorBrush(Color.FromRgb(107, 105, 107));
+            switch (combo)
+            {
+                case 0:
+                    {
+                        foreach(Border g in gridlist[0])
+                        {
+                            g.Background = br;
+                        }
+                        buffGrid05.Background = inner;
+                        break;
+                    }
+                case 1:
+                    {
+                        foreach (Border g in gridlist[1])
+                        {
+                            g.Background = br;
+                        }
+                        buffGrid15.Background = inner;
+                        break;
+                    }
+                case 2:
+                    {
+                        foreach (Border g in gridlist[2])
+                        {
+                            g.Background = br;
+                        }
+                        buffGrid25.Background = inner;
+                        break;
+                    }
+                case 3:
+                    {
+                        foreach (Border g in gridlist[3])
+                        {
+                            g.Background = br;
+                        }
+                        buffGrid35.Background = inner;
+                        break;
+                    }
+                case 4:
+                    {
+                        foreach (Border g in gridlist[4])
+                        {
+                            g.Background = br;
+                        }
+                        buffGrid45.Background = inner;
+                        break;
+                    }
+                case 5:
+                    {
+                        foreach (Border g in gridlist[5])
+                        {
+                            g.Background = br;
+                        }
+                        buffGrid55.Background = inner;
+                        break;
+                    }
+                case 6:
+                    {
+                        foreach (Border g in gridlist[6])
+                        {
+                            g.Background = br;
+                        }
+                        buffGrid65.Background = inner;
+                        break;
+                    }
+                case 7:
+                    {
+                        foreach (Border g in gridlist[7])
+                        {
+                            g.Background = br;
+                        }
+                        buffGrid75.Background = inner;
+                        break;
+                    }
+                case 8:
+                    {
+                        foreach (Border g in gridlist[8])
+                        {
+                            g.Background = br;
+                        }
+                        buffGrid85.Background = inner;
+                        break;
+                    }
+            }
         }
     }
 }

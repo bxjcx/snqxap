@@ -21,7 +21,7 @@
                         </Image.ToolTip>
                     </Image>
                     <Label Name="Merry0" Content="♡" FontSize="16" Margin="90,193,98,0" MouseUp="Merry0_MouseUp"/>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo0_SelectionChanged">
+                    <ComboBox   BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" SelectionChanged="Combo0_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="#FF454443" Opacity="0"/>
                         </ComboBox.Background>
@@ -42,7 +42,7 @@
                     <Label Name="Lshotspeed0" Content="0" HorizontalAlignment="Left" Margin="30,75,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="命中:" HorizontalAlignment="Left" Margin="55,35,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lhit0" Content="0" HorizontalAlignment="Left" Margin= "85,35,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,55,0,0" VerticalAlignment="Top" FontSize="12"/>
+                    <Label Content="回避:" HorizontalAlignment="Left" Margin="55,55,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldodge0" Content="0" HorizontalAlignment="Left" Margin="85,55,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,95,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lcrit0" Content="0" HorizontalAlignment="Left" Margin="30,95,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -61,6 +61,17 @@
                     <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,115,0,0" VerticalAlignment="Top" FontSize="12" />
                     <Label Name="Lskilldamage0" Content="0" HorizontalAlignment="Left" Margin="55,115,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <CheckBox  Click="cb0_Click" Name="cb0" Content="技能发动" HorizontalAlignment="Left" Margin="10,200,0,0"/>
+                    <Grid ToolTip="" Name="buffGrids0" Height="30" Width="30" Margin="190,35,5,160">
+                        <Border Name="buffGrid01" Margin="0,20,20,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid02" Margin="10,20,10,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid03" Margin="20,20,0,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid04" Margin="0,10,20,10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid05" Margin="10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid06" Margin="20,10,0,10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid07" Margin="0,0,20,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid08"  Margin="10,0,10,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid09" Margin="20,0,0,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                    </Grid>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="225" Margin="225,0,0,0">
                     <Image Name="Image1" Width="100"  Height="150" Margin="115,35,5,35">
@@ -95,7 +106,7 @@
                     <Label Name="Lshotspeed1" Content="0" HorizontalAlignment="Left" Margin="30,75,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="命中:" HorizontalAlignment="Left" Margin="55,35,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lhit1" Content="0" HorizontalAlignment="Left" Margin= "85,35,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,55,0,0" VerticalAlignment="Top" FontSize="12"/>
+                    <Label Content="回避:" HorizontalAlignment="Left" Margin="55,55,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldodge1" Content="0" HorizontalAlignment="Left" Margin="85,55,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,95,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lcrit1" Content="0" HorizontalAlignment="Left" Margin="30,95,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -114,6 +125,17 @@
                     <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,115,0,0" VerticalAlignment="Top" FontSize="12" />
                     <Label Name="Lskilldamage1" Content="0" HorizontalAlignment="Left" Margin="55,115,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <CheckBox Click="cb1_Click" Name="cb1" Content="技能发动" HorizontalAlignment="Left" Margin="10,200,0,0"/>
+                    <Grid ToolTip="" Name="buffGrids1" Height="30" Width="30" Margin="190,35,5,160">
+                        <Border Name="buffGrid11" Margin="0,20,20,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid12" Margin="10,20,10,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid13" Margin="20,20,0,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid14" Margin="0,10,20,10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid15" Margin="10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid16" Margin="20,10,0,10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid17" Margin="0,0,20,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid18"  Margin="10,0,10,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid19" Margin="20,0,0,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                    </Grid>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="225" Margin="450,0,0,0">
                     <Image Name="Image2" Width="100"  Height="150" Margin="115,35,5,35">
@@ -148,7 +170,7 @@
                     <Label Name="Lshotspeed2" Content="0" HorizontalAlignment="Left" Margin="30,75,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="命中:" HorizontalAlignment="Left" Margin="55,35,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lhit2" Content="0" HorizontalAlignment="Left" Margin= "85,35,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,55,0,0" VerticalAlignment="Top" FontSize="12"/>
+                    <Label Content="回避:" HorizontalAlignment="Left" Margin="55,55,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldodge2" Content="0" HorizontalAlignment="Left" Margin="85,55,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,95,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lcrit2" Content="0" HorizontalAlignment="Left" Margin="30,95,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -167,6 +189,17 @@
                     <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,115,0,0" VerticalAlignment="Top" FontSize="12" />
                     <Label Name="Lskilldamage2" Content="0" HorizontalAlignment="Left" Margin="55,115,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <CheckBox Click="cb2_Click" Name="cb2" Content="技能发动" HorizontalAlignment="Left" Margin="10,200,0,0"/>
+                    <Grid ToolTip="" Name="buffGrids2" Height="30" Width="30" Margin="190,35,5,160">
+                        <Border Name="buffGrid21" Margin="0,20,20,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid22" Margin="10,20,10,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid23" Margin="20,20,0,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid24" Margin="0,10,20,10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid25" Margin="10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid26" Margin="20,10,0,10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid27" Margin="0,0,20,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid28"  Margin="10,0,10,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid29" Margin="20,0,0,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                    </Grid>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="225" Margin="0,225,0,0">
                     <Image Name="Image3" Width="100"  Height="150" Margin="115,35,5,35">
@@ -201,7 +234,7 @@
                     <Label Name="Lshotspeed3" Content="0" HorizontalAlignment="Left" Margin="30,73,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="命中:" HorizontalAlignment="Left" Margin="55,33,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lhit3" Content="0" HorizontalAlignment="Left" Margin= "85,33,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,53,0,0" VerticalAlignment="Top" FontSize="12"/>
+                    <Label Content="回避:" HorizontalAlignment="Left" Margin="55,53,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldodge3" Content="0" HorizontalAlignment="Left" Margin="85,53,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,93,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lcrit3" Content="0" HorizontalAlignment="Left" Margin="30,93,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -220,6 +253,17 @@
                     <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,113,0,0" VerticalAlignment="Top" FontSize="12" />
                     <Label Name="Lskilldamage3" Content="0" HorizontalAlignment="Left" Margin="55,113,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <CheckBox Click="cb3_Click" Name="cb3" Content="技能发动" HorizontalAlignment="Left" Margin="10,198,0,0"/>
+                    <Grid ToolTip="" Name="buffGrids3" Height="30" Width="30" Margin="190,35,5,160">
+                        <Border Name="buffGrid31" Margin="0,20,20,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid32" Margin="10,20,10,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid33" Margin="20,20,0,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid34" Margin="0,10,20,10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid35" Margin="10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid36" Margin="20,10,0,10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid37" Margin="0,0,20,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid38"  Margin="10,0,10,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid39" Margin="20,0,0,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                    </Grid>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="225" Margin="225,225,0,0">
                     <Image Name="Image4" Width="100"  Height="150" Margin="115,35,5,35">
@@ -254,7 +298,7 @@
                     <Label Name="Lshotspeed4" Content="0" HorizontalAlignment="Left" Margin="30,73,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="命中:" HorizontalAlignment="Left" Margin="55,33,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lhit4" Content="0" HorizontalAlignment="Left" Margin= "85,33,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,53,0,0" VerticalAlignment="Top" FontSize="12"/>
+                    <Label Content="回避:" HorizontalAlignment="Left" Margin="55,53,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldodge4" Content="0" HorizontalAlignment="Left" Margin="85,53,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,93,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lcrit4" Content="0" HorizontalAlignment="Left" Margin="30,93,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -273,6 +317,17 @@
                     <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,113,0,0" VerticalAlignment="Top" FontSize="12" />
                     <Label Name="Lskilldamage4" Content="0" HorizontalAlignment="Left" Margin="55,113,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <CheckBox Click="cb4_Click" Name="cb4" Content="技能发动" HorizontalAlignment="Left" Margin="10,198,0,0"/>
+                    <Grid ToolTip="" Name="buffGrids4" Height="30" Width="30" Margin="190,35,5,160">
+                        <Border Name="buffGrid41" Margin="0,20,20,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid42" Margin="10,20,10,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid43" Margin="20,20,0,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid44" Margin="0,10,20,10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid45" Margin="10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid46" Margin="20,10,0,10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid47" Margin="0,0,20,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid48"  Margin="10,0,10,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid49" Margin="20,0,0,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                    </Grid>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="225" Margin="450,225,0,0">
                     <Image Name="Image5" Width="100"  Height="150" Margin="115,35,5,35">
@@ -307,7 +362,7 @@
                     <Label Name="Lshotspeed5" Content="0" HorizontalAlignment="Left" Margin="30,73,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="命中:" HorizontalAlignment="Left" Margin="55,33,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lhit5" Content="0" HorizontalAlignment="Left" Margin= "85,33,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,53,0,0" VerticalAlignment="Top" FontSize="12"/>
+                    <Label Content="回避:" HorizontalAlignment="Left" Margin="55,53,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldodge5" Content="0" HorizontalAlignment="Left" Margin="85,53,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,93,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lcrit5" Content="0" HorizontalAlignment="Left" Margin="30,93,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -326,6 +381,17 @@
                     <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,113,0,0" VerticalAlignment="Top" FontSize="12" />
                     <Label Name="Lskilldamage5" Content="0" HorizontalAlignment="Left" Margin="55,113,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <CheckBox Click="cb5_Click" Name="cb5" Content="技能发动" HorizontalAlignment="Left" Margin="10,198,0,0"/>
+                    <Grid ToolTip="" Name="buffGrids5" Height="30" Width="30" Margin="190,35,5,160">
+                        <Border Name="buffGrid51" Margin="0,20,20,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid52" Margin="10,20,10,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid53" Margin="20,20,0,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid54" Margin="0,10,20,10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid55" Margin="10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid56" Margin="20,10,0,10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid57" Margin="0,0,20,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid58"  Margin="10,0,10,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid59" Margin="20,0,0,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                    </Grid>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="225" Margin="0,450,0,0">
                     <Image Name="Image6" Width="100"  Height="150" Margin="115,35,5,35">
@@ -360,7 +426,7 @@
                     <Label Name="Lshotspeed6" Content="0" HorizontalAlignment="Left" Margin="30,71,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="命中:" HorizontalAlignment="Left" Margin="55,31,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lhit6" Content="0" HorizontalAlignment="Left" Margin= "85,31,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,51,0,0" VerticalAlignment="Top" FontSize="12"/>
+                    <Label Content="回避:" HorizontalAlignment="Left" Margin="55,51,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldodge6" Content="0" HorizontalAlignment="Left" Margin="85,51,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,91,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lcrit6" Content="0" HorizontalAlignment="Left" Margin="30,91,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -379,6 +445,17 @@
                     <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,111,0,0" VerticalAlignment="Top" FontSize="12" />
                     <Label Name="Lskilldamage6" Content="0" HorizontalAlignment="Left" Margin="55,111,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <CheckBox Click="cb6_Click" Name="cb6" Content="技能发动" HorizontalAlignment="Left" Margin="10,196,0,0"/>
+                    <Grid ToolTip="" Name="buffGrids6" Height="30" Width="30" Margin="190,35,5,160">
+                        <Border Name="buffGrid61" Margin="0,20,20,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid62" Margin="10,20,10,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid63" Margin="20,20,0,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid64" Margin="0,10,20,10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid65" Margin="10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid66" Margin="20,10,0,10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid67" Margin="0,0,20,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid68"  Margin="10,0,10,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid69" Margin="20,0,0,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                    </Grid>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="225" Margin="225,450,0,0">
                     <Image Name="Image7" Width="100"  Height="150" Margin="115,35,5,35">
@@ -413,7 +490,7 @@
                     <Label Name="Lshotspeed7" Content="0" HorizontalAlignment="Left" Margin="30,71,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="命中:" HorizontalAlignment="Left" Margin="55,31,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lhit7" Content="0" HorizontalAlignment="Left" Margin= "85,31,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,51,0,0" VerticalAlignment="Top" FontSize="12"/>
+                    <Label Content="回避:" HorizontalAlignment="Left" Margin="55,51,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldodge7" Content="0" HorizontalAlignment="Left" Margin="85,51,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,91,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lcrit7" Content="0" HorizontalAlignment="Left" Margin="30,91,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -432,6 +509,17 @@
                     <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,111,0,0" VerticalAlignment="Top" FontSize="12" />
                     <Label Name="Lskilldamage7" Content="0" HorizontalAlignment="Left" Margin="55,111,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <CheckBox Click="cb7_Click" Name="cb7" Content="技能发动" HorizontalAlignment="Left" Margin="10,196,0,0"/>
+                    <Grid ToolTip="" Name="buffGrids7" Height="30" Width="30" Margin="190,35,5,160">
+                        <Border Name="buffGrid71" Margin="0,20,20,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid72" Margin="10,20,10,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid73" Margin="20,20,0,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid74" Margin="0,10,20,10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid75" Margin="10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid76" Margin="20,10,0,10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid77" Margin="0,0,20,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid78"  Margin="10,0,10,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid79" Margin="20,0,0,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                    </Grid>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="225" Margin="450,450,0,0">
                     <Image Name="Image8" Width="100"  Height="150" Margin="115,35,5,35">
@@ -466,7 +554,7 @@
                     <Label Name="Lshotspeed8" Content="0" HorizontalAlignment="Left" Margin="30,71,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="命中:" HorizontalAlignment="Left" Margin="55,31,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lhit8" Content="0" HorizontalAlignment="Left" Margin= "85,31,0,0" VerticalAlignment="Top" FontSize="12"/>
-                    <Label Content="闪避:" HorizontalAlignment="Left" Margin="55,51,0,0" VerticalAlignment="Top" FontSize="12"/>
+                    <Label Content="回避:" HorizontalAlignment="Left" Margin="55,51,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Ldodge8" Content="0" HorizontalAlignment="Left" Margin="85,51,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Content="暴击:" HorizontalAlignment="Left" Margin="0,91,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <Label Name="Lcrit8" Content="0" HorizontalAlignment="Left" Margin="30,91,0,0" VerticalAlignment="Top" FontSize="12"/>
@@ -485,6 +573,17 @@
                     <Label Content="技能固伤:"  HorizontalAlignment="Left" Margin="0,111,0,0" VerticalAlignment="Top" FontSize="12" />
                     <Label Name="Lskilldamage8" Content="0" HorizontalAlignment="Left" Margin="55,111,0,0" VerticalAlignment="Top" FontSize="12"/>
                     <CheckBox Click="cb8_Click" Name="cb8" Content="技能发动" HorizontalAlignment="Left" Margin="10,196,0,0"/>
+                    <Grid ToolTip="" Name="buffGrids8" Height="30" Width="30" Margin="190,35,5,160">
+                        <Border Name="buffGrid81" Margin="0,20,20,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid82" Margin="10,20,10,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid83" Margin="20,20,0,0" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid84" Margin="0,10,20,10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid85" Margin="10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid86" Margin="20,10,0,10" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid87" Margin="0,0,20,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid88"  Margin="10,0,10,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                        <Border Name="buffGrid89" Margin="20,0,0,20" Height="10" Width="10" BorderBrush="Black" BorderThickness="1" CornerRadius="0"/>
+                    </Grid>
                 </Grid>
             </Grid>
             <Grid>
@@ -521,7 +620,7 @@
                 <Button Content="Log" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Click="UpdateData_Click" Margin="480,3,0,0" Opacity="0.6"/>
                 <Button x:Name="button" Content="敌方数据" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="button_Click" Margin="480,57,0,0" Opacity="0.6"/>
                 <!--      <Button IsEnabled="False" Content="凑数用按钮" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="480,84,0,0" Opacity="0.6"/>  -->
-                <Label Content="对闪避" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="113,0,0,0"/>
+                <Label Content="对回避" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="113,0,0,0"/>
                 <Label Content="敌人伤害指数：" FontSize="15" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="108" Margin="280,0,0,0"/>
                 <Label Content="对命中" FontSize="15" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="113,24,0,0" Width="55"/>
                 <Label Content="　伤害" FontSize="15" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="113,48,0,0" Width="55"/>
