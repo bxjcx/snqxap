@@ -31,7 +31,7 @@ namespace snqxap
         /// <summary>
         /// 枪娘总数
         /// </summary>
-        public const int GUN_NUMBER = 119; 
+        public const int GUN_NUMBER = 121; //59 122
         /// <summary>
         /// 装备总数
         /// </summary>
@@ -334,7 +334,7 @@ namespace snqxap
             gun[87].name = "PK"; gun[87].what = 6;gun[87].crit = 0.05; gun[87].belt = 11; gun[87].number = 0; gun[87].damageup = 0; gun[87].hitup = 0; gun[87].shotspeedup = 0; gun[87].critup = 0; gun[87].dodgeup = 0; gun[87].to = 0;
             gun[88].name = "内格夫"; gun[88].what = 6;gun[88].crit = 0.05; gun[88].belt = 9; gun[88].number = 0; gun[88].damageup = 0; gun[88].hitup = 0; gun[88].shotspeedup = 0; gun[88].critup = 0; gun[88].dodgeup = 0; gun[88].to = 0;
             gun[89].name = "RPD"; gun[89].what = 6; gun[89].crit = 0.05; gun[89].belt = 8; gun[89].number = 0; gun[89].damageup = 0; gun[89].hitup = 0; gun[89].shotspeedup = 0; gun[89].critup = 0; gun[89].dodgeup = 0; gun[89].to = 0;
-            gun[90].name = "M2HB"; gun[90].what = 6; gun[90].crit = 0.05; gun[90].belt = 9; gun[90].number = 0; gun[90].damageup = 0; gun[90].hitup = 0; gun[90].shotspeedup = 0; gun[90].critup = 0; gun[90].dodgeup = 0; gun[90].to = 0;
+            gun[90].name = "M2HB"; gun[90].what = 6; gun[90].crit = 0.05; gun[90].belt = 10; gun[90].number = 0; gun[90].damageup = 0; gun[90].hitup = 0; gun[90].shotspeedup = 0; gun[90].critup = 0; gun[90].dodgeup = 0; gun[90].to = 0;
             gun[91].name = "LWMMG"; gun[91].what = 6; gun[91].crit = 0.05; gun[91].belt = 9; gun[91].number = 0; gun[91].damageup = 0; gun[91].hitup = 0; gun[91].shotspeedup = 0; gun[91].critup = 0; gun[91].dodgeup = 0; gun[91].to = 0;
             gun[92].name = "M249 SAW"; gun[92].what = 6;gun[92].crit = 0.05; gun[92].belt = 8; gun[92].number = 0; gun[92].damageup = 0; gun[92].hitup = 0; gun[92].shotspeedup = 0; gun[92].critup = 0; gun[92].dodgeup = 0; gun[92].to = 0;
             gun[93].name = "AAT-52"; gun[93].what = 6;gun[93].crit = 0.05; gun[93].belt = 10; gun[93].number = 0; gun[93].damageup = 0; gun[93].hitup = 0; gun[93].shotspeedup = 0; gun[93].critup = 0; gun[93].dodgeup = 0; gun[93].to = 0;
@@ -417,6 +417,19 @@ namespace snqxap
             gun[118].name = "EVO 3"; gun[118].what = 3; gun[118].crit = 0.05; gun[118].belt = 0; gun[118].number = 1; gun[118].effect0 = 4; gun[118].hitup = 0.55; gun[118].to = 2;
             gun[118].eatratio = 105; gun[118].ratiododge = 115; gun[118].ratiohit = 115; gun[118].ratiohp = 110; gun[118].ratiopow = 90; gun[118].ratiorate = 120;
             gun[118].type = 401; gun[118].probability = 20; gun[118].skilleffect1 = 1.6; gun[118].skilleffect2 = 2.5; gun[118].skilleffect3 = 0; gun[118].skilleffect4 = 0; gun[118].growth = 1.5; gun[118].growth_type = 2;
+
+            gun[119].name = "M1A1"; gun[119].what = 5; gun[119].crit = 0.4; gun[119].belt = 0; gun[119].number = 1; gun[119].effect0 = 6; gun[119].rateup = 0.2; gun[119].to = 4;
+            gun[119].eatratio = 115; gun[119].ratiododge = 130; gun[119].ratiohit = 105; gun[119].ratiohp = 95; gun[119].ratiopow = 90; gun[119].ratiorate = 115;
+            gun[119].type = 102; gun[119].probability = 36; gun[119].skilleffect1 = 30; gun[119].skilleffect2 = 8; gun[119].skilleffect3 = 0; gun[119].skilleffect4 = 0; gun[119].growth = 0.6; gun[119].growth_type = 3;
+
+          //  gun[121].name = "59式"; gun[121].what = 4; gun[121].crit = 0.2; gun[121].belt = 0; gun[121].number = 5; gun[121].effect0 = 2; gun[121].effect1 = 3; gun[121].effect2 = 6; gun[121].effect3 = 8; gun[121].effect4 = 9; gun[121].damageup = 0.15; gun[121].hitup = 0.3; gun[121].to = 1;
+         //   gun[121].eatratio = 130; gun[121].ratiododge = 120; gun[121].ratiohit = 115; gun[121].ratiohp = 90; gun[121].ratiopow = 95; gun[121].ratiorate = 110;
+         // gun[121].type = 234; gun[121].probability = 40; gun[121].skilleffect1 = 30; gun[121].skilleffect2 = 12; gun[121].skilleffect3 = 0; gun[121].skilleffect4 = 0; gun[121].growth = 0.8; gun[121].growth_type = 3;
+
+            gun[120].name = "63式"; gun[120].what = 2; gun[120].crit = 0.2; gun[120].belt = 0; gun[120].number = 1; gun[120].effect0 = 6; gun[120].damageup = 0.1; gun[120].shotspeedup = 0.2; gun[120].to = 3;
+            gun[120].eatratio = 100; gun[120].ratiododge = 100; gun[120].ratiohit = 100; gun[120].ratiohp = 100; gun[120].ratiopow = 120; gun[120].ratiorate = 110;
+            gun[120].type = 103; gun[120].probability = 32; gun[120].skilleffect1 = 200; gun[120].skilleffect2 = 8; gun[120].skilleffect3 = 0; gun[120].skilleffect4 = 0; gun[120].growth = 1.2; gun[120].growth_type = 3;
+
 
 
             for (int i = 0; i < GUN_NUMBER + 1; i++)//加颜色
@@ -870,7 +883,7 @@ namespace snqxap
             gun[61].eatratio = 115;
             gun[62].eatratio = 110;
             gun[63].eatratio = 110;
-            gun[64].eatratio = 115;
+            gun[64].eatratio = 120;
             gun[65].eatratio = 105;
             gun[66].eatratio = 115;
             gun[67].eatratio = 135;
@@ -897,14 +910,14 @@ namespace snqxap
             gun[88].eatratio = 135;
             gun[89].eatratio = 130;
             gun[90].eatratio = 95;
-            gun[91].eatratio = 90;
+            gun[91].eatratio = 95;
             gun[92].eatratio = 135;
             gun[93].eatratio = 90;
             gun[94].eatratio = 125;
             gun[95].eatratio = 115;
             gun[96].eatratio = 110;
             gun[97].eatratio = 120;
-            gun[98].eatratio = 100;
+            gun[98].eatratio = 115;
             gun[99].eatratio = 100;
             gun[100].eatratio = 115;
 
@@ -923,7 +936,7 @@ namespace snqxap
             gun[12].ratiohit = 110;
             gun[13].ratiohit = 100;
             gun[14].ratiohit = 115;
-            gun[15].ratiohit = 80;
+            gun[15].ratiohit = 95;
             gun[16].ratiohit = 100;
             gun[17].ratiohit = 85;
             gun[18].ratiohit = 90;
@@ -1001,11 +1014,11 @@ namespace snqxap
             gun[90].ratiohit = 85;
             gun[91].ratiohit = 115;
             gun[92].ratiohit = 125;
-            gun[93].ratiohit = 110;
+            gun[93].ratiohit = 120;
             gun[94].ratiohit = 105;
             gun[95].ratiohit = 95;
             gun[96].ratiohit = 95;
-            gun[97].ratiohit = 115;
+            gun[97].ratiohit = 125;
             gun[98].ratiohit = 115;
             gun[99].ratiohit = 110;
             gun[100].ratiohit = 120;
@@ -1015,7 +1028,7 @@ namespace snqxap
             gun[2].ratiopow = 95;
             gun[3].ratiopow = 115;
             gun[4].ratiopow = 85;
-            gun[5].ratiopow = 105;
+            gun[5].ratiopow = 110;
             gun[6].ratiopow = 90;
             gun[7].ratiopow = 90;
             gun[8].ratiopow = 95;
@@ -1023,7 +1036,7 @@ namespace snqxap
             gun[10].ratiopow = 115;
             gun[11].ratiopow = 100;
             gun[12].ratiopow = 130;
-            gun[13].ratiopow = 115;
+            gun[13].ratiopow = 120;
             gun[14].ratiopow = 115;
             gun[15].ratiopow = 125;
             gun[16].ratiopow = 105;
@@ -1047,7 +1060,7 @@ namespace snqxap
             gun[34].ratiopow = 110;
             gun[35].ratiopow = 110;
             gun[36].ratiopow = 105;
-            gun[37].ratiopow = 115;
+            gun[37].ratiopow = 120;
             gun[38].ratiopow = 120;
             gun[39].ratiopow = 100;
             gun[40].ratiopow = 115;
@@ -1130,7 +1143,7 @@ namespace snqxap
             gun[15].ratiododge = 85;
             gun[16].ratiododge = 90;
             gun[17].ratiododge = 95;
-            gun[18].ratiododge = 100;
+            gun[18].ratiododge = 110;
             gun[19].ratiododge = 120;
             gun[20].ratiododge = 95;
             gun[21].ratiododge = 125;
@@ -1186,7 +1199,7 @@ namespace snqxap
             gun[71].ratiododge = 90;
             gun[72].ratiododge = 85;
             gun[73].ratiododge = 85;
-            gun[74].ratiododge = 85;
+            gun[74].ratiododge = 90;
             gun[75].ratiododge = 95;
             gun[76].ratiododge = 85;
             gun[77].ratiododge = 85;
@@ -1231,7 +1244,7 @@ namespace snqxap
             gun[14].ratiohp = 95;
             gun[15].ratiohp = 115;
             gun[16].ratiohp = 105;
-            gun[17].ratiohp = 105;
+            gun[17].ratiohp = 110;
             gun[18].ratiohp = 100;
             gun[19].ratiohp = 105;
             gun[20].ratiohp = 125;
@@ -1300,7 +1313,7 @@ namespace snqxap
             gun[83].ratiohp = 120;
             gun[84].ratiohp = 95;
             gun[85].ratiohp = 120;
-            gun[86].ratiohp = 105;
+            gun[86].ratiohp = 110;
             gun[87].ratiohp = 115;
             gun[88].ratiohp = 105;
             gun[89].ratiohp = 100;
@@ -1310,7 +1323,7 @@ namespace snqxap
             gun[93].ratiohp = 110;
             gun[94].ratiohp = 85;
             gun[95].ratiohp = 100;
-            gun[96].ratiohp = 95;
+            gun[96].ratiohp = 100;
             gun[97].ratiohp = 105;
             gun[98].ratiohp = 90;
             gun[99].ratiohp = 105;
@@ -8695,7 +8708,10 @@ namespace snqxap
                             skilluphit[combo] *= 1 + (Math.Round(num1) / 100);
                             renewindex(combo);
                         }
-                        renewtime(combo, gun[index].skilleffect2);
+                        if (gun[index].belt != 0)
+                            renewtime(combo, gun[index].skilleffect2);
+                        else
+                            renewtime(combo, num2);
                         string read = "提升自身" + num1.ToString("f0") + "%命中";
                        renewread(combo, read);
                         return;
@@ -8842,6 +8858,21 @@ namespace snqxap
                         }
                         renewtime(combo, num2);
                         string read = "(夜)降低敌方" + num1.ToString("f0") + "%命中";
+                        renewread(combo, read);
+                        return;
+                    }
+                case 234:
+                    {
+                        if (ischecked)
+                        {
+                            skilldowndodge *= 1 - (Math.Round(num1) / 100);
+                            for (int i = 0; i < 9; i++)
+                            {
+                                renewindex(i);
+                            }
+                        }
+                        renewtime(combo, num2);
+                        string read = "(夜)降低敌方" + num1.ToString("f0") + "%回避";
                         renewread(combo, read);
                         return;
                     }
