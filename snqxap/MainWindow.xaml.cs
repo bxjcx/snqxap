@@ -31,11 +31,11 @@ namespace snqxap
         /// <summary>
         /// 枪娘总数
         /// </summary>
-        public const int GUN_NUMBER = 121; //59 122
+        public const int GUN_NUMBER = 122; 
         /// <summary>
         /// 装备总数
         /// </summary>
-        public const int EQUIP_NUMBER = 49;
+        public const int EQUIP_NUMBER = 39;
         /// <summary>
         /// 0-3 外骨骼 4-7 穿甲弹 8-11 高速弹 12-15 光学瞄具 16-19 全息 20-23 红点 24-27夜视 28五星穿甲 29五星夜视
         /// AR 全息/光喵/ACOG/夜视 高速弹 外骨 smg 外骨 空 全息/光喵/ACOG/夜视
@@ -285,7 +285,7 @@ namespace snqxap
             gun[38].name = "G3"; gun[38].what = 2; gun[38].crit = 0.2; gun[38].belt = 0; gun[38].number = 1; gun[38].effect0 = 8; gun[38].damageup = 0; gun[38].hitup = 0.5; gun[38].shotspeedup = 0.2; gun[38].critup = 0; gun[38].dodgeup = 0; gun[38].to = 3;
             gun[39].name = "F2000"; gun[39].what = 2; gun[39].crit = 0.2; gun[39].belt = 0; gun[39].number = 1; gun[39].effect0 = 6; gun[39].damageup = 0.2; gun[39].hitup = 0; gun[39].shotspeedup = 0; gun[39].critup = 0; gun[39].dodgeup = 0.1; gun[39].to = 3;
             gun[40].name = "FNC"; gun[40].what = 2; gun[40].crit = 0.2; gun[40].belt = 0; gun[40].number = 1; gun[40].effect0 = 9; gun[40].damageup = 0; gun[40].hitup = 0.5; gun[40].shotspeedup = 0; gun[40].critup = 0; gun[40].dodgeup = 0.12; gun[40].to = 3;
-            gun[41].name = "L85A1"; gun[41].what = 2; gun[41].crit = 0.2; gun[41].belt = 0; gun[41].number = 1; gun[41].effect0 = 2; gun[41].damageup = 0.2; gun[41].hitup = 0.5; gun[41].shotspeedup = 0; gun[41].critup = 0; gun[41].dodgeup = 0; gun[41].to = 3;
+            gun[41].name = "L85A1"; gun[41].what = 2; gun[41].crit = 0.2; gun[41].belt = 0; gun[41].number = 1; gun[41].effect0 = 8; gun[41].damageup = 0.2; gun[41].hitup = 0.5; gun[41].shotspeedup = 0; gun[41].critup = 0; gun[41].dodgeup = 0; gun[41].to = 3;
             gun[42].name = "9a91"; gun[42].what = 2;  gun[42].crit = 0.2; gun[42].belt = 0; gun[42].number = 2; gun[42].effect0 = 3; gun[42].effect1 = 9; gun[42].damageup = 0; gun[42].hitup = 0; gun[42].shotspeedup = 0.1; gun[42].critup = 0; gun[42].dodgeup = 0.15; gun[42].to = 3;
             gun[43].name = "AS Val"; gun[43].what = 2; gun[43].crit = 0.2; gun[43].belt = 0; gun[43].number = 1; gun[43].effect0 = 8; gun[43].damageup = 0.25; gun[43].hitup = 0; gun[43].shotspeedup = 0.1; gun[43].critup = 0; gun[43].dodgeup = 0; gun[43].to = 3;
             gun[44].name = "维尔德"; gun[44].what = 4; gun[44].crit = 0.2; gun[44].belt = 0; gun[44].number = 5; gun[44].effect0 = 1; gun[44].effect1 = 2; gun[44].effect2 = 4; gun[44].effect3 = 7;gun[44].effect4 = 8; gun[44].damageup = 0.18; gun[44].hitup = 0; gun[44].shotspeedup = 0.1; gun[44].critup = 0; gun[44].dodgeup = 0; gun[44].to = 1;
@@ -323,7 +323,7 @@ namespace snqxap
             gun[76].name = "SV-98"; gun[76].what = 5;gun[76].crit = 0.4; gun[76].belt = 0; gun[76].number = 1; gun[76].effect0 = 3; gun[76].rateup = 0.2; gun[76].damageup = 0; gun[76].hitup = 0; gun[76].shotspeedup = 0; gun[76].critup = 0; gun[76].dodgeup = 0; gun[76].to = 4;
             gun[77].name = "G43"; gun[77].what = 5; gun[77].crit = 0.4; gun[77].belt = 0; gun[77].number = 2; gun[77].effect0 = 3; gun[77].effect1 = 9; gun[77].rateup = 0.2; gun[77].damageup = 0; gun[77].hitup = 0; gun[77].shotspeedup = 0; gun[77].critup = 0; gun[77].dodgeup = 0; gun[77].to = 4;
             gun[78].name = "汉阳造88式"; gun[78].what = 5; gun[78].crit = 0.4; gun[78].belt = 0; gun[78].number = 1; gun[78].effect0 = 6; gun[78].rateup = 0.22; gun[78].damageup = 0; gun[78].hitup = 0; gun[78].shotspeedup = 0; gun[78].critup = 0; gun[78].dodgeup = 0; gun[78].to = 4;
-            gun[79].name = "Kar98k"; gun[79].what = 5;  gun[79].crit = 0.4; gun[79].belt = 0; gun[79].number = 2; gun[79].effect0 = 3; gun[79].effect1 = 9; gun[79].rateup = 0.25; gun[79].damageup = 0; gun[79].hitup = 0; gun[79].shotspeedup = 0; gun[79].critup = 0; gun[79].dodgeup = 0; gun[79].to = 4;
+            gun[79].name = "Kar98k"; gun[79].what = 5;  gun[79].crit = 0.4; gun[79].belt = 0; gun[79].number = 2; gun[79].effect0 = 3; gun[79].effect1 = 3; gun[79].rateup = 0.25; gun[79].damageup = 0; gun[79].hitup = 0; gun[79].shotspeedup = 0; gun[79].critup = 0; gun[79].dodgeup = 0; gun[79].to = 4;
             gun[80].name = "莫辛-纳甘"; gun[80].what = 5; gun[80].crit = 0.4; gun[80].belt = 0; gun[80].number = 1; gun[80].effect0 = 9; gun[80].rateup = 0.22; gun[80].damageup = 0; gun[80].hitup = 0; gun[80].shotspeedup = 0; gun[80].critup = 0; gun[80].dodgeup = 0; gun[80].to = 4;
             gun[81].name = "春田"; gun[81].what = 5; gun[81].crit = 0.4; gun[81].belt = 0; gun[81].number = 1; gun[81].effect0 = 3; gun[81].rateup = 0.22;  gun[81].damageup = 0; gun[81].hitup = 0; gun[81].shotspeedup = 0; gun[81].critup = 0; gun[81].dodgeup = 0; gun[81].to = 4;
             gun[82].name = "M60"; gun[82].what = 6; gun[82].crit = 0.05; gun[82].belt = 9; gun[82].number = 0; gun[82].damageup = 0; gun[82].hitup = 0; gun[82].shotspeedup = 0; gun[82].critup = 0; gun[82].dodgeup = 0; gun[82].to = 0;
@@ -422,13 +422,17 @@ namespace snqxap
             gun[119].eatratio = 115; gun[119].ratiododge = 130; gun[119].ratiohit = 105; gun[119].ratiohp = 95; gun[119].ratiopow = 90; gun[119].ratiorate = 115;
             gun[119].type = 102; gun[119].probability = 36; gun[119].skilleffect1 = 30; gun[119].skilleffect2 = 8; gun[119].skilleffect3 = 0; gun[119].skilleffect4 = 0; gun[119].growth = 0.6; gun[119].growth_type = 3;
 
-          //  gun[121].name = "59式"; gun[121].what = 4; gun[121].crit = 0.2; gun[121].belt = 0; gun[121].number = 5; gun[121].effect0 = 2; gun[121].effect1 = 3; gun[121].effect2 = 6; gun[121].effect3 = 8; gun[121].effect4 = 9; gun[121].damageup = 0.15; gun[121].hitup = 0.3; gun[121].to = 1;
-         //   gun[121].eatratio = 130; gun[121].ratiododge = 120; gun[121].ratiohit = 115; gun[121].ratiohp = 90; gun[121].ratiopow = 95; gun[121].ratiorate = 110;
-         // gun[121].type = 234; gun[121].probability = 40; gun[121].skilleffect1 = 30; gun[121].skilleffect2 = 12; gun[121].skilleffect3 = 0; gun[121].skilleffect4 = 0; gun[121].growth = 0.8; gun[121].growth_type = 3;
+            gun[121].name = "59式"; gun[121].what = 4; gun[121].crit = 0.2; gun[121].belt = 0; gun[121].number = 5; gun[121].effect0 = 2; gun[121].effect1 = 3; gun[121].effect2 = 6; gun[121].effect3 = 8; gun[121].effect4 = 9; gun[121].damageup = 0.15; gun[121].hitup = 0.3; gun[121].to = 1;
+            gun[121].eatratio = 130; gun[121].ratiododge = 120; gun[121].ratiohit = 115; gun[121].ratiohp = 90; gun[121].ratiopow = 95; gun[121].ratiorate = 110;
+            gun[121].type = 234; gun[121].probability = 40; gun[121].skilleffect1 = 30; gun[121].skilleffect2 = 12; gun[121].skilleffect3 = 0; gun[121].skilleffect4 = 0; gun[121].growth = 0.8; gun[121].growth_type = 3;
 
             gun[120].name = "63式"; gun[120].what = 2; gun[120].crit = 0.2; gun[120].belt = 0; gun[120].number = 1; gun[120].effect0 = 6; gun[120].damageup = 0.1; gun[120].shotspeedup = 0.2; gun[120].to = 3;
             gun[120].eatratio = 100; gun[120].ratiododge = 100; gun[120].ratiohit = 100; gun[120].ratiohp = 100; gun[120].ratiopow = 120; gun[120].ratiorate = 110;
             gun[120].type = 103; gun[120].probability = 32; gun[120].skilleffect1 = 200; gun[120].skilleffect2 = 8; gun[120].skilleffect3 = 0; gun[120].skilleffect4 = 0; gun[120].growth = 1.2; gun[120].growth_type = 3;
+
+         //   gun[122].name = "AR70"; gun[122].what = 2; gun[122].crit = 0.2; gun[122].belt = 0; gun[122].number = 1; gun[122].effect0 = 9; gun[122].shotspeedup = 0.16; gun[122].hitup = 0.75; gun[122].to = 3;
+        //    gun[122].eatratio = 120; gun[122].ratiododge = 100; gun[122].ratiohit = 105; gun[122].ratiohp = 100; gun[122].ratiopow = 110; gun[122].ratiorate = 105;
+         //   gun[122].type = 601; gun[122].probability = 22; gun[122].skilleffect1 = 2.2; gun[122].skilleffect2 = 1; gun[122].skilleffect3 = 0; gun[122].skilleffect4 = 0; gun[122].growth = 1.5; gun[122].growth_type = 2;
 
 
 
@@ -819,6 +823,87 @@ namespace snqxap
             SkillLevel6.SelectedIndex = 9;
             SkillLevel7.SelectedIndex = 9;
             SkillLevel8.SelectedIndex = 9;
+            equiptb011.IsEnabled = false;
+            equiptb012.IsEnabled = false;
+            equiptb013.IsEnabled = false;
+            equiptb021.IsEnabled = false;
+            equiptb022.IsEnabled = false;
+            equiptb023.IsEnabled = false;
+            equiptb031.IsEnabled = false;
+            equiptb032.IsEnabled = false;
+            equiptb033.IsEnabled = false;
+            equiptb111.IsEnabled = false;
+            equiptb112.IsEnabled = false;
+            equiptb113.IsEnabled = false;
+            equiptb121.IsEnabled = false;
+            equiptb122.IsEnabled = false;
+            equiptb123.IsEnabled = false;
+            equiptb131.IsEnabled = false;
+            equiptb132.IsEnabled = false;
+            equiptb133.IsEnabled = false;
+            equiptb211.IsEnabled = false;
+            equiptb212.IsEnabled = false;
+            equiptb213.IsEnabled = false;
+            equiptb221.IsEnabled = false;
+            equiptb222.IsEnabled = false;
+            equiptb223.IsEnabled = false;
+            equiptb231.IsEnabled = false;
+            equiptb232.IsEnabled = false;
+            equiptb233.IsEnabled = false;
+            equiptb311.IsEnabled = false;
+            equiptb312.IsEnabled = false;
+            equiptb313.IsEnabled = false;
+            equiptb321.IsEnabled = false;
+            equiptb322.IsEnabled = false;
+            equiptb323.IsEnabled = false;
+            equiptb331.IsEnabled = false;
+            equiptb332.IsEnabled = false;
+            equiptb333.IsEnabled = false;
+            equiptb411.IsEnabled = false;
+            equiptb412.IsEnabled = false;
+            equiptb413.IsEnabled = false;
+            equiptb421.IsEnabled = false;
+            equiptb422.IsEnabled = false;
+            equiptb423.IsEnabled = false;
+            equiptb431.IsEnabled = false;
+            equiptb432.IsEnabled = false;
+            equiptb433.IsEnabled = false;
+            equiptb511.IsEnabled = false;
+            equiptb512.IsEnabled = false;
+            equiptb513.IsEnabled = false;
+            equiptb521.IsEnabled = false;
+            equiptb522.IsEnabled = false;
+            equiptb523.IsEnabled = false;
+            equiptb531.IsEnabled = false;
+            equiptb532.IsEnabled = false;
+            equiptb533.IsEnabled = false;
+            equiptb611.IsEnabled = false;
+            equiptb612.IsEnabled = false;
+            equiptb613.IsEnabled = false;
+            equiptb621.IsEnabled = false;
+            equiptb622.IsEnabled = false;
+            equiptb623.IsEnabled = false;
+            equiptb631.IsEnabled = false;
+            equiptb632.IsEnabled = false;
+            equiptb633.IsEnabled = false;
+            equiptb711.IsEnabled = false;
+            equiptb712.IsEnabled = false;
+            equiptb713.IsEnabled = false;
+            equiptb721.IsEnabled = false;
+            equiptb722.IsEnabled = false;
+            equiptb723.IsEnabled = false;
+            equiptb731.IsEnabled = false;
+            equiptb732.IsEnabled = false;
+            equiptb733.IsEnabled = false;
+            equiptb811.IsEnabled = false;
+            equiptb812.IsEnabled = false;
+            equiptb813.IsEnabled = false;
+            equiptb821.IsEnabled = false;
+            equiptb822.IsEnabled = false;
+            equiptb823.IsEnabled = false;
+            equiptb831.IsEnabled = false;
+            equiptb832.IsEnabled = false;
+            equiptb833.IsEnabled = false;
             gun[0].eatratio = 105;
             gun[1].eatratio = 125;
             gun[2].eatratio = 110;
@@ -2246,58 +2331,88 @@ namespace snqxap
 
             for (int i = 0; i < EQUIP_NUMBER; i++)
                 equip[i] = new Equip();
-            equip[0].name = "IOP T1外骨骼"; equip[0].dodge = 8; equip[0].damage = -1; equip[0].type = 10; equip[0].tooltip = "回避+8,伤害-1"; equip[0].rank = 2;
-            equip[1].name = "IOP T2外骨骼"; equip[1].dodge = 12; equip[1].damage = -3; equip[1].type = 10; equip[1].tooltip = "回避+12,伤害-3"; equip[1].rank = 3;
-            equip[2].name = "IOP T3外骨骼"; equip[2].dodge = 16; equip[2].damage = -5; equip[2].type = 10; equip[2].tooltip = "回避+16,伤害-5"; equip[2].rank = 4;
-            equip[3].name = "（顶配）IOP T4外骨骼"; equip[3].dodge = 25; equip[3].damage = -6; equip[3].type = 10; equip[3].tooltip = "回避+25,伤害-6"; equip[3].rank = 5;
-            equip[4].name = "（常值）IOP T4外骨骼"; equip[4].dodge = 21; equip[4].damage = -7; equip[4].type = 10; equip[4].tooltip = "回避+21,伤害-7"; equip[4].rank = 5;
-            equip[5].name = "M61穿甲弹"; equip[5].breakarmor = 35; equip[5].type = 5; equip[5].tooltip = "穿甲+35"; equip[5].rank = 2;
-            equip[6].name = "M993穿甲弹"; equip[6].breakarmor = 50; equip[6].type = 5; equip[6].tooltip = "穿甲+50"; equip[6].rank = 3;
-            equip[7].name = "Mk169穿甲弹"; equip[7].breakarmor = 65; equip[7].type = 5; equip[7].tooltip = "穿甲+65"; equip[7].rank = 4;
-            equip[8].name = "（顶配）Mk211高爆穿甲弹"; equip[8].breakarmor = 80; equip[8].type = 5; equip[8].tooltip = "穿甲+80"; equip[8].rank = 5;
-            equip[9].name = "（常值）Mk211高爆穿甲弹"; equip[9].breakarmor = 80; equip[9].type = 5; equip[9].tooltip = "穿甲+74";equip[9].rank = 5;
-            equip[10].name = "JHP高速弹"; equip[10].damage = 1; equip[10].type = 8; equip[10].tooltip = "伤害+1"; equip[10].rank = 2;
-            equip[11].name = "三星FMJ高速弹"; equip[11].damage = 2; equip[11].type = 8; equip[11].tooltip = "伤害+2"; equip[11].rank = 3;
-            equip[12].name = "四星FMJ高速弹"; equip[12].damage = 4; equip[12].type = 8; equip[12].tooltip = "伤害+4"; equip[12].rank = 4;
-            equip[13].name = "（顶配）HVAP高速弹"; equip[13].damage = 8; equip[13].type = 8; equip[13].tooltip = "伤害+8"; equip[13].rank = 5;
-            equip[14].name = "（常值）HVAP高速弹"; equip[14].damage = 6; equip[14].type = 8; equip[14].tooltip = "伤害+6"; equip[14].rank = 5;
-            equip[15].name = "光瞄 - BM 3-12X40"; equip[15].critup = 0.08; equip[15].type = 1; equip[15].tooltip = "暴击率+8%"; equip[15].rank = 2;
-            equip[16].name = "光瞄 - LRA 2-12X50"; equip[16].critup = 0.12; equip[16].type = 1; equip[16].tooltip = "暴击率+12%"; equip[16].rank = 3;
-            equip[17].name = "光瞄 - PSO-1"; equip[17].critup = 0.16; equip[17].type = 1; equip[17].tooltip = "暴击率+16%"; equip[17].rank = 4;
-            equip[18].name = "（顶配）光瞄 - VFL 6-24X56"; equip[18].critup = 0.24; equip[18].type = 1; equip[18].tooltip = "暴击率+24%"; equip[18].rank = 5;
-            equip[19].name = "（常值）光瞄 - VFL 6-24X56"; equip[19].critup = 0.2; equip[19].type = 1; equip[19].tooltip = "暴击率+20%";equip[19].rank = 5;
-            equip[20].name = "全息 - EOT 506"; equip[20].hit = 1; equip[20].damage = 1; equip[20].shotspeed = -1; equip[20].type = 2; equip[20].tooltip = "命中+1,伤害+1,射速-1"; equip[20].rank = 2;
-            equip[21].name = "全息 - EOT 512"; equip[21].hit = 2; equip[21].damage = 2; equip[21].shotspeed = -2; equip[21].type = 2; equip[21].tooltip = "命中+2,伤害+2,射速-2"; equip[21].rank = 3;
-            equip[22].name = "全息 - EOT 516"; equip[22].hit = 5; equip[22].damage = 3; equip[22].shotspeed = -3; equip[22].type = 2; equip[22].tooltip = "命中+5,伤害+3,射速-3"; equip[22].rank = 4;
-            equip[23].name = "（顶配）全息 - EOT 518"; equip[23].hit = 10; equip[23].damage = 6; equip[23].shotspeed = -4; equip[23].type = 2; equip[23].tooltip = "命中+10,伤害+6,射速-4"; equip[23].rank = 5;
-            equip[24].name = "（常值）全息 - EOT 518"; equip[24].hit = 8; equip[24].damage = 5; equip[24].shotspeed = -5; equip[24].type = 2; equip[24].tooltip = "命中+8,伤害+5,射速-5"; equip[24].rank = 5;
-            equip[25].name = "ACOG - AMP COMPM2"; equip[25].hit = 3; equip[25].shotspeed = -1; equip[25].type = 3; equip[25].tooltip = "命中+3,射速-1"; equip[25].rank = 2;
-            equip[26].name = "ACOG - AMP COMPM4"; equip[26].hit = 6; equip[26].shotspeed = -1; equip[26].type = 3; equip[26].tooltip = "命中+6,射速-1"; equip[26].rank = 3;
-            equip[27].name = "ACOG - COG M150"; equip[27].hit = 10; equip[27].shotspeed = -1; equip[27].type = 3; equip[27].tooltip = "命中+10,射速-1"; equip[27].rank = 4;
-            equip[28].name = "（顶配）ACOG - ITI MARS"; equip[28].hit = 15; equip[28].shotspeed = -1; equip[28].type = 3; equip[28].tooltip = "命中+15,射速-1"; equip[28].rank = 5;
-            equip[29].name = "（常值）ACOG - ITI MARS"; equip[29].hit = 12; equip[29].shotspeed = -2; equip[29].type = 3; equip[29].tooltip = "命中+12,射速-2"; equip[29].rank = 5;
-            equip[31].name = "夜视 - PEQ-2"; equip[31].nightsee = 55; equip[31].type = 4; equip[31].tooltip = "夜战命中抵消55%"; equip[31].rank = 2;
-            equip[32].name = "夜视 - PEQ-5"; equip[32].nightsee = 70; equip[32].type = 4; equip[32].tooltip = "夜战命中抵消70%"; equip[32].rank = 3;
-            equip[33].name = "夜视 - PEQ-15"; equip[33].nightsee = 85; equip[33].type = 4; equip[33].tooltip = "夜战命中抵消85%"; equip[33].rank = 4;
-            equip[34].name = "（顶配）夜视 - PEQ-16A"; equip[34].nightsee = 100; equip[34].type = 4; equip[34].tooltip = "夜战命中抵消100%"; equip[34].rank = 5;
-            equip[35].name = "（常值）夜视 - PEQ-16A"; equip[35].nightsee = 93; equip[35].type = 4; equip[35].tooltip = "夜战命中抵消93%"; equip[35].rank = 5;
-            equip[36].name = "16Lab次口径穿甲弹"; equip[36].breakarmor = 80; equip[36].type = 5; equip[36].tooltip = "穿甲+80"; equip[36].rank = 5;
-            equip[37].name = "16Lab红外指示器"; equip[37].nightsee = 100; equip[37].type = 4; equip[37].tooltip = "夜战命中抵消100%"; equip[37].rank = 5;
+            equip[0].name = "IOP T1外骨骼"; equip[0].property1 = "回避"; equip[0].down1 = 6; equip[0].up1 = 8; equip[0].property2 = "伤害"; equip[0].down2 = -2; equip[0].up2 = -1; equip[0].type = 10; equip[0].rank = 2;
+            equip[1].name = "IOP T2外骨骼"; equip[1].property1 = "回避"; equip[1].down1 = 10; equip[1].up1 = 12; equip[1].property2 = "伤害"; equip[1].down2 = -4; equip[1].up2 = -3; equip[1].type = 10; equip[1].rank = 3;
+            equip[2].name = "IOP T3外骨骼"; equip[2].property1 = "回避"; equip[2].down1 = 14; equip[2].up1 = 16; equip[2].property2 = "伤害"; equip[2].down2 = -6; equip[2].up2 = -5; equip[2].type = 10; equip[2].rank = 4;
+            equip[3].name = "IOP T4外骨骼"; equip[3].property1 = "回避"; equip[3].down1 = 20; equip[3].up1 = 25; equip[3].property2 = "伤害"; equip[3].down2 = -8; equip[3].up2 = -7; equip[3].type = 10; equip[3].rank = 5;
+            equip[4].name = "M61穿甲弹"; equip[4].property1 = "穿甲"; equip[4].down1 = 25; equip[4].up1 = 35; equip[4].type = 5; equip[4].rank = 2;
+            equip[5].name = "M993穿甲弹"; equip[5].property1 = "穿甲"; equip[5].down1 = 40; equip[5].up1 = 50; equip[5].type = 5; equip[5].rank = 3;
+            equip[6].name = "Mk169穿甲弹"; equip[6].property1 = "穿甲"; equip[6].down1 = 55; equip[6].up1 = 65; equip[6].type = 5; equip[6].rank = 4;
+            equip[7].name = "Mk211高爆穿甲弹"; equip[7].property1 = "穿甲"; equip[7].down1 = 70; equip[7].up1 = 80; equip[7].type = 5; equip[7].rank = 5;
+            equip[8].name = "JHP高速弹"; equip[8].property1 = "伤害"; equip[8].down1 = 1; equip[8].up1 = 1; equip[8].type = 8; equip[8].rank = 2;
+            equip[9].name = "三星FMJ高速弹"; equip[9].property1 = "伤害"; equip[9].down1 = 2; equip[9].up1 = 2; equip[9].type = 8; equip[9].rank = 3;
+            equip[10].name = "四星FMJ高速弹"; equip[10].property1 = "伤害"; equip[10].down1 = 3; equip[10].up1 = 4; equip[10].type = 8; equip[10].rank = 4;
+            equip[11].name = "HVAP高速弹"; equip[11].property1 = "伤害"; equip[11].down1 = 5; equip[11].up1 = 8; equip[11].type = 8; equip[11].rank = 5;
+            equip[12].name = "光瞄 - BM 3-12X40"; equip[12].property1 = "暴击率"; equip[12].down1 = 0.05; equip[12].up1 = 0.08; equip[12].type = 1; equip[12].rank = 2;
+            equip[13].name = "光瞄 - LRA 2-12X50"; equip[13].property1 = "暴击率"; equip[13].down1 = 0.09; equip[13].up1 = 0.12; equip[13].type = 1; equip[13].rank = 3;
+            equip[14].name = "光瞄 - PSO-1"; equip[14].property1 = "暴击率"; equip[14].down1 = 0.13; equip[14].up1 = 0.16; equip[14].type = 1; equip[14].rank = 4;
+            equip[15].name = "光瞄 - VFL 6-24X56"; equip[15].property1 = "暴击率"; equip[15].down1 = 0.17; equip[15].up1 = 0.24; equip[15].type = 1; equip[15].rank = 5;
+            equip[16].name = "全息 - EOT 506"; equip[16].property1 = "命中"; equip[16].down1 = 1; equip[16].up1 = 1; equip[16].property2 = "伤害"; equip[16].down2 = 1; equip[16].up2 = 1; equip[16].property3 = "射速"; equip[16].down3 = -1; equip[16].up3 = -1; equip[16].type = 2; equip[16].rank = 2;
+            equip[17].name = "全息 - EOT 512"; equip[17].property1 = "命中"; equip[17].down1 = 2; equip[17].up1 = 2; equip[17].property2 = "伤害"; equip[17].down2 = 1; equip[17].up2 = 2; equip[17].property3 = "射速"; equip[17].down3 = -2; equip[17].up3 = -2; equip[17].type = 2; equip[17].rank = 3;
+            equip[18].name = "全息 - EOT 516"; equip[18].property1 = "命中"; equip[18].down1 = 3; equip[18].up1 = 5; equip[18].property2 = "伤害"; equip[18].down2 = 2; equip[18].up2 = 3; equip[18].property3 = "射速"; equip[18].down3 = -4; equip[18].up3 = -3; equip[18].type = 2; equip[18].rank = 4;
+            equip[19].name = "全息 - EOT 518"; equip[19].property1 = "命中"; equip[19].down1 = 6; equip[19].up1 = 10; equip[19].property2 = "伤害"; equip[19].down2 = 4; equip[19].up2 = 6; equip[19].property3 = "射速"; equip[19].down3 = -6; equip[19].up3 = -4; equip[19].type = 2; equip[19].rank = 5;
+            equip[20].name = "ACOG - AMP COMPM2"; equip[20].property1 = "命中"; equip[20].down1 = 2; equip[20].up1 = 3; equip[20].property2 = "射速"; equip[20].down2 = -1; equip[20].up2 = -1; equip[20].type = 3; equip[20].rank = 2;
+            equip[21].name = "ACOG - AMP COMPM4"; equip[21].property1 = "命中"; equip[21].down1 = 4; equip[21].up1 = 6; equip[21].property2 = "射速"; equip[21].down2 = -2; equip[21].up2 = -1; equip[21].type = 3; equip[21].rank = 3;
+            equip[22].name = "ACOG - COG M150"; equip[22].property1 = "命中"; equip[22].down1 = 7; equip[22].up1 = 10; equip[22].property2 = "射速"; equip[22].down2 = -3; equip[22].up2 = -1; equip[22].type = 3; equip[27].rank = 4;
+            equip[23].name = "ACOG - ITI MARS"; equip[23].property1 = "命中"; equip[23].down1 = 11; equip[23].up1 = 15; equip[23].property2 = "射速"; equip[23].down2 = -4; equip[23].up2 = -1; equip[23].type = 3; equip[28].rank = 5;
+            equip[24].name = "夜视 - PEQ-2"; equip[24].property1 = "夜视抵消"; equip[24].down1 = 51; equip[24].up1 = 55; equip[24].type = 4; equip[24].rank = 2;
+            equip[25].name = "夜视 - PEQ-5"; equip[25].property1 = "夜视抵消"; equip[25].down1 = 61; equip[25].up1 = 70; equip[25].type = 4; equip[25].rank = 3;
+            equip[26].name = "夜视 - PEQ-15"; equip[26].property1 = "夜视抵消"; equip[26].down1 = 76; equip[26].up1 = 85; equip[26].type = 4; equip[26].rank = 4;
+            equip[27].name = "夜视 - PEQ-16A"; equip[27].property1 = "夜视抵消"; equip[27].down1 = 91; equip[27].up1 = 100; equip[27].type = 4; equip[27].rank = 5;
+            equip[28].name = "16Lab次口径穿甲弹"; equip[28].property1 = "穿甲"; equip[28].down1 = 80; equip[28].up1 = 80; equip[28].type = 5; equip[28].rank = 5;
+            equip[29].name = "16Lab红外指示器"; equip[29].property1 = "夜视抵消"; equip[29].down1 = 100; equip[29].up1 = 100; equip[29].type = 4; equip[29].rank = 5;
             equip[30].name = " "; equip[30].type = 13; equip[30].rank = 2;
-            equip[38].name = "IOP X1外骨骼"; equip[38].dodge = 3; equip[38].damage = 0; equip[38].type = 10; equip[38].tooltip = "回避+3"; equip[38].rank = 2;
-            equip[39].name = "IOP X2外骨骼"; equip[39].dodge = 5; equip[39].damage = 0; equip[39].type = 10; equip[39].tooltip = "回避+5"; equip[39].rank = 3;
-            equip[40].name = "IOP X3外骨骼"; equip[40].dodge = 7; equip[40].damage = 0; equip[40].type = 10; equip[40].tooltip = "回避+7"; equip[40].rank = 4;
-            equip[41].name = "（顶配）IOP X4外骨骼"; equip[41].dodge = 12; equip[41].damage = 0; equip[41].type = 10; equip[41].tooltip = "回避+12"; equip[41].rank = 5;
-            equip[42].name = "（常值）IOP X4外骨骼"; equip[42].dodge = 10; equip[42].damage = 0; equip[42].type = 10; equip[42].tooltip = "回避+10"; equip[42].rank = 5;
-            equip[43].name = "（顶配）国家竞赛穿甲弹"; equip[43].shotspeed = 8; equip[43].breakarmor = 85; equip[43].type = 5; equip[43].tooltip = "射速+8,穿甲+85"; equip[43].rank = 5; equip[43].forwhat = 81;
-            equip[44].name = "（常值）国家竞赛穿甲弹"; equip[44].shotspeed = 3; equip[44].breakarmor = 80; equip[44].type = 5; equip[44].tooltip = "射速+3,穿甲+80"; equip[44].rank = 5; equip[44].forwhat = 81;
-            equip[45].name = "（顶配）.300BLK高速弹"; equip[45].damage = 12; equip[45].hit = -1; equip[45].type = 8; equip[45].tooltip = "伤害+12,命中-1"; equip[45].rank = 5; equip[45].forwhat = 29;
-            equip[46].name = "（常值）.300BLK高速弹"; equip[46].damage = 10; equip[46].hit = -3; equip[46].type = 8; equip[46].tooltip = "伤害+10,命中-3"; equip[46].rank = 5; equip[46].forwhat = 29;
-            equip[47].name = "（顶配）Titan火控芯片"; equip[47].damage = -2; equip[47].shotspeed = -1; equip[47].belt = 2; equip[47].type = 9; equip[47].tooltip = "伤害-2,射速-1,弹链+2"; equip[47].rank = 5; equip[47].forwhat = 84;
-            equip[48].name = "（常值）Titan火控芯片"; equip[48].damage = -3; equip[48].shotspeed = -3; equip[48].belt = 1; equip[48].type = 9; equip[48].tooltip = "伤害-3,射速-3,弹链+1"; equip[48].rank = 5; equip[48].forwhat = 84;
-                 
+            equip[31].name = "IOP X1外骨骼"; equip[31].property1 = "回避"; equip[31].down1 = 2; equip[31].up1 = 3; equip[31].type = 10; equip[31].rank = 2;
+            equip[32].name = "IOP X2外骨骼"; equip[32].property1 = "回避"; equip[32].down1 = 4; equip[32].up1 = 5; equip[32].type = 10; equip[32].rank = 3;
+            equip[33].name = "IOP X3外骨骼"; equip[33].property1 = "回避"; equip[33].down1 = 6; equip[33].up1 = 7; equip[33].type = 10; equip[33].rank = 4;
+            equip[34].name = "IOP X4外骨骼"; equip[34].property1 = "回避"; equip[34].down1 = 8; equip[34].up1 = 12; equip[34].type = 10; equip[34].rank = 5;
+            equip[35].name = "国家竞赛穿甲弹"; equip[35].property1 = "射速"; equip[35].down1 = 1; equip[35].up1 = 8; equip[35].property2 = "穿甲"; equip[35].down2 = 75; equip[35].up2 = 85; equip[35].type = 5; equip[35].rank = 5; equip[35].forwhat = 81;
+            equip[36].name = ".300BLK高速弹"; equip[36].property1 = "伤害"; equip[36].down1 = 8; equip[36].up1 = 12; equip[36].property2 = "命中"; equip[36].down2 = -5; equip[36].up2 = -1; equip[36].type = 8; equip[36].rank = 5; equip[36].forwhat = 29;
+            equip[37].name = "Titan火控芯片"; equip[37].property1 = "伤害"; equip[37].down1 = -4; equip[37].up1 = -2; equip[37].property2 = "射速"; equip[37].down2 = -8; equip[37].up2 = -1; equip[37].property3 = "弹链"; equip[37].down3 = 1; equip[37].up3 = 2; equip[37].type = 9; equip[37].rank = 5; equip[37].forwhat = 84;
+            equip[38].name = "GSG UX外骨骼"; equip[38].property1 = "伤害"; equip[38].down1 = -10; equip[38].up1 = -6; equip[38].property2 = "回避"; equip[38].down2 = 30; equip[38].up2 = 45; equip[38].type = 10; equip[38].rank = 5; equip[38].forwhat = 14;
 
-            gridlist[0].Add(buffGrid01); gridlist[0].Add(buffGrid02); gridlist[0].Add(buffGrid03); gridlist[0].Add(buffGrid04); gridlist[0].Add(buffGrid05); gridlist[0].Add(buffGrid06); gridlist[0].Add(buffGrid07); gridlist[0].Add(buffGrid08); gridlist[0].Add(buffGrid09);
+            for (int i = 0; i < EQUIP_NUMBER;i++ )
+            {
+                if (!String.IsNullOrEmpty(equip[i].property1))
+                {
+                    equip[i].tooltip += equip[i].property1;
+                    if(equip[i].down1 > 0)
+                        equip[i].tooltip += "+";
+                    equip[i].tooltip += equip[i].down1;
+                    if(equip[i].property1=="夜视抵消")
+                        equip[i].tooltip += "%";
+                    equip[i].tooltip += " 至 ";
+                    if (equip[i].up1 > 0)
+                        equip[i].tooltip += "+";
+                    equip[i].tooltip +=equip[i].up1;
+                    if (equip[i].property1 == "夜视抵消")
+                        equip[i].tooltip += "%";         
+                }
+                if(!String.IsNullOrEmpty(equip[i].property2))
+                {
+                    equip[i].tooltip +=" "+ equip[i].property2;
+                    if (equip[i].down2 > 0)
+                        equip[i].tooltip += "+";
+                    equip[i].tooltip += equip[i].down2;
+                    equip[i].tooltip += " 至 ";
+                    if (equip[i].up2 > 0)
+                        equip[i].tooltip += "+";
+                    equip[i].tooltip += equip[i].up2;
+                }
+                if(!String.IsNullOrEmpty(equip[i].property3))
+                {
+                    equip[i].tooltip += " " + equip[i].property3;
+                    if (equip[i].down3 > 0)
+                        equip[i].tooltip += "+";
+                    equip[i].tooltip += equip[i].down3;
+                    equip[i].tooltip += " 至 ";
+                    if (equip[i].up3 > 0)
+                        equip[i].tooltip += "+";
+                    equip[i].tooltip += equip[i].up3;
+                }             
+            }
+
+                gridlist[0].Add(buffGrid01); gridlist[0].Add(buffGrid02); gridlist[0].Add(buffGrid03); gridlist[0].Add(buffGrid04); gridlist[0].Add(buffGrid05); gridlist[0].Add(buffGrid06); gridlist[0].Add(buffGrid07); gridlist[0].Add(buffGrid08); gridlist[0].Add(buffGrid09);
             gridlist[1].Add(buffGrid11); gridlist[1].Add(buffGrid12); gridlist[1].Add(buffGrid13); gridlist[1].Add(buffGrid14); gridlist[1].Add(buffGrid15); gridlist[1].Add(buffGrid16); gridlist[1].Add(buffGrid17); gridlist[1].Add(buffGrid18); gridlist[1].Add(buffGrid19);
             gridlist[2].Add(buffGrid21); gridlist[2].Add(buffGrid22); gridlist[2].Add(buffGrid23); gridlist[2].Add(buffGrid24); gridlist[2].Add(buffGrid25); gridlist[2].Add(buffGrid26); gridlist[2].Add(buffGrid27); gridlist[2].Add(buffGrid28); gridlist[2].Add(buffGrid29);
             gridlist[3].Add(buffGrid31); gridlist[3].Add(buffGrid32); gridlist[3].Add(buffGrid33); gridlist[3].Add(buffGrid34); gridlist[3].Add(buffGrid35); gridlist[3].Add(buffGrid36); gridlist[3].Add(buffGrid37); gridlist[3].Add(buffGrid38); gridlist[3].Add(buffGrid39);
@@ -2803,17 +2918,18 @@ namespace snqxap
        /// <returns></returns>
         public double Index(double shotspeed,double damage,double crit,double enemydodge,double hit,int belt,int combo,double damageagain)
        {
+           double frame = Math.Ceiling(50 / shotspeed * 30);
             if (hit == 0)
                 return 0;
             else if (belt == 0)
-                return shotspeed * damage / 50 * (1 - crit + crit * 1.5) / (1 + enemydodge / hit) * damageagain;
+                return 30 * damage / frame * (1 - crit + crit * 1.5) / (1 + enemydodge / hit) * damageagain;
             else
             {
                 
                 if(slider.Value!=0)
                 {
-                    double shottime = (double)belt * 0.4;
-                    double roletime = (double)belt * 0.4 + 4 + 200 / shotspeed;
+                    double shottime = (double)belt / 3;
+                    double roletime = (double)belt / 3 + 4 + 200 / shotspeed;
                     double shotdamage = belt * damage * (1 - crit + crit * 1.5) / (1 + enemydodge / hit);
                     if (slider.Value < shottime)
                         return (shotdamage / shottime);
@@ -5119,14 +5235,23 @@ namespace snqxap
         public bool IsNumber(String strNumber)
         {
             Regex objNotNumberPattern = new Regex("[^0-9.-]");
+
             Regex objTwoDotPattern = new Regex("[0-9]*[.][0-9]*[.][0-9]*");
+
             Regex objTwoMinusPattern = new Regex("[0-9]*[-][0-9]*[-][0-9]*");
-            String strValidRealPattern = "^([.]|[0-9])[0-9]*[.]*[0-9]+$";
-            String strValidIntegerPattern = "^([0-9])[0-9]*$";
+
+            String strValidRealPattern = "^([-]|[.]|[-.]|[0-9])[0-9]*[.]*[0-9]+$";
+
+            String strValidIntegerPattern = "^([-]|[0-9])[0-9]*$";
+
             Regex objNumberPattern = new Regex("(" + strValidRealPattern + ")|(" + strValidIntegerPattern + ")");
+
             return !objNotNumberPattern.IsMatch(strNumber) &&
+
                    !objTwoDotPattern.IsMatch(strNumber) &&
+
                    !objTwoMinusPattern.IsMatch(strNumber) &&
+
                    objNumberPattern.IsMatch(strNumber);
         }
         /// <summary>
@@ -5630,6 +5755,171 @@ namespace snqxap
             SkillLevel6.SelectedIndex = 9;
             SkillLevel7.SelectedIndex = 9;
             SkillLevel8.SelectedIndex = 9;
+
+            equiptb011.IsEnabled = false;
+            equiptb012.IsEnabled = false;
+            equiptb013.IsEnabled = false;
+            equiptb021.IsEnabled = false;
+            equiptb022.IsEnabled = false;
+            equiptb023.IsEnabled = false;
+            equiptb031.IsEnabled = false;
+            equiptb032.IsEnabled = false;
+            equiptb033.IsEnabled = false;
+            equiptb111.IsEnabled = false;
+            equiptb112.IsEnabled = false;
+            equiptb113.IsEnabled = false;
+            equiptb121.IsEnabled = false;
+            equiptb122.IsEnabled = false;
+            equiptb123.IsEnabled = false;
+            equiptb131.IsEnabled = false;
+            equiptb132.IsEnabled = false;
+            equiptb133.IsEnabled = false;
+            equiptb211.IsEnabled = false;
+            equiptb212.IsEnabled = false;
+            equiptb213.IsEnabled = false;
+            equiptb221.IsEnabled = false;
+            equiptb222.IsEnabled = false;
+            equiptb223.IsEnabled = false;
+            equiptb231.IsEnabled = false;
+            equiptb232.IsEnabled = false;
+            equiptb233.IsEnabled = false;
+            equiptb311.IsEnabled = false;
+            equiptb312.IsEnabled = false;
+            equiptb313.IsEnabled = false;
+            equiptb321.IsEnabled = false;
+            equiptb322.IsEnabled = false;
+            equiptb323.IsEnabled = false;
+            equiptb331.IsEnabled = false;
+            equiptb332.IsEnabled = false;
+            equiptb333.IsEnabled = false;
+            equiptb411.IsEnabled = false;
+            equiptb412.IsEnabled = false;
+            equiptb413.IsEnabled = false;
+            equiptb421.IsEnabled = false;
+            equiptb422.IsEnabled = false;
+            equiptb423.IsEnabled = false;
+            equiptb431.IsEnabled = false;
+            equiptb432.IsEnabled = false;
+            equiptb433.IsEnabled = false;
+            equiptb511.IsEnabled = false;
+            equiptb512.IsEnabled = false;
+            equiptb513.IsEnabled = false;
+            equiptb521.IsEnabled = false;
+            equiptb522.IsEnabled = false;
+            equiptb523.IsEnabled = false;
+            equiptb531.IsEnabled = false;
+            equiptb532.IsEnabled = false;
+            equiptb533.IsEnabled = false;
+            equiptb611.IsEnabled = false;
+            equiptb612.IsEnabled = false;
+            equiptb613.IsEnabled = false;
+            equiptb621.IsEnabled = false;
+            equiptb622.IsEnabled = false;
+            equiptb623.IsEnabled = false;
+            equiptb631.IsEnabled = false;
+            equiptb632.IsEnabled = false;
+            equiptb633.IsEnabled = false;
+            equiptb711.IsEnabled = false;
+            equiptb712.IsEnabled = false;
+            equiptb713.IsEnabled = false;
+            equiptb721.IsEnabled = false;
+            equiptb722.IsEnabled = false;
+            equiptb723.IsEnabled = false;
+            equiptb731.IsEnabled = false;
+            equiptb732.IsEnabled = false;
+            equiptb733.IsEnabled = false;
+            equiptb811.IsEnabled = false;
+            equiptb812.IsEnabled = false;
+            equiptb813.IsEnabled = false;
+            equiptb821.IsEnabled = false;
+            equiptb822.IsEnabled = false;
+            equiptb823.IsEnabled = false;
+            equiptb831.IsEnabled = false;
+            equiptb832.IsEnabled = false;
+            equiptb833.IsEnabled = false;
+
+
+            equiptb011.Text = "0";
+            equiptb012.Text = "0";
+            equiptb013.Text = "0";
+            equiptb021.Text = "0";
+            equiptb022.Text = "0";
+            equiptb023.Text = "0";
+            equiptb031.Text = "0";
+            equiptb032.Text = "0";
+            equiptb033.Text = "0";
+            equiptb111.Text = "0";
+            equiptb112.Text = "0";
+            equiptb113.Text = "0";
+            equiptb121.Text = "0";
+            equiptb122.Text = "0";
+            equiptb123.Text = "0";
+            equiptb131.Text = "0";
+            equiptb132.Text = "0";
+            equiptb133.Text = "0";
+            equiptb211.Text = "0";
+            equiptb212.Text = "0";
+            equiptb213.Text = "0";
+            equiptb221.Text = "0";
+            equiptb222.Text = "0";
+            equiptb223.Text = "0";
+            equiptb231.Text = "0";
+            equiptb232.Text = "0";
+            equiptb233.Text = "0";
+            equiptb311.Text = "0";
+            equiptb312.Text = "0";
+            equiptb313.Text = "0";
+            equiptb321.Text = "0";
+            equiptb322.Text = "0";
+            equiptb323.Text = "0";
+            equiptb331.Text = "0";
+            equiptb332.Text = "0";
+            equiptb333.Text = "0";
+            equiptb411.Text = "0";
+            equiptb412.Text = "0";
+            equiptb413.Text = "0";
+            equiptb421.Text = "0";
+            equiptb422.Text = "0";
+            equiptb423.Text = "0";
+            equiptb431.Text = "0";
+            equiptb432.Text = "0";
+            equiptb433.Text = "0";
+            equiptb511.Text = "0";
+            equiptb512.Text = "0";
+            equiptb513.Text = "0";
+            equiptb521.Text = "0";
+            equiptb522.Text = "0";
+            equiptb523.Text = "0";
+            equiptb531.Text = "0";
+            equiptb532.Text = "0";
+            equiptb533.Text = "0";
+            equiptb611.Text = "0";
+            equiptb612.Text = "0";
+            equiptb613.Text = "0";
+            equiptb621.Text = "0";
+            equiptb622.Text = "0";
+            equiptb623.Text = "0";
+            equiptb631.Text = "0";
+            equiptb632.Text = "0";
+            equiptb633.Text = "0";
+            equiptb711.Text = "0";
+            equiptb712.Text = "0";
+            equiptb713.Text = "0";
+            equiptb721.Text = "0";
+            equiptb722.Text = "0";
+            equiptb723.Text = "0";
+            equiptb731.Text = "0";
+            equiptb732.Text = "0";
+            equiptb733.Text = "0";
+            equiptb811.Text = "0";
+            equiptb812.Text = "0";
+            equiptb813.Text = "0";
+            equiptb821.Text = "0";
+            equiptb822.Text = "0";
+            equiptb823.Text = "0";
+            equiptb831.Text = "0";
+            equiptb832.Text = "0";
+            equiptb833.Text = "0";
 
             Merry0.Content = "♡";
             Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
@@ -7496,22 +7786,22 @@ namespace snqxap
                         Lhp0.Content = maxLife;
                         if (enemyarmor.Text == "0")
                             if (equipbreakarmor[0] > Int32.Parse(enemyarmor.Text))
-                                Ldamage0.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[0])+ equipdamage[0]) * gg[0].damageup * (skillupdamage[0]) + 2).ToString("0");
+                                Ldamage0.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[0])+ equipdamage[0]) * gg[0].damageup * (skillupdamage[0]) + 2)).ToString("0");
                             else
-                                Ldamage0.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[0])+ equipdamage[0]) * gg[0].damageup * (skillupdamage[0])).ToString("0");
+                                Ldamage0.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[0])+ equipdamage[0]) * gg[0].damageup * (skillupdamage[0]))).ToString("0");
                         else
                         {
                             if (equipbreakarmor[0] > Int32.Parse(enemyarmor.Text))
-                                Ldamage0.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[0])+ equipdamage[0]) * gg[0].damageup * (skillupdamage[0]) + 2).ToString("0");
+                                Ldamage0.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[0])+ equipdamage[0]) * gg[0].damageup * (skillupdamage[0]) + 2)).ToString("0");
                             else
-                                Ldamage0.Content = Math.Ceiling(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[0])+ equipdamage[0]) * gg[0].damageup * (skillupdamage[0])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[0])+ equipdamage[0]) * gg[0].damageup * (skillupdamage[0])) + equipbreakarmor[0] - Int32.Parse(enemyarmor.Text)))).ToString();
+                                Ldamage0.Content = Math.Floor(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[0])+ equipdamage[0]) * gg[0].damageup * (skillupdamage[0])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[0])+ equipdamage[0]) * gg[0].damageup * (skillupdamage[0])) + equipbreakarmor[0] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
                         if (Int32.Parse(Lhp0.Content.ToString()) == 0)
                             Ldamage0.Content = 0;
                         if (innight)
-                            Lhit0.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[0]) + equiphit[0]) * (100 - 0.9 * (100 - equipnightsee[0])) / 100 * gg[0].hitup * (skilluphit[0])).ToString();
+                            Lhit0.Content = Math.Floor((Math.Ceiling((basehit + maxAddHit) * merry[0]) + equiphit[0]) * (100 - 0.9 * (100 - equipnightsee[0])) / 100 * gg[0].hitup * (skilluphit[0])).ToString();
                         else
-                            Lhit0.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[0]) + equiphit[0]) * gg[0].hitup * (skilluphit[0])).ToString("0");
+                            Lhit0.Content = Math.Floor(((Math.Ceiling((basehit + maxAddHit) * merry[0]) + equiphit[0]) * gg[0].hitup * (skilluphit[0]))).ToString("0");
 
                         Image0.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
@@ -7533,11 +7823,15 @@ namespace snqxap
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[0]) * gg[0].shotspeedup * (skillupshotspeed[0]) > 120)
                             Lshotspeed0.Content = 120;
                         else
-                            Lshotspeed0.Content = ((baseRate + maxAddRate + equipshotspeed[0]) * gg[0].shotspeedup * (skillupshotspeed[0])).ToString("0");
+                            Lshotspeed0.Content = Math.Floor(((baseRate + maxAddRate + equipshotspeed[0]) * gg[0].shotspeedup * (skillupshotspeed[0]))).ToString("0");
+                        if (Double.Parse(Lshotspeed0.Content.ToString()) < 15)
+                            Lshotspeed0.Content = 15;
+                        if (Double.Parse(Lhit0.Content.ToString()) < 1)
+                            Lhit0.Content = 1;
                         calcprobabiliy(0, select, skillselect);
                         double crit = (gun[select].crit + equipcrit[0]) * gg[0].critup;
                         Lcrit0.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge0.Content = ((Math.Ceiling((baseDodge + maxAddDodge) * merry[0]) + equipdodge[0]) * gg[0].dodgeup * (skillupdodge[0])).ToString("0");
+                        Ldodge0.Content = Math.Floor(((Math.Ceiling((baseDodge + maxAddDodge) * merry[0]) + equipdodge[0]) * gg[0].dodgeup * (skillupdodge[0]))).ToString("0");
                         Lbelt0.Content = gun[select].belt + equipbelt[0];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
                         Lindex0.Content = Index(Double.Parse(Lshotspeed0.Content.ToString()), Double.Parse(Ldamage0.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit0.Content.ToString()), int.Parse(Lbelt0.Content.ToString()), 0, skilldamageagain[0]).ToString("0.00");
@@ -7553,22 +7847,22 @@ namespace snqxap
                         Lhp1.Content = maxLife;
                         if (enemyarmor.Text == "0")
                             if (equipbreakarmor[1] > 0)
-                                Ldamage1.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[1])+ equipdamage[1]) * gg[1].damageup * (skillupdamage[1]) + 2).ToString("0");
+                                Ldamage1.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[1])+ equipdamage[1]) * gg[1].damageup * (skillupdamage[1]) + 2)).ToString("0");
                             else
-                                Ldamage1.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[1])+ equipdamage[1]) * gg[1].damageup * (skillupdamage[1])).ToString("0");
+                                Ldamage1.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[1])+ equipdamage[1]) * gg[1].damageup * (skillupdamage[1]))).ToString("0");
                         else
                         {
                             if (equipbreakarmor[1] > Int32.Parse(enemyarmor.Text))
-                                Ldamage1.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[1])+ equipdamage[1]) * gg[1].damageup * (skillupdamage[1]) + 2).ToString("0");
+                                Ldamage1.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[1])+ equipdamage[1]) * gg[1].damageup * (skillupdamage[1]) + 2)).ToString("0");
                             else
-                                Ldamage1.Content = Math.Ceiling(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[1])+ equipdamage[1]) * gg[1].damageup * (skillupdamage[1])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[1])+ equipdamage[1]) * gg[1].damageup * (skillupdamage[1])) + equipbreakarmor[1] - Int32.Parse(enemyarmor.Text)))).ToString();
+                                Ldamage1.Content = Math.Floor(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[1])+ equipdamage[1]) * gg[1].damageup * (skillupdamage[1])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[1])+ equipdamage[1]) * gg[1].damageup * (skillupdamage[1])) + equipbreakarmor[1] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
                         if (Int32.Parse(Lhp1.Content.ToString()) == 0)
                             Ldamage1.Content = 0;
                         if (innight)
-                            Lhit1.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[1] )+ equiphit[1]) * (100 - 0.9 * (100 - equipnightsee[1])) / 100 * gg[1].hitup * (skilluphit[1])).ToString();
+                            Lhit1.Content = Math.Floor((Math.Ceiling((basehit + maxAddHit) * merry[1] )+ equiphit[1]) * (100 - 0.9 * (100 - equipnightsee[1])) / 100 * gg[1].hitup * (skilluphit[1])).ToString();
                         else
-                            Lhit1.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[1] )+ equiphit[1]) * gg[1].hitup * (skilluphit[1])).ToString("0");
+                            Lhit1.Content = Math.Floor(((Math.Ceiling((basehit + maxAddHit) * merry[1] )+ equiphit[1]) * gg[1].hitup * (skilluphit[1]))).ToString("0");
 
            
                         Image1.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
@@ -7591,11 +7885,15 @@ namespace snqxap
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[1]) * gg[1].shotspeedup * (skillupshotspeed[1]) > 120)
                             Lshotspeed1.Content = 120;
                         else
-                            Lshotspeed1.Content = ((baseRate + maxAddRate + equipshotspeed[1]) * gg[1].shotspeedup * (skillupshotspeed[1])).ToString("0");
+                            Lshotspeed1.Content = Math.Floor(((baseRate + maxAddRate + equipshotspeed[1]) * gg[1].shotspeedup * (skillupshotspeed[1]))).ToString("0");
+                        if (Double.Parse(Lshotspeed1.Content.ToString()) < 15)
+                            Lshotspeed1.Content = 15;
+                        if (Double.Parse(Lhit1.Content.ToString()) < 1)
+                            Lhit1.Content = 1;
                         calcprobabiliy(1, select, skillselect);
                         double crit = (gun[select].crit + equipcrit[1]) * gg[1].critup;
                         Lcrit1.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge1.Content = ((Math.Ceiling((baseDodge + maxAddDodge) * merry[1]) + equipdodge[1]) * gg[1].dodgeup * (skillupdodge[1])).ToString("0");
+                        Ldodge1.Content = Math.Floor(((Math.Ceiling((baseDodge + maxAddDodge) * merry[1]) + equipdodge[1]) * gg[1].dodgeup * (skillupdodge[1]))).ToString("0");
                         Lbelt1.Content = gun[select].belt + equipbelt[1];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
                         Lindex1.Content = Index(Double.Parse(Lshotspeed1.Content.ToString()), Double.Parse(Ldamage1.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit1.Content.ToString()), int.Parse(Lbelt1.Content.ToString()), 1, skilldamageagain[1]).ToString("0.00");
@@ -7611,22 +7909,22 @@ namespace snqxap
                         Lhp2.Content = maxLife;
                         if (enemyarmor.Text == "0")
                             if (equipbreakarmor[2] > 0)
-                                Ldamage2.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[2])+ equipdamage[2]) * gg[2].damageup * (skillupdamage[2]) + 2).ToString("0");
+                                Ldamage2.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[2])+ equipdamage[2]) * gg[2].damageup * (skillupdamage[2]) + 2)).ToString("0");
                             else
-                                Ldamage2.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[2])+ equipdamage[2]) * gg[2].damageup * (skillupdamage[2])).ToString("0");
+                                Ldamage2.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[2])+ equipdamage[2]) * gg[2].damageup * (skillupdamage[2]))).ToString("0");
                         else
                         {
                             if (equipbreakarmor[2] > Int32.Parse(enemyarmor.Text))
-                                Ldamage2.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[2])+ equipdamage[2]) * gg[2].damageup * (skillupdamage[2]) + 2).ToString("0");
+                                Ldamage2.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[2])+ equipdamage[2]) * gg[2].damageup * (skillupdamage[2]) + 2)).ToString("0");
                             else
-                                Ldamage2.Content = Math.Ceiling(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[2])+ equipdamage[2]) * gg[2].damageup * (skillupdamage[2])) / 10, ((((Math.Ceiling(basePow + maxAddPow ) * merry[2])+ equipdamage[2]) * gg[2].damageup * (skillupdamage[2])) + equipbreakarmor[2] - Int32.Parse(enemyarmor.Text)))).ToString();
+                                Ldamage2.Content = Math.Floor(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[2])+ equipdamage[2]) * gg[2].damageup * (skillupdamage[2])) / 10, ((((Math.Ceiling(basePow + maxAddPow ) * merry[2])+ equipdamage[2]) * gg[2].damageup * (skillupdamage[2])) + equipbreakarmor[2] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
                         if (Int32.Parse(Lhp2.Content.ToString()) == 0)
                             Ldamage2.Content = 0;
                         if (innight)
-                            Lhit2.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[2]) + equiphit[2]) * (100 - 0.9 * (100 - equipnightsee[2])) / 100 * gg[2].hitup * (skilluphit[2])).ToString();
+                            Lhit2.Content = Math.Floor((Math.Ceiling((basehit + maxAddHit) * merry[2]) + equiphit[2]) * (100 - 0.9 * (100 - equipnightsee[2])) / 100 * gg[2].hitup * (skilluphit[2])).ToString();
                         else
-                            Lhit2.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[2]) + equiphit[2]) * gg[2].hitup * (skilluphit[2])).ToString("0");
+                            Lhit2.Content = Math.Floor(((Math.Ceiling((basehit + maxAddHit) * merry[2]) + equiphit[2]) * gg[2].hitup * (skilluphit[2]))).ToString("0");
                         Image2.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[2].damageup != 1)
@@ -7647,11 +7945,15 @@ namespace snqxap
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[2]) * gg[2].shotspeedup * (skillupshotspeed[2]) > 120)
                             Lshotspeed2.Content = 120;
                         else
-                            Lshotspeed2.Content = ((baseRate + maxAddRate + equipshotspeed[2]) * gg[2].shotspeedup * (skillupshotspeed[2])).ToString("0");
+                            Lshotspeed2.Content = Math.Floor(((baseRate + maxAddRate + equipshotspeed[2]) * gg[2].shotspeedup * (skillupshotspeed[2]))).ToString("0");
+                        if (Double.Parse(Lshotspeed2.Content.ToString()) < 15)
+                            Lshotspeed2.Content = 15;
+                        if (Double.Parse(Lhit2.Content.ToString()) < 1)
+                            Lhit2.Content = 1;
                         calcprobabiliy(2, select, skillselect);
                         double crit = (gun[select].crit + equipcrit[2]) * gg[2].critup;
                         Lcrit2.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge2.Content = ((Math.Ceiling((baseDodge + maxAddDodge) * merry[2]) + equipdodge[2]) * gg[2].dodgeup * (skillupdodge[2])).ToString("0");
+                        Ldodge2.Content = Math.Floor(((Math.Ceiling((baseDodge + maxAddDodge) * merry[2]) + equipdodge[2]) * gg[2].dodgeup * (skillupdodge[2]))).ToString("0");
                         Lbelt2.Content = gun[select].belt +equipbelt[2];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
                         Lindex2.Content = Index(Double.Parse(Lshotspeed2.Content.ToString()), Double.Parse(Ldamage2.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit2.Content.ToString()), int.Parse(Lbelt2.Content.ToString()), 2, skilldamageagain[2]).ToString("0.00");
@@ -7667,22 +7969,22 @@ namespace snqxap
                         Lhp3.Content = maxLife;
                         if (enemyarmor.Text == "0")
                             if (equipbreakarmor[3] > 0)
-                                Ldamage3.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[3])+ equipdamage[3]) * gg[3].damageup * (skillupdamage[3]) + 2).ToString("0");
+                                Ldamage3.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[3])+ equipdamage[3]) * gg[3].damageup * (skillupdamage[3]) + 2)).ToString("0");
                             else
-                                Ldamage3.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[3])+ equipdamage[3]) * gg[3].damageup * (skillupdamage[3])).ToString("0");
+                                Ldamage3.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[3])+ equipdamage[3]) * gg[3].damageup * (skillupdamage[3]))).ToString("0");
                         else
                         {
                             if (equipbreakarmor[3] > Int32.Parse(enemyarmor.Text))
-                                Ldamage3.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[3])+ equipdamage[3]) * gg[3].damageup * (skillupdamage[3]) + 2).ToString("0");
+                                Ldamage3.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[3])+ equipdamage[3]) * gg[3].damageup * (skillupdamage[3]) + 2)).ToString("0");
                             else
-                                Ldamage3.Content = Math.Ceiling(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[3])+ equipdamage[3]) * gg[3].damageup * (skillupdamage[3])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[3])+ equipdamage[3]) * gg[3].damageup * (skillupdamage[3])) + equipbreakarmor[3] - Int32.Parse(enemyarmor.Text)))).ToString();
+                                Ldamage3.Content = Math.Floor(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[3])+ equipdamage[3]) * gg[3].damageup * (skillupdamage[3])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[3])+ equipdamage[3]) * gg[3].damageup * (skillupdamage[3])) + equipbreakarmor[3] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
                         if (Int32.Parse(Lhp3.Content.ToString()) == 0)
                             Ldamage3.Content = 0;
                         if (innight)
-                            Lhit3.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[3]) + equiphit[3]) * (100 - 0.9 * (100 - equipnightsee[3])) / 100 * gg[3].hitup * (skilluphit[3])).ToString();
+                            Lhit3.Content = Math.Floor((Math.Ceiling((basehit + maxAddHit) * merry[3]) + equiphit[3]) * (100 - 0.9 * (100 - equipnightsee[3])) / 100 * gg[3].hitup * (skilluphit[3])).ToString();
                         else
-                            Lhit3.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[3]) + equiphit[3]) * gg[3].hitup * (skilluphit[3])).ToString("0");
+                            Lhit3.Content = Math.Floor(((Math.Ceiling((basehit + maxAddHit) * merry[3]) + equiphit[3]) * gg[3].hitup * (skilluphit[3]))).ToString("0");
                         Image3.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[3].damageup != 1)
@@ -7703,11 +8005,15 @@ namespace snqxap
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[3]) * gg[3].shotspeedup * (skillupshotspeed[3]) > 120)
                             Lshotspeed3.Content = 120;
                         else
-                            Lshotspeed3.Content = ((baseRate + maxAddRate + equipshotspeed[3]) * gg[3].shotspeedup * (skillupshotspeed[3])).ToString("0");
+                            Lshotspeed3.Content = Math.Floor(((baseRate + maxAddRate + equipshotspeed[3]) * gg[3].shotspeedup * (skillupshotspeed[3]))).ToString("0");
+                        if (Double.Parse(Lshotspeed3.Content.ToString()) < 15)
+                            Lshotspeed3.Content = 15;
+                        if (Double.Parse(Lhit3.Content.ToString()) < 1)
+                            Lhit3.Content = 1;
                         calcprobabiliy(3, select, skillselect);
                         double crit = (gun[select].crit + equipcrit[3]) * gg[3].critup;
                         Lcrit3.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge3.Content = ((Math.Ceiling((baseDodge + maxAddDodge) * merry[3]) + equipdodge[3]) * gg[3].dodgeup * (skillupdodge[3])).ToString("0");
+                        Ldodge3.Content = Math.Floor(((Math.Ceiling((baseDodge + maxAddDodge) * merry[3]) + equipdodge[3]) * gg[3].dodgeup * (skillupdodge[3]))).ToString("0");
                         Lbelt3.Content = gun[select].belt +equipbelt[3];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
                         Lindex3.Content = Index(Double.Parse(Lshotspeed3.Content.ToString()), Double.Parse(Ldamage3.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit3.Content.ToString()), int.Parse(Lbelt3.Content.ToString()), 3, skilldamageagain[3]).ToString("0.00");
@@ -7723,22 +8029,22 @@ namespace snqxap
                         Lhp4.Content = maxLife;
                         if (enemyarmor.Text == "0")
                             if (equipbreakarmor[4] > 0)
-                                Ldamage4.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[4])+ equipdamage[4]) * gg[4].damageup * (skillupdamage[4]) + 2).ToString("0");
+                                Ldamage4.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[4])+ equipdamage[4]) * gg[4].damageup * (skillupdamage[4]) + 2)).ToString("0");
                             else
-                                Ldamage4.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[4])+ equipdamage[4]) * gg[4].damageup * (skillupdamage[4])).ToString("0");
+                                Ldamage4.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[4])+ equipdamage[4]) * gg[4].damageup * (skillupdamage[4]))).ToString("0");
                         else
                         {
                             if (equipbreakarmor[4] > Int32.Parse(enemyarmor.Text))
-                                Ldamage4.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[4])+ equipdamage[4]) * gg[4].damageup * (skillupdamage[4]) + 2).ToString("0");
+                                Ldamage4.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[4])+ equipdamage[4]) * gg[4].damageup * (skillupdamage[4]) + 2)).ToString("0");
                             else
-                                Ldamage4.Content = Math.Ceiling(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[4])+ equipdamage[4]) * gg[4].damageup * (skillupdamage[4])) / 10, (((Math.Ceiling(basePow + maxAddPow ) * merry[4]+ equipdamage[4]) * gg[4].damageup * (skillupdamage[4])) + equipbreakarmor[4] - Int32.Parse(enemyarmor.Text)))).ToString();
+                                Ldamage4.Content = Math.Floor(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[4])+ equipdamage[4]) * gg[4].damageup * (skillupdamage[4])) / 10, (((Math.Ceiling(basePow + maxAddPow ) * merry[4]+ equipdamage[4]) * gg[4].damageup * (skillupdamage[4])) + equipbreakarmor[4] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
                         if (Int32.Parse(Lhp4.Content.ToString()) == 0)
                             Ldamage4.Content = 0;
                         if (innight)
-                            Lhit4.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[4] )+ equiphit[4]) * (100 - 0.9 * (100 - equipnightsee[4])) / 100 * gg[4].hitup * (skilluphit[4])).ToString();
+                            Lhit4.Content = Math.Floor((Math.Ceiling((basehit + maxAddHit) * merry[4] )+ equiphit[4]) * (100 - 0.9 * (100 - equipnightsee[4])) / 100 * gg[4].hitup * (skilluphit[4])).ToString();
                         else
-                            Lhit4.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[4] )+ equiphit[4]) * gg[4].hitup * (skilluphit[4])).ToString("0");
+                            Lhit4.Content = Math.Floor(((Math.Ceiling((basehit + maxAddHit) * merry[4] )+ equiphit[4]) * gg[4].hitup * (skilluphit[4]))).ToString("0");
                         Image4.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[4].damageup != 1)
@@ -7759,11 +8065,15 @@ namespace snqxap
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[4]) * gg[4].shotspeedup * (skillupshotspeed[4]) > 120)
                             Lshotspeed4.Content = 120;
                         else
-                            Lshotspeed4.Content = ((baseRate + maxAddRate + equipshotspeed[4]) * gg[4].shotspeedup * (skillupshotspeed[4])).ToString("0");
+                            Lshotspeed4.Content = Math.Floor(((baseRate + maxAddRate + equipshotspeed[4]) * gg[4].shotspeedup * (skillupshotspeed[4]))).ToString("0");
+                        if (Double.Parse(Lshotspeed4.Content.ToString()) < 15)
+                            Lshotspeed4.Content = 15;
+                        if (Double.Parse(Lhit4.Content.ToString()) < 1)
+                            Lhit4.Content = 1;
                         calcprobabiliy(4, select, skillselect);
                         double crit = (gun[select].crit + equipcrit[4]) * gg[4].critup;
                         Lcrit4.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge4.Content = ((Math.Ceiling((baseDodge + maxAddDodge) * merry[4]) + equipdodge[4]) * gg[4].dodgeup * (skillupdodge[4])).ToString("0");
+                        Ldodge4.Content = Math.Floor(((Math.Ceiling((baseDodge + maxAddDodge) * merry[4]) + equipdodge[4]) * gg[4].dodgeup * (skillupdodge[4]))).ToString("0");
                         Lbelt4.Content = gun[select].belt+equipbelt[4];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
                         Lindex4.Content = Index(Double.Parse(Lshotspeed4.Content.ToString()), Double.Parse(Ldamage4.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit4.Content.ToString()), int.Parse(Lbelt4.Content.ToString()), 4, skilldamageagain[4]).ToString("0.00");
@@ -7779,22 +8089,22 @@ namespace snqxap
                         Lhp5.Content = maxLife;
                         if (enemyarmor.Text == "0")
                             if (equipbreakarmor[5] > 0)
-                                Ldamage5.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[5])+ equipdamage[5]) * gg[5].damageup * (skillupdamage[5]) + 2).ToString("0");
+                                Ldamage5.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[5])+ equipdamage[5]) * gg[5].damageup * (skillupdamage[5]) + 2)).ToString("0");
                             else
-                                Ldamage5.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[5])+ equipdamage[5]) * gg[5].damageup * (skillupdamage[5])).ToString("0");
+                                Ldamage5.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[5])+ equipdamage[5]) * gg[5].damageup * (skillupdamage[5]))).ToString("0");
                         else
                         {
                             if (equipbreakarmor[5] > Int32.Parse(enemyarmor.Text))
-                                Ldamage5.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[5])+ equipdamage[5]) * gg[5].damageup * (skillupdamage[5]) + 2).ToString("0");
+                                Ldamage5.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[5])+ equipdamage[5]) * gg[5].damageup * (skillupdamage[5]) + 2)).ToString("0");
                             else
-                                Ldamage5.Content = Math.Ceiling(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[5])+ equipdamage[5]) * gg[5].damageup * (skillupdamage[5])) / 10, (((Math.Ceiling(basePow + maxAddPow ) * merry[5]+ equipdamage[5]) * gg[5].damageup * (skillupdamage[5])) + equipbreakarmor[5] - Int32.Parse(enemyarmor.Text)))).ToString();
+                                Ldamage5.Content = Math.Floor(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[5])+ equipdamage[5]) * gg[5].damageup * (skillupdamage[5])) / 10, (((Math.Ceiling(basePow + maxAddPow ) * merry[5]+ equipdamage[5]) * gg[5].damageup * (skillupdamage[5])) + equipbreakarmor[5] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
                         if (Int32.Parse(Lhp5.Content.ToString()) == 0)
                             Ldamage5.Content = 0;
                         if (innight)
-                            Lhit5.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[5]) + equiphit[5]) * (100 - 0.9 * (100 - equipnightsee[5])) / 100 * gg[5].hitup * (skilluphit[5])).ToString();
+                            Lhit5.Content = Math.Floor((Math.Ceiling((basehit + maxAddHit) * merry[5]) + equiphit[5]) * (100 - 0.9 * (100 - equipnightsee[5])) / 100 * gg[5].hitup * (skilluphit[5])).ToString();
                         else
-                            Lhit5.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[5] )+ equiphit[5]) * gg[5].hitup * (skilluphit[5])).ToString("0");
+                            Lhit5.Content = Math.Floor(((Math.Ceiling((basehit + maxAddHit) * merry[5] )+ equiphit[5]) * gg[5].hitup * (skilluphit[5]))).ToString("0");
                         Image5.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[5].damageup != 1)
@@ -7815,11 +8125,15 @@ namespace snqxap
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[5]) * gg[5].shotspeedup * (skillupshotspeed[5]) > 120)
                             Lshotspeed5.Content = 120;
                         else
-                            Lshotspeed5.Content = ((baseRate + maxAddRate + equipshotspeed[5]) * gg[5].shotspeedup * (skillupshotspeed[5])).ToString("0");
+                            Lshotspeed5.Content = Math.Floor(((baseRate + maxAddRate + equipshotspeed[5]) * gg[5].shotspeedup * (skillupshotspeed[5]))).ToString("0");
+                        if (Double.Parse(Lshotspeed5.Content.ToString()) < 15)
+                            Lshotspeed5.Content = 15;
+                        if (Double.Parse(Lhit5.Content.ToString()) < 1)
+                            Lhit5.Content = 1;
                         calcprobabiliy(5, select, skillselect);
                         double crit = (gun[select].crit + equipcrit[5]) * gg[5].critup;
                         Lcrit5.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge5.Content = ((Math.Ceiling((baseDodge + maxAddDodge) * merry[5]) + equipdodge[5]) * gg[5].dodgeup * (skillupdodge[5])).ToString("0");
+                        Ldodge5.Content = Math.Floor(((Math.Ceiling((baseDodge + maxAddDodge) * merry[5]) + equipdodge[5]) * gg[5].dodgeup * (skillupdodge[5]))).ToString("0");
                         Lbelt5.Content = gun[select].belt+equipbelt[5];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
                         Lindex5.Content = Index(Double.Parse(Lshotspeed5.Content.ToString()), Double.Parse(Ldamage5.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit5.Content.ToString()), int.Parse(Lbelt5.Content.ToString()), 5, skilldamageagain[5]).ToString("0.00");
@@ -7835,22 +8149,22 @@ namespace snqxap
                         Lhp6.Content = maxLife;
                         if (enemyarmor.Text == "0")
                             if (equipbreakarmor[6] > 0)
-                                Ldamage6.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[6])+ equipdamage[6]) * gg[6].damageup * (skillupdamage[6]) + 2).ToString("0");
+                                Ldamage6.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[6])+ equipdamage[6]) * gg[6].damageup * (skillupdamage[6]) + 2)).ToString("0");
                             else
-                                Ldamage6.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[6])+ equipdamage[6]) * gg[6].damageup * (skillupdamage[6])).ToString("0");
+                                Ldamage6.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[6])+ equipdamage[6]) * gg[6].damageup * (skillupdamage[6]))).ToString("0");
                         else
                         {
                             if (equipbreakarmor[6] > Int32.Parse(enemyarmor.Text))
-                                Ldamage6.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[6])+ equipdamage[6]) * gg[6].damageup * (skillupdamage[6]) + 2).ToString("0");
+                                Ldamage6.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[6])+ equipdamage[6]) * gg[6].damageup * (skillupdamage[6]) + 2)).ToString("0");
                             else
-                                Ldamage6.Content = Math.Ceiling(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[6])+ equipdamage[6]) * gg[6].damageup * (skillupdamage[6])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[6])+ equipdamage[6]) * gg[6].damageup * (skillupdamage[6])) + equipbreakarmor[6] - Int32.Parse(enemyarmor.Text)))).ToString();
+                                Ldamage6.Content = Math.Floor(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[6])+ equipdamage[6]) * gg[6].damageup * (skillupdamage[6])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[6])+ equipdamage[6]) * gg[6].damageup * (skillupdamage[6])) + equipbreakarmor[6] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
                         if (Int32.Parse(Lhp6.Content.ToString()) == 0)
                             Ldamage6.Content = 0;
                         if (innight)
-                            Lhit6.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[6]) + equiphit[6]) * (100 - 0.9 * (100 - equipnightsee[6])) / 100 * gg[6].hitup * (skilluphit[6])).ToString();
+                            Lhit6.Content = Math.Floor((Math.Ceiling((basehit + maxAddHit) * merry[6]) + equiphit[6]) * (100 - 0.9 * (100 - equipnightsee[6])) / 100 * gg[6].hitup * (skilluphit[6])).ToString();
                         else
-                            Lhit6.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[6] )+ equiphit[6]) * gg[6].hitup * (skilluphit[6])).ToString("0");
+                            Lhit6.Content = Math.Floor(((Math.Ceiling((basehit + maxAddHit) * merry[6] )+ equiphit[6]) * gg[6].hitup * (skilluphit[6]))).ToString("0");
                         Image6.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[6].damageup != 1)
@@ -7871,11 +8185,15 @@ namespace snqxap
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[6]) * gg[6].shotspeedup * (skillupshotspeed[6]) > 120)
                             Lshotspeed6.Content = 120;
                         else
-                            Lshotspeed6.Content = ((baseRate + maxAddRate + equipshotspeed[6]) * gg[6].shotspeedup * (skillupshotspeed[6])).ToString("0");
+                            Lshotspeed6.Content = Math.Floor(((baseRate + maxAddRate + equipshotspeed[6]) * gg[6].shotspeedup * (skillupshotspeed[6]))).ToString("0");
+                        if (Double.Parse(Lshotspeed6.Content.ToString()) < 15)
+                            Lshotspeed6.Content = 15;
+                        if (Double.Parse(Lhit6.Content.ToString()) < 1)
+                            Lhit6.Content = 1;
                         calcprobabiliy(6, select, skillselect);
                         double crit = (gun[select].crit + equipcrit[6]) * gg[6].critup;
                         Lcrit6.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge6.Content = ((Math.Ceiling((baseDodge + maxAddDodge) * merry[6] )+ equipdodge[6]) * gg[6].dodgeup * (skillupdodge[6])).ToString("0");
+                        Ldodge6.Content = Math.Floor(((Math.Ceiling((baseDodge + maxAddDodge) * merry[6] )+ equipdodge[6]) * gg[6].dodgeup * (skillupdodge[6]))).ToString("0");
                         Lbelt6.Content = gun[select].belt+equipbelt[6];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
                         Lindex6.Content = Index(Double.Parse(Lshotspeed6.Content.ToString()), Double.Parse(Ldamage6.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit6.Content.ToString()), int.Parse(Lbelt6.Content.ToString()), 6, skilldamageagain[6]).ToString("0.00");
@@ -7891,22 +8209,22 @@ namespace snqxap
                         Lhp7.Content = maxLife;
                         if (enemyarmor.Text == "0")
                             if (equipbreakarmor[7] > 0)
-                                Ldamage7.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[7])+ equipdamage[7]) * gg[7].damageup * (skillupdamage[7]) + 2).ToString("0");
+                                Ldamage7.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[7])+ equipdamage[7]) * gg[7].damageup * (skillupdamage[7]) + 2)).ToString("0");
                             else
-                                Ldamage7.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[7])+ equipdamage[7]) * gg[7].damageup * (skillupdamage[7])).ToString("0");
+                                Ldamage7.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[7])+ equipdamage[7]) * gg[7].damageup * (skillupdamage[7]))).ToString("0");
                         else
                         {
                             if (equipbreakarmor[7] > Int32.Parse(enemyarmor.Text))
-                                Ldamage7.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[7])+ equipdamage[7]) * gg[7].damageup * (skillupdamage[7]) + 2).ToString("0");
+                                Ldamage7.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[7])+ equipdamage[7]) * gg[7].damageup * (skillupdamage[7]) + 2)).ToString("0");
                             else
-                                Ldamage7.Content = Math.Ceiling(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[7])+ equipdamage[7]) * gg[7].damageup * (skillupdamage[7])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[7])+ equipdamage[7]) * gg[7].damageup * (skillupdamage[7])) + equipbreakarmor[7] - Int32.Parse(enemyarmor.Text)))).ToString();
+                                Ldamage7.Content = Math.Floor(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[7])+ equipdamage[7]) * gg[7].damageup * (skillupdamage[7])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[7])+ equipdamage[7]) * gg[7].damageup * (skillupdamage[7])) + equipbreakarmor[7] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
                         if (Int32.Parse(Lhp7.Content.ToString()) == 0)
                             Ldamage7.Content = 0;
                         if (innight)
-                            Lhit7.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[7]) + equiphit[7]) * (100 - 0.9 * (100 - equipnightsee[7])) / 100 * gg[7].hitup * (skilluphit[7])).ToString();
+                            Lhit7.Content = Math.Floor((Math.Ceiling((basehit + maxAddHit) * merry[7]) + equiphit[7]) * (100 - 0.9 * (100 - equipnightsee[7])) / 100 * gg[7].hitup * (skilluphit[7])).ToString();
                         else
-                            Lhit7.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[7] )+ equiphit[7]) * gg[7].hitup * (skilluphit[7])).ToString("0");
+                            Lhit7.Content = Math.Floor(((Math.Ceiling((basehit + maxAddHit) * merry[7] )+ equiphit[7]) * gg[7].hitup * (skilluphit[7]))).ToString("0");
                         Image7.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[7].damageup != 1)
@@ -7927,11 +8245,15 @@ namespace snqxap
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[7]) * gg[7].shotspeedup * (skillupshotspeed[7]) > 120)
                             Lshotspeed7.Content = 120;
                         else
-                            Lshotspeed7.Content = ((baseRate + maxAddRate + equipshotspeed[7]) * gg[7].shotspeedup * (skillupshotspeed[7])).ToString("0");
+                            Lshotspeed7.Content = Math.Floor(((baseRate + maxAddRate + equipshotspeed[7]) * gg[7].shotspeedup * (skillupshotspeed[7]))).ToString("0");
+                        if (Double.Parse(Lshotspeed7.Content.ToString()) < 15)
+                            Lshotspeed7.Content = 15;
+                        if (Double.Parse(Lhit7.Content.ToString()) < 1)
+                            Lhit7.Content = 1;
                         calcprobabiliy(7, select, skillselect);
                         double crit = (gun[select].crit + equipcrit[7]) * gg[7].critup;
                         Lcrit7.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge7.Content = ((Math.Ceiling((baseDodge + maxAddDodge) * merry[7] )+ equipdodge[7]) * gg[7].dodgeup * (skillupdodge[7])).ToString("0");
+                        Ldodge7.Content = Math.Floor(((Math.Ceiling((baseDodge + maxAddDodge) * merry[7] )+ equipdodge[7]) * gg[7].dodgeup * (skillupdodge[7]))).ToString("0");
                         Lbelt7.Content = gun[select].belt+equipbelt[7];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
                         Lindex7.Content = Index(Double.Parse(Lshotspeed7.Content.ToString()), Double.Parse(Ldamage7.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit7.Content.ToString()), int.Parse(Lbelt7.Content.ToString()), 7, skilldamageagain[7]).ToString("0.00");
@@ -7947,22 +8269,22 @@ namespace snqxap
                         Lhp8.Content = maxLife;
                         if (enemyarmor.Text == "0")
                             if (equipbreakarmor[8] > 0)
-                                Ldamage8.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[8])+ equipdamage[8]) * gg[8].damageup * (skillupdamage[8]) + 2).ToString("0");
+                                Ldamage8.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[8])+ equipdamage[8]) * gg[8].damageup * (skillupdamage[8]) + 2)).ToString("0");
                             else
-                                Ldamage8.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[8])+ equipdamage[8]) * gg[8].damageup * (skillupdamage[8])).ToString("0");
+                                Ldamage8.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[8])+ equipdamage[8]) * gg[8].damageup * (skillupdamage[8]))).ToString("0");
                         else
                         {
                             if (equipbreakarmor[8] > Int32.Parse(enemyarmor.Text))
-                                Ldamage8.Content = ((Math.Ceiling((basePow + maxAddPow ) * merry[8])+ equipdamage[8]) * gg[8].damageup * (skillupdamage[8]) + 2).ToString("0");
+                                Ldamage8.Content = Math.Floor(((Math.Ceiling((basePow + maxAddPow ) * merry[8])+ equipdamage[8]) * gg[8].damageup * (skillupdamage[8]) + 2)).ToString("0");
                             else
-                                Ldamage8.Content = Math.Ceiling(Math.Max(((Math.Ceiling((basePow + maxAddPow )) * merry[8]+ equipdamage[8]) * gg[8].damageup * (skillupdamage[8])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[8])+ equipdamage[8]) * gg[8].damageup * (skillupdamage[8])) + equipbreakarmor[8] - Int32.Parse(enemyarmor.Text)))).ToString();
+                                Ldamage8.Content = Math.Floor(Math.Max(((Math.Ceiling((basePow + maxAddPow )) * merry[8]+ equipdamage[8]) * gg[8].damageup * (skillupdamage[8])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[8])+ equipdamage[8]) * gg[8].damageup * (skillupdamage[8])) + equipbreakarmor[8] - Int32.Parse(enemyarmor.Text)))).ToString();
                         }
                         if (Int32.Parse(Lhp8.Content.ToString()) == 0)
                             Ldamage8.Content = 0;
                         if (innight)
-                            Lhit8.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[8] )+ equiphit[8]) * (100 - 0.9 * (100 - equipnightsee[8])) / 100 * gg[8].hitup * (skilluphit[8])).ToString();
+                            Lhit8.Content = Math.Floor((Math.Ceiling((basehit + maxAddHit) * merry[8] )+ equiphit[8]) * (100 - 0.9 * (100 - equipnightsee[8])) / 100 * gg[8].hitup * (skilluphit[8])).ToString();
                         else
-                            Lhit8.Content = ((Math.Ceiling((basehit + maxAddHit) * merry[8] )+ equiphit[8]) * gg[8].hitup * (skilluphit[8])).ToString("0");
+                            Lhit8.Content = Math.Floor(((Math.Ceiling((basehit + maxAddHit) * merry[8] )+ equiphit[8]) * gg[8].hitup * (skilluphit[8]))).ToString("0");
                         Image8.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[8].damageup != 1)
@@ -7983,11 +8305,15 @@ namespace snqxap
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[8]) * gg[8].shotspeedup * (skillupshotspeed[8]) > 120)
                             Lshotspeed8.Content = 120;
                         else
-                            Lshotspeed8.Content = ((baseRate + maxAddRate + equipshotspeed[8]) * gg[8].shotspeedup * (skillupshotspeed[8])).ToString("0");
+                            Lshotspeed8.Content = Math.Floor(((baseRate + maxAddRate + equipshotspeed[8]) * gg[8].shotspeedup * (skillupshotspeed[8]))).ToString("0");
+                        if (Double.Parse(Lshotspeed8.Content.ToString()) < 15)
+                            Lshotspeed8.Content = 15;
+                        if (Double.Parse(Lhit8.Content.ToString()) < 1)
+                            Lhit8.Content = 1;
                         calcprobabiliy(8, select, skillselect);
                         double crit = (gun[select].crit + equipcrit[8]) * gg[8].critup;
                         Lcrit8.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge8.Content = ((Math.Ceiling((baseDodge + maxAddDodge) * merry[8] )+ equipdodge[8]) * gg[8].dodgeup * (skillupdodge[8])).ToString("0");
+                        Ldodge8.Content = Math.Floor(((Math.Ceiling((baseDodge + maxAddDodge) * merry[8] )+ equipdodge[8]) * gg[8].dodgeup * (skillupdodge[8]))).ToString("0");
                         Lbelt8.Content = gun[select].belt+equipbelt[8];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
                         Lindex8.Content = Index(Double.Parse(Lshotspeed8.Content.ToString()), Double.Parse(Ldamage8.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit8.Content.ToString()), int.Parse(Lbelt8.Content.ToString()), 8, skilldamageagain[8]).ToString("0.00");
@@ -12765,11 +13091,4036 @@ namespace snqxap
         /// </summary>
         /// <param name="combo">哪一格</param>
         /// <param name="equipindex">装备index</param>
-        public void calcequip(int combo,int equipindex)
+        public void calcequip(int combo,int equipindex,int cb)
         {
-       
+          switch (cb)
+          {
+              case 1:
+                  {
 
-            switch (equip[equipindex].type) 
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch(equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb011.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb011.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb011.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb011.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb011.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb011.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb011.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb011.Text);
+                                      break;
+                                  }
+                              default: break;
+                              
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb012.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb012.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb012.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb012.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb012.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb012.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb012.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb012.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb013.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb013.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb013.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb013.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb013.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb013.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb013.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb013.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 2:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb021.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb021.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb021.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb021.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb021.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb021.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb021.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb021.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb022.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb022.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb022.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb022.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb022.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb022.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb022.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb022.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb023.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb023.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb023.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb023.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb023.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb023.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb023.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb023.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 3:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb031.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb031.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb031.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb031.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb031.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb031.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb031.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb031.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb032.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb032.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb032.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb032.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb032.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb032.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb032.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb032.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb033.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb033.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb033.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb033.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb033.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb033.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb033.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb033.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 11:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb111.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb111.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb111.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb111.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb111.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb111.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb111.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb111.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb112.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb112.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb112.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb112.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb112.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb112.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb112.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb112.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb113.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb113.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb113.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb113.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb113.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb113.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb113.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb113.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 12:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb121.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb121.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb121.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb121.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb121.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb121.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb121.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb121.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb122.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb122.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb122.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb122.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb122.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb122.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb122.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb122.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb123.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb123.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb123.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb123.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb123.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb123.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb123.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb123.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 13:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb131.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb131.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb131.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb131.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb131.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb131.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb131.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb131.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb132.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb132.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb132.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb132.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb132.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb132.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb132.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb132.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb133.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb133.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb133.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb133.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb133.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb133.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb133.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb133.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 21:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb211.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb211.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb211.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb211.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb211.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb211.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb211.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb211.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb212.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb212.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb212.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb212.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb212.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb212.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb212.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb212.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb213.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb213.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb213.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb213.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb213.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb213.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb213.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb213.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 22:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb221.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb221.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb221.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb221.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb221.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb221.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb221.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb221.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb222.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb222.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb222.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb222.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb222.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb222.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb222.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb222.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb223.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb223.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb223.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb223.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb223.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb223.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb223.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb223.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 23:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb231.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb231.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb231.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb231.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb231.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb231.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb231.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb231.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb232.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb232.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb232.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb232.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb232.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb232.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb232.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb232.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb233.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb233.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb233.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb233.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb233.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb233.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb233.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb233.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 31:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb311.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb311.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb311.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb311.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb311.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb311.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb311.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb311.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb312.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb312.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb312.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb312.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb312.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb312.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb312.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb312.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb313.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb313.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb313.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb313.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb313.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb313.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb313.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb313.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 32:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb321.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb321.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb321.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb321.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb321.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb321.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb321.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb321.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb322.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb322.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb322.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb322.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb322.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb322.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb322.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb322.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb323.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb323.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb323.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb323.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb323.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb323.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb323.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb323.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 33:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb331.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb331.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb331.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb331.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb331.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb331.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb331.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb331.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb332.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb332.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb332.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb332.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb332.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb332.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb332.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb332.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb333.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb333.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb333.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb333.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb333.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb333.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb333.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb333.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 41:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb411.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb411.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb411.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb411.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb411.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb411.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb411.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb411.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb412.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb412.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb412.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb412.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb412.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb412.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb412.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb412.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb413.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb413.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb413.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb413.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb413.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb413.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb413.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb413.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 42:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb421.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb421.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb421.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb421.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb421.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb421.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb421.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb421.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb422.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb422.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb422.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb422.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb422.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb422.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb422.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb422.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb423.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb423.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb423.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb423.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb423.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb423.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb423.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb423.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 43:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb431.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb431.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb431.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb431.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb431.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb431.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb431.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb431.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb432.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb432.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb432.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb432.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb432.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb432.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb432.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb432.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb433.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb433.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb433.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb433.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb433.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb433.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb433.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb433.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 51:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb511.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb511.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb511.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb511.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb511.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb511.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb511.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb511.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb512.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb512.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb512.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb512.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb512.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb512.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb512.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb512.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb513.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb513.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb513.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb513.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb513.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb513.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb513.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb513.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 52:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb521.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb521.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb521.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb521.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb521.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb521.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb521.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb521.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb522.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb522.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb522.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb522.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb522.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb522.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb522.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb522.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb523.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb523.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb523.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb523.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb523.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb523.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb523.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb523.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 53:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb531.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb531.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb531.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb531.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb531.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb531.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb531.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb531.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb532.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb532.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb532.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb532.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb532.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb532.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb532.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb532.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb533.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb533.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb533.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb533.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb533.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb533.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb533.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb533.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 61:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb611.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb611.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb611.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb611.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb611.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb611.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb611.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb611.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb612.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb612.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb612.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb612.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb612.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb612.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb612.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb612.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb613.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb613.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb613.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb613.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb613.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb613.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb613.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb613.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 62:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb621.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb621.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb621.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb621.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb621.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb621.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb621.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb621.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb622.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb622.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb622.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb622.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb622.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb622.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb622.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb622.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb623.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb623.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb623.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb623.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb623.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb623.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb623.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb623.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 63:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb631.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb631.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb631.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb631.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb631.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb631.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb631.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb631.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb632.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb632.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb632.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb632.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb632.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb632.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb632.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb632.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb633.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb633.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb633.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb633.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb633.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb633.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb633.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb633.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 71:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb711.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb711.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb711.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb711.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb711.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb711.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb711.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb711.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb712.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb712.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb712.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb712.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb712.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb712.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb712.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb712.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb713.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb713.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb713.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb713.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb713.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb713.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb713.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb713.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 72:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb721.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb721.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb721.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb721.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb721.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb721.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb721.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb721.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb722.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb722.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb722.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb722.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb722.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb722.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb722.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb722.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb723.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb723.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb723.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb723.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb723.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb723.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb723.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb723.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 73:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb731.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb731.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb731.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb731.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb731.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb731.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb731.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb731.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb732.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb732.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb732.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb732.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb732.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb732.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb732.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb732.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb733.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb733.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb733.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb733.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb733.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb733.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb733.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb733.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 81:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb811.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb811.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb811.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb811.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb811.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb811.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb811.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb811.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb812.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb812.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb812.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb812.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb812.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb812.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb812.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb812.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb813.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb813.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb813.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb813.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb813.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb813.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb813.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb813.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 82:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb821.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb821.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb821.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb821.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb821.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb821.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb821.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb821.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb822.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb822.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb822.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb822.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb822.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb822.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb822.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb822.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb823.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb823.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb823.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb823.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb823.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb823.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb823.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb823.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+              case 83:
+                  {
+
+                      if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                      {
+                          switch (equip[equipindex].property1)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb831.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb831.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb831.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb831.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb831.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb831.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb831.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb831.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                      {
+                          switch (equip[equipindex].property2)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb832.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb832.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb832.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb832.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb832.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb832.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb832.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb832.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                      {
+                          switch (equip[equipindex].property3)
+                          {
+                              case "伤害":
+                                  {
+                                      equipdamage[combo] += int.Parse(equiptb833.Text);
+                                      break;
+                                  }
+                              case "回避":
+                                  {
+                                      equipdodge[combo] += int.Parse(equiptb833.Text);
+                                      break;
+                                  }
+                              case "穿甲":
+                                  {
+                                      equipbreakarmor[combo] += int.Parse(equiptb833.Text);
+                                      break;
+                                  }
+                              case "暴击率":
+                                  {
+                                      equipcrit[combo] += Double.Parse(equiptb833.Text) / 100;
+                                      break;
+                                  }
+                              case "命中":
+                                  {
+                                      equiphit[combo] += int.Parse(equiptb833.Text);
+                                      break;
+                                  }
+                              case "射速":
+                                  {
+                                      equipshotspeed[combo] += int.Parse(equiptb833.Text);
+                                      break;
+                                  }
+                              case "夜视抵消":
+                                  {
+                                      equipnightsee[combo] += double.Parse(equiptb833.Text);
+                                      break;
+                                  }
+                              case "弹链":
+                                  {
+                                      equipbelt[combo] += int.Parse(equiptb833.Text);
+                                      break;
+                                  }
+                              default: break;
+
+                          }
+                      }
+                      break;
+                  }
+          }
+
+        /*    switch (equip[equipindex].type) 
             {
                 case 1:
                     {
@@ -12823,7 +17174,7 @@ namespace snqxap
                     break;
                 default:
                     break;
-            }
+            }*/
 
         }
         /// <summary>
@@ -12979,12 +17330,50 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb01_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int comboindex = Combo0.SelectedIndex;
+            equiptb011.IsEnabled = false;
+            equiptb012.IsEnabled = false;
+            equiptb013.IsEnabled = false;
             clearequip(0);
+            equiptb011.Text = "0";
+            equiptb012.Text = "0";
+            equiptb013.Text = "0";
+            int comboindex = Combo0.SelectedIndex;
+
             if (equipcb01.SelectedItem != null)
             {
                 string equipselect01 = equipcb01.SelectedItem.ToString();
                 int equipindex01 = getequipindex(equipselect01.Substring(31));
+                if(!String.IsNullOrEmpty(equip[equipindex01].property1))
+                {
+                    equiptb011.IsEnabled = true;
+                    if (equip[equipindex01].property1=="暴击率")
+                        equiptb011.Text = (equip[equipindex01].up1*100).ToString();
+                    else
+                       equiptb011.Text = equip[equipindex01].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex01].property2))
+                {
+                    equiptb012.IsEnabled = true;
+                    if (equip[equipindex01].property2 == "暴击率")
+                        equiptb012.Text = (equip[equipindex01].up2 * 100).ToString();
+                    else
+                        equiptb012.Text = equip[equipindex01].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex01].property3))
+                {
+                    equiptb013.IsEnabled = true;
+                    if (equip[equipindex01].property3 == "暴击率")
+                        equiptb013.Text = (equip[equipindex01].up3 * 100).ToString();
+                    else
+                        equiptb013.Text = equip[equipindex01].up3.ToString();
+                }
+                if (equipindex01 == 30)
+                {
+                    equiptb011.Text = "1";
+                    equiptb011.Text = "0";
+                    equiptb012.Text = "0";
+                    equiptb013.Text = "0";
+                }
                 if (equipindex01 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
@@ -12992,8 +17381,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex01].type) {
                                 equipcb01.SelectedIndex = 0; return; }
                     }
-                if (equipcb01.SelectedIndex > -1)
-                    calcequip(0, equipindex01);
+             //   if (equipcb01.SelectedIndex > -1)
+             //       calcequip(0, equipindex01,1);
                     
 
                 if (equip[equipindex01].rank == 2)
@@ -13036,8 +17425,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb01.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type) {
                                equipcb01.SelectedIndex = 0; return; }
                     }
-                if (equipcb01.SelectedIndex > -1)
-                       calcequip(0, equipindex02);
+           //     if (equipcb01.SelectedIndex > -1)
+           //            calcequip(0, equipindex02,2);
             }
             if (equipcb03.SelectedItem != null)
             {
@@ -13051,8 +17440,8 @@ namespace snqxap
                                 equipcb01.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb01.SelectedIndex > -1)
-                         calcequip(0, equipindex03);
+            //    if (equipcb01.SelectedIndex > -1)
+            //             calcequip(0, equipindex03,3);
             }
             renewskill();
         }
@@ -13063,8 +17452,15 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb02_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int comboindex = Combo0.SelectedIndex;
+            equiptb021.IsEnabled = false;
+            equiptb022.IsEnabled = false;
+            equiptb023.IsEnabled = false;
             clearequip(0);
+            equiptb021.Text = "0";
+            equiptb022.Text = "0";
+            equiptb023.Text = "0";
+            int comboindex = Combo0.SelectedIndex;
+          
             if (equipcb01.SelectedItem != null)
             {
                 string equipselect01 = equipcb01.SelectedItem.ToString();
@@ -13077,13 +17473,45 @@ namespace snqxap
                                 equipcb02.SelectedIndex = 0; return; }
                           
                     }
-                if (equipcb02.SelectedIndex > -1)
-                    calcequip(0, equipindex01);
+            //    if (equipcb02.SelectedIndex > -1)
+            //        calcequip(0, equipindex01,1);
             }
             if (equipcb02.SelectedItem != null)
             {
                 string equipselect02 = equipcb02.SelectedItem.ToString();
                 int equipindex02 = getequipindex(equipselect02.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex02].property1))
+                {
+                    equiptb021.IsEnabled = true;
+                    if (equip[equipindex02].property1 == "暴击率")
+                        equiptb021.Text = (equip[equipindex02].up1 * 100).ToString();
+                    else
+                        equiptb021.Text = equip[equipindex02].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex02].property2))
+                {
+                    equiptb022.IsEnabled = true;
+                    if (equip[equipindex02].property2 == "暴击率")
+                        equiptb022.Text = (equip[equipindex02].up2 * 100).ToString();
+                    else
+                        equiptb022.Text = equip[equipindex02].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex02].property3))
+                {
+                    equiptb023.IsEnabled = true;
+                    if (equip[equipindex02].property3 == "暴击率")
+                        equiptb023.Text = (equip[equipindex02].up3 * 100).ToString();
+                    else
+                        equiptb023.Text = equip[equipindex02].up3.ToString();
+                
+                }
+                if (equipindex02 == 30)
+                {
+                    equiptb021.Text = "1";
+                    equiptb021.Text = "0";
+                    equiptb022.Text = "0";
+                    equiptb023.Text = "0";
+                }
                 if (equipindex02 != -1)
                     if (comboindex == 28)           //16
                     {
@@ -13097,8 +17525,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb01.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type) {
                                 equipcb02.SelectedIndex = 0; return; }
                     }
-                if (equipcb02.SelectedIndex > -1)
-                    calcequip(0, equipindex02);
+           //     if (equipcb02.SelectedIndex > -1)
+           //         calcequip(0, equipindex02,2);
                 if (equip[equipindex02].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -13133,8 +17561,8 @@ namespace snqxap
                                 equipcb02.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb02.SelectedIndex > -1)
-                    calcequip(0, equipindex03);
+            //    if (equipcb02.SelectedIndex > -1)
+            //        calcequip(0, equipindex03,3);
             }
             renewskill();
         }
@@ -13145,8 +17573,14 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb03_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb031.IsEnabled = false;
+            equiptb032.IsEnabled = false;
+            equiptb033.IsEnabled = false; clearequip(0);
+            equiptb031.Text = "0";
+            equiptb032.Text = "0";
+            equiptb033.Text = "0";
             int comboindex = Combo0.SelectedIndex;
-            clearequip(0);
+
             if (equipcb01.SelectedItem != null)
             {
                 string equipselect01 = equipcb01.SelectedItem.ToString();
@@ -13158,8 +17592,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex01].type) {
                                 equipcb03.SelectedIndex = 0; return; }
                     }
-                if (equipcb03.SelectedIndex > -1)
-                    calcequip(0, equipindex01);
+           //     if (equipcb03.SelectedIndex > -1)
+           //         calcequip(0, equipindex01,1);
             }
             if (equipcb02.SelectedItem != null)
             {
@@ -13178,13 +17612,44 @@ namespace snqxap
                             if (equip[getequipindex(equipcb01.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type) {
                                 equipcb03.SelectedIndex = 0; return; }
                     }
-                if (equipcb03.SelectedIndex > -1)
-                    calcequip(0, equipindex02);
+            //    if (equipcb03.SelectedIndex > -1)
+            //        calcequip(0, equipindex02,2);
             }
             if (equipcb03.SelectedItem != null)
             {
                 string equipselect03 = equipcb03.SelectedItem.ToString();
                 int equipindex03 = getequipindex(equipselect03.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex03].property1))
+                {
+                    equiptb031.IsEnabled = true;
+                    if (equip[equipindex03].property1 == "暴击率")
+                        equiptb031.Text = (equip[equipindex03].up1 * 100).ToString();
+                    else
+                        equiptb031.Text = equip[equipindex03].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex03].property2))
+                {
+                    equiptb032.IsEnabled = true;
+                    if (equip[equipindex03].property2 == "暴击率")
+                        equiptb032.Text = (equip[equipindex03].up2 * 100).ToString();
+                    else
+                        equiptb032.Text = equip[equipindex03].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex03].property3))
+                {
+                    equiptb033.IsEnabled = true;
+                    if (equip[equipindex03].property3 == "暴击率")
+                        equiptb033.Text = (equip[equipindex03].up3 * 100).ToString();
+                    else
+                        equiptb033.Text = equip[equipindex03].up3.ToString();
+                }
+                if (equipindex03==30)
+                {
+                    equiptb031.Text = "1";
+                    equiptb031.Text = "0";
+                    equiptb032.Text = "0";
+                    equiptb033.Text = "0";                 
+                }
                 if (equipindex03 != -1)
                     if (comboindex == 28)           //16
                     {
@@ -13194,8 +17659,8 @@ namespace snqxap
                     }
 
 
-                if (equipcb03.SelectedIndex > -1) 
-                    calcequip(0, equipindex03);
+           //     if (equipcb03.SelectedIndex > -1) 
+          //          calcequip(0, equipindex03,3);
                 if (equip[equipindex03].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -13227,12 +17692,49 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb11_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb111.IsEnabled = false;
+            equiptb112.IsEnabled = false;
+            equiptb113.IsEnabled = false; clearequip(1);
+            equiptb111.Text = "0";
+            equiptb112.Text = "0";
+            equiptb113.Text = "0";
             int comboindex = Combo1.SelectedIndex;
-            clearequip(1);
+
             if (equipcb11.SelectedItem != null)
             {
                 string equipselect11 = equipcb11.SelectedItem.ToString();
                 int equipindex11 = getequipindex(equipselect11.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex11].property1))
+                {
+                    equiptb111.IsEnabled = true;
+                    if (equip[equipindex11].property1 == "暴击率")
+                        equiptb111.Text = (equip[equipindex11].up1 * 100).ToString();
+                    else
+                        equiptb111.Text = equip[equipindex11].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex11].property2))
+                {
+                    equiptb112.IsEnabled = true;
+                    if (equip[equipindex11].property2 == "暴击率")
+                        equiptb112.Text = (equip[equipindex11].up2 * 100).ToString();
+                    else
+                        equiptb112.Text = equip[equipindex11].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex11].property3))
+                {
+                    equiptb113.IsEnabled = true;
+                    if (equip[equipindex11].property3 == "暴击率")
+                        equiptb113.Text = (equip[equipindex11].up3 * 100).ToString();
+                    else
+                        equiptb113.Text = equip[equipindex11].up3.ToString();
+                }
+                if (equipindex11 == 30)
+                {
+                    equiptb111.Text = "1";
+                    equiptb111.Text = "0";
+                    equiptb112.Text = "0";
+                    equiptb113.Text = "0";
+                }
                 if (equipindex11 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
@@ -13240,8 +17742,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex11].type) {
                                 equipcb11.SelectedIndex = 0; return; }
                     }
-                if (equipcb11.SelectedIndex > -1)
-                    calcequip(1, equipindex11);
+            //    if (equipcb11.SelectedIndex > -1)
+            //        calcequip(1, equipindex11,11);
                 if (equip[equipindex11].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -13281,8 +17783,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb11.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type) {
                                 equipcb11.SelectedIndex = 0; return; }
                     }
-                if (equipcb11.SelectedIndex > -1)
-                    calcequip(1, equipindex12);
+          //      if (equipcb11.SelectedIndex > -1)
+          //          calcequip(1, equipindex12,12);
             }
             if (equipcb13.SelectedItem != null)
             {
@@ -13296,8 +17798,8 @@ namespace snqxap
                                 equipcb11.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb11.SelectedIndex > -1)
-                    calcequip(1, equipindex13);
+        //        if (equipcb11.SelectedIndex > -1)
+        //            calcequip(1, equipindex13,13);
             }
             renewskill();
         }
@@ -13308,8 +17810,14 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb12_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb121.IsEnabled = false;
+            equiptb122.IsEnabled = false;
+            equiptb123.IsEnabled = false; clearequip(1);
+            equiptb121.Text = "0";
+            equiptb122.Text = "0";
+            equiptb123.Text = "0";
             int comboindex = Combo1.SelectedIndex;
-            clearequip(1);
+
             if (equipcb11.SelectedItem != null)
             {
                 string equipselect11 = equipcb11.SelectedItem.ToString();
@@ -13321,13 +17829,44 @@ namespace snqxap
                             if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex11].type) {
                                 equipcb12.SelectedIndex = 0; return; }
                     }
-                if (equipcb12.SelectedIndex > -1)
-                    calcequip(1, equipindex11);
+            //    if (equipcb12.SelectedIndex > -1)
+            //        calcequip(1, equipindex11,11);
             }
             if (equipcb12.SelectedItem != null)
             {
                 string equipselect12 = equipcb12.SelectedItem.ToString();
                 int equipindex12 = getequipindex(equipselect12.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex12].property1))
+                {
+                    equiptb121.IsEnabled = true;
+                    if (equip[equipindex12].property1 == "暴击率")
+                        equiptb121.Text = (equip[equipindex12].up1 * 100).ToString();
+                    else
+                        equiptb121.Text = equip[equipindex12].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex12].property2))
+                {
+                    equiptb122.IsEnabled = true;
+                    if (equip[equipindex12].property2 == "暴击率")
+                        equiptb122.Text = (equip[equipindex12].up2 * 100).ToString();
+                    else
+                        equiptb122.Text = equip[equipindex12].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex12].property3))
+                {
+                    equiptb123.IsEnabled = true;
+                    if (equip[equipindex12].property3 == "暴击率")
+                        equiptb123.Text = (equip[equipindex12].up3 * 100).ToString();
+                    else
+                        equiptb123.Text = equip[equipindex12].up3.ToString();
+                }
+                if (equipindex12 == 30)
+                {
+                    equiptb121.Text = "1";
+                    equiptb121.Text = "0";
+                    equiptb122.Text = "0";
+                    equiptb123.Text = "0";
+                }
                 if (equipindex12 != -1)
                     if (comboindex == 28)           //16
                     {
@@ -13341,8 +17880,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb11.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type) {
                                 equipcb12.SelectedIndex = 0; return; }
                     }
-                if (equipcb12.SelectedIndex > -1)
-                    calcequip(1, equipindex12);
+            //    if (equipcb12.SelectedIndex > -1)
+             //       calcequip(1, equipindex12,12);
                 if (equip[equipindex12].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -13377,8 +17916,8 @@ namespace snqxap
                                 equipcb12.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb12.SelectedIndex > -1)
-                    calcequip(1, equipindex13);
+             //   if (equipcb12.SelectedIndex > -1)
+             //       calcequip(1, equipindex13,13);
             }
             renewskill();
         }
@@ -13389,8 +17928,14 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb13_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb131.IsEnabled = false;
+            equiptb132.IsEnabled = false;
+            equiptb133.IsEnabled = false; clearequip(1);
+            equiptb131.Text = "0";
+            equiptb132.Text = "0";
+            equiptb133.Text = "0";
             int comboindex = Combo1.SelectedIndex;
-            clearequip(1);
+
             if (equipcb11.SelectedItem != null)
             {
                 string equipselect11 = equipcb11.SelectedItem.ToString();
@@ -13402,8 +17947,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex11].type) {
                                 equipcb13.SelectedIndex = 0; return; }
                     }
-                if (equipcb13.SelectedIndex > -1)
-                    calcequip(1, equipindex11);
+              //  if (equipcb13.SelectedIndex > -1)
+              //      calcequip(1, equipindex11,11);
             }
             if (equipcb12.SelectedItem != null)
             {
@@ -13422,13 +17967,44 @@ namespace snqxap
                             if (equip[getequipindex(equipcb11.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type) {
                                 equipcb13.SelectedIndex = 0; return; }
                     }
-                if (equipcb13.SelectedIndex > -1)
-                    calcequip(1, equipindex12);
+             //   if (equipcb13.SelectedIndex > -1)
+             //       calcequip(1, equipindex12,12);
             }
             if (equipcb13.SelectedItem != null)
             {
                 string equipselect13 = equipcb13.SelectedItem.ToString();
                 int equipindex13 = getequipindex(equipselect13.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex13].property1))
+                {
+                    equiptb131.IsEnabled = true;
+                    if (equip[equipindex13].property1 == "暴击率")
+                        equiptb131.Text = (equip[equipindex13].up1 * 100).ToString();
+                    else
+                        equiptb131.Text = equip[equipindex13].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex13].property2))
+                {
+                    equiptb132.IsEnabled = true;
+                    if (equip[equipindex13].property2 == "暴击率")
+                        equiptb132.Text = (equip[equipindex13].up2 * 100).ToString();
+                    else
+                        equiptb132.Text = equip[equipindex13].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex13].property3))
+                {
+                    equiptb133.IsEnabled = true;
+                    if (equip[equipindex13].property3 == "暴击率")
+                        equiptb133.Text = (equip[equipindex13].up3 * 100).ToString();
+                    else
+                        equiptb133.Text = equip[equipindex13].up3.ToString();
+                }
+                if (equipindex13 == 30)
+                {
+                    equiptb131.Text = "1";
+                    equiptb131.Text = "0";
+                    equiptb132.Text = "0";
+                    equiptb133.Text = "0";
+                }
                 if (equipindex13 != -1)
                     if (comboindex == 28)           //16
                     {
@@ -13437,8 +18013,8 @@ namespace snqxap
                                 equipcb13.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb13.SelectedIndex > -1)
-                    calcequip(1, equipindex13);
+          //      if (equipcb13.SelectedIndex > -1)
+           //         calcequip(1, equipindex13,13);
                 if (equip[equipindex13].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -13470,12 +18046,49 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb21_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb211.IsEnabled = false;
+            equiptb212.IsEnabled = false;
+            equiptb213.IsEnabled = false; clearequip(2);
+            equiptb211.Text = "0";
+            equiptb212.Text = "0";
+            equiptb213.Text = "0";
             int comboindex = Combo2.SelectedIndex;
-            clearequip(2);
+
             if (equipcb21.SelectedItem != null)
             {
                 string equipselect21 = equipcb21.SelectedItem.ToString();
                 int equipindex21 = getequipindex(equipselect21.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex21].property1))
+                {
+                    equiptb211.IsEnabled = true;
+                    if (equip[equipindex21].property1 == "暴击率")
+                        equiptb211.Text = (equip[equipindex21].up1 * 100).ToString();
+                    else
+                        equiptb211.Text = equip[equipindex21].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex21].property2))
+                {
+                    equiptb212.IsEnabled = true;
+                    if (equip[equipindex21].property2 == "暴击率")
+                        equiptb212.Text = (equip[equipindex21].up2 * 100).ToString();
+                    else
+                        equiptb212.Text = equip[equipindex21].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex21].property3))
+                {
+                    equiptb213.IsEnabled = true;
+                    if (equip[equipindex21].property3 == "暴击率")
+                        equiptb213.Text = (equip[equipindex21].up3 * 100).ToString();
+                    else
+                        equiptb213.Text = equip[equipindex21].up3.ToString();
+                }
+                if (equipindex21 == 30)
+                {
+                    equiptb211.Text = "1";
+                    equiptb211.Text = "0";
+                    equiptb212.Text = "0";
+                    equiptb213.Text = "0";
+                }
                 if (equipindex21 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
@@ -13483,8 +18096,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex21].type) {
                                 equipcb21.SelectedIndex = 0; return; }
                     }
-                if (equipcb21.SelectedIndex > -1)
-                    calcequip(2, equipindex21);
+           //     if (equipcb21.SelectedIndex > -1)
+          //          calcequip(2, equipindex21,21);
                 if (equip[equipindex21].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -13524,8 +18137,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb21.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type) {
                                 equipcb21.SelectedIndex = 0; return; }
                     }
-                if (equipcb21.SelectedIndex > -1)
-                    calcequip(2, equipindex22);
+            //    if (equipcb21.SelectedIndex > -1)
+           //         calcequip(2, equipindex22,22);
             }
             if (equipcb23.SelectedItem != null)
             {
@@ -13539,8 +18152,8 @@ namespace snqxap
                                 equipcb21.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb21.SelectedIndex > -1)
-                    calcequip(2, equipindex23);
+            //    if (equipcb21.SelectedIndex > -1)
+            //        calcequip(2, equipindex23,23);
             }
             renewskill();
         }
@@ -13551,8 +18164,14 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb22_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb221.IsEnabled = false;
+            equiptb222.IsEnabled = false;
+            equiptb223.IsEnabled = false; clearequip(2);
+            equiptb221.Text = "0";
+            equiptb222.Text = "0";
+            equiptb223.Text = "0";
             int comboindex = Combo2.SelectedIndex;
-            clearequip(2);
+
             if (equipcb21.SelectedItem != null)
             {
                 string equipselect21 = equipcb21.SelectedItem.ToString();
@@ -13565,13 +18184,44 @@ namespace snqxap
                                 if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex21].type) {
                                     equipcb22.SelectedIndex = 0; return; }
                         }
-                if (equipcb22.SelectedIndex > -1)
-                    calcequip(2, equipindex21);
+              //  if (equipcb22.SelectedIndex > -1)
+              //      calcequip(2, equipindex21,21);
             }
             if (equipcb22.SelectedItem != null)
             {
                 string equipselect22 = equipcb22.SelectedItem.ToString();
                 int equipindex22 = getequipindex(equipselect22.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex22].property1))
+                {
+                    equiptb221.IsEnabled = true;
+                    if (equip[equipindex22].property1 == "暴击率")
+                        equiptb221.Text = (equip[equipindex22].up1 * 100).ToString();
+                    else
+                        equiptb221.Text = equip[equipindex22].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex22].property2))
+                {
+                    equiptb222.IsEnabled = true;
+                    if (equip[equipindex22].property2 == "暴击率")
+                        equiptb222.Text = (equip[equipindex22].up2 * 100).ToString();
+                    else
+                        equiptb222.Text = equip[equipindex22].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex22].property3))
+                {
+                    equiptb223.IsEnabled = true;
+                    if (equip[equipindex22].property3 == "暴击率")
+                        equiptb223.Text = (equip[equipindex22].up3 * 100).ToString();
+                    else
+                        equiptb223.Text = equip[equipindex22].up3.ToString();
+                }
+                if (equipindex22 == 30)
+                {
+                    equiptb221.Text = "1";
+                    equiptb221.Text = "0";
+                    equiptb222.Text = "0";
+                    equiptb223.Text = "0";
+                }
                 if (equipindex22 != -1)
                     if (comboindex == 28)           //16
                     {
@@ -13585,8 +18235,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb21.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type) {
                                 equipcb22.SelectedIndex = 0; return; }
                     }
-                if (equipcb22.SelectedIndex > -1)
-                    calcequip(2, equipindex22);
+             //   if (equipcb22.SelectedIndex > -1)
+             //       calcequip(2, equipindex22,22);
                 if (equip[equipindex22].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -13621,8 +18271,8 @@ namespace snqxap
                                 equipcb22.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb22.SelectedIndex > -1)
-                    calcequip(2, equipindex23);
+             //   if (equipcb22.SelectedIndex > -1)
+             //       calcequip(2, equipindex23,23);
             }
             renewskill();
         }
@@ -13633,8 +18283,14 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb23_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb231.IsEnabled = false;
+            equiptb232.IsEnabled = false;
+            equiptb233.IsEnabled = false; clearequip(2);
+            equiptb231.Text = "0";
+            equiptb232.Text = "0";
+            equiptb233.Text = "0";
             int comboindex = Combo2.SelectedIndex;
-            clearequip(2);
+
             if (equipcb21.SelectedItem != null)
             {
                 string equipselect21 = equipcb21.SelectedItem.ToString();
@@ -13647,8 +18303,8 @@ namespace snqxap
                                 if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex21].type) {
                                     equipcb23.SelectedIndex = 0; return; }
                         }
-                if (equipcb23.SelectedIndex > -1)
-                    calcequip(2, equipindex21);
+            //    if (equipcb23.SelectedIndex > -1)
+            //        calcequip(2, equipindex21,21);
             }
             if (equipcb22.SelectedItem != null)
             {
@@ -13667,13 +18323,44 @@ namespace snqxap
                             if (equip[getequipindex(equipcb21.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type) {
                                 equipcb23.SelectedIndex = 0; return; }
                     }
-                if (equipcb23.SelectedIndex > -1)
-                    calcequip(2, equipindex22);
+            //    if (equipcb23.SelectedIndex > -1)
+            //        calcequip(2, equipindex22,22);
             }
             if (equipcb23.SelectedItem != null)
             {
                 string equipselect23 = equipcb23.SelectedItem.ToString();
                 int equipindex23 = getequipindex(equipselect23.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex23].property1))
+                {
+                    equiptb231.IsEnabled = true;
+                    if (equip[equipindex23].property1 == "暴击率")
+                        equiptb231.Text = (equip[equipindex23].up1 * 100).ToString();
+                    else
+                        equiptb231.Text = equip[equipindex23].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex23].property2))
+                {
+                    equiptb232.IsEnabled = true;
+                    if (equip[equipindex23].property2 == "暴击率")
+                        equiptb232.Text = (equip[equipindex23].up2 * 100).ToString();
+                    else
+                        equiptb232.Text = equip[equipindex23].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex23].property3))
+                {
+                    equiptb233.IsEnabled = true;
+                    if (equip[equipindex23].property3 == "暴击率")
+                        equiptb233.Text = (equip[equipindex23].up3 * 100).ToString();
+                    else
+                        equiptb233.Text = equip[equipindex23].up3.ToString();
+                }
+                if (equipindex23 == 30)
+                {
+                    equiptb231.Text = "1";
+                    equiptb231.Text = "0";
+                    equiptb232.Text = "0";
+                    equiptb233.Text = "0";
+                }
                 if (equipindex23 != -1)
                     if (comboindex == 28)           //16
                     {
@@ -13682,8 +18369,8 @@ namespace snqxap
                                 equipcb23.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb23.SelectedIndex > -1)
-                    calcequip(2, equipindex23);
+             //   if (equipcb23.SelectedIndex > -1)
+              //      calcequip(2, equipindex23,23);
                 if (equip[equipindex23].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -13715,12 +18402,49 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb31_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb311.IsEnabled = false;
+            equiptb312.IsEnabled = false;
+            equiptb313.IsEnabled = false; clearequip(3);
+            equiptb311.Text = "0";
+            equiptb312.Text = "0";
+            equiptb313.Text = "0";
             int comboindex = Combo3.SelectedIndex;
-            clearequip(3);
+ 
             if (equipcb31.SelectedItem != null)
             {
                 string equipselect31 = equipcb31.SelectedItem.ToString();
                 int equipindex31 = getequipindex(equipselect31.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex31].property1))
+                {
+                    equiptb311.IsEnabled = true;
+                    if (equip[equipindex31].property1 == "暴击率")
+                        equiptb311.Text = (equip[equipindex31].up1 * 100).ToString();
+                    else
+                        equiptb311.Text = equip[equipindex31].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex31].property2))
+                {
+                    equiptb312.IsEnabled = true;
+                    if (equip[equipindex31].property2 == "暴击率")
+                        equiptb312.Text = (equip[equipindex31].up2 * 100).ToString();
+                    else
+                        equiptb312.Text = equip[equipindex31].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex31].property3))
+                {
+                    equiptb313.IsEnabled = true;
+                    if (equip[equipindex31].property3 == "暴击率")
+                        equiptb313.Text = (equip[equipindex31].up3 * 100).ToString();
+                    else
+                        equiptb313.Text = equip[equipindex31].up3.ToString();
+                }
+                if (equipindex31 == 30)
+                {
+                    equiptb311.Text = "1";
+                    equiptb311.Text = "0";
+                    equiptb312.Text = "0";
+                    equiptb313.Text = "0";
+                }
                 if (equipindex31 != -1)
                     if (equipindex31 != -1)
                         if (comboindex == 29 || comboindex == 34)
@@ -13729,8 +18453,8 @@ namespace snqxap
                                 if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex31].type) {
                                     equipcb31.SelectedIndex = 0; return; }
                         }
-                if (equipcb31.SelectedIndex > -1)
-                    calcequip(3, equipindex31);
+              //  if (equipcb31.SelectedIndex > -1)
+              //      calcequip(3, equipindex31,31);
                 if (equip[equipindex31].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -13770,8 +18494,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb31.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type) {
                                 equipcb31.SelectedIndex = 0; return; }
                     }
-                if (equipcb31.SelectedIndex > -1)
-                    calcequip(3, equipindex32);
+             //   if (equipcb31.SelectedIndex > -1)
+             //       calcequip(3, equipindex32,32);
             }
             if (equipcb33.SelectedItem != null)
             {
@@ -13785,8 +18509,8 @@ namespace snqxap
                                 equipcb31.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb31.SelectedIndex > -1)
-                    calcequip(3, equipindex33);
+             //   if (equipcb31.SelectedIndex > -1)
+              //      calcequip(3, equipindex33,33);
             }
             renewskill();
         }
@@ -13797,8 +18521,14 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb32_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb321.IsEnabled = false;
+            equiptb322.IsEnabled = false;
+            equiptb323.IsEnabled = false; clearequip(3);
+            equiptb321.Text = "0";
+            equiptb322.Text = "0";
+            equiptb323.Text = "0";
             int comboindex = Combo3.SelectedIndex;
-            clearequip(3);
+
             if (equipcb31.SelectedItem != null)
             {
                 string equipselect31 = equipcb31.SelectedItem.ToString();
@@ -13810,13 +18540,44 @@ namespace snqxap
                             if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex31].type) {
                                 equipcb32.SelectedIndex = 0; return; }
                     }
-                if (equipcb32.SelectedIndex > -1)
-                    calcequip(3, equipindex31);
+            //    if (equipcb32.SelectedIndex > -1)
+            //        calcequip(3, equipindex31,31);
             }
             if (equipcb32.SelectedItem != null)
             {
                 string equipselect32 = equipcb32.SelectedItem.ToString();
                 int equipindex32 = getequipindex(equipselect32.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex32].property1))
+                {
+                    equiptb321.IsEnabled = true;
+                    if (equip[equipindex32].property1 == "暴击率")
+                        equiptb321.Text = (equip[equipindex32].up1 * 100).ToString();
+                    else
+                        equiptb321.Text = equip[equipindex32].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex32].property2))
+                {
+                    equiptb322.IsEnabled = true;
+                    if (equip[equipindex32].property2 == "暴击率")
+                        equiptb322.Text = (equip[equipindex32].up2 * 100).ToString();
+                    else
+                        equiptb322.Text = equip[equipindex32].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex32].property3))
+                {
+                    equiptb323.IsEnabled = true;
+                    if (equip[equipindex32].property3 == "暴击率")
+                        equiptb323.Text = (equip[equipindex32].up3 * 100).ToString();
+                    else
+                        equiptb323.Text = equip[equipindex32].up3.ToString();
+                }
+                if (equipindex32 == 30)
+                {
+                    equiptb321.Text = "1";
+                    equiptb321.Text = "0";
+                    equiptb322.Text = "0";
+                    equiptb323.Text = "0";
+                }
                 if (equipindex32 != -1)
                     if (comboindex == 28)           //16
                     {
@@ -13830,8 +18591,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb31.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type) {
                                 equipcb32.SelectedIndex = 0; return; }
                     }
-                if (equipcb32.SelectedIndex > -1)
-                    calcequip(3, equipindex32);
+              //  if (equipcb32.SelectedIndex > -1)
+              //      calcequip(3, equipindex32,32);
                 if (equip[equipindex32].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -13866,8 +18627,8 @@ namespace snqxap
                                 equipcb32.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb32.SelectedIndex > -1)
-                    calcequip(3, equipindex33);
+             //   if (equipcb32.SelectedIndex > -1)
+            //        calcequip(3, equipindex33,33);
             }
             renewskill();
         }
@@ -13878,8 +18639,14 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb33_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb331.IsEnabled = false;
+            equiptb332.IsEnabled = false;
+            equiptb333.IsEnabled = false; clearequip(3);
+            equiptb331.Text = "0";
+            equiptb332.Text = "0";
+            equiptb333.Text = "0";
             int comboindex = Combo3.SelectedIndex;
-            clearequip(3);
+
             if (equipcb31.SelectedItem != null)
             {
                 string equipselect31 = equipcb31.SelectedItem.ToString();
@@ -13891,8 +18658,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex31].type) {
                                 equipcb33.SelectedIndex = 0; return; }
                     }
-                if (equipcb33.SelectedIndex > -1)
-                    calcequip(3, equipindex31);
+            //    if (equipcb33.SelectedIndex > -1)
+            //        calcequip(3, equipindex31,31);
             }
             if (equipcb32.SelectedItem != null)
             {
@@ -13911,13 +18678,44 @@ namespace snqxap
                             if (equip[getequipindex(equipcb31.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type) {
                                 equipcb33.SelectedIndex = 0; return; }
                     }
-                if (equipcb33.SelectedIndex > -1)
-                    calcequip(3, equipindex32);
+             //   if (equipcb33.SelectedIndex > -1)
+             //       calcequip(3, equipindex32,32);
             }
             if (equipcb33.SelectedItem != null)
             {
                 string equipselect33 = equipcb33.SelectedItem.ToString();
                 int equipindex33 = getequipindex(equipselect33.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex33].property1))
+                {
+                    equiptb331.IsEnabled = true;
+                    if (equip[equipindex33].property1 == "暴击率")
+                        equiptb331.Text = (equip[equipindex33].up1 * 100).ToString();
+                    else
+                        equiptb331.Text = equip[equipindex33].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex33].property2))
+                {
+                    equiptb332.IsEnabled = true;
+                    if (equip[equipindex33].property2 == "暴击率")
+                        equiptb332.Text = (equip[equipindex33].up2 * 100).ToString();
+                    else
+                        equiptb332.Text = equip[equipindex33].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex33].property3))
+                {
+                    equiptb333.IsEnabled = true;
+                    if (equip[equipindex33].property3 == "暴击率")
+                        equiptb333.Text = (equip[equipindex33].up3 * 100).ToString();
+                    else
+                        equiptb333.Text = equip[equipindex33].up3.ToString();
+                }
+                if (equipindex33 == 30)
+                {
+                    equiptb331.Text = "1";
+                    equiptb331.Text = "0";
+                    equiptb332.Text = "0";
+                    equiptb333.Text = "0";
+                }
                 if (equipindex33 != -1)
                     if (comboindex == 28)           //16
                     {
@@ -13926,8 +18724,8 @@ namespace snqxap
                                 equipcb33.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb33.SelectedIndex > -1)
-                    calcequip(3, equipindex33);
+            //    if (equipcb33.SelectedIndex > -1)
+             //       calcequip(3, equipindex33,33);
                 if (equip[equipindex33].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -13959,12 +18757,49 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb41_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb411.IsEnabled = false;
+            equiptb412.IsEnabled = false;
+            equiptb413.IsEnabled = false; clearequip(4);
+            equiptb411.Text = "0";
+            equiptb412.Text = "0";
+            equiptb413.Text = "0";
             int comboindex = Combo4.SelectedIndex;
-            clearequip(4);
+
             if (equipcb41.SelectedItem != null)
             {
                 string equipselect41 = equipcb41.SelectedItem.ToString();
                 int equipindex41 = getequipindex(equipselect41.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex41].property1))
+                {
+                    equiptb411.IsEnabled = true;
+                    if (equip[equipindex41].property1 == "暴击率")
+                        equiptb411.Text = (equip[equipindex41].up1 * 100).ToString();
+                    else
+                        equiptb411.Text = equip[equipindex41].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex41].property2))
+                {
+                    equiptb412.IsEnabled = true;
+                    if (equip[equipindex41].property2 == "暴击率")
+                        equiptb412.Text = (equip[equipindex41].up2 * 100).ToString();
+                    else
+                        equiptb412.Text = equip[equipindex41].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex41].property3))
+                {
+                    equiptb413.IsEnabled = true;
+                    if (equip[equipindex41].property3 == "暴击率")
+                        equiptb413.Text = (equip[equipindex41].up3 * 100).ToString();
+                    else
+                        equiptb413.Text = equip[equipindex41].up3.ToString();
+                }
+                if (equipindex41 == 30)
+                {
+                    equiptb411.Text = "1";
+                    equiptb411.Text = "0";
+                    equiptb412.Text = "0";
+                    equiptb413.Text = "0";
+                }
                 if (equipindex41 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
@@ -13972,8 +18807,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex41].type) {
                                 equipcb41.SelectedIndex = 0; return; }
                     }
-                if (equipcb41.SelectedIndex > -1)
-                    calcequip(4, equipindex41);
+            //    if (equipcb41.SelectedIndex > -1)
+            //        calcequip(4, equipindex41,41);
                 if (equip[equipindex41].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -14013,8 +18848,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb41.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type) {
                                 equipcb41.SelectedIndex = 0; return; }
                     }
-                if (equipcb41.SelectedIndex > -1)
-                    calcequip(4, equipindex42);
+             //   if (equipcb41.SelectedIndex > -1)
+             //       calcequip(4, equipindex42,42);
             }
             if (equipcb43.SelectedItem != null)
             {
@@ -14028,8 +18863,8 @@ namespace snqxap
                                 equipcb41.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb41.SelectedIndex > -1)
-                    calcequip(4, equipindex43);
+            //    if (equipcb41.SelectedIndex > -1)
+             //       calcequip(4, equipindex43,43);
             }
             renewskill();
         }
@@ -14040,8 +18875,14 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb42_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb421.IsEnabled = false;
+            equiptb422.IsEnabled = false;
+            equiptb423.IsEnabled = false; clearequip(4);
+            equiptb421.Text = "0";
+            equiptb422.Text = "0";
+            equiptb423.Text = "0";
             int comboindex = Combo4.SelectedIndex;
-            clearequip(4);
+
             if (equipcb41.SelectedItem != null)
             {
                 string equipselect41 = equipcb41.SelectedItem.ToString();
@@ -14053,13 +18894,44 @@ namespace snqxap
                             if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex41].type) {
                                 equipcb42.SelectedIndex = 0; return; }
                     }
-                if (equipcb42.SelectedIndex > -1 )
-                    calcequip(4, equipindex41);
+            //    if (equipcb42.SelectedIndex > -1 )
+            //        calcequip(4, equipindex41,41);
             }
             if (equipcb42.SelectedItem != null)
             {
                 string equipselect42 = equipcb42.SelectedItem.ToString();
                 int equipindex42 = getequipindex(equipselect42.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex42].property1))
+                {
+                    equiptb421.IsEnabled = true;
+                    if (equip[equipindex42].property1 == "暴击率")
+                        equiptb421.Text = (equip[equipindex42].up1 * 100).ToString();
+                    else
+                        equiptb421.Text = equip[equipindex42].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex42].property2))
+                {
+                    equiptb422.IsEnabled = true;
+                    if (equip[equipindex42].property2 == "暴击率")
+                        equiptb422.Text = (equip[equipindex42].up2 * 100).ToString();
+                    else
+                        equiptb422.Text = equip[equipindex42].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex42].property3))
+                {
+                    equiptb423.IsEnabled = true;
+                    if (equip[equipindex42].property3 == "暴击率")
+                        equiptb423.Text = (equip[equipindex42].up3 * 100).ToString();
+                    else
+                        equiptb423.Text = equip[equipindex42].up3.ToString();
+                }
+                if (equipindex42 == 30)
+                {
+                    equiptb421.Text = "1";
+                    equiptb421.Text = "0";
+                    equiptb422.Text = "0";
+                    equiptb423.Text = "0";
+                }
                 if (equipindex42 != -1)
                     if (comboindex == 28)           //16
                     {
@@ -14074,8 +18946,8 @@ namespace snqxap
                                 equipcb42.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb42.SelectedIndex > -1)
-                    calcequip(4, equipindex42);
+             //   if (equipcb42.SelectedIndex > -1)
+            //        calcequip(4, equipindex42,42);
                 if (equip[equipindex42].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -14110,8 +18982,8 @@ namespace snqxap
                                 equipcb42.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb42.SelectedIndex > -1)
-                    calcequip(4, equipindex43);
+             //   if (equipcb42.SelectedIndex > -1)
+             //       calcequip(4, equipindex43,43);
             }
             renewskill();
         }
@@ -14122,8 +18994,14 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb43_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb431.IsEnabled = false;
+            equiptb432.IsEnabled = false;
+            equiptb433.IsEnabled = false; clearequip(4);
+            equiptb431.Text = "0";
+            equiptb432.Text = "0";
+            equiptb433.Text = "0";
             int comboindex = Combo4.SelectedIndex;
-            clearequip(4);
+
             if (equipcb41.SelectedItem != null)
             {
                 string equipselect41 = equipcb41.SelectedItem.ToString();
@@ -14135,8 +19013,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex41].type) {
                                 equipcb43.SelectedIndex = 0; return; }
                     }
-                if (equipcb43.SelectedIndex > -1)
-                    calcequip(4, equipindex41);
+             //   if (equipcb43.SelectedIndex > -1)
+             //       calcequip(4, equipindex41,41);
             }
             if (equipcb42.SelectedItem != null)
             {
@@ -14155,13 +19033,44 @@ namespace snqxap
                             if (equip[getequipindex(equipcb41.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type) {
                                 equipcb43.SelectedIndex = 0; return; }
                     }
-                if (equipcb43.SelectedIndex > -1)
-                    calcequip(4, equipindex42);
+             //   if (equipcb43.SelectedIndex > -1)
+              //      calcequip(4, equipindex42,42);
             }
             if (equipcb43.SelectedItem != null)
             {
                 string equipselect43 = equipcb43.SelectedItem.ToString();
                 int equipindex43 = getequipindex(equipselect43.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex43].property1))
+                {
+                    equiptb431.IsEnabled = true;
+                    if (equip[equipindex43].property1 == "暴击率")
+                        equiptb431.Text = (equip[equipindex43].up1 * 100).ToString();
+                    else
+                        equiptb431.Text = equip[equipindex43].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex43].property2))
+                {
+                    equiptb432.IsEnabled = true;
+                    if (equip[equipindex43].property2 == "暴击率")
+                        equiptb432.Text = (equip[equipindex43].up2 * 100).ToString();
+                    else
+                        equiptb432.Text = equip[equipindex43].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex43].property3))
+                {
+                    equiptb433.IsEnabled = true;
+                    if (equip[equipindex43].property3 == "暴击率")
+                        equiptb433.Text = (equip[equipindex43].up3 * 100).ToString();
+                    else
+                        equiptb433.Text = equip[equipindex43].up3.ToString();
+                }
+                if (equipindex43 == 30)
+                {
+                    equiptb431.Text = "1";
+                    equiptb431.Text = "0";
+                    equiptb432.Text = "0";
+                    equiptb433.Text = "0";
+                }
                 if (equipindex43 != -1)
                     if (comboindex == 28)           //16
                     {
@@ -14170,8 +19079,8 @@ namespace snqxap
                                 equipcb43.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb43.SelectedIndex > -1)
-                    calcequip(4, equipindex43);
+             //   if (equipcb43.SelectedIndex > -1)
+             //       calcequip(4, equipindex43,43);
                 if (equip[equipindex43].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -14203,12 +19112,49 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb51_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb511.IsEnabled = false;
+            equiptb512.IsEnabled = false;
+            equiptb513.IsEnabled = false; clearequip(5);
+            equiptb511.Text = "0";
+            equiptb512.Text = "0";
+            equiptb513.Text = "0";
             int comboindex = Combo5.SelectedIndex;
-            clearequip(5);
+
             if (equipcb51.SelectedItem != null)
             {
                 string equipselect51 = equipcb51.SelectedItem.ToString();
                 int equipindex51 = getequipindex(equipselect51.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex51].property1))
+                {
+                    equiptb511.IsEnabled = true;
+                    if (equip[equipindex51].property1 == "暴击率")
+                        equiptb511.Text = (equip[equipindex51].up1 * 100).ToString();
+                    else
+                        equiptb511.Text = equip[equipindex51].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex51].property2))
+                {
+                    equiptb512.IsEnabled = true;
+                    if (equip[equipindex51].property2 == "暴击率")
+                        equiptb512.Text = (equip[equipindex51].up2 * 100).ToString();
+                    else
+                        equiptb512.Text = equip[equipindex51].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex51].property3))
+                {
+                    equiptb513.IsEnabled = true;
+                    if (equip[equipindex51].property3 == "暴击率")
+                        equiptb513.Text = (equip[equipindex51].up3 * 100).ToString();
+                    else
+                        equiptb513.Text = equip[equipindex51].up3.ToString();
+                }
+                if (equipindex51 == 30)
+                {
+                    equiptb511.Text = "1";
+                    equiptb511.Text = "0";
+                    equiptb512.Text = "0";
+                    equiptb513.Text = "0";
+                }
                 if (equipindex51 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
@@ -14216,8 +19162,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex51].type) {
                                 equipcb51.SelectedIndex = 0; return; }
                     }
-                if (equipcb51.SelectedIndex > -1)
-                    calcequip(5, equipindex51);
+              //  if (equipcb51.SelectedIndex > -1)
+              //      calcequip(5, equipindex51,51);
                 if (equip[equipindex51].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -14257,8 +19203,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb51.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type) {
                                 equipcb51.SelectedIndex = 0; return; }
                     }
-                if (equipcb51.SelectedIndex > -1)
-                    calcequip(5, equipindex52);
+            //    if (equipcb51.SelectedIndex > -1)
+             //       calcequip(5, equipindex52,52);
             }
             if (equipcb53.SelectedItem != null)
             {
@@ -14272,8 +19218,8 @@ namespace snqxap
                                 equipcb51.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb51.SelectedIndex > -1)
-                    calcequip(5, equipindex53);
+             //   if (equipcb51.SelectedIndex > -1)
+             //       calcequip(5, equipindex53,53);
             }
             renewskill();
         }
@@ -14284,8 +19230,14 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb52_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb521.IsEnabled = false;
+            equiptb522.IsEnabled = false;
+            equiptb523.IsEnabled = false; clearequip(5);
+            equiptb521.Text = "0";
+            equiptb522.Text = "0";
+            equiptb523.Text = "0";
             int comboindex = Combo5.SelectedIndex;
-            clearequip(5);
+
             if (equipcb51.SelectedItem != null)
             {
                 string equipselect51 = equipcb51.SelectedItem.ToString();
@@ -14297,13 +19249,44 @@ namespace snqxap
                             if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex51].type) {
                                 equipcb52.SelectedIndex = 0; return; }
                     }
-                if (equipcb52.SelectedIndex > -1)
-                    calcequip(5, equipindex51);
+              //  if (equipcb52.SelectedIndex > -1)
+             //       calcequip(5, equipindex51,51);
             }
             if (equipcb52.SelectedItem != null)
             {
                 string equipselect52 = equipcb52.SelectedItem.ToString();
                 int equipindex52 = getequipindex(equipselect52.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex52].property1))
+                {
+                    equiptb521.IsEnabled = true;
+                    if (equip[equipindex52].property1 == "暴击率")
+                        equiptb521.Text = (equip[equipindex52].up1 * 100).ToString();
+                    else
+                        equiptb521.Text = equip[equipindex52].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex52].property2))
+                {
+                    equiptb522.IsEnabled = true;
+                    if (equip[equipindex52].property2 == "暴击率")
+                        equiptb522.Text = (equip[equipindex52].up2 * 100).ToString();
+                    else
+                        equiptb522.Text = equip[equipindex52].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex52].property3))
+                {
+                    equiptb523.IsEnabled = true;
+                    if (equip[equipindex52].property3 == "暴击率")
+                        equiptb523.Text = (equip[equipindex52].up3 * 100).ToString();
+                    else
+                        equiptb523.Text = equip[equipindex52].up3.ToString();
+                }
+                if (equipindex52 == 30)
+                {
+                    equiptb521.Text = "1";
+                    equiptb521.Text = "0";
+                    equiptb522.Text = "0";
+                    equiptb523.Text = "0";
+                }
                 if (equipindex52 != -1)
                     if (comboindex == 28)           //16
                     {
@@ -14317,8 +19300,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb51.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type) {
                                 equipcb52.SelectedIndex = 0; return; }
                     }
-                if (equipcb52.SelectedIndex > -1)
-                    calcequip(5, equipindex52);
+             //   if (equipcb52.SelectedIndex > -1)
+             //       calcequip(5, equipindex52,52);
                 if (equip[equipindex52].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -14353,8 +19336,8 @@ namespace snqxap
                                 equipcb52.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb52.SelectedIndex > -1)
-                    calcequip(5, equipindex53);
+             //   if (equipcb52.SelectedIndex > -1)
+             //       calcequip(5, equipindex53,53);
             }
             renewskill();
         }
@@ -14365,8 +19348,14 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb53_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb531.IsEnabled = false;
+            equiptb532.IsEnabled = false;
+            equiptb533.IsEnabled = false; clearequip(5);
+            equiptb531.Text = "0";
+            equiptb532.Text = "0";
+            equiptb533.Text = "0";
             int comboindex = Combo5.SelectedIndex;
-            clearequip(5);
+
             if (equipcb51.SelectedItem != null)
             {
                 string equipselect51 = equipcb51.SelectedItem.ToString();
@@ -14378,8 +19367,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex51].type) {
                                 equipcb53.SelectedIndex = 0; return; }
                     }
-                if (equipcb53.SelectedIndex > -1)
-                    calcequip(5, equipindex51);
+             //   if (equipcb53.SelectedIndex > -1)
+              //      calcequip(5, equipindex51,51);
             }
             if (equipcb52.SelectedItem != null)
             {
@@ -14398,13 +19387,44 @@ namespace snqxap
                             if (equip[getequipindex(equipcb51.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type) {
                                 equipcb53.SelectedIndex = 0; return; }
                     }
-                if (equipcb53.SelectedIndex > -1)
-                    calcequip(5, equipindex52);
+              //  if (equipcb53.SelectedIndex > -1)
+               //     calcequip(5, equipindex52,52);
             }
             if (equipcb53.SelectedItem != null)
             {
                 string equipselect53 = equipcb53.SelectedItem.ToString();
                 int equipindex53 = getequipindex(equipselect53.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex53].property1))
+                {
+                    equiptb531.IsEnabled = true;
+                    if (equip[equipindex53].property1 == "暴击率")
+                        equiptb531.Text = (equip[equipindex53].up1 * 100).ToString();
+                    else
+                        equiptb531.Text = equip[equipindex53].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex53].property2))
+                {
+                    equiptb532.IsEnabled = true;
+                    if (equip[equipindex53].property2 == "暴击率")
+                        equiptb532.Text = (equip[equipindex53].up2 * 100).ToString();
+                    else
+                        equiptb532.Text = equip[equipindex53].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex53].property3))
+                {
+                    equiptb533.IsEnabled = true;
+                    if (equip[equipindex53].property3 == "暴击率")
+                        equiptb533.Text = (equip[equipindex53].up3 * 100).ToString();
+                    else
+                        equiptb533.Text = equip[equipindex53].up3.ToString();
+                }
+                if (equipindex53 == 30)
+                {
+                    equiptb531.Text = "1";
+                    equiptb531.Text = "0";
+                    equiptb532.Text = "0";
+                    equiptb533.Text = "0";
+                }
                 if (equipindex53 != -1)
                     if (comboindex == 28)           //16
                     {
@@ -14413,8 +19433,8 @@ namespace snqxap
                                 equipcb53.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb53.SelectedIndex > -1)
-                    calcequip(5, equipindex53);
+              //  if (equipcb53.SelectedIndex > -1)
+              //      calcequip(5, equipindex53,53);
                 if (equip[equipindex53].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -14446,12 +19466,49 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb61_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb611.IsEnabled = false;
+            equiptb612.IsEnabled = false;
+            equiptb613.IsEnabled = false; clearequip(6);
+            equiptb611.Text = "0";
+            equiptb612.Text = "0";
+            equiptb613.Text = "0";
             int comboindex = Combo6.SelectedIndex;
-            clearequip(6);
+
             if (equipcb61.SelectedItem != null)
             {
                 string equipselect61 = equipcb61.SelectedItem.ToString();
                 int equipindex61 = getequipindex(equipselect61.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex61].property1))
+                {
+                    equiptb611.IsEnabled = true;
+                    if (equip[equipindex61].property1 == "暴击率")
+                        equiptb611.Text = (equip[equipindex61].up1 * 100).ToString();
+                    else
+                        equiptb611.Text = equip[equipindex61].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex61].property2))
+                {
+                    equiptb612.IsEnabled = true;
+                    if (equip[equipindex61].property2 == "暴击率")
+                        equiptb612.Text = (equip[equipindex61].up2 * 100).ToString();
+                    else
+                        equiptb612.Text = equip[equipindex61].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex61].property3))
+                {
+                    equiptb613.IsEnabled = true;
+                    if (equip[equipindex61].property3 == "暴击率")
+                        equiptb613.Text = (equip[equipindex61].up3 * 100).ToString();
+                    else
+                        equiptb613.Text = equip[equipindex61].up3.ToString();
+                }
+                if (equipindex61 == 30)
+                {
+                    equiptb611.Text = "1";
+                    equiptb611.Text = "0";
+                    equiptb612.Text = "0";
+                    equiptb613.Text = "0";
+                }
                 if (equipindex61 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
@@ -14459,8 +19516,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex61].type) {
                                 equipcb61.SelectedIndex = 0; return; }
                     }
-                if (equipcb61.SelectedIndex > -1)
-                    calcequip(6, equipindex61);
+             //   if (equipcb61.SelectedIndex > -1)
+              //      calcequip(6, equipindex61,61);
                 if (equip[equipindex61].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -14500,8 +19557,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb61.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type) {
                                 equipcb61.SelectedIndex = 0; return; }
                     }
-                if (equipcb61.SelectedIndex > -1)
-                    calcequip(6, equipindex62);
+             //   if (equipcb61.SelectedIndex > -1)
+             //       calcequip(6, equipindex62,62);
             }
             if (equipcb63.SelectedItem != null)
             {
@@ -14515,8 +19572,8 @@ namespace snqxap
                                 equipcb61.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb61.SelectedIndex > -1)
-                    calcequip(6, equipindex63);
+              //  if (equipcb61.SelectedIndex > -1)
+              //      calcequip(6, equipindex63,63);
             }
             renewskill();
         }
@@ -14527,9 +19584,14 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb62_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            equiptb621.IsEnabled = false;
+            equiptb622.IsEnabled = false;
+            equiptb623.IsEnabled = false; clearequip(6);
+            equiptb621.Text = "0";
+            equiptb622.Text = "0";
+            equiptb623.Text = "0";
             int comboindex = Combo6.SelectedIndex;
-            clearequip(6);
+  
             if (equipcb61.SelectedItem != null)
             {
                 string equipselect61 = equipcb61.SelectedItem.ToString();
@@ -14541,13 +19603,44 @@ namespace snqxap
                             if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex61].type) {
                                 equipcb62.SelectedIndex = 0; return; }
                     }
-                if (equipcb62.SelectedIndex > -1)
-                    calcequip(6, equipindex61);
+              //  if (equipcb62.SelectedIndex > -1)
+              //      calcequip(6, equipindex61,61);
             }
             if (equipcb62.SelectedItem != null)
             {
                 string equipselect62 = equipcb62.SelectedItem.ToString();
                 int equipindex62 = getequipindex(equipselect62.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex62].property1))
+                {
+                    equiptb621.IsEnabled = true;
+                    if (equip[equipindex62].property1 == "暴击率")
+                        equiptb621.Text = (equip[equipindex62].up1 * 100).ToString();
+                    else
+                        equiptb621.Text = equip[equipindex62].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex62].property2))
+                {
+                    equiptb622.IsEnabled = true;
+                    if (equip[equipindex62].property2 == "暴击率")
+                        equiptb622.Text = (equip[equipindex62].up2 * 100).ToString();
+                    else
+                        equiptb622.Text = equip[equipindex62].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex62].property3))
+                {
+                    equiptb623.IsEnabled = true;
+                    if (equip[equipindex62].property3 == "暴击率")
+                        equiptb623.Text = (equip[equipindex62].up3 * 100).ToString();
+                    else
+                        equiptb623.Text = equip[equipindex62].up3.ToString();
+                }
+                if (equipindex62 == 30)
+                {
+                    equiptb621.Text = "1";
+                    equiptb621.Text = "0";
+                    equiptb622.Text = "0";
+                    equiptb623.Text = "0";
+                }
                 if (equipindex62 != -1)
                     if (comboindex == 28)           //16
                     {
@@ -14561,8 +19654,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb61.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type) {
                                 equipcb62.SelectedIndex = 0; return; }
                     }
-                if (equipcb62.SelectedIndex > -1)
-                    calcequip(6, equipindex62);
+            //    if (equipcb62.SelectedIndex > -1)
+            //        calcequip(6, equipindex62,62);
                 if (equip[equipindex62].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -14597,8 +19690,8 @@ namespace snqxap
                                 equipcb62.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb62.SelectedIndex > -1)
-                    calcequip(6, equipindex63);
+            //    if (equipcb62.SelectedIndex > -1)
+            //        calcequip(6, equipindex63,63);
 
             }
             renewskill();
@@ -14610,8 +19703,14 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb63_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb631.IsEnabled = false;
+            equiptb632.IsEnabled = false;
+            equiptb633.IsEnabled = false; clearequip(6);
+            equiptb631.Text = "0";
+            equiptb632.Text = "0";
+            equiptb633.Text = "0";
             int comboindex = Combo6.SelectedIndex;
-            clearequip(6);
+
             if (equipcb61.SelectedItem != null)
             {
                 string equipselect61 = equipcb61.SelectedItem.ToString();
@@ -14623,8 +19722,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex61].type) {
                                 equipcb63.SelectedIndex = 0; return; }
                     }
-                if (equipcb63.SelectedIndex > -1)
-                    calcequip(6, equipindex61);
+             //   if (equipcb63.SelectedIndex > -1)
+              //      calcequip(6, equipindex61,61);
             }
             if (equipcb62.SelectedItem != null)
             {
@@ -14643,13 +19742,44 @@ namespace snqxap
                             if (equip[getequipindex(equipcb61.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type) {
                                 equipcb63.SelectedIndex = 0; return; }
                     }
-                if (equipcb63.SelectedIndex > -1)
-                    calcequip(6, equipindex62);
+              //  if (equipcb63.SelectedIndex > -1)
+              //      calcequip(6, equipindex62,62);
             }
             if (equipcb63.SelectedItem != null)
             {
                 string equipselect63 = equipcb63.SelectedItem.ToString();
                 int equipindex63 = getequipindex(equipselect63.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex63].property1))
+                {
+                    equiptb631.IsEnabled = true;
+                    if (equip[equipindex63].property1 == "暴击率")
+                        equiptb631.Text = (equip[equipindex63].up1 * 100).ToString();
+                    else
+                        equiptb631.Text = equip[equipindex63].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex63].property2))
+                {
+                    equiptb632.IsEnabled = true;
+                    if (equip[equipindex63].property2 == "暴击率")
+                        equiptb632.Text = (equip[equipindex63].up2 * 100).ToString();
+                    else
+                        equiptb632.Text = equip[equipindex63].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex63].property3))
+                {
+                    equiptb633.IsEnabled = true;
+                    if (equip[equipindex63].property3 == "暴击率")
+                        equiptb633.Text = (equip[equipindex63].up3 * 100).ToString();
+                    else
+                        equiptb633.Text = equip[equipindex63].up3.ToString();
+                }
+                if (equipindex63 == 30)
+                {
+                    equiptb631.Text = "1";
+                    equiptb631.Text = "0";
+                    equiptb632.Text = "0";
+                    equiptb633.Text = "0";
+                }
                 if (equipindex63 != -1)
                     if (comboindex == 28)           //16
                     {
@@ -14658,8 +19788,8 @@ namespace snqxap
                                 equipcb63.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb63.SelectedIndex > -1)
-                    calcequip(6, equipindex63);
+              //  if (equipcb63.SelectedIndex > -1)
+              //      calcequip(6, equipindex63,63);
                 if (equip[equipindex63].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -14691,12 +19821,49 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb71_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb711.IsEnabled = false;
+            equiptb712.IsEnabled = false;
+            equiptb713.IsEnabled = false; clearequip(7);
+            equiptb711.Text = "0";
+            equiptb712.Text = "0";
+            equiptb713.Text = "0";
             int comboindex = Combo7.SelectedIndex;
-            clearequip(7);
+
             if (equipcb71.SelectedItem != null)
             {
                 string equipselect71 = equipcb71.SelectedItem.ToString();
                 int equipindex71 = getequipindex(equipselect71.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex71].property1))
+                {
+                    equiptb711.IsEnabled = true;
+                    if (equip[equipindex71].property1 == "暴击率")
+                        equiptb711.Text = (equip[equipindex71].up1 * 100).ToString();
+                    else
+                        equiptb711.Text = equip[equipindex71].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex71].property2))
+                {
+                    equiptb712.IsEnabled = true;
+                    if (equip[equipindex71].property2 == "暴击率")
+                        equiptb712.Text = (equip[equipindex71].up2 * 100).ToString();
+                    else
+                        equiptb712.Text = equip[equipindex71].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex71].property3))
+                {
+                    equiptb713.IsEnabled = true;
+                    if (equip[equipindex71].property3 == "暴击率")
+                        equiptb713.Text = (equip[equipindex71].up3 * 100).ToString();
+                    else
+                        equiptb713.Text = equip[equipindex71].up3.ToString();
+                }
+                if (equipindex71 == 30)
+                {
+                    equiptb711.Text = "1";
+                    equiptb711.Text = "0";
+                    equiptb712.Text = "0";
+                    equiptb713.Text = "0";
+                }
                 if (equipindex71 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
@@ -14704,8 +19871,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex71].type) {
                                 equipcb71.SelectedIndex = 0; return; }
                     }
-                if (equipcb71.SelectedIndex > -1)
-                    calcequip(7, equipindex71);
+              //  if (equipcb71.SelectedIndex > -1)
+              //      calcequip(7, equipindex71,71);
                 if (equip[equipindex71].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -14745,8 +19912,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb71.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type) {
                                 equipcb71.SelectedIndex = 0; return; }
                     }
-                if (equipcb71.SelectedIndex > -1)
-                    calcequip(7, equipindex72);
+              //  if (equipcb71.SelectedIndex > -1)
+              //      calcequip(7, equipindex72,72);
             }
             if (equipcb73.SelectedItem != null)
             {
@@ -14760,8 +19927,8 @@ namespace snqxap
                                 equipcb71.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb71.SelectedIndex > -1)
-                    calcequip(7, equipindex73);
+              //  if (equipcb71.SelectedIndex > -1)
+              //      calcequip(7, equipindex73,73);
             }
             renewskill();
         }
@@ -14772,8 +19939,14 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb72_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb721.IsEnabled = false;
+            equiptb722.IsEnabled = false;
+            equiptb723.IsEnabled = false; clearequip(7);
+            equiptb721.Text = "0";
+            equiptb722.Text = "0";
+            equiptb723.Text = "0";
             int comboindex = Combo7.SelectedIndex;
-            clearequip(7);
+
             if (equipcb71.SelectedItem != null)
             {
                 string equipselect71 = equipcb71.SelectedItem.ToString();
@@ -14785,13 +19958,44 @@ namespace snqxap
                             if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex71].type) {
                                 equipcb72.SelectedIndex = 0; return; }
                     }
-                if (equipcb72.SelectedIndex > -1)
-                    calcequip(7, equipindex71);
+              //  if (equipcb72.SelectedIndex > -1)
+              //      calcequip(7, equipindex71,71);
             }
             if (equipcb72.SelectedItem != null)
             {
                 string equipselect72 = equipcb72.SelectedItem.ToString();
                 int equipindex72 = getequipindex(equipselect72.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex72].property1))
+                {
+                    equiptb721.IsEnabled = true;
+                    if (equip[equipindex72].property1 == "暴击率")
+                        equiptb721.Text = (equip[equipindex72].up1 * 100).ToString();
+                    else
+                        equiptb721.Text = equip[equipindex72].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex72].property2))
+                {
+                    equiptb722.IsEnabled = true;
+                    if (equip[equipindex72].property2 == "暴击率")
+                        equiptb722.Text = (equip[equipindex72].up2 * 100).ToString();
+                    else
+                        equiptb722.Text = equip[equipindex72].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex72].property3))
+                {
+                    equiptb723.IsEnabled = true;
+                    if (equip[equipindex72].property3 == "暴击率")
+                        equiptb723.Text = (equip[equipindex72].up3 * 100).ToString();
+                    else
+                        equiptb723.Text = equip[equipindex72].up3.ToString();
+                }
+                if (equipindex72 == 30)
+                {
+                    equiptb721.Text = "1";
+                    equiptb721.Text = "0";
+                    equiptb722.Text = "0";
+                    equiptb723.Text = "0";
+                }
                 if (equipindex72 != -1)
                     if (comboindex == 28)           //16
                     {
@@ -14805,8 +20009,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb71.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type) {
                                 equipcb72.SelectedIndex = 0; return; }
                     }
-                if (equipcb72.SelectedIndex > -1)
-                    calcequip(7, equipindex72);
+              //  if (equipcb72.SelectedIndex > -1)
+              //      calcequip(7, equipindex72,72);
                 if (equip[equipindex72].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -14841,8 +20045,8 @@ namespace snqxap
                                 equipcb72.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb72.SelectedIndex > -1)
-                    calcequip(7, equipindex73);
+              //  if (equipcb72.SelectedIndex > -1)
+              //      calcequip(7, equipindex73,73);
             }
             renewskill();
 
@@ -14854,8 +20058,14 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb73_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb731.IsEnabled = false;
+            equiptb732.IsEnabled = false;
+            equiptb733.IsEnabled = false; clearequip(7);
+            equiptb731.Text = "0";
+            equiptb732.Text = "0";
+            equiptb733.Text = "0";
             int comboindex = Combo7.SelectedIndex;
-            clearequip(7);
+
             if (equipcb71.SelectedItem != null)
             {
                 string equipselect71 = equipcb71.SelectedItem.ToString();
@@ -14867,8 +20077,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex71].type) {
                                 equipcb73.SelectedIndex = 0; return; }
                     }
-                if (equipcb73.SelectedIndex > -1)
-                    calcequip(7, equipindex71);
+              //  if (equipcb73.SelectedIndex > -1)
+               //     calcequip(7, equipindex71,71);
             }
             if (equipcb72.SelectedItem != null)
             {
@@ -14887,13 +20097,44 @@ namespace snqxap
                             if (equip[getequipindex(equipcb71.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type) {
                                 equipcb73.SelectedIndex = 0; return; }
                     }
-                if (equipcb73.SelectedIndex > -1)
-                    calcequip(7, equipindex72);
+               // if (equipcb73.SelectedIndex > -1)
+               //     calcequip(7, equipindex72,72);
             }
             if (equipcb73.SelectedItem != null)
             {
                 string equipselect73 = equipcb73.SelectedItem.ToString();
                 int equipindex73 = getequipindex(equipselect73.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex73].property1))
+                {
+                    equiptb731.IsEnabled = true;
+                    if (equip[equipindex73].property1 == "暴击率")
+                        equiptb731.Text = (equip[equipindex73].up1 * 100).ToString();
+                    else
+                        equiptb731.Text = equip[equipindex73].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex73].property2))
+                {
+                    equiptb732.IsEnabled = true;
+                    if (equip[equipindex73].property2 == "暴击率")
+                        equiptb732.Text = (equip[equipindex73].up2 * 100).ToString();
+                    else
+                        equiptb732.Text = equip[equipindex73].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex73].property3))
+                {
+                    equiptb733.IsEnabled = true;
+                    if (equip[equipindex73].property3 == "暴击率")
+                        equiptb733.Text = (equip[equipindex73].up3 * 100).ToString();
+                    else
+                        equiptb733.Text = equip[equipindex73].up3.ToString();
+                }
+                if (equipindex73 == 30)
+                {
+                    equiptb731.Text = "1";
+                    equiptb731.Text = "0";
+                    equiptb732.Text = "0";
+                    equiptb733.Text = "0";
+                }
                 if (equipindex73 != -1)
                     if (comboindex == 28)           //16
                     {
@@ -14902,8 +20143,8 @@ namespace snqxap
                                 equipcb73.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb73.SelectedIndex > -1)
-                    calcequip(7, equipindex73);
+              //  if (equipcb73.SelectedIndex > -1)
+              //      calcequip(7, equipindex73,73);
                 if (equip[equipindex73].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -14935,12 +20176,49 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb81_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb811.IsEnabled = false;
+            equiptb812.IsEnabled = false;
+            equiptb813.IsEnabled = false; clearequip(8);
+            equiptb811.Text = "0";
+            equiptb812.Text = "0";
+            equiptb813.Text = "0";
             int comboindex = Combo8.SelectedIndex;
-            clearequip(8);
+
             if (equipcb81.SelectedItem != null)
             {
                 string equipselect81 = equipcb81.SelectedItem.ToString();
                 int equipindex81 = getequipindex(equipselect81.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex81].property1))
+                {
+                    equiptb811.IsEnabled = true;
+                    if (equip[equipindex81].property1 == "暴击率")
+                        equiptb811.Text = (equip[equipindex81].up1 * 100).ToString();
+                    else
+                        equiptb811.Text = equip[equipindex81].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex81].property2))
+                {
+                    equiptb812.IsEnabled = true;
+                    if (equip[equipindex81].property2 == "暴击率")
+                        equiptb812.Text = (equip[equipindex81].up2 * 100).ToString();
+                    else
+                        equiptb812.Text = equip[equipindex81].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex81].property3))
+                {
+                    equiptb813.IsEnabled = true;
+                    if (equip[equipindex81].property3 == "暴击率")
+                        equiptb813.Text = (equip[equipindex81].up3 * 100).ToString();
+                    else
+                        equiptb813.Text = equip[equipindex81].up3.ToString();
+                }
+                if (equipindex81 == 30)
+                {
+                    equiptb811.Text = "1";
+                    equiptb811.Text = "0";
+                    equiptb812.Text = "0";
+                    equiptb813.Text = "0";
+                }
                 if (equipindex81 != -1)
                     if (comboindex == 29 || comboindex == 34)
                     {
@@ -14948,8 +20226,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex81].type) {
                                 equipcb81.SelectedIndex = 0; return; }
                     }
-                if (equipcb81.SelectedIndex > -1)
-                    calcequip(8, equipindex81);
+              //  if (equipcb81.SelectedIndex > -1)
+               //     calcequip(8, equipindex81,81);
                 if (equip[equipindex81].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -14989,8 +20267,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb81.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type) {
                                 equipcb81.SelectedIndex = 0; return; }
                     }
-                if (equipcb81.SelectedIndex > -1)
-                    calcequip(8, equipindex82);
+            //    if (equipcb81.SelectedIndex > -1)
+             //       calcequip(8, equipindex82,82);
             }
             if (equipcb83.SelectedItem != null)
             {
@@ -15004,8 +20282,8 @@ namespace snqxap
                                 equipcb81.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb81.SelectedIndex > -1)
-                    calcequip(8, equipindex83);
+             //   if (equipcb81.SelectedIndex > -1)
+             //       calcequip(8, equipindex83,83);
             }
             renewskill();
         }
@@ -15016,8 +20294,14 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb82_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            equiptb821.IsEnabled = false;
+            equiptb822.IsEnabled = false;
+            equiptb823.IsEnabled = false; clearequip(8);
+            equiptb821.Text = "0";
+            equiptb822.Text = "0";
+            equiptb823.Text = "0";
             int comboindex = Combo8.SelectedIndex;
-            clearequip(8);
+
             if (equipcb81.SelectedItem != null)
             {
                 string equipselect81 = equipcb81.SelectedItem.ToString();
@@ -15029,13 +20313,44 @@ namespace snqxap
                             if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex81].type) {
                                 equipcb82.SelectedIndex = 0; return; }
                     }
-                if (equipcb82.SelectedIndex > -1)
-                    calcequip(8, equipindex81);
+             //   if (equipcb82.SelectedIndex > -1)
+             //       calcequip(8, equipindex81,81);
             }
             if (equipcb82.SelectedItem != null)
             {
                 string equipselect82 = equipcb82.SelectedItem.ToString();
                 int equipindex82 = getequipindex(equipselect82.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex82].property1))
+                {
+                    equiptb821.IsEnabled = true;
+                    if (equip[equipindex82].property1 == "暴击率")
+                        equiptb821.Text = (equip[equipindex82].up1 * 100).ToString();
+                    else
+                        equiptb821.Text = equip[equipindex82].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex82].property2))
+                {
+                    equiptb822.IsEnabled = true;
+                    if (equip[equipindex82].property2 == "暴击率")
+                        equiptb822.Text = (equip[equipindex82].up2 * 100).ToString();
+                    else
+                        equiptb822.Text = equip[equipindex82].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex82].property3))
+                {
+                    equiptb823.IsEnabled = true;
+                    if (equip[equipindex82].property3 == "暴击率")
+                        equiptb823.Text = (equip[equipindex82].up3 * 100).ToString();
+                    else
+                        equiptb823.Text = equip[equipindex82].up3.ToString();
+                }
+                if (equipindex82 == 30)
+                {
+                    equiptb821.Text = "1";
+                    equiptb821.Text = "0";
+                    equiptb822.Text = "0";
+                    equiptb823.Text = "0";
+                }
                 if (equipindex82 != -1)
                     if (comboindex == 28)           //16
                     {
@@ -15049,8 +20364,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb81.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type) {
                                 equipcb82.SelectedIndex = 0; return; }
                     }
-                if (equipcb82.SelectedIndex > -1)
-                    calcequip(8, equipindex82);
+              //  if (equipcb82.SelectedIndex > -1)
+              //      calcequip(8, equipindex82,82);
                 if (equip[equipindex82].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -15085,8 +20400,8 @@ namespace snqxap
                                 equipcb82.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb82.SelectedIndex > -1)
-                    calcequip(8, equipindex83);
+             //   if (equipcb82.SelectedIndex > -1)
+             //       calcequip(8, equipindex83,83);
             }
             renewskill();
         }
@@ -15097,8 +20412,15 @@ namespace snqxap
         /// <param name="e"></param>
         private void equipcb83_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int comboindex = Combo8.SelectedIndex;
+            equiptb831.IsEnabled = false;
+            equiptb832.IsEnabled = false;
+            equiptb833.IsEnabled = false;
             clearequip(8);
+            equiptb831.Text = "0";
+            equiptb832.Text = "0";
+            equiptb833.Text = "0";
+            int comboindex = Combo8.SelectedIndex;
+
             if (equipcb81.SelectedItem != null)
             {
                 string equipselect81 = equipcb81.SelectedItem.ToString();
@@ -15110,8 +20432,8 @@ namespace snqxap
                             if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex81].type) {
                                 equipcb83.SelectedIndex = 0; return; }
                     }
-                if (equipcb83.SelectedIndex > -1)
-                    calcequip(8, equipindex81);
+             //   if (equipcb83.SelectedIndex > -1)
+              //      calcequip(8, equipindex81,81);
             }
             if (equipcb82.SelectedItem != null)
             {
@@ -15130,13 +20452,44 @@ namespace snqxap
                             if (equip[getequipindex(equipcb81.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type) {
                                 equipcb83.SelectedIndex = 0; return; }
                     }
-                if (equipcb83.SelectedIndex > -1)
-                    calcequip(8, equipindex82);
+             //   if (equipcb83.SelectedIndex > -1)
+             //       calcequip(8, equipindex82,82);
             }
             if (equipcb83.SelectedItem != null)
             {
                 string equipselect83 = equipcb83.SelectedItem.ToString();
                 int equipindex83 = getequipindex(equipselect83.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex83].property1))
+                {
+                    equiptb831.IsEnabled = true;
+                    if (equip[equipindex83].property1 == "暴击率")
+                        equiptb831.Text = (equip[equipindex83].up1 * 100).ToString();
+                    else
+                        equiptb831.Text = equip[equipindex83].up1.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex83].property2))
+                {
+                    equiptb832.IsEnabled = true;
+                    if (equip[equipindex83].property2 == "暴击率")
+                        equiptb832.Text = (equip[equipindex83].up2 * 100).ToString();
+                    else
+                        equiptb832.Text = equip[equipindex83].up2.ToString();
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex83].property3))
+                {
+                    equiptb833.IsEnabled = true;
+                    if (equip[equipindex83].property3 == "暴击率")
+                        equiptb833.Text = (equip[equipindex83].up3 * 100).ToString();
+                    else
+                        equiptb833.Text = equip[equipindex83].up3.ToString();
+                }
+                if (equipindex83 == 30)
+                {
+                    equiptb831.Text = "1";
+                    equiptb831.Text = "0";
+                    equiptb832.Text = "0";
+                    equiptb833.Text = "0";
+                }
                 if (equipindex83 != -1)
                     if (comboindex == 28)           //16
                     {
@@ -15145,8 +20498,8 @@ namespace snqxap
                                 equipcb83.SelectedIndex = 0; return; }
                     }
 
-                if (equipcb83.SelectedIndex > -1)
-                    calcequip(8, equipindex83);
+            //    if (equipcb83.SelectedIndex > -1)
+             //       calcequip(8, equipindex83,83);
                 if (equip[equipindex83].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -16513,6 +21866,4140 @@ namespace snqxap
                         break;
                     }
             }
+        }
+
+        private void equiptb011_TextChanged(object sender, TextChangedEventArgs e)
+        {
+           if (equipcb01.SelectedItem == null)
+            return;
+           string equipselect = equipcb01.SelectedItem.ToString();
+           int equipindex = getequipindex(equipselect.Substring(31));
+       
+           if (!IsNumber(equiptb011.Text))
+           {
+               if (equip[equipindex].property1 == "暴击率")
+                   equiptb011.Text = (equip[equipindex].up1 * 100).ToString();
+               else
+                   equiptb011.Text = equip[equipindex].up1.ToString();
+               return;
+           }
+           if (equip[equipindex].property1 == "暴击率")
+           {
+               if(Double.Parse(equiptb011.Text)<(equip[equipindex].down1*100))
+               {
+                   equiptb011.Text = (equip[equipindex].down1 * 100).ToString();
+               }
+               else if(Double.Parse(equiptb011.Text)>(equip[equipindex].up1*100))
+               {
+                   equiptb011.Text = (equip[equipindex].up1 * 100).ToString();
+               }
+           }
+           else
+           {
+               if (Double.Parse(equiptb011.Text) < (equip[equipindex].down1))
+               {
+                   equiptb011.Text = (equip[equipindex].down1).ToString();
+               }
+               else if (Double.Parse(equiptb011.Text) > (equip[equipindex].up1))
+               {
+                   equiptb011.Text = (equip[equipindex].up1).ToString();
+               }
+           }
+           clearequip(0);
+           calcequip(0, equipindex, 1);
+           if (equipcb02.SelectedItem != null)
+           {
+               string equipselect2 = equipcb02.SelectedItem.ToString();
+               int equipindex2 = getequipindex(equipselect2.Substring(31));
+               calcequip(0, equipindex2, 2);
+           }
+           if (equipcb03.SelectedItem != null)
+           {
+               string equipselect3 = equipcb03.SelectedItem.ToString();
+               int equipindex3 = getequipindex(equipselect3.Substring(31));
+               calcequip(0, equipindex3, 3);
+           }
+           renewskill();
+        }
+        private void equiptb012_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb01.SelectedItem == null)
+                return;
+            string equipselect = equipcb01.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb012.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb012.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb012.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb012.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb012.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb012.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb012.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb012.Text) < (equip[equipindex].down2))
+                {
+                    equiptb012.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb012.Text) > (equip[equipindex].up2))
+                {
+                    equiptb012.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(0);
+            calcequip(0, equipindex, 1);
+            if (equipcb02.SelectedItem != null)
+            {
+                string equipselect2 = equipcb02.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(0, equipindex2, 2);
+            }
+            if (equipcb03.SelectedItem != null)
+            {
+                string equipselect3 = equipcb03.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(0, equipindex3, 3);
+            }
+            renewskill();
+        }
+        private void equiptb013_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb01.SelectedItem == null)
+                return;
+            string equipselect = equipcb01.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb013.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb013.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb013.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb013.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb013.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb013.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb013.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb013.Text) < (equip[equipindex].down3))
+                {
+                    equiptb013.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb013.Text) > (equip[equipindex].up3))
+                {
+                    equiptb013.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(0);
+            calcequip(0, equipindex, 1);
+            if (equipcb02.SelectedItem != null)
+            {
+                string equipselect2 = equipcb02.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(0, equipindex2, 2);
+            }
+            if (equipcb03.SelectedItem != null)
+            {
+                string equipselect3 = equipcb03.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(0, equipindex3, 3);
+            }
+            renewskill();
+        }
+        private void equiptb021_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb02.SelectedItem == null)
+                return;
+            string equipselect = equipcb02.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb021.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb021.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb021.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb021.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb021.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb021.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb021.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb021.Text) < (equip[equipindex].down1))
+                {
+                    equiptb021.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb021.Text) > (equip[equipindex].up1))
+                {
+                    equiptb021.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(0);
+            calcequip(0, equipindex, 2);
+            if (equipcb01.SelectedItem != null)
+            {
+                string equipselect2 = equipcb01.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(0, equipindex2, 1);
+            }
+            if (equipcb03.SelectedItem != null)
+            {
+                string equipselect3 = equipcb03.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(0, equipindex3, 3);
+            }
+            renewskill();
+        }
+        private void equiptb022_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb02.SelectedItem == null)
+                return;
+            string equipselect = equipcb02.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb022.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb022.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb022.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb022.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb022.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb022.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb022.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb022.Text) < (equip[equipindex].down2))
+                {
+                    equiptb022.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb022.Text) > (equip[equipindex].up2))
+                {
+                    equiptb022.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(0);
+            calcequip(0, equipindex, 2);
+            if (equipcb01.SelectedItem != null)
+            {
+                string equipselect2 = equipcb01.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(0, equipindex2, 1);
+            }
+            if (equipcb03.SelectedItem != null)
+            {
+                string equipselect3 = equipcb03.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(0, equipindex3, 3);
+            }
+            renewskill();
+        }
+        private void equiptb023_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb02.SelectedItem == null)
+                return;
+            string equipselect = equipcb02.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb023.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb023.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb023.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb023.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb023.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb023.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb023.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb023.Text) < (equip[equipindex].down3))
+                {
+                    equiptb023.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb023.Text) > (equip[equipindex].up3))
+                {
+                    equiptb023.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(0);
+            calcequip(0, equipindex, 2);
+            if (equipcb01.SelectedItem != null)
+            {
+                string equipselect2 = equipcb01.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(0, equipindex2, 1);
+            }
+            if (equipcb03.SelectedItem != null)
+            {
+                string equipselect3 = equipcb03.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(0, equipindex3, 3);
+            }
+            renewskill();
+        }
+        private void equiptb031_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb03.SelectedItem == null)
+                return;
+            string equipselect = equipcb03.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb031.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb031.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb031.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb031.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb031.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb031.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb031.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb031.Text) < (equip[equipindex].down1))
+                {
+                    equiptb031.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb031.Text) > (equip[equipindex].up1))
+                {
+                    equiptb031.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(0);
+            calcequip(0, equipindex, 3);
+            if (equipcb01.SelectedItem != null)
+            {
+                string equipselect2 = equipcb01.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(0, equipindex2, 1);
+            }
+            if (equipcb02.SelectedItem != null)
+            {
+                string equipselect3 = equipcb02.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(0, equipindex3, 2);
+            }
+            renewskill();
+        }
+        private void equiptb032_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb03.SelectedItem == null)
+                return;
+            string equipselect = equipcb03.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb032.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb032.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb032.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb032.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb032.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb032.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb032.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb032.Text) < (equip[equipindex].down2))
+                {
+                    equiptb032.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb032.Text) > (equip[equipindex].up2))
+                {
+                    equiptb032.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(0);
+            calcequip(0, equipindex, 3);
+            if (equipcb01.SelectedItem != null)
+            {
+                string equipselect2 = equipcb01.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(0, equipindex2, 1);
+            }
+            if (equipcb02.SelectedItem != null)
+            {
+                string equipselect3 = equipcb02.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(0, equipindex3, 2);
+            }
+            renewskill();
+        }
+        private void equiptb033_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb03.SelectedItem == null)
+                return;
+            string equipselect = equipcb03.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb033.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb033.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb033.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb033.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb033.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb033.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb033.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb033.Text) < (equip[equipindex].down3))
+                {
+                    equiptb033.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb033.Text) > (equip[equipindex].up3))
+                {
+                    equiptb033.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(0);
+            calcequip(0, equipindex, 3);
+            if (equipcb01.SelectedItem != null)
+            {
+                string equipselect2 = equipcb01.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(0, equipindex2, 1);
+            }
+            if (equipcb02.SelectedItem != null)
+            {
+                string equipselect3 = equipcb02.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(0, equipindex3, 2);
+            }
+            renewskill();
+        }
+        private void equiptb111_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb11.SelectedItem == null)
+                return;
+            string equipselect = equipcb11.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb111.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb111.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb111.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb111.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb111.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb111.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb111.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb111.Text) < (equip[equipindex].down1))
+                {
+                    equiptb111.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb111.Text) > (equip[equipindex].up1))
+                {
+                    equiptb111.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(1);
+            calcequip(1, equipindex, 11);
+            if (equipcb12.SelectedItem != null)
+            {
+                string equipselect2 = equipcb12.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(1, equipindex2, 12);
+            }
+            if (equipcb13.SelectedItem != null)
+            {
+                string equipselect3 = equipcb13.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(1, equipindex3, 13);
+            }
+            renewskill();
+        }
+        private void equiptb112_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb11.SelectedItem == null)
+                return;
+            string equipselect = equipcb11.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb112.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb112.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb112.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb112.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb112.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb112.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb112.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb112.Text) < (equip[equipindex].down2))
+                {
+                    equiptb112.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb112.Text) > (equip[equipindex].up2))
+                {
+                    equiptb112.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(1);
+            calcequip(1, equipindex, 11);
+            if (equipcb12.SelectedItem != null)
+            {
+                string equipselect2 = equipcb12.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(1, equipindex2, 12);
+            }
+            if (equipcb13.SelectedItem != null)
+            {
+                string equipselect3 = equipcb13.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(1, equipindex3, 13);
+            }
+            renewskill();
+        }
+        private void equiptb113_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb11.SelectedItem == null)
+                return;
+            string equipselect = equipcb11.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb113.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb113.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb113.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb113.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb113.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb113.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb113.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb113.Text) < (equip[equipindex].down3))
+                {
+                    equiptb113.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb113.Text) > (equip[equipindex].up3))
+                {
+                    equiptb113.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(1);
+            calcequip(1, equipindex, 11);
+            if (equipcb12.SelectedItem != null)
+            {
+                string equipselect2 = equipcb12.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(1, equipindex2, 12);
+            }
+            if (equipcb13.SelectedItem != null)
+            {
+                string equipselect3 = equipcb13.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(1, equipindex3, 13);
+            }
+            renewskill();
+        }
+        private void equiptb121_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb12.SelectedItem == null)
+                return;
+            string equipselect = equipcb12.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb121.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb121.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb121.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb121.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb121.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb121.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb121.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb121.Text) < (equip[equipindex].down1))
+                {
+                    equiptb121.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb121.Text) > (equip[equipindex].up1))
+                {
+                    equiptb121.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(1);
+            calcequip(1, equipindex, 12);
+            if (equipcb11.SelectedItem != null)
+            {
+                string equipselect2 = equipcb11.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(1, equipindex2, 11);
+            }
+            if (equipcb13.SelectedItem != null)
+            {
+                string equipselect3 = equipcb13.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(1, equipindex3, 13);
+            }
+            renewskill();
+        }
+        private void equiptb122_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb12.SelectedItem == null)
+                return;
+            string equipselect = equipcb12.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb122.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb122.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb122.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb122.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb122.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb122.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb122.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb122.Text) < (equip[equipindex].down2))
+                {
+                    equiptb122.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb122.Text) > (equip[equipindex].up2))
+                {
+                    equiptb122.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(1);
+            calcequip(1, equipindex, 12);
+            if (equipcb11.SelectedItem != null)
+            {
+                string equipselect2 = equipcb11.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(1, equipindex2, 11);
+            }
+            if (equipcb13.SelectedItem != null)
+            {
+                string equipselect3 = equipcb13.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(1, equipindex3, 13);
+            }
+            renewskill();
+        }
+        private void equiptb123_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb12.SelectedItem == null)
+                return;
+            string equipselect = equipcb12.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb123.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb123.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb123.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb123.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb123.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb123.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb123.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb123.Text) < (equip[equipindex].down3))
+                {
+                    equiptb123.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb123.Text) > (equip[equipindex].up3))
+                {
+                    equiptb123.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(1);
+            calcequip(1, equipindex, 12);
+            if (equipcb11.SelectedItem != null)
+            {
+                string equipselect2 = equipcb11.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(1, equipindex2, 11);
+            }
+            if (equipcb13.SelectedItem != null)
+            {
+                string equipselect3 = equipcb13.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(1, equipindex3, 13);
+            }
+            renewskill();
+        }
+        private void equiptb131_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb13.SelectedItem == null)
+                return;
+            string equipselect = equipcb13.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb131.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb131.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb131.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb131.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb131.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb131.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb131.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb131.Text) < (equip[equipindex].down1))
+                {
+                    equiptb131.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb131.Text) > (equip[equipindex].up1))
+                {
+                    equiptb131.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(1);
+            calcequip(1, equipindex, 13);
+            if (equipcb11.SelectedItem != null)
+            {
+                string equipselect2 = equipcb11.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(1, equipindex2, 11);
+            }
+            if (equipcb12.SelectedItem != null)
+            {
+                string equipselect3 = equipcb12.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(1, equipindex3, 12);
+            }
+            renewskill();
+        }
+        private void equiptb132_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb13.SelectedItem == null)
+                return;
+            string equipselect = equipcb13.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb132.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb132.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb132.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb132.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb132.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb132.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb132.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb132.Text) < (equip[equipindex].down2))
+                {
+                    equiptb132.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb132.Text) > (equip[equipindex].up2))
+                {
+                    equiptb132.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(1);
+            calcequip(1, equipindex, 13);
+            if (equipcb11.SelectedItem != null)
+            {
+                string equipselect2 = equipcb11.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(1, equipindex2, 11);
+            }
+            if (equipcb12.SelectedItem != null)
+            {
+                string equipselect3 = equipcb12.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(1, equipindex3, 12);
+            }
+            renewskill();
+        }
+        private void equiptb133_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb13.SelectedItem == null)
+                return;
+            string equipselect = equipcb13.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb133.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb133.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb133.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb133.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb133.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb133.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb133.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb133.Text) < (equip[equipindex].down3))
+                {
+                    equiptb133.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb133.Text) > (equip[equipindex].up3))
+                {
+                    equiptb133.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(1);
+            calcequip(1, equipindex, 13);
+            if (equipcb11.SelectedItem != null)
+            {
+                string equipselect2 = equipcb11.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(1, equipindex2, 11);
+            }
+            if (equipcb12.SelectedItem != null)
+            {
+                string equipselect3 = equipcb12.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(1, equipindex3, 12);
+            }
+            renewskill();
+        }
+        private void equiptb211_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb21.SelectedItem == null)
+                return;
+            string equipselect = equipcb21.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb211.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb211.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb211.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb211.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb211.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb211.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb211.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb211.Text) < (equip[equipindex].down1))
+                {
+                    equiptb211.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb211.Text) > (equip[equipindex].up1))
+                {
+                    equiptb211.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(2);
+            calcequip(2, equipindex, 21);
+            if (equipcb22.SelectedItem != null)
+            {
+                string equipselect2 = equipcb22.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(2, equipindex2, 22);
+            }
+            if (equipcb23.SelectedItem != null)
+            {
+                string equipselect3 = equipcb23.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(2, equipindex3, 23);
+            }
+            renewskill();
+        }
+        private void equiptb212_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb21.SelectedItem == null)
+                return;
+            string equipselect = equipcb21.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb212.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb212.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb212.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb212.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb212.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb212.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb212.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb212.Text) < (equip[equipindex].down2))
+                {
+                    equiptb212.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb212.Text) > (equip[equipindex].up2))
+                {
+                    equiptb212.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(2);
+            calcequip(2, equipindex, 21);
+            if (equipcb22.SelectedItem != null)
+            {
+                string equipselect2 = equipcb22.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(2, equipindex2, 22);
+            }
+            if (equipcb23.SelectedItem != null)
+            {
+                string equipselect3 = equipcb23.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(2, equipindex3, 23);
+            }
+            renewskill();
+        }
+        private void equiptb213_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb21.SelectedItem == null)
+                return;
+            string equipselect = equipcb21.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb213.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb213.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb213.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb213.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb213.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb213.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb213.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb213.Text) < (equip[equipindex].down3))
+                {
+                    equiptb213.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb213.Text) > (equip[equipindex].up3))
+                {
+                    equiptb213.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(2);
+            calcequip(2, equipindex, 21);
+            if (equipcb22.SelectedItem != null)
+            {
+                string equipselect2 = equipcb22.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(2, equipindex2, 22);
+            }
+            if (equipcb23.SelectedItem != null)
+            {
+                string equipselect3 = equipcb23.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(2, equipindex3, 23);
+            }
+            renewskill();
+        }
+        private void equiptb221_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb22.SelectedItem == null)
+                return;
+            string equipselect = equipcb22.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb221.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb221.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb221.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb221.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb221.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb221.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb221.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb221.Text) < (equip[equipindex].down1))
+                {
+                    equiptb221.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb221.Text) > (equip[equipindex].up1))
+                {
+                    equiptb221.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(2);
+            calcequip(2, equipindex, 22);
+            if (equipcb21.SelectedItem != null)
+            {
+                string equipselect2 = equipcb21.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(2, equipindex2, 21);
+            }
+            if (equipcb23.SelectedItem != null)
+            {
+                string equipselect3 = equipcb23.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(2, equipindex3, 23);
+            }
+            renewskill();
+        }
+        private void equiptb222_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb22.SelectedItem == null)
+                return;
+            string equipselect = equipcb22.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb222.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb222.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb222.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb222.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb222.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb222.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb222.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb222.Text) < (equip[equipindex].down2))
+                {
+                    equiptb222.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb222.Text) > (equip[equipindex].up2))
+                {
+                    equiptb222.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(2);
+            calcequip(2, equipindex, 22);
+            if (equipcb21.SelectedItem != null)
+            {
+                string equipselect2 = equipcb21.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(2, equipindex2, 21);
+            }
+            if (equipcb23.SelectedItem != null)
+            {
+                string equipselect3 = equipcb23.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(2, equipindex3, 23);
+            }
+            renewskill();
+        }
+        private void equiptb223_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb22.SelectedItem == null)
+                return;
+            string equipselect = equipcb22.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb223.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb223.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb223.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb223.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb223.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb223.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb223.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb223.Text) < (equip[equipindex].down3))
+                {
+                    equiptb223.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb223.Text) > (equip[equipindex].up3))
+                {
+                    equiptb223.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(2);
+            calcequip(2, equipindex, 22);
+            if (equipcb21.SelectedItem != null)
+            {
+                string equipselect2 = equipcb21.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(2, equipindex2, 21);
+            }
+            if (equipcb23.SelectedItem != null)
+            {
+                string equipselect3 = equipcb23.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(2, equipindex3, 23);
+            }
+            renewskill();
+        }
+        private void equiptb231_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb23.SelectedItem == null)
+                return;
+            string equipselect = equipcb23.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb231.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb231.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb231.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb231.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb231.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb231.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb231.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb231.Text) < (equip[equipindex].down1))
+                {
+                    equiptb231.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb231.Text) > (equip[equipindex].up1))
+                {
+                    equiptb231.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(2);
+            calcequip(2, equipindex, 23);
+            if (equipcb21.SelectedItem != null)
+            {
+                string equipselect2 = equipcb21.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(2, equipindex2, 21);
+            }
+            if (equipcb22.SelectedItem != null)
+            {
+                string equipselect3 = equipcb22.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(2, equipindex3, 22);
+            }
+            renewskill();
+        }
+        private void equiptb232_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb23.SelectedItem == null)
+                return;
+            string equipselect = equipcb23.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb232.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb232.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb232.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb232.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb232.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb232.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb232.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb232.Text) < (equip[equipindex].down2))
+                {
+                    equiptb232.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb232.Text) > (equip[equipindex].up2))
+                {
+                    equiptb232.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(2);
+            calcequip(2, equipindex, 23);
+            if (equipcb21.SelectedItem != null)
+            {
+                string equipselect2 = equipcb21.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(2, equipindex2, 21);
+            }
+            if (equipcb22.SelectedItem != null)
+            {
+                string equipselect3 = equipcb22.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(2, equipindex3, 22);
+            }
+            renewskill();
+        }
+        private void equiptb233_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb23.SelectedItem == null)
+                return;
+            string equipselect = equipcb23.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb233.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb233.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb233.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb233.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb233.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb233.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb233.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb233.Text) < (equip[equipindex].down3))
+                {
+                    equiptb233.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb233.Text) > (equip[equipindex].up3))
+                {
+                    equiptb233.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(2);
+            calcequip(2, equipindex, 23);
+            if (equipcb21.SelectedItem != null)
+            {
+                string equipselect2 = equipcb21.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(2, equipindex2, 21);
+            }
+            if (equipcb22.SelectedItem != null)
+            {
+                string equipselect3 = equipcb22.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(2, equipindex3, 22);
+            }
+            renewskill();
+        }
+        private void equiptb311_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb31.SelectedItem == null)
+                return;
+            string equipselect = equipcb31.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb311.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb311.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb311.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb311.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb311.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb311.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb311.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb311.Text) < (equip[equipindex].down1))
+                {
+                    equiptb311.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb311.Text) > (equip[equipindex].up1))
+                {
+                    equiptb311.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(3);
+            calcequip(3, equipindex, 31);
+            if (equipcb32.SelectedItem != null)
+            {
+                string equipselect2 = equipcb32.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(3, equipindex2, 32);
+            }
+            if (equipcb33.SelectedItem != null)
+            {
+                string equipselect3 = equipcb33.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(3, equipindex3, 33);
+            }
+            renewskill();
+        }
+        private void equiptb312_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb31.SelectedItem == null)
+                return;
+            string equipselect = equipcb31.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb312.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb312.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb312.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb312.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb312.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb312.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb312.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb312.Text) < (equip[equipindex].down2))
+                {
+                    equiptb312.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb312.Text) > (equip[equipindex].up2))
+                {
+                    equiptb312.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(3);
+            calcequip(3, equipindex, 31);
+            if (equipcb32.SelectedItem != null)
+            {
+                string equipselect2 = equipcb32.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(3, equipindex2, 32);
+            }
+            if (equipcb33.SelectedItem != null)
+            {
+                string equipselect3 = equipcb33.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(3, equipindex3, 33);
+            }
+            renewskill();
+        }
+        private void equiptb313_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb31.SelectedItem == null)
+                return;
+            string equipselect = equipcb31.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb313.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb313.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb313.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb313.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb313.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb313.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb313.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb313.Text) < (equip[equipindex].down3))
+                {
+                    equiptb313.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb313.Text) > (equip[equipindex].up3))
+                {
+                    equiptb313.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(3);
+            calcequip(3, equipindex, 31);
+            if (equipcb32.SelectedItem != null)
+            {
+                string equipselect2 = equipcb32.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(3, equipindex2, 32);
+            }
+            if (equipcb33.SelectedItem != null)
+            {
+                string equipselect3 = equipcb33.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(3, equipindex3, 33);
+            }
+            renewskill();
+        }
+        private void equiptb321_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb32.SelectedItem == null)
+                return;
+            string equipselect = equipcb32.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb321.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb321.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb321.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb321.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb321.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb321.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb321.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb321.Text) < (equip[equipindex].down1))
+                {
+                    equiptb321.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb321.Text) > (equip[equipindex].up1))
+                {
+                    equiptb321.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(3);
+            calcequip(3, equipindex, 32);
+            if (equipcb01.SelectedItem != null)
+            {
+                string equipselect2 = equipcb01.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(3, equipindex2, 31);
+            }
+            if (equipcb33.SelectedItem != null)
+            {
+                string equipselect3 = equipcb33.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(3, equipindex3, 33);
+            }
+            renewskill();
+        }
+        private void equiptb322_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb32.SelectedItem == null)
+                return;
+            string equipselect = equipcb32.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb322.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb322.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb322.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb322.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb322.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb322.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb322.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb322.Text) < (equip[equipindex].down2))
+                {
+                    equiptb322.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb322.Text) > (equip[equipindex].up2))
+                {
+                    equiptb322.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(3);
+            calcequip(3, equipindex, 32);
+            if (equipcb01.SelectedItem != null)
+            {
+                string equipselect2 = equipcb01.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(3, equipindex2, 31);
+            }
+            if (equipcb33.SelectedItem != null)
+            {
+                string equipselect3 = equipcb33.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(3, equipindex3, 33);
+            }
+            renewskill();
+        }
+        private void equiptb323_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb32.SelectedItem == null)
+                return;
+            string equipselect = equipcb32.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb323.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb323.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb323.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb323.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb323.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb323.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb323.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb323.Text) < (equip[equipindex].down3))
+                {
+                    equiptb323.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb323.Text) > (equip[equipindex].up3))
+                {
+                    equiptb323.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(3);
+            calcequip(3, equipindex, 32);
+            if (equipcb01.SelectedItem != null)
+            {
+                string equipselect2 = equipcb01.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(3, equipindex2, 31);
+            }
+            if (equipcb33.SelectedItem != null)
+            {
+                string equipselect3 = equipcb33.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(3, equipindex3, 33);
+            }
+            renewskill();
+        }
+        private void equiptb331_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb33.SelectedItem == null)
+                return;
+            string equipselect = equipcb33.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb331.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb331.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb331.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb331.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb331.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb331.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb331.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb331.Text) < (equip[equipindex].down1))
+                {
+                    equiptb331.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb331.Text) > (equip[equipindex].up1))
+                {
+                    equiptb331.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(3);
+            calcequip(3, equipindex, 33);
+            if (equipcb01.SelectedItem != null)
+            {
+                string equipselect2 = equipcb01.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(3, equipindex2, 31);
+            }
+            if (equipcb32.SelectedItem != null)
+            {
+                string equipselect3 = equipcb32.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(3, equipindex3, 32);
+            }
+            renewskill();
+        }
+        private void equiptb332_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb33.SelectedItem == null)
+                return;
+            string equipselect = equipcb33.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb332.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb332.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb332.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb332.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb332.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb332.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb332.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb332.Text) < (equip[equipindex].down2))
+                {
+                    equiptb332.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb332.Text) > (equip[equipindex].up2))
+                {
+                    equiptb332.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(3);
+            calcequip(3, equipindex, 33);
+            if (equipcb01.SelectedItem != null)
+            {
+                string equipselect2 = equipcb01.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(3, equipindex2, 31);
+            }
+            if (equipcb32.SelectedItem != null)
+            {
+                string equipselect3 = equipcb32.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(3, equipindex3, 32);
+            }
+            renewskill();
+        }
+        private void equiptb333_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb33.SelectedItem == null)
+                return;
+            string equipselect = equipcb33.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb333.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb333.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb333.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb333.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb333.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb333.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb333.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb333.Text) < (equip[equipindex].down3))
+                {
+                    equiptb333.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb333.Text) > (equip[equipindex].up3))
+                {
+                    equiptb333.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(3);
+            calcequip(3, equipindex, 33);
+            if (equipcb01.SelectedItem != null)
+            {
+                string equipselect2 = equipcb01.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(3, equipindex2, 31);
+            }
+            if (equipcb32.SelectedItem != null)
+            {
+                string equipselect3 = equipcb32.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(3, equipindex3, 32);
+            }
+            renewskill();
+        }
+        private void equiptb411_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb41.SelectedItem == null)
+                return;
+            string equipselect = equipcb41.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb411.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb411.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb411.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb411.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb411.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb411.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb411.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb411.Text) < (equip[equipindex].down1))
+                {
+                    equiptb411.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb411.Text) > (equip[equipindex].up1))
+                {
+                    equiptb411.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(4);
+            calcequip(4, equipindex, 41);
+            if (equipcb42.SelectedItem != null)
+            {
+                string equipselect2 = equipcb42.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(4, equipindex2, 42);
+            }
+            if (equipcb43.SelectedItem != null)
+            {
+                string equipselect3 = equipcb43.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(4, equipindex3, 43);
+            }
+            renewskill();
+        }
+        private void equiptb412_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb41.SelectedItem == null)
+                return;
+            string equipselect = equipcb41.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb412.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb412.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb412.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb412.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb412.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb412.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb412.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb412.Text) < (equip[equipindex].down2))
+                {
+                    equiptb412.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb412.Text) > (equip[equipindex].up2))
+                {
+                    equiptb412.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(4);
+            calcequip(4, equipindex, 41);
+            if (equipcb42.SelectedItem != null)
+            {
+                string equipselect2 = equipcb42.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(4, equipindex2, 42);
+            }
+            if (equipcb43.SelectedItem != null)
+            {
+                string equipselect3 = equipcb43.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(4, equipindex3, 43);
+            }
+            renewskill();
+        }
+        private void equiptb413_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb41.SelectedItem == null)
+                return;
+            string equipselect = equipcb41.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb413.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb413.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb413.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb413.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb413.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb413.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb413.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb413.Text) < (equip[equipindex].down3))
+                {
+                    equiptb413.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb413.Text) > (equip[equipindex].up3))
+                {
+                    equiptb413.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(4);
+            calcequip(4, equipindex, 41);
+            if (equipcb42.SelectedItem != null)
+            {
+                string equipselect2 = equipcb42.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(4, equipindex2, 42);
+            }
+            if (equipcb43.SelectedItem != null)
+            {
+                string equipselect3 = equipcb43.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(4, equipindex3, 43);
+            }
+            renewskill();
+        }
+        private void equiptb421_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb42.SelectedItem == null)
+                return;
+            string equipselect = equipcb42.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb421.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb421.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb421.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb421.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb421.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb421.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb421.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb421.Text) < (equip[equipindex].down1))
+                {
+                    equiptb421.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb421.Text) > (equip[equipindex].up1))
+                {
+                    equiptb421.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(4);
+            calcequip(4, equipindex, 42);
+            if (equipcb01.SelectedItem != null)
+            {
+                string equipselect2 = equipcb01.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(4, equipindex2, 41);
+            }
+            if (equipcb43.SelectedItem != null)
+            {
+                string equipselect3 = equipcb43.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(4, equipindex3, 43);
+            }
+            renewskill();
+        }
+        private void equiptb422_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb42.SelectedItem == null)
+                return;
+            string equipselect = equipcb42.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb422.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb422.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb422.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb422.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb422.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb422.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb422.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb422.Text) < (equip[equipindex].down2))
+                {
+                    equiptb422.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb422.Text) > (equip[equipindex].up2))
+                {
+                    equiptb422.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(4);
+            calcequip(4, equipindex, 42);
+            if (equipcb01.SelectedItem != null)
+            {
+                string equipselect2 = equipcb01.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(4, equipindex2, 41);
+            }
+            if (equipcb43.SelectedItem != null)
+            {
+                string equipselect3 = equipcb43.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(4, equipindex3, 43);
+            }
+            renewskill();
+        }
+        private void equiptb423_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb42.SelectedItem == null)
+                return;
+            string equipselect = equipcb42.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb423.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb423.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb423.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb423.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb423.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb423.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb423.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb423.Text) < (equip[equipindex].down3))
+                {
+                    equiptb423.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb423.Text) > (equip[equipindex].up3))
+                {
+                    equiptb423.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(4);
+            calcequip(4, equipindex, 42);
+            if (equipcb01.SelectedItem != null)
+            {
+                string equipselect2 = equipcb01.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(4, equipindex2, 41);
+            }
+            if (equipcb43.SelectedItem != null)
+            {
+                string equipselect3 = equipcb43.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(4, equipindex3, 43);
+            }
+            renewskill();
+        }
+        private void equiptb431_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb43.SelectedItem == null)
+                return;
+            string equipselect = equipcb43.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb431.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb431.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb431.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb431.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb431.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb431.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb431.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb431.Text) < (equip[equipindex].down1))
+                {
+                    equiptb431.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb431.Text) > (equip[equipindex].up1))
+                {
+                    equiptb431.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(4);
+            calcequip(4, equipindex, 43);
+            if (equipcb01.SelectedItem != null)
+            {
+                string equipselect2 = equipcb01.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(4, equipindex2, 41);
+            }
+            if (equipcb42.SelectedItem != null)
+            {
+                string equipselect3 = equipcb42.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(4, equipindex3, 42);
+            }
+            renewskill();
+        }
+        private void equiptb432_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb43.SelectedItem == null)
+                return;
+            string equipselect = equipcb43.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb432.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb432.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb432.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb432.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb432.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb432.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb432.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb432.Text) < (equip[equipindex].down2))
+                {
+                    equiptb432.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb432.Text) > (equip[equipindex].up2))
+                {
+                    equiptb432.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(4);
+            calcequip(4, equipindex, 43);
+            if (equipcb01.SelectedItem != null)
+            {
+                string equipselect2 = equipcb01.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(4, equipindex2, 41);
+            }
+            if (equipcb42.SelectedItem != null)
+            {
+                string equipselect3 = equipcb42.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(4, equipindex3, 42);
+            }
+            renewskill();
+        }
+        private void equiptb433_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb43.SelectedItem == null)
+                return;
+            string equipselect = equipcb43.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb433.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb433.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb433.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb433.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb433.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb433.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb433.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb433.Text) < (equip[equipindex].down3))
+                {
+                    equiptb433.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb433.Text) > (equip[equipindex].up3))
+                {
+                    equiptb433.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(4);
+            calcequip(4, equipindex, 43);
+            if (equipcb01.SelectedItem != null)
+            {
+                string equipselect2 = equipcb01.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(4, equipindex2, 41);
+            }
+            if (equipcb42.SelectedItem != null)
+            {
+                string equipselect3 = equipcb42.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(4, equipindex3, 42);
+            }
+            renewskill();
+        }
+        private void equiptb511_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb51.SelectedItem == null)
+                return;
+            string equipselect = equipcb51.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb511.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb511.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb511.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb511.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb511.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb511.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb511.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb511.Text) < (equip[equipindex].down1))
+                {
+                    equiptb511.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb511.Text) > (equip[equipindex].up1))
+                {
+                    equiptb511.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(5);
+            calcequip(5, equipindex, 51);
+            if (equipcb52.SelectedItem != null)
+            {
+                string equipselect2 = equipcb52.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(5, equipindex2, 52);
+            }
+            if (equipcb53.SelectedItem != null)
+            {
+                string equipselect3 = equipcb53.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(5, equipindex3, 53);
+            }
+            renewskill();
+        }
+        private void equiptb512_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb51.SelectedItem == null)
+                return;
+            string equipselect = equipcb51.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb512.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb512.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb512.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb512.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb512.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb512.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb512.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb512.Text) < (equip[equipindex].down2))
+                {
+                    equiptb512.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb512.Text) > (equip[equipindex].up2))
+                {
+                    equiptb512.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(5);
+            calcequip(5, equipindex, 51);
+            if (equipcb52.SelectedItem != null)
+            {
+                string equipselect2 = equipcb52.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(5, equipindex2, 52);
+            }
+            if (equipcb53.SelectedItem != null)
+            {
+                string equipselect3 = equipcb53.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(5, equipindex3, 53);
+            }
+            renewskill();
+        }
+        private void equiptb513_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb51.SelectedItem == null)
+                return;
+            string equipselect = equipcb51.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb513.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb513.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb513.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb513.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb513.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb513.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb513.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb513.Text) < (equip[equipindex].down3))
+                {
+                    equiptb513.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb513.Text) > (equip[equipindex].up3))
+                {
+                    equiptb513.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(5);
+            calcequip(5, equipindex, 51);
+            if (equipcb52.SelectedItem != null)
+            {
+                string equipselect2 = equipcb52.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(5, equipindex2, 52);
+            }
+            if (equipcb53.SelectedItem != null)
+            {
+                string equipselect3 = equipcb53.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(5, equipindex3, 53);
+            }
+            renewskill();
+        }
+        private void equiptb521_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb52.SelectedItem == null)
+                return;
+            string equipselect = equipcb52.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb521.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb521.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb521.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb521.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb521.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb521.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb521.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb521.Text) < (equip[equipindex].down1))
+                {
+                    equiptb521.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb521.Text) > (equip[equipindex].up1))
+                {
+                    equiptb521.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(5);
+            calcequip(5, equipindex, 52);
+            if (equipcb51.SelectedItem != null)
+            {
+                string equipselect2 = equipcb51.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(5, equipindex2, 51);
+            }
+            if (equipcb53.SelectedItem != null)
+            {
+                string equipselect3 = equipcb53.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(5, equipindex3, 53);
+            }
+            renewskill();
+        }
+        private void equiptb522_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb52.SelectedItem == null)
+                return;
+            string equipselect = equipcb52.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb522.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb522.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb522.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb522.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb522.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb522.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb522.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb522.Text) < (equip[equipindex].down2))
+                {
+                    equiptb522.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb522.Text) > (equip[equipindex].up2))
+                {
+                    equiptb522.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(5);
+            calcequip(5, equipindex, 52);
+            if (equipcb51.SelectedItem != null)
+            {
+                string equipselect2 = equipcb51.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(5, equipindex2, 51);
+            }
+            if (equipcb53.SelectedItem != null)
+            {
+                string equipselect3 = equipcb53.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(5, equipindex3, 53);
+            }
+            renewskill();
+        }
+        private void equiptb523_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb52.SelectedItem == null)
+                return;
+            string equipselect = equipcb52.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb523.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb523.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb523.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb523.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb523.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb523.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb523.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb523.Text) < (equip[equipindex].down3))
+                {
+                    equiptb523.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb523.Text) > (equip[equipindex].up3))
+                {
+                    equiptb523.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(5);
+            calcequip(5, equipindex, 52);
+            if (equipcb51.SelectedItem != null)
+            {
+                string equipselect2 = equipcb51.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(5, equipindex2, 51);
+            }
+            if (equipcb53.SelectedItem != null)
+            {
+                string equipselect3 = equipcb53.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(5, equipindex3, 53);
+            }
+            renewskill();
+        }
+        private void equiptb531_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb53.SelectedItem == null)
+                return;
+            string equipselect = equipcb53.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb531.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb531.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb531.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb531.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb531.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb531.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb531.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb531.Text) < (equip[equipindex].down1))
+                {
+                    equiptb531.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb531.Text) > (equip[equipindex].up1))
+                {
+                    equiptb531.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(5);
+            calcequip(5, equipindex, 53);
+            if (equipcb51.SelectedItem != null)
+            {
+                string equipselect2 = equipcb51.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(5, equipindex2, 51);
+            }
+            if (equipcb52.SelectedItem != null)
+            {
+                string equipselect3 = equipcb52.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(5, equipindex3, 52);
+            }
+            renewskill();
+        }
+        private void equiptb532_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb53.SelectedItem == null)
+                return;
+            string equipselect = equipcb53.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb532.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb532.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb532.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb532.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb532.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb532.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb532.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb532.Text) < (equip[equipindex].down2))
+                {
+                    equiptb532.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb532.Text) > (equip[equipindex].up2))
+                {
+                    equiptb532.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(5);
+            calcequip(5, equipindex, 53);
+            if (equipcb51.SelectedItem != null)
+            {
+                string equipselect2 = equipcb51.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(5, equipindex2, 51);
+            }
+            if (equipcb52.SelectedItem != null)
+            {
+                string equipselect3 = equipcb52.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(5, equipindex3, 52);
+            }
+            renewskill();
+        }
+        private void equiptb533_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb53.SelectedItem == null)
+                return;
+            string equipselect = equipcb53.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb533.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb533.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb533.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb533.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb533.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb533.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb533.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb533.Text) < (equip[equipindex].down3))
+                {
+                    equiptb533.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb533.Text) > (equip[equipindex].up3))
+                {
+                    equiptb533.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(5);
+            calcequip(5, equipindex, 53);
+            if (equipcb51.SelectedItem != null)
+            {
+                string equipselect2 = equipcb51.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(5, equipindex2, 51);
+            }
+            if (equipcb52.SelectedItem != null)
+            {
+                string equipselect3 = equipcb52.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(5, equipindex3, 52);
+            }
+            renewskill();
+        }
+        private void equiptb611_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb61.SelectedItem == null)
+                return;
+            string equipselect = equipcb61.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb611.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb611.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb611.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb611.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb611.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb611.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb611.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb611.Text) < (equip[equipindex].down1))
+                {
+                    equiptb611.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb611.Text) > (equip[equipindex].up1))
+                {
+                    equiptb611.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(6);
+            calcequip(6, equipindex, 61);
+            if (equipcb62.SelectedItem != null)
+            {
+                string equipselect2 = equipcb62.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(6, equipindex2, 62);
+            }
+            if (equipcb63.SelectedItem != null)
+            {
+                string equipselect3 = equipcb63.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(6, equipindex3, 63);
+            }
+            renewskill();
+        }
+        private void equiptb612_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb61.SelectedItem == null)
+                return;
+            string equipselect = equipcb61.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb612.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb612.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb612.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb612.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb612.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb612.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb612.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb612.Text) < (equip[equipindex].down2))
+                {
+                    equiptb612.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb612.Text) > (equip[equipindex].up2))
+                {
+                    equiptb612.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(6);
+            calcequip(6, equipindex, 61);
+            if (equipcb62.SelectedItem != null)
+            {
+                string equipselect2 = equipcb62.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(6, equipindex2, 62);
+            }
+            if (equipcb63.SelectedItem != null)
+            {
+                string equipselect3 = equipcb63.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(6, equipindex3, 63);
+            }
+            renewskill();
+        }
+        private void equiptb613_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb61.SelectedItem == null)
+                return;
+            string equipselect = equipcb61.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb613.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb613.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb613.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb613.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb613.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb613.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb613.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb613.Text) < (equip[equipindex].down3))
+                {
+                    equiptb613.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb613.Text) > (equip[equipindex].up3))
+                {
+                    equiptb613.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(6);
+            calcequip(6, equipindex, 61);
+            if (equipcb62.SelectedItem != null)
+            {
+                string equipselect2 = equipcb62.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(6, equipindex2, 62);
+            }
+            if (equipcb63.SelectedItem != null)
+            {
+                string equipselect3 = equipcb63.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(6, equipindex3, 63);
+            }
+            renewskill();
+        }
+        private void equiptb621_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb62.SelectedItem == null)
+                return;
+            string equipselect = equipcb62.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb621.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb621.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb621.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb621.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb621.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb621.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb621.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb621.Text) < (equip[equipindex].down1))
+                {
+                    equiptb621.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb621.Text) > (equip[equipindex].up1))
+                {
+                    equiptb621.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(6);
+            calcequip(6, equipindex, 62);
+            if (equipcb61.SelectedItem != null)
+            {
+                string equipselect2 = equipcb61.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(6, equipindex2, 61);
+            }
+            if (equipcb63.SelectedItem != null)
+            {
+                string equipselect3 = equipcb63.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(6, equipindex3, 63);
+            }
+            renewskill();
+        }
+        private void equiptb622_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb62.SelectedItem == null)
+                return;
+            string equipselect = equipcb62.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb622.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb622.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb622.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb622.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb622.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb622.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb622.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb622.Text) < (equip[equipindex].down2))
+                {
+                    equiptb622.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb622.Text) > (equip[equipindex].up2))
+                {
+                    equiptb622.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(6);
+            calcequip(6, equipindex, 62);
+            if (equipcb61.SelectedItem != null)
+            {
+                string equipselect2 = equipcb61.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(6, equipindex2, 61);
+            }
+            if (equipcb63.SelectedItem != null)
+            {
+                string equipselect3 = equipcb63.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(6, equipindex3, 63);
+            }
+            renewskill();
+        }
+        private void equiptb623_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb62.SelectedItem == null)
+                return;
+            string equipselect = equipcb62.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb623.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb623.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb623.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb623.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb623.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb623.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb623.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb623.Text) < (equip[equipindex].down3))
+                {
+                    equiptb623.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb623.Text) > (equip[equipindex].up3))
+                {
+                    equiptb623.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(6);
+            calcequip(6, equipindex, 62);
+            if (equipcb61.SelectedItem != null)
+            {
+                string equipselect2 = equipcb61.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(6, equipindex2, 61);
+            }
+            if (equipcb63.SelectedItem != null)
+            {
+                string equipselect3 = equipcb63.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(6, equipindex3, 63);
+            }
+            renewskill();
+        }
+        private void equiptb631_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb63.SelectedItem == null)
+                return;
+            string equipselect = equipcb63.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb631.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb631.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb631.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb631.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb631.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb631.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb631.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb631.Text) < (equip[equipindex].down1))
+                {
+                    equiptb631.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb631.Text) > (equip[equipindex].up1))
+                {
+                    equiptb631.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(6);
+            calcequip(6, equipindex, 63);
+            if (equipcb61.SelectedItem != null)
+            {
+                string equipselect2 = equipcb61.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(6, equipindex2, 61);
+            }
+            if (equipcb62.SelectedItem != null)
+            {
+                string equipselect3 = equipcb62.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(6, equipindex3, 62);
+            }
+            renewskill();
+        }
+        private void equiptb632_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb63.SelectedItem == null)
+                return;
+            string equipselect = equipcb63.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb632.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb632.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb632.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb632.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb632.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb632.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb632.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb632.Text) < (equip[equipindex].down2))
+                {
+                    equiptb632.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb632.Text) > (equip[equipindex].up2))
+                {
+                    equiptb632.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(6);
+            calcequip(6, equipindex, 63);
+            if (equipcb61.SelectedItem != null)
+            {
+                string equipselect2 = equipcb61.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(6, equipindex2, 61);
+            }
+            if (equipcb62.SelectedItem != null)
+            {
+                string equipselect3 = equipcb62.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(6, equipindex3, 62);
+            }
+            renewskill();
+        }
+        private void equiptb633_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb63.SelectedItem == null)
+                return;
+            string equipselect = equipcb63.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb633.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb633.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb633.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb633.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb633.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb633.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb633.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb633.Text) < (equip[equipindex].down3))
+                {
+                    equiptb633.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb633.Text) > (equip[equipindex].up3))
+                {
+                    equiptb633.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(6);
+            calcequip(6, equipindex, 63);
+            if (equipcb61.SelectedItem != null)
+            {
+                string equipselect2 = equipcb61.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(6, equipindex2, 61);
+            }
+            if (equipcb62.SelectedItem != null)
+            {
+                string equipselect3 = equipcb62.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(6, equipindex3, 62);
+            }
+            renewskill();
+        }
+        private void equiptb711_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb71.SelectedItem == null)
+                return;
+            string equipselect = equipcb71.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb711.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb711.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb711.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb711.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb711.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb711.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb711.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb711.Text) < (equip[equipindex].down1))
+                {
+                    equiptb711.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb711.Text) > (equip[equipindex].up1))
+                {
+                    equiptb711.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(7);
+            calcequip(7, equipindex, 71);
+            if (equipcb72.SelectedItem != null)
+            {
+                string equipselect2 = equipcb72.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(7, equipindex2, 72);
+            }
+            if (equipcb73.SelectedItem != null)
+            {
+                string equipselect3 = equipcb73.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(7, equipindex3, 73);
+            }
+            renewskill();
+        }
+        private void equiptb712_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb71.SelectedItem == null)
+                return;
+            string equipselect = equipcb71.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb712.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb712.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb712.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb712.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb712.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb712.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb712.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb712.Text) < (equip[equipindex].down2))
+                {
+                    equiptb712.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb712.Text) > (equip[equipindex].up2))
+                {
+                    equiptb712.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(7);
+            calcequip(7, equipindex, 71);
+            if (equipcb72.SelectedItem != null)
+            {
+                string equipselect2 = equipcb72.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(7, equipindex2, 72);
+            }
+            if (equipcb73.SelectedItem != null)
+            {
+                string equipselect3 = equipcb73.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(7, equipindex3, 73);
+            }
+            renewskill();
+        }
+        private void equiptb713_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb71.SelectedItem == null)
+                return;
+            string equipselect = equipcb71.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb713.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb713.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb713.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb713.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb713.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb713.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb713.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb713.Text) < (equip[equipindex].down3))
+                {
+                    equiptb713.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb713.Text) > (equip[equipindex].up3))
+                {
+                    equiptb713.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(7);
+            calcequip(7, equipindex, 71);
+            if (equipcb72.SelectedItem != null)
+            {
+                string equipselect2 = equipcb72.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(7, equipindex2, 72);
+            }
+            if (equipcb73.SelectedItem != null)
+            {
+                string equipselect3 = equipcb73.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(7, equipindex3, 73);
+            }
+            renewskill();
+        }
+        private void equiptb721_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb72.SelectedItem == null)
+                return;
+            string equipselect = equipcb72.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb721.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb721.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb721.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb721.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb721.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb721.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb721.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb721.Text) < (equip[equipindex].down1))
+                {
+                    equiptb721.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb721.Text) > (equip[equipindex].up1))
+                {
+                    equiptb721.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(7);
+            calcequip(7, equipindex, 72);
+            if (equipcb71.SelectedItem != null)
+            {
+                string equipselect2 = equipcb71.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(7, equipindex2, 71);
+            }
+            if (equipcb73.SelectedItem != null)
+            {
+                string equipselect3 = equipcb73.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(7, equipindex3, 73);
+            }
+            renewskill();
+        }
+        private void equiptb722_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb72.SelectedItem == null)
+                return;
+            string equipselect = equipcb72.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb722.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb722.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb722.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb722.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb722.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb722.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb722.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb722.Text) < (equip[equipindex].down2))
+                {
+                    equiptb722.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb722.Text) > (equip[equipindex].up2))
+                {
+                    equiptb722.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(7);
+            calcequip(7, equipindex, 72);
+            if (equipcb71.SelectedItem != null)
+            {
+                string equipselect2 = equipcb71.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(7, equipindex2, 71);
+            }
+            if (equipcb73.SelectedItem != null)
+            {
+                string equipselect3 = equipcb73.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(7, equipindex3, 73);
+            }
+            renewskill();
+        }
+        private void equiptb723_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb72.SelectedItem == null)
+                return;
+            string equipselect = equipcb72.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb723.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb723.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb723.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb723.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb723.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb723.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb723.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb723.Text) < (equip[equipindex].down3))
+                {
+                    equiptb723.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb723.Text) > (equip[equipindex].up3))
+                {
+                    equiptb723.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(7);
+            calcequip(7, equipindex, 72);
+            if (equipcb71.SelectedItem != null)
+            {
+                string equipselect2 = equipcb71.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(7, equipindex2, 71);
+            }
+            if (equipcb73.SelectedItem != null)
+            {
+                string equipselect3 = equipcb73.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(7, equipindex3, 73);
+            }
+            renewskill();
+        }
+        private void equiptb731_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb73.SelectedItem == null)
+                return;
+            string equipselect = equipcb73.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb731.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb731.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb731.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb731.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb731.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb731.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb731.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb731.Text) < (equip[equipindex].down1))
+                {
+                    equiptb731.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb731.Text) > (equip[equipindex].up1))
+                {
+                    equiptb731.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(7);
+            calcequip(7, equipindex, 73);
+            if (equipcb71.SelectedItem != null)
+            {
+                string equipselect2 = equipcb71.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(7, equipindex2, 71);
+            }
+            if (equipcb72.SelectedItem != null)
+            {
+                string equipselect3 = equipcb72.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(7, equipindex3, 72);
+            }
+            renewskill();
+        }
+        private void equiptb732_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb73.SelectedItem == null)
+                return;
+            string equipselect = equipcb73.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb732.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb732.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb732.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb732.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb732.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb732.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb732.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb732.Text) < (equip[equipindex].down2))
+                {
+                    equiptb732.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb732.Text) > (equip[equipindex].up2))
+                {
+                    equiptb732.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(7);
+            calcequip(7, equipindex, 73);
+            if (equipcb71.SelectedItem != null)
+            {
+                string equipselect2 = equipcb71.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(7, equipindex2, 71);
+            }
+            if (equipcb72.SelectedItem != null)
+            {
+                string equipselect3 = equipcb72.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(7, equipindex3, 72);
+            }
+            renewskill();
+        }
+        private void equiptb733_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb73.SelectedItem == null)
+                return;
+            string equipselect = equipcb73.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb733.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb733.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb733.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb733.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb733.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb733.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb733.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb733.Text) < (equip[equipindex].down3))
+                {
+                    equiptb733.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb733.Text) > (equip[equipindex].up3))
+                {
+                    equiptb733.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(7);
+            calcequip(7, equipindex, 73);
+            if (equipcb71.SelectedItem != null)
+            {
+                string equipselect2 = equipcb71.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(7, equipindex2, 71);
+            }
+            if (equipcb72.SelectedItem != null)
+            {
+                string equipselect3 = equipcb72.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(7, equipindex3, 72);
+            }
+            renewskill();
+        }
+        private void equiptb811_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb81.SelectedItem == null)
+                return;
+            string equipselect = equipcb81.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb811.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb811.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb811.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb811.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb811.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb811.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb811.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb811.Text) < (equip[equipindex].down1))
+                {
+                    equiptb811.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb811.Text) > (equip[equipindex].up1))
+                {
+                    equiptb811.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(8);
+            calcequip(8, equipindex, 81);
+            if (equipcb82.SelectedItem != null)
+            {
+                string equipselect2 = equipcb82.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(8, equipindex2, 82);
+            }
+            if (equipcb83.SelectedItem != null)
+            {
+                string equipselect3 = equipcb83.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(8, equipindex3, 83);
+            }
+            renewskill();
+        }
+        private void equiptb812_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb81.SelectedItem == null)
+                return;
+            string equipselect = equipcb81.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb812.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb812.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb812.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb812.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb812.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb812.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb812.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb812.Text) < (equip[equipindex].down2))
+                {
+                    equiptb812.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb812.Text) > (equip[equipindex].up2))
+                {
+                    equiptb812.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(8);
+            calcequip(8, equipindex, 81);
+            if (equipcb82.SelectedItem != null)
+            {
+                string equipselect2 = equipcb82.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(8, equipindex2, 82);
+            }
+            if (equipcb83.SelectedItem != null)
+            {
+                string equipselect3 = equipcb83.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(8, equipindex3, 83);
+            }
+            renewskill();
+        }
+        private void equiptb813_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb81.SelectedItem == null)
+                return;
+            string equipselect = equipcb81.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb813.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb813.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb813.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb813.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb813.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb813.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb813.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb813.Text) < (equip[equipindex].down3))
+                {
+                    equiptb813.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb813.Text) > (equip[equipindex].up3))
+                {
+                    equiptb813.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(8);
+            calcequip(8, equipindex, 81);
+            if (equipcb82.SelectedItem != null)
+            {
+                string equipselect2 = equipcb82.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(8, equipindex2, 82);
+            }
+            if (equipcb83.SelectedItem != null)
+            {
+                string equipselect3 = equipcb83.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(8, equipindex3, 83);
+            }
+            renewskill();
+        }
+        private void equiptb821_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb82.SelectedItem == null)
+                return;
+            string equipselect = equipcb82.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb821.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb821.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb821.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb821.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb821.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb821.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb821.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb821.Text) < (equip[equipindex].down1))
+                {
+                    equiptb821.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb821.Text) > (equip[equipindex].up1))
+                {
+                    equiptb821.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(8);
+            calcequip(8, equipindex, 82);
+            if (equipcb81.SelectedItem != null)
+            {
+                string equipselect2 = equipcb81.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(8, equipindex2, 81);
+            }
+            if (equipcb83.SelectedItem != null)
+            {
+                string equipselect3 = equipcb83.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(8, equipindex3, 83);
+            }
+            renewskill();
+        }
+        private void equiptb822_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb82.SelectedItem == null)
+                return;
+            string equipselect = equipcb82.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb822.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb822.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb822.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb822.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb822.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb822.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb822.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb822.Text) < (equip[equipindex].down2))
+                {
+                    equiptb822.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb822.Text) > (equip[equipindex].up2))
+                {
+                    equiptb822.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(8);
+            calcequip(8, equipindex, 82);
+            if (equipcb81.SelectedItem != null)
+            {
+                string equipselect2 = equipcb81.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(8, equipindex2, 81);
+            }
+            if (equipcb83.SelectedItem != null)
+            {
+                string equipselect3 = equipcb83.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(8, equipindex3, 83);
+            }
+            renewskill();
+        }
+        private void equiptb823_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb82.SelectedItem == null)
+                return;
+            string equipselect = equipcb82.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb823.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb823.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb823.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb823.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb823.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb823.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb823.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb823.Text) < (equip[equipindex].down3))
+                {
+                    equiptb823.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb823.Text) > (equip[equipindex].up3))
+                {
+                    equiptb823.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(8);
+            calcequip(8, equipindex, 82);
+            if (equipcb81.SelectedItem != null)
+            {
+                string equipselect2 = equipcb81.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(8, equipindex2, 81);
+            }
+            if (equipcb83.SelectedItem != null)
+            {
+                string equipselect3 = equipcb83.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(8, equipindex3, 83);
+            }
+            renewskill();
+        }
+        private void equiptb831_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb83.SelectedItem == null)
+                return;
+            string equipselect = equipcb83.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb831.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb831.Text = (equip[equipindex].up1 * 100).ToString();
+                else
+                    equiptb831.Text = equip[equipindex].up1.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb831.Text) < (equip[equipindex].down1 * 100))
+                {
+                    equiptb831.Text = (equip[equipindex].down1 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb831.Text) > (equip[equipindex].up1 * 100))
+                {
+                    equiptb831.Text = (equip[equipindex].up1 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb831.Text) < (equip[equipindex].down1))
+                {
+                    equiptb831.Text = (equip[equipindex].down1).ToString();
+                }
+                else if (Double.Parse(equiptb831.Text) > (equip[equipindex].up1))
+                {
+                    equiptb831.Text = (equip[equipindex].up1).ToString();
+                }
+            }
+            clearequip(8);
+            calcequip(8, equipindex, 83);
+            if (equipcb81.SelectedItem != null)
+            {
+                string equipselect2 = equipcb81.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(8, equipindex2, 81);
+            }
+            if (equipcb82.SelectedItem != null)
+            {
+                string equipselect3 = equipcb82.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(8, equipindex3, 82);
+            }
+            renewskill();
+        }
+        private void equiptb832_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb83.SelectedItem == null)
+                return;
+            string equipselect = equipcb83.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb832.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb832.Text = (equip[equipindex].up2 * 100).ToString();
+                else
+                    equiptb832.Text = equip[equipindex].up2.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb832.Text) < (equip[equipindex].down2 * 100))
+                {
+                    equiptb832.Text = (equip[equipindex].down2 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb832.Text) > (equip[equipindex].up2 * 100))
+                {
+                    equiptb832.Text = (equip[equipindex].up2 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb832.Text) < (equip[equipindex].down2))
+                {
+                    equiptb832.Text = (equip[equipindex].down2).ToString();
+                }
+                else if (Double.Parse(equiptb832.Text) > (equip[equipindex].up2))
+                {
+                    equiptb832.Text = (equip[equipindex].up2).ToString();
+                }
+            }
+            clearequip(8);
+            calcequip(8, equipindex, 83);
+            if (equipcb81.SelectedItem != null)
+            {
+                string equipselect2 = equipcb81.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(8, equipindex2, 81);
+            }
+            if (equipcb82.SelectedItem != null)
+            {
+                string equipselect3 = equipcb82.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(8, equipindex3, 82);
+            }
+            renewskill();
+        }
+        private void equiptb833_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (equipcb83.SelectedItem == null)
+                return;
+            string equipselect = equipcb83.SelectedItem.ToString();
+            int equipindex = getequipindex(equipselect.Substring(31));
+            if (!IsNumber(equiptb833.Text))
+            {
+                if (equip[equipindex].property1 == "暴击率")
+                    equiptb833.Text = (equip[equipindex].up3 * 100).ToString();
+                else
+                    equiptb833.Text = equip[equipindex].up3.ToString();
+            }
+            if (equip[equipindex].property1 == "暴击率")
+            {
+                if (Double.Parse(equiptb833.Text) < (equip[equipindex].down3 * 100))
+                {
+                    equiptb833.Text = (equip[equipindex].down3 * 100).ToString();
+                }
+                else if (Double.Parse(equiptb833.Text) > (equip[equipindex].up3 * 100))
+                {
+                    equiptb833.Text = (equip[equipindex].up3 * 100).ToString();
+                }
+            }
+            else
+            {
+                if (Double.Parse(equiptb833.Text) < (equip[equipindex].down3))
+                {
+                    equiptb833.Text = (equip[equipindex].down3).ToString();
+                }
+                else if (Double.Parse(equiptb833.Text) > (equip[equipindex].up3))
+                {
+                    equiptb833.Text = (equip[equipindex].up3).ToString();
+                }
+            }
+            clearequip(8);
+            calcequip(8, equipindex, 83);
+            if (equipcb81.SelectedItem != null)
+            {
+                string equipselect2 = equipcb81.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
+                calcequip(8, equipindex2, 81);
+            }
+            if (equipcb82.SelectedItem != null)
+            {
+                string equipselect3 = equipcb82.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
+                calcequip(8, equipindex3, 82);
+            }
+            renewskill();
         }
     }
 }

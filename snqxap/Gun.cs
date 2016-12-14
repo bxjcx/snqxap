@@ -10,15 +10,15 @@ namespace snqxap
     class Equip
     {
         public string name { get; set; }
-        public double critup { get; set; }
+  /*      public double critup { get; set; }
         public int breakarmor { get; set; }
         public int damage { get; set; }
         public int shotspeed { get; set; }
         public int hit { get; set; }
         public double nightsee { get; set; }
-        public int dodge { get; set; }
+        public int dodge { get; set; }*/
         public int rank { get; set; }
-        public int belt { get; set; }
+   //     public int belt { get; set; }
         public int forwhat {get;set;}
         /// <summary>
         /// 1光瞄/2全息/3acog/4夜视/5穿甲/6震撼/7燃烧/8高速/9芯片/10外骨/11插板/12勋章
@@ -26,6 +26,17 @@ namespace snqxap
         public int type { get; set; }
 
         public string tooltip { get; set; }
+
+        public string property1 { get; set; }
+        public string property2 { get; set; }
+        public string property3 { get; set; }
+        public double down1 { get; set; }
+        public double down2 { get; set; }   
+        public double down3 { get; set; }
+        public double up1 { get; set; }
+        public double up2 { get; set; }
+        public double up3 { get; set; }
+
     }
 
     class Gun
