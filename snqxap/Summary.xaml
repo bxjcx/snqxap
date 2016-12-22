@@ -5,7 +5,7 @@
     <Grid>
         <Label Content="作者：雪风 贴吧ID @真冬死宅酱                     Email:" HorizontalAlignment="Left"  VerticalAlignment="Top" FontSize="12" Height="27" Width="308"/>
         <Label Content="这个玩意充满了bug，出了什么问题请重置或重启或告诉我。"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,27,0,0"/>
-        <Label Content="代码好像能看懂了。本人没有审美。更新时间看合不合适。（圣建害人）"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,54,0,0"/>
+        <Label Content="本人没有审美。更新时间看合不合适。 帧数：向上取整（50/射速*30）"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,54,0,0" Foreground="Red"/>
         <Label Content="对于一战资源，有小数点的补给会向上取整（锅锅莎偷吃了口粮！）"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,162,0,0"/>
         <Label Content="每点一下重置，这个世界就会少一个名叫 雪球 的欧洲婊。"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,81,0,0" Foreground="Green"/>
         <Label Content="伤害指数：30*伤害/帧数*(1-暴击率+暴击率*1.5)/(1+敌回避/命中)"  VerticalAlignment="Top" FontSize="12" Height="27" Margin="0,108,0,0" Foreground="Red"/>
