@@ -4172,7 +4172,7 @@ namespace snqxap
                 calccombo3buff();
             calccombo0buff();
             calccombo1buff();
-            calccombo3buff();
+            calccombo2buff();
             calccombo4buff();
             calccombo5buff();
             calccombo6buff();
@@ -4653,7 +4653,7 @@ namespace snqxap
             calccombo1buff();
             calccombo2buff();
             calccombo3buff();
-            calccombo5buff();
+            calccombo4buff();
             calccombo6buff();
             calccombo7buff();
             calccombo8buff();
