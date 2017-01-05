@@ -32,7 +32,7 @@ namespace snqxap
         /// <summary>
         /// 枪娘总数
         /// </summary>
-        public const int GUN_NUMBER = 126; 
+        public const int GUN_NUMBER = 127; 
         /// <summary>
         /// 装备总数
         /// </summary>
@@ -289,7 +289,7 @@ namespace snqxap
             gun[41].name = "L85A1"; gun[41].what = 2; gun[41].crit = 0.2; gun[41].belt = 0; gun[41].number = 1; gun[41].effect0 = 8; gun[41].damageup = 0.2; gun[41].hitup = 0.5; gun[41].shotspeedup = 0; gun[41].critup = 0; gun[41].dodgeup = 0; gun[41].to = 3;
             gun[42].name = "9a91"; gun[42].what = 2;  gun[42].crit = 0.2; gun[42].belt = 0; gun[42].number = 2; gun[42].effect0 = 3; gun[42].effect1 = 9; gun[42].damageup = 0; gun[42].hitup = 0; gun[42].shotspeedup = 0.1; gun[42].critup = 0; gun[42].dodgeup = 0.15; gun[42].to = 3;
             gun[43].name = "AS Val"; gun[43].what = 2; gun[43].crit = 0.2; gun[43].belt = 0; gun[43].number = 1; gun[43].effect0 = 8; gun[43].damageup = 0.25; gun[43].hitup = 0; gun[43].shotspeedup = 0.1; gun[43].critup = 0; gun[43].dodgeup = 0; gun[43].to = 3;
-            gun[44].name = "维尔德"; gun[44].what = 4; gun[44].crit = 0.2; gun[44].belt = 0; gun[44].number = 5; gun[44].effect0 = 1; gun[44].effect1 = 2; gun[44].effect2 = 4; gun[44].effect3 = 7;gun[44].effect4 = 8; gun[44].damageup = 0.18; gun[44].hitup = 0; gun[44].shotspeedup = 0.1; gun[44].critup = 0; gun[44].dodgeup = 0; gun[44].to = 1;
+            gun[44].name = "维尔德"; gun[44].what = 4; gun[44].crit = 0.4; gun[44].belt = 0; gun[44].number = 5; gun[44].effect0 = 1; gun[44].effect1 = 2; gun[44].effect2 = 4; gun[44].effect3 = 7;gun[44].effect4 = 8; gun[44].damageup = 0.18; gun[44].hitup = 0; gun[44].shotspeedup = 0.1; gun[44].critup = 0; gun[44].dodgeup = 0; gun[44].to = 1;
             gun[45].name = "纳甘左轮"; gun[45].what = 4; gun[45].crit = 0.2; gun[45].belt = 0; gun[45].number = 2; gun[45].effect0 = 2; gun[45].effect1 = 8; gun[45].damageup = 0.25; gun[45].hitup = 0; gun[45].shotspeedup = 0; gun[45].critup = 0.1; gun[45].dodgeup = 0; gun[45].to = 1;
             gun[46].name = "柯尔特左轮"; gun[46].what = 4; gun[46].crit = 0.2; gun[46].belt = 0; gun[46].number = 4; gun[46].effect0 = 2; gun[46].effect1 = 4; gun[46].effect2 = 6; gun[46].effect3 = 8; gun[46].damageup = 0.15; gun[46].hitup = 0.5; gun[46].shotspeedup = 0; gun[46].critup = 0; gun[46].dodgeup = 0; gun[46].to = 1;
             gun[47].name = "灰熊MkⅤ"; gun[47].what = 4; gun[47].crit = 0.2; gun[47].belt = 0; gun[47].number = 5; gun[47].effect0 = 1; gun[47].effect1 = 2; gun[47].effect2 = 6; gun[47].effect3 = 7; gun[47].effect4 = 8; gun[47].damageup = 0.18; gun[47].hitup = 0; gun[47].shotspeedup = 0; gun[47].critup = 0; gun[47].dodgeup = 0.2; gun[47].to = 1;
@@ -447,6 +447,11 @@ namespace snqxap
             gun[124].eatratio = 120; gun[124].ratiododge = 130; gun[124].ratiohit = 100; gun[124].ratiohp = 90; gun[124].ratiopow = 90; gun[124].ratiorate = 120;
             gun[124].type = 104; gun[124].probability = 24; gun[124].skilleffect1 = 120; gun[124].skilleffect2 = 5; gun[124].skilleffect3 = 0; gun[124].skilleffect4 = 0; gun[124].growth = 0.8; gun[124].growth_type = 3;
 
+            gun[126].name = "6P62"; gun[126].what = 2; gun[126].crit = 0.2; gun[126].belt = 0; gun[126].number = 1; gun[126].effect0 = 6; gun[126].damageup = 0.35; gun[126].to = 3;
+            gun[126].eatratio = 125; gun[126].ratiododge = 75; gun[126].ratiohit = 85; gun[126].ratiohp = 110; gun[126].ratiopow = 150; gun[126].ratiorate = 80;
+            gun[126].type = 101; gun[126].probability = 40; gun[126].skilleffect1 = 100; gun[126].skilleffect2 = 2; gun[126].skilleffect3 = 0; gun[126].skilleffect4 = 0; gun[126].growth = 0.6; gun[126].growth_type = 3;
+
+        
             for (int i = 0; i < GUN_NUMBER + 1; i++)//加颜色
             {
                 Label l = new Label();
@@ -748,10 +753,11 @@ namespace snqxap
                 Merry8.Content = "♡";
                 Merry8.Foreground = br2;
 
-            for (int i = 0; i < GUN_NUMBER; i++) //加图像
+            for (int i = 0; i < GUN_NUMBER -1; i++) //加图像
             {
                 gun[i].image = "/assets/" + i.ToString() + ".png";
             }
+            gun[GUN_NUMBER - 1].image = "/assets/71.png";
             gun[GUN_NUMBER].image = "";
 
                 for (int i = 0; i < 9; i++)
@@ -3640,7 +3646,7 @@ namespace snqxap
             calccombo7buff();
             calccombo8buff();
             lastgunindex[0] = select;
-
+            clearequip(0);
             renewskill();
             calceat();
 
@@ -3819,6 +3825,7 @@ namespace snqxap
             calccombo6buff();
             calccombo7buff();
             calccombo8buff();
+            clearequip(1);
             lastgunindex[1] = select;
             renewskill();
             calceat();
@@ -3997,6 +4004,7 @@ namespace snqxap
             calccombo6buff();
             calccombo7buff();
             calccombo8buff();
+            clearequip(2);
             lastgunindex[2] = select;
             renewskill();
             calceat();
@@ -4185,7 +4193,7 @@ namespace snqxap
                 cb3.IsEnabled = false;
             else
                 cb3.IsEnabled = true;*/
-
+            clearequip(3);
             renewskill();
             calceat();
             equipcb31.Items.Clear();
@@ -4479,6 +4487,7 @@ namespace snqxap
                 cb4.IsEnabled = false;
             else
                 cb4.IsEnabled = true;*/
+            clearequip(4);
             renewskill();
             calceat();
             equipcb41.Items.Clear();
@@ -4664,6 +4673,7 @@ namespace snqxap
                 cb5.IsEnabled = false;
             else
                 cb5.IsEnabled = true;*/
+            clearequip(5);
             renewskill();
             calceat();
             equipcb51.Items.Clear();
@@ -4850,6 +4860,7 @@ namespace snqxap
                 cb6.IsEnabled = false;
             else
                 cb6.IsEnabled = true;*/
+            clearequip(6);
             renewskill();
             calceat();
             equipcb61.Items.Clear();
@@ -5036,6 +5047,7 @@ namespace snqxap
                 cb7.IsEnabled = false;
             else
                 cb7.IsEnabled = true;*/
+            clearequip(7);
             renewskill();
 
             calceat();
@@ -5224,6 +5236,7 @@ namespace snqxap
                 cb8.IsEnabled = false;
             else
                 cb8.IsEnabled = true;*/
+            clearequip(8);
             renewskill();
 
             calceat();
