@@ -142,113 +142,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="assets\1.png" />
     <Resource Include="bitbug_favicon.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="zhaijiang.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="assets\0.png" />
-    <Resource Include="assets\10.png" />
-    <Resource Include="assets\100.png" />
-    <Resource Include="assets\11.png" />
-    <Resource Include="assets\12.png" />
-    <Resource Include="assets\13.png" />
-    <Resource Include="assets\14.png" />
-    <Resource Include="assets\15.png" />
-    <Resource Include="assets\16.png" />
-    <Resource Include="assets\17.png" />
-    <Resource Include="assets\18.png" />
-    <Resource Include="assets\19.png" />
-    <Resource Include="assets\2.png" />
-    <Resource Include="assets\20.png" />
-    <Resource Include="assets\21.png" />
-    <Resource Include="assets\22.png" />
-    <Resource Include="assets\23.png" />
-    <Resource Include="assets\24.png" />
-    <Resource Include="assets\25.png" />
-    <Resource Include="assets\26.png" />
-    <Resource Include="assets\27.png" />
-    <Resource Include="assets\28.png" />
-    <Resource Include="assets\29.png" />
-    <Resource Include="assets\3.png" />
-    <Resource Include="assets\30.png" />
-    <Resource Include="assets\31.png" />
-    <Resource Include="assets\32.png" />
-    <Resource Include="assets\33.png" />
-    <Resource Include="assets\34.png" />
-    <Resource Include="assets\35.png" />
-    <Resource Include="assets\36.png" />
-    <Resource Include="assets\37.png" />
-    <Resource Include="assets\38.png" />
-    <Resource Include="assets\39.png" />
-    <Resource Include="assets\4.png" />
-    <Resource Include="assets\40.png" />
-    <Resource Include="assets\41.png" />
-    <Resource Include="assets\42.png" />
-    <Resource Include="assets\43.png" />
-    <Resource Include="assets\44.png" />
-    <Resource Include="assets\45.png" />
-    <Resource Include="assets\46.png" />
-    <Resource Include="assets\47.png" />
-    <Resource Include="assets\48.png" />
-    <Resource Include="assets\49.png" />
-    <Resource Include="assets\5.png" />
-    <Resource Include="assets\50.png" />
-    <Resource Include="assets\51.png" />
-    <Resource Include="assets\52.png" />
-    <Resource Include="assets\53.png" />
-    <Resource Include="assets\54.png" />
-    <Resource Include="assets\55.png" />
-    <Resource Include="assets\56.png" />
-    <Resource Include="assets\57.png" />
-    <Resource Include="assets\58.png" />
-    <Resource Include="assets\59.png" />
-    <Resource Include="assets\6.png" />
-    <Resource Include="assets\60.png" />
-    <Resource Include="assets\61.png" />
-    <Resource Include="assets\62.png" />
-    <Resource Include="assets\63.png" />
-    <Resource Include="assets\64.png" />
-    <Resource Include="assets\65.png" />
-    <Resource Include="assets\66.png" />
-    <Resource Include="assets\67.png" />
-    <Resource Include="assets\68.png" />
-    <Resource Include="assets\69.png" />
-    <Resource Include="assets\7.png" />
-    <Resource Include="assets\70.png" />
-    <Resource Include="assets\71.png" />
-    <Resource Include="assets\72.png" />
-    <Resource Include="assets\73.png" />
-    <Resource Include="assets\74.png" />
-    <Resource Include="assets\75.png" />
-    <Resource Include="assets\76.png" />
-    <Resource Include="assets\77.png" />
-    <Resource Include="assets\78.png" />
-    <Resource Include="assets\79.png" />
-    <Resource Include="assets\8.png" />
-    <Resource Include="assets\80.png" />
-    <Resource Include="assets\81.png" />
-    <Resource Include="assets\82.png" />
-    <Resource Include="assets\83.png" />
-    <Resource Include="assets\84.png" />
-    <Resource Include="assets\85.png" />
-    <Resource Include="assets\86.png" />
-    <Resource Include="assets\87.png" />
-    <Resource Include="assets\88.png" />
-    <Resource Include="assets\89.png" />
-    <Resource Include="assets\9.png" />
-    <Resource Include="assets\90.png" />
-    <Resource Include="assets\91.png" />
-    <Resource Include="assets\92.png" />
-    <Resource Include="assets\93.png" />
-    <Resource Include="assets\94.png" />
-    <Resource Include="assets\95.png" />
-    <Resource Include="assets\96.png" />
-    <Resource Include="assets\97.png" />
-    <Resource Include="assets\98.png" />
-    <Resource Include="assets\99.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="assets\Prowler.jpg" />
@@ -325,18 +222,6 @@
     <Resource Include="assets\yushe2.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="assets\101.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="assets\104.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="assets\102.png" />
-    <Resource Include="assets\103.png" />
-    <Resource Include="assets\105.png" />
-    <Resource Include="assets\106.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="assets\Aegis.png" />
   </ItemGroup>
   <ItemGroup>
@@ -354,37 +239,132 @@
     <Resource Include="assets\e4boss.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="assets\107.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="assets\108.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="assets\109.png" />
-    <Resource Include="assets\110.png" />
-    <Resource Include="assets\111.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="assets\112.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="assets\113.png" />
-    <Resource Include="assets\114.png" />
-    <Resource Include="assets\115.png" />
-    <Resource Include="assets\116.png" />
-    <Resource Include="assets\117.png" />
-    <Resource Include="assets\118.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="assets\119.png" />
-    <Resource Include="assets\121.png" />
-    <Resource Include="assets\120.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="assets\122.png" />
-    <Resource Include="assets\123.png" />
-    <Resource Include="assets\124.png" />
-    <Resource Include="assets\125.png" />
+    <Resource Include="assets\56-1式.png" />
+    <Resource Include="assets\56式半.png" />
+    <Resource Include="assets\59式.png" />
+    <Resource Include="assets\63式.png" />
+    <Resource Include="assets\64式.png" />
+    <Resource Include="assets\79式.png" />
+    <Resource Include="assets\92式.png" />
+    <Resource Include="assets\95式.png" />
+    <Resource Include="assets\97式.png" />
+    <Resource Include="assets\9A-91.png" />
+    <Resource Include="assets\AAT-52.png" />
+    <Resource Include="assets\AK-47.png" />
+    <Resource Include="assets\AR70.png" />
+    <Resource Include="assets\ARX-160.png" />
+    <Resource Include="assets\AS VAL.png" />
+    <Resource Include="assets\BM59.png" />
+    <Resource Include="assets\C96.png" />
+    <Resource Include="assets\CZ-805.png" />
+    <Resource Include="assets\DP28.png" />
+    <Resource Include="assets\EVO 3.png" />
+    <Resource Include="assets\F2000.png" />
+    <Resource Include="assets\FAL.png" />
+    <Resource Include="assets\FAMAS.png" />
+    <Resource Include="assets\FG42.png" />
+    <Resource Include="assets\FMG-9.png" />
+    <Resource Include="assets\FN-49.png" />
+    <Resource Include="assets\FNC.png" />
+    <Resource Include="assets\FNP-9.png" />
+    <Resource Include="assets\G11.png" />
+    <Resource Include="assets\G3.png" />
+    <Resource Include="assets\G36.png" />
+    <Resource Include="assets\G36C.png" />
+    <Resource Include="assets\G41.png" />
+    <Resource Include="assets\G43.png" />
+    <Resource Include="assets\HK416.png" />
+    <Resource Include="assets\IDW.png" />
+    <Resource Include="assets\Kar98k.png" />
+    <Resource Include="assets\L85A1.png" />
+    <Resource Include="assets\LWMMG.png" />
+    <Resource Include="assets\M14.png" />
+    <Resource Include="assets\M16A1.png" />
+    <Resource Include="assets\M1911.png" />
+    <Resource Include="assets\M1918.png" />
+    <Resource Include="assets\M1919A4.png" />
+    <Resource Include="assets\M1A1.png" />
+    <Resource Include="assets\M1加兰德.png" />
+    <Resource Include="assets\M21.png" />
+    <Resource Include="assets\M249 SAW.png" />
+    <Resource Include="assets\M2HB.png" />
+    <Resource Include="assets\M3.png" />
+    <Resource Include="assets\M4 SOPMODII.png" />
+    <Resource Include="assets\m45.png" />
+    <Resource Include="assets\M4A1.png" />
+    <Resource Include="assets\M60.png" />
+    <Resource Include="assets\M9.png" />
+    <Resource Include="assets\M950A.png" />
+    <Resource Include="assets\M99.png" />
+    <Resource Include="assets\MAC-10.png" />
+    <Resource Include="assets\MG3.png" />
+    <Resource Include="assets\MG34.png" />
+    <Resource Include="assets\MG4.png" />
+    <Resource Include="assets\MG42.png" />
+    <Resource Include="assets\MG5.png" />
+    <Resource Include="assets\Mk23.png" />
+    <Resource Include="assets\Mk48.png" />
+    <Resource Include="assets\MP-446.png" />
+    <Resource Include="assets\MP40.png" />
+    <Resource Include="assets\MP5.png" />
+    <Resource Include="assets\NTW-20.png" />
+    <Resource Include="assets\NZ75.png" />
+    <Resource Include="assets\OTs-12.png" />
+    <Resource Include="assets\OTs-14.png" />
+    <Resource Include="assets\P08.png" />
+    <Resource Include="assets\P38.png" />
+    <Resource Include="assets\P7.png" />
+    <Resource Include="assets\P99.png" />
+    <Resource Include="assets\PK.png" />
+    <Resource Include="assets\PP-19.png" />
+    <Resource Include="assets\PP-2000.png" />
+    <Resource Include="assets\PP-90.png" />
+    <Resource Include="assets\PPK.png" />
+    <Resource Include="assets\PPS-43.png" />
+    <Resource Include="assets\PPsh-41.png" />
+    <Resource Include="assets\PSG-1.png" />
+    <Resource Include="assets\PTRD.png" />
+    <Resource Include="assets\RPD.png" />
+    <Resource Include="assets\SIG-510.png" />
+    <Resource Include="assets\Spectre M4.png" />
+    <Resource Include="assets\SPP-1.png" />
+    <Resource Include="assets\SR-3MP.png" />
+    <Resource Include="assets\ST AR-15.png" />
+    <Resource Include="assets\StG44.png" />
+    <Resource Include="assets\Super SASS.png" />
+    <Resource Include="assets\SV-98.png" />
+    <Resource Include="assets\SVD.png" />
+    <Resource Include="assets\SVT-38.png" />
+    <Resource Include="assets\TAR-21.png" />
+    <Resource Include="assets\UMP45.png" />
+    <Resource Include="assets\UMP9.png" />
+    <Resource Include="assets\Vector.png" />
+    <Resource Include="assets\WA2000.png" />
+    <Resource Include="assets\Z-62.png" />
+    <Resource Include="assets\伯莱塔38型.png" />
+    <Resource Include="assets\内格夫.png" />
+    <Resource Include="assets\加利尔.png" />
+    <Resource Include="assets\司登MkⅡ.png" />
+    <Resource Include="assets\布伦.png" />
+    <Resource Include="assets\微型乌兹.png" />
+    <Resource Include="assets\托卡列夫.png" />
+    <Resource Include="assets\斯捷奇金.png" />
+    <Resource Include="assets\春田.png" />
+    <Resource Include="assets\李-恩菲尔德.png" />
+    <Resource Include="assets\柯尔特左轮.png" />
+    <Resource Include="assets\格洛克17.png" />
+    <Resource Include="assets\汉阳造88式.png" />
+    <Resource Include="assets\汤姆森.png" />
+    <Resource Include="assets\灰熊MkⅤ.png" />
+    <Resource Include="assets\索米.png" />
+    <Resource Include="assets\纳甘左轮.png" />
+    <Resource Include="assets\维尔德MkⅡ.png" />
+    <Resource Include="assets\莫辛-纳甘.png" />
+    <Resource Include="assets\蝎式.png" />
+    <Resource Include="assets\西蒙诺夫.png" />
+    <Resource Include="assets\谢尔久科夫.png" />
+    <Resource Include="assets\阿斯特拉左轮.png" />
+    <Resource Include="assets\马卡洛夫.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -32,7 +32,7 @@ namespace snqxap
         /// <summary>
         /// 枪娘总数
         /// </summary>
-        public const int GUN_NUMBER = 127; 
+        public const int GUN_NUMBER = 135; 
         /// <summary>
         /// 装备总数
         /// </summary>
@@ -69,15 +69,15 @@ namespace snqxap
 
         public static readonly float[][] arrAbilityRatio = new float[][]  //各类枪娘属性成长基础
 {
-    new float[] //凑数
+    new float[] //lift,pow,rate,speed,hit,dodge,armor
     {
-        1f,1f,1f,1f,1f,1f,1f
+        1f,1f,1f,1f,1f,1f,1f,0f
     },
       new float[]   //凑数
       {
-        1f,1f,1f,1f,1f,1f,1f
+        1f,1f,1f,1f,1f,1f,1f,0f
     },
-        new float[]   //2 ar 3 smg 4 hg 5 rf 6 mg    
+        new float[]   //2 ar 3 smg 4 hg 5 rf 6 mg 7 sg   
 	{
           1f,
         1f,
@@ -85,7 +85,7 @@ namespace snqxap
         1f,
         1f,
         1f,
-        1f
+        0f
     },
     new float[]  
 	{
@@ -95,7 +95,7 @@ namespace snqxap
         1.2f,
         0.3f,
         1.6f,
-        0.75f
+        0f
     },
     new float[]
 	{
@@ -105,7 +105,7 @@ namespace snqxap
         1.5f,
         1.2f,
         1.8f,
-        0.75f
+        0f
     
     },
     new float[]
@@ -116,7 +116,7 @@ namespace snqxap
         0.7f,
         1.6f,
         0.8f,
-        1.4f
+        0f
     },
     new float[]
 	{
@@ -126,7 +126,17 @@ namespace snqxap
         0.4f,
         0.6f,
         0.6f,
-        0.95f
+        0f
+    },
+    new float[]
+    {
+        2.0f,
+        0.7f,
+        0.4f,
+        0.6f,
+        0.3f,
+        0.3f,
+        1.0f
     }
 };
 
@@ -245,207 +255,207 @@ namespace snqxap
             for (int i = 0; i < GUN_NUMBER + 1; i++)
                 gun[i] = new Gun();
 
-            gun[0].name = "汤姆森"; gun[0].what = 3;gun[0].crit = 0.05; gun[0].belt = 0; gun[0].number = 2; gun[0].effect0 = 1; gun[0].effect1 = 7; gun[0].damageup = 0.12; gun[0].hitup = 0; gun[0].shotspeedup = 0; gun[0].critup = 0; gun[0].dodgeup = 0.15; gun[0].to = 2;
-            gun[1].name = "司登MkⅡ"; gun[1].what = 3; gun[1].crit = 0.05; gun[1].belt = 0; gun[1].number = 3; gun[1].effect0 = 1; gun[1].effect1 = 4; gun[1].effect2 = 7; gun[1].damageup = 0; gun[1].hitup = 0.1; gun[1].shotspeedup = 0; gun[1].critup = 0; gun[1].dodgeup = 0.3; gun[1].to = 2;
-            gun[2].name = "UMP9"; gun[2].what = 3; gun[2].crit = 0.05; gun[2].belt = 0; gun[2].number = 3; gun[2].effect0 = 1; gun[2].effect1 = 4; gun[2].effect2 = 7; gun[2].damageup = 0; gun[2].hitup = 0.3; gun[2].shotspeedup = 0.12; gun[2].critup = 0; gun[2].dodgeup = 0; gun[2].to = 2;
-            gun[3].name = "Vector"; gun[3].what = 3; gun[3].crit = 0.05; gun[3].belt = 0; gun[3].number = 1; gun[3].effect0 = 4; gun[3].damageup = 0; gun[3].hitup = 0; gun[3].shotspeedup = 0.25; gun[3].critup = 0; gun[3].dodgeup = 0; gun[3].to = 2;
-            gun[4].name = "蝎式"; gun[4].what = 3; gun[4].crit = 0.05; gun[4].belt = 0; gun[4].number = 1; gun[4].effect0 = 4; gun[4].damageup = 0; gun[4].hitup = 0.5; gun[4].shotspeedup = 0.15; gun[4].critup = 0; gun[4].dodgeup = 0; gun[4].to = 2;
-            gun[5].name = "M3"; gun[5].what = 3; gun[5].crit = 0.05; gun[5].belt = 0; gun[5].number = 1; gun[5].effect0 = 4; gun[5].damageup = 0; gun[5].hitup = 0.4; gun[5].shotspeedup = 0; gun[5].critup = 0; gun[5].dodgeup = 0.3; gun[5].to = 2;
-             gun[6].name = "IDW";gun[6].what = 3; gun[6].crit = 0.05; gun[6].belt = 0; gun[6].number = 3; gun[6].effect0 = 1; gun[6].effect1 = 4; gun[6].effect2 = 7; gun[6].damageup = 0; gun[6].hitup = 0; gun[6].shotspeedup = 0; gun[6].critup = 0; gun[6].dodgeup = 0.2; gun[6].to = 2;
-            gun[7].name = "微型乌兹"; gun[7].what = 3; gun[7].crit = 0.05; gun[7].belt = 0; gun[7].number = 2; gun[7].effect0 = 2; gun[7].effect1 = 8; gun[7].damageup = 0.18; gun[7].hitup = 0; gun[7].shotspeedup = 0; gun[7].critup = 0; gun[7].dodgeup = 0; gun[7].to = 2;
-            gun[8].name = "FMG-9"; gun[8].what = 3;gun[8].crit = 0.05; gun[8].belt = 0; gun[8].number = 2; gun[8].effect0 = 1; gun[8].effect1 = 7; gun[8].damageup = 0.1; gun[8].hitup = 0; gun[8].shotspeedup = 0; gun[8].critup = 0; gun[8].dodgeup = 0.12; gun[8].to = 2;
-            gun[9].name = "MAC-10"; gun[9].what = 3; gun[9].crit = 0.05; gun[9].belt = 0; gun[9].number = 3; gun[9].effect0 = 1; gun[9].effect1 = 4; gun[9].effect2 = 7; gun[9].damageup = 0.12; gun[9].hitup = 0; gun[9].shotspeedup = 0; gun[9].critup = 0; gun[9].dodgeup = 0; gun[9].to = 2;
-            gun[10].name = "M45"; gun[10].what = 3; gun[10].crit = 0.05; gun[10].belt = 0; gun[10].number = 2; gun[10].effect0 = 1; gun[10].effect1 = 7; gun[10].damageup = 0; gun[10].hitup = 0; gun[10].shotspeedup = 0.1; gun[10].critup = 0; gun[10].dodgeup = 0.1; gun[10].to = 2;
-            gun[11].name = "Spectre M4"; gun[11].what = 3;  gun[11].crit = 0.05; gun[11].belt = 0; gun[11].number = 1; gun[11].effect0 = 4; gun[11].damageup = 0.2; gun[11].hitup = 0; gun[11].shotspeedup = 0; gun[11].critup = 0; gun[11].dodgeup = 0; gun[11].to = 2;
-            gun[12].name = "PPS-43"; gun[12].what = 3;  gun[12].crit = 0.05; gun[12].belt = 0; gun[12].number = 3; gun[12].effect0 = 1; gun[12].effect1 = 4; gun[12].effect2 = 7; gun[12].damageup = 0.12; gun[12].hitup = 0; gun[12].shotspeedup = 0; gun[12].critup = 0; gun[12].dodgeup = 0; gun[12].to = 2;
-            gun[13].name = "PP-2000"; gun[13].what = 3;  gun[13].crit = 0.05; gun[13].belt = 0; gun[13].number = 2; gun[13].effect0 = 1; gun[13].effect1 = 7; gun[13].damageup = 0.1; gun[13].hitup = 0.25; gun[13].shotspeedup = 0; gun[13].critup = 0; gun[13].dodgeup = 0; gun[13].to = 2;
-            gun[14].name = "MP5"; gun[14].what = 3; gun[14].crit = 0.05; gun[14].belt = 0; gun[14].number = 2; gun[14].effect0 = 1; gun[14].effect1 = 7; gun[14].damageup = 0; gun[14].hitup = 0.4; gun[14].shotspeedup = 0; gun[14].critup = 0.2; gun[14].dodgeup = 0; gun[14].to = 2;
-            gun[15].name = "伯莱塔38型"; gun[15].what = 3;gun[15].crit = 0.05; gun[15].belt = 0; gun[15].number = 2; gun[15].effect0 = 1; gun[15].effect1 = 7; gun[15].damageup = 0.05; gun[15].hitup = 0; gun[15].shotspeedup = 0.1; gun[15].critup = 0; gun[15].dodgeup = 0; gun[15].to = 2;
-            gun[16].name = "MP40"; gun[16].what = 3; gun[16].crit = 0.05; gun[16].belt = 0; gun[16].number = 2; gun[16].effect0 = 1; gun[16].effect1 = 7; gun[16].damageup = 0; gun[16].hitup = 0.25; gun[16].shotspeedup = 0; gun[16].critup = 0; gun[16].dodgeup = 0.2; gun[16].to = 2;
-            gun[17].name = "PPSh-41"; gun[17].what = 3; gun[17].crit = 0.05; gun[17].belt = 0; gun[17].number = 2; gun[17].effect0 = 2; gun[17].effect1 = 8; gun[17].damageup = 0.1; gun[17].hitup = 0; gun[17].shotspeedup = 0.05; gun[17].critup = 0; gun[17].dodgeup = 0; gun[17].to = 2;
-            gun[18].name = "64式"; gun[18].what = 3; gun[18].crit = 0.05; gun[18].belt = 0; gun[18].number = 1; gun[18].effect0 = 4; gun[18].damageup = 0; gun[18].hitup = 0; gun[18].shotspeedup = 0.2; gun[18].critup = 0; gun[18].dodgeup = 0; gun[18].to = 2;
-            gun[19].name = "UMP45"; gun[19].what = 3;  gun[19].crit = 0.05; gun[19].belt = 0; gun[19].number = 3; gun[19].effect0 = 1; gun[19].effect1 = 4; gun[19].effect2 = 7; gun[19].damageup = 0.15; gun[19].hitup = 0.0; gun[19].shotspeedup = 0; gun[19].critup = 0.5; gun[19].dodgeup = 0; gun[19].to = 2;
-            gun[20].name = "索米"; gun[20].what = 3; gun[20].crit = 0.05; gun[20].belt = 0; gun[20].number = 2; gun[20].effect0 = 1; gun[20].effect1 = 7; gun[20].damageup = 0; gun[20].hitup = 0.3; gun[20].shotspeedup = 0.15; gun[20].critup = 0; gun[20].dodgeup = 0; gun[20].to = 2;
-            gun[21].name = "OTs-12"; gun[21].what = 2; gun[21].crit = 0.2; gun[21].belt = 0; gun[21].number = 2; gun[21].effect0 = 6; gun[21].effect1 = 9; gun[21].damageup = 0.15; gun[21].hitup = 0; gun[21].shotspeedup = 0.2; gun[21].critup = 0; gun[21].dodgeup = 0; gun[21].to = 3;
-            gun[22].name = "G36"; gun[22].what = 2; gun[22].crit = 0.2; gun[22].belt = 0; gun[22].number = 2; gun[22].effect0 = 6; gun[22].effect1 = 3; gun[22].damageup = 0.3; gun[22].hitup = 0; gun[22].shotspeedup = 0.1; gun[22].critup = 0; gun[22].dodgeup = 0; gun[22].to = 3;
-            gun[23].name = "FAL"; gun[23].what = 2;  gun[23].crit = 0.2; gun[23].belt = 0; gun[23].number = 3; gun[23].effect0 = 3; gun[23].effect1 = 6; gun[23].effect2 = 9; gun[23].damageup = 0; gun[23].hitup = 0; gun[23].shotspeedup = 0; gun[23].critup = 0; gun[23].dodgeup = 0.2; gun[23].to = 3;
-            gun[24].name = "HK416"; gun[24].what = 2; gun[24].crit = 0.2; gun[24].belt = 0; gun[24].number = 1; gun[24].effect0 = 6; gun[24].damageup = 0.4; gun[24].hitup = 0; gun[24].shotspeedup = 0; gun[24].critup = 0; gun[24].dodgeup = 0; gun[24].to = 3;
-            gun[25].name = "G41"; gun[25].what = 2; gun[25].crit = 0.2; gun[25].belt = 0; gun[25].number = 2; gun[25].effect0 = 3; gun[25].effect1 = 9; gun[25].damageup = 0; gun[25].hitup = 0.5; gun[25].shotspeedup = 0; gun[25].critup = 0; gun[25].dodgeup = 0.15; gun[25].to = 3;
-            gun[26].name = "56-1式"; gun[26].what = 2; gun[26].crit = 0.2; gun[26].belt = 0; gun[26].number = 1; gun[26].effect0 = 6; gun[26].damageup = 0; gun[26].hitup = 0; gun[26].shotspeedup = 0; gun[26].critup = 0.1; gun[26].dodgeup = 0.15; gun[26].to = 3;
-            gun[27].name = "M4A1"; gun[27].what = 2;gun[27].crit = 0.2; gun[27].belt = 0; gun[27].number = 1; gun[27].effect0 = 7; gun[27].damageup = 0; gun[27].hitup = 0; gun[27].shotspeedup = 0.18; gun[27].critup = 0; gun[27].dodgeup = 0; gun[27].to = 2;
-            gun[28].name = "M16A1"; gun[28].what = 2; gun[28].crit = 0.2; gun[28].belt = 0; gun[28].number = 1; gun[28].effect0 = 1; gun[28].damageup = 0.18; gun[28].hitup = 0; gun[28].shotspeedup = 0; gun[28].critup = 0; gun[28].dodgeup = 0; gun[28].to = 2;
-            gun[29].name = "ST AR-15"; gun[29].what = 2;gun[29].crit = 0.2; gun[29].belt = 0; gun[29].number = 1; gun[29].effect0 = 9; gun[29].damageup = 0; gun[29].hitup = 0; gun[29].shotspeedup = 0; gun[29].critup = 0; gun[29].dodgeup = 0.36; gun[29].to = 2;
-            gun[30].name = "FAMAS"; gun[30].what = 2; gun[30].crit = 0.2; gun[30].belt = 0; gun[30].number = 1; gun[30].effect0 = 3; gun[30].damageup = 0.25; gun[30].hitup = 0.6; gun[30].shotspeedup = 0; gun[30].critup = 0; gun[30].dodgeup = 0; gun[30].to = 3;
-            gun[31].name = "AK-47"; gun[31].what = 2;  gun[31].crit = 0.2; gun[31].belt = 0; gun[31].number = 1; gun[31].effect0 = 2; gun[31].damageup = 0; gun[31].hitup = 0; gun[31].shotspeedup = 0; gun[31].critup = 0; gun[31].dodgeup = 0.18; gun[31].to = 3;
-            gun[32].name = "StG44"; gun[32].what = 2; gun[32].crit = 0.2; gun[32].belt = 0; gun[32].number = 1; gun[32].effect0 = 6; gun[32].damageup = 0; gun[32].hitup = 0.6; gun[32].shotspeedup = 0; gun[32].critup = 0; gun[32].dodgeup = 0.2; gun[32].to = 3;
-            gun[33].name = "CZ-805"; gun[33].what = 2; gun[33].crit = 0.2; gun[33].belt = 0; gun[33].number = 2; gun[33].effect0 = 3; gun[33].effect1 = 9; gun[33].damageup = 0; gun[33].hitup = 0.5; gun[33].shotspeedup = 0.25; gun[33].critup = 0; gun[33].dodgeup = 0; gun[33].to = 3;
-            gun[34].name = "M4 SOPMODⅡ"; gun[34].what = 2;  gun[34].crit = 0.2; gun[34].belt = 0; gun[34].number = 1; gun[34].effect0 = 3; gun[34].damageup = 0; gun[34].hitup = 0; gun[34].shotspeedup = 0; gun[34].critup = 0; gun[34].dodgeup = 0.36; gun[34].to = 2;
-            gun[35].name = "TAR-21"; gun[35].what = 2;  gun[35].crit = 0.2; gun[35].belt = 0; gun[35].number = 2; gun[35].effect0 = 3; gun[35].effect1 = 9; gun[35].damageup = 0; gun[35].hitup = 0; gun[35].shotspeedup = 0; gun[35].critup = 0; gun[35].dodgeup = 0.18; gun[35].to = 3;
-            gun[36].name = "加利尔"; gun[36].what = 2; gun[36].crit = 0.2; gun[36].belt = 0; gun[36].number = 1; gun[36].effect0 = 6; gun[36].damageup = 0; gun[36].hitup = 0.5; gun[36].shotspeedup = 0; gun[36].critup = 0; gun[36].dodgeup = 0.1; gun[36].to = 3;
-            gun[37].name = "SIG-510"; gun[37].what = 2; gun[37].crit = 0.2; gun[37].belt = 0; gun[37].number = 2; gun[37].effect0 = 3; gun[37].effect1 = 9; gun[37].damageup = 0.2; gun[37].hitup = 0; gun[37].shotspeedup = 0.1; gun[37].critup = 0; gun[37].dodgeup = 0; gun[37].to = 3;
-            gun[38].name = "G3"; gun[38].what = 2; gun[38].crit = 0.2; gun[38].belt = 0; gun[38].number = 1; gun[38].effect0 = 8; gun[38].damageup = 0; gun[38].hitup = 0.5; gun[38].shotspeedup = 0.2; gun[38].critup = 0; gun[38].dodgeup = 0; gun[38].to = 3;
-            gun[39].name = "F2000"; gun[39].what = 2; gun[39].crit = 0.2; gun[39].belt = 0; gun[39].number = 1; gun[39].effect0 = 6; gun[39].damageup = 0.2; gun[39].hitup = 0; gun[39].shotspeedup = 0; gun[39].critup = 0; gun[39].dodgeup = 0.1; gun[39].to = 3;
-            gun[40].name = "FNC"; gun[40].what = 2; gun[40].crit = 0.2; gun[40].belt = 0; gun[40].number = 1; gun[40].effect0 = 9; gun[40].damageup = 0; gun[40].hitup = 0.5; gun[40].shotspeedup = 0; gun[40].critup = 0; gun[40].dodgeup = 0.12; gun[40].to = 3;
-            gun[41].name = "L85A1"; gun[41].what = 2; gun[41].crit = 0.2; gun[41].belt = 0; gun[41].number = 1; gun[41].effect0 = 8; gun[41].damageup = 0.2; gun[41].hitup = 0.5; gun[41].shotspeedup = 0; gun[41].critup = 0; gun[41].dodgeup = 0; gun[41].to = 3;
-            gun[42].name = "9a91"; gun[42].what = 2;  gun[42].crit = 0.2; gun[42].belt = 0; gun[42].number = 2; gun[42].effect0 = 3; gun[42].effect1 = 9; gun[42].damageup = 0; gun[42].hitup = 0; gun[42].shotspeedup = 0.1; gun[42].critup = 0; gun[42].dodgeup = 0.15; gun[42].to = 3;
-            gun[43].name = "AS Val"; gun[43].what = 2; gun[43].crit = 0.2; gun[43].belt = 0; gun[43].number = 1; gun[43].effect0 = 8; gun[43].damageup = 0.25; gun[43].hitup = 0; gun[43].shotspeedup = 0.1; gun[43].critup = 0; gun[43].dodgeup = 0; gun[43].to = 3;
-            gun[44].name = "维尔德"; gun[44].what = 4; gun[44].crit = 0.4; gun[44].belt = 0; gun[44].number = 5; gun[44].effect0 = 1; gun[44].effect1 = 2; gun[44].effect2 = 4; gun[44].effect3 = 7;gun[44].effect4 = 8; gun[44].damageup = 0.18; gun[44].hitup = 0; gun[44].shotspeedup = 0.1; gun[44].critup = 0; gun[44].dodgeup = 0; gun[44].to = 1;
-            gun[45].name = "纳甘左轮"; gun[45].what = 4; gun[45].crit = 0.2; gun[45].belt = 0; gun[45].number = 2; gun[45].effect0 = 2; gun[45].effect1 = 8; gun[45].damageup = 0.25; gun[45].hitup = 0; gun[45].shotspeedup = 0; gun[45].critup = 0.1; gun[45].dodgeup = 0; gun[45].to = 1;
-            gun[46].name = "柯尔特左轮"; gun[46].what = 4; gun[46].crit = 0.2; gun[46].belt = 0; gun[46].number = 4; gun[46].effect0 = 2; gun[46].effect1 = 4; gun[46].effect2 = 6; gun[46].effect3 = 8; gun[46].damageup = 0.15; gun[46].hitup = 0.5; gun[46].shotspeedup = 0; gun[46].critup = 0; gun[46].dodgeup = 0; gun[46].to = 1;
-            gun[47].name = "灰熊MkⅤ"; gun[47].what = 4; gun[47].crit = 0.2; gun[47].belt = 0; gun[47].number = 5; gun[47].effect0 = 1; gun[47].effect1 = 2; gun[47].effect2 = 6; gun[47].effect3 = 7; gun[47].effect4 = 8; gun[47].damageup = 0.18; gun[47].hitup = 0; gun[47].shotspeedup = 0; gun[47].critup = 0; gun[47].dodgeup = 0.2; gun[47].to = 1;
-            gun[48].name = "托卡列夫"; gun[48].what = 4; gun[48].crit = 0.2; gun[48].belt = 0; gun[48].number = 4; gun[48].effect0 = 2; gun[48].effect1 = 3; gun[48].effect2 = 8; gun[48].effect3 = 9; gun[48].damageup = 0; gun[48].hitup = 0.5; gun[48].shotspeedup = 0.12; gun[48].critup = 0; gun[48].dodgeup = 0; gun[48].to = 1;
-            gun[49].name = "格洛克17"; gun[49].what = 4; gun[49].crit = 0.2; gun[49].belt = 0; gun[49].number = 5; gun[49].effect0 = 1; gun[49].effect1 = 3; gun[49].effect2 = 6; gun[49].effect3 = 7; gun[49].effect4 = 9; gun[49].damageup = 0; gun[49].hitup = 0.5; gun[49].shotspeedup = 0; gun[49].critup = 0; gun[49].dodgeup = 0.25; gun[49].to = 1;
-            gun[50].name = "马卡洛夫"; gun[50].what = 4;gun[50].crit = 0.2; gun[50].belt = 0; gun[50].number = 4; gun[50].effect0 = 1; gun[50].effect1 = 4; gun[50].effect2 = 6; gun[50].effect3 = 7; gun[50].damageup = 0.12; gun[50].hitup = 0; gun[50].shotspeedup = 0.1; gun[50].critup = 0; gun[50].dodgeup = 0; gun[50].to = 1;
-            gun[51].name = "斯捷奇金"; gun[51].what = 4; gun[51].crit = 0.2; gun[51].belt = 0; gun[51].number = 4; gun[51].effect0 = 2; gun[51].effect1 = 3; gun[51].effect2 = 8; gun[51].effect3 = 9; gun[51].damageup = 0.1; gun[51].hitup = 0; gun[51].shotspeedup = 0.15; gun[51].critup = 0; gun[51].dodgeup = 0; gun[51].to = 1;
-            gun[52].name = "阿斯特拉左轮"; gun[52].what = 4; gun[52].crit = 0.2; gun[52].belt = 0; gun[52].number = 4; gun[52].effect0 = 1; gun[52].effect1 = 3; gun[52].effect2 = 7; gun[52].effect3 = 9; gun[52].damageup = 0; gun[52].hitup = 0; gun[52].shotspeedup = 0.15; gun[52].critup = 0; gun[52].dodgeup = 0.15; gun[52].to = 1;
-            gun[53].name = "P08"; gun[53].what = 4;gun[53].crit = 0.2; gun[53].belt = 0; gun[53].number = 2; gun[53].effect0 = 2; gun[53].effect1 = 8; gun[53].damageup = 0.2; gun[53].hitup = 0.6; gun[53].shotspeedup = 0; gun[53].critup = 0; gun[53].dodgeup = 0; gun[53].to = 1;
-            gun[54].name = "Mk23"; gun[54].what = 4; gun[54].crit = 0.2; gun[54].belt = 0; gun[54].number = 4; gun[54].effect0 = 3; gun[54].effect1 = 4; gun[54].effect2 = 6; gun[54].effect3 = 9; gun[54].damageup = 0.25; gun[54].hitup = 0; gun[54].shotspeedup = 0; gun[54].critup = 0; gun[54].dodgeup = 0; gun[54].to = 1;
-            gun[55].name = "M1911"; gun[55].what = 4; gun[55].crit = 0.2; gun[55].belt = 0; gun[55].number = 4; gun[55].effect0 = 2; gun[55].effect1 = 4; gun[55].effect2 = 6; gun[55].effect3 = 8; gun[55].damageup = 0; gun[55].hitup = 0.5; gun[55].shotspeedup = 0.1; gun[55].critup = 0; gun[55].dodgeup = 0; gun[55].to = 1;
-            gun[56].name = "PPK"; gun[56].what = 4; gun[56].crit = 0.2; gun[56].belt = 0; gun[56].number = 4; gun[56].effect0 = 1; gun[56].effect1 = 4; gun[56].effect2 = 6; gun[56].effect3 = 7; gun[56].damageup = 0; gun[56].hitup = 0; gun[56].shotspeedup = 0.2; gun[56].critup = 0.1; gun[56].dodgeup = 0; gun[56].to = 1;
-            gun[57].name = "C96"; gun[57].what = 4; gun[57].crit = 0.2; gun[57].belt = 0; gun[57].number = 3; gun[57].effect0 = 1; gun[57].effect1 = 6; gun[57].effect2 = 7; gun[57].damageup = 0; gun[57].hitup = 0.5; gun[57].shotspeedup = 0; gun[57].critup = 0; gun[57].dodgeup = 0.25; gun[57].to = 1;
-            gun[58].name = "M950A"; gun[58].what = 4; gun[58].crit = 0.2; gun[58].belt = 0; gun[58].number = 4; gun[58].effect0 = 1; gun[58].effect1 = 3; gun[58].effect2 = 7; gun[58].effect3 = 9; gun[58].damageup = 0; gun[58].hitup = 0.5; gun[58].shotspeedup = 0.18; gun[58].critup = 0; gun[58].dodgeup = 0; gun[58].to = 1;
-            gun[59].name = "P38"; gun[59].what = 4;gun[59].crit = 0.2; gun[59].belt = 0; gun[59].number = 4; gun[59].effect0 = 2; gun[59].effect1 = 3; gun[59].effect2 = 8; gun[59].effect3 = 9; gun[59].damageup = 0; gun[59].hitup = 0.5; gun[59].shotspeedup = 0.1; gun[59].critup = 0; gun[59].dodgeup = 0; gun[59].to = 1;
-            gun[60].name = "M9"; gun[60].what = 4; gun[60].crit = 0.2; gun[60].belt = 0; gun[60].number = 4; gun[60].effect0 = 1; gun[60].effect1 = 2; gun[60].effect2 = 7; gun[60].effect3 = 8; gun[60].damageup = 0; gun[60].hitup = 0; gun[60].shotspeedup = 0; gun[60].critup = 0; gun[60].dodgeup = 0.4; gun[60].to = 1;
-            gun[61].name = "P7"; gun[61].what = 4; gun[61].crit = 0.2; gun[61].belt = 0; gun[61].number = 6; gun[61].effect0 = 1; gun[61].effect1 = 2; gun[61].effect2 = 3; gun[61].effect3 = 7; gun[61].effect4 = 8; gun[61].effect5 = 9; gun[61].damageup = 0; gun[61].hitup = 0; gun[61].shotspeedup = 0.1; gun[61].critup = 0; gun[61].dodgeup = 0.2; gun[61].to = 1;
-            gun[62].name = "92式"; gun[62].what = 4; gun[62].crit = 0.2; gun[62].belt = 0; gun[62].number = 8; gun[62].effect0 = 1; gun[62].effect1 = 2; gun[62].effect2 = 3; gun[62].effect3 = 4; gun[62].effect4 = 6; gun[62].effect5 = 7; gun[62].effect6 = 8; gun[62].effect7 = 9; gun[62].damageup = 0; gun[62].hitup = 0.35; gun[62].shotspeedup = 0; gun[62].critup = 0; gun[62].dodgeup = 0.25; gun[62].to = 1;
-            gun[63].name = "FNP-9"; gun[63].what = 4; gun[63].crit = 0.2; gun[63].belt = 0; gun[63].number = 5; gun[63].effect0 = 2; gun[63].effect1 = 3; gun[63].effect2 = 6; gun[63].effect3 = 8; gun[63].effect4 = 9; gun[63].damageup = 0; gun[63].hitup = 0.5; gun[63].shotspeedup = 0.1; gun[63].critup = 0; gun[63].dodgeup = 0; gun[63].to = 1;
-            gun[64].name = "MP-446"; gun[64].what = 4; gun[64].crit = 0.2; gun[64].belt = 0; gun[64].number = 5; gun[64].effect0 = 1; gun[64].effect1 = 2; gun[64].effect2 = 4; gun[64].effect3 = 7; gun[64].effect4 = 8; gun[64].damageup = 0.2; gun[64].hitup = 0; gun[64].shotspeedup = 0; gun[64].critup = 0; gun[64].dodgeup = 0; gun[64].to = 1;
-            gun[65].name = "西蒙诺夫"; gun[65].what = 5; gun[65].crit = 0.4; gun[65].belt = 0; gun[65].number = 2;gun[65].effect0 = 2;gun[65].effect1 = 8; gun[65].rateup = 0.18; gun[65].damageup = 0; gun[65].hitup = 0; gun[65].shotspeedup = 0; gun[65].critup = 0; gun[65].dodgeup = 0; gun[65].to = 4;
-            gun[66].name = "FN-49"; gun[66].what = 5;  gun[66].crit = 0.4; gun[66].belt = 0; gun[66].number = 2; gun[66].effect0 = 3; gun[66].effect1 = 9; gun[66].rateup = 0.18; gun[66].damageup = 0; gun[66].hitup = 0; gun[66].shotspeedup = 0; gun[66].critup = 0; gun[66].dodgeup = 0; gun[66].to = 4;
-            gun[67].name = "李-恩菲尔德"; gun[67].what = 5; gun[67].crit = 0.4; gun[67].belt = 0; gun[67].number = 2; gun[67].effect0 = 2; gun[67].effect1 = 8; gun[67].rateup = 0.25; gun[67].damageup = 0; gun[67].hitup = 0; gun[67].shotspeedup = 0; gun[67].critup = 0; gun[67].dodgeup = 0; gun[67].to = 4;
-            gun[68].name = "NTW-20"; gun[68].what = 5; gun[68].crit = 0.4; gun[68].belt = 0; gun[68].number = 1;gun[68].effect0 = 6;gun[68].rateup = 0.25; gun[68].damageup = 0; gun[68].hitup = 0; gun[68].shotspeedup = 0; gun[68].critup = 0; gun[68].dodgeup = 0; gun[68].to = 4;
-            gun[69].name = "PTRD"; gun[69].what = 5;gun[69].crit = 0.4; gun[69].belt = 0; gun[69].number = 1; gun[69].effect0 = 6; gun[69].rateup = 0.22; gun[69].damageup = 0; gun[69].hitup = 0; gun[69].shotspeedup = 0; gun[69].critup = 0; gun[69].dodgeup = 0; gun[69].to = 4;
-            gun[70].name = "SVT-38"; gun[70].what = 5;gun[70].crit = 0.4; gun[70].belt = 0; gun[70].number = 1; gun[70].effect0 = 6; gun[70].rateup = 0.18; gun[70].damageup = 0; gun[70].hitup = 0; gun[70].shotspeedup = 0; gun[70].critup = 0; gun[70].dodgeup = 0; gun[70].to = 4;
-            gun[71].name = "WA2000"; gun[71].what = 5; gun[71].crit = 0.4; gun[71].belt = 0; gun[71].number = 1; gun[71].effect0 = 6; gun[71].rateup = 0.25; gun[71].damageup = 0; gun[71].hitup = 0; gun[71].shotspeedup = 0; gun[71].critup = 0; gun[71].dodgeup = 0; gun[71].to = 4;
-            gun[72].name = "M14"; gun[72].what = 5; gun[72].crit = 0.4; gun[72].belt = 0; gun[72].number = 2; gun[72].effect0 = 3; gun[72].effect1 = 9; gun[72].rateup = 0.2; gun[72].damageup = 0; gun[72].hitup = 0; gun[72].shotspeedup = 0; gun[72].critup = 0; gun[72].dodgeup = 0; gun[72].to = 4;
-            gun[73].name = "M21"; gun[73].what = 5; gun[73].crit = 0.4; gun[73].belt = 0; gun[73].number = 2; gun[73].effect0 = 2; gun[73].effect1 = 8; gun[73].rateup = 0.2; gun[73].damageup = 0; gun[73].hitup = 0; gun[73].shotspeedup = 0; gun[73].critup = 0; gun[73].dodgeup = 0; gun[73].to = 4;
-            gun[74].name = "BM59"; gun[74].what = 5; gun[74].crit = 0.4; gun[74].belt = 0; gun[74].number = 1; gun[74].effect0 = 6; gun[74].rateup = 0.18; gun[74].damageup = 0; gun[74].hitup = 0; gun[74].shotspeedup = 0; gun[74].critup = 0; gun[74].dodgeup = 0; gun[74].to = 4;
-            gun[75].name = "M1加兰德"; gun[75].what = 5; gun[75].crit = 0.4; gun[75].belt = 0; gun[75].number = 1; gun[75].effect0 = 6; gun[75].rateup = 0.2; gun[75].damageup = 0; gun[75].hitup = 0; gun[75].shotspeedup = 0; gun[75].critup = 0; gun[75].dodgeup = 0; gun[75].to = 4;
-            gun[76].name = "SV-98"; gun[76].what = 5;gun[76].crit = 0.4; gun[76].belt = 0; gun[76].number = 1; gun[76].effect0 = 3; gun[76].rateup = 0.2; gun[76].damageup = 0; gun[76].hitup = 0; gun[76].shotspeedup = 0; gun[76].critup = 0; gun[76].dodgeup = 0; gun[76].to = 4;
-            gun[77].name = "G43"; gun[77].what = 5; gun[77].crit = 0.4; gun[77].belt = 0; gun[77].number = 2; gun[77].effect0 = 3; gun[77].effect1 = 9; gun[77].rateup = 0.2; gun[77].damageup = 0; gun[77].hitup = 0; gun[77].shotspeedup = 0; gun[77].critup = 0; gun[77].dodgeup = 0; gun[77].to = 4;
-            gun[78].name = "汉阳造88式"; gun[78].what = 5; gun[78].crit = 0.4; gun[78].belt = 0; gun[78].number = 1; gun[78].effect0 = 6; gun[78].rateup = 0.22; gun[78].damageup = 0; gun[78].hitup = 0; gun[78].shotspeedup = 0; gun[78].critup = 0; gun[78].dodgeup = 0; gun[78].to = 4;
-            gun[79].name = "Kar98k"; gun[79].what = 5;  gun[79].crit = 0.4; gun[79].belt = 0; gun[79].number = 2; gun[79].effect0 = 3; gun[79].effect1 = 9; gun[79].rateup = 0.25; gun[79].damageup = 0; gun[79].hitup = 0; gun[79].shotspeedup = 0; gun[79].critup = 0; gun[79].dodgeup = 0; gun[79].to = 4;
-            gun[80].name = "莫辛-纳甘"; gun[80].what = 5; gun[80].crit = 0.4; gun[80].belt = 0; gun[80].number = 1; gun[80].effect0 = 9; gun[80].rateup = 0.22; gun[80].damageup = 0; gun[80].hitup = 0; gun[80].shotspeedup = 0; gun[80].critup = 0; gun[80].dodgeup = 0; gun[80].to = 4;
-            gun[81].name = "春田"; gun[81].what = 5; gun[81].crit = 0.4; gun[81].belt = 0; gun[81].number = 1; gun[81].effect0 = 9; gun[81].rateup = 0.22;  gun[81].damageup = 0; gun[81].hitup = 0; gun[81].shotspeedup = 0; gun[81].critup = 0; gun[81].dodgeup = 0; gun[81].to = 4;
-            gun[82].name = "M60"; gun[82].what = 6; gun[82].crit = 0.05; gun[82].belt = 9; gun[82].number = 0; gun[82].damageup = 0; gun[82].hitup = 0; gun[82].shotspeedup = 0; gun[82].critup = 0; gun[82].dodgeup = 0; gun[82].to = 0;
-            gun[83].name = "MG5"; gun[83].what = 6;gun[83].crit = 0.05; gun[83].belt = 11; gun[83].number = 0; gun[83].damageup = 0; gun[83].hitup = 0; gun[83].shotspeedup = 0; gun[83].critup = 0; gun[83].dodgeup = 0; gun[83].to = 0;
-            gun[84].name = "M1918"; gun[84].what = 6;gun[84].crit = 0.05; gun[84].belt = 8; gun[84].number = 0; gun[84].damageup = 0; gun[84].hitup = 0; gun[84].shotspeedup = 0; gun[84].critup = 0; gun[84].dodgeup = 0; gun[84].to = 0;
-            gun[85].name = "MG3"; gun[85].what = 6; gun[85].crit = 0.05; gun[85].belt = 10; gun[85].number = 0; gun[85].damageup = 0; gun[85].hitup = 0; gun[85].shotspeedup = 0; gun[85].critup = 0; gun[85].dodgeup = 0; gun[85].to = 0;
-            gun[86].name = "M1919A4"; gun[86].what = 6; gun[86].crit = 0.05; gun[86].belt = 9; gun[86].number = 0; gun[86].damageup = 0; gun[86].hitup = 0; gun[86].shotspeedup = 0; gun[86].critup = 0; gun[86].dodgeup = 0; gun[86].to = 0;
-            gun[87].name = "PK"; gun[87].what = 6;gun[87].crit = 0.05; gun[87].belt = 11; gun[87].number = 0; gun[87].damageup = 0; gun[87].hitup = 0; gun[87].shotspeedup = 0; gun[87].critup = 0; gun[87].dodgeup = 0; gun[87].to = 0;
-            gun[88].name = "内格夫"; gun[88].what = 6;gun[88].crit = 0.05; gun[88].belt = 9; gun[88].number = 0; gun[88].damageup = 0; gun[88].hitup = 0; gun[88].shotspeedup = 0; gun[88].critup = 0; gun[88].dodgeup = 0; gun[88].to = 0;
-            gun[89].name = "RPD"; gun[89].what = 6; gun[89].crit = 0.05; gun[89].belt = 8; gun[89].number = 0; gun[89].damageup = 0; gun[89].hitup = 0; gun[89].shotspeedup = 0; gun[89].critup = 0; gun[89].dodgeup = 0; gun[89].to = 0;
-            gun[90].name = "M2HB"; gun[90].what = 6; gun[90].crit = 0.05; gun[90].belt = 10; gun[90].number = 0; gun[90].damageup = 0; gun[90].hitup = 0; gun[90].shotspeedup = 0; gun[90].critup = 0; gun[90].dodgeup = 0; gun[90].to = 0;
-            gun[91].name = "LWMMG"; gun[91].what = 6; gun[91].crit = 0.05; gun[91].belt = 9; gun[91].number = 0; gun[91].damageup = 0; gun[91].hitup = 0; gun[91].shotspeedup = 0; gun[91].critup = 0; gun[91].dodgeup = 0; gun[91].to = 0;
-            gun[92].name = "M249 SAW"; gun[92].what = 6;gun[92].crit = 0.05; gun[92].belt = 8; gun[92].number = 0; gun[92].damageup = 0; gun[92].hitup = 0; gun[92].shotspeedup = 0; gun[92].critup = 0; gun[92].dodgeup = 0; gun[92].to = 0;
-            gun[93].name = "AAT-52"; gun[93].what = 6;gun[93].crit = 0.05; gun[93].belt = 10; gun[93].number = 0; gun[93].damageup = 0; gun[93].hitup = 0; gun[93].shotspeedup = 0; gun[93].critup = 0; gun[93].dodgeup = 0; gun[93].to = 0;
-            gun[94].name = "DP28"; gun[94].what = 6; gun[94].crit = 0.05; gun[94].belt = 9; gun[94].number = 0; gun[94].damageup = 0; gun[94].hitup = 0; gun[94].shotspeedup = 0; gun[94].critup = 0; gun[94].dodgeup = 0; gun[94].to = 0;
-            gun[95].name = "MG42"; gun[95].what = 6; gun[95].crit = 0.05; gun[95].belt = 10; gun[95].number = 0; gun[95].damageup = 0; gun[95].hitup = 0; gun[95].shotspeedup = 0; gun[95].critup = 0; gun[95].dodgeup = 0; gun[95].to = 0;
-            gun[96].name = "MG34"; gun[96].what = 6; gun[96].crit = 0.05; gun[96].belt = 10; gun[96].number = 0; gun[96].damageup = 0; gun[96].hitup = 0; gun[96].shotspeedup = 0; gun[96].critup = 0; gun[96].dodgeup = 0; gun[96].to = 0;
-            gun[97].name = "布伦"; gun[97].what = 6;  gun[97].crit = 0.05; gun[97].belt = 8; gun[97].number = 0; gun[97].damageup = 0; gun[97].hitup = 0; gun[97].shotspeedup = 0; gun[97].critup = 0; gun[97].dodgeup = 0; gun[97].to = 0;
-            gun[98].name = "FG42"; gun[98].what = 6; gun[98].crit = 0.05; gun[98].belt = 8; gun[98].number = 0; gun[98].damageup = 0; gun[98].hitup = 0; gun[98].shotspeedup = 0; gun[98].critup = 0; gun[98].dodgeup = 0; gun[98].to = 0;
-            gun[99].name = "MK48"; gun[99].what = 6;  gun[99].crit = 0.05; gun[99].belt = 10; gun[99].number = 0; gun[99].damageup = 0; gun[99].hitup = 0; gun[99].shotspeedup = 0; gun[99].critup = 0; gun[99].dodgeup = 0; gun[99].to = 0;
-            gun[100].name = "谢尔久科夫"; gun[100].what = 4; gun[100].crit = 0.2; gun[100].belt = 0; gun[100].number = 3; gun[100].effect0 = 2; gun[100].effect1 = 4; gun[100].effect2 = 8; gun[100].damageup = 0.2; gun[100].hitup = 0.3; gun[100].to = 1;
+            gun[14].name = "汤姆森"; gun[14].what = 3;gun[14].crit = 0.05; gun[14].belt = 0; gun[14].number = 2; gun[14].effect0 = 1; gun[14].effect1 = 7; gun[14].damageup = 0.12; gun[14].hitup = 0; gun[14].shotspeedup = 0; gun[14].critup = 0; gun[14].dodgeup = 0.15; gun[14].to = 2;
+            gun[26].name = "司登MkⅡ"; gun[26].what = 3; gun[26].crit = 0.05; gun[26].belt = 0; gun[26].number = 3; gun[26].effect0 = 1; gun[26].effect1 = 4; gun[26].effect2 = 7; gun[26].damageup = 0; gun[26].hitup = 0.1; gun[26].shotspeedup = 0; gun[26].critup = 0; gun[26].dodgeup = 0.3; gun[26].to = 2;
+            gun[91].name = "UMP9"; gun[91].what = 3; gun[91].crit = 0.05; gun[91].belt = 0; gun[91].number = 3; gun[91].effect0 = 1; gun[91].effect1 = 4; gun[91].effect2 = 7; gun[91].damageup = 0; gun[91].hitup = 0.3; gun[91].shotspeedup = 0.12; gun[91].critup = 0; gun[91].dodgeup = 0; gun[91].to = 2;
+            gun[18].name = "Vector"; gun[18].what = 3; gun[18].crit = 0.05; gun[18].belt = 0; gun[18].number = 1; gun[18].effect0 = 4; gun[18].damageup = 0; gun[18].hitup = 0; gun[18].shotspeedup = 0.25; gun[18].critup = 0; gun[18].dodgeup = 0; gun[18].to = 2;
+            gun[25].name = "蝎式"; gun[25].what = 3; gun[25].crit = 0.05; gun[25].belt = 0; gun[25].number = 1; gun[25].effect0 = 4; gun[25].damageup = 0; gun[25].hitup = 0.5; gun[25].shotspeedup = 0.15; gun[25].critup = 0; gun[25].dodgeup = 0; gun[25].to = 2;
+            gun[15].name = "M3"; gun[15].what = 3; gun[15].crit = 0.05; gun[15].belt = 0; gun[15].number = 1; gun[15].effect0 = 4; gun[15].damageup = 0; gun[15].hitup = 0.4; gun[15].shotspeedup = 0; gun[15].critup = 0; gun[15].dodgeup = 0.3; gun[15].to = 2;
+            gun[83].name = "IDW";gun[83].what = 3; gun[83].crit = 0.05; gun[83].belt = 0; gun[83].number = 3; gun[83].effect0 = 1; gun[83].effect1 = 4; gun[83].effect2 = 7; gun[83].damageup = 0; gun[83].hitup = 0; gun[83].shotspeedup = 0; gun[83].critup = 0; gun[83].dodgeup = 0.2; gun[83].to = 2;
+            gun[28].name = "微型乌兹"; gun[28].what = 3; gun[28].crit = 0.05; gun[28].belt = 0; gun[28].number = 2; gun[28].effect0 = 2; gun[28].effect1 = 8; gun[28].damageup = 0.18; gun[28].hitup = 0; gun[28].shotspeedup = 0; gun[28].critup = 0; gun[28].dodgeup = 0; gun[28].to = 2;
+            gun[17].name = "FMG-9"; gun[17].what = 3;gun[17].crit = 0.05; gun[17].belt = 0; gun[17].number = 2; gun[17].effect0 = 1; gun[17].effect1 = 7; gun[17].damageup = 0.1; gun[17].hitup = 0; gun[17].shotspeedup = 0; gun[17].critup = 0; gun[17].dodgeup = 0.12; gun[17].to = 2;
+            gun[16].name = "MAC-10"; gun[16].what = 3; gun[16].crit = 0.05; gun[16].belt = 0; gun[16].number = 3; gun[16].effect0 = 1; gun[16].effect1 = 4; gun[16].effect2 = 7; gun[16].damageup = 0.12; gun[16].hitup = 0; gun[16].shotspeedup = 0; gun[16].critup = 0; gun[16].dodgeup = 0; gun[16].to = 2;
+            gun[29].name = "M45"; gun[29].what = 3; gun[29].crit = 0.05; gun[29].belt = 0; gun[29].number = 2; gun[29].effect0 = 1; gun[29].effect1 = 7; gun[29].damageup = 0; gun[29].hitup = 0; gun[29].shotspeedup = 0.1; gun[29].critup = 0; gun[29].dodgeup = 0.1; gun[29].to = 2;
+            gun[82].name = "Spectre M4"; gun[82].what = 3;  gun[82].crit = 0.05; gun[82].belt = 0; gun[82].number = 1; gun[82].effect0 = 4; gun[82].damageup = 0.2; gun[82].hitup = 0; gun[82].shotspeedup = 0; gun[82].critup = 0; gun[82].dodgeup = 0; gun[82].to = 2;
+            gun[20].name = "PPS-43"; gun[20].what = 3;  gun[20].crit = 0.05; gun[20].belt = 0; gun[20].number = 3; gun[20].effect0 = 1; gun[20].effect1 = 4; gun[20].effect2 = 7; gun[20].damageup = 0.12; gun[20].hitup = 0; gun[20].shotspeedup = 0; gun[20].critup = 0; gun[20].dodgeup = 0; gun[20].to = 2;
+            gun[22].name = "PP-2000"; gun[22].what = 3;  gun[22].crit = 0.05; gun[22].belt = 0; gun[22].number = 2; gun[22].effect0 = 1; gun[22].effect1 = 7; gun[22].damageup = 0.1; gun[22].hitup = 0.25; gun[22].shotspeedup = 0; gun[22].critup = 0; gun[22].dodgeup = 0; gun[22].to = 2;
+            gun[24].name = "MP5"; gun[24].what = 3; gun[24].crit = 0.05; gun[24].belt = 0; gun[24].number = 2; gun[24].effect0 = 1; gun[24].effect1 = 7; gun[24].damageup = 0; gun[24].hitup = 0.4; gun[24].shotspeedup = 0; gun[24].critup = 0.2; gun[24].dodgeup = 0; gun[24].to = 2;
+            gun[27].name = "伯莱塔38型"; gun[27].what = 3;gun[27].crit = 0.05; gun[27].belt = 0; gun[27].number = 2; gun[27].effect0 = 1; gun[27].effect1 = 7; gun[27].damageup = 0.05; gun[27].hitup = 0; gun[27].shotspeedup = 0.1; gun[27].critup = 0; gun[27].dodgeup = 0; gun[27].to = 2;
+            gun[23].name = "MP40"; gun[23].what = 3; gun[23].crit = 0.05; gun[23].belt = 0; gun[23].number = 2; gun[23].effect0 = 1; gun[23].effect1 = 7; gun[23].damageup = 0; gun[23].hitup = 0.25; gun[23].shotspeedup = 0; gun[23].critup = 0; gun[23].dodgeup = 0.2; gun[23].to = 2;
+            gun[19].name = "PPSh-41"; gun[19].what = 3; gun[19].crit = 0.05; gun[19].belt = 0; gun[19].number = 2; gun[19].effect0 = 2; gun[19].effect1 = 8; gun[19].damageup = 0.1; gun[19].hitup = 0; gun[19].shotspeedup = 0.05; gun[19].critup = 0; gun[19].dodgeup = 0; gun[19].to = 2;
+            gun[84].name = "64式"; gun[84].what = 3; gun[84].crit = 0.05; gun[84].belt = 0; gun[84].number = 1; gun[84].effect0 = 4; gun[84].damageup = 0; gun[84].hitup = 0; gun[84].shotspeedup = 0.2; gun[84].critup = 0; gun[84].dodgeup = 0; gun[84].to = 2;
+            gun[92].name = "UMP45"; gun[92].what = 3;  gun[92].crit = 0.05; gun[92].belt = 0; gun[92].number = 3; gun[92].effect0 = 1; gun[92].effect1 = 4; gun[92].effect2 = 7; gun[92].damageup = 0.15; gun[92].hitup = 0.0; gun[92].shotspeedup = 0; gun[92].critup = 0.5; gun[92].dodgeup = 0; gun[92].to = 2;
+            gun[104].name = "索米"; gun[104].what = 3; gun[104].crit = 0.05; gun[104].belt = 0; gun[104].number = 2; gun[104].effect0 = 1; gun[104].effect1 = 7; gun[104].damageup = 0; gun[104].hitup = 0.3; gun[104].shotspeedup = 0.15; gun[104].critup = 0; gun[104].dodgeup = 0; gun[104].to = 2;
+            gun[94].name = "OTs-12"; gun[94].what = 2; gun[94].crit = 0.2; gun[94].belt = 0; gun[94].number = 2; gun[94].effect0 = 6; gun[94].effect1 = 9; gun[94].damageup = 0.15; gun[94].hitup = 0; gun[94].shotspeedup = 0.2; gun[94].critup = 0; gun[94].dodgeup = 0; gun[94].to = 3;
+            gun[58].name = "G36"; gun[58].what = 2; gun[58].crit = 0.2; gun[58].belt = 0; gun[58].number = 2; gun[58].effect0 = 6; gun[58].effect1 = 3; gun[58].damageup = 0.3; gun[58].hitup = 0; gun[58].shotspeedup = 0.1; gun[58].critup = 0; gun[58].dodgeup = 0; gun[58].to = 3;
+            gun[95].name = "FAL"; gun[95].what = 2;  gun[95].crit = 0.2; gun[95].belt = 0; gun[95].number = 3; gun[95].effect0 = 3; gun[95].effect1 = 6; gun[95].effect2 = 9; gun[95].damageup = 0; gun[95].hitup = 0; gun[95].shotspeedup = 0; gun[95].critup = 0; gun[95].dodgeup = 0.2; gun[95].to = 3;
+            gun[59].name = "HK416"; gun[59].what = 2; gun[59].crit = 0.2; gun[59].belt = 0; gun[59].number = 1; gun[59].effect0 = 6; gun[59].damageup = 0.4; gun[59].hitup = 0; gun[59].shotspeedup = 0; gun[59].critup = 0; gun[59].dodgeup = 0; gun[59].to = 3;
+            gun[56].name = "G41"; gun[56].what = 2; gun[56].crit = 0.2; gun[56].belt = 0; gun[56].number = 2; gun[56].effect0 = 3; gun[56].effect1 = 9; gun[56].damageup = 0; gun[56].hitup = 0.5; gun[56].shotspeedup = 0; gun[56].critup = 0; gun[56].dodgeup = 0.15; gun[56].to = 3;
+            gun[60].name = "56-1式"; gun[60].what = 2; gun[60].crit = 0.2; gun[60].belt = 0; gun[60].number = 1; gun[60].effect0 = 6; gun[60].damageup = 0; gun[60].hitup = 0; gun[60].shotspeedup = 0; gun[60].critup = 0.1; gun[60].dodgeup = 0.15; gun[60].to = 3;
+            gun[50].name = "M4A1"; gun[50].what = 2;gun[50].crit = 0.2; gun[50].belt = 0; gun[50].number = 1; gun[50].effect0 = 7; gun[50].damageup = 0; gun[50].hitup = 0; gun[50].shotspeedup = 0.18; gun[50].critup = 0; gun[50].dodgeup = 0; gun[50].to = 2;
+            gun[49].name = "M16A1"; gun[49].what = 2; gun[49].crit = 0.2; gun[49].belt = 0; gun[49].number = 1; gun[49].effect0 = 1; gun[49].damageup = 0.18; gun[49].hitup = 0; gun[49].shotspeedup = 0; gun[49].critup = 0; gun[49].dodgeup = 0; gun[49].to = 2;
+            gun[52].name = "ST AR-15"; gun[52].what = 2;gun[52].crit = 0.2; gun[52].belt = 0; gun[52].number = 1; gun[52].effect0 = 9; gun[52].damageup = 0; gun[52].hitup = 0; gun[52].shotspeedup = 0; gun[52].critup = 0; gun[52].dodgeup = 0.36; gun[52].to = 2;
+            gun[62].name = "FAMAS"; gun[62].what = 2; gun[62].crit = 0.2; gun[62].belt = 0; gun[62].number = 1; gun[62].effect0 = 3; gun[62].damageup = 0.25; gun[62].hitup = 0.6; gun[62].shotspeedup = 0; gun[62].critup = 0; gun[62].dodgeup = 0; gun[62].to = 3;
+            gun[53].name = "AK-47"; gun[53].what = 2;  gun[53].crit = 0.2; gun[53].belt = 0; gun[53].number = 1; gun[53].effect0 = 2; gun[53].damageup = 0; gun[53].hitup = 0; gun[53].shotspeedup = 0; gun[53].critup = 0; gun[53].dodgeup = 0.18; gun[53].to = 3;
+            gun[55].name = "StG44"; gun[55].what = 2; gun[55].crit = 0.2; gun[55].belt = 0; gun[55].number = 1; gun[55].effect0 = 6; gun[55].damageup = 0; gun[55].hitup = 0.6; gun[55].shotspeedup = 0; gun[55].critup = 0; gun[55].dodgeup = 0.2; gun[55].to = 3;
+            gun[97].name = "CZ-805"; gun[97].what = 2; gun[97].crit = 0.2; gun[97].belt = 0; gun[97].number = 2; gun[97].effect0 = 3; gun[97].effect1 = 9; gun[97].damageup = 0; gun[97].hitup = 0.5; gun[97].shotspeedup = 0.25; gun[97].critup = 0; gun[97].dodgeup = 0; gun[97].to = 3;
+            gun[51].name = "M4 SOPMODII"; gun[51].what = 2;  gun[51].crit = 0.2; gun[51].belt = 0; gun[51].number = 1; gun[51].effect0 = 3; gun[51].damageup = 0; gun[51].hitup = 0; gun[51].shotspeedup = 0; gun[51].critup = 0; gun[51].dodgeup = 0.36; gun[51].to = 2;
+            gun[65].name = "TAR-21"; gun[65].what = 2;  gun[65].crit = 0.2; gun[65].belt = 0; gun[65].number = 2; gun[65].effect0 = 3; gun[65].effect1 = 9; gun[65].damageup = 0; gun[65].hitup = 0; gun[65].shotspeedup = 0; gun[65].critup = 0; gun[65].dodgeup = 0.18; gun[65].to = 3;
+            gun[64].name = "加利尔"; gun[64].what = 2; gun[64].crit = 0.2; gun[64].belt = 0; gun[64].number = 1; gun[64].effect0 = 6; gun[64].damageup = 0; gun[64].hitup = 0.5; gun[64].shotspeedup = 0; gun[64].critup = 0; gun[64].dodgeup = 0.1; gun[64].to = 3;
+            gun[66].name = "SIG-510"; gun[66].what = 2; gun[66].crit = 0.2; gun[66].belt = 0; gun[66].number = 2; gun[66].effect0 = 3; gun[66].effect1 = 9; gun[66].damageup = 0.2; gun[66].hitup = 0; gun[66].shotspeedup = 0.1; gun[66].critup = 0; gun[66].dodgeup = 0; gun[66].to = 3;
+            gun[57].name = "G3"; gun[57].what = 2; gun[57].crit = 0.2; gun[57].belt = 0; gun[57].number = 1; gun[57].effect0 = 8; gun[57].damageup = 0; gun[57].hitup = 0.5; gun[57].shotspeedup = 0.2; gun[57].critup = 0; gun[57].dodgeup = 0; gun[57].to = 3;
+            gun[96].name = "F2000"; gun[96].what = 2; gun[96].crit = 0.2; gun[96].belt = 0; gun[96].number = 1; gun[96].effect0 = 6; gun[96].damageup = 0.2; gun[96].hitup = 0; gun[96].shotspeedup = 0; gun[96].critup = 0; gun[96].dodgeup = 0.1; gun[96].to = 3;
+            gun[63].name = "FNC"; gun[63].what = 2; gun[63].crit = 0.2; gun[63].belt = 0; gun[63].number = 1; gun[63].effect0 = 9; gun[63].damageup = 0; gun[63].hitup = 0.5; gun[63].shotspeedup = 0; gun[63].critup = 0; gun[63].dodgeup = 0.12; gun[63].to = 3;
+            gun[61].name = "L85A1"; gun[61].what = 2; gun[61].crit = 0.2; gun[61].belt = 0; gun[61].number = 1; gun[61].effect0 = 8; gun[61].damageup = 0.2; gun[61].hitup = 0.5; gun[61].shotspeedup = 0; gun[61].critup = 0; gun[61].dodgeup = 0; gun[61].to = 3;
+            gun[107].name = "9a-91"; gun[107].what = 2;  gun[107].crit = 0.2; gun[107].belt = 0; gun[107].number = 2; gun[107].effect0 = 3; gun[107].effect1 = 9; gun[107].damageup = 0; gun[107].hitup = 0; gun[107].shotspeedup = 0.1; gun[107].critup = 0; gun[107].dodgeup = 0.15; gun[107].to = 3;
+            gun[54].name = "AS Val"; gun[54].what = 2; gun[54].crit = 0.2; gun[54].belt = 0; gun[54].number = 1; gun[54].effect0 = 8; gun[54].damageup = 0.25; gun[54].hitup = 0; gun[54].shotspeedup = 0.1; gun[54].critup = 0; gun[54].dodgeup = 0; gun[54].to = 3;
+            gun[103].name = "维尔德MkⅡ"; gun[103].what = 4; gun[103].crit = 0.4; gun[103].belt = 0; gun[103].number = 5; gun[103].effect0 = 1; gun[103].effect1 = 2; gun[103].effect2 = 4; gun[103].effect3 = 7;gun[103].effect4 = 8; gun[103].damageup = 0.18; gun[103].hitup = 0; gun[103].shotspeedup = 0.1; gun[103].critup = 0; gun[103].dodgeup = 0; gun[103].to = 1;
+            gun[3].name = "纳甘左轮"; gun[3].what = 4; gun[3].crit = 0.2; gun[3].belt = 0; gun[3].number = 2; gun[3].effect0 = 2; gun[3].effect1 = 8; gun[3].damageup = 0.25; gun[3].hitup = 0; gun[3].shotspeedup = 0; gun[3].critup = 0.1; gun[3].dodgeup = 0; gun[3].to = 1;
+            gun[0].name = "柯尔特左轮"; gun[0].what = 4; gun[0].crit = 0.2; gun[0].belt = 0; gun[0].number = 4; gun[0].effect0 = 2; gun[0].effect1 = 4; gun[0].effect2 = 6; gun[0].effect3 = 8; gun[0].damageup = 0.15; gun[0].hitup = 0.5; gun[0].shotspeedup = 0; gun[0].critup = 0; gun[0].dodgeup = 0; gun[0].to = 1;
+            gun[86].name = "灰熊MkⅤ"; gun[86].what = 4; gun[86].crit = 0.2; gun[86].belt = 0; gun[86].number = 5; gun[86].effect0 = 1; gun[86].effect1 = 2; gun[86].effect2 = 6; gun[86].effect3 = 7; gun[86].effect4 = 8; gun[86].damageup = 0.18; gun[86].hitup = 0; gun[86].shotspeedup = 0; gun[86].critup = 0; gun[86].dodgeup = 0.2; gun[86].to = 1;
+            gun[4].name = "托卡列夫"; gun[4].what = 4; gun[4].crit = 0.2; gun[4].belt = 0; gun[4].number = 4; gun[4].effect0 = 2; gun[4].effect1 = 3; gun[4].effect2 = 8; gun[4].effect3 = 9; gun[4].damageup = 0; gun[4].hitup = 0.5; gun[4].shotspeedup = 0.12; gun[4].critup = 0; gun[4].dodgeup = 0; gun[4].to = 1;
+            gun[13].name = "格洛克17"; gun[13].what = 4; gun[13].crit = 0.2; gun[13].belt = 0; gun[13].number = 5; gun[13].effect0 = 1; gun[13].effect1 = 3; gun[13].effect2 = 6; gun[13].effect3 = 7; gun[13].effect4 = 9; gun[13].damageup = 0; gun[13].hitup = 0.5; gun[13].shotspeedup = 0; gun[13].critup = 0; gun[13].dodgeup = 0.25; gun[13].to = 1;
+            gun[6].name = "马卡洛夫"; gun[6].what = 4;gun[6].crit = 0.2; gun[6].belt = 0; gun[6].number = 4; gun[6].effect0 = 1; gun[6].effect1 = 4; gun[6].effect2 = 6; gun[6].effect3 = 7; gun[6].damageup = 0.12; gun[6].hitup = 0; gun[6].shotspeedup = 0.1; gun[6].critup = 0; gun[6].dodgeup = 0; gun[6].to = 1;
+            gun[5].name = "斯捷奇金"; gun[5].what = 4; gun[5].crit = 0.2; gun[5].belt = 0; gun[5].number = 4; gun[5].effect0 = 2; gun[5].effect1 = 3; gun[5].effect2 = 8; gun[5].effect3 = 9; gun[5].damageup = 0.1; gun[5].hitup = 0; gun[5].shotspeedup = 0.15; gun[5].critup = 0; gun[5].dodgeup = 0; gun[5].to = 1;
+            gun[12].name = "阿斯特拉左轮"; gun[12].what = 4; gun[12].crit = 0.2; gun[12].belt = 0; gun[12].number = 4; gun[12].effect0 = 1; gun[12].effect1 = 3; gun[12].effect2 = 7; gun[12].effect3 = 9; gun[12].damageup = 0; gun[12].hitup = 0; gun[12].shotspeedup = 0.15; gun[12].critup = 0; gun[12].dodgeup = 0.15; gun[12].to = 1;
+            gun[9].name = "P08"; gun[9].what = 4;gun[9].crit = 0.2; gun[9].belt = 0; gun[9].number = 2; gun[9].effect0 = 2; gun[9].effect1 = 8; gun[9].damageup = 0.2; gun[9].hitup = 0.6; gun[9].shotspeedup = 0; gun[9].critup = 0; gun[9].dodgeup = 0; gun[9].to = 1;
+            gun[89].name = "Mk23"; gun[89].what = 4; gun[89].crit = 0.2; gun[89].belt = 0; gun[89].number = 4; gun[89].effect0 = 3; gun[89].effect1 = 4; gun[89].effect2 = 6; gun[89].effect3 = 9; gun[89].damageup = 0.25; gun[89].hitup = 0; gun[89].shotspeedup = 0; gun[89].critup = 0; gun[89].dodgeup = 0; gun[89].to = 1;
+            gun[1].name = "M1911"; gun[1].what = 4; gun[1].crit = 0.2; gun[1].belt = 0; gun[1].number = 4; gun[1].effect0 = 2; gun[1].effect1 = 4; gun[1].effect2 = 6; gun[1].effect3 = 8; gun[1].damageup = 0; gun[1].hitup = 0.5; gun[1].shotspeedup = 0.1; gun[1].critup = 0; gun[1].dodgeup = 0; gun[1].to = 1;
+            gun[8].name = "PPK"; gun[8].what = 4; gun[8].crit = 0.2; gun[8].belt = 0; gun[8].number = 4; gun[8].effect0 = 1; gun[8].effect1 = 4; gun[8].effect2 = 6; gun[8].effect3 = 7; gun[8].damageup = 0; gun[8].hitup = 0; gun[8].shotspeedup = 0.2; gun[8].critup = 0.1; gun[8].dodgeup = 0; gun[8].to = 1;
+            gun[10].name = "C96"; gun[10].what = 4; gun[10].crit = 0.2; gun[10].belt = 0; gun[10].number = 3; gun[10].effect0 = 1; gun[10].effect1 = 6; gun[10].effect2 = 7; gun[10].damageup = 0; gun[10].hitup = 0.5; gun[10].shotspeedup = 0; gun[10].critup = 0; gun[10].dodgeup = 0.25; gun[10].to = 1;
+            gun[87].name = "M950A"; gun[87].what = 4; gun[87].crit = 0.2; gun[87].belt = 0; gun[87].number = 4; gun[87].effect0 = 1; gun[87].effect1 = 3; gun[87].effect2 = 7; gun[87].effect3 = 9; gun[87].damageup = 0; gun[87].hitup = 0.5; gun[87].shotspeedup = 0.18; gun[87].critup = 0; gun[87].dodgeup = 0; gun[87].to = 1;
+            gun[7].name = "P38"; gun[7].what = 4;gun[7].crit = 0.2; gun[7].belt = 0; gun[7].number = 4; gun[7].effect0 = 2; gun[7].effect1 = 3; gun[7].effect2 = 8; gun[7].effect3 = 9; gun[7].damageup = 0; gun[7].hitup = 0.5; gun[7].shotspeedup = 0.1; gun[7].critup = 0; gun[7].dodgeup = 0; gun[7].to = 1;
+            gun[2].name = "M9"; gun[2].what = 4; gun[2].crit = 0.2; gun[2].belt = 0; gun[2].number = 4; gun[2].effect0 = 1; gun[2].effect1 = 2; gun[2].effect2 = 7; gun[2].effect3 = 8; gun[2].damageup = 0; gun[2].hitup = 0; gun[2].shotspeedup = 0; gun[2].critup = 0; gun[2].dodgeup = 0.4; gun[2].to = 1;
+            gun[90].name = "P7"; gun[90].what = 4; gun[90].crit = 0.2; gun[90].belt = 0; gun[90].number = 6; gun[90].effect0 = 1; gun[90].effect1 = 2; gun[90].effect2 = 3; gun[90].effect3 = 7; gun[90].effect4 = 8; gun[90].effect5 = 9; gun[90].damageup = 0; gun[90].hitup = 0; gun[90].shotspeedup = 0.1; gun[90].critup = 0; gun[90].dodgeup = 0.2; gun[90].to = 1;
+            gun[11].name = "92式"; gun[11].what = 4; gun[11].crit = 0.2; gun[11].belt = 0; gun[11].number = 8; gun[11].effect0 = 1; gun[11].effect1 = 2; gun[11].effect2 = 3; gun[11].effect3 = 4; gun[11].effect4 = 6; gun[11].effect5 = 7; gun[11].effect6 = 8; gun[11].effect7 = 9; gun[11].damageup = 0; gun[11].hitup = 0.35; gun[11].shotspeedup = 0; gun[11].critup = 0; gun[11].dodgeup = 0.25; gun[11].to = 1;
+            gun[80].name = "FNP-9"; gun[80].what = 4; gun[80].crit = 0.2; gun[80].belt = 0; gun[80].number = 5; gun[80].effect0 = 2; gun[80].effect1 = 3; gun[80].effect2 = 6; gun[80].effect3 = 8; gun[80].effect4 = 9; gun[80].damageup = 0; gun[80].hitup = 0.5; gun[80].shotspeedup = 0.1; gun[80].critup = 0; gun[80].dodgeup = 0; gun[80].to = 1;
+            gun[81].name = "MP-446"; gun[81].what = 4; gun[81].crit = 0.2; gun[81].belt = 0; gun[81].number = 5; gun[81].effect0 = 1; gun[81].effect1 = 2; gun[81].effect2 = 4; gun[81].effect3 = 7; gun[81].effect4 = 8; gun[81].damageup = 0.2; gun[81].hitup = 0; gun[81].shotspeedup = 0; gun[81].critup = 0; gun[81].dodgeup = 0; gun[81].to = 1;
+            gun[37].name = "西蒙诺夫"; gun[37].what = 5; gun[37].crit = 0.4; gun[37].belt = 0; gun[37].number = 2;gun[37].effect0 = 2;gun[37].effect1 = 8; gun[37].rateup = 0.18; gun[37].damageup = 0; gun[37].hitup = 0; gun[37].shotspeedup = 0; gun[37].critup = 0; gun[37].dodgeup = 0; gun[37].to = 4;
+            gun[46].name = "FN-49"; gun[46].what = 5;  gun[46].crit = 0.4; gun[46].belt = 0; gun[46].number = 2; gun[46].effect0 = 3; gun[46].effect1 = 9; gun[46].rateup = 0.18; gun[46].damageup = 0; gun[46].hitup = 0; gun[46].shotspeedup = 0; gun[46].critup = 0; gun[46].dodgeup = 0; gun[46].to = 4;
+            gun[45].name = "李-恩菲尔德"; gun[45].what = 5; gun[45].crit = 0.4; gun[45].belt = 0; gun[45].number = 2; gun[45].effect0 = 2; gun[45].effect1 = 8; gun[45].rateup = 0.25; gun[45].damageup = 0; gun[45].hitup = 0; gun[45].shotspeedup = 0; gun[45].critup = 0; gun[45].dodgeup = 0; gun[45].to = 4;
+            gun[48].name = "NTW-20"; gun[48].what = 5; gun[48].crit = 0.4; gun[48].belt = 0; gun[48].number = 1;gun[48].effect0 = 6;gun[48].rateup = 0.25; gun[48].damageup = 0; gun[48].hitup = 0; gun[48].shotspeedup = 0; gun[48].critup = 0; gun[48].dodgeup = 0; gun[48].to = 4;
+            gun[38].name = "PTRD"; gun[38].what = 5;gun[38].crit = 0.4; gun[38].belt = 0; gun[38].number = 1; gun[38].effect0 = 6; gun[38].rateup = 0.22; gun[38].damageup = 0; gun[38].hitup = 0; gun[38].shotspeedup = 0; gun[38].critup = 0; gun[38].dodgeup = 0; gun[38].to = 4;
+            gun[36].name = "SVT-38"; gun[36].what = 5;gun[36].crit = 0.4; gun[36].belt = 0; gun[36].number = 1; gun[36].effect0 = 6; gun[36].rateup = 0.18; gun[36].damageup = 0; gun[36].hitup = 0; gun[36].shotspeedup = 0; gun[36].critup = 0; gun[36].dodgeup = 0; gun[36].to = 4;
+            gun[43].name = "WA2000"; gun[43].what = 5; gun[43].crit = 0.4; gun[43].belt = 0; gun[43].number = 1; gun[43].effect0 = 6; gun[43].rateup = 0.25; gun[43].damageup = 0; gun[43].hitup = 0; gun[43].shotspeedup = 0; gun[43].critup = 0; gun[43].dodgeup = 0; gun[43].to = 4;
+            gun[33].name = "M14"; gun[33].what = 5; gun[33].crit = 0.4; gun[33].belt = 0; gun[33].number = 2; gun[33].effect0 = 3; gun[33].effect1 = 9; gun[33].rateup = 0.2; gun[33].damageup = 0; gun[33].hitup = 0; gun[33].shotspeedup = 0; gun[33].critup = 0; gun[33].dodgeup = 0; gun[33].to = 4;
+            gun[34].name = "M21"; gun[34].what = 5; gun[34].crit = 0.4; gun[34].belt = 0; gun[34].number = 2; gun[34].effect0 = 2; gun[34].effect1 = 8; gun[34].rateup = 0.2; gun[34].damageup = 0; gun[34].hitup = 0; gun[34].shotspeedup = 0; gun[34].critup = 0; gun[34].dodgeup = 0; gun[34].to = 4;
+            gun[47].name = "BM59"; gun[47].what = 5; gun[47].crit = 0.4; gun[47].belt = 0; gun[47].number = 1; gun[47].effect0 = 6; gun[47].rateup = 0.18; gun[47].damageup = 0; gun[47].hitup = 0; gun[47].shotspeedup = 0; gun[47].critup = 0; gun[47].dodgeup = 0; gun[47].to = 4;
+            gun[30].name = "M1加兰德"; gun[30].what = 5; gun[30].crit = 0.4; gun[30].belt = 0; gun[30].number = 1; gun[30].effect0 = 6; gun[30].rateup = 0.2; gun[30].damageup = 0; gun[30].hitup = 0; gun[30].shotspeedup = 0; gun[30].critup = 0; gun[30].dodgeup = 0; gun[30].to = 4;
+            gun[40].name = "SV-98"; gun[40].what = 5;gun[40].crit = 0.4; gun[40].belt = 0; gun[40].number = 1; gun[40].effect0 = 3; gun[40].rateup = 0.2; gun[40].damageup = 0; gun[40].hitup = 0; gun[40].shotspeedup = 0; gun[40].critup = 0; gun[40].dodgeup = 0; gun[40].to = 4;
+            gun[42].name = "G43"; gun[42].what = 5; gun[42].crit = 0.4; gun[42].belt = 0; gun[42].number = 2; gun[42].effect0 = 3; gun[42].effect1 = 9; gun[42].rateup = 0.2; gun[42].damageup = 0; gun[42].hitup = 0; gun[42].shotspeedup = 0; gun[42].critup = 0; gun[42].dodgeup = 0; gun[42].to = 4;
+            gun[85].name = "汉阳造88式"; gun[85].what = 5; gun[85].crit = 0.4; gun[85].belt = 0; gun[85].number = 1; gun[85].effect0 = 6; gun[85].rateup = 0.22; gun[85].damageup = 0; gun[85].hitup = 0; gun[85].shotspeedup = 0; gun[85].critup = 0; gun[85].dodgeup = 0; gun[85].to = 4;
+            gun[41].name = "Kar98k"; gun[41].what = 5;  gun[41].crit = 0.4; gun[41].belt = 0; gun[41].number = 2; gun[41].effect0 = 3; gun[41].effect1 = 9; gun[41].rateup = 0.25; gun[41].damageup = 0; gun[41].hitup = 0; gun[41].shotspeedup = 0; gun[41].critup = 0; gun[41].dodgeup = 0; gun[41].to = 4;
+            gun[35].name = "莫辛-纳甘"; gun[35].what = 5; gun[35].crit = 0.4; gun[35].belt = 0; gun[35].number = 1; gun[35].effect0 = 9; gun[35].rateup = 0.22; gun[35].damageup = 0; gun[35].hitup = 0; gun[35].shotspeedup = 0; gun[35].critup = 0; gun[35].dodgeup = 0; gun[35].to = 4;
+            gun[32].name = "春田"; gun[32].what = 5; gun[32].crit = 0.4; gun[32].belt = 0; gun[32].number = 1; gun[32].effect0 = 9; gun[32].rateup = 0.22;  gun[32].damageup = 0; gun[32].hitup = 0; gun[32].shotspeedup = 0; gun[32].critup = 0; gun[32].dodgeup = 0; gun[32].to = 4;
+            gun[69].name = "M60"; gun[69].what = 6; gun[69].crit = 0.05; gun[69].belt = 9; gun[69].number = 0; gun[69].damageup = 0; gun[69].hitup = 0; gun[69].shotspeedup = 0; gun[69].critup = 0; gun[69].dodgeup = 0; gun[69].to = 0;
+            gun[98].name = "MG5"; gun[98].what = 6;gun[98].crit = 0.05; gun[98].belt = 11; gun[98].number = 0; gun[98].damageup = 0; gun[98].hitup = 0; gun[98].shotspeedup = 0; gun[98].critup = 0; gun[98].dodgeup = 0; gun[98].to = 0;
+            gun[67].name = "M1918"; gun[67].what = 6;gun[67].crit = 0.05; gun[67].belt = 8; gun[67].number = 0; gun[67].damageup = 0; gun[67].hitup = 0; gun[67].shotspeedup = 0; gun[67].critup = 0; gun[67].dodgeup = 0; gun[67].to = 0;
+            gun[78].name = "MG3"; gun[78].what = 6; gun[78].crit = 0.05; gun[78].belt = 10; gun[78].number = 0; gun[78].damageup = 0; gun[78].hitup = 0; gun[78].shotspeedup = 0; gun[78].critup = 0; gun[78].dodgeup = 0; gun[78].to = 0;
+            gun[71].name = "M1919A4"; gun[71].what = 6; gun[71].crit = 0.05; gun[71].belt = 9; gun[71].number = 0; gun[71].damageup = 0; gun[71].hitup = 0; gun[71].shotspeedup = 0; gun[71].critup = 0; gun[71].dodgeup = 0; gun[71].to = 0;
+            gun[75].name = "PK"; gun[75].what = 6;gun[75].crit = 0.05; gun[75].belt = 11; gun[75].number = 0; gun[75].damageup = 0; gun[75].hitup = 0; gun[75].shotspeedup = 0; gun[75].critup = 0; gun[75].dodgeup = 0; gun[75].to = 0;
+            gun[101].name = "内格夫"; gun[101].what = 6;gun[101].crit = 0.05; gun[101].belt = 9; gun[101].number = 0; gun[101].damageup = 0; gun[101].hitup = 0; gun[101].shotspeedup = 0; gun[101].critup = 0; gun[101].dodgeup = 0; gun[101].to = 0;
+            gun[74].name = "RPD"; gun[74].what = 6; gun[74].crit = 0.05; gun[74].belt = 8; gun[74].number = 0; gun[74].damageup = 0; gun[74].hitup = 0; gun[74].shotspeedup = 0; gun[74].critup = 0; gun[74].dodgeup = 0; gun[74].to = 0;
+            gun[68].name = "M2HB"; gun[68].what = 6; gun[68].crit = 0.05; gun[68].belt = 10; gun[68].number = 0; gun[68].damageup = 0; gun[68].hitup = 0; gun[68].shotspeedup = 0; gun[68].critup = 0; gun[68].dodgeup = 0; gun[68].to = 0;
+            gun[72].name = "LWMMG"; gun[72].what = 6; gun[72].crit = 0.05; gun[72].belt = 9; gun[72].number = 0; gun[72].damageup = 0; gun[72].hitup = 0; gun[72].shotspeedup = 0; gun[72].critup = 0; gun[72].dodgeup = 0; gun[72].to = 0;
+            gun[70].name = "M249 SAW"; gun[70].what = 6;gun[70].crit = 0.05; gun[70].belt = 8; gun[70].number = 0; gun[70].damageup = 0; gun[70].hitup = 0; gun[70].shotspeedup = 0; gun[70].critup = 0; gun[70].dodgeup = 0; gun[70].to = 0;
+            gun[100].name = "AAT-52"; gun[100].what = 6;gun[100].crit = 0.05; gun[100].belt = 10; gun[100].number = 0; gun[100].damageup = 0; gun[100].hitup = 0; gun[100].shotspeedup = 0; gun[100].critup = 0; gun[100].dodgeup = 0; gun[100].to = 0;
+            gun[73].name = "DP28"; gun[73].what = 6; gun[73].crit = 0.05; gun[73].belt = 9; gun[73].number = 0; gun[73].damageup = 0; gun[73].hitup = 0; gun[73].shotspeedup = 0; gun[73].critup = 0; gun[73].dodgeup = 0; gun[73].to = 0;
+            gun[76].name = "MG42"; gun[76].what = 6; gun[76].crit = 0.05; gun[76].belt = 10; gun[76].number = 0; gun[76].damageup = 0; gun[76].hitup = 0; gun[76].shotspeedup = 0; gun[76].critup = 0; gun[76].dodgeup = 0; gun[76].to = 0;
+            gun[77].name = "MG34"; gun[77].what = 6; gun[77].crit = 0.05; gun[77].belt = 10; gun[77].number = 0; gun[77].damageup = 0; gun[77].hitup = 0; gun[77].shotspeedup = 0; gun[77].critup = 0; gun[77].dodgeup = 0; gun[77].to = 0;
+            gun[79].name = "布伦"; gun[79].what = 6;  gun[79].crit = 0.05; gun[79].belt = 8; gun[79].number = 0; gun[79].damageup = 0; gun[79].hitup = 0; gun[79].shotspeedup = 0; gun[79].critup = 0; gun[79].dodgeup = 0; gun[79].to = 0;
+            gun[99].name = "FG42"; gun[99].what = 6; gun[99].crit = 0.05; gun[99].belt = 8; gun[99].number = 0; gun[99].damageup = 0; gun[99].hitup = 0; gun[99].shotspeedup = 0; gun[99].critup = 0; gun[99].dodgeup = 0; gun[99].to = 0;
+            gun[110].name = "MK48"; gun[110].what = 6;  gun[110].crit = 0.05; gun[110].belt = 10; gun[110].number = 0; gun[110].damageup = 0; gun[110].hitup = 0; gun[110].shotspeedup = 0; gun[110].critup = 0; gun[110].dodgeup = 0; gun[110].to = 0;
+            gun[102].name = "谢尔久科夫"; gun[102].what = 4; gun[102].crit = 0.2; gun[102].belt = 0; gun[102].number = 3; gun[102].effect0 = 2; gun[102].effect1 = 4; gun[102].effect2 = 8; gun[102].damageup = 0.2; gun[102].hitup = 0.3; gun[102].to = 1;
 
-            gun[101].name = "56式半";gun[101].what = 5; gun[101].crit = 0.4;gun[101].belt = 0;gun[101].number = 2;gun[101].effect0 = 2;gun[101].effect1 = 8;gun[101].rateup = 0.2;gun[101].to = 4;
-            gun[101].eatratio = 110; gun[101].ratiododge = 115; gun[101].ratiohit = 105; gun[101].ratiohp = 105; gun[101].ratiopow = 100;gun[101].ratiorate = 110;
-            gun[101].type = 101;gun[101].probability = 40; gun[101].skilleffect1 = 100; gun[101].skilleffect2 = 2;gun[101].skilleffect3 = 0; gun[101].skilleffect4 = 0; gun[101].growth = 0.6; gun[101].growth_type = 3;
+            gun[44].name = "56式半";gun[44].what = 5; gun[44].crit = 0.4;gun[44].belt = 0;gun[44].number = 2;gun[44].effect0 = 2;gun[44].effect1 = 8;gun[44].rateup = 0.2;gun[44].to = 4;
+            gun[44].eatratio = 110; gun[44].ratiododge = 115; gun[44].ratiohit = 105; gun[44].ratiohp = 105; gun[44].ratiopow = 100;gun[44].ratiorate = 110;
+            gun[44].type = 101;gun[44].probability = 40; gun[44].skilleffect1 = 100; gun[44].skilleffect2 = 2;gun[44].skilleffect3 = 0; gun[44].skilleffect4 = 0; gun[44].growth = 0.6; gun[44].growth_type = 3;
 
-            gun[102].name = "SPP-1"; gun[102].what = 4; gun[102].crit = 0.2; gun[102].belt = 0; gun[102].number = 4; gun[102].effect0 = 1; gun[102].effect1 = 2; gun[102].effect2 = 7; gun[102].effect3 = 8; gun[102].hitup = 0.8; gun[102].damageup = 0.1; gun[102].to = 1;
-            gun[102].eatratio = 135; gun[102].ratiododge = 90; gun[102].ratiohit = 110; gun[102].ratiohp = 115; gun[102].ratiopow = 115; gun[102].ratiorate = 85;
-            gun[102].type = 204; gun[102].probability = 40; gun[102].skilleffect1 = 20; gun[102].skilleffect2 = 8; gun[102].skilleffect3 = 0; gun[102].skilleffect4 = 0; gun[102].growth = 0.5; gun[102].growth_type = 3;
+            gun[88].name = "SPP-1"; gun[88].what = 4; gun[88].crit = 0.2; gun[88].belt = 0; gun[88].number = 4; gun[88].effect0 = 1; gun[88].effect1 = 2; gun[88].effect2 = 7; gun[88].effect3 = 8; gun[88].hitup = 0.8; gun[88].damageup = 0.1; gun[88].to = 1;
+            gun[88].eatratio = 135; gun[88].ratiododge = 90; gun[88].ratiohit = 110; gun[88].ratiohp = 115; gun[88].ratiopow = 115; gun[88].ratiorate = 85;
+            gun[88].type = 204; gun[88].probability = 40; gun[88].skilleffect1 = 20; gun[88].skilleffect2 = 8; gun[88].skilleffect3 = 0; gun[88].skilleffect4 = 0; gun[88].growth = 0.5; gun[88].growth_type = 3;
 
-            gun[103].name = "Z-62"; gun[103].what = 3; gun[103].crit = 0.05; gun[103].belt = 0; gun[103].number = 2; gun[103].effect0 = 1; gun[103].effect1 = 4; gun[103].damageup = 0.12; gun[103].dodgeup = 0.1; gun[103].to = 2;
-            gun[103].eatratio = 120; gun[103].ratiododge = 115; gun[103].ratiohit = 120; gun[103].ratiohp = 95; gun[103].ratiopow = 95; gun[103].ratiorate = 95;
-            gun[103].type = 404; gun[103].probability = 28; gun[103].skilleffect1 = 1.5; gun[103].skilleffect2 = 0.5; gun[103].skilleffect3 = 2; gun[103].skilleffect4 = 1; gun[103].growth = 1; gun[103].growth_type = 4;
+            gun[105].name = "Z-62"; gun[105].what = 3; gun[105].crit = 0.05; gun[105].belt = 0; gun[105].number = 2; gun[105].effect0 = 1; gun[105].effect1 = 4; gun[105].damageup = 0.12; gun[105].dodgeup = 0.1; gun[105].to = 2;
+            gun[105].eatratio = 120; gun[105].ratiododge = 115; gun[105].ratiohit = 120; gun[105].ratiohp = 95; gun[105].ratiopow = 95; gun[105].ratiorate = 95;
+            gun[105].type = 404; gun[105].probability = 28; gun[105].skilleffect1 = 1.5; gun[105].skilleffect2 = 0.5; gun[105].skilleffect3 = 2; gun[105].skilleffect4 = 1; gun[105].growth = 1; gun[105].growth_type = 4;
 
-            gun[104].name = "PSG-1"; gun[104].what = 5; gun[104].crit = 0.4; gun[104].belt = 0; gun[104].number = 1; gun[104].effect0 = 9; gun[104].rateup = 0.22; gun[104].to = 4;
-            gun[104].eatratio = 105; gun[104].ratiododge = 85; gun[104].ratiohit = 125; gun[104].ratiohp = 105; gun[104].ratiopow = 120; gun[104].ratiorate = 120;
-            gun[104].type = 502; gun[104].probability = 30; gun[104].skilleffect1 = 2.4; gun[104].skilleffect2 = 2; gun[104].skilleffect3 = 0; gun[104].skilleffect4 = 0; gun[104].growth = 1.2; gun[104].growth_type = 2;
+            gun[106].name = "PSG-1"; gun[106].what = 5; gun[106].crit = 0.4; gun[106].belt = 0; gun[106].number = 1; gun[106].effect0 = 9; gun[106].rateup = 0.22; gun[106].to = 4;
+            gun[106].eatratio = 105; gun[106].ratiododge = 85; gun[106].ratiohit = 125; gun[106].ratiohp = 105; gun[106].ratiopow = 120; gun[106].ratiorate = 120;
+            gun[106].type = 502; gun[106].probability = 30; gun[106].skilleffect1 = 2.4; gun[106].skilleffect2 = 2; gun[106].skilleffect3 = 0; gun[106].skilleffect4 = 0; gun[106].growth = 1.2; gun[106].growth_type = 2;
 
-            gun[105].name = "OTs-14"; gun[105].what = 2; gun[105].crit = 0.2; gun[105].belt = 0; gun[105].number = 3; gun[105].effect0 = 3; gun[105].effect1 = 6;gun[105].effect2 = 9; gun[105].hitup = 0.65; gun[105].shotspeedup = 0.25; gun[105].to = 3;
-            gun[105].eatratio = 125; gun[105].ratiododge = 125; gun[105].ratiohit = 125; gun[105].ratiohp = 100; gun[105].ratiopow = 105; gun[105].ratiorate = 110;
-            gun[105].type = 131; gun[105].probability = 32; gun[105].skilleffect1 = 120; gun[105].skilleffect2 = 5; gun[105].skilleffect3 = 0; gun[105].skilleffect4 = 0; gun[105].growth = 0.6; gun[105].growth_type = 3;
+            gun[108].name = "OTs-14"; gun[108].what = 2; gun[108].crit = 0.2; gun[108].belt = 0; gun[108].number = 3; gun[108].effect0 = 3; gun[108].effect1 = 6;gun[108].effect2 = 9; gun[108].hitup = 0.65; gun[108].shotspeedup = 0.25; gun[108].to = 3;
+            gun[108].eatratio = 125; gun[108].ratiododge = 125; gun[108].ratiohit = 125; gun[108].ratiohp = 100; gun[108].ratiopow = 105; gun[108].ratiorate = 110;
+            gun[108].type = 131; gun[108].probability = 32; gun[108].skilleffect1 = 120; gun[108].skilleffect2 = 5; gun[108].skilleffect3 = 0; gun[108].skilleffect4 = 0; gun[108].growth = 0.6; gun[108].growth_type = 3;
 
-            gun[106].name = "ARX-160"; gun[106].what = 2; gun[106].crit = 0.2; gun[106].belt = 0; gun[106].number = 1; gun[106].effect0 = 3; gun[106].damageup = 0.25; gun[106].hitup = 0.5; gun[106].to = 3;
-            gun[106].eatratio = 115; gun[106].ratiododge = 120; gun[106].ratiohit = 120; gun[106].ratiohp = 90; gun[106].ratiopow = 110; gun[106].ratiorate = 110;
-            gun[106].type = 601; gun[106].probability = 22; gun[106].skilleffect1 = 2.2; gun[106].skilleffect2 = 1; gun[106].skilleffect3 = 0; gun[106].skilleffect4 = 0; gun[106].growth = 1.5; gun[106].growth_type = 2;
+            gun[109].name = "ARX-160"; gun[109].what = 2; gun[109].crit = 0.2; gun[109].belt = 0; gun[109].number = 1; gun[109].effect0 = 3; gun[109].damageup = 0.25; gun[109].hitup = 0.5; gun[109].to = 3;
+            gun[109].eatratio = 115; gun[109].ratiododge = 120; gun[109].ratiohit = 120; gun[109].ratiohp = 90; gun[109].ratiopow = 110; gun[109].ratiorate = 110;
+            gun[109].type = 601; gun[109].probability = 22; gun[109].skilleffect1 = 2.2; gun[109].skilleffect2 = 1; gun[109].skilleffect3 = 0; gun[109].skilleffect4 = 0; gun[109].growth = 1.5; gun[109].growth_type = 2;
 
-            gun[107].name = "G11"; gun[107].what = 2; gun[107].crit = 0.2; gun[107].belt = 0; gun[107].number = 1; gun[107].effect0 = 6; gun[107].damageup = 0.3; gun[107].dodgeup = 0.1; gun[107].to = 3;
-            gun[107].eatratio = 110; gun[107].ratiododge = 105; gun[107].ratiohit = 115; gun[107].ratiohp = 110; gun[107].ratiopow = 100; gun[107].ratiorate = 145;
-            gun[107].type = 108; gun[107].probability = 32; gun[107].skilleffect1 = 2.2; gun[107].skilleffect2 = 3; gun[107].skilleffect3 = 0; gun[107].skilleffect4 = 0; gun[107].growth = 0.5; gun[107].growth_type = 3;
+            gun[111].name = "G11"; gun[111].what = 2; gun[111].crit = 0.2; gun[111].belt = 0; gun[111].number = 1; gun[111].effect0 = 6; gun[111].damageup = 0.3; gun[111].dodgeup = 0.1; gun[111].to = 3;
+            gun[111].eatratio = 110; gun[111].ratiododge = 105; gun[111].ratiohit = 115; gun[111].ratiohp = 110; gun[111].ratiopow = 100; gun[111].ratiorate = 145;
+            gun[111].type = 108; gun[111].probability = 32; gun[111].skilleffect1 = 2.2; gun[111].skilleffect2 = 3; gun[111].skilleffect3 = 0; gun[111].skilleffect4 = 0; gun[111].growth = 0.5; gun[111].growth_type = 3;
 
-            gun[108].name = "Super SASS";gun[108].what = 5; gun[108].crit = 0.4; gun[108].belt = 0; gun[108].number = 1; gun[108].effect0 = 9; gun[108].rateup = 0.20; gun[108].to = 4;
-            gun[108].eatratio = 105; gun[108].ratiododge = 90; gun[108].ratiohit = 110; gun[108].ratiohp = 100; gun[108].ratiopow = 115; gun[108].ratiorate = 120;
-            gun[108].type = 503; gun[108].probability = 30; gun[108].skilleffect1 = 2.2; gun[108].skilleffect2 = 2; gun[108].skilleffect3 = 0; gun[108].skilleffect4 = 0; gun[108].growth = 1.2; gun[108].growth_type = 2;
+            gun[113].name = "Super SASS";gun[113].what = 5; gun[113].crit = 0.4; gun[113].belt = 0; gun[113].number = 1; gun[113].effect0 = 9; gun[113].rateup = 0.20; gun[113].to = 4;
+            gun[113].eatratio = 105; gun[113].ratiododge = 90; gun[113].ratiohit = 110; gun[113].ratiohp = 100; gun[113].ratiopow = 115; gun[113].ratiorate = 120;
+            gun[113].type = 503; gun[113].probability = 30; gun[113].skilleffect1 = 2.2; gun[113].skilleffect2 = 2; gun[113].skilleffect3 = 0; gun[113].skilleffect4 = 0; gun[113].growth = 1.2; gun[113].growth_type = 2;
 
-            gun[109].name = "SVD"; gun[109].what = 5; gun[109].crit = 0.4; gun[109].belt = 0; gun[109].number = 2; gun[109].effect0 = 3; gun[109].effect1 = 9; gun[109].rateup = 0.22; gun[109].to = 4;
-            gun[109].eatratio = 120; gun[109].ratiododge = 100; gun[109].ratiohit = 120; gun[109].ratiohp = 90; gun[109].ratiopow = 120; gun[109].ratiorate = 110;
-            gun[109].type = 102; gun[109].probability = 36; gun[109].skilleffect1 = 50; gun[109].skilleffect2 = 5; gun[109].skilleffect3 = 0; gun[109].skilleffect4 = 0; gun[109].growth = 0.6; gun[109].growth_type = 3;
+            gun[39].name = "SVD"; gun[39].what = 5; gun[39].crit = 0.4; gun[39].belt = 0; gun[39].number = 2; gun[39].effect0 = 3; gun[39].effect1 = 9; gun[39].rateup = 0.22; gun[39].to = 4;
+            gun[39].eatratio = 120; gun[39].ratiododge = 100; gun[39].ratiohit = 120; gun[39].ratiohp = 90; gun[39].ratiopow = 120; gun[39].ratiorate = 110;
+            gun[39].type = 102; gun[39].probability = 36; gun[39].skilleffect1 = 50; gun[39].skilleffect2 = 5; gun[39].skilleffect3 = 0; gun[39].skilleffect4 = 0; gun[39].growth = 0.6; gun[39].growth_type = 3;
 
-            gun[110].name = "P99"; gun[110].what = 4; gun[110].crit = 0.2; gun[110].belt = 0; gun[110].number = 3; gun[110].effect0 = 2; gun[110].effect1 = 6; gun[110].effect2 = 8; gun[110].shotspeedup = 0.05; gun[110].dodgeup = 0.35; gun[110].to = 1;
-            gun[110].eatratio = 110; gun[110].ratiododge = 125; gun[110].ratiohit = 120; gun[110].ratiohp = 90; gun[110].ratiopow = 115; gun[110].ratiorate = 115;
-            gun[110].type = 4; gun[110].probability = 32; gun[110].skilleffect1 = 30; gun[110].skilleffect2 = 5; gun[110].skilleffect3 = 0; gun[110].skilleffect4 = 0; gun[110].growth = 0.6; gun[110].growth_type = 3;
+            gun[112].name = "P99"; gun[112].what = 4; gun[112].crit = 0.2; gun[112].belt = 0; gun[112].number = 3; gun[112].effect0 = 2; gun[112].effect1 = 6; gun[112].effect2 = 8; gun[112].shotspeedup = 0.05; gun[112].dodgeup = 0.35; gun[112].to = 1;
+            gun[112].eatratio = 110; gun[112].ratiododge = 125; gun[112].ratiohit = 120; gun[112].ratiohp = 90; gun[112].ratiopow = 115; gun[112].ratiorate = 115;
+            gun[112].type = 4; gun[112].probability = 32; gun[112].skilleffect1 = 30; gun[112].skilleffect2 = 5; gun[112].skilleffect3 = 0; gun[112].skilleffect4 = 0; gun[112].growth = 0.6; gun[112].growth_type = 3;
 
-            gun[111].name = "MG4"; gun[111].what = 6; gun[111].crit = 0.05; gun[111].belt = 9; gun[111].number = 0; gun[111].to = 0;
-            gun[111].eatratio = 135; gun[111].ratiododge = 120; gun[111].ratiohit = 120; gun[111].ratiohp = 110; gun[111].ratiopow = 95; gun[111].ratiorate = 125;
-            gun[111].type = 101; gun[111].probability = 32; gun[111].skilleffect1 = 30; gun[111].skilleffect2 = 8; gun[111].skilleffect3 = 0; gun[111].skilleffect4 = 0; gun[111].growth = 1.2; gun[111].growth_type = 2;
+            gun[114].name = "MG4"; gun[114].what = 6; gun[114].crit = 0.05; gun[114].belt = 9; gun[114].number = 0; gun[114].to = 0;
+            gun[114].eatratio = 135; gun[114].ratiododge = 120; gun[114].ratiohit = 120; gun[114].ratiohp = 110; gun[114].ratiopow = 95; gun[114].ratiorate = 125;
+            gun[114].type = 101; gun[114].probability = 32; gun[114].skilleffect1 = 30; gun[114].skilleffect2 = 8; gun[114].skilleffect3 = 0; gun[114].skilleffect4 = 0; gun[114].growth = 1.2; gun[114].growth_type = 2;
 
-            gun[112].name = "G36C"; gun[112].what = 3; gun[112].crit = 0.05; gun[112].belt = 0; gun[112].number = 3; gun[112].effect0 = 1; gun[112].effect1 = 4; gun[112].effect2 = 7; gun[112].damageup = 0.1; gun[112].shotspeedup = 0.08; gun[112].to = 2;
-            gun[112].eatratio = 95; gun[112].ratiododge = 120; gun[112].ratiohit = 110; gun[112].ratiohp = 115; gun[112].ratiopow = 135; gun[112].ratiorate = 110;
-            gun[112].type = 106; gun[112].probability = 20; gun[112].skilleffect1 = 2; gun[112].skilleffect2 = 0; gun[112].skilleffect3 = 0; gun[112].skilleffect4 = 0; gun[112].growth = 1; gun[112].growth_type = 2;
+            gun[93].name = "G36C"; gun[93].what = 3; gun[93].crit = 0.05; gun[93].belt = 0; gun[93].number = 3; gun[93].effect0 = 1; gun[93].effect1 = 4; gun[93].effect2 = 7; gun[93].damageup = 0.1; gun[93].shotspeedup = 0.08; gun[93].to = 2;
+            gun[93].eatratio = 95; gun[93].ratiododge = 120; gun[93].ratiohit = 110; gun[93].ratiohp = 115; gun[93].ratiopow = 135; gun[93].ratiorate = 110;
+            gun[93].type = 106; gun[93].probability = 20; gun[93].skilleffect1 = 2; gun[93].skilleffect2 = 0; gun[93].skilleffect3 = 0; gun[93].skilleffect4 = 0; gun[93].growth = 1; gun[93].growth_type = 2;
 
-            gun[113].name = "NZ75"; gun[113].what = 4; gun[113].crit = 0.2; gun[113].belt = 0; gun[113].number = 6; gun[113].effect0 = 1; gun[113].effect1 = 4; gun[113].effect2 = 7; gun[113].effect3 = 3; gun[113].effect4 = 6; gun[113].effect5 = 9; gun[113].damageup = 0.1; gun[113].dodgeup = 0.25; gun[113].to = 1;
-            gun[113].eatratio = 125; gun[113].ratiododge = 95; gun[113].ratiohit = 120; gun[113].ratiohp = 110; gun[113].ratiopow = 115; gun[113].ratiorate = 115;
-            gun[113].type = 202; gun[113].probability = 20; gun[113].skilleffect1 = 15; gun[113].skilleffect2 = 8; gun[113].skilleffect3 = 0; gun[113].skilleffect4 = 0; gun[113].growth = 0.6; gun[113].growth_type = 3;
+            gun[115].name = "NZ75"; gun[115].what = 4; gun[115].crit = 0.2; gun[115].belt = 0; gun[115].number = 6; gun[115].effect0 = 1; gun[115].effect1 = 4; gun[115].effect2 = 7; gun[115].effect3 = 3; gun[115].effect4 = 6; gun[115].effect5 = 9; gun[115].damageup = 0.1; gun[115].dodgeup = 0.25; gun[115].to = 1;
+            gun[115].eatratio = 125; gun[115].ratiododge = 95; gun[115].ratiohit = 120; gun[115].ratiohp = 110; gun[115].ratiopow = 115; gun[115].ratiorate = 115;
+            gun[115].type = 202; gun[115].probability = 20; gun[115].skilleffect1 = 15; gun[115].skilleffect2 = 8; gun[115].skilleffect3 = 0; gun[115].skilleffect4 = 0; gun[115].growth = 0.6; gun[115].growth_type = 3;
 
-            gun[114].name = "79式"; gun[114].what = 3; gun[114].crit = 0.05; gun[114].belt = 0; gun[114].number = 2; gun[114].effect0 = 1; gun[114].effect1 = 7; gun[114].damageup = 0.2; gun[114].to = 2;
-            gun[114].eatratio = 100; gun[114].ratiododge = 125; gun[114].ratiohit = 110; gun[114].ratiohp = 110; gun[114].ratiopow = 130; gun[114].ratiorate = 115;
-            gun[114].type = 403; gun[114].probability = 30; gun[114].skilleffect1 = 2; gun[114].skilleffect2 = 2.5; gun[114].skilleffect3 = 0; gun[114].skilleffect4 = 0; gun[114].growth = 1; gun[114].growth_type = 2;
+            gun[116].name = "79式"; gun[116].what = 3; gun[116].crit = 0.05; gun[116].belt = 0; gun[116].number = 2; gun[116].effect0 = 1; gun[116].effect1 = 7; gun[116].damageup = 0.2; gun[116].to = 2;
+            gun[116].eatratio = 100; gun[116].ratiododge = 125; gun[116].ratiohit = 110; gun[116].ratiohp = 110; gun[116].ratiopow = 130; gun[116].ratiorate = 115;
+            gun[116].type = 403; gun[116].probability = 30; gun[116].skilleffect1 = 2; gun[116].skilleffect2 = 2.5; gun[116].skilleffect3 = 0; gun[116].skilleffect4 = 0; gun[116].growth = 1; gun[116].growth_type = 2;
 
-            gun[115].name = "M99"; gun[115].what = 5; gun[115].crit = 0.4; gun[115].belt = 0; gun[115].number = 2; gun[115].effect0 = 3; gun[115].effect1 = 9; gun[115].rateup = 0.25; gun[115].to = 4;
-            gun[115].eatratio = 135; gun[115].ratiododge = 85; gun[115].ratiohit = 110; gun[115].ratiohp = 100; gun[115].ratiopow = 135; gun[115].ratiorate = 90;
-            gun[115].type = 502; gun[115].probability = 16; gun[115].skilleffect1 = 4; gun[115].skilleffect2 = 2; gun[115].skilleffect3 = 0; gun[115].skilleffect4 = 0; gun[115].growth = 1.2; gun[115].growth_type = 2;
+            gun[117].name = "M99"; gun[117].what = 5; gun[117].crit = 0.4; gun[117].belt = 0; gun[117].number = 2; gun[117].effect0 = 3; gun[117].effect1 = 9; gun[117].rateup = 0.25; gun[117].to = 4;
+            gun[117].eatratio = 135; gun[117].ratiododge = 85; gun[117].ratiohit = 110; gun[117].ratiohp = 100; gun[117].ratiopow = 135; gun[117].ratiorate = 90;
+            gun[117].type = 502; gun[117].probability = 16; gun[117].skilleffect1 = 4; gun[117].skilleffect2 = 2; gun[117].skilleffect3 = 0; gun[117].skilleffect4 = 0; gun[117].growth = 1.2; gun[117].growth_type = 2;
 
-            gun[116].name = "95式"; gun[116].what = 2; gun[116].crit = 0.2; gun[116].belt = 0; gun[116].number = 1; gun[116].effect0 = 3; gun[116].damageup = 0.1; gun[116].dodgeup = 0.18; gun[116].to = 3;
-            gun[116].eatratio = 120; gun[116].ratiododge = 110; gun[116].ratiohit = 120; gun[116].ratiohp = 105; gun[116].ratiopow = 120; gun[116].ratiorate = 105;
-            gun[116].type = 101; gun[116].probability = 40; gun[116].skilleffect1 = 30; gun[116].skilleffect2 = 8; gun[116].skilleffect3 = 0; gun[116].skilleffect4 = 0; gun[116].growth = 0.6; gun[116].growth_type = 3;
+            gun[118].name = "95式"; gun[118].what = 2; gun[118].crit = 0.2; gun[118].belt = 0; gun[118].number = 1; gun[118].effect0 = 3; gun[118].damageup = 0.1; gun[118].dodgeup = 0.18; gun[118].to = 3;
+            gun[118].eatratio = 120; gun[118].ratiododge = 110; gun[118].ratiohit = 120; gun[118].ratiohp = 105; gun[118].ratiopow = 120; gun[118].ratiorate = 105;
+            gun[118].type = 101; gun[118].probability = 40; gun[118].skilleffect1 = 30; gun[118].skilleffect2 = 8; gun[118].skilleffect3 = 0; gun[118].skilleffect4 = 0; gun[118].growth = 0.6; gun[118].growth_type = 3;
 
-            gun[117].name = "97式"; gun[117].what = 2; gun[117].crit = 0.2; gun[117].belt = 0; gun[117].number = 1; gun[117].effect0 = 9; gun[117].shotspeedup = 0.1; gun[117].dodgeup = 0.18; gun[117].to = 3;
-            gun[117].eatratio = 125; gun[117].ratiododge = 105; gun[117].ratiohit = 120; gun[117].ratiohp = 105; gun[117].ratiopow = 115; gun[117].ratiorate = 105;
-            gun[117].type = 102; gun[117].probability = 40; gun[117].skilleffect1 = 30; gun[117].skilleffect2 = 8; gun[117].skilleffect3 = 0; gun[117].skilleffect4 = 0; gun[117].growth = 0.6; gun[117].growth_type = 3;
+            gun[119].name = "97式"; gun[119].what = 2; gun[119].crit = 0.2; gun[119].belt = 0; gun[119].number = 1; gun[119].effect0 = 9; gun[119].shotspeedup = 0.1; gun[119].dodgeup = 0.18; gun[119].to = 3;
+            gun[119].eatratio = 125; gun[119].ratiododge = 105; gun[119].ratiohit = 120; gun[119].ratiohp = 105; gun[119].ratiopow = 115; gun[119].ratiorate = 105;
+            gun[119].type = 102; gun[119].probability = 40; gun[119].skilleffect1 = 30; gun[119].skilleffect2 = 8; gun[119].skilleffect3 = 0; gun[119].skilleffect4 = 0; gun[119].growth = 0.6; gun[119].growth_type = 3;
 
-            gun[118].name = "EVO 3"; gun[118].what = 3; gun[118].crit = 0.05; gun[118].belt = 0; gun[118].number = 1; gun[118].effect0 = 4; gun[118].hitup = 0.55; gun[118].to = 2;
-            gun[118].eatratio = 105; gun[118].ratiododge = 115; gun[118].ratiohit = 115; gun[118].ratiohp = 110; gun[118].ratiopow = 90; gun[118].ratiorate = 120;
-            gun[118].type = 401; gun[118].probability = 20; gun[118].skilleffect1 = 1.6; gun[118].skilleffect2 = 2.5; gun[118].skilleffect3 = 0; gun[118].skilleffect4 = 0; gun[118].growth = 1.5; gun[118].growth_type = 2;
+            gun[120].name = "EVO 3"; gun[120].what = 3; gun[120].crit = 0.05; gun[120].belt = 0; gun[120].number = 1; gun[120].effect0 = 4; gun[120].hitup = 0.55; gun[120].to = 2;
+            gun[120].eatratio = 105; gun[120].ratiododge = 115; gun[120].ratiohit = 115; gun[120].ratiohp = 110; gun[120].ratiopow = 90; gun[120].ratiorate = 120;
+            gun[120].type = 401; gun[120].probability = 20; gun[120].skilleffect1 = 1.6; gun[120].skilleffect2 = 2.5; gun[120].skilleffect3 = 0; gun[120].skilleffect4 = 0; gun[120].growth = 1.5; gun[120].growth_type = 2;
 
-            gun[119].name = "M1A1"; gun[119].what = 5; gun[119].crit = 0.4; gun[119].belt = 0; gun[119].number = 1; gun[119].effect0 = 6; gun[119].rateup = 0.2; gun[119].to = 4;
-            gun[119].eatratio = 115; gun[119].ratiododge = 130; gun[119].ratiohit = 105; gun[119].ratiohp = 95; gun[119].ratiopow = 90; gun[119].ratiorate = 115;
-            gun[119].type = 102; gun[119].probability = 36; gun[119].skilleffect1 = 30; gun[119].skilleffect2 = 8; gun[119].skilleffect3 = 0; gun[119].skilleffect4 = 0; gun[119].growth = 0.6; gun[119].growth_type = 3;
+            gun[31].name = "M1A1"; gun[31].what = 5; gun[31].crit = 0.4; gun[31].belt = 0; gun[31].number = 1; gun[31].effect0 = 6; gun[31].rateup = 0.2; gun[31].to = 4;
+            gun[31].eatratio = 115; gun[31].ratiododge = 130; gun[31].ratiohit = 105; gun[31].ratiohp = 95; gun[31].ratiopow = 90; gun[31].ratiorate = 115;
+            gun[31].type = 102; gun[31].probability = 36; gun[31].skilleffect1 = 30; gun[31].skilleffect2 = 8; gun[31].skilleffect3 = 0; gun[31].skilleffect4 = 0; gun[31].growth = 0.6; gun[31].growth_type = 3;
 
             gun[121].name = "59式"; gun[121].what = 4; gun[121].crit = 0.2; gun[121].belt = 0; gun[121].number = 5; gun[121].effect0 = 2; gun[121].effect1 = 3; gun[121].effect2 = 6; gun[121].effect3 = 8; gun[121].effect4 = 9; gun[121].damageup = 0.15; gun[121].hitup = 0.3; gun[121].to = 1;
             gun[121].eatratio = 130; gun[121].ratiododge = 120; gun[121].ratiohit = 115; gun[121].ratiohp = 90; gun[121].ratiopow = 95; gun[121].ratiorate = 110;
             gun[121].type = 234; gun[121].probability = 40; gun[121].skilleffect1 = 30; gun[121].skilleffect2 = 12; gun[121].skilleffect3 = 0; gun[121].skilleffect4 = 0; gun[121].growth = 0.8; gun[121].growth_type = 3;
 
-            gun[120].name = "63式"; gun[120].what = 2; gun[120].crit = 0.2; gun[120].belt = 0; gun[120].number = 1; gun[120].effect0 = 6; gun[120].damageup = 0.1; gun[120].shotspeedup = 0.2; gun[120].to = 3;
-            gun[120].eatratio = 100; gun[120].ratiododge = 100; gun[120].ratiohit = 100; gun[120].ratiohp = 100; gun[120].ratiopow = 120; gun[120].ratiorate = 110;
-            gun[120].type = 103; gun[120].probability = 32; gun[120].skilleffect1 = 200; gun[120].skilleffect2 = 8; gun[120].skilleffect3 = 0; gun[120].skilleffect4 = 0; gun[120].growth = 1.2; gun[120].growth_type = 3;
+            gun[122].name = "63式"; gun[122].what = 2; gun[122].crit = 0.2; gun[122].belt = 0; gun[122].number = 1; gun[122].effect0 = 6; gun[122].damageup = 0.1; gun[122].shotspeedup = 0.2; gun[122].to = 3;
+            gun[122].eatratio = 100; gun[122].ratiododge = 100; gun[122].ratiohit = 100; gun[122].ratiohp = 100; gun[122].ratiopow = 120; gun[122].ratiorate = 110;
+            gun[122].type = 103; gun[122].probability = 32; gun[122].skilleffect1 = 200; gun[122].skilleffect2 = 8; gun[122].skilleffect3 = 0; gun[122].skilleffect4 = 0; gun[122].growth = 1.2; gun[122].growth_type = 3;
 
-            gun[125].name = "AR70"; gun[125].what = 2; gun[125].crit = 0.2; gun[125].belt = 0; gun[125].number = 1; gun[125].effect0 = 9; gun[125].shotspeedup = 0.16; gun[125].hitup = 0.75; gun[125].to = 3;
-            gun[125].eatratio = 120; gun[125].ratiododge = 100; gun[125].ratiohit = 105; gun[125].ratiohp = 100; gun[125].ratiopow = 110; gun[125].ratiorate = 105;
-            gun[125].type = 601; gun[125].probability = 22; gun[125].skilleffect1 = 2.2; gun[125].skilleffect2 = 1; gun[125].skilleffect3 = 0; gun[125].skilleffect4 = 0; gun[125].growth = 1.5; gun[125].growth_type = 2;
+            gun[123].name = "AR70"; gun[123].what = 2; gun[123].crit = 0.2; gun[123].belt = 0; gun[123].number = 1; gun[123].effect0 = 9; gun[123].shotspeedup = 0.16; gun[123].hitup = 0.75; gun[123].to = 3;
+            gun[123].eatratio = 120; gun[123].ratiododge = 100; gun[123].ratiohit = 105; gun[123].ratiohp = 100; gun[123].ratiopow = 110; gun[123].ratiorate = 105;
+            gun[123].type = 601; gun[123].probability = 22; gun[123].skilleffect1 = 2.2; gun[123].skilleffect2 = 1; gun[123].skilleffect3 = 0; gun[123].skilleffect4 = 0; gun[123].growth = 1.5; gun[123].growth_type = 2;
 
-            gun[122].name = "PP19"; gun[122].what = 3; gun[122].crit = 0.05; gun[122].belt = 0; gun[122].number = 1; gun[122].effect0 = 4; gun[122].damageup = 0.24; gun[122].to = 2;
-            gun[122].eatratio = 110; gun[122].ratiododge = 120; gun[122].ratiohit = 115; gun[122].ratiohp = 100; gun[122].ratiopow = 95; gun[122].ratiorate = 115;
-            gun[122].type = 401; gun[122].probability = 18; gun[122].skilleffect1 = 2; gun[122].skilleffect2 = 2.5; gun[122].skilleffect3 = 0; gun[122].skilleffect4 = 0; gun[122].growth = 1.5; gun[122].growth_type = 2;
+            gun[125].name = "PP-19"; gun[125].what = 3; gun[125].crit = 0.05; gun[125].belt = 0; gun[125].number = 1; gun[125].effect0 = 4; gun[125].damageup = 0.24; gun[125].to = 2;
+            gun[125].eatratio = 110; gun[125].ratiododge = 120; gun[125].ratiohit = 115; gun[125].ratiohp = 100; gun[125].ratiopow = 95; gun[125].ratiorate = 115;
+            gun[125].type = 401; gun[125].probability = 18; gun[125].skilleffect1 = 2; gun[125].skilleffect2 = 2.5; gun[125].skilleffect3 = 0; gun[125].skilleffect4 = 0; gun[125].growth = 1.5; gun[125].growth_type = 2;
 
-            gun[123].name = "SR3MP"; gun[123].what = 3; gun[123].crit = 0.05; gun[123].belt = 0; gun[123].number = 3; gun[123].effect0 = 1; gun[123].effect1 = 4; gun[123].effect2 = 7; gun[123].shotspeedup = 0.15; gun[123].critup = 0.5; gun[123].to = 2;
-            gun[123].eatratio = 95; gun[123].ratiododge = 125; gun[123].ratiohit = 115; gun[123].ratiohp = 110; gun[123].ratiopow = 130; gun[123].ratiorate = 120;
-            gun[123].type = 101; gun[123].probability = 45; gun[123].skilleffect1 = 160; gun[123].skilleffect2 = 3; gun[123].skilleffect3 = 0; gun[123].skilleffect4 = 0; gun[123].growth = 0.6; gun[123].growth_type = 3;
+            gun[124].name = "SR-3MP"; gun[124].what = 3; gun[124].crit = 0.05; gun[124].belt = 0; gun[124].number = 3; gun[124].effect0 = 1; gun[124].effect1 = 4; gun[124].effect2 = 7; gun[124].shotspeedup = 0.15; gun[124].critup = 0.5; gun[124].to = 2;
+            gun[124].eatratio = 95; gun[124].ratiododge = 125; gun[124].ratiohit = 115; gun[124].ratiohp = 110; gun[124].ratiopow = 130; gun[124].ratiorate = 120;
+            gun[124].type = 101; gun[124].probability = 45; gun[124].skilleffect1 = 160; gun[124].skilleffect2 = 3; gun[124].skilleffect3 = 0; gun[124].skilleffect4 = 0; gun[124].growth = 0.6; gun[124].growth_type = 3;
 
-            gun[124].name = "PP90"; gun[124].what = 3; gun[124].crit = 0.05; gun[124].belt = 0; gun[124].number = 2; gun[124].effect0 = 1; gun[124].effect1 = 7; gun[124].damageup = 0.08; gun[124].dodgeup = 0.2; gun[124].to = 2;
-            gun[124].eatratio = 120; gun[124].ratiododge = 130; gun[124].ratiohit = 100; gun[124].ratiohp = 90; gun[124].ratiopow = 90; gun[124].ratiorate = 120;
-            gun[124].type = 104; gun[124].probability = 24; gun[124].skilleffect1 = 120; gun[124].skilleffect2 = 5; gun[124].skilleffect3 = 0; gun[124].skilleffect4 = 0; gun[124].growth = 0.8; gun[124].growth_type = 3;
+            gun[21].name = "PP-90"; gun[21].what = 3; gun[21].crit = 0.05; gun[21].belt = 0; gun[21].number = 2; gun[21].effect0 = 1; gun[21].effect1 = 7; gun[21].damageup = 0.08; gun[21].dodgeup = 0.2; gun[21].to = 2;
+            gun[21].eatratio = 120; gun[21].ratiododge = 130; gun[21].ratiohit = 100; gun[21].ratiohp = 90; gun[21].ratiopow = 90; gun[21].ratiorate = 120;
+            gun[21].type = 104; gun[21].probability = 24; gun[21].skilleffect1 = 120; gun[21].skilleffect2 = 5; gun[21].skilleffect3 = 0; gun[21].skilleffect4 = 0; gun[21].growth = 0.8; gun[21].growth_type = 3;
 
             gun[126].name = "6P62"; gun[126].what = 2; gun[126].crit = 0.2; gun[126].belt = 0; gun[126].number = 1; gun[126].effect0 = 6; gun[126].damageup = 0.35; gun[126].to = 3;
             gun[126].eatratio = 125; gun[126].ratiododge = 75; gun[126].ratiohit = 85; gun[126].ratiohp = 110; gun[126].ratiopow = 150; gun[126].ratiorate = 80;
@@ -755,9 +765,9 @@ namespace snqxap
 
             for (int i = 0; i < GUN_NUMBER -1; i++) //加图像
             {
-                gun[i].image = "/assets/" + i.ToString() + ".png";
+                gun[i].image = "/assets/" + gun[i].name + ".png";
             }
-            gun[GUN_NUMBER - 1].image = "/assets/71.png";
+            gun[GUN_NUMBER - 1].image = "/assets/WA2000.png";
             gun[GUN_NUMBER].image = "";
 
                 for (int i = 0; i < 9; i++)
@@ -921,1430 +931,1838 @@ namespace snqxap
             equiptb831.IsEnabled = false;
             equiptb832.IsEnabled = false;
             equiptb833.IsEnabled = false;
-            gun[0].eatratio = 105;
-            gun[1].eatratio = 125;
-            gun[2].eatratio = 110;
-            gun[3].eatratio = 105;
-            gun[4].eatratio = 115;
-            gun[5].eatratio = 115;
-            gun[6].eatratio = 130;
-            gun[7].eatratio = 115;
-            gun[8].eatratio = 115;
-            gun[9].eatratio = 110;
-            gun[10].eatratio = 105;
-            gun[11].eatratio = 100;
-            gun[12].eatratio = 105;
-            gun[13].eatratio = 100;
             gun[14].eatratio = 105;
-            gun[15].eatratio = 110;
-            gun[16].eatratio = 115;
-            gun[17].eatratio = 105;
+            gun[26].eatratio = 125;
+            gun[91].eatratio = 110;
             gun[18].eatratio = 105;
-            gun[19].eatratio = 110;
+            gun[25].eatratio = 115;
+            gun[15].eatratio = 115;
+            gun[83].eatratio = 130;
+            gun[28].eatratio = 115;
+            gun[17].eatratio = 115;
+            gun[16].eatratio = 110;
+            gun[29].eatratio = 105;
+            gun[82].eatratio = 100;
             gun[20].eatratio = 105;
-            gun[21].eatratio = 125;
-            gun[22].eatratio = 110;
+            gun[22].eatratio = 100;
+            gun[24].eatratio = 105;
+            gun[27].eatratio = 110;
             gun[23].eatratio = 115;
-            gun[24].eatratio = 115;
-            gun[25].eatratio = 120;
-            gun[26].eatratio = 110;
-            gun[27].eatratio = 115;
-            gun[28].eatratio = 110;
-            gun[29].eatratio = 120;
-            gun[30].eatratio = 105;
-            gun[31].eatratio = 110;
-            gun[32].eatratio = 120;
+            gun[19].eatratio = 105;
+            gun[84].eatratio = 105;
+            gun[92].eatratio = 110;
+            gun[104].eatratio = 105;
+            gun[94].eatratio = 125;
+            gun[58].eatratio = 110;
+            gun[95].eatratio = 115;
+            gun[59].eatratio = 115;
+            gun[56].eatratio = 120;
+            gun[60].eatratio = 110;
+            gun[50].eatratio = 115;
+            gun[49].eatratio = 110;
+            gun[52].eatratio = 120;
+            gun[62].eatratio = 105;
+            gun[53].eatratio = 110;
+            gun[55].eatratio = 120;
+            gun[97].eatratio = 110;
+            gun[51].eatratio = 110;
+            gun[65].eatratio = 115;
+            gun[64].eatratio = 130;
+            gun[66].eatratio = 125;
+            gun[57].eatratio = 120;
+            gun[96].eatratio = 105;
+            gun[63].eatratio = 115;
+            gun[61].eatratio = 125;
+            gun[107].eatratio = 110;
+            gun[54].eatratio = 110;
+            gun[103].eatratio = 140;
+            gun[3].eatratio = 130;
+            gun[0].eatratio = 130;
+            gun[86].eatratio = 125;
+            gun[4].eatratio = 105;
+            gun[13].eatratio = 110;
+            gun[6].eatratio = 130;
+            gun[5].eatratio = 110;
+            gun[12].eatratio = 120;
+            gun[9].eatratio = 130;
+            gun[89].eatratio = 110;
+            gun[1].eatratio = 120;
+            gun[8].eatratio = 125;
+            gun[10].eatratio = 100;
+            gun[87].eatratio = 115;
+            gun[7].eatratio = 125;
+            gun[2].eatratio = 110;
+            gun[90].eatratio = 115;
+            gun[11].eatratio = 110;
+            gun[80].eatratio = 110;
+            gun[81].eatratio = 120;
+            gun[37].eatratio = 105;
+            gun[46].eatratio = 115;
+            gun[45].eatratio = 135;
+            gun[48].eatratio = 130;
+            gun[38].eatratio = 130;
+            gun[36].eatratio = 105;
+            gun[43].eatratio = 120;
             gun[33].eatratio = 110;
             gun[34].eatratio = 110;
-            gun[35].eatratio = 115;
-            gun[36].eatratio = 130;
-            gun[37].eatratio = 125;
-            gun[38].eatratio = 120;
-            gun[39].eatratio = 105;
+            gun[47].eatratio = 95;
+            gun[30].eatratio = 105;
             gun[40].eatratio = 115;
-            gun[41].eatratio = 125;
-            gun[42].eatratio = 110;
-            gun[43].eatratio = 110;
-            gun[44].eatratio = 140;
-            gun[45].eatratio = 130;
-            gun[46].eatratio = 130;
-            gun[47].eatratio = 125;
-            gun[48].eatratio = 105;
-            gun[49].eatratio = 110;
-            gun[50].eatratio = 130;
-            gun[51].eatratio = 110;
-            gun[52].eatratio = 120;
-            gun[53].eatratio = 130;
-            gun[54].eatratio = 110;
-            gun[55].eatratio = 120;
-            gun[56].eatratio = 125;
-            gun[57].eatratio = 100;
-            gun[58].eatratio = 115;
-            gun[59].eatratio = 125;
-            gun[60].eatratio = 110;
-            gun[61].eatratio = 115;
-            gun[62].eatratio = 110;
-            gun[63].eatratio = 110;
-            gun[64].eatratio = 120;
-            gun[65].eatratio = 105;
-            gun[66].eatratio = 115;
-            gun[67].eatratio = 135;
-            gun[68].eatratio = 130;
-            gun[69].eatratio = 130;
-            gun[70].eatratio = 105;
-            gun[71].eatratio = 120;
-            gun[72].eatratio = 110;
-            gun[73].eatratio = 110;
-            gun[74].eatratio = 95;
+            gun[42].eatratio = 115;
+            gun[85].eatratio = 120;
+            gun[41].eatratio = 135;
+            gun[35].eatratio = 130;
+            gun[32].eatratio = 125;
+            gun[69].eatratio = 115;
+            gun[98].eatratio = 110;
+            gun[67].eatratio = 125;
+            gun[78].eatratio = 110;
+            gun[71].eatratio = 110;
             gun[75].eatratio = 105;
+            gun[101].eatratio = 135;
+            gun[74].eatratio = 130;
+            gun[68].eatratio = 95;
+            gun[72].eatratio = 95;
+            gun[70].eatratio = 135;
+            gun[100].eatratio = 90;
+            gun[73].eatratio = 125;
             gun[76].eatratio = 115;
-            gun[77].eatratio = 115;
-            gun[78].eatratio = 120;
-            gun[79].eatratio = 135;
-            gun[80].eatratio = 130;
-            gun[81].eatratio = 125;
-            gun[82].eatratio = 115;
-            gun[83].eatratio = 110;
-            gun[84].eatratio = 125;
-            gun[85].eatratio = 110;
-            gun[86].eatratio = 110;
-            gun[87].eatratio = 105;
-            gun[88].eatratio = 135;
-            gun[89].eatratio = 130;
-            gun[90].eatratio = 95;
-            gun[91].eatratio = 95;
-            gun[92].eatratio = 135;
-            gun[93].eatratio = 90;
-            gun[94].eatratio = 125;
-            gun[95].eatratio = 115;
-            gun[96].eatratio = 110;
-            gun[97].eatratio = 120;
-            gun[98].eatratio = 115;
-            gun[99].eatratio = 100;
-            gun[100].eatratio = 115;
+            gun[77].eatratio = 110;
+            gun[79].eatratio = 120;
+            gun[99].eatratio = 115;
+            gun[110].eatratio = 100;
+            gun[102].eatratio = 115;
 
-            gun[0].ratiohit = 100;
-            gun[1].ratiohit = 115;
-            gun[2].ratiohit = 120;
-            gun[3].ratiohit = 90;
-            gun[4].ratiohit = 100;
-            gun[5].ratiohit = 105;
-            gun[6].ratiohit = 110;
-            gun[7].ratiohit = 85;
-            gun[8].ratiohit = 105;
-            gun[9].ratiohit = 90;
-            gun[10].ratiohit = 100;
-            gun[11].ratiohit = 105;
-            gun[12].ratiohit = 110;
-            gun[13].ratiohit = 100;
-            gun[14].ratiohit = 115;
-            gun[15].ratiohit = 95;
-            gun[16].ratiohit = 100;
-            gun[17].ratiohit = 85;
+            gun[14].ratiohit = 100;
+            gun[26].ratiohit = 115;
+            gun[91].ratiohit = 120;
             gun[18].ratiohit = 90;
-            gun[19].ratiohit = 110;
-            gun[20].ratiohit = 130;
-            gun[21].ratiohit = 125;
-            gun[22].ratiohit = 115;
-            gun[23].ratiohit = 100;
-            gun[24].ratiohit = 115;
-            gun[25].ratiohit = 115;
-            gun[26].ratiohit = 90;
-            gun[27].ratiohit = 120;
-            gun[28].ratiohit = 120;
-            gun[29].ratiohit = 120;
-            gun[30].ratiohit = 130;
-            gun[31].ratiohit = 90;
-            gun[32].ratiohit = 110;
-            gun[33].ratiohit = 125;
-            gun[34].ratiohit = 125;
-            gun[35].ratiohit = 120;
-            gun[36].ratiohit = 100;
-            gun[37].ratiohit = 95;
-            gun[38].ratiohit = 110;
-            gun[39].ratiohit = 120;
-            gun[40].ratiohit = 115;
-            gun[41].ratiohit = 100;
-            gun[42].ratiohit = 125;
-            gun[43].ratiohit = 120;
-            gun[44].ratiohit = 125;
-            gun[45].ratiohit = 85;
-            gun[46].ratiohit = 90;
-            gun[47].ratiohit = 100;
-            gun[48].ratiohit = 105;
-            gun[49].ratiohit = 125;
-            gun[50].ratiohit = 115;
-            gun[51].ratiohit = 95;
-            gun[52].ratiohit = 90;
-            gun[53].ratiohit = 85;
-            gun[54].ratiohit = 115;
-            gun[55].ratiohit = 100;
-            gun[56].ratiohit = 115;
-            gun[57].ratiohit = 95;
-            gun[58].ratiohit = 115;
-            gun[59].ratiohit = 95;
-            gun[60].ratiohit = 120;
-            gun[61].ratiohit = 130;
-            gun[62].ratiohit = 100;
-            gun[63].ratiohit = 115;
-            gun[64].ratiohit = 105;
-            gun[65].ratiohit = 100;
-            gun[66].ratiohit = 95;
-            gun[67].ratiohit = 105;
-            gun[68].ratiohit = 105;
-            gun[69].ratiohit = 105;
-            gun[70].ratiohit = 100;
-            gun[71].ratiohit = 125;
-            gun[72].ratiohit = 115;
-            gun[73].ratiohit = 120;
-            gun[74].ratiohit = 95;
-            gun[75].ratiohit = 105;
-            gun[76].ratiohit = 115;
-            gun[77].ratiohit = 90;
-            gun[78].ratiohit = 90;
-            gun[79].ratiohit = 105;
-            gun[80].ratiohit = 120;
-            gun[81].ratiohit = 105;
+            gun[25].ratiohit = 100;
+            gun[15].ratiohit = 105;
+            gun[83].ratiohit = 110;
+            gun[28].ratiohit = 85;
+            gun[17].ratiohit = 105;
+            gun[16].ratiohit = 90;
+            gun[29].ratiohit = 100;
             gun[82].ratiohit = 105;
-            gun[83].ratiohit = 115;
-            gun[84].ratiohit = 120;
-            gun[85].ratiohit = 110;
-            gun[86].ratiohit = 110;
-            gun[87].ratiohit = 90;
-            gun[88].ratiohit = 125;
-            gun[89].ratiohit = 125;
-            gun[90].ratiohit = 85;
-            gun[91].ratiohit = 115;
-            gun[92].ratiohit = 125;
-            gun[93].ratiohit = 120;
-            gun[94].ratiohit = 105;
-            gun[95].ratiohit = 95;
-            gun[96].ratiohit = 95;
+            gun[20].ratiohit = 110;
+            gun[22].ratiohit = 100;
+            gun[24].ratiohit = 115;
+            gun[27].ratiohit = 95;
+            gun[23].ratiohit = 100;
+            gun[19].ratiohit = 85;
+            gun[84].ratiohit = 90;
+            gun[92].ratiohit = 110;
+            gun[104].ratiohit = 130;
+            gun[94].ratiohit = 125;
+            gun[58].ratiohit = 115;
+            gun[95].ratiohit = 100;
+            gun[59].ratiohit = 115;
+            gun[56].ratiohit = 115;
+            gun[60].ratiohit = 90;
+            gun[50].ratiohit = 120;
+            gun[49].ratiohit = 120;
+            gun[52].ratiohit = 120;
+            gun[62].ratiohit = 130;
+            gun[53].ratiohit = 90;
+            gun[55].ratiohit = 110;
             gun[97].ratiohit = 125;
+            gun[51].ratiohit = 125;
+            gun[65].ratiohit = 120;
+            gun[64].ratiohit = 100;
+            gun[66].ratiohit = 95;
+            gun[57].ratiohit = 110;
+            gun[96].ratiohit = 120;
+            gun[63].ratiohit = 115;
+            gun[61].ratiohit = 100;
+            gun[107].ratiohit = 125;
+            gun[54].ratiohit = 120;
+            gun[103].ratiohit = 125;
+            gun[3].ratiohit = 85;
+            gun[0].ratiohit = 90;
+            gun[86].ratiohit = 100;
+            gun[4].ratiohit = 105;
+            gun[13].ratiohit = 125;
+            gun[6].ratiohit = 115;
+            gun[5].ratiohit = 95;
+            gun[12].ratiohit = 90;
+            gun[9].ratiohit = 85;
+            gun[89].ratiohit = 115;
+            gun[1].ratiohit = 100;
+            gun[8].ratiohit = 115;
+            gun[10].ratiohit = 95;
+            gun[87].ratiohit = 115;
+            gun[7].ratiohit = 95;
+            gun[2].ratiohit = 120;
+            gun[90].ratiohit = 130;
+            gun[11].ratiohit = 100;
+            gun[80].ratiohit = 115;
+            gun[81].ratiohit = 105;
+            gun[37].ratiohit = 100;
+            gun[46].ratiohit = 95;
+            gun[45].ratiohit = 105;
+            gun[48].ratiohit = 105;
+            gun[38].ratiohit = 105;
+            gun[36].ratiohit = 100;
+            gun[43].ratiohit = 125;
+            gun[33].ratiohit = 115;
+            gun[34].ratiohit = 120;
+            gun[47].ratiohit = 95;
+            gun[30].ratiohit = 105;
+            gun[40].ratiohit = 115;
+            gun[42].ratiohit = 90;
+            gun[85].ratiohit = 90;
+            gun[41].ratiohit = 105;
+            gun[35].ratiohit = 120;
+            gun[32].ratiohit = 105;
+            gun[69].ratiohit = 105;
             gun[98].ratiohit = 115;
-            gun[99].ratiohit = 110;
+            gun[67].ratiohit = 120;
+            gun[78].ratiohit = 110;
+            gun[71].ratiohit = 110;
+            gun[75].ratiohit = 90;
+            gun[101].ratiohit = 125;
+            gun[74].ratiohit = 125;
+            gun[68].ratiohit = 85;
+            gun[72].ratiohit = 115;
+            gun[70].ratiohit = 125;
             gun[100].ratiohit = 120;
+            gun[73].ratiohit = 105;
+            gun[76].ratiohit = 95;
+            gun[77].ratiohit = 95;
+            gun[79].ratiohit = 125;
+            gun[99].ratiohit = 115;
+            gun[110].ratiohit = 110;
+            gun[102].ratiohit = 120;
 
-            gun[0].ratiopow = 120;
-            gun[1].ratiopow = 90;
-            gun[2].ratiopow = 95;
-            gun[3].ratiopow = 115;
-            gun[4].ratiopow = 85;
-            gun[5].ratiopow = 110;
-            gun[6].ratiopow = 90;
-            gun[7].ratiopow = 90;
-            gun[8].ratiopow = 95;
-            gun[9].ratiopow = 105;
-            gun[10].ratiopow = 115;
-            gun[11].ratiopow = 100;
-            gun[12].ratiopow = 130;
-            gun[13].ratiopow = 120;
-            gun[14].ratiopow = 115;
-            gun[15].ratiopow = 125;
+            gun[14].ratiopow = 120;
+            gun[26].ratiopow = 90;
+            gun[91].ratiopow = 95;
+            gun[18].ratiopow = 115;
+            gun[25].ratiopow = 85;
+            gun[15].ratiopow = 110;
+            gun[83].ratiopow = 90;
+            gun[28].ratiopow = 90;
+            gun[17].ratiopow = 95;
             gun[16].ratiopow = 105;
-            gun[17].ratiopow = 100;
-            gun[18].ratiopow = 105;
-            gun[19].ratiopow = 105;
-            gun[20].ratiopow = 110;
-            gun[21].ratiopow = 90;
-            gun[22].ratiopow = 110;
-            gun[23].ratiopow = 130;
+            gun[29].ratiopow = 115;
+            gun[82].ratiopow = 100;
+            gun[20].ratiopow = 130;
+            gun[22].ratiopow = 120;
             gun[24].ratiopow = 115;
-            gun[25].ratiopow = 110;
-            gun[26].ratiopow = 120;
-            gun[27].ratiopow = 105;
-            gun[28].ratiopow = 110;
-            gun[29].ratiopow = 105;
-            gun[30].ratiopow = 105;
-            gun[31].ratiopow = 120;
-            gun[32].ratiopow = 115;
-            gun[33].ratiopow = 100;
-            gun[34].ratiopow = 110;
-            gun[35].ratiopow = 110;
-            gun[36].ratiopow = 105;
-            gun[37].ratiopow = 120;
-            gun[38].ratiopow = 120;
-            gun[39].ratiopow = 100;
-            gun[40].ratiopow = 115;
-            gun[41].ratiopow = 100;
-            gun[42].ratiopow = 95;
-            gun[43].ratiopow = 90;
-            gun[44].ratiopow = 90;
-            gun[45].ratiopow = 110;
-            gun[46].ratiopow = 125;
-            gun[47].ratiopow = 135;
-            gun[48].ratiopow = 120;
-            gun[49].ratiopow = 110;
-            gun[50].ratiopow = 90;
-            gun[51].ratiopow = 105;
-            gun[52].ratiopow = 120;
-            gun[53].ratiopow = 105;
-            gun[54].ratiopow = 110;
-            gun[55].ratiopow = 95;
-            gun[56].ratiopow = 85;
-            gun[57].ratiopow = 115;
+            gun[27].ratiopow = 125;
+            gun[23].ratiopow = 105;
+            gun[19].ratiopow = 100;
+            gun[84].ratiopow = 105;
+            gun[92].ratiopow = 105;
+            gun[104].ratiopow = 110;
+            gun[94].ratiopow = 90;
             gun[58].ratiopow = 110;
-            gun[59].ratiopow = 100;
-            gun[60].ratiopow = 110;
-            gun[61].ratiopow = 115;
-            gun[62].ratiopow = 115;
-            gun[63].ratiopow = 105;
+            gun[95].ratiopow = 130;
+            gun[59].ratiopow = 115;
+            gun[56].ratiopow = 110;
+            gun[60].ratiopow = 120;
+            gun[50].ratiopow = 105;
+            gun[49].ratiopow = 110;
+            gun[52].ratiopow = 105;
+            gun[62].ratiopow = 105;
+            gun[53].ratiopow = 120;
+            gun[55].ratiopow = 115;
+            gun[97].ratiopow = 100;
+            gun[51].ratiopow = 110;
+            gun[65].ratiopow = 110;
             gun[64].ratiopow = 105;
-            gun[65].ratiopow = 100;
-            gun[66].ratiopow = 105;
-            gun[67].ratiopow = 115;
-            gun[68].ratiopow = 145;
-            gun[69].ratiopow = 140;
-            gun[70].ratiopow = 110;
-            gun[71].ratiopow = 120;
-            gun[72].ratiopow = 105;
-            gun[73].ratiopow = 115;
-            gun[74].ratiopow = 110;
-            gun[75].ratiopow = 120;
-            gun[76].ratiopow = 115;
-            gun[77].ratiopow = 105;
-            gun[78].ratiopow = 100;
-            gun[79].ratiopow = 115;
-            gun[80].ratiopow = 115;
-            gun[81].ratiopow = 115;
-            gun[82].ratiopow = 115;
-            gun[83].ratiopow = 110;
-            gun[84].ratiopow = 115;
-            gun[85].ratiopow = 110;
-            gun[86].ratiopow = 125;
-            gun[87].ratiopow = 125;
-            gun[88].ratiopow = 95;
-            gun[89].ratiopow = 95;
-            gun[90].ratiopow = 145;
-            gun[91].ratiopow = 135;
-            gun[92].ratiopow = 90;
-            gun[93].ratiopow = 115;
-            gun[94].ratiopow = 105;
-            gun[95].ratiopow = 110;
-            gun[96].ratiopow = 110;
-            gun[97].ratiopow = 110;
+            gun[66].ratiopow = 120;
+            gun[57].ratiopow = 120;
+            gun[96].ratiopow = 100;
+            gun[63].ratiopow = 115;
+            gun[61].ratiopow = 100;
+            gun[107].ratiopow = 95;
+            gun[54].ratiopow = 90;
+            gun[103].ratiopow = 90;
+            gun[3].ratiopow = 110;
+            gun[0].ratiopow = 125;
+            gun[86].ratiopow = 135;
+            gun[4].ratiopow = 120;
+            gun[13].ratiopow = 110;
+            gun[6].ratiopow = 90;
+            gun[5].ratiopow = 105;
+            gun[12].ratiopow = 120;
+            gun[9].ratiopow = 105;
+            gun[89].ratiopow = 110;
+            gun[1].ratiopow = 95;
+            gun[8].ratiopow = 85;
+            gun[10].ratiopow = 115;
+            gun[87].ratiopow = 110;
+            gun[7].ratiopow = 100;
+            gun[2].ratiopow = 110;
+            gun[90].ratiopow = 115;
+            gun[11].ratiopow = 115;
+            gun[80].ratiopow = 105;
+            gun[81].ratiopow = 105;
+            gun[37].ratiopow = 100;
+            gun[46].ratiopow = 105;
+            gun[45].ratiopow = 115;
+            gun[48].ratiopow = 145;
+            gun[38].ratiopow = 140;
+            gun[36].ratiopow = 110;
+            gun[43].ratiopow = 120;
+            gun[33].ratiopow = 105;
+            gun[34].ratiopow = 115;
+            gun[47].ratiopow = 110;
+            gun[30].ratiopow = 120;
+            gun[40].ratiopow = 115;
+            gun[42].ratiopow = 105;
+            gun[85].ratiopow = 100;
+            gun[41].ratiopow = 115;
+            gun[35].ratiopow = 115;
+            gun[32].ratiopow = 115;
+            gun[69].ratiopow = 115;
             gun[98].ratiopow = 110;
-            gun[99].ratiopow = 125;
-            gun[100].ratiopow = 125;
+            gun[67].ratiopow = 115;
+            gun[78].ratiopow = 110;
+            gun[71].ratiopow = 125;
+            gun[75].ratiopow = 125;
+            gun[101].ratiopow = 95;
+            gun[74].ratiopow = 95;
+            gun[68].ratiopow = 145;
+            gun[72].ratiopow = 135;
+            gun[70].ratiopow = 90;
+            gun[100].ratiopow = 115;
+            gun[73].ratiopow = 105;
+            gun[76].ratiopow = 110;
+            gun[77].ratiopow = 110;
+            gun[79].ratiopow = 110;
+            gun[99].ratiopow = 110;
+            gun[110].ratiopow = 125;
+            gun[102].ratiopow = 125;
 
-            gun[0].ratiododge = 90;
-            gun[1].ratiododge = 110;
-            gun[2].ratiododge = 125;
-            gun[3].ratiododge = 120;
-            gun[4].ratiododge = 130;
-            gun[5].ratiododge = 105;
-            gun[6].ratiododge = 120;
-            gun[7].ratiododge = 125;
-            gun[8].ratiododge = 140;
-            gun[9].ratiododge = 110;
-            gun[10].ratiododge = 105;
-            gun[11].ratiododge = 115;
-            gun[12].ratiododge = 110;
-            gun[13].ratiododge = 130;
-            gun[14].ratiododge = 115;
-            gun[15].ratiododge = 85;
-            gun[16].ratiododge = 90;
-            gun[17].ratiododge = 95;
-            gun[18].ratiododge = 110;
-            gun[19].ratiododge = 120;
-            gun[20].ratiododge = 95;
-            gun[21].ratiododge = 125;
-            gun[22].ratiododge = 105;
-            gun[23].ratiododge = 95;
-            gun[24].ratiododge = 105;
-            gun[25].ratiododge = 95;
-            gun[26].ratiododge = 90;
-            gun[27].ratiododge = 120;
-            gun[28].ratiododge = 115;
-            gun[29].ratiododge = 120;
-            gun[30].ratiododge = 105;
-            gun[31].ratiododge = 85;
-            gun[32].ratiododge = 85;
-            gun[33].ratiododge = 105;
-            gun[34].ratiododge = 115;
-            gun[35].ratiododge = 110;
-            gun[36].ratiododge = 95;
-            gun[37].ratiododge = 85;
-            gun[38].ratiododge = 90;
-            gun[39].ratiododge = 105;
-            gun[40].ratiododge = 90;
-            gun[41].ratiododge = 100;
-            gun[42].ratiododge = 130;
-            gun[43].ratiododge = 125;
-            gun[44].ratiododge = 105;
-            gun[45].ratiododge = 115;
-            gun[46].ratiododge = 95;
-            gun[47].ratiododge = 85;
-            gun[48].ratiododge = 100;
-            gun[49].ratiododge = 125;
-            gun[50].ratiododge = 120;
-            gun[51].ratiododge = 95;
-            gun[52].ratiododge = 90;
-            gun[53].ratiododge = 100;
-            gun[54].ratiododge = 95;
-            gun[55].ratiododge = 100;
-            gun[56].ratiododge = 130;
-            gun[57].ratiododge = 95;
-            gun[58].ratiododge = 95;
+            gun[14].ratiododge = 90;
+            gun[26].ratiododge = 110;
+            gun[91].ratiododge = 125;
+            gun[18].ratiododge = 120;
+            gun[25].ratiododge = 130;
+            gun[15].ratiododge = 105;
+            gun[83].ratiododge = 120;
+            gun[28].ratiododge = 125;
+            gun[17].ratiododge = 140;
+            gun[16].ratiododge = 110;
+            gun[29].ratiododge = 105;
+            gun[82].ratiododge = 115;
+            gun[20].ratiododge = 110;
+            gun[22].ratiododge = 130;
+            gun[24].ratiododge = 115;
+            gun[27].ratiododge = 85;
+            gun[23].ratiododge = 90;
+            gun[19].ratiododge = 95;
+            gun[84].ratiododge = 110;
+            gun[92].ratiododge = 120;
+            gun[104].ratiododge = 95;
+            gun[94].ratiododge = 125;
+            gun[58].ratiododge = 105;
+            gun[95].ratiododge = 95;
             gun[59].ratiododge = 105;
-            gun[60].ratiododge = 95;
-            gun[61].ratiododge = 115;
-            gun[62].ratiododge = 115;
-            gun[63].ratiododge = 120;
-            gun[64].ratiododge = 100;
-            gun[65].ratiododge = 115;
-            gun[66].ratiododge = 100;
-            gun[67].ratiododge = 105;
-            gun[68].ratiododge = 80;
-            gun[69].ratiododge = 80;
-            gun[70].ratiododge = 115;
-            gun[71].ratiododge = 90;
-            gun[72].ratiododge = 85;
-            gun[73].ratiododge = 85;
-            gun[74].ratiododge = 90;
-            gun[75].ratiododge = 95;
-            gun[76].ratiododge = 85;
-            gun[77].ratiododge = 85;
-            gun[78].ratiododge = 110;
-            gun[79].ratiododge = 110;
-            gun[80].ratiododge = 105;
-            gun[81].ratiododge = 115;
-            gun[82].ratiododge = 105;
-            gun[83].ratiododge = 105;
-            gun[84].ratiododge = 125;
-            gun[85].ratiododge = 90;
-            gun[86].ratiododge = 95;
-            gun[87].ratiododge = 100;
-            gun[88].ratiododge = 130;
-            gun[89].ratiododge = 125;
-            gun[90].ratiododge = 75;
-            gun[91].ratiododge = 105;
-            gun[92].ratiododge = 130;
-            gun[93].ratiododge = 110;
-            gun[94].ratiododge = 120;
-            gun[95].ratiododge = 105;
+            gun[56].ratiododge = 95;
+            gun[60].ratiododge = 90;
+            gun[50].ratiododge = 120;
+            gun[49].ratiododge = 115;
+            gun[52].ratiododge = 120;
+            gun[62].ratiododge = 105;
+            gun[53].ratiododge = 85;
+            gun[55].ratiododge = 85;
+            gun[97].ratiododge = 105;
+            gun[51].ratiododge = 115;
+            gun[65].ratiododge = 110;
+            gun[64].ratiododge = 95;
+            gun[66].ratiododge = 85;
+            gun[57].ratiododge = 90;
             gun[96].ratiododge = 105;
-            gun[97].ratiododge = 110;
-            gun[98].ratiododge = 135;
-            gun[99].ratiododge = 120;
-            gun[100].ratiododge = 95;
+            gun[63].ratiododge = 90;
+            gun[61].ratiododge = 100;
+            gun[107].ratiododge = 130;
+            gun[54].ratiododge = 125;
+            gun[103].ratiododge = 105;
+            gun[3].ratiododge = 115;
+            gun[0].ratiododge = 95;
+            gun[86].ratiododge = 85;
+            gun[4].ratiododge = 100;
+            gun[13].ratiododge = 125;
+            gun[6].ratiododge = 120;
+            gun[5].ratiododge = 95;
+            gun[12].ratiododge = 90;
+            gun[9].ratiododge = 100;
+            gun[89].ratiododge = 95;
+            gun[1].ratiododge = 100;
+            gun[8].ratiododge = 130;
+            gun[10].ratiododge = 95;
+            gun[87].ratiododge = 95;
+            gun[7].ratiododge = 105;
+            gun[2].ratiododge = 95;
+            gun[90].ratiododge = 115;
+            gun[11].ratiododge = 115;
+            gun[80].ratiododge = 120;
+            gun[81].ratiododge = 100;
+            gun[37].ratiododge = 115;
+            gun[46].ratiododge = 100;
+            gun[45].ratiododge = 105;
+            gun[48].ratiododge = 80;
+            gun[38].ratiododge = 80;
+            gun[36].ratiododge = 115;
+            gun[43].ratiododge = 90;
+            gun[33].ratiododge = 85;
+            gun[34].ratiododge = 85;
+            gun[47].ratiododge = 90;
+            gun[30].ratiododge = 95;
+            gun[40].ratiododge = 85;
+            gun[42].ratiododge = 85;
+            gun[85].ratiododge = 110;
+            gun[41].ratiododge = 110;
+            gun[35].ratiododge = 105;
+            gun[32].ratiododge = 115;
+            gun[69].ratiododge = 105;
+            gun[98].ratiododge = 105;
+            gun[67].ratiododge = 125;
+            gun[78].ratiododge = 90;
+            gun[71].ratiododge = 95;
+            gun[75].ratiododge = 100;
+            gun[101].ratiododge = 130;
+            gun[74].ratiododge = 125;
+            gun[68].ratiododge = 75;
+            gun[72].ratiododge = 105;
+            gun[70].ratiododge = 130;
+            gun[100].ratiododge = 110;
+            gun[73].ratiododge = 120;
+            gun[76].ratiododge = 105;
+            gun[77].ratiododge = 105;
+            gun[79].ratiododge = 110;
+            gun[99].ratiododge = 135;
+            gun[110].ratiododge = 120;
+            gun[102].ratiododge = 95;
 
-            gun[0].ratiohp = 135;
-            gun[1].ratiohp = 105;
-            gun[2].ratiohp = 100;
-            gun[3].ratiohp = 105;
-            gun[4].ratiohp = 90;
-            gun[5].ratiohp = 105;
-            gun[6].ratiohp = 85;
-            gun[7].ratiohp = 90;
-            gun[8].ratiohp = 80;
-            gun[9].ratiohp = 100;
-            gun[10].ratiohp = 105;
-            gun[11].ratiohp = 100;
-            gun[12].ratiohp = 100;
-            gun[13].ratiohp = 90;
-            gun[14].ratiohp = 95;
-            gun[15].ratiohp = 115;
-            gun[16].ratiohp = 105;
-            gun[17].ratiohp = 110;
-            gun[18].ratiohp = 100;
-            gun[19].ratiohp = 105;
-            gun[20].ratiohp = 125;
-            gun[21].ratiohp = 95;
-            gun[22].ratiohp = 115;
-            gun[23].ratiohp = 120;
-            gun[24].ratiohp = 110;
-            gun[25].ratiohp = 115;
-            gun[26].ratiohp = 125;
-            gun[27].ratiohp = 100;
-            gun[28].ratiohp = 105;
-            gun[29].ratiohp = 95;
-            gun[30].ratiohp = 110;
-            gun[31].ratiohp = 120;
-            gun[32].ratiohp = 115;
-            gun[33].ratiohp = 105;
-            gun[34].ratiohp = 100;
-            gun[35].ratiohp = 95;
-            gun[36].ratiohp = 95;
-            gun[37].ratiohp = 105;
-            gun[38].ratiohp = 100;
-            gun[39].ratiohp = 95;
-            gun[40].ratiohp = 100;
-            gun[41].ratiohp = 85;
-            gun[42].ratiohp = 105;
-            gun[43].ratiohp = 120;
-            gun[44].ratiohp = 120;
-            gun[45].ratiohp = 105;
-            gun[46].ratiohp = 120;
-            gun[47].ratiohp = 130;
-            gun[48].ratiohp = 130;
-            gun[49].ratiohp = 95;
-            gun[50].ratiohp = 95;
-            gun[51].ratiohp = 125;
-            gun[52].ratiohp = 120;
-            gun[53].ratiohp = 105;
-            gun[54].ratiohp = 120;
-            gun[55].ratiohp = 110;
-            gun[56].ratiohp = 85;
-            gun[57].ratiohp = 125;
+            gun[14].ratiohp = 135;
+            gun[26].ratiohp = 105;
+            gun[91].ratiohp = 100;
+            gun[18].ratiohp = 105;
+            gun[25].ratiohp = 90;
+            gun[15].ratiohp = 105;
+            gun[83].ratiohp = 85;
+            gun[28].ratiohp = 90;
+            gun[17].ratiohp = 80;
+            gun[16].ratiohp = 100;
+            gun[29].ratiohp = 105;
+            gun[82].ratiohp = 100;
+            gun[20].ratiohp = 100;
+            gun[22].ratiohp = 90;
+            gun[24].ratiohp = 95;
+            gun[27].ratiohp = 115;
+            gun[23].ratiohp = 105;
+            gun[19].ratiohp = 110;
+            gun[84].ratiohp = 100;
+            gun[92].ratiohp = 105;
+            gun[104].ratiohp = 125;
+            gun[94].ratiohp = 95;
             gun[58].ratiohp = 115;
-            gun[59].ratiohp = 100;
-            gun[60].ratiohp = 115;
-            gun[61].ratiohp = 95;
-            gun[62].ratiohp = 95;
-            gun[63].ratiohp = 90;
-            gun[64].ratiohp = 100;
-            gun[65].ratiohp = 105;
-            gun[66].ratiohp = 105;
-            gun[67].ratiohp = 90;
-            gun[68].ratiohp = 105;
-            gun[69].ratiohp = 105;
-            gun[70].ratiohp = 95;
-            gun[71].ratiohp = 100;
-            gun[72].ratiohp = 95;
-            gun[73].ratiohp = 105;
-            gun[74].ratiohp = 110;
-            gun[75].ratiohp = 100;
-            gun[76].ratiohp = 95;
-            gun[77].ratiohp = 90;
-            gun[78].ratiohp = 115;
-            gun[79].ratiohp = 95;
-            gun[80].ratiohp = 100;
-            gun[81].ratiohp = 95;
-            gun[82].ratiohp = 110;
-            gun[83].ratiohp = 120;
-            gun[84].ratiohp = 95;
-            gun[85].ratiohp = 120;
-            gun[86].ratiohp = 110;
-            gun[87].ratiohp = 115;
-            gun[88].ratiohp = 105;
-            gun[89].ratiohp = 100;
-            gun[90].ratiohp = 130;
-            gun[91].ratiohp = 105;
-            gun[92].ratiohp = 95;
-            gun[93].ratiohp = 110;
-            gun[94].ratiohp = 85;
-            gun[95].ratiohp = 100;
-            gun[96].ratiohp = 100;
+            gun[95].ratiohp = 120;
+            gun[59].ratiohp = 110;
+            gun[56].ratiohp = 115;
+            gun[60].ratiohp = 125;
+            gun[50].ratiohp = 100;
+            gun[49].ratiohp = 105;
+            gun[52].ratiohp = 95;
+            gun[62].ratiohp = 110;
+            gun[53].ratiohp = 120;
+            gun[55].ratiohp = 115;
             gun[97].ratiohp = 105;
-            gun[98].ratiohp = 90;
-            gun[99].ratiohp = 105;
-            gun[100].ratiohp = 105;
+            gun[51].ratiohp = 100;
+            gun[65].ratiohp = 95;
+            gun[64].ratiohp = 95;
+            gun[66].ratiohp = 105;
+            gun[57].ratiohp = 100;
+            gun[96].ratiohp = 95;
+            gun[63].ratiohp = 100;
+            gun[61].ratiohp = 85;
+            gun[107].ratiohp = 105;
+            gun[54].ratiohp = 120;
+            gun[103].ratiohp = 120;
+            gun[3].ratiohp = 105;
+            gun[0].ratiohp = 120;
+            gun[86].ratiohp = 130;
+            gun[4].ratiohp = 130;
+            gun[13].ratiohp = 95;
+            gun[6].ratiohp = 95;
+            gun[5].ratiohp = 125;
+            gun[12].ratiohp = 120;
+            gun[9].ratiohp = 105;
+            gun[89].ratiohp = 120;
+            gun[1].ratiohp = 110;
+            gun[8].ratiohp = 85;
+            gun[10].ratiohp = 125;
+            gun[87].ratiohp = 115;
+            gun[7].ratiohp = 100;
+            gun[2].ratiohp = 115;
+            gun[90].ratiohp = 95;
+            gun[11].ratiohp = 95;
+            gun[80].ratiohp = 90;
+            gun[81].ratiohp = 100;
+            gun[37].ratiohp = 105;
+            gun[46].ratiohp = 105;
+            gun[45].ratiohp = 90;
+            gun[48].ratiohp = 105;
+            gun[38].ratiohp = 105;
+            gun[36].ratiohp = 95;
+            gun[43].ratiohp = 100;
+            gun[33].ratiohp = 95;
+            gun[34].ratiohp = 105;
+            gun[47].ratiohp = 110;
+            gun[30].ratiohp = 100;
+            gun[40].ratiohp = 95;
+            gun[42].ratiohp = 90;
+            gun[85].ratiohp = 115;
+            gun[41].ratiohp = 95;
+            gun[35].ratiohp = 100;
+            gun[32].ratiohp = 95;
+            gun[69].ratiohp = 110;
+            gun[98].ratiohp = 120;
+            gun[67].ratiohp = 95;
+            gun[78].ratiohp = 120;
+            gun[71].ratiohp = 110;
+            gun[75].ratiohp = 115;
+            gun[101].ratiohp = 105;
+            gun[74].ratiohp = 100;
+            gun[68].ratiohp = 130;
+            gun[72].ratiohp = 105;
+            gun[70].ratiohp = 95;
+            gun[100].ratiohp = 110;
+            gun[73].ratiohp = 85;
+            gun[76].ratiohp = 100;
+            gun[77].ratiohp = 100;
+            gun[79].ratiohp = 105;
+            gun[99].ratiohp = 90;
+            gun[110].ratiohp = 105;
+            gun[102].ratiohp = 105;
 
-            gun[0].ratiorate = 105;
-            gun[1].ratiorate = 95;
-            gun[2].ratiorate = 110;
-            gun[3].ratiorate = 130;
-            gun[4].ratiorate = 120;
-            gun[5].ratiorate = 85;
-            gun[6].ratiorate = 90;
-            gun[7].ratiorate = 130;
-            gun[8].ratiorate = 115;
-            gun[9].ratiorate = 115;
-            gun[10].ratiorate = 95;
-            gun[11].ratiorate = 115;
-            gun[12].ratiorate = 95;
-            gun[13].ratiorate = 105;
-            gun[14].ratiorate = 115;
-            gun[15].ratiorate = 95;
-            gun[16].ratiorate = 95;
-            gun[17].ratiorate = 120;
-            gun[18].ratiorate = 120;
-            gun[19].ratiorate = 105;
-            gun[20].ratiorate = 120;
-            gun[21].ratiorate = 105;
-            gun[22].ratiorate = 110;
-            gun[23].ratiorate = 105;
+            gun[14].ratiorate = 105;
+            gun[26].ratiorate = 95;
+            gun[91].ratiorate = 110;
+            gun[18].ratiorate = 130;
+            gun[25].ratiorate = 120;
+            gun[15].ratiorate = 85;
+            gun[83].ratiorate = 90;
+            gun[28].ratiorate = 130;
+            gun[17].ratiorate = 115;
+            gun[16].ratiorate = 115;
+            gun[29].ratiorate = 95;
+            gun[82].ratiorate = 115;
+            gun[20].ratiorate = 95;
+            gun[22].ratiorate = 105;
             gun[24].ratiorate = 115;
-            gun[25].ratiorate = 115;
-            gun[26].ratiorate = 105;
-            gun[27].ratiorate = 120;
-            gun[28].ratiorate = 115;
-            gun[29].ratiorate = 115;
-            gun[30].ratiorate = 125;
-            gun[31].ratiorate = 100;
-            gun[32].ratiorate = 90;
-            gun[33].ratiorate = 115;
-            gun[34].ratiorate = 120;
-            gun[35].ratiorate = 120;
-            gun[36].ratiorate = 95;
-            gun[37].ratiorate = 85;
-            gun[38].ratiorate = 90;
-            gun[39].ratiorate = 125;
-            gun[40].ratiorate = 110;
-            gun[41].ratiorate = 115;
-            gun[42].ratiorate = 120;
-            gun[43].ratiorate = 115;
-            gun[44].ratiorate = 90;
-            gun[45].ratiorate = 80;
-            gun[46].ratiorate = 85;
-            gun[47].ratiorate = 100;
-            gun[48].ratiorate = 100;
-            gun[49].ratiorate = 115;
-            gun[50].ratiorate = 110;
-            gun[51].ratiorate = 125;
-            gun[52].ratiorate = 95;
-            gun[53].ratiorate = 100;
-            gun[54].ratiorate = 120;
-            gun[55].ratiorate = 105;
-            gun[56].ratiorate = 115;
-            gun[57].ratiorate = 120;
-            gun[58].ratiorate = 135;
-            gun[59].ratiorate = 105;
-            gun[60].ratiorate = 115;
-            gun[61].ratiorate = 115;
-            gun[62].ratiorate = 115;
-            gun[63].ratiorate = 115;
-            gun[64].ratiorate = 110;
-            gun[65].ratiorate = 105;
-            gun[66].ratiorate = 95;
-            gun[67].ratiorate = 100;
-            gun[68].ratiorate = 85;
-            gun[69].ratiorate = 80;
-            gun[70].ratiorate = 105;
-            gun[71].ratiorate = 115;
-            gun[72].ratiorate = 130;
-            gun[73].ratiorate = 105;
-            gun[74].ratiorate = 120;
-            gun[75].ratiorate = 115;
-            gun[76].ratiorate = 110;
-            gun[77].ratiorate = 120;
-            gun[78].ratiorate = 90;
-            gun[79].ratiorate = 95;
-            gun[80].ratiorate = 85;
-            gun[81].ratiorate = 90;
-            gun[82].ratiorate = 105;
-            gun[83].ratiorate = 115;
-            gun[84].ratiorate = 105;
-            gun[85].ratiorate = 125;
-            gun[86].ratiorate = 95;
-            gun[87].ratiorate = 80;
-            gun[88].ratiorate = 125;
-            gun[89].ratiorate = 110;
-            gun[90].ratiorate = 100;
-            gun[91].ratiorate = 90;
-            gun[92].ratiorate = 125;
-            gun[93].ratiorate = 120;
+            gun[27].ratiorate = 95;
+            gun[23].ratiorate = 95;
+            gun[19].ratiorate = 120;
+            gun[84].ratiorate = 120;
+            gun[92].ratiorate = 105;
+            gun[104].ratiorate = 120;
             gun[94].ratiorate = 105;
-            gun[95].ratiorate = 125;
-            gun[96].ratiorate = 115;
-            gun[97].ratiorate = 95;
+            gun[58].ratiorate = 110;
+            gun[95].ratiorate = 105;
+            gun[59].ratiorate = 115;
+            gun[56].ratiorate = 115;
+            gun[60].ratiorate = 105;
+            gun[50].ratiorate = 120;
+            gun[49].ratiorate = 115;
+            gun[52].ratiorate = 115;
+            gun[62].ratiorate = 125;
+            gun[53].ratiorate = 100;
+            gun[55].ratiorate = 90;
+            gun[97].ratiorate = 115;
+            gun[51].ratiorate = 120;
+            gun[65].ratiorate = 120;
+            gun[64].ratiorate = 95;
+            gun[66].ratiorate = 85;
+            gun[57].ratiorate = 90;
+            gun[96].ratiorate = 125;
+            gun[63].ratiorate = 110;
+            gun[61].ratiorate = 115;
+            gun[107].ratiorate = 120;
+            gun[54].ratiorate = 115;
+            gun[103].ratiorate = 90;
+            gun[3].ratiorate = 80;
+            gun[0].ratiorate = 85;
+            gun[86].ratiorate = 100;
+            gun[4].ratiorate = 100;
+            gun[13].ratiorate = 115;
+            gun[6].ratiorate = 110;
+            gun[5].ratiorate = 125;
+            gun[12].ratiorate = 95;
+            gun[9].ratiorate = 100;
+            gun[89].ratiorate = 120;
+            gun[1].ratiorate = 105;
+            gun[8].ratiorate = 115;
+            gun[10].ratiorate = 120;
+            gun[87].ratiorate = 135;
+            gun[7].ratiorate = 105;
+            gun[2].ratiorate = 115;
+            gun[90].ratiorate = 115;
+            gun[11].ratiorate = 115;
+            gun[80].ratiorate = 115;
+            gun[81].ratiorate = 110;
+            gun[37].ratiorate = 105;
+            gun[46].ratiorate = 95;
+            gun[45].ratiorate = 100;
+            gun[48].ratiorate = 85;
+            gun[38].ratiorate = 80;
+            gun[36].ratiorate = 105;
+            gun[43].ratiorate = 115;
+            gun[33].ratiorate = 130;
+            gun[34].ratiorate = 105;
+            gun[47].ratiorate = 120;
+            gun[30].ratiorate = 115;
+            gun[40].ratiorate = 110;
+            gun[42].ratiorate = 120;
+            gun[85].ratiorate = 90;
+            gun[41].ratiorate = 95;
+            gun[35].ratiorate = 85;
+            gun[32].ratiorate = 90;
+            gun[69].ratiorate = 105;
             gun[98].ratiorate = 115;
-            gun[99].ratiorate = 110;
-            gun[100].ratiorate = 110;
+            gun[67].ratiorate = 105;
+            gun[78].ratiorate = 125;
+            gun[71].ratiorate = 95;
+            gun[75].ratiorate = 80;
+            gun[101].ratiorate = 125;
+            gun[74].ratiorate = 110;
+            gun[68].ratiorate = 100;
+            gun[72].ratiorate = 90;
+            gun[70].ratiorate = 125;
+            gun[100].ratiorate = 120;
+            gun[73].ratiorate = 105;
+            gun[76].ratiorate = 125;
+            gun[77].ratiorate = 115;
+            gun[79].ratiorate = 95;
+            gun[99].ratiorate = 115;
+            gun[110].ratiorate = 110;
+            gun[102].ratiorate = 110;
 
-            gun[0].type = 106;
-            gun[1].type = 401;
-            gun[2].type = 403;
-            gun[3].type = 404;
-            gun[4].type = 404;
-            gun[5].type = 401;
-            gun[6].type = 305;
-            gun[7].type = 404;
-            gun[8].type = 104;
-            gun[9].type = 402;
-            gun[10].type = 402;
-            gun[11].type = 104;
-            gun[12].type = 401;
-            gun[13].type = 401;
             gun[14].type = 106;
-            gun[15].type = 403;
-            gun[16].type = 404;
-            gun[17].type = 401;
-            gun[18].type = 403;
-            gun[19].type = 402;
-            gun[20].type = 104;
-            gun[21].type = 102;
-            gun[22].type = 101;
-            gun[23].type = 601;
-            gun[24].type = 601;
-            gun[25].type = 101;
-            gun[26].type = 601;
-            gun[27].type = 304;
-            gun[28].type = 403;
-            gun[29].type = 102;
-            gun[30].type = 601;
-            gun[31].type = 301;
-            gun[32].type = 601;
-            gun[33].type = 601;
-            gun[34].type = 601;
-            gun[35].type = 132;
-            gun[36].type = 133;
-            gun[37].type = 405;
-            gun[38].type = 601;
-            gun[39].type = 101;
-            gun[40].type = 101;
-            gun[41].type = 302;
-            gun[42].type = 131;
-            gun[43].type = 601;
-            gun[44].type = 203;
-            gun[45].type = 231;
-            gun[46].type = 1;
-            gun[47].type = 1;
-            gun[48].type = 4;
-            gun[49].type = 201;
-            gun[50].type = 233;
-            gun[51].type = 2;
-            gun[52].type = 2;
-            gun[53].type = 34;
-            gun[54].type = 31;
-            gun[55].type = 402;
-            gun[56].type = 1;
-            gun[57].type = 405;
-            gun[58].type = 2;
-            gun[59].type = 405;
-            gun[60].type = 403;
-            gun[61].type = 4;
-            gun[62].type = 2;
-            gun[63].type = 204;
-            gun[64].type = 202;
-            gun[65].type = 102;
-            gun[66].type = 101;
+            gun[26].type = 401;
+            gun[91].type = 403;
+            gun[18].type = 404;
+            gun[25].type = 404;
+            gun[15].type = 401;
+            gun[83].type = 305;
+            gun[28].type = 404;
+            gun[17].type = 104;
+            gun[16].type = 402;
+            gun[29].type = 402;
+            gun[82].type = 104;
+            gun[20].type = 401;
+            gun[22].type = 401;
+            gun[24].type = 106;
+            gun[27].type = 403;
+            gun[23].type = 404;
+            gun[19].type = 401;
+            gun[84].type = 403;
+            gun[92].type = 402;
+            gun[104].type = 104;
+            gun[94].type = 102;
+            gun[58].type = 101;
+            gun[95].type = 601;
+            gun[59].type = 601;
+            gun[56].type = 101;
+            gun[60].type = 601;
+            gun[50].type = 304;
+            gun[49].type = 403;
+            gun[52].type = 102;
+            gun[62].type = 601;
+            gun[53].type = 301;
+            gun[55].type = 601;
+            gun[97].type = 601;
+            gun[51].type = 601;
+            gun[65].type = 132;
+            gun[64].type = 133;
+            gun[66].type = 405;
+            gun[57].type = 601;
+            gun[96].type = 101;
+            gun[63].type = 101;
+            gun[61].type = 302;
+            gun[107].type = 131;
+            gun[54].type = 601;
+            gun[103].type = 203;
+            gun[3].type = 231;
+            gun[0].type = 1;
+            gun[86].type = 1;
+            gun[4].type = 4;
+            gun[13].type = 201;
+            gun[6].type = 233;
+            gun[5].type = 2;
+            gun[12].type = 2;
+            gun[9].type = 34;
+            gun[89].type = 31;
+            gun[1].type = 402;
+            gun[8].type = 1;
+            gun[10].type = 405;
+            gun[87].type = 2;
+            gun[7].type = 405;
+            gun[2].type = 403;
+            gun[90].type = 4;
+            gun[11].type = 2;
+            gun[80].type = 204;
+            gun[81].type = 202;
+            gun[37].type = 102;
+            gun[46].type = 101;
+            gun[45].type = 101;
+            gun[48].type = 501;
+            gun[38].type = 501;
+            gun[36].type = 503;
+            gun[43].type = 304;
+            gun[33].type = 101;
+            gun[34].type = 503;
+            gun[47].type = 102;
+            gun[30].type = 501;
+            gun[40].type = 501;
+            gun[42].type = 132;
+            gun[85].type = 333;
+            gun[41].type = 501;
+            gun[35].type = 502;
+            gun[32].type = 502;
+            gun[69].type = 131;
+            gun[98].type = 101;
             gun[67].type = 101;
-            gun[68].type = 501;
-            gun[69].type = 501;
-            gun[70].type = 503;
-            gun[71].type = 304;
-            gun[72].type = 101;
-            gun[73].type = 503;
-            gun[74].type = 102;
-            gun[75].type = 501;
-            gun[76].type = 501;
-            gun[77].type = 132;
-            gun[78].type = 333;
-            gun[79].type = 501;
-            gun[80].type = 502;
-            gun[81].type = 502;
-            gun[82].type = 131;
-            gun[83].type = 101;
-            gun[84].type = 101;
-            gun[85].type = 101;
-            gun[86].type = 103;
-            gun[87].type = 101;
-            gun[88].type = 103;
-            gun[89].type = 101;
-            gun[90].type = 103;
-            gun[91].type = 103;
-            gun[92].type = 133;
-            gun[93].type = 101;
-            gun[94].type = 303;
-            gun[95].type = 104;
-            gun[96].type = 301;
-            gun[97].type = 302;
-            gun[98].type = 104;
-            gun[99].type = 103;
-            gun[100].type = 1;
+            gun[78].type = 101;
+            gun[71].type = 103;
+            gun[75].type = 101;
+            gun[101].type = 103;
+            gun[74].type = 101;
+            gun[68].type = 103;
+            gun[72].type = 103;
+            gun[70].type = 133;
+            gun[100].type = 101;
+            gun[73].type = 303;
+            gun[76].type = 104;
+            gun[77].type = 301;
+            gun[79].type = 302;
+            gun[99].type = 104;
+            gun[110].type = 103;
+            gun[102].type = 1;
 
-            gun[0].probability = 20;
-            gun[1].probability = 20;
-            gun[2].probability = 30;
-            gun[3].probability = 30;
-            gun[4].probability = 28;
-            gun[5].probability = 18;
-            gun[6].probability = 40;
-            gun[7].probability = 28;
-            gun[8].probability = 22;
-            gun[9].probability = 40;
-            gun[10].probability = 35;
-            gun[11].probability = 20;
-            gun[12].probability = 20;
-            gun[13].probability = 18;
-            gun[14].probability = 24;
-            gun[15].probability = 30;
-            gun[16].probability = 25;
-            gun[17].probability = 18;
-            gun[18].probability = 30;
-            gun[19].probability = 35;
-            gun[20].probability = 25;
-            gun[21].probability = 40;
-            gun[22].probability = 24;
-            gun[23].probability = 18;
-            gun[24].probability = 24;
-            gun[25].probability = 24;
+            gun[14].probability = 20;
             gun[26].probability = 20;
-            gun[27].probability = 36;
-            gun[28].probability = 30;
-            gun[29].probability = 40;
-            gun[30].probability = 20;
-            gun[31].probability = 40;
-            gun[32].probability = 18;
-            gun[33].probability = 18;
-            gun[34].probability = 24;
-            gun[35].probability = 55;
-            gun[36].probability = 40;
-            gun[37].probability = 40;
-            gun[38].probability = 20;
-            gun[39].probability = 36;
-            gun[40].probability = 40;
-            gun[41].probability = 40;
-            gun[42].probability = 36;
-            gun[43].probability = 24;
-            gun[44].probability = 40;
-            gun[45].probability = 40;
-            gun[46].probability = 35;
-            gun[47].probability = 35;
-            gun[48].probability = 32;
-            gun[49].probability = 24;
-            gun[50].probability = 50;
-            gun[51].probability = 35;
-            gun[52].probability = 40;
-            gun[53].probability = 45;
-            gun[54].probability = 35;
-            gun[55].probability = 35;
-            gun[56].probability = 35;
-            gun[57].probability = 40;
-            gun[58].probability = 35;
-            gun[59].probability = 40;
-            gun[60].probability = 30;
-            gun[61].probability = 30;
-            gun[62].probability = 40;
-            gun[63].probability = 40;
-            gun[64].probability = 24;
-            gun[65].probability = 36;
-            gun[66].probability = 36;
-            gun[67].probability = 40;
-            gun[68].probability = 16;
-            gun[69].probability = 16;
-            gun[70].probability = 30;
-            gun[71].probability = 40;
-            gun[72].probability = 40;
-            gun[73].probability = 30;
-            gun[74].probability = 36;
-            gun[75].probability = 30;
-            gun[76].probability = 30;
-            gun[77].probability = 36;
-            gun[78].probability = 50;
-            gun[79].probability = 16;
-            gun[80].probability = 30;
-            gun[81].probability = 30;
-            gun[82].probability = 30;
-            gun[83].probability = 32;
-            gun[84].probability = 30;
-            gun[85].probability = 30;
-            gun[86].probability = 32;
-            gun[87].probability = 30;
-            gun[88].probability = 32;
-            gun[89].probability = 30;
-            gun[90].probability = 32;
             gun[91].probability = 30;
-            gun[92].probability = 30;
-            gun[93].probability = 30;
-            gun[94].probability = 30;
-            gun[95].probability = 32;
-            gun[96].probability = 40;
-            gun[97].probability = 42;
-            gun[98].probability = 30;
+            gun[18].probability = 30;
+            gun[25].probability = 28;
+            gun[15].probability = 18;
+            gun[83].probability = 40;
+            gun[28].probability = 28;
+            gun[17].probability = 22;
+            gun[16].probability = 40;
+            gun[29].probability = 35;
+            gun[82].probability = 20;
+            gun[20].probability = 20;
+            gun[22].probability = 18;
+            gun[24].probability = 24;
+            gun[27].probability = 30;
+            gun[23].probability = 25;
+            gun[19].probability = 18;
+            gun[84].probability = 30;
+            gun[92].probability = 35;
+            gun[104].probability = 25;
+            gun[94].probability = 40;
+            gun[58].probability = 24;
+            gun[95].probability = 18;
+            gun[59].probability = 24;
+            gun[56].probability = 24;
+            gun[60].probability = 20;
+            gun[50].probability = 36;
+            gun[49].probability = 30;
+            gun[52].probability = 40;
+            gun[62].probability = 20;
+            gun[53].probability = 40;
+            gun[55].probability = 18;
+            gun[97].probability = 18;
+            gun[51].probability = 24;
+            gun[65].probability = 55;
+            gun[64].probability = 40;
+            gun[66].probability = 40;
+            gun[57].probability = 20;
+            gun[96].probability = 36;
+            gun[63].probability = 40;
+            gun[61].probability = 40;
+            gun[107].probability = 36;
+            gun[54].probability = 24;
+            gun[103].probability = 40;
+            gun[3].probability = 40;
+            gun[0].probability = 35;
+            gun[86].probability = 35;
+            gun[4].probability = 32;
+            gun[13].probability = 24;
+            gun[6].probability = 50;
+            gun[5].probability = 35;
+            gun[12].probability = 40;
+            gun[9].probability = 45;
+            gun[89].probability = 35;
+            gun[1].probability = 35;
+            gun[8].probability = 35;
+            gun[10].probability = 40;
+            gun[87].probability = 35;
+            gun[7].probability = 40;
+            gun[2].probability = 30;
+            gun[90].probability = 30;
+            gun[11].probability = 40;
+            gun[80].probability = 40;
+            gun[81].probability = 24;
+            gun[37].probability = 36;
+            gun[46].probability = 36;
+            gun[45].probability = 40;
+            gun[48].probability = 16;
+            gun[38].probability = 16;
+            gun[36].probability = 30;
+            gun[43].probability = 40;
+            gun[33].probability = 40;
+            gun[34].probability = 30;
+            gun[47].probability = 36;
+            gun[30].probability = 30;
+            gun[40].probability = 30;
+            gun[42].probability = 36;
+            gun[85].probability = 50;
+            gun[41].probability = 16;
+            gun[35].probability = 30;
+            gun[32].probability = 30;
+            gun[69].probability = 30;
+            gun[98].probability = 32;
+            gun[67].probability = 30;
+            gun[78].probability = 30;
+            gun[71].probability = 32;
+            gun[75].probability = 30;
+            gun[101].probability = 32;
+            gun[74].probability = 30;
+            gun[68].probability = 32;
+            gun[72].probability = 30;
+            gun[70].probability = 30;
+            gun[100].probability = 30;
+            gun[73].probability = 30;
+            gun[76].probability = 32;
+            gun[77].probability = 40;
+            gun[79].probability = 42;
             gun[99].probability = 30;
-            gun[100].probability = 40;
+            gun[110].probability = 30;
+            gun[102].probability = 40;
 
-            gun[0].skilleffect1 = 2;
-            gun[1].skilleffect1 = 1.6;
-            gun[2].skilleffect1 = 1.8;
-            gun[3].skilleffect1 = 1.6;
-            gun[4].skilleffect1 = 1.5;
-            gun[5].skilleffect1 = 1.6;
-            gun[6].skilleffect1 = 60;
-            gun[7].skilleffect1 = 1.5;
-            gun[8].skilleffect1 = 200;
-            gun[9].skilleffect1 = 30;
-            gun[10].skilleffect1 = 30;
-            gun[11].skilleffect1 = 200;
-            gun[12].skilleffect1 = 1.6;
-            gun[13].skilleffect1 = 1.6;
-            gun[14].skilleffect1 = 1.5;
-            gun[15].skilleffect1 = 1.5;
-            gun[16].skilleffect1 = 1.5;
-            gun[17].skilleffect1 = 1.6;
-            gun[18].skilleffect1 = 1.5;
-            gun[19].skilleffect1 = 30;
-            gun[20].skilleffect1 = 200;
-            gun[21].skilleffect1 = 40;
-            gun[22].skilleffect1 = 60;
-            gun[23].skilleffect1 = 1;
-            gun[24].skilleffect1 = 2.4;
-            gun[25].skilleffect1 = 65;
-            gun[26].skilleffect1 = 0.8;
-            gun[27].skilleffect1 = 60;
-            gun[28].skilleffect1 = 1.8;
-            gun[29].skilleffect1 = 36;
-            gun[30].skilleffect1 = 0.8;
-            gun[31].skilleffect1 = 60;
-            gun[32].skilleffect1 = 0.8;
-            gun[33].skilleffect1 = 0.8;
+            gun[14].skilleffect1 = 2;
+            gun[26].skilleffect1 = 1.6;
+            gun[91].skilleffect1 = 1.8;
+            gun[18].skilleffect1 = 1.6;
+            gun[25].skilleffect1 = 1.5;
+            gun[15].skilleffect1 = 1.6;
+            gun[83].skilleffect1 = 60;
+            gun[28].skilleffect1 = 1.5;
+            gun[17].skilleffect1 = 200;
+            gun[16].skilleffect1 = 30;
+            gun[29].skilleffect1 = 30;
+            gun[82].skilleffect1 = 200;
+            gun[20].skilleffect1 = 1.6;
+            gun[22].skilleffect1 = 1.6;
+            gun[24].skilleffect1 = 1.5;
+            gun[27].skilleffect1 = 1.5;
+            gun[23].skilleffect1 = 1.5;
+            gun[19].skilleffect1 = 1.6;
+            gun[84].skilleffect1 = 1.5;
+            gun[92].skilleffect1 = 30;
+            gun[104].skilleffect1 = 200;
+            gun[94].skilleffect1 = 40;
+            gun[58].skilleffect1 = 60;
+            gun[95].skilleffect1 = 1;
+            gun[59].skilleffect1 = 2.4;
+            gun[56].skilleffect1 = 65;
+            gun[60].skilleffect1 = 0.8;
+            gun[50].skilleffect1 = 60;
+            gun[49].skilleffect1 = 1.8;
+            gun[52].skilleffect1 = 36;
+            gun[62].skilleffect1 = 0.8;
+            gun[53].skilleffect1 = 60;
+            gun[55].skilleffect1 = 0.8;
+            gun[97].skilleffect1 = 0.8;
+            gun[51].skilleffect1 = 2.2;
+            gun[65].skilleffect1 = 32;
+            gun[64].skilleffect1 = 200;
+            gun[66].skilleffect1 = 50;
+            gun[57].skilleffect1 = 2.2;
+            gun[96].skilleffect1 = 100;
+            gun[63].skilleffect1 = 100;
+            gun[61].skilleffect1 = 60;
+            gun[107].skilleffect1 = 100;
+            gun[54].skilleffect1 = 2.2;
+            gun[103].skilleffect1 = 30;
+            gun[3].skilleffect1 = 30;
+            gun[0].skilleffect1 = 12;
+            gun[86].skilleffect1 = 15;
+            gun[4].skilleffect1 = 30;
+            gun[13].skilleffect1 = 28;
+            gun[6].skilleffect1 = 40;
+            gun[5].skilleffect1 = 6;
+            gun[12].skilleffect1 = 10;
+            gun[9].skilleffect1 = 40;
+            gun[89].skilleffect1 = 12;
+            gun[1].skilleffect1 = 30;
+            gun[8].skilleffect1 = 10;
+            gun[10].skilleffect1 = 55;
+            gun[87].skilleffect1 = 15;
+            gun[7].skilleffect1 = 50;
+            gun[2].skilleffect1 = 1.6;
+            gun[90].skilleffect1 = 18;
+            gun[11].skilleffect1 = 10;
+            gun[80].skilleffect1 = 40;
+            gun[81].skilleffect1 = 25;
+            gun[37].skilleffect1 = 40;
+            gun[46].skilleffect1 = 100;
+            gun[45].skilleffect1 = 120;
+            gun[48].skilleffect1 = 4;
+            gun[38].skilleffect1 = 3.5;
+            gun[36].skilleffect1 = 2;
+            gun[43].skilleffect1 = 60;
+            gun[33].skilleffect1 = 100;
             gun[34].skilleffect1 = 2.2;
-            gun[35].skilleffect1 = 32;
-            gun[36].skilleffect1 = 200;
-            gun[37].skilleffect1 = 50;
-            gun[38].skilleffect1 = 2.2;
-            gun[39].skilleffect1 = 100;
-            gun[40].skilleffect1 = 100;
-            gun[41].skilleffect1 = 60;
-            gun[42].skilleffect1 = 100;
-            gun[43].skilleffect1 = 2.2;
-            gun[44].skilleffect1 = 30;
-            gun[45].skilleffect1 = 30;
-            gun[46].skilleffect1 = 12;
-            gun[47].skilleffect1 = 15;
-            gun[48].skilleffect1 = 30;
-            gun[49].skilleffect1 = 28;
-            gun[50].skilleffect1 = 40;
-            gun[51].skilleffect1 = 6;
-            gun[52].skilleffect1 = 10;
-            gun[53].skilleffect1 = 40;
-            gun[54].skilleffect1 = 12;
-            gun[55].skilleffect1 = 30;
-            gun[56].skilleffect1 = 10;
-            gun[57].skilleffect1 = 55;
-            gun[58].skilleffect1 = 15;
-            gun[59].skilleffect1 = 50;
-            gun[60].skilleffect1 = 1.6;
-            gun[61].skilleffect1 = 18;
-            gun[62].skilleffect1 = 10;
-            gun[63].skilleffect1 = 40;
-            gun[64].skilleffect1 = 25;
-            gun[65].skilleffect1 = 40;
-            gun[66].skilleffect1 = 100;
-            gun[67].skilleffect1 = 120;
-            gun[68].skilleffect1 = 4;
-            gun[69].skilleffect1 = 3.5;
-            gun[70].skilleffect1 = 2;
-            gun[71].skilleffect1 = 60;
+            gun[47].skilleffect1 = 40;
+            gun[30].skilleffect1 = 2.2;
+            gun[40].skilleffect1 = 2.2;
+            gun[42].skilleffect1 = 50;
+            gun[85].skilleffect1 = 60;
+            gun[41].skilleffect1 = 4;
+            gun[35].skilleffect1 = 2.4;
+            gun[32].skilleffect1 = 2.4;
+            gun[69].skilleffect1 = 50;
+            gun[98].skilleffect1 = 30;
+            gun[67].skilleffect1 = 30;
+            gun[78].skilleffect1 = 30;
+            gun[71].skilleffect1 = 100;
+            gun[75].skilleffect1 = 30;
+            gun[101].skilleffect1 = 120;
+            gun[74].skilleffect1 = 28;
+            gun[68].skilleffect1 = 100;
             gun[72].skilleffect1 = 100;
-            gun[73].skilleffect1 = 2.2;
-            gun[74].skilleffect1 = 40;
-            gun[75].skilleffect1 = 2.2;
-            gun[76].skilleffect1 = 2.2;
-            gun[77].skilleffect1 = 50;
-            gun[78].skilleffect1 = 60;
-            gun[79].skilleffect1 = 4;
-            gun[80].skilleffect1 = 2.4;
-            gun[81].skilleffect1 = 2.4;
-            gun[82].skilleffect1 = 50;
-            gun[83].skilleffect1 = 30;
-            gun[84].skilleffect1 = 30;
-            gun[85].skilleffect1 = 30;
-            gun[86].skilleffect1 = 100;
-            gun[87].skilleffect1 = 30;
-            gun[88].skilleffect1 = 120;
-            gun[89].skilleffect1 = 28;
-            gun[90].skilleffect1 = 100;
-            gun[91].skilleffect1 = 100;
-            gun[92].skilleffect1 = 150;
-            gun[93].skilleffect1 = 25;
-            gun[94].skilleffect1 = 60;
-            gun[95].skilleffect1 = 200;
-            gun[96].skilleffect1 = 60;
-            gun[97].skilleffect1 = 60;
-            gun[98].skilleffect1 = 200;
-            gun[99].skilleffect1 = 120;
-            gun[100].skilleffect1 = 10;
-            gun[0].skilleffect2 = 0;
-            gun[1].skilleffect2 = 2.5;
-            gun[2].skilleffect2 = 2.5;
-            gun[3].skilleffect2 = 0.5;
-            gun[4].skilleffect2 = 0.5;
-            gun[5].skilleffect2 = 2.5;
-            gun[6].skilleffect2 = 3;
-            gun[7].skilleffect2 = 0.5;
-            gun[8].skilleffect2 = 3;
-            gun[9].skilleffect2 = 20;
-            gun[10].skilleffect2 = 20;
-            gun[11].skilleffect2 = 3;
-            gun[12].skilleffect2 = 2.5;
-            gun[13].skilleffect2 = 2.5;
+            gun[70].skilleffect1 = 150;
+            gun[100].skilleffect1 = 25;
+            gun[73].skilleffect1 = 60;
+            gun[76].skilleffect1 = 200;
+            gun[77].skilleffect1 = 60;
+            gun[79].skilleffect1 = 60;
+            gun[99].skilleffect1 = 200;
+            gun[110].skilleffect1 = 120;
+            gun[102].skilleffect1 = 10;
             gun[14].skilleffect2 = 0;
+            gun[26].skilleffect2 = 2.5;
+            gun[91].skilleffect2 = 2.5;
+            gun[18].skilleffect2 = 0.5;
+            gun[25].skilleffect2 = 0.5;
             gun[15].skilleffect2 = 2.5;
-            gun[16].skilleffect2 = 0.5;
-            gun[17].skilleffect2 = 2.5;
-            gun[18].skilleffect2 = 2.5;
-            gun[19].skilleffect2 = 25;
-            gun[20].skilleffect2 = 3;
-            gun[21].skilleffect2 = 5;
-            gun[22].skilleffect2 = 6;
-            gun[23].skilleffect2 = 4;
-            gun[24].skilleffect2 = 1;
-            gun[25].skilleffect2 = 6;
-            gun[26].skilleffect2 = 4;
-            gun[27].skilleffect2 = 8;
-            gun[28].skilleffect2 = 2.5;
-            gun[29].skilleffect2 = 6;
-            gun[30].skilleffect2 = 4;
-            gun[31].skilleffect2 = 2.8;
-            gun[32].skilleffect2 = 4;
-            gun[33].skilleffect2 = 4;
-            gun[34].skilleffect2 = 1;
-            gun[35].skilleffect2 = 10;
-            gun[36].skilleffect2 = 8;
-            gun[37].skilleffect2 = 8;
-            gun[38].skilleffect2 = 1;
-            gun[39].skilleffect2 = 2;
-            gun[40].skilleffect2 = 2;
-            gun[41].skilleffect2 = 2.5;
-            gun[42].skilleffect2 = 5;
-            gun[43].skilleffect2 = 1;
-            gun[44].skilleffect2 = 4;
-            gun[45].skilleffect2 = 3;
-            gun[46].skilleffect2 = 5;
-            gun[47].skilleffect2 = 5;
-            gun[48].skilleffect2 = 5;
-            gun[49].skilleffect2 = 3;
-            gun[50].skilleffect2 = 4;
-            gun[51].skilleffect2 = 10;
-            gun[52].skilleffect2 = 5;
-            gun[53].skilleffect2 = 8;
-            gun[54].skilleffect2 = 10;
-            gun[55].skilleffect2 = 20;
-            gun[56].skilleffect2 = 5;
-            gun[57].skilleffect2 = 8;
-            gun[58].skilleffect2 = 5;
-            gun[59].skilleffect2 = 8;
-            gun[60].skilleffect2 = 2.5;
-            gun[61].skilleffect2 = 10;
-            gun[62].skilleffect2 = 5;
-            gun[63].skilleffect2 = 4;
-            gun[64].skilleffect2 = 3;
-            gun[65].skilleffect2 = 5;
-            gun[66].skilleffect2 = 2;
-            gun[67].skilleffect2 = 2;
-            gun[68].skilleffect2 = 2;
-            gun[69].skilleffect2 = 2;
-            gun[70].skilleffect2 = 2;
-            gun[71].skilleffect2 = 8;
-            gun[72].skilleffect2 = 2;
-            gun[73].skilleffect2 = 2;
-            gun[74].skilleffect2 = 5;
-            gun[75].skilleffect2 = 2;
-            gun[76].skilleffect2 = 2;
-            gun[77].skilleffect2 = 8;
-            gun[78].skilleffect2 = 5;
-            gun[79].skilleffect2 = 2;
-            gun[80].skilleffect2 = 2;
-            gun[81].skilleffect2 = 2;
-            gun[82].skilleffect2 = 8;
-            gun[83].skilleffect2 = 8;
-            gun[84].skilleffect2 = 8;
-            gun[85].skilleffect2 = 8;
-            gun[86].skilleffect2 = 8;
-            gun[87].skilleffect2 = 8;
-            gun[88].skilleffect2 = 8;
-            gun[89].skilleffect2 = 8;
-            gun[90].skilleffect2 = 8;
-            gun[91].skilleffect2 = 8;
-            gun[92].skilleffect2 = 10;
-            gun[93].skilleffect2 = 8;
+            gun[83].skilleffect2 = 3;
+            gun[28].skilleffect2 = 0.5;
+            gun[17].skilleffect2 = 3;
+            gun[16].skilleffect2 = 20;
+            gun[29].skilleffect2 = 20;
+            gun[82].skilleffect2 = 3;
+            gun[20].skilleffect2 = 2.5;
+            gun[22].skilleffect2 = 2.5;
+            gun[24].skilleffect2 = 0;
+            gun[27].skilleffect2 = 2.5;
+            gun[23].skilleffect2 = 0.5;
+            gun[19].skilleffect2 = 2.5;
+            gun[84].skilleffect2 = 2.5;
+            gun[92].skilleffect2 = 25;
+            gun[104].skilleffect2 = 3;
             gun[94].skilleffect2 = 5;
+            gun[58].skilleffect2 = 6;
             gun[95].skilleffect2 = 4;
-            gun[96].skilleffect2 = 2.5;
-            gun[97].skilleffect2 = 2.5;
-            gun[98].skilleffect2 = 4;
-            gun[99].skilleffect2 = 8;
-            gun[100].skilleffect2 = 5;
-            gun[0].skilleffect3 = 0;
-            gun[1].skilleffect3 = 0;
-            gun[2].skilleffect3 = 0;
-            gun[3].skilleffect3 = 2;
-            gun[4].skilleffect3 = 2;
-            gun[5].skilleffect3 = 0;
-            gun[6].skilleffect3 = 0;
-            gun[7].skilleffect3 = 2;
-            gun[8].skilleffect3 = 0;
-            gun[9].skilleffect3 = 2.5;
-            gun[10].skilleffect3 = 2.5;
-            gun[11].skilleffect3 = 0;
-            gun[12].skilleffect3 = 0;
-            gun[13].skilleffect3 = 0;
+            gun[59].skilleffect2 = 1;
+            gun[56].skilleffect2 = 6;
+            gun[60].skilleffect2 = 4;
+            gun[50].skilleffect2 = 8;
+            gun[49].skilleffect2 = 2.5;
+            gun[52].skilleffect2 = 6;
+            gun[62].skilleffect2 = 4;
+            gun[53].skilleffect2 = 2.8;
+            gun[55].skilleffect2 = 4;
+            gun[97].skilleffect2 = 4;
+            gun[51].skilleffect2 = 1;
+            gun[65].skilleffect2 = 10;
+            gun[64].skilleffect2 = 8;
+            gun[66].skilleffect2 = 8;
+            gun[57].skilleffect2 = 1;
+            gun[96].skilleffect2 = 2;
+            gun[63].skilleffect2 = 2;
+            gun[61].skilleffect2 = 2.5;
+            gun[107].skilleffect2 = 5;
+            gun[54].skilleffect2 = 1;
+            gun[103].skilleffect2 = 4;
+            gun[3].skilleffect2 = 3;
+            gun[0].skilleffect2 = 5;
+            gun[86].skilleffect2 = 5;
+            gun[4].skilleffect2 = 5;
+            gun[13].skilleffect2 = 3;
+            gun[6].skilleffect2 = 4;
+            gun[5].skilleffect2 = 10;
+            gun[12].skilleffect2 = 5;
+            gun[9].skilleffect2 = 8;
+            gun[89].skilleffect2 = 10;
+            gun[1].skilleffect2 = 20;
+            gun[8].skilleffect2 = 5;
+            gun[10].skilleffect2 = 8;
+            gun[87].skilleffect2 = 5;
+            gun[7].skilleffect2 = 8;
+            gun[2].skilleffect2 = 2.5;
+            gun[90].skilleffect2 = 10;
+            gun[11].skilleffect2 = 5;
+            gun[80].skilleffect2 = 4;
+            gun[81].skilleffect2 = 3;
+            gun[37].skilleffect2 = 5;
+            gun[46].skilleffect2 = 2;
+            gun[45].skilleffect2 = 2;
+            gun[48].skilleffect2 = 2;
+            gun[38].skilleffect2 = 2;
+            gun[36].skilleffect2 = 2;
+            gun[43].skilleffect2 = 8;
+            gun[33].skilleffect2 = 2;
+            gun[34].skilleffect2 = 2;
+            gun[47].skilleffect2 = 5;
+            gun[30].skilleffect2 = 2;
+            gun[40].skilleffect2 = 2;
+            gun[42].skilleffect2 = 8;
+            gun[85].skilleffect2 = 5;
+            gun[41].skilleffect2 = 2;
+            gun[35].skilleffect2 = 2;
+            gun[32].skilleffect2 = 2;
+            gun[69].skilleffect2 = 8;
+            gun[98].skilleffect2 = 8;
+            gun[67].skilleffect2 = 8;
+            gun[78].skilleffect2 = 8;
+            gun[71].skilleffect2 = 8;
+            gun[75].skilleffect2 = 8;
+            gun[101].skilleffect2 = 8;
+            gun[74].skilleffect2 = 8;
+            gun[68].skilleffect2 = 8;
+            gun[72].skilleffect2 = 8;
+            gun[70].skilleffect2 = 10;
+            gun[100].skilleffect2 = 8;
+            gun[73].skilleffect2 = 5;
+            gun[76].skilleffect2 = 4;
+            gun[77].skilleffect2 = 2.5;
+            gun[79].skilleffect2 = 2.5;
+            gun[99].skilleffect2 = 4;
+            gun[110].skilleffect2 = 8;
+            gun[102].skilleffect2 = 5;
             gun[14].skilleffect3 = 0;
-            gun[15].skilleffect3 = 0;
-            gun[16].skilleffect3 = 2;
-            gun[17].skilleffect3 = 0;
-            gun[18].skilleffect3 = 0;
-            gun[19].skilleffect3 = 2.5;
-            gun[20].skilleffect3 = 0;
-            gun[21].skilleffect3 = 0;
-            gun[22].skilleffect3 = 0;
-            gun[23].skilleffect3 = 0;
-            gun[24].skilleffect3 = 0;
-            gun[25].skilleffect3 = 0;
             gun[26].skilleffect3 = 0;
+            gun[91].skilleffect3 = 0;
+            gun[18].skilleffect3 = 2;
+            gun[25].skilleffect3 = 2;
+            gun[15].skilleffect3 = 0;
+            gun[83].skilleffect3 = 0;
+            gun[28].skilleffect3 = 2;
+            gun[17].skilleffect3 = 0;
+            gun[16].skilleffect3 = 2.5;
+            gun[29].skilleffect3 = 2.5;
+            gun[82].skilleffect3 = 0;
+            gun[20].skilleffect3 = 0;
+            gun[22].skilleffect3 = 0;
+            gun[24].skilleffect3 = 0;
             gun[27].skilleffect3 = 0;
-            gun[28].skilleffect3 = 0;
-            gun[29].skilleffect3 = 0;
-            gun[30].skilleffect3 = 0;
-            gun[31].skilleffect3 = 0;
-            gun[32].skilleffect3 = 0;
-            gun[33].skilleffect3 = 0;
-            gun[34].skilleffect3 = 0;
-            gun[35].skilleffect3 = 0;
-            gun[36].skilleffect3 = 0;
-            gun[37].skilleffect3 = 0;
-            gun[38].skilleffect3 = 0;
-            gun[39].skilleffect3 = 0;
-            gun[40].skilleffect3 = 0;
-            gun[41].skilleffect3 = 0;
-            gun[42].skilleffect3 = 0;
-            gun[43].skilleffect3 = 0;
-            gun[44].skilleffect3 = 0;
-            gun[45].skilleffect3 = 0;
-            gun[46].skilleffect3 = 0;
-            gun[47].skilleffect3 = 0;
-            gun[48].skilleffect3 = 0;
-            gun[49].skilleffect3 = 0;
-            gun[50].skilleffect3 = 0;
-            gun[51].skilleffect3 = 0;
-            gun[52].skilleffect3 = 0;
-            gun[53].skilleffect3 = 0;
-            gun[54].skilleffect3 = 0;
-            gun[55].skilleffect3 = 2.5;
-            gun[56].skilleffect3 = 0;
-            gun[57].skilleffect3 = 0;
+            gun[23].skilleffect3 = 2;
+            gun[19].skilleffect3 = 0;
+            gun[84].skilleffect3 = 0;
+            gun[92].skilleffect3 = 2.5;
+            gun[104].skilleffect3 = 0;
+            gun[94].skilleffect3 = 0;
             gun[58].skilleffect3 = 0;
+            gun[95].skilleffect3 = 0;
             gun[59].skilleffect3 = 0;
+            gun[56].skilleffect3 = 0;
             gun[60].skilleffect3 = 0;
-            gun[61].skilleffect3 = 0;
+            gun[50].skilleffect3 = 0;
+            gun[49].skilleffect3 = 0;
+            gun[52].skilleffect3 = 0;
             gun[62].skilleffect3 = 0;
-            gun[63].skilleffect3 = 0;
-            gun[64].skilleffect3 = 0;
+            gun[53].skilleffect3 = 0;
+            gun[55].skilleffect3 = 0;
+            gun[97].skilleffect3 = 0;
+            gun[51].skilleffect3 = 0;
             gun[65].skilleffect3 = 0;
+            gun[64].skilleffect3 = 0;
             gun[66].skilleffect3 = 0;
-            gun[67].skilleffect3 = 0;
-            gun[68].skilleffect3 = 0;
-            gun[69].skilleffect3 = 0;
-            gun[70].skilleffect3 = 0;
-            gun[71].skilleffect3 = 0;
-            gun[72].skilleffect3 = 0;
-            gun[73].skilleffect3 = 0;
-            gun[74].skilleffect3 = 0;
-            gun[75].skilleffect3 = 0;
-            gun[76].skilleffect3 = 0;
-            gun[77].skilleffect3 = 0;
-            gun[78].skilleffect3 = 0;
-            gun[79].skilleffect3 = 0;
+            gun[57].skilleffect3 = 0;
+            gun[96].skilleffect3 = 0;
+            gun[63].skilleffect3 = 0;
+            gun[61].skilleffect3 = 0;
+            gun[107].skilleffect3 = 0;
+            gun[54].skilleffect3 = 0;
+            gun[103].skilleffect3 = 0;
+            gun[3].skilleffect3 = 0;
+            gun[0].skilleffect3 = 0;
+            gun[86].skilleffect3 = 0;
+            gun[4].skilleffect3 = 0;
+            gun[13].skilleffect3 = 0;
+            gun[6].skilleffect3 = 0;
+            gun[5].skilleffect3 = 0;
+            gun[12].skilleffect3 = 0;
+            gun[9].skilleffect3 = 0;
+            gun[89].skilleffect3 = 0;
+            gun[1].skilleffect3 = 2.5;
+            gun[8].skilleffect3 = 0;
+            gun[10].skilleffect3 = 0;
+            gun[87].skilleffect3 = 0;
+            gun[7].skilleffect3 = 0;
+            gun[2].skilleffect3 = 0;
+            gun[90].skilleffect3 = 0;
+            gun[11].skilleffect3 = 0;
             gun[80].skilleffect3 = 0;
             gun[81].skilleffect3 = 0;
-            gun[82].skilleffect3 = 0;
-            gun[83].skilleffect3 = 0;
-            gun[84].skilleffect3 = 0;
+            gun[37].skilleffect3 = 0;
+            gun[46].skilleffect3 = 0;
+            gun[45].skilleffect3 = 0;
+            gun[48].skilleffect3 = 0;
+            gun[38].skilleffect3 = 0;
+            gun[36].skilleffect3 = 0;
+            gun[43].skilleffect3 = 0;
+            gun[33].skilleffect3 = 0;
+            gun[34].skilleffect3 = 0;
+            gun[47].skilleffect3 = 0;
+            gun[30].skilleffect3 = 0;
+            gun[40].skilleffect3 = 0;
+            gun[42].skilleffect3 = 0;
             gun[85].skilleffect3 = 0;
-            gun[86].skilleffect3 = 0;
-            gun[87].skilleffect3 = 0;
-            gun[88].skilleffect3 = 0;
-            gun[89].skilleffect3 = 0;
-            gun[90].skilleffect3 = 0;
-            gun[91].skilleffect3 = 0;
-            gun[92].skilleffect3 = 0;
-            gun[93].skilleffect3 = 0;
-            gun[94].skilleffect3 = 0;
-            gun[95].skilleffect3 = 0;
-            gun[96].skilleffect3 = 0;
-            gun[97].skilleffect3 = 0;
+            gun[41].skilleffect3 = 0;
+            gun[35].skilleffect3 = 0;
+            gun[32].skilleffect3 = 0;
+            gun[69].skilleffect3 = 0;
             gun[98].skilleffect3 = 0;
-            gun[99].skilleffect3 = 0;
+            gun[67].skilleffect3 = 0;
+            gun[78].skilleffect3 = 0;
+            gun[71].skilleffect3 = 0;
+            gun[75].skilleffect3 = 0;
+            gun[101].skilleffect3 = 0;
+            gun[74].skilleffect3 = 0;
+            gun[68].skilleffect3 = 0;
+            gun[72].skilleffect3 = 0;
+            gun[70].skilleffect3 = 0;
             gun[100].skilleffect3 = 0;
-            gun[0].skilleffect4 = 0;
-            gun[1].skilleffect4 = 0;
-            gun[2].skilleffect4 = 0;
-            gun[3].skilleffect4 = 1;
-            gun[4].skilleffect4 = 1;
-            gun[5].skilleffect4 = 0;
-            gun[6].skilleffect4 = 0;
-            gun[7].skilleffect4 = 1;
-            gun[8].skilleffect4 = 0;
-            gun[9].skilleffect4 = 2.5;
-            gun[10].skilleffect4 = 2.5;
-            gun[11].skilleffect4 = 0;
-            gun[12].skilleffect4 = 0;
-            gun[13].skilleffect4 = 0;
+            gun[73].skilleffect3 = 0;
+            gun[76].skilleffect3 = 0;
+            gun[77].skilleffect3 = 0;
+            gun[79].skilleffect3 = 0;
+            gun[99].skilleffect3 = 0;
+            gun[110].skilleffect3 = 0;
+            gun[102].skilleffect3 = 0;
             gun[14].skilleffect4 = 0;
-            gun[15].skilleffect4 = 0;
-            gun[16].skilleffect4 = 1;
-            gun[17].skilleffect4 = 0;
-            gun[18].skilleffect4 = 0;
-            gun[19].skilleffect4 = 2.5;
-            gun[20].skilleffect4 = 0;
-            gun[21].skilleffect4 = 0;
-            gun[22].skilleffect4 = 0;
-            gun[23].skilleffect4 = 0;
-            gun[24].skilleffect4 = 0;
-            gun[25].skilleffect4 = 0;
             gun[26].skilleffect4 = 0;
+            gun[91].skilleffect4 = 0;
+            gun[18].skilleffect4 = 1;
+            gun[25].skilleffect4 = 1;
+            gun[15].skilleffect4 = 0;
+            gun[83].skilleffect4 = 0;
+            gun[28].skilleffect4 = 1;
+            gun[17].skilleffect4 = 0;
+            gun[16].skilleffect4 = 2.5;
+            gun[29].skilleffect4 = 2.5;
+            gun[82].skilleffect4 = 0;
+            gun[20].skilleffect4 = 0;
+            gun[22].skilleffect4 = 0;
+            gun[24].skilleffect4 = 0;
             gun[27].skilleffect4 = 0;
-            gun[28].skilleffect4 = 0;
-            gun[29].skilleffect4 = 0;
-            gun[30].skilleffect4 = 0;
-            gun[31].skilleffect4 = 0;
-            gun[32].skilleffect4 = 0;
-            gun[33].skilleffect4 = 0;
-            gun[34].skilleffect4 = 0;
-            gun[35].skilleffect4 = 0;
-            gun[36].skilleffect4 = 0;
-            gun[37].skilleffect4 = 0;
-            gun[38].skilleffect4 = 0;
-            gun[39].skilleffect4 = 0;
-            gun[40].skilleffect4 = 0;
-            gun[41].skilleffect4 = 0;
-            gun[42].skilleffect4 = 0;
-            gun[43].skilleffect4 = 0;
-            gun[44].skilleffect4 = 0;
-            gun[45].skilleffect4 = 0;
-            gun[46].skilleffect4 = 0;
-            gun[47].skilleffect4 = 0;
-            gun[48].skilleffect4 = 0;
-            gun[49].skilleffect4 = 0;
-            gun[50].skilleffect4 = 0;
-            gun[51].skilleffect4 = 0;
-            gun[52].skilleffect4 = 0;
-            gun[53].skilleffect4 = 0;
-            gun[54].skilleffect4 = 0;
-            gun[55].skilleffect4 = 2.5;
-            gun[56].skilleffect4 = 0;
-            gun[57].skilleffect4 = 0;
+            gun[23].skilleffect4 = 1;
+            gun[19].skilleffect4 = 0;
+            gun[84].skilleffect4 = 0;
+            gun[92].skilleffect4 = 2.5;
+            gun[104].skilleffect4 = 0;
+            gun[94].skilleffect4 = 0;
             gun[58].skilleffect4 = 0;
+            gun[95].skilleffect4 = 0;
             gun[59].skilleffect4 = 0;
+            gun[56].skilleffect4 = 0;
             gun[60].skilleffect4 = 0;
-            gun[61].skilleffect4 = 0;
+            gun[50].skilleffect4 = 0;
+            gun[49].skilleffect4 = 0;
+            gun[52].skilleffect4 = 0;
             gun[62].skilleffect4 = 0;
-            gun[63].skilleffect4 = 0;
-            gun[64].skilleffect4 = 0;
+            gun[53].skilleffect4 = 0;
+            gun[55].skilleffect4 = 0;
+            gun[97].skilleffect4 = 0;
+            gun[51].skilleffect4 = 0;
             gun[65].skilleffect4 = 0;
+            gun[64].skilleffect4 = 0;
             gun[66].skilleffect4 = 0;
-            gun[67].skilleffect4 = 0;
-            gun[68].skilleffect4 = 0;
-            gun[69].skilleffect4 = 0;
-            gun[70].skilleffect4 = 0;
-            gun[71].skilleffect4 = 0;
-            gun[72].skilleffect4 = 0;
-            gun[73].skilleffect4 = 0;
-            gun[74].skilleffect4 = 0;
-            gun[75].skilleffect4 = 0;
-            gun[76].skilleffect4 = 0;
-            gun[77].skilleffect4 = 0;
-            gun[78].skilleffect4 = 0;
-            gun[79].skilleffect4 = 0;
+            gun[57].skilleffect4 = 0;
+            gun[96].skilleffect4 = 0;
+            gun[63].skilleffect4 = 0;
+            gun[61].skilleffect4 = 0;
+            gun[107].skilleffect4 = 0;
+            gun[54].skilleffect4 = 0;
+            gun[103].skilleffect4 = 0;
+            gun[3].skilleffect4 = 0;
+            gun[0].skilleffect4 = 0;
+            gun[86].skilleffect4 = 0;
+            gun[4].skilleffect4 = 0;
+            gun[13].skilleffect4 = 0;
+            gun[6].skilleffect4 = 0;
+            gun[5].skilleffect4 = 0;
+            gun[12].skilleffect4 = 0;
+            gun[9].skilleffect4 = 0;
+            gun[89].skilleffect4 = 0;
+            gun[1].skilleffect4 = 2.5;
+            gun[8].skilleffect4 = 0;
+            gun[10].skilleffect4 = 0;
+            gun[87].skilleffect4 = 0;
+            gun[7].skilleffect4 = 0;
+            gun[2].skilleffect4 = 0;
+            gun[90].skilleffect4 = 0;
+            gun[11].skilleffect4 = 0;
             gun[80].skilleffect4 = 0;
             gun[81].skilleffect4 = 0;
-            gun[82].skilleffect4 = 0;
-            gun[83].skilleffect4 = 0;
-            gun[84].skilleffect4 = 0;
+            gun[37].skilleffect4 = 0;
+            gun[46].skilleffect4 = 0;
+            gun[45].skilleffect4 = 0;
+            gun[48].skilleffect4 = 0;
+            gun[38].skilleffect4 = 0;
+            gun[36].skilleffect4 = 0;
+            gun[43].skilleffect4 = 0;
+            gun[33].skilleffect4 = 0;
+            gun[34].skilleffect4 = 0;
+            gun[47].skilleffect4 = 0;
+            gun[30].skilleffect4 = 0;
+            gun[40].skilleffect4 = 0;
+            gun[42].skilleffect4 = 0;
             gun[85].skilleffect4 = 0;
-            gun[86].skilleffect4 = 0;
-            gun[87].skilleffect4 = 0;
-            gun[88].skilleffect4 = 0;
-            gun[89].skilleffect4 = 0;
-            gun[90].skilleffect4 = 0;
-            gun[91].skilleffect4 = 0;
-            gun[92].skilleffect4 = 0;
-            gun[93].skilleffect4 = 0;
-            gun[94].skilleffect4 = 0;
-            gun[95].skilleffect4 = 0;
-            gun[96].skilleffect4 = 0;
-            gun[97].skilleffect4 = 0;
+            gun[41].skilleffect4 = 0;
+            gun[35].skilleffect4 = 0;
+            gun[32].skilleffect4 = 0;
+            gun[69].skilleffect4 = 0;
             gun[98].skilleffect4 = 0;
-            gun[99].skilleffect4 = 0;
+            gun[67].skilleffect4 = 0;
+            gun[78].skilleffect4 = 0;
+            gun[71].skilleffect4 = 0;
+            gun[75].skilleffect4 = 0;
+            gun[101].skilleffect4 = 0;
+            gun[74].skilleffect4 = 0;
+            gun[68].skilleffect4 = 0;
+            gun[72].skilleffect4 = 0;
+            gun[70].skilleffect4 = 0;
             gun[100].skilleffect4 = 0;
+            gun[73].skilleffect4 = 0;
+            gun[76].skilleffect4 = 0;
+            gun[77].skilleffect4 = 0;
+            gun[79].skilleffect4 = 0;
+            gun[99].skilleffect4 = 0;
+            gun[110].skilleffect4 = 0;
+            gun[102].skilleffect4 = 0;
 
-            gun[0].growth = 1;
-            gun[1].growth = 1.5;
-            gun[2].growth = 1;
-            gun[3].growth = 1;
-            gun[4].growth = 1;
-            gun[5].growth = 1.5;
-            gun[6].growth = 0.5;
-            gun[7].growth = 1;
-            gun[8].growth = 0.8;
-            gun[9].growth = 0.6;
-            gun[10].growth = 0.6;
-            gun[11].growth = 0.8;
-            gun[12].growth = 1.5;
-            gun[13].growth = 1.5;
             gun[14].growth = 1;
-            gun[15].growth = 1;
-            gun[16].growth = 1;
-            gun[17].growth = 1.5;
-            gun[18].growth = 1;
-            gun[19].growth = 0.6;
-            gun[20].growth = 0.8;
-            gun[21].growth = 0.6;
-            gun[22].growth = 0.6;
-            gun[23].growth = 1.5;
-            gun[24].growth = 1.5;
-            gun[25].growth = 0.6;
             gun[26].growth = 1.5;
-            gun[27].growth = 0.6;
+            gun[91].growth = 1;
+            gun[18].growth = 1;
+            gun[25].growth = 1;
+            gun[15].growth = 1.5;
+            gun[83].growth = 0.5;
             gun[28].growth = 1;
+            gun[17].growth = 0.8;
+            gun[16].growth = 0.6;
             gun[29].growth = 0.6;
-            gun[30].growth = 1.5;
-            gun[31].growth = 0.6;
-            gun[32].growth = 1.5;
-            gun[33].growth = 1.5;
-            gun[34].growth = 1.5;
-            gun[35].growth = 0.6;
-            gun[36].growth = 1.2;
-            gun[37].growth = 0.8;
-            gun[38].growth = 1.5;
-            gun[39].growth = 0.6;
-            gun[40].growth = 0.6;
-            gun[41].growth = 0.6;
-            gun[42].growth = 0.6;
-            gun[43].growth = 1.5;
-            gun[44].growth = 0.5;
-            gun[45].growth = 0.6;
-            gun[46].growth = 0.6;
-            gun[47].growth = 0.6;
-            gun[48].growth = 0.6;
-            gun[49].growth = 0.6;
-            gun[50].growth = 0.5;
-            gun[51].growth = 0.6;
-            gun[52].growth = 0.6;
-            gun[53].growth = 0.8;
-            gun[54].growth = 0.6;
-            gun[55].growth = 0.6;
-            gun[56].growth = 0.6;
-            gun[57].growth = 0.8;
+            gun[82].growth = 0.8;
+            gun[20].growth = 1.5;
+            gun[22].growth = 1.5;
+            gun[24].growth = 1;
+            gun[27].growth = 1;
+            gun[23].growth = 1;
+            gun[19].growth = 1.5;
+            gun[84].growth = 1;
+            gun[92].growth = 0.6;
+            gun[104].growth = 0.8;
+            gun[94].growth = 0.6;
             gun[58].growth = 0.6;
-            gun[59].growth = 0.8;
-            gun[60].growth = 1;
-            gun[61].growth = 0.6;
-            gun[62].growth = 0.6;
-            gun[63].growth = 0.8;
-            gun[64].growth = 0.6;
+            gun[95].growth = 1.5;
+            gun[59].growth = 1.5;
+            gun[56].growth = 0.6;
+            gun[60].growth = 1.5;
+            gun[50].growth = 0.6;
+            gun[49].growth = 1;
+            gun[52].growth = 0.6;
+            gun[62].growth = 1.5;
+            gun[53].growth = 0.6;
+            gun[55].growth = 1.5;
+            gun[97].growth = 1.5;
+            gun[51].growth = 1.5;
             gun[65].growth = 0.6;
-            gun[66].growth = 0.6;
-            gun[67].growth = 0.6;
-            gun[68].growth = 1.2;
-            gun[69].growth = 1.2;
-            gun[70].growth = 1.2;
-            gun[71].growth = 0.6;
-            gun[72].growth = 0.6;
-            gun[73].growth = 1.2;
-            gun[74].growth = 0.6;
-            gun[75].growth = 1.2;
-            gun[76].growth = 1.2;
-            gun[77].growth = 0.6;
-            gun[78].growth = 0.5;
-            gun[79].growth = 1.2;
-            gun[80].growth = 1.2;
-            gun[81].growth = 1.2;
-            gun[82].growth = 1.2;
-            gun[83].growth = 1.2;
-            gun[84].growth = 1.2;
-            gun[85].growth = 1.2;
-            gun[86].growth = 2;
-            gun[87].growth = 1.2;
-            gun[88].growth = 2;
-            gun[89].growth = 1.2;
-            gun[90].growth = 1.5;
-            gun[91].growth = 2;
-            gun[92].growth = 2;
-            gun[93].growth = 1.2;
-            gun[94].growth = 0.5;
-            gun[95].growth = 0.8;
+            gun[64].growth = 1.2;
+            gun[66].growth = 0.8;
+            gun[57].growth = 1.5;
             gun[96].growth = 0.6;
-            gun[97].growth = 0.6;
-            gun[98].growth = 0.8;
-            gun[99].growth = 2;
-            gun[100].growth = 0.6;
+            gun[63].growth = 0.6;
+            gun[61].growth = 0.6;
+            gun[107].growth = 0.6;
+            gun[54].growth = 1.5;
+            gun[103].growth = 0.5;
+            gun[3].growth = 0.6;
+            gun[0].growth = 0.6;
+            gun[86].growth = 0.6;
+            gun[4].growth = 0.6;
+            gun[13].growth = 0.6;
+            gun[6].growth = 0.5;
+            gun[5].growth = 0.6;
+            gun[12].growth = 0.6;
+            gun[9].growth = 0.8;
+            gun[89].growth = 0.6;
+            gun[1].growth = 0.6;
+            gun[8].growth = 0.6;
+            gun[10].growth = 0.8;
+            gun[87].growth = 0.6;
+            gun[7].growth = 0.8;
+            gun[2].growth = 1;
+            gun[90].growth = 0.6;
+            gun[11].growth = 0.6;
+            gun[80].growth = 0.8;
+            gun[81].growth = 0.6;
+            gun[37].growth = 0.6;
+            gun[46].growth = 0.6;
+            gun[45].growth = 0.6;
+            gun[48].growth = 1.2;
+            gun[38].growth = 1.2;
+            gun[36].growth = 1.2;
+            gun[43].growth = 0.6;
+            gun[33].growth = 0.6;
+            gun[34].growth = 1.2;
+            gun[47].growth = 0.6;
+            gun[30].growth = 1.2;
+            gun[40].growth = 1.2;
+            gun[42].growth = 0.6;
+            gun[85].growth = 0.5;
+            gun[41].growth = 1.2;
+            gun[35].growth = 1.2;
+            gun[32].growth = 1.2;
+            gun[69].growth = 1.2;
+            gun[98].growth = 1.2;
+            gun[67].growth = 1.2;
+            gun[78].growth = 1.2;
+            gun[71].growth = 2;
+            gun[75].growth = 1.2;
+            gun[101].growth = 2;
+            gun[74].growth = 1.2;
+            gun[68].growth = 1.5;
+            gun[72].growth = 2;
+            gun[70].growth = 2;
+            gun[100].growth = 1.2;
+            gun[73].growth = 0.5;
+            gun[76].growth = 0.8;
+            gun[77].growth = 0.6;
+            gun[79].growth = 0.6;
+            gun[99].growth = 0.8;
+            gun[110].growth = 2;
+            gun[102].growth = 0.6;
 
-            gun[0].growth_type = 2;
-            gun[1].growth_type = 2;
-            gun[2].growth_type = 2;
-            gun[3].growth_type = 4;
-            gun[4].growth_type = 4;
-            gun[5].growth_type = 2;
-            gun[6].growth_type = 3;
-            gun[7].growth_type = 4;
-            gun[8].growth_type = 3;
-            gun[9].growth_type = 4;
-            gun[10].growth_type = 4;
-            gun[11].growth_type = 3;
-            gun[12].growth_type = 2;
-            gun[13].growth_type = 2;
             gun[14].growth_type = 2;
-            gun[15].growth_type = 2;
-            gun[16].growth_type = 4;
-            gun[17].growth_type = 2;
-            gun[18].growth_type = 2;
-            gun[19].growth_type = 4;
-            gun[20].growth_type = 3;
-            gun[21].growth_type = 3;
-            gun[22].growth_type = 3;
-            gun[23].growth_type = 2;
-            gun[24].growth_type = 2;
-            gun[25].growth_type = 3;
             gun[26].growth_type = 2;
-            gun[27].growth_type = 3;
-            gun[28].growth_type = 2;
-            gun[29].growth_type = 3;
-            gun[30].growth_type = 2;
-            gun[31].growth_type = 3;
-            gun[32].growth_type = 2;
-            gun[33].growth_type = 2;
-            gun[34].growth_type = 2;
-            gun[35].growth_type = 3;
-            gun[36].growth_type = 3;
-            gun[37].growth_type = 3;
-            gun[38].growth_type = 2;
-            gun[39].growth_type = 3;
-            gun[40].growth_type = 3;
-            gun[41].growth_type = 3;
-            gun[42].growth_type = 3;
-            gun[43].growth_type = 2;
-            gun[44].growth_type = 3;
-            gun[45].growth_type = 3;
-            gun[46].growth_type = 3;
-            gun[47].growth_type = 3;
-            gun[48].growth_type = 3;
-            gun[49].growth_type = 3;
-            gun[50].growth_type = 3;
-            gun[51].growth_type = 3;
-            gun[52].growth_type = 3;
-            gun[53].growth_type = 3;
-            gun[54].growth_type = 3;
-            gun[55].growth_type = 4;
-            gun[56].growth_type = 3;
-            gun[57].growth_type = 3;
-            gun[58].growth_type = 3;
-            gun[59].growth_type = 3;
-            gun[60].growth_type = 2;
-            gun[61].growth_type = 3;
-            gun[62].growth_type = 3;
-            gun[63].growth_type = 3;
-            gun[64].growth_type = 3;
-            gun[65].growth_type = 3;
-            gun[66].growth_type = 3;
-            gun[67].growth_type = 3;
-            gun[68].growth_type = 2;
-            gun[69].growth_type = 2;
-            gun[70].growth_type = 2;
-            gun[71].growth_type = 3;
-            gun[72].growth_type = 3;
-            gun[73].growth_type = 2;
-            gun[74].growth_type = 3;
-            gun[75].growth_type = 2;
-            gun[76].growth_type = 2;
-            gun[77].growth_type = 3;
-            gun[78].growth_type = 3;
-            gun[79].growth_type = 2;
-            gun[80].growth_type = 2;
-            gun[81].growth_type = 2;
-            gun[82].growth_type = 2;
-            gun[83].growth_type = 2;
-            gun[84].growth_type = 2;
-            gun[85].growth_type = 2;
-            gun[86].growth_type = 2;
-            gun[87].growth_type = 2;
-            gun[88].growth_type = 2;
-            gun[89].growth_type = 2;
-            gun[90].growth_type = 2;
             gun[91].growth_type = 2;
-            gun[92].growth_type = 2;
-            gun[93].growth_type = 2;
+            gun[18].growth_type = 4;
+            gun[25].growth_type = 4;
+            gun[15].growth_type = 2;
+            gun[83].growth_type = 3;
+            gun[28].growth_type = 4;
+            gun[17].growth_type = 3;
+            gun[16].growth_type = 4;
+            gun[29].growth_type = 4;
+            gun[82].growth_type = 3;
+            gun[20].growth_type = 2;
+            gun[22].growth_type = 2;
+            gun[24].growth_type = 2;
+            gun[27].growth_type = 2;
+            gun[23].growth_type = 4;
+            gun[19].growth_type = 2;
+            gun[84].growth_type = 2;
+            gun[92].growth_type = 4;
+            gun[104].growth_type = 3;
             gun[94].growth_type = 3;
-            gun[95].growth_type = 3;
+            gun[58].growth_type = 3;
+            gun[95].growth_type = 2;
+            gun[59].growth_type = 2;
+            gun[56].growth_type = 3;
+            gun[60].growth_type = 2;
+            gun[50].growth_type = 3;
+            gun[49].growth_type = 2;
+            gun[52].growth_type = 3;
+            gun[62].growth_type = 2;
+            gun[53].growth_type = 3;
+            gun[55].growth_type = 2;
+            gun[97].growth_type = 2;
+            gun[51].growth_type = 2;
+            gun[65].growth_type = 3;
+            gun[64].growth_type = 3;
+            gun[66].growth_type = 3;
+            gun[57].growth_type = 2;
             gun[96].growth_type = 3;
-            gun[97].growth_type = 3;
-            gun[98].growth_type = 3;
-            gun[99].growth_type = 2;
-            gun[100].growth_type = 3;
+            gun[63].growth_type = 3;
+            gun[61].growth_type = 3;
+            gun[107].growth_type = 3;
+            gun[54].growth_type = 2;
+            gun[103].growth_type = 3;
+            gun[3].growth_type = 3;
+            gun[0].growth_type = 3;
+            gun[86].growth_type = 3;
+            gun[4].growth_type = 3;
+            gun[13].growth_type = 3;
+            gun[6].growth_type = 3;
+            gun[5].growth_type = 3;
+            gun[12].growth_type = 3;
+            gun[9].growth_type = 3;
+            gun[89].growth_type = 3;
+            gun[1].growth_type = 4;
+            gun[8].growth_type = 3;
+            gun[10].growth_type = 3;
+            gun[87].growth_type = 3;
+            gun[7].growth_type = 3;
+            gun[2].growth_type = 2;
+            gun[90].growth_type = 3;
+            gun[11].growth_type = 3;
+            gun[80].growth_type = 3;
+            gun[81].growth_type = 3;
+            gun[37].growth_type = 3;
+            gun[46].growth_type = 3;
+            gun[45].growth_type = 3;
+            gun[48].growth_type = 2;
+            gun[38].growth_type = 2;
+            gun[36].growth_type = 2;
+            gun[43].growth_type = 3;
+            gun[33].growth_type = 3;
+            gun[34].growth_type = 2;
+            gun[47].growth_type = 3;
+            gun[30].growth_type = 2;
+            gun[40].growth_type = 2;
+            gun[42].growth_type = 3;
+            gun[85].growth_type = 3;
+            gun[41].growth_type = 2;
+            gun[35].growth_type = 2;
+            gun[32].growth_type = 2;
+            gun[69].growth_type = 2;
+            gun[98].growth_type = 2;
+            gun[67].growth_type = 2;
+            gun[78].growth_type = 2;
+            gun[71].growth_type = 2;
+            gun[75].growth_type = 2;
+            gun[101].growth_type = 2;
+            gun[74].growth_type = 2;
+            gun[68].growth_type = 2;
+            gun[72].growth_type = 2;
+            gun[70].growth_type = 2;
+            gun[100].growth_type = 2;
+            gun[73].growth_type = 3;
+            gun[76].growth_type = 3;
+            gun[77].growth_type = 3;
+            gun[79].growth_type = 3;
+            gun[99].growth_type = 3;
+            gun[110].growth_type = 2;
+            gun[102].growth_type = 3;
+
+            gun[0].equiptype1 = "4,13";
+            gun[1].equiptype1 = "4,13";
+            gun[2].equiptype1 = "4,13";
+            gun[3].equiptype1 = "4,13";
+            gun[4].equiptype1 = "4,13";
+            gun[5].equiptype1 = "4,13";
+            gun[6].equiptype1 = "4,13";
+            gun[7].equiptype1 = "4,13";
+            gun[8].equiptype1 = "4,13";
+            gun[9].equiptype1 = "4,13";
+            gun[10].equiptype1 = "4,13";
+            gun[11].equiptype1 = "4,13";
+            gun[12].equiptype1 = "4,13";
+            gun[13].equiptype1 = "4,13";
+            gun[14].equiptype1 = "9,10,12";
+            gun[15].equiptype1 = "9,10,12";
+            gun[16].equiptype1 = "9,10,12";
+            gun[17].equiptype1 = "9,10,12";
+            gun[18].equiptype1 = "9,10,12";
+            gun[19].equiptype1 = "9,10,12";
+            gun[20].equiptype1 = "9,10,12";
+            gun[21].equiptype1 = "9,10,12";
+            gun[22].equiptype1 = "9,10,12";
+            gun[23].equiptype1 = "9,10,12";
+            gun[24].equiptype1 = "9,10,12";
+            gun[25].equiptype1 = "9,10,12";
+            gun[26].equiptype1 = "9,10,12";
+            gun[27].equiptype1 = "9,10,12";
+            gun[28].equiptype1 = "9,10,12";
+            gun[29].equiptype1 = "9,10,12";
+            gun[30].equiptype1 = "5";
+            gun[31].equiptype1 = "5";
+            gun[32].equiptype1 = "5";
+            gun[33].equiptype1 = "5";
+            gun[34].equiptype1 = "5";
+            gun[35].equiptype1 = "5";
+            gun[36].equiptype1 = "5";
+            gun[37].equiptype1 = "5";
+            gun[38].equiptype1 = "5";
+            gun[39].equiptype1 = "5";
+            gun[40].equiptype1 = "5";
+            gun[41].equiptype1 = "5";
+            gun[42].equiptype1 = "5";
+            gun[43].equiptype1 = "5";
+            gun[44].equiptype1 = "5";
+            gun[45].equiptype1 = "5";
+            gun[46].equiptype1 = "5";
+            gun[47].equiptype1 = "5";
+            gun[48].equiptype1 = "5";
+            gun[49].equiptype1 = "8";
+            gun[50].equiptype1 = "1,2,3,4,13";
+            gun[51].equiptype1 = "1,2,3,4,13";
+            gun[52].equiptype1 = "1,2,3,4,13";
+            gun[53].equiptype1 = "1,2,3,4,13";
+            gun[54].equiptype1 = "1,2,3,4,13";
+            gun[55].equiptype1 = "1,2,3,4,13";
+            gun[56].equiptype1 = "1,2,3,4,13";
+            gun[57].equiptype1 = "1,2,3,4,13";
+            gun[58].equiptype1 = "1,2,3,4,13";
+            gun[59].equiptype1 = "1,2,3,4,13";
+            gun[60].equiptype1 = "1,2,3,4,13";
+            gun[61].equiptype1 = "1,2,3,4,13";
+            gun[62].equiptype1 = "1,2,3,4,13";
+            gun[63].equiptype1 = "1,2,3,4,13";
+            gun[64].equiptype1 = "1,2,3,4,13";
+            gun[65].equiptype1 = "1,2,3,4,13";
+            gun[66].equiptype1 = "1,2,3,4,13";
+            gun[67].equiptype1 = "5";
+            gun[68].equiptype1 = "5";
+            gun[69].equiptype1 = "5";
+            gun[70].equiptype1 = "5";
+            gun[71].equiptype1 = "5";
+            gun[72].equiptype1 = "5";
+            gun[73].equiptype1 = "5";
+            gun[74].equiptype1 = "5";
+            gun[75].equiptype1 = "5";
+            gun[76].equiptype1 = "5";
+            gun[77].equiptype1 = "5";
+            gun[78].equiptype1 = "5";
+            gun[79].equiptype1 = "5";
+            gun[80].equiptype1 = "4,13";
+            gun[81].equiptype1 = "4,13";
+            gun[82].equiptype1 = "9,10,12";
+            gun[83].equiptype1 = "9,10,12";
+            gun[84].equiptype1 = "9,10,12";
+            gun[85].equiptype1 = "5";
+            gun[86].equiptype1 = "4,13";
+            gun[87].equiptype1 = "4,13";
+            gun[88].equiptype1 = "4,13";
+            gun[89].equiptype1 = "4,13";
+            gun[90].equiptype1 = "4,13";
+            gun[91].equiptype1 = "9,10,12";
+            gun[92].equiptype1 = "9,10,12";
+            gun[93].equiptype1 = "9,10,12";
+            gun[94].equiptype1 = "1,2,3,4,13";
+            gun[95].equiptype1 = "1,2,3,4,13";
+            gun[96].equiptype1 = "1,2,3,4,13";
+            gun[97].equiptype1 = "1,2,3,4,13";
+            gun[98].equiptype1 = "5";
+            gun[99].equiptype1 = "5";
+            gun[100].equiptype1 = "5";
+            gun[101].equiptype1 = "5";
+            gun[102].equiptype1 = "4,13";
+            gun[103].equiptype1 = "4,13";
+            gun[104].equiptype1 = "9,10,12";
+            gun[105].equiptype1 = "9,10,12";
+            gun[106].equiptype1 = "5";
+            gun[107].equiptype1 = "1,2,3,4,13";
+            gun[108].equiptype1 = "1,2,3,4,13";
+            gun[109].equiptype1 = "1,2,3,4,13";
+            gun[110].equiptype1 = "5";
+            gun[111].equiptype1 = "1,2,3,4,13";
+            gun[112].equiptype1 = "4,13";
+            gun[113].equiptype1 = "5";
+            gun[114].equiptype1 = "5";
+            gun[115].equiptype1 = "4,13";
+            gun[116].equiptype1 = "9,10,12";
+            gun[117].equiptype1 = "5";
+            gun[118].equiptype1 = "1,2,3,4,13";
+            gun[119].equiptype1 = "1,2,3,4,13";
+            gun[120].equiptype1 = "9,10,12";
+            gun[121].equiptype1 = "4,13";
+            gun[122].equiptype1 = "1,2,3,4,13";
+            gun[123].equiptype1 = "1,2,3,4,13";
+            gun[124].equiptype1 = "9,10,12";
+            gun[125].equiptype1 = "9,10,12";
+            gun[126].equiptype1 = "1,2,3,4,13";
+            gun[127].equiptype1 = "9,11";
+            gun[128].equiptype1 = "9,11";
+            gun[129].equiptype1 = "9,11";
+            gun[130].equiptype1 = "9,11";
+            gun[131].equiptype1 = "9,11";
+            gun[132].equiptype1 = "9,11";
+            gun[133].equiptype1 = "9,11";
+            gun[134].equiptype1 = "9,11";
+
+            gun[0].equiptype2 = "6";
+            gun[1].equiptype2 = "6";
+            gun[2].equiptype2 = "6";
+            gun[3].equiptype2 = "6";
+            gun[4].equiptype2 = "6";
+            gun[5].equiptype2 = "6";
+            gun[6].equiptype2 = "6";
+            gun[7].equiptype2 = "6";
+            gun[8].equiptype2 = "6";
+            gun[9].equiptype2 = "6";
+            gun[10].equiptype2 = "6";
+            gun[11].equiptype2 = "6";
+            gun[12].equiptype2 = "6";
+            gun[13].equiptype2 = "6";
+            gun[14].equiptype2 = "6";
+            gun[15].equiptype2 = "6";
+            gun[16].equiptype2 = "6";
+            gun[17].equiptype2 = "6";
+            gun[18].equiptype2 = "6";
+            gun[19].equiptype2 = "6";
+            gun[20].equiptype2 = "6";
+            gun[21].equiptype2 = "6";
+            gun[22].equiptype2 = "6";
+            gun[23].equiptype2 = "6";
+            gun[24].equiptype2 = "6";
+            gun[25].equiptype2 = "6";
+            gun[26].equiptype2 = "6";
+            gun[27].equiptype2 = "6";
+            gun[28].equiptype2 = "6";
+            gun[29].equiptype2 = "6";
+            gun[30].equiptype2 = "1,2,3,13";
+            gun[31].equiptype2 = "1,2,3,13";
+            gun[32].equiptype2 = "1,2,3,13";
+            gun[33].equiptype2 = "1,2,3,13";
+            gun[34].equiptype2 = "1,2,3,13";
+            gun[35].equiptype2 = "1,2,3,13";
+            gun[36].equiptype2 = "1,2,3,13";
+            gun[37].equiptype2 = "1,2,3,13";
+            gun[38].equiptype2 = "1,2,3,13";
+            gun[39].equiptype2 = "1,2,3,13";
+            gun[40].equiptype2 = "1,2,3,13";
+            gun[41].equiptype2 = "1,2,3,13";
+            gun[42].equiptype2 = "1,2,3,13";
+            gun[43].equiptype2 = "1,2,3,13";
+            gun[44].equiptype2 = "1,2,3,13";
+            gun[45].equiptype2 = "1,2,3,13";
+            gun[46].equiptype2 = "1,2,3,13";
+            gun[47].equiptype2 = "1,2,3,13";
+            gun[48].equiptype2 = "1,2,3,13";
+            gun[49].equiptype2 = "9,10,12";
+            gun[50].equiptype2 = "8";
+            gun[51].equiptype2 = "1,2,3,4";
+            gun[52].equiptype2 = "1,2,3,4";
+            gun[53].equiptype2 = "8";
+            gun[54].equiptype2 = "8";
+            gun[55].equiptype2 = "8";
+            gun[56].equiptype2 = "8";
+            gun[57].equiptype2 = "8";
+            gun[58].equiptype2 = "8";
+            gun[59].equiptype2 = "8";
+            gun[60].equiptype2 = "8";
+            gun[61].equiptype2 = "8";
+            gun[62].equiptype2 = "8";
+            gun[63].equiptype2 = "8";
+            gun[64].equiptype2 = "8";
+            gun[65].equiptype2 = "8";
+            gun[66].equiptype2 = "8";
+            gun[67].equiptype2 = "1,2,3";
+            gun[68].equiptype2 = "1,2,3";
+            gun[69].equiptype2 = "1,2,3";
+            gun[70].equiptype2 = "1,2,3";
+            gun[71].equiptype2 = "1,2,3";
+            gun[72].equiptype2 = "1,2,3";
+            gun[73].equiptype2 = "1,2,3";
+            gun[74].equiptype2 = "1,2,3";
+            gun[75].equiptype2 = "1,2,3";
+            gun[76].equiptype2 = "1,2,3";
+            gun[77].equiptype2 = "1,2,3";
+            gun[78].equiptype2 = "1,2,3";
+            gun[79].equiptype2 = "1,2,3";
+            gun[80].equiptype2 = "6";
+            gun[81].equiptype2 = "6";
+            gun[82].equiptype2 = "6";
+            gun[83].equiptype2 = "6";
+            gun[84].equiptype2 = "6";
+            gun[85].equiptype2 = "1,2,3,13";
+            gun[86].equiptype2 = "6";
+            gun[87].equiptype2 = "6";
+            gun[88].equiptype2 = "6";
+            gun[89].equiptype2 = "6";
+            gun[90].equiptype2 = "6";
+            gun[91].equiptype2 = "6";
+            gun[92].equiptype2 = "6";
+            gun[93].equiptype2 = "6";
+            gun[94].equiptype2 = "8";
+            gun[95].equiptype2 = "8";
+            gun[96].equiptype2 = "8";
+            gun[97].equiptype2 = "8";
+            gun[98].equiptype2 = "1,2,3";
+            gun[99].equiptype2 = "1,2,3";
+            gun[100].equiptype2 = "1,2,3";
+            gun[101].equiptype2 = "1,2,3";
+            gun[102].equiptype2 = "6";
+            gun[103].equiptype2 = "6";
+            gun[104].equiptype2 = "6";
+            gun[105].equiptype2 = "6";
+            gun[106].equiptype2 = "1,2,3,13";
+            gun[107].equiptype2 = "8";
+            gun[108].equiptype2 = "8";
+            gun[109].equiptype2 = "8";
+            gun[110].equiptype2 = "1,2,3";
+            gun[111].equiptype2 = "8";
+            gun[112].equiptype2 = "6";
+            gun[113].equiptype2 = "1,2,3,13";
+            gun[114].equiptype2 = "1,2,3";
+            gun[115].equiptype2 = "6";
+            gun[116].equiptype2 = "6";
+            gun[117].equiptype2 = "1,2,3,13";
+            gun[118].equiptype2 = "8";
+            gun[119].equiptype2 = "8";
+            gun[120].equiptype2 = "6";
+            gun[121].equiptype2 = "6";
+            gun[122].equiptype2 = "8";
+            gun[123].equiptype2 = "8";
+            gun[124].equiptype2 = "6";
+            gun[125].equiptype2 = "6";
+            gun[126].equiptype2 = "5,8";
+            gun[127].equiptype2 = "7";
+            gun[128].equiptype2 = "7";
+            gun[129].equiptype2 = "7";
+            gun[130].equiptype2 = "7";
+            gun[131].equiptype2 = "7";
+            gun[132].equiptype2 = "7";
+            gun[133].equiptype2 = "7";
+            gun[134].equiptype2 = "7";
+
+            gun[0].equiptype3 = "9,10,12";
+            gun[1].equiptype3 = "9,10,12";
+            gun[2].equiptype3 = "9,10,12";
+            gun[3].equiptype3 = "9,10,12";
+            gun[4].equiptype3 = "9,10,12";
+            gun[5].equiptype3 = "9,10,12";
+            gun[6].equiptype3 = "9,10,12";
+            gun[7].equiptype3 = "9,10,12";
+            gun[8].equiptype3 = "9,10,12";
+            gun[9].equiptype3 = "9,10,12";
+            gun[10].equiptype3 = "9,10,12";
+            gun[11].equiptype3 = "9,10,12";
+            gun[12].equiptype3 = "9,10,12";
+            gun[13].equiptype3 = "9,10,12";
+            gun[14].equiptype3 = "1,2,3,4,13";
+            gun[15].equiptype3 = "1,2,3,4,13";
+            gun[16].equiptype3 = "1,2,3,4,13";
+            gun[17].equiptype3 = "1,2,3,4,13";
+            gun[18].equiptype3 = "1,2,3,4,13";
+            gun[19].equiptype3 = "1,2,3,4,13";
+            gun[20].equiptype3 = "1,2,3,4,13";
+            gun[21].equiptype3 = "1,2,3,4,13";
+            gun[22].equiptype3 = "1,2,3,4,13";
+            gun[23].equiptype3 = "1,2,3,4,13";
+            gun[24].equiptype3 = "1,2,3,4,13";
+            gun[25].equiptype3 = "1,2,3,4,13";
+            gun[26].equiptype3 = "1,2,3,4,13";
+            gun[27].equiptype3 = "1,2,3,4,13";
+            gun[28].equiptype3 = "1,2,3,4,13";
+            gun[29].equiptype3 = "1,2,3,4,13";
+            gun[30].equiptype3 = "9";
+            gun[31].equiptype3 = "9";
+            gun[32].equiptype3 = "9";
+            gun[33].equiptype3 = "9";
+            gun[34].equiptype3 = "9";
+            gun[35].equiptype3 = "9";
+            gun[36].equiptype3 = "9";
+            gun[37].equiptype3 = "9";
+            gun[38].equiptype3 = "9";
+            gun[39].equiptype3 = "9";
+            gun[40].equiptype3 = "9";
+            gun[41].equiptype3 = "9";
+            gun[42].equiptype3 = "9";
+            gun[43].equiptype3 = "9";
+            gun[44].equiptype3 = "9";
+            gun[45].equiptype3 = "9";
+            gun[46].equiptype3 = "9";
+            gun[47].equiptype3 = "9";
+            gun[48].equiptype3 = "9";
+            gun[49].equiptype3 = "9,10,12";
+            gun[50].equiptype3 = "9,10,12";
+            gun[51].equiptype3 = "8";
+            gun[52].equiptype3 = "8";
+            gun[53].equiptype3 = "9,10,12";
+            gun[54].equiptype3 = "9,10,12";
+            gun[55].equiptype3 = "9,10,12";
+            gun[56].equiptype3 = "9,10,12";
+            gun[57].equiptype3 = "9,10,12";
+            gun[58].equiptype3 = "9,10,12";
+            gun[59].equiptype3 = "9,10,12";
+            gun[60].equiptype3 = "9,10,12";
+            gun[61].equiptype3 = "9,10,12";
+            gun[62].equiptype3 = "9,10,12";
+            gun[63].equiptype3 = "9,10,12";
+            gun[64].equiptype3 = "9,10,12";
+            gun[65].equiptype3 = "9,10,12";
+            gun[66].equiptype3 = "9,10,12";
+            gun[67].equiptype3 = "9,14";
+            gun[68].equiptype3 = "9,14";
+            gun[69].equiptype3 = "9,14";
+            gun[70].equiptype3 = "9,14";
+            gun[71].equiptype3 = "9,14";
+            gun[72].equiptype3 = "9,14";
+            gun[73].equiptype3 = "9,14";
+            gun[74].equiptype3 = "9,14";
+            gun[75].equiptype3 = "9,14";
+            gun[76].equiptype3 = "9,14";
+            gun[77].equiptype3 = "9,14";
+            gun[78].equiptype3 = "9,14";
+            gun[79].equiptype3 = "9,14";
+            gun[80].equiptype3 = "9,10,12";
+            gun[81].equiptype3 = "9,10,12";
+            gun[82].equiptype3 = "1,2,3,4,13";
+            gun[83].equiptype3 = "1,2,3,4,13";
+            gun[84].equiptype3 = "1,2,3,4,13";
+            gun[85].equiptype3 = "9";
+            gun[86].equiptype3 = "9,10,12";
+            gun[87].equiptype3 = "9,10,12";
+            gun[88].equiptype3 = "9,10,12";
+            gun[89].equiptype3 = "9,10,12";
+            gun[90].equiptype3 = "9,10,12";
+            gun[91].equiptype3 = "1,2,3,4,13";
+            gun[92].equiptype3 = "1,2,3,4,13";
+            gun[93].equiptype3 = "1,2,3,4,13";
+            gun[94].equiptype3 = "9,10,12";
+            gun[95].equiptype3 = "9,10,12";
+            gun[96].equiptype3 = "9,10,12";
+            gun[97].equiptype3 = "9,10,12";
+            gun[98].equiptype3 = "9,14";
+            gun[99].equiptype3 = "9,14";
+            gun[100].equiptype3 = "9,14";
+            gun[101].equiptype3 = "9,14";
+            gun[102].equiptype3 = "9,10,12";
+            gun[103].equiptype3 = "9,10,12";
+            gun[104].equiptype3 = "1,2,3,4,13";
+            gun[105].equiptype3 = "1,2,3,4,13";
+            gun[106].equiptype3 = "9";
+            gun[107].equiptype3 = "9,10,12";
+            gun[108].equiptype3 = "9,10,12";
+            gun[109].equiptype3 = "9,10,12";
+            gun[110].equiptype3 = "9,14";
+            gun[111].equiptype3 = "9,10,12";
+            gun[112].equiptype3 = "9,10,12";
+            gun[113].equiptype3 = "9";
+            gun[114].equiptype3 = "9,14";
+            gun[115].equiptype3 = "9,10,12";
+            gun[116].equiptype3 = "1,2,3,4,13";
+            gun[117].equiptype3 = "9";
+            gun[118].equiptype3 = "9,10,12";
+            gun[119].equiptype3 = "9,10,12";
+            gun[120].equiptype3 = "1,2,3,4,13";
+            gun[121].equiptype3 = "9,10,12";
+            gun[122].equiptype3 = "9,10,12";
+            gun[123].equiptype3 = "9,10,12";
+            gun[124].equiptype3 = "1,2,3,4,13";
+            gun[125].equiptype3 = "1,2,3,4,13";
+            gun[126].equiptype3 = "9,10,12";
+            gun[127].equiptype3 = "1,2,3,4";
+            gun[128].equiptype3 = "1,2,3,4";
+            gun[129].equiptype3 = "1,2,3,4";
+            gun[130].equiptype3 = "1,2,3,4";
+            gun[131].equiptype3 = "1,2,3,4";
+            gun[132].equiptype3 = "1,2,3,4";
+            gun[133].equiptype3 = "1,2,3,4";
+            gun[134].equiptype3 = "1,2,3,4";
 
             for (int i = 0; i < EQUIP_NUMBER; i++)
                 equip[i] = new Equip();
@@ -9585,6 +10003,9 @@ namespace snqxap
                 return;
             int ranklevel = 0;
             int cardlevel = 0;
+            string[] type1 = gun[index].equiptype1.Split(',');
+            string[] type2 = gun[index].equiptype2.Split(',');
+            string[] type3 = gun[index].equiptype3.Split(',');
             if (levelindex < 29)
             {
                 ranklevel = 2;
@@ -9615,2446 +10036,20 @@ namespace snqxap
                 ranklevel = 5;
                 cardlevel = 3;
             }
-                switch (combo)
-                {
-                    case 0:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb01.IsEnabled = true;
-                                            equipcb01.Items.Clear();
-                                            equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb02.IsEnabled = true;
-                                            equipcb02.Items.Clear();
-                                            equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb03.IsEnabled = true;
-                                            equipcb03.Items.Clear();
-                                            equipcb03.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb01.IsEnabled = true;
-                                            equipcb01.Items.Clear();
-                                            equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb02.IsEnabled = true;
-                                            equipcb02.Items.Clear();
-                                            equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb03.IsEnabled = true;
-                                            equipcb03.Items.Clear();
-                                            equipcb03.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb01.IsEnabled = true;
-                                            equipcb01.Items.Clear();
-                                            equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb02.IsEnabled = true;
-                                            equipcb02.Items.Clear();
-                                            equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb03.IsEnabled = true;
-                                            equipcb03.Items.Clear();
-                                            equipcb03.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb01.IsEnabled = true;
-                                            equipcb01.Items.Clear();
-                                            equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb02.IsEnabled = true;
-                                            equipcb02.Items.Clear();
-                                            equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb03.IsEnabled = true;
-                                            equipcb03.Items.Clear();
-                                            equipcb03.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb01.IsEnabled = true;
-                                            equipcb01.Items.Clear();
-                                            equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb02.IsEnabled = true;
-                                            equipcb02.Items.Clear();
-                                            equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb03.IsEnabled = true;
-                                            equipcb03.Items.Clear();
-                                            equipcb03.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 9) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                            default:
-                                break;
-                        }
-                            break;
-                        }
-                    case 1:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb11.IsEnabled = true;
-                                            equipcb11.Items.Clear();
-                                            equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb12.IsEnabled = true;
-                                            equipcb12.Items.Clear();
-                                            equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb13.IsEnabled = true;
-                                            equipcb13.Items.Clear();
-                                            equipcb13.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb11.IsEnabled = true;
-                                            equipcb11.Items.Clear();
-                                            equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb12.IsEnabled = true;
-                                            equipcb12.Items.Clear();
-                                            equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb13.IsEnabled = true;
-                                            equipcb13.Items.Clear();
-                                            equipcb13.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb11.IsEnabled = true;
-                                            equipcb11.Items.Clear();
-                                            equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb12.IsEnabled = true;
-                                            equipcb12.Items.Clear();
-                                            equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb13.IsEnabled = true;
-                                            equipcb13.Items.Clear();
-                                            equipcb13.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb11.IsEnabled = true;
-                                            equipcb11.Items.Clear();
-                                            equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb12.IsEnabled = true;
-                                            equipcb12.Items.Clear();
-                                            equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb13.IsEnabled = true;
-                                            equipcb13.Items.Clear();
-                                            equipcb13.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb11.IsEnabled = true;
-                                            equipcb11.Items.Clear();
-                                            equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb12.IsEnabled = true;
-                                            equipcb12.Items.Clear();
-                                            equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb13.IsEnabled = true;
-                                            equipcb13.Items.Clear();
-                                            equipcb13.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 9) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-
-                            default:
-                                break;
-                        }
-                            break;
-                        }
-                    case 2:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb21.IsEnabled = true;
-                                            equipcb21.Items.Clear();
-                                            equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb22.IsEnabled = true;
-                                            equipcb22.Items.Clear();
-                                            equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb23.IsEnabled = true;
-                                            equipcb23.Items.Clear();
-                                            equipcb23.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb21.IsEnabled = true;
-                                            equipcb21.Items.Clear();
-                                            equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb22.IsEnabled = true;
-                                            equipcb22.Items.Clear();
-                                            equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb23.IsEnabled = true;
-                                            equipcb23.Items.Clear();
-                                            equipcb23.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb21.IsEnabled = true;
-                                            equipcb21.Items.Clear();
-                                            equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb22.IsEnabled = true;
-                                            equipcb22.Items.Clear();
-                                            equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb23.IsEnabled = true;
-                                            equipcb23.Items.Clear();
-                                            equipcb23.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb21.IsEnabled = true;
-                                            equipcb21.Items.Clear();
-                                            equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb22.IsEnabled = true;
-                                            equipcb22.Items.Clear();
-                                            equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb23.IsEnabled = true;
-                                            equipcb23.Items.Clear();
-                                            equipcb23.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb21.IsEnabled = true;
-                                            equipcb21.Items.Clear();
-                                            equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb22.IsEnabled = true;
-                                            equipcb22.Items.Clear();
-                                            equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb23.IsEnabled = true;
-                                            equipcb23.Items.Clear();
-                                            equipcb23.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 9) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                            default:
-                                break;
-                        }
-                            break;
-                        }
-                    case 3:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb31.IsEnabled = true;
-                                            equipcb31.Items.Clear();
-                                            equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb32.IsEnabled = true;
-                                            equipcb32.Items.Clear();
-                                            equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb33.IsEnabled = true;
-                                            equipcb33.Items.Clear();
-                                            equipcb33.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb31.IsEnabled = true;
-                                            equipcb31.Items.Clear();
-                                            equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb32.IsEnabled = true;
-                                            equipcb32.Items.Clear();
-                                            equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb33.IsEnabled = true;
-                                            equipcb33.Items.Clear();
-                                            equipcb33.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb31.IsEnabled = true;
-                                            equipcb31.Items.Clear();
-                                            equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb32.IsEnabled = true;
-                                            equipcb32.Items.Clear();
-                                            equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb33.IsEnabled = true;
-                                            equipcb33.Items.Clear();
-                                            equipcb33.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb31.IsEnabled = true;
-                                            equipcb31.Items.Clear();
-                                            equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb32.IsEnabled = true;
-                                            equipcb32.Items.Clear();
-                                            equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb33.IsEnabled = true;
-                                            equipcb33.Items.Clear();
-                                            equipcb33.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb31.IsEnabled = true;
-                                            equipcb31.Items.Clear();
-                                            equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb32.IsEnabled = true;
-                                            equipcb32.Items.Clear();
-                                            equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb33.IsEnabled = true;
-                                            equipcb33.Items.Clear();
-                                            equipcb33.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 9) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                            default:
-                                break;
-                        }
-                            break;
-                        }
-                    case 4:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb41.IsEnabled = true;
-                                            equipcb41.Items.Clear();
-                                            equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb42.IsEnabled = true;
-                                            equipcb42.Items.Clear();
-                                            equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb43.IsEnabled = true;
-                                            equipcb43.Items.Clear();
-                                            equipcb43.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb41.IsEnabled = true;
-                                            equipcb41.Items.Clear();
-                                            equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb42.IsEnabled = true;
-                                            equipcb42.Items.Clear();
-                                            equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb43.IsEnabled = true;
-                                            equipcb43.Items.Clear();
-                                            equipcb43.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb41.IsEnabled = true;
-                                            equipcb41.Items.Clear();
-                                            equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb42.IsEnabled = true;
-                                            equipcb42.Items.Clear();
-                                            equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb43.IsEnabled = true;
-                                            equipcb43.Items.Clear();
-                                            equipcb43.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb41.IsEnabled = true;
-                                            equipcb41.Items.Clear();
-                                            equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb42.IsEnabled = true;
-                                            equipcb42.Items.Clear();
-                                            equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb43.IsEnabled = true;
-                                            equipcb43.Items.Clear();
-                                            equipcb43.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb41.IsEnabled = true;
-                                            equipcb41.Items.Clear();
-                                            equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb42.IsEnabled = true;
-                                            equipcb42.Items.Clear();
-                                            equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb43.IsEnabled = true;
-                                            equipcb43.Items.Clear();
-                                            equipcb43.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 9) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                            default:
-                                break;
-                        }
-                            break;
-                        }
-                    case 5:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb51.IsEnabled = true;
-                                            equipcb51.Items.Clear();
-                                            equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb52.IsEnabled = true;
-                                            equipcb52.Items.Clear();
-                                            equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb53.IsEnabled = true;
-                                            equipcb53.Items.Clear();
-                                            equipcb53.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb51.IsEnabled = true;
-                                            equipcb51.Items.Clear();
-                                            equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb52.IsEnabled = true;
-                                            equipcb52.Items.Clear();
-                                            equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb53.IsEnabled = true;
-                                            equipcb53.Items.Clear();
-                                            equipcb53.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb51.IsEnabled = true;
-                                            equipcb51.Items.Clear();
-                                            equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb52.IsEnabled = true;
-                                            equipcb52.Items.Clear();
-                                            equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb53.IsEnabled = true;
-                                            equipcb53.Items.Clear();
-                                            equipcb53.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb51.IsEnabled = true;
-                                            equipcb51.Items.Clear();
-                                            equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb52.IsEnabled = true;
-                                            equipcb52.Items.Clear();
-                                            equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb53.IsEnabled = true;
-                                            equipcb53.Items.Clear();
-                                            equipcb53.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb51.IsEnabled = true;
-                                            equipcb51.Items.Clear();
-                                            equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb52.IsEnabled = true;
-                                            equipcb52.Items.Clear();
-                                            equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb53.IsEnabled = true;
-                                            equipcb53.Items.Clear();
-                                            equipcb53.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 9) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                            default:
-                                break;
-                        }
-                            break;
-                        }
-                    case 6:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb61.IsEnabled = true;
-                                            equipcb61.Items.Clear();
-                                            equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb62.IsEnabled = true;
-                                            equipcb62.Items.Clear();
-                                            equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb63.IsEnabled = true;
-                                            equipcb63.Items.Clear();
-                                            equipcb63.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb61.IsEnabled = true;
-                                            equipcb61.Items.Clear();
-                                            equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb62.IsEnabled = true;
-                                            equipcb62.Items.Clear();
-                                            equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb63.IsEnabled = true;
-                                            equipcb63.Items.Clear();
-                                            equipcb63.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb61.IsEnabled = true;
-                                            equipcb61.Items.Clear();
-                                            equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb62.IsEnabled = true;
-                                            equipcb62.Items.Clear();
-                                            equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb63.IsEnabled = true;
-                                            equipcb63.Items.Clear();
-                                            equipcb63.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb61.IsEnabled = true;
-                                            equipcb61.Items.Clear();
-                                            equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb62.IsEnabled = true;
-                                            equipcb62.Items.Clear();
-                                            equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb63.IsEnabled = true;
-                                            equipcb63.Items.Clear();
-                                            equipcb63.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb61.IsEnabled = true;
-                                            equipcb61.Items.Clear();
-                                            equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb62.IsEnabled = true;
-                                            equipcb62.Items.Clear();
-                                            equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb63.IsEnabled = true;
-                                            equipcb63.Items.Clear();
-                                            equipcb63.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 9) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                            default:
-                                break;
-                        }
-                            break;
-                        }
-                    case 7:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb71.IsEnabled = true;
-                                            equipcb71.Items.Clear();
-                                            equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb72.IsEnabled = true;
-                                            equipcb72.Items.Clear();
-                                            equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb73.IsEnabled = true;
-                                            equipcb73.Items.Clear();
-                                            equipcb73.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb71.IsEnabled = true;
-                                            equipcb71.Items.Clear();
-                                            equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb72.IsEnabled = true;
-                                            equipcb72.Items.Clear();
-                                            equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb73.IsEnabled = true;
-                                            equipcb73.Items.Clear();
-                                            equipcb73.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb71.IsEnabled = true;
-                                            equipcb71.Items.Clear();
-                                            equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb72.IsEnabled = true;
-                                            equipcb72.Items.Clear();
-                                            equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb73.IsEnabled = true;
-                                            equipcb73.Items.Clear();
-                                            equipcb73.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb71.IsEnabled = true;
-                                            equipcb71.Items.Clear();
-                                            equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb72.IsEnabled = true;
-                                            equipcb72.Items.Clear();
-                                            equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb73.IsEnabled = true;
-                                            equipcb73.Items.Clear();
-                                            equipcb73.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb71.IsEnabled = true;
-                                            equipcb71.Items.Clear();
-                                            equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb72.IsEnabled = true;
-                                            equipcb72.Items.Clear();
-                                            equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb73.IsEnabled = true;
-                                            equipcb73.Items.Clear();
-                                            equipcb73.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 9) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                            default:
-                                break;
-                        }
-                            break;
-                        }
-                    case 8:
-                        {
-                            switch (gun[index].what)
-                            {
-                                case 2:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb81.IsEnabled = true;
-                                            equipcb81.Items.Clear();
-                                            equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb82.IsEnabled = true;
-                                            equipcb82.Items.Clear();
-                                            equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb83.IsEnabled = true;
-                                            equipcb83.Items.Clear();
-                                            equipcb83.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb81.IsEnabled = true;
-                                            equipcb81.Items.Clear();
-                                            equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb82.IsEnabled = true;
-                                            equipcb82.Items.Clear();
-                                            equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb83.IsEnabled = true;
-                                            equipcb83.Items.Clear();
-                                            equipcb83.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb81.IsEnabled = true;
-                                            equipcb81.Items.Clear();
-                                            equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb82.IsEnabled = true;
-                                            equipcb82.Items.Clear();
-                                            equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb83.IsEnabled = true;
-                                            equipcb83.Items.Clear();
-                                            equipcb83.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb81.IsEnabled = true;
-                                            equipcb81.Items.Clear();
-                                            equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb82.IsEnabled = true;
-                                            equipcb82.Items.Clear();
-                                            equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb83.IsEnabled = true;
-                                            equipcb83.Items.Clear();
-                                            equipcb83.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((false) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        if (cardlevel >= 1)
-                                        {
-                                            equipcb81.IsEnabled = true;
-                                            equipcb81.Items.Clear();
-                                            equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 5) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 2)
-                                        {
-                                            equipcb82.IsEnabled = true;
-                                            equipcb82.Items.Clear();
-                                            equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        if (cardlevel >= 3)
-                                        {
-                                            equipcb83.IsEnabled = true;
-                                            equipcb83.Items.Clear();
-                                            equipcb83.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                            for (int i = 0; i < EQUIP_NUMBER; i++)
-                                            {
-                                                if ((equip[i].type == 9) && equip[i].rank <= ranklevel)
-                                                {
-                                                    if (equip[i].forwhat == 0)
-                                                        equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                    else if (equip[i].forwhat == index)
-                                                        equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    }
-                            default:
-                                break;
-                        }
-                            break;
-                        }
-                }
-        
-            if (index == 28)
+            switch (combo)
             {
-                switch (combo)
-                {
-                    case 0:
+                case 0:
+                    {
+                        if (cardlevel >= 1)
                         {
-                            if (cardlevel >= 1)
+                            equipcb01.IsEnabled = true;
+                            equipcb01.Items.Clear();
+                            equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type1)
                             {
-                                equipcb01.IsEnabled = true;
-                                equipcb01.Items.Clear();
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
                                 {
-                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
                                     {
                                         if (equip[i].forwhat == 0)
                                             equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
@@ -12063,14 +10058,17 @@ namespace snqxap
                                     }
                                 }
                             }
-                            if (cardlevel >= 2)
+                        }
+                        if (cardlevel >= 2)
+                        {
+                            equipcb02.IsEnabled = true;
+                            equipcb02.Items.Clear();
+                            equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type2)
                             {
-                                equipcb02.IsEnabled = true;
-                                equipcb02.Items.Clear();
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
                                 {
-                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
                                     {
                                         if (equip[i].forwhat == 0)
                                             equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
@@ -12079,14 +10077,17 @@ namespace snqxap
                                     }
                                 }
                             }
-                            if (cardlevel >= 3)
+                        }
+                        if (cardlevel >= 3)
+                        {
+                            equipcb03.IsEnabled = true;
+                            equipcb03.Items.Clear();
+                            equipcb03.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type3)
                             {
-                                equipcb03.IsEnabled = true;
-                                equipcb03.Items.Clear();
-                                equipcb03.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
                                 {
-                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
                                     {
                                         if (equip[i].forwhat == 0)
                                             equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
@@ -12095,494 +10096,21 @@ namespace snqxap
                                     }
                                 }
                             }
-                            break;
                         }
-                    case 1:
-                        {
-                            if (cardlevel >= 1)
-                            {
-                                equipcb11.IsEnabled = true;
-                                equipcb11.Items.Clear();
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 2)
-                            {
-                                equipcb12.IsEnabled = true;
-                                equipcb12.Items.Clear();
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 3)
-                            {
-                                equipcb13.IsEnabled = true;
-                                equipcb13.Items.Clear();
-                                equipcb13.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            break;
-                        }
-                    case 2:
-                        {
-                            if (cardlevel >= 1)
-                            {
-                                equipcb21.IsEnabled = true;
-                                equipcb21.Items.Clear();
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 2)
-                            {
-                                equipcb22.IsEnabled = true;
-                                equipcb22.Items.Clear();
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 3)
-                            {
-                                equipcb23.IsEnabled = true;
-                                equipcb23.Items.Clear();
-                                equipcb23.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            break;
-                        }
-                    case 3:
-                        {
-                            if (cardlevel >= 1)
-                            {
-                                equipcb31.IsEnabled = true;
-                                equipcb31.Items.Clear();
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 2)
-                            {
-                                equipcb32.IsEnabled = true;
-                                equipcb32.Items.Clear();
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 3)
-                            {
-                                equipcb33.IsEnabled = true;
-                                equipcb33.Items.Clear();
-                                equipcb33.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            break;
-                        }
-                    case 4:
-                        {
-                            if (cardlevel >= 1)
-                            {
-                                equipcb41.IsEnabled = true;
-                                equipcb41.Items.Clear();
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 2)
-                            {
-                                equipcb42.IsEnabled = true;
-                                equipcb42.Items.Clear();
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 3)
-                            {
-                                equipcb43.IsEnabled = true;
-                                equipcb43.Items.Clear();
-                                equipcb43.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            break;
-                        }
-                    case 5:
-                        {
-                            if (cardlevel >= 1)
-                            {
-                                equipcb51.IsEnabled = true;
-                                equipcb51.Items.Clear();
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 2)
-                            {
-                                equipcb52.IsEnabled = true;
-                                equipcb52.Items.Clear();
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 3)
-                            {
-                                equipcb53.IsEnabled = true;
-                                equipcb53.Items.Clear();
-                                equipcb53.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            break;
-                        }
-                    case 6:
-                        {
-                            if (cardlevel >= 1)
-                            {
-                                equipcb61.IsEnabled = true;
-                                equipcb61.Items.Clear();
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 2)
-                            {
-                                equipcb62.IsEnabled = true;
-                                equipcb62.Items.Clear();
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 3)
-                            {
-                                equipcb63.IsEnabled = true;
-                                equipcb63.Items.Clear();
-                                equipcb63.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            break;
-                        }
-                    case 7:
-                        {
-                            if (cardlevel >= 1)
-                            {
-                                equipcb71.IsEnabled = true;
-                                equipcb71.Items.Clear();
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 2)
-                            {
-                                equipcb72.IsEnabled = true;
-                                equipcb72.Items.Clear();
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 3)
-                            {
-                                equipcb73.IsEnabled = true;
-                                equipcb73.Items.Clear();
-                                equipcb73.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            break;
-                        }
-                    case 8:
-                        {
-                            if (cardlevel >= 1)
-                            {
-                                equipcb81.IsEnabled = true;
-                                equipcb81.Items.Clear();
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 2)
-                            {
-                                equipcb82.IsEnabled = true;
-                                equipcb82.Items.Clear();
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 3)
-                            {
-                                equipcb83.IsEnabled = true;
-                                equipcb83.Items.Clear();
-                                equipcb83.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 10) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            break;
-                        }
-                    default:
                         break;
-                }
-            }
-            if (index == 29||index == 34)
-            {
-                switch (combo)
-                {
-                    case 0:
+                    }
+                case 1:
+                    {
+                        if (cardlevel >= 1)
                         {
-                            if (cardlevel >= 1)
+                            equipcb11.IsEnabled = true;
+                            equipcb11.Items.Clear();
+                            equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type1)
                             {
-                                equipcb01.IsEnabled = true;
-                                equipcb01.Items.Clear();
-                                equipcb01.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
                                 {
-                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 2)
-                            {
-                                equipcb02.IsEnabled = true;
-                                equipcb02.Items.Clear();
-                                equipcb02.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb02.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 3)
-                            {
-                                equipcb03.IsEnabled = true;
-                                equipcb03.Items.Clear();
-                                equipcb03.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb03.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            break;
-                        }
-                    case 1:
-                        {
-                            if (cardlevel >= 1)
-                            {
-                                equipcb11.IsEnabled = true;
-                                equipcb11.Items.Clear();
-                                equipcb11.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
                                     {
                                         if (equip[i].forwhat == 0)
                                             equipcb11.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
@@ -12591,14 +10119,17 @@ namespace snqxap
                                     }
                                 }
                             }
-                            if (cardlevel >= 2)
+                        }
+                        if (cardlevel >= 2)
+                        {
+                            equipcb12.IsEnabled = true;
+                            equipcb12.Items.Clear();
+                            equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type2)
                             {
-                                equipcb12.IsEnabled = true;
-                                equipcb12.Items.Clear();
-                                equipcb12.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
                                 {
-                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
                                     {
                                         if (equip[i].forwhat == 0)
                                             equipcb12.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
@@ -12607,14 +10138,17 @@ namespace snqxap
                                     }
                                 }
                             }
-                            if (cardlevel >= 3)
+                        }
+                        if (cardlevel >= 3)
+                        {
+                            equipcb13.IsEnabled = true;
+                            equipcb13.Items.Clear();
+                            equipcb13.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type3)
                             {
-                                equipcb13.IsEnabled = true;
-                                equipcb13.Items.Clear();
-                                equipcb13.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
                                 for (int i = 0; i < EQUIP_NUMBER; i++)
                                 {
-                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
                                     {
                                         if (equip[i].forwhat == 0)
                                             equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
@@ -12623,375 +10157,438 @@ namespace snqxap
                                     }
                                 }
                             }
-                            break;
                         }
-                    case 2:
-                        {
-                            if (cardlevel >= 1)
-                            {
-                                equipcb21.IsEnabled = true;
-                                equipcb21.Items.Clear();
-                                equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 2)
-                            {
-                                equipcb22.IsEnabled = true;
-                                equipcb22.Items.Clear();
-                                equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 3)
-                            {
-                                equipcb23.IsEnabled = true;
-                                equipcb23.Items.Clear();
-                                equipcb23.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            break;
-                        }
-                    case 3:
-                        {
-                            if (cardlevel >= 1)
-                            {
-                                equipcb31.IsEnabled = true;
-                                equipcb31.Items.Clear();
-                                equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 2)
-                            {
-                                equipcb32.IsEnabled = true;
-                                equipcb32.Items.Clear();
-                                equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 3)
-                            {
-                                equipcb33.IsEnabled = true;
-                                equipcb33.Items.Clear();
-                                equipcb33.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            break;
-                        }
-                    case 4:
-                        {
-                            if (cardlevel >= 1)
-                            {
-                                equipcb41.IsEnabled = true;
-                                equipcb41.Items.Clear();
-                                equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 2)
-                            {
-                                equipcb42.IsEnabled = true;
-                                equipcb42.Items.Clear();
-                                equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 3)
-                            {
-                                equipcb43.IsEnabled = true;
-                                equipcb43.Items.Clear();
-                                equipcb43.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            break;
-                        }
-                    case 5:
-                        {
-                            if (cardlevel >= 1)
-                            {
-                                equipcb51.IsEnabled = true;
-                                equipcb51.Items.Clear();
-                                equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 2)
-                            {
-                                equipcb52.IsEnabled = true;
-                                equipcb52.Items.Clear();
-                                equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 3)
-                            {
-                                equipcb53.IsEnabled = true;
-                                equipcb53.Items.Clear();
-                                equipcb53.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            break;
-                        }
-                    case 6:
-                        {
-                            if (cardlevel >= 1)
-                            {
-                                equipcb61.IsEnabled = true;
-                                equipcb61.Items.Clear();
-                                equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 2)
-                            {
-                                equipcb62.IsEnabled = true;
-                                equipcb62.Items.Clear();
-                                equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 3)
-                            {
-                                equipcb63.IsEnabled = true;
-                                equipcb63.Items.Clear();
-                                equipcb63.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            break;
-                        }
-                    case 7:
-                        {
-                            if (cardlevel >= 1)
-                            {
-                                equipcb71.IsEnabled = true;
-                                equipcb71.Items.Clear();
-                                equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 2)
-                            {
-                                equipcb72.IsEnabled = true;
-                                equipcb72.Items.Clear();
-                                equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 3)
-                            {
-                                equipcb73.IsEnabled = true;
-                                equipcb73.Items.Clear();
-                                equipcb73.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            break;
-                        }
-                    case 8:
-                        {
-                            if (cardlevel >= 1)
-                            {
-                                equipcb81.IsEnabled = true;
-                                equipcb81.Items.Clear();
-                                equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 2)
-                            {
-                                equipcb82.IsEnabled = true;
-                                equipcb82.Items.Clear();
-                                equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 2 || equip[i].type == 1 || equip[i].type == 3 || equip[i].type == 4) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            if (cardlevel >= 3)
-                            {
-                                equipcb83.IsEnabled = true;
-                                equipcb83.Items.Clear();
-                                equipcb83.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
-                                for (int i = 0; i < EQUIP_NUMBER; i++)
-                                {
-                                    if ((equip[i].type == 8) && equip[i].rank <= ranklevel)
-                                    {
-                                        if (equip[i].forwhat == 0)
-                                            equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (equip[i].forwhat == index)
-                                            equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                    }
-                                }
-                            }
-                            break;
-                        }
-                    default:
                         break;
-                }
+                    }
+                case 2:
+                    {
+                        if (cardlevel >= 1)
+                        {
+                            equipcb21.IsEnabled = true;
+                            equipcb21.Items.Clear();
+                            equipcb21.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type1)
+                            {
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                        }
+                        if (cardlevel >= 2)
+                        {
+                            equipcb22.IsEnabled = true;
+                            equipcb22.Items.Clear();
+                            equipcb22.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type2)
+                            {
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                        }
+                        if (cardlevel >= 3)
+                        {
+                            equipcb23.IsEnabled = true;
+                            equipcb23.Items.Clear();
+                            equipcb23.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type3)
+                            {
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    }
+                case 3:
+                    {
+                        if (cardlevel >= 1)
+                        {
+                            equipcb31.IsEnabled = true;
+                            equipcb31.Items.Clear();
+                            equipcb31.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type1)
+                            {
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                        }
+                        if (cardlevel >= 2)
+                        {
+                            equipcb32.IsEnabled = true;
+                            equipcb32.Items.Clear();
+                            equipcb32.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type2)
+                            {
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                        }
+                        if (cardlevel >= 3)
+                        {
+                            equipcb33.IsEnabled = true;
+                            equipcb33.Items.Clear();
+                            equipcb33.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type3)
+                            {
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    }
+                case 4:
+                    {
+                        if (cardlevel >= 1)
+                        {
+                            equipcb41.IsEnabled = true;
+                            equipcb41.Items.Clear();
+                            equipcb41.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type1)
+                            {
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                        }
+                        if (cardlevel >= 2)
+                        {
+                            equipcb42.IsEnabled = true;
+                            equipcb42.Items.Clear();
+                            equipcb42.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type2)
+                            {
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                        }
+                        if (cardlevel >= 3)
+                        {
+                            equipcb43.IsEnabled = true;
+                            equipcb43.Items.Clear();
+                            equipcb43.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type3)
+                            {
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    }
+                case 5:
+                    {
+                        if (cardlevel >= 1)
+                        {
+                            equipcb51.IsEnabled = true;
+                            equipcb51.Items.Clear();
+                            equipcb51.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type1)
+                            {
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                        }
+                        if (cardlevel >= 2)
+                        {
+                            equipcb52.IsEnabled = true;
+                            equipcb52.Items.Clear();
+                            equipcb52.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type2)
+                            {
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                        }
+                        if (cardlevel >= 3)
+                        {
+                            equipcb53.IsEnabled = true;
+                            equipcb53.Items.Clear();
+                            equipcb53.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type3)
+                            {
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    }
+                case 6:
+                    {
+                        if (cardlevel >= 1)
+                        {
+                            equipcb61.IsEnabled = true;
+                            equipcb61.Items.Clear();
+                            equipcb61.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type1)
+                            {
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                        }
+                        if (cardlevel >= 2)
+                        {
+                            equipcb62.IsEnabled = true;
+                            equipcb62.Items.Clear();
+                            equipcb62.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type2)
+                            {
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                        }
+                        if (cardlevel >= 3)
+                        {
+                            equipcb63.IsEnabled = true;
+                            equipcb63.Items.Clear();
+                            equipcb63.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type3)
+                            {
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    }
+                case 7:
+                    {
+                        if (cardlevel >= 1)
+                        {
+                            equipcb71.IsEnabled = true;
+                            equipcb71.Items.Clear();
+                            equipcb71.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type1)
+                            {
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                        }
+                        if (cardlevel >= 2)
+                        {
+                            equipcb72.IsEnabled = true;
+                            equipcb72.Items.Clear();
+                            equipcb72.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type2)
+                            {
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                        }
+                        if (cardlevel >= 3)
+                        {
+                            equipcb73.IsEnabled = true;
+                            equipcb73.Items.Clear();
+                            equipcb73.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type3)
+                            {
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    }
+                case 8:
+                    {
+                        if (cardlevel >= 1)
+                        {
+                            equipcb81.IsEnabled = true;
+                            equipcb81.Items.Clear();
+                            equipcb81.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type1)
+                            {
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                        }
+                        if (cardlevel >= 2)
+                        {
+                            equipcb82.IsEnabled = true;
+                            equipcb82.Items.Clear();
+                            equipcb82.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type2)
+                            {
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                        }
+                        if (cardlevel >= 3)
+                        {
+                            equipcb83.IsEnabled = true;
+                            equipcb83.Items.Clear();
+                            equipcb83.Items.Add(BrushEquipCombobox(equip[30].rank, equip[30].name));
+                            foreach (string type in type3)
+                            {
+                                for (int i = 0; i < EQUIP_NUMBER; i++)
+                                {
+                                    if (equip[i].type == int.Parse(type) && equip[i].rank <= ranklevel)
+                                    {
+                                        if (equip[i].forwhat == 0)
+                                            equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                        else if (equip[i].forwhat == index)
+                                            equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    }
+                default:
+                    break;
             }
         }
 
@@ -13450,7 +11047,7 @@ namespace snqxap
                     equiptb013.SelectedIndex = equiptb013.Items.Count - 1;
                 }
                 if (equipindex01 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex01].type) {
@@ -13484,13 +11081,13 @@ namespace snqxap
                 int equipindex02 = getequipindex(equipselect02.Substring(31));
 
                 if (equipindex02 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb03.SelectedItem != null && equipcb03.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb03.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type) {
                               equipcb01.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb01.SelectedItem != null && equipcb01.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb01.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type) {
@@ -13502,7 +11099,7 @@ namespace snqxap
                 string equipselect03 = equipcb03.SelectedItem.ToString();
                 int equipindex03 = getequipindex(equipselect03.Substring(31));
                 if (equipindex03 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex03].type) {
@@ -13532,7 +11129,7 @@ namespace snqxap
                 string equipselect01 = equipcb01.SelectedItem.ToString();
                 int equipindex01 = getequipindex(equipselect01.Substring(31));
                 if (equipindex01 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex01].type) {
@@ -13577,13 +11174,13 @@ namespace snqxap
                     equiptb023.SelectedIndex = equiptb023.Items.Count - 1;
                 }
                 if (equipindex02 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb03.SelectedItem != null && equipcb03.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb03.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type) {
                                 equipcb02.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb01.SelectedItem != null && equipcb01.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb01.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type) {
@@ -13618,7 +11215,7 @@ namespace snqxap
                 string equipselect03 = equipcb03.SelectedItem.ToString();
                 int equipindex03 = getequipindex(equipselect03.Substring(31));
                 if (equipindex03 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex03].type) {
@@ -13651,7 +11248,7 @@ namespace snqxap
                 string equipselect01 = equipcb01.SelectedItem.ToString();
                 int equipindex01 = getequipindex(equipselect01.Substring(31));
                 if (equipindex01 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex01].type) {
@@ -13665,13 +11262,13 @@ namespace snqxap
                 string equipselect02 = equipcb02.SelectedItem.ToString();
                 int equipindex02 = getequipindex(equipselect02.Substring(31));
                 if (equipindex02 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb03.SelectedItem != null && equipcb03.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb03.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type) {
                                 equipcb03.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb01.SelectedItem != null && equipcb01.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb01.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type) {
@@ -13715,7 +11312,7 @@ namespace snqxap
                     equiptb033.SelectedIndex = equiptb033.Items.Count - 1;
                 }
                 if (equipindex03 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex03].type) {
@@ -13800,7 +11397,7 @@ namespace snqxap
                     equiptb113.SelectedIndex = equiptb113.Items.Count - 1;
                 }
                 if (equipindex11 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex11].type) {
@@ -13835,13 +11432,13 @@ namespace snqxap
                 string equipselect12 = equipcb12.SelectedItem.ToString();
                 int equipindex12 = getequipindex(equipselect12.Substring(31));
                 if (equipindex12 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb13.SelectedItem != null && equipcb13.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb13.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type) {
                                 equipcb11.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb11.SelectedItem != null && equipcb11.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb11.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type) {
@@ -13855,7 +11452,7 @@ namespace snqxap
                 string equipselect13 = equipcb13.SelectedItem.ToString();
                 int equipindex13 = getequipindex(equipselect13.Substring(31));
                 if (equipindex13 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex13].type) {
@@ -13888,7 +11485,7 @@ namespace snqxap
                 string equipselect11 = equipcb11.SelectedItem.ToString();
                 int equipindex11 = getequipindex(equipselect11.Substring(31));
                 if (equipindex11 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex11].type) {
@@ -13932,13 +11529,13 @@ namespace snqxap
                     equiptb123.SelectedIndex = equiptb123.Items.Count - 1;
                 }
                 if (equipindex12 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb13.SelectedItem != null && equipcb13.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb13.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type) {
                                 equipcb12.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb11.SelectedItem != null && equipcb11.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb11.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type) {
@@ -13973,7 +11570,7 @@ namespace snqxap
                 string equipselect13 = equipcb13.SelectedItem.ToString();
                 int equipindex13 = getequipindex(equipselect13.Substring(31));
                 if (equipindex13 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex13].type) {
@@ -14006,7 +11603,7 @@ namespace snqxap
                 string equipselect11 = equipcb11.SelectedItem.ToString();
                 int equipindex11 = getequipindex(equipselect11.Substring(31));
                 if (equipindex11 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex11].type) {
@@ -14020,13 +11617,13 @@ namespace snqxap
                 string equipselect12 = equipcb12.SelectedItem.ToString();
                 int equipindex12 = getequipindex(equipselect12.Substring(31));
                 if (equipindex12 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb13.SelectedItem != null && equipcb13.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb13.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type) {
                                 equipcb13.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb11.SelectedItem != null && equipcb11.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb11.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type) {
@@ -14070,7 +11667,7 @@ namespace snqxap
                     equiptb133.SelectedIndex = equiptb133.Items.Count - 1;
                 }
                 if (equipindex13 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex13].type) {
@@ -14154,7 +11751,7 @@ namespace snqxap
                     equiptb213.SelectedIndex = equiptb213.Items.Count - 1;
                 }
                 if (equipindex21 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex21].type) {
@@ -14189,13 +11786,13 @@ namespace snqxap
                 string equipselect22 = equipcb22.SelectedItem.ToString();
                 int equipindex22 = getequipindex(equipselect22.Substring(31));
                 if (equipindex22 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb23.SelectedItem != null && equipcb23.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb23.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type) {
                                 equipcb21.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb21.SelectedItem != null && equipcb21.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb21.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type) {
@@ -14209,7 +11806,7 @@ namespace snqxap
                 string equipselect23 = equipcb23.SelectedItem.ToString();
                 int equipindex23 = getequipindex(equipselect23.Substring(31));
                 if (equipindex23 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex23].type) {
@@ -14243,7 +11840,7 @@ namespace snqxap
                 int equipindex21 = getequipindex(equipselect21.Substring(31));
                 if (equipindex21 != -1)
                     if (equipindex21 != -1)
-                        if (comboindex == 29 || comboindex == 34)
+                        if (comboindex == 51 || comboindex == 52)
                         {
                             if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31)!= " ")
                                 if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex21].type) {
@@ -14287,13 +11884,13 @@ namespace snqxap
                     equiptb223.SelectedIndex = equiptb223.Items.Count - 1;
                 }
                 if (equipindex22 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb23.SelectedItem != null && equipcb23.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb23.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type) {
                                 equipcb22.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb21.SelectedItem != null && equipcb21.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb21.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type) {
@@ -14328,7 +11925,7 @@ namespace snqxap
                 string equipselect23 = equipcb23.SelectedItem.ToString();
                 int equipindex23 = getequipindex(equipselect23.Substring(31));
                 if (equipindex23 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex23].type) {
@@ -14362,7 +11959,7 @@ namespace snqxap
                 int equipindex21 = getequipindex(equipselect21.Substring(31));
                 if (equipindex21 != -1)
                     if (equipindex21 != -1)
-                        if (comboindex == 29 || comboindex == 34)
+                        if (comboindex == 51 || comboindex == 52)
                         {
                             if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31)!= " ")
                                 if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex21].type) {
@@ -14376,13 +11973,13 @@ namespace snqxap
                 string equipselect22 = equipcb22.SelectedItem.ToString();
                 int equipindex22 = getequipindex(equipselect22.Substring(31));
                 if (equipindex22 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb23.SelectedItem != null && equipcb23.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb23.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type) {
                                 equipcb23.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb21.SelectedItem != null && equipcb21.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb21.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type) {
@@ -14426,7 +12023,7 @@ namespace snqxap
                     equiptb233.SelectedIndex = equiptb233.Items.Count - 1;
                 }
                 if (equipindex23 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex23].type) {
@@ -14511,7 +12108,7 @@ namespace snqxap
                 }
                 if (equipindex31 != -1)
                     if (equipindex31 != -1)
-                        if (comboindex == 29 || comboindex == 34)
+                        if (comboindex == 51 || comboindex == 52)
                         {
                             if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31)!= " ")
                                 if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex31].type) {
@@ -14546,13 +12143,13 @@ namespace snqxap
                 string equipselect32 = equipcb32.SelectedItem.ToString();
                 int equipindex32 = getequipindex(equipselect32.Substring(31));
                 if (equipindex32 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb33.SelectedItem != null && equipcb33.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb33.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type) {
                                 equipcb31.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb31.SelectedItem != null && equipcb31.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb31.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type) {
@@ -14566,7 +12163,7 @@ namespace snqxap
                 string equipselect33 = equipcb33.SelectedItem.ToString();
                 int equipindex33 = getequipindex(equipselect33.Substring(31));
                 if (equipindex33 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex33].type) {
@@ -14599,7 +12196,7 @@ namespace snqxap
                 string equipselect31 = equipcb31.SelectedItem.ToString();
                 int equipindex31 = getequipindex(equipselect31.Substring(31));
                 if (equipindex31 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex31].type) {
@@ -14643,13 +12240,13 @@ namespace snqxap
                     equiptb323.SelectedIndex = equiptb323.Items.Count - 1;
                 }
                 if (equipindex32 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb33.SelectedItem != null && equipcb33.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb33.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type) {
                                 equipcb32.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb31.SelectedItem != null && equipcb31.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb31.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type) {
@@ -14684,7 +12281,7 @@ namespace snqxap
                 string equipselect33 = equipcb33.SelectedItem.ToString();
                 int equipindex33 = getequipindex(equipselect33.Substring(31));
                 if (equipindex33 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex33].type) {
@@ -14717,7 +12314,7 @@ namespace snqxap
                 string equipselect31 = equipcb31.SelectedItem.ToString();
                 int equipindex31 = getequipindex(equipselect31.Substring(31));
                 if (equipindex31 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex31].type) {
@@ -14731,13 +12328,13 @@ namespace snqxap
                 string equipselect32 = equipcb32.SelectedItem.ToString();
                 int equipindex32 = getequipindex(equipselect32.Substring(31));
                 if (equipindex32 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb33.SelectedItem != null && equipcb33.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb33.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type) {
                                 equipcb33.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb31.SelectedItem != null && equipcb31.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb31.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type) {
@@ -14781,7 +12378,7 @@ namespace snqxap
                     equiptb333.SelectedIndex = equiptb333.Items.Count - 1;
                 }
                 if (equipindex33 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex33].type) {
@@ -14865,7 +12462,7 @@ namespace snqxap
                     equiptb413.SelectedIndex = equiptb413.Items.Count - 1;
                 }
                 if (equipindex41 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex41].type) {
@@ -14900,13 +12497,13 @@ namespace snqxap
                 string equipselect42 = equipcb42.SelectedItem.ToString();
                 int equipindex42 = getequipindex(equipselect42.Substring(31));
                 if (equipindex42 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb43.SelectedItem != null && equipcb43.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb43.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type) {
                                 equipcb41.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb41.SelectedItem != null && equipcb41.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb41.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type) {
@@ -14920,7 +12517,7 @@ namespace snqxap
                 string equipselect43 = equipcb43.SelectedItem.ToString();
                 int equipindex43 = getequipindex(equipselect43.Substring(31));
                 if (equipindex43 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex43].type) {
@@ -14953,7 +12550,7 @@ namespace snqxap
                 string equipselect41 = equipcb41.SelectedItem.ToString();
                 int equipindex41 = getequipindex(equipselect41.Substring(31));
                 if (equipindex41 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex41].type) {
@@ -14997,13 +12594,13 @@ namespace snqxap
                     equiptb423.SelectedIndex = equiptb423.Items.Count - 1;
                 }
                 if (equipindex42 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb43.SelectedItem != null && equipcb43.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb43.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type) {
                                 equipcb42.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb41.SelectedItem != null && equipcb41.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb41.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type) {
@@ -15039,7 +12636,7 @@ namespace snqxap
                 string equipselect43 = equipcb43.SelectedItem.ToString();
                 int equipindex43 = getequipindex(equipselect43.Substring(31));
                 if (equipindex43 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex43].type) {
@@ -15072,7 +12669,7 @@ namespace snqxap
                 string equipselect41 = equipcb41.SelectedItem.ToString();
                 int equipindex41 = getequipindex(equipselect41.Substring(31));
                 if (equipindex41 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex41].type) {
@@ -15086,13 +12683,13 @@ namespace snqxap
                 string equipselect42 = equipcb42.SelectedItem.ToString();
                 int equipindex42 = getequipindex(equipselect42.Substring(31));
                 if (equipindex42 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb43.SelectedItem != null && equipcb43.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb43.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type) {
                                 equipcb43.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb41.SelectedItem != null && equipcb41.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb41.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type) {
@@ -15136,7 +12733,7 @@ namespace snqxap
                     equiptb433.SelectedIndex = equiptb433.Items.Count - 1;
                 }
                 if (equipindex43 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31) != " ")
                             if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex43].type) {
@@ -15220,7 +12817,7 @@ namespace snqxap
                     equiptb513.SelectedIndex = equiptb513.Items.Count - 1;
                 }
                 if (equipindex51 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex51].type) {
@@ -15255,13 +12852,13 @@ namespace snqxap
                 string equipselect52 = equipcb52.SelectedItem.ToString();
                 int equipindex52 = getequipindex(equipselect52.Substring(31));
                 if (equipindex52 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb53.SelectedItem != null && equipcb53.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb53.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type) {
                                 equipcb51.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb51.SelectedItem != null && equipcb51.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb51.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type) {
@@ -15275,7 +12872,7 @@ namespace snqxap
                 string equipselect53 = equipcb53.SelectedItem.ToString();
                 int equipindex53 = getequipindex(equipselect53.Substring(31));
                 if (equipindex53 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex53].type) {
@@ -15308,7 +12905,7 @@ namespace snqxap
                 string equipselect51 = equipcb51.SelectedItem.ToString();
                 int equipindex51 = getequipindex(equipselect51.Substring(31));
                 if (equipindex51 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex51].type) {
@@ -15352,13 +12949,13 @@ namespace snqxap
                     equiptb523.SelectedIndex = equiptb523.Items.Count - 1;
                 }
                 if (equipindex52 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb53.SelectedItem != null && equipcb53.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb53.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type) {
                                 equipcb52.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb51.SelectedItem != null && equipcb51.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb51.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type) {
@@ -15393,7 +12990,7 @@ namespace snqxap
                 string equipselect53 = equipcb53.SelectedItem.ToString();
                 int equipindex53 = getequipindex(equipselect53.Substring(31));
                 if (equipindex53 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex53].type) {
@@ -15426,7 +13023,7 @@ namespace snqxap
                 string equipselect51 = equipcb51.SelectedItem.ToString();
                 int equipindex51 = getequipindex(equipselect51.Substring(31));
                 if (equipindex51 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex51].type) {
@@ -15440,13 +13037,13 @@ namespace snqxap
                 string equipselect52 = equipcb52.SelectedItem.ToString();
                 int equipindex52 = getequipindex(equipselect52.Substring(31));
                 if (equipindex52 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb53.SelectedItem != null && equipcb53.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb53.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type) {
                                 equipcb53.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb51.SelectedItem != null && equipcb51.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb51.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type) {
@@ -15490,7 +13087,7 @@ namespace snqxap
                     equiptb533.SelectedIndex = equiptb533.Items.Count - 1;
                 }
                 if (equipindex53 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex53].type) {
@@ -15574,7 +13171,7 @@ namespace snqxap
                     equiptb613.SelectedIndex = equiptb613.Items.Count - 1;
                 }
                 if (equipindex61 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex61].type) {
@@ -15609,13 +13206,13 @@ namespace snqxap
                 string equipselect62 = equipcb62.SelectedItem.ToString();
                 int equipindex62 = getequipindex(equipselect62.Substring(31));
                 if (equipindex62 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb63.SelectedItem != null && equipcb63.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb63.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type) {
                                 equipcb61.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb61.SelectedItem != null && equipcb61.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb61.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type) {
@@ -15629,7 +13226,7 @@ namespace snqxap
                 string equipselect63 = equipcb63.SelectedItem.ToString();
                 int equipindex63 = getequipindex(equipselect63.Substring(31));
                 if (equipindex63 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex63].type) {
@@ -15662,7 +13259,7 @@ namespace snqxap
                 string equipselect61 = equipcb61.SelectedItem.ToString();
                 int equipindex61 = getequipindex(equipselect61.Substring(31));
                 if (equipindex61 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex61].type) {
@@ -15706,13 +13303,13 @@ namespace snqxap
                     equiptb623.SelectedIndex = equiptb623.Items.Count - 1;
                 }
                 if (equipindex62 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb63.SelectedItem != null && equipcb63.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb63.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type) {
                                 equipcb62.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb61.SelectedItem != null && equipcb61.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb61.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type) {
@@ -15747,7 +13344,7 @@ namespace snqxap
                 string equipselect63 = equipcb63.SelectedItem.ToString();
                 int equipindex63 = getequipindex(equipselect63.Substring(31));
                 if (equipindex63 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex63].type) {
@@ -15781,7 +13378,7 @@ namespace snqxap
                 string equipselect61 = equipcb61.SelectedItem.ToString();
                 int equipindex61 = getequipindex(equipselect61.Substring(31));
                 if (equipindex61 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex61].type) {
@@ -15795,13 +13392,13 @@ namespace snqxap
                 string equipselect62 = equipcb62.SelectedItem.ToString();
                 int equipindex62 = getequipindex(equipselect62.Substring(31));
                 if (equipindex62 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb63.SelectedItem != null && equipcb63.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb63.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type) {
                                 equipcb63.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb61.SelectedItem != null && equipcb61.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb61.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type) {
@@ -15845,7 +13442,7 @@ namespace snqxap
                     equiptb633.SelectedIndex = equiptb633.Items.Count - 1;
                 }
                 if (equipindex63 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex63].type) {
@@ -15929,7 +13526,7 @@ namespace snqxap
                     equiptb713.SelectedIndex = equiptb713.Items.Count - 1;
                 }
                 if (equipindex71 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex71].type) {
@@ -15964,13 +13561,13 @@ namespace snqxap
                 string equipselect72 = equipcb72.SelectedItem.ToString();
                 int equipindex72 = getequipindex(equipselect72.Substring(31));
                 if (equipindex72 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb73.SelectedItem != null && equipcb73.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb73.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type) {
                                 equipcb71.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb71.SelectedItem != null && equipcb71.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb71.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type) {
@@ -15984,7 +13581,7 @@ namespace snqxap
                 string equipselect73 = equipcb73.SelectedItem.ToString();
                 int equipindex73 = getequipindex(equipselect73.Substring(31));
                 if (equipindex73 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex73].type) {
@@ -16017,7 +13614,7 @@ namespace snqxap
                 string equipselect71 = equipcb71.SelectedItem.ToString();
                 int equipindex71 = getequipindex(equipselect71.Substring(31));
                 if (equipindex71 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex71].type) {
@@ -16061,13 +13658,13 @@ namespace snqxap
                     equiptb723.SelectedIndex = equiptb723.Items.Count - 1;
                 }
                 if (equipindex72 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb73.SelectedItem != null && equipcb73.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb73.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type) {
                                 equipcb72.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb71.SelectedItem != null && equipcb71.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb71.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type) {
@@ -16102,7 +13699,7 @@ namespace snqxap
                 string equipselect73 = equipcb73.SelectedItem.ToString();
                 int equipindex73 = getequipindex(equipselect73.Substring(31));
                 if (equipindex73 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex73].type) {
@@ -16136,7 +13733,7 @@ namespace snqxap
                 string equipselect71 = equipcb71.SelectedItem.ToString();
                 int equipindex71 = getequipindex(equipselect71.Substring(31));
                 if (equipindex71 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex71].type) {
@@ -16150,13 +13747,13 @@ namespace snqxap
                 string equipselect72 = equipcb72.SelectedItem.ToString();
                 int equipindex72 = getequipindex(equipselect72.Substring(31));
                 if (equipindex72 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb73.SelectedItem != null && equipcb73.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb73.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type) {
                                 equipcb73.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb71.SelectedItem != null && equipcb71.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb71.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type) {
@@ -16200,7 +13797,7 @@ namespace snqxap
                     equiptb733.SelectedIndex = equiptb733.Items.Count - 1;
                 }
                 if (equipindex73 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex73].type) {
@@ -16284,7 +13881,7 @@ namespace snqxap
                     equiptb813.SelectedIndex = equiptb813.Items.Count - 1;
                 }
                 if (equipindex81 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex81].type) {
@@ -16319,13 +13916,13 @@ namespace snqxap
                 string equipselect82 = equipcb82.SelectedItem.ToString();
                 int equipindex82 = getequipindex(equipselect82.Substring(31));
                 if (equipindex82 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb83.SelectedItem != null && equipcb83.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb83.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type) {
                                 equipcb81.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb81.SelectedItem != null && equipcb81.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb81.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type) {
@@ -16339,7 +13936,7 @@ namespace snqxap
                 string equipselect83 = equipcb83.SelectedItem.ToString();
                 int equipindex83 = getequipindex(equipselect83.Substring(31));
                 if (equipindex83 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex83].type) {
@@ -16372,7 +13969,7 @@ namespace snqxap
                 string equipselect81 = equipcb81.SelectedItem.ToString();
                 int equipindex81 = getequipindex(equipselect81.Substring(31));
                 if (equipindex81 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex81].type) {
@@ -16416,13 +14013,13 @@ namespace snqxap
                     equiptb823.SelectedIndex = equiptb823.Items.Count - 1;
                 }
                 if (equipindex82 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb83.SelectedItem != null && equipcb83.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb83.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type) {
                                 equipcb82.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb81.SelectedItem != null && equipcb81.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb81.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type) {
@@ -16457,7 +14054,7 @@ namespace snqxap
                 string equipselect83 = equipcb83.SelectedItem.ToString();
                 int equipindex83 = getequipindex(equipselect83.Substring(31));
                 if (equipindex83 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex83].type) {
@@ -16490,7 +14087,7 @@ namespace snqxap
                 string equipselect81 = equipcb81.SelectedItem.ToString();
                 int equipindex81 = getequipindex(equipselect81.Substring(31));
                 if (equipindex81 != -1)
-                    if (comboindex == 29 || comboindex == 34)
+                    if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex81].type) {
@@ -16504,13 +14101,13 @@ namespace snqxap
                 string equipselect82 = equipcb82.SelectedItem.ToString();
                 int equipindex82 = getequipindex(equipselect82.Substring(31));
                 if (equipindex82 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb83.SelectedItem != null && equipcb83.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb83.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type) {
                                 equipcb83.SelectedIndex = 0; return; }
                     }
-                    else if (comboindex == 29 || comboindex == 34)
+                    else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb81.SelectedItem != null && equipcb81.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb81.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type) {
@@ -16554,7 +14151,7 @@ namespace snqxap
                     equiptb833.SelectedIndex = equiptb833.Items.Count - 1;
                 }
                 if (equipindex83 != -1)
-                    if (comboindex == 28)           //16
+                    if (comboindex == 49)           //16
                     {
                         if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31)!= " ")
                             if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex83].type) {

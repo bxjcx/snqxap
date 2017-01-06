@@ -21,7 +21,7 @@ namespace snqxap
    //     public int belt { get; set; }
         public int forwhat {get;set;}
         /// <summary>
-        /// 1光瞄/2全息/3acog/4夜视/5穿甲/6震撼/7燃烧/8高速/9芯片/10外骨/11插板/12勋章
+        /// 1光瞄/2全息/3acog/4夜视/5穿甲/6空尖/7猎鹿or独头/8高速/9芯片/10外骨/11插板/12勋章/13消音器/14弹药箱
         /// </summary>
         public int type { get; set; }
 
@@ -57,11 +57,14 @@ namespace snqxap
         public double dodgeup { get; set; }
         public double critup { get; set; }
         public double rateup { get; set; }
-        public int to { get; set; } // all 1 ar 2 smg 3 no 0 
+        public int to { get; set; } // all 1 ar 2 smg 3 4 hg 6 mg 7 sg no 0 
         public string name { get; set; } //名字
         public double crit { get; set; }//暴击率
-        /// <summary>
-        /// 2 ar 3 smg 4 hg 5 rf 6 mg    
+        public string equiptype1 { get; set; }//一栏装备类型
+        public string equiptype2 { get; set; }//二栏装备类型
+        public string equiptype3 { get; set; }//三栏装备类型
+        /// <summary
+        /// 2 ar 3 smg 4 hg 5 rf 6 mg 7 sg   
         /// </summary>
         public int what { get; set; }   
         public int belt { get; set; }//弹链
@@ -72,6 +75,7 @@ namespace snqxap
         public double eatratio { get; set; }
         public double ratiorate { get; set; } //射速
         public double ratiododge { get; set; }//闪避
+        public double ratioarmor { get; set; }//护盾
 
         public int probability {get;set;}
         public double skilleffect1 { get; set; }
