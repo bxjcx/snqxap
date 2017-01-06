@@ -77,6 +77,9 @@ namespace snqxap
         public double ratiododge { get; set; }//闪避
         public double ratioarmor { get; set; }//护盾
 
+        public int skillpool { get; set; }
+
+
         public int probability {get;set;}
         public double skilleffect1 { get; set; }
         public double skilleffect2 { get; set; }

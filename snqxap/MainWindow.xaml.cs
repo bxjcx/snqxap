@@ -461,7 +461,23 @@ namespace snqxap
             gun[126].eatratio = 125; gun[126].ratiododge = 75; gun[126].ratiohit = 85; gun[126].ratiohp = 110; gun[126].ratiopow = 150; gun[126].ratiorate = 80;
             gun[126].type = 101; gun[126].probability = 40; gun[126].skilleffect1 = 100; gun[126].skilleffect2 = 2; gun[126].skilleffect3 = 0; gun[126].skilleffect4 = 0; gun[126].growth = 0.6; gun[126].growth_type = 3;
 
-        
+            gun[127].name = "M1887"; gun[127].what = 7; gun[127].crit = 0.4; gun[127].belt = 5; gun[127].number = 1; gun[127].effect0 = 1; gun[127].to = 6;
+            gun[128].name = "M37"; gun[128].what = 7; gun[128].crit = 0.4; gun[128].belt = 5; gun[128].number = 2; gun[128].effect0 = 1; gun[128].effect1 = 2; gun[128].damageup = 0.12; gun[128].to = 6;
+            gun[129].name = "M500"; gun[129].what = 7; gun[129].crit = 0.4; gun[129].belt = 5; gun[129].number = 2; gun[129].effect0 = 1; gun[129].effect1 = 2; gun[129].damageup = 0.12; gun[129].to = 6;
+            gun[130].name = "M590"; gun[130].what = 7; gun[130].crit = 0.4; gun[130].belt = 5; gun[130].number = 2; gun[130].effect0 = 1; gun[130].effect1 = 2; gun[130].hitup = 0.35; gun[130].to = 6;
+            gun[131].name = "KSG"; gun[131].what = 7; gun[131].crit = 0.4; gun[131].belt = 6; gun[131].number = 2; gun[131].effect0 = 1; gun[131].effect1 = 2; gun[131].damageup = 0.15; gun[131].to = 6;
+            gun[132].name = "KS - 23"; gun[132].what = 7; gun[132].crit = 0.4; gun[132].belt = 4; gun[132].number = 1; gun[132].effect0 = 1; gun[132].damageup = 0.20; gun[132].to = 6;
+            gun[133].name = "RMB - 93"; gun[133].what = 7; gun[133].crit = 0.4; gun[133].belt = 5; gun[133].number = 1; gun[133].effect0 = 1; gun[133].damageup = 0.1; gun[133].hitup = 0.3; gun[133].to = 6;
+            gun[134].name = "97式霰"; gun[134].what = 7; gun[134].crit = 0.4; gun[134].belt = 4; gun[134].number = 3; gun[134].effect0 = 1; gun[134].effect1 = 2; gun[134].effect2 = 3; gun[134].damageup = 0.1; gun[134].to = 6;
+            gun[127].eatratio = 115; gun[127].ratiododge = 95; gun[127].ratiohit = 95; gun[127].ratiohp = 125; gun[127].ratiopow = 125; gun[127].ratiorate = 80; gun[127].ratioarmor = 120; gun[127].skillpool = 100101;
+            gun[128].eatratio = 90; gun[128].ratiododge = 115; gun[128].ratiohit = 120; gun[128].ratiohp = 115; gun[128].ratiopow = 125; gun[128].ratiorate = 105; gun[128].ratioarmor = 120; gun[128].skillpool = 100101;
+            gun[129].eatratio = 95; gun[129].ratiododge = 90; gun[129].ratiohit = 105; gun[129].ratiohp = 120; gun[129].ratiopow = 110; gun[129].ratiorate = 115; gun[129].ratioarmor = 115; gun[129].skillpool = 100101;
+            gun[130].eatratio = 95; gun[130].ratiododge = 90; gun[130].ratiohit = 105; gun[130].ratiohp = 120; gun[130].ratiopow = 115; gun[130].ratiorate = 120; gun[130].ratioarmor = 120; gun[130].skillpool = 100101;
+            gun[131].eatratio = 100; gun[131].ratiododge = 110; gun[131].ratiohit = 115; gun[131].ratiohp = 115; gun[131].ratiopow = 100; gun[131].ratiorate = 115; gun[131].ratioarmor = 130; gun[131].skillpool = 100101;
+            gun[132].eatratio = 90; gun[132].ratiododge = 90; gun[132].ratiohit = 85; gun[132].ratiohp = 125; gun[132].ratiopow = 150; gun[132].ratiorate = 95; gun[132].ratioarmor = 115; gun[132].skillpool = 100101;
+            gun[133].eatratio = 100; gun[133].ratiododge = 120; gun[133].ratiohit = 95; gun[133].ratiohp = 110; gun[133].ratiopow = 105; gun[133].ratiorate = 110; gun[133].ratioarmor = 120; gun[133].skillpool = 100101;
+            gun[134].eatratio = 105; gun[134].ratiododge = 115; gun[134].ratiohit = 100; gun[134].ratiohp = 120; gun[134].ratiopow = 110; gun[134].ratiorate = 105; gun[134].ratioarmor = 110; gun[134].skillpool = 100101;
+
             for (int i = 0; i < GUN_NUMBER + 1; i++)//加颜色
             {
                 Label l = new Label();
@@ -2801,10 +2817,10 @@ namespace snqxap
             equip[32].name = "IOP X2外骨骼"; equip[32].property1 = "回避"; equip[32].down1 = 4; equip[32].up1 = 5; equip[32].type = 10; equip[32].rank = 3;
             equip[33].name = "IOP X3外骨骼"; equip[33].property1 = "回避"; equip[33].down1 = 6; equip[33].up1 = 7; equip[33].type = 10; equip[33].rank = 4;
             equip[34].name = "IOP X4外骨骼"; equip[34].property1 = "回避"; equip[34].down1 = 8; equip[34].up1 = 12; equip[34].type = 10; equip[34].rank = 5;
-            equip[35].name = "国家竞赛穿甲弹"; equip[35].property1 = "射速"; equip[35].down1 = 1; equip[35].up1 = 8; equip[35].property2 = "穿甲"; equip[35].down2 = 75; equip[35].up2 = 85; equip[35].type = 5; equip[35].rank = 5; equip[35].forwhat = 81;
-            equip[36].name = ".300BLK高速弹"; equip[36].property1 = "伤害"; equip[36].down1 = 8; equip[36].up1 = 12; equip[36].property2 = "命中"; equip[36].down2 = -5; equip[36].up2 = -1; equip[36].type = 8; equip[36].rank = 5; equip[36].forwhat = 29;
-            equip[37].name = "Titan火控芯片"; equip[37].property1 = "伤害"; equip[37].down1 = -4; equip[37].up1 = -2; equip[37].property2 = "射速"; equip[37].down2 = -8; equip[37].up2 = -1; equip[37].property3 = "弹链"; equip[37].down3 = 1; equip[37].up3 = 2; equip[37].type = 9; equip[37].rank = 5; equip[37].forwhat = 84;
-            equip[38].name = "GSG UX外骨骼"; equip[38].property1 = "伤害"; equip[38].down1 = -10; equip[38].up1 = -6; equip[38].property2 = "回避"; equip[38].down2 = 30; equip[38].up2 = 45; equip[38].type = 10; equip[38].rank = 5; equip[38].forwhat = 14;
+            equip[35].name = "国家竞赛穿甲弹"; equip[35].property1 = "射速"; equip[35].down1 = 1; equip[35].up1 = 8; equip[35].property2 = "穿甲"; equip[35].down2 = 75; equip[35].up2 = 85; equip[35].type = 5; equip[35].rank = 5; equip[35].forwhat = 32;
+            equip[36].name = ".300BLK高速弹"; equip[36].property1 = "伤害"; equip[36].down1 = 8; equip[36].up1 = 12; equip[36].property2 = "命中"; equip[36].down2 = -5; equip[36].up2 = -1; equip[36].type = 8; equip[36].rank = 5; equip[36].forwhat = 52;
+            equip[37].name = "Titan火控芯片"; equip[37].property1 = "伤害"; equip[37].down1 = -4; equip[37].up1 = -2; equip[37].property2 = "射速"; equip[37].down2 = -8; equip[37].up2 = -1; equip[37].property3 = "弹链"; equip[37].down3 = 1; equip[37].up3 = 2; equip[37].type = 9; equip[37].rank = 5; equip[37].forwhat = 67;
+            equip[38].name = "GSG UX外骨骼"; equip[38].property1 = "伤害"; equip[38].down1 = -10; equip[38].up1 = -6; equip[38].property2 = "回避"; equip[38].down2 = 30; equip[38].up2 = 45; equip[38].type = 10; equip[38].rank = 5; equip[38].forwhat = 24;
 
             for (int i = 0; i < EQUIP_NUMBER;i++ )
             {
