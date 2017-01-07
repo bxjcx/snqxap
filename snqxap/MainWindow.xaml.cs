@@ -20,7 +20,14 @@ using System.Windows.Shapes;
 //待编写的部分：       
 //               先不管非夜战能放非夜战技能
 //               暴击穿甲不暴击不穿甲的平均伤害导致效能偏低
-
+//              基础穿甲10.（还有没有穿甲+2伤的设定）
+//              护甲算法未写
+//              独头弹算法未写
+//              技能
+//              光环
+//              冬活、boss数据和功能介绍
+//              霰弹index
+//              png
 namespace snqxap
 {
 
@@ -32,11 +39,11 @@ namespace snqxap
         /// <summary>
         /// 枪娘总数
         /// </summary>
-        public const int GUN_NUMBER = 135; 
+        public const int GUN_NUMBER = 139; 
         /// <summary>
         /// 装备总数
         /// </summary>
-        public const int EQUIP_NUMBER = 39;
+        public const int EQUIP_NUMBER = 59;
         /// <summary>
         /// 0-3 外骨骼 4-7 穿甲弹 8-11 高速弹 12-15 光学瞄具 16-19 全息 20-23 红点 24-27夜视 28五星穿甲 29五星夜视
         /// AR 全息/光喵/ACOG/夜视 高速弹 外骨 smg 外骨 空 全息/光喵/ACOG/夜视
@@ -55,6 +62,9 @@ namespace snqxap
         int[] equipshotspeed = new int[9];
         int[] equipdodge = new int[9];
         int[] equipbelt = new int[9];
+        int[] equiparmor = new int[9];
+        bool[] equiprifledslug = new bool[9];  //独头弹
+        double[] equipcritharm = new double[9];
         double[] equipcrit = new double[9];
         double[] equipnightsee = new double[9];
         int[] equipbreakarmor = new int[9];
@@ -461,22 +471,38 @@ namespace snqxap
             gun[126].eatratio = 125; gun[126].ratiododge = 75; gun[126].ratiohit = 85; gun[126].ratiohp = 110; gun[126].ratiopow = 150; gun[126].ratiorate = 80;
             gun[126].type = 101; gun[126].probability = 40; gun[126].skilleffect1 = 100; gun[126].skilleffect2 = 2; gun[126].skilleffect3 = 0; gun[126].skilleffect4 = 0; gun[126].growth = 0.6; gun[126].growth_type = 3;
 
-            gun[127].name = "M1887"; gun[127].what = 7; gun[127].crit = 0.4; gun[127].belt = 5; gun[127].number = 1; gun[127].effect0 = 1; gun[127].to = 6;
-            gun[128].name = "M37"; gun[128].what = 7; gun[128].crit = 0.4; gun[128].belt = 5; gun[128].number = 2; gun[128].effect0 = 1; gun[128].effect1 = 2; gun[128].damageup = 0.12; gun[128].to = 6;
-            gun[129].name = "M500"; gun[129].what = 7; gun[129].crit = 0.4; gun[129].belt = 5; gun[129].number = 2; gun[129].effect0 = 1; gun[129].effect1 = 2; gun[129].damageup = 0.12; gun[129].to = 6;
-            gun[130].name = "M590"; gun[130].what = 7; gun[130].crit = 0.4; gun[130].belt = 5; gun[130].number = 2; gun[130].effect0 = 1; gun[130].effect1 = 2; gun[130].hitup = 0.35; gun[130].to = 6;
-            gun[131].name = "KSG"; gun[131].what = 7; gun[131].crit = 0.4; gun[131].belt = 6; gun[131].number = 2; gun[131].effect0 = 1; gun[131].effect1 = 2; gun[131].damageup = 0.15; gun[131].to = 6;
-            gun[132].name = "KS - 23"; gun[132].what = 7; gun[132].crit = 0.4; gun[132].belt = 4; gun[132].number = 1; gun[132].effect0 = 1; gun[132].damageup = 0.20; gun[132].to = 6;
-            gun[133].name = "RMB - 93"; gun[133].what = 7; gun[133].crit = 0.4; gun[133].belt = 5; gun[133].number = 1; gun[133].effect0 = 1; gun[133].damageup = 0.1; gun[133].hitup = 0.3; gun[133].to = 6;
-            gun[134].name = "97式霰"; gun[134].what = 7; gun[134].crit = 0.4; gun[134].belt = 4; gun[134].number = 3; gun[134].effect0 = 1; gun[134].effect1 = 2; gun[134].effect2 = 3; gun[134].damageup = 0.1; gun[134].to = 6;
-            gun[127].eatratio = 115; gun[127].ratiododge = 95; gun[127].ratiohit = 95; gun[127].ratiohp = 125; gun[127].ratiopow = 125; gun[127].ratiorate = 80; gun[127].ratioarmor = 120; gun[127].skillpool = 100101;
-            gun[128].eatratio = 90; gun[128].ratiododge = 115; gun[128].ratiohit = 120; gun[128].ratiohp = 115; gun[128].ratiopow = 125; gun[128].ratiorate = 105; gun[128].ratioarmor = 120; gun[128].skillpool = 100101;
-            gun[129].eatratio = 95; gun[129].ratiododge = 90; gun[129].ratiohit = 105; gun[129].ratiohp = 120; gun[129].ratiopow = 110; gun[129].ratiorate = 115; gun[129].ratioarmor = 115; gun[129].skillpool = 100101;
-            gun[130].eatratio = 95; gun[130].ratiododge = 90; gun[130].ratiohit = 105; gun[130].ratiohp = 120; gun[130].ratiopow = 115; gun[130].ratiorate = 120; gun[130].ratioarmor = 120; gun[130].skillpool = 100101;
-            gun[131].eatratio = 100; gun[131].ratiododge = 110; gun[131].ratiohit = 115; gun[131].ratiohp = 115; gun[131].ratiopow = 100; gun[131].ratiorate = 115; gun[131].ratioarmor = 130; gun[131].skillpool = 100101;
-            gun[132].eatratio = 90; gun[132].ratiododge = 90; gun[132].ratiohit = 85; gun[132].ratiohp = 125; gun[132].ratiopow = 150; gun[132].ratiorate = 95; gun[132].ratioarmor = 115; gun[132].skillpool = 100101;
-            gun[133].eatratio = 100; gun[133].ratiododge = 120; gun[133].ratiohit = 95; gun[133].ratiohp = 110; gun[133].ratiopow = 105; gun[133].ratiorate = 110; gun[133].ratioarmor = 120; gun[133].skillpool = 100101;
-            gun[134].eatratio = 105; gun[134].ratiododge = 115; gun[134].ratiohit = 100; gun[134].ratiohp = 120; gun[134].ratiopow = 110; gun[134].ratiorate = 105; gun[134].ratioarmor = 110; gun[134].skillpool = 100101;
+            gun[127].name = "Bren Ten"; gun[127].what = 4; gun[127].crit = 0.2; gun[127].belt = 0; gun[127].number = 0; gun[127].effect0 = 6; gun[127].damageup = 0.35; gun[127].to = 1;
+            gun[127].eatratio = 110; gun[127].ratiododge = 90; gun[127].ratiohit = 110; gun[127].ratiohp = 105; gun[127].ratiopow = 120; gun[127].ratiorate = 110;
+            gun[127].equiptype1 = "4,13"; gun[127].equiptype2 = "6"; gun[127].equiptype3 = "9,10,12";
+
+            gun[128].name = "PSM"; gun[128].what = 4; gun[128].crit = 0.2; gun[128].belt = 0; gun[128].number = 0; gun[128].effect0 = 6; gun[128].damageup = 0.35; gun[128].to = 1;
+            gun[128].eatratio = 135; gun[128].ratiododge = 135; gun[128].ratiohit = 120; gun[128].ratiohp = 85; gun[128].ratiopow = 80; gun[128].ratiorate = 115;
+            gun[128].equiptype1 = "4,13"; gun[128].equiptype2 = "6"; gun[128].equiptype3 = "9,10,12";
+
+            gun[129].name = "USP Compact"; gun[129].what = 4; gun[129].crit = 0.2; gun[129].belt = 0; gun[129].number = 0; gun[129].effect0 = 6; gun[129].damageup = 0.35; gun[129].to = 1;
+            gun[129].eatratio = 115; gun[129].ratiododge = 120; gun[129].ratiohit = 125; gun[129].ratiohp = 100; gun[129].ratiopow = 90; gun[129].ratiorate = 120;
+            gun[129].equiptype1 = "4,13"; gun[129].equiptype2 = "6"; gun[129].equiptype3 = "9,10,12";
+
+            gun[130].name = "RO635"; gun[130].what = 3; gun[130].crit = 0.05; gun[130].belt = 0; gun[130].number = 5; gun[130].effect0 = 1; gun[130].effect1 = 2; gun[130].effect2 = 4; gun[130].effect3 = 7; gun[130].effect4 = 8;gun[130].shotspeedup = 0.1; gun[130].hitup = 0.35; gun[130].to = 2;
+            gun[130].eatratio = 105; gun[130].ratiododge = 120; gun[130].ratiohit = 125; gun[130].ratiohp = 110; gun[130].ratiopow = 105; gun[130].ratiorate = 125;
+            gun[130].equiptype1 = "9,10,12"; gun[130].equiptype2 = "6"; gun[130].equiptype3 = "1,2,3,4,13";
+
+            gun[131].name = "M1887"; gun[131].what = 7; gun[131].crit = 0.4; gun[131].belt = 5; gun[131].number = 1; gun[131].effect0 = 1; gun[131].to = 6;
+            gun[132].name = "M37"; gun[132].what = 7; gun[132].crit = 0.4; gun[132].belt = 5; gun[132].number = 2; gun[132].effect0 = 1; gun[132].effect1 = 2; gun[132].damageup = 0.12; gun[132].to = 6;
+            gun[133].name = "M500"; gun[133].what = 7; gun[133].crit = 0.4; gun[133].belt = 5; gun[133].number = 2; gun[133].effect0 = 1; gun[133].effect1 = 2; gun[133].damageup = 0.12; gun[133].to = 6;
+            gun[134].name = "M590"; gun[134].what = 7; gun[134].crit = 0.4; gun[134].belt = 5; gun[134].number = 2; gun[134].effect0 = 1; gun[134].effect1 = 2; gun[134].hitup = 0.35; gun[134].to = 6;
+            gun[135].name = "KSG"; gun[135].what = 7; gun[135].crit = 0.4; gun[135].belt = 6; gun[135].number = 2; gun[135].effect0 = 1; gun[135].effect1 = 2; gun[135].damageup = 0.15; gun[135].to = 6;
+            gun[136].name = "KS - 23"; gun[136].what = 7; gun[136].crit = 0.4; gun[136].belt = 4; gun[136].number = 1; gun[136].effect0 = 1; gun[136].damageup = 0.20; gun[136].to = 6;
+            gun[137].name = "RMB - 93"; gun[137].what = 7; gun[137].crit = 0.4; gun[137].belt = 5; gun[137].number = 1; gun[137].effect0 = 1; gun[137].damageup = 0.1; gun[137].hitup = 0.3; gun[137].to = 6;
+            gun[138].name = "97式霰"; gun[138].what = 7; gun[138].crit = 0.4; gun[138].belt = 4; gun[138].number = 3; gun[138].effect0 = 1; gun[138].effect1 = 2; gun[138].effect2 = 3; gun[138].damageup = 0.1; gun[138].to = 6;
+            gun[131].eatratio = 115; gun[131].ratiododge = 95; gun[131].ratiohit = 95; gun[131].ratiohp = 125; gun[131].ratiopow = 125; gun[131].ratiorate = 80; gun[131].ratioarmor = 120; gun[131].skillpool = 100101;
+            gun[132].eatratio = 90; gun[132].ratiododge = 115; gun[132].ratiohit = 120; gun[132].ratiohp = 115; gun[132].ratiopow = 125; gun[132].ratiorate = 105; gun[132].ratioarmor = 120; gun[132].skillpool = 100101;
+            gun[133].eatratio = 95; gun[133].ratiododge = 90; gun[133].ratiohit = 105; gun[133].ratiohp = 120; gun[133].ratiopow = 110; gun[133].ratiorate = 115; gun[133].ratioarmor = 115; gun[133].skillpool = 100101;
+            gun[134].eatratio = 95; gun[134].ratiododge = 90; gun[134].ratiohit = 105; gun[134].ratiohp = 120; gun[134].ratiopow = 115; gun[134].ratiorate = 120; gun[134].ratioarmor = 120; gun[134].skillpool = 100101;
+            gun[135].eatratio = 100; gun[135].ratiododge = 110; gun[135].ratiohit = 115; gun[135].ratiohp = 115; gun[135].ratiopow = 100; gun[135].ratiorate = 115; gun[135].ratioarmor = 130; gun[135].skillpool = 100101;
+            gun[136].eatratio = 90; gun[136].ratiododge = 90; gun[136].ratiohit = 85; gun[136].ratiohp = 125; gun[136].ratiopow = 150; gun[136].ratiorate = 95; gun[136].ratioarmor = 115; gun[136].skillpool = 100101;
+            gun[137].eatratio = 100; gun[137].ratiododge = 120; gun[137].ratiohit = 95; gun[137].ratiohp = 110; gun[137].ratiopow = 105; gun[137].ratiorate = 110; gun[137].ratioarmor = 120; gun[137].skillpool = 100101;
+            gun[138].eatratio = 105; gun[138].ratiododge = 115; gun[138].ratiohit = 100; gun[138].ratiohp = 120; gun[138].ratiopow = 110; gun[138].ratiorate = 105; gun[138].ratioarmor = 110; gun[138].skillpool = 100101;
 
             for (int i = 0; i < GUN_NUMBER + 1; i++)//加颜色
             {
@@ -807,6 +833,8 @@ namespace snqxap
                     skillupdamage[i] = 1;
                     skilldamageagain[i] = 0;
                     equipdamage[i] = 0;
+                    equiparmor[i] = 0;
+                    equipcritharm[i] = 0;
                     equiphit[i] = 0;
                     equipdodge[i] = 0;
                     equipbelt[i] = 0;
@@ -815,6 +843,7 @@ namespace snqxap
                     equipshotspeed[i] = 0;      
                     equipbreakarmor[i] = 0;
                     merry[i] = 1;
+                    equiprifledslug[i] = false;
                     gridlist[i] = new List<Border>();
 
                 }
@@ -2499,14 +2528,14 @@ namespace snqxap
             gun[124].equiptype1 = "9,10,12";
             gun[125].equiptype1 = "9,10,12";
             gun[126].equiptype1 = "1,2,3,4,13";
-            gun[127].equiptype1 = "9,11";
-            gun[128].equiptype1 = "9,11";
-            gun[129].equiptype1 = "9,11";
-            gun[130].equiptype1 = "9,11";
             gun[131].equiptype1 = "9,11";
             gun[132].equiptype1 = "9,11";
             gun[133].equiptype1 = "9,11";
             gun[134].equiptype1 = "9,11";
+            gun[135].equiptype1 = "9,11";
+            gun[136].equiptype1 = "9,11";
+            gun[137].equiptype1 = "9,11";
+            gun[138].equiptype1 = "9,11";
 
             gun[0].equiptype2 = "6";
             gun[1].equiptype2 = "6";
@@ -2635,14 +2664,14 @@ namespace snqxap
             gun[124].equiptype2 = "6";
             gun[125].equiptype2 = "6";
             gun[126].equiptype2 = "5,8";
-            gun[127].equiptype2 = "7";
-            gun[128].equiptype2 = "7";
-            gun[129].equiptype2 = "7";
-            gun[130].equiptype2 = "7";
             gun[131].equiptype2 = "7";
             gun[132].equiptype2 = "7";
             gun[133].equiptype2 = "7";
             gun[134].equiptype2 = "7";
+            gun[135].equiptype2 = "7";
+            gun[136].equiptype2 = "7";
+            gun[137].equiptype2 = "7";
+            gun[138].equiptype2 = "7";
 
             gun[0].equiptype3 = "9,10,12";
             gun[1].equiptype3 = "9,10,12";
@@ -2771,14 +2800,14 @@ namespace snqxap
             gun[124].equiptype3 = "1,2,3,4,13";
             gun[125].equiptype3 = "1,2,3,4,13";
             gun[126].equiptype3 = "9,10,12";
-            gun[127].equiptype3 = "1,2,3,4";
-            gun[128].equiptype3 = "1,2,3,4";
-            gun[129].equiptype3 = "1,2,3,4";
-            gun[130].equiptype3 = "1,2,3,4";
             gun[131].equiptype3 = "1,2,3,4";
             gun[132].equiptype3 = "1,2,3,4";
             gun[133].equiptype3 = "1,2,3,4";
             gun[134].equiptype3 = "1,2,3,4";
+            gun[135].equiptype3 = "1,2,3,4";
+            gun[136].equiptype3 = "1,2,3,4";
+            gun[137].equiptype3 = "1,2,3,4";
+            gun[138].equiptype3 = "1,2,3,4";
 
             for (int i = 0; i < EQUIP_NUMBER; i++)
                 equip[i] = new Equip();
@@ -2821,7 +2850,26 @@ namespace snqxap
             equip[36].name = ".300BLK高速弹"; equip[36].property1 = "伤害"; equip[36].down1 = 8; equip[36].up1 = 12; equip[36].property2 = "命中"; equip[36].down2 = -5; equip[36].up2 = -1; equip[36].type = 8; equip[36].rank = 5; equip[36].forwhat = 52;
             equip[37].name = "Titan火控芯片"; equip[37].property1 = "伤害"; equip[37].down1 = -4; equip[37].up1 = -2; equip[37].property2 = "射速"; equip[37].down2 = -8; equip[37].up2 = -1; equip[37].property3 = "弹链"; equip[37].down3 = 1; equip[37].up3 = 2; equip[37].type = 9; equip[37].rank = 5; equip[37].forwhat = 67;
             equip[38].name = "GSG UX外骨骼"; equip[38].property1 = "伤害"; equip[38].down1 = -10; equip[38].up1 = -6; equip[38].property2 = "回避"; equip[38].down2 = 30; equip[38].up2 = 45; equip[38].type = 10; equip[38].rank = 5; equip[38].forwhat = 24;
-
+            equip[39].name = "AC1消音器"; equip[39].property1 = "暴击率"; equip[39].down1 = 4; equip[39].up1 = 5; equip[39].property2 = "回避"; equip[39].down2 = 2; equip[39].up2 = 2; equip[39].type = 13; equip[39].rank = 2;
+            equip[40].name = "AC2消音器"; equip[40].property1 = "暴击率"; equip[40].down1 = 6; equip[40].up1 = 8; equip[40].property2 = "回避"; equip[40].down2 = 3; equip[40].up2 = 3; equip[40].type = 13; equip[40].rank = 3;
+            equip[41].name = "AC3消音器"; equip[41].property1 = "暴击率"; equip[41].down1 = 9; equip[41].up1 = 11; equip[41].property2 = "回避"; equip[41].down2 = 4; equip[41].up2 = 5; equip[41].type = 13; equip[41].rank = 4;
+            equip[42].name = "AC4消音器"; equip[42].property1 = "暴击率"; equip[42].down1 = 12; equip[42].up1 = 15; equip[42].property2 = "回避"; equip[42].down2 = 6; equip[42].up2 = 8; equip[42].type = 13; equip[42].rank = 5;
+            equip[43].name = "IOP大容量弹药箱"; equip[43].property1 = "弹链"; equip[43].down1 = 1; equip[43].up1 = 1; equip[43].property2 = "穿甲"; equip[43].down2 = -1; equip[43].up2 = -1; equip[43].type = 14; equip[43].rank = 4;
+            equip[44].name = "IOP极限弹药箱"; equip[44].property1 = "弹链"; equip[44].down1 = 2; equip[44].up1 = 3; equip[44].property2 = "穿甲"; equip[44].down2 = -3; equip[44].up2 = -2; equip[44].type = 14; equip[44].rank = 5;
+            equip[45].name = "ILM空尖弹"; equip[45].property1 = "伤害"; equip[45].down1 = 1; equip[45].up1 = 1; equip[45].property2 = "穿甲"; equip[45].down2 = -1; equip[45].up2 = -1; equip[45].type = 6; equip[45].rank = 2;
+            equip[46].name = "ILM空尖弹"; equip[46].property1 = "伤害"; equip[46].down1 = 2; equip[46].up1 = 3; equip[46].property2 = "穿甲"; equip[46].down2 = -3; equip[46].up2 = -2; equip[46].type = 6; equip[46].rank = 3;
+            equip[47].name = "ILM空尖弹"; equip[47].property1 = "伤害"; equip[47].down1 = 4; equip[47].up1 = 6; equip[47].property2 = "穿甲"; equip[47].down2 = -6; equip[47].up2 = -4; equip[47].type = 6; equip[47].rank = 4;
+            equip[48].name = "ILM空尖弹"; equip[48].property1 = "伤害"; equip[48].down1 = 7; equip[48].up1 = 10; equip[48].property2 = "穿甲"; equip[48].down2 = -10; equip[48].up2 = -7; equip[48].type = 6; equip[48].rank = 5;
+            equip[49].name = "#1猎鹿弹"; equip[49].property1 = "伤害"; equip[49].down1 = 1; equip[49].up1 = 1; equip[49].property2 = "暴击伤害"; equip[49].down2 = 3; equip[49].up2 = 4; equip[49].type = 7; equip[49].rank = 2;
+            equip[50].name = "#0猎鹿弹"; equip[50].property1 = "伤害"; equip[50].down1 = 2; equip[50].up1 = 3; equip[50].property2 = "暴击伤害"; equip[50].down2 = 5; equip[50].up2 = 6; equip[50].type = 7; equip[50].rank = 3;
+            equip[51].name = "#00猎鹿弹"; equip[51].property1 = "伤害"; equip[51].down1 = 4; equip[51].up1 = 6; equip[51].property2 = "暴击伤害"; equip[51].down2 = 7; equip[51].up2 = 9; equip[51].type = 7; equip[51].rank = 4;
+            equip[52].name = "#000猎鹿弹"; equip[52].property1 = "伤害"; equip[52].down1 = 7; equip[52].up1 = 10; equip[52].property2 = "暴击伤害"; equip[52].down2 = 10; equip[52].up2 = 15; equip[52].type = 7; equip[52].rank = 5;
+            equip[53].name = "冬活奖励鹿弹"; equip[53].property1 = "伤害"; equip[53].down1 = 10; equip[53].up1 = 10; equip[53].property2 = "暴击伤害"; equip[53].down2 = 15; equip[53].up2 = 15; equip[53].type = 7; equip[53].rank = 5;
+            equip[54].name = "BK独头弹"; equip[54].property1 = "命中"; equip[54].down1 = 1; equip[54].up1 = 2; equip[54].property2 = "目标"; equip[54].down2 = -2; equip[54].up2 = -2; equip[54].type = 7; equip[54].rank = 2;
+            equip[55].name = "FST独头弹"; equip[55].property1 = "命中"; equip[55].down1 = 3; equip[55].up1 = 4; equip[55].property2 = "目标"; equip[55].down2 = -2; equip[55].up2 = -2; equip[55].type = 7; equip[55].rank = 3;
+            equip[56].name = "WAD独头弹"; equip[56].property1 = "命中"; equip[56].down1 = 5; equip[56].up1 = 7; equip[56].property2 = "目标"; equip[56].down2 = -2; equip[56].up2 = -2; equip[56].type = 7; equip[56].rank = 4;
+            equip[57].name = "SABOT独头弹"; equip[57].property1 = "命中"; equip[57].down1 = 8; equip[57].up1 = 12; equip[57].property2 = "目标"; equip[57].down2 = -2; equip[57].up2 = -2; equip[57].type = 7; equip[57].rank = 5;
+            equip[58].name = "冬活奖励防弹插板"; equip[58].property1 = "护甲"; equip[58].down1 = 8; equip[58].up1 = 8; equip[58].property2 = "回避"; equip[58].down2 = -2; equip[58].up2 = -2; equip[58].type = 11; equip[58].rank = 5;
             for (int i = 0; i < EQUIP_NUMBER;i++ )
             {
                 if (!String.IsNullOrEmpty(equip[i].property1))
@@ -2845,10 +2893,14 @@ namespace snqxap
                     if (equip[i].down2 > 0)
                         equip[i].tooltip += "+";
                     equip[i].tooltip += equip[i].down2;
+                    if (equip[i].property2 == "暴击伤害")
+                        equip[i].tooltip += "%";
                     equip[i].tooltip += " 至 ";
                     if (equip[i].up2 > 0)
                         equip[i].tooltip += "+";
                     equip[i].tooltip += equip[i].up2;
+                    if (equip[i].property2 == "暴击伤害")
+                        equip[i].tooltip += "%";
                 }
                 if(!String.IsNullOrEmpty(equip[i].property3))
                 {
@@ -3373,7 +3425,7 @@ namespace snqxap
             if (hit == 0)
                 return 0;
             else if (belt == 0)
-                return 30 * damage / frame * (1 - crit + crit * 1.5) / (1 + enemydodge / hit) * damageagain;
+                return 30 * damage / frame * (1 - crit + crit * (1.5+equipcritharm[combo])) / (1 + enemydodge / hit) * damageagain;
             else
             {
                 
@@ -3381,7 +3433,7 @@ namespace snqxap
                 {
                     double shottime = (double)belt / 3;
                     double roletime = (double)belt / 3 + 4 + 200 / shotspeed;
-                    double shotdamage = belt * damage * (1 - crit + crit * 1.5) / (1 + enemydodge / hit);
+                    double shotdamage = belt * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit);
                     if (slider.Value < shottime)
                         return (shotdamage / shottime);
                     else if (slider.Value < roletime)
@@ -10639,6 +10691,9 @@ namespace snqxap
                     equipnightsee[combo] = 0;
                     equipshotspeed[combo] = 0;      
                     equipbreakarmor[combo] = 0;
+            equiparmor[combo] = 0;
+            equipcritharm[combo] = 0;
+            equiprifledslug[combo] = false;
         }
         /// <summary>
         /// 计算装备加成
@@ -10746,6 +10801,21 @@ namespace snqxap
                                 case "弹链":
                                     {
                                         equipbelt[combo] += int.Parse(number.ToString());
+                                        break;
+                                    }
+                                case "暴击伤害":
+                                    {
+                                        equipcritharm[combo] += double.Parse(number.ToString())/100;
+                                        break;
+                                    }
+                                case "护甲":
+                                    {
+                                        equiparmor[combo] += int.Parse(number.ToString());
+                                        break;
+                                    }
+                                case "目标":
+                                    {
+                                        equiprifledslug[combo] = true;
                                         break;
                                     }
                                 default: break;
