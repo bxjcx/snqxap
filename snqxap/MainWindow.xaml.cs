@@ -20,8 +20,6 @@ using System.Windows.Shapes;
 //待编写的部分：       
 //               先不管非夜战能放非夜战技能
 //               暴击穿甲不暴击不穿甲的平均伤害导致效能偏低
-//              基础穿甲10.（还有没有穿甲+2伤的设定）
-//              护甲算法未写
 //              独头弹算法未写
 //              技能
 //              光环
@@ -56,6 +54,7 @@ namespace snqxap
         Double[] skilldamageagain = new Double[9];
         Double[] skilluphit = new Double[9];
         Double[] skillupshotspeed = new Double[9];
+        Double[] skilluparmor = new Double[9];
         Double[] skillupdodge = new Double[9];
         int[] equipdamage = new int[9];
         int[] equiphit = new int[9];
@@ -76,6 +75,10 @@ namespace snqxap
         bool innight;
         double[] merry = new double[9];
         List<Border>[] gridlist = new List<Border>[9];
+
+        float[] equipupRatio = { }; 
+
+
 
         public static readonly float[][] arrAbilityRatio = new float[][]  //各类枪娘属性成长基础
 {
@@ -213,7 +216,7 @@ namespace snqxap
             cb7.IsChecked = false;
             cb8.IsChecked = false;
 
-            Lskillrate0.Content = "0%";
+            /*Lskillrate0.Content = "0%";
             Lskillrate1.Content = "0%";
             Lskillrate2.Content = "0%";
             Lskillrate3.Content = "0%";
@@ -221,7 +224,16 @@ namespace snqxap
             Lskillrate5.Content = "0%";
             Lskillrate6.Content = "0%";
             Lskillrate7.Content = "0%";
-            Lskillrate8.Content = "0%";
+            Lskillrate8.Content = "0%";*/
+            Lbreakarmor0.Content = equipbreakarmor[0];
+            Lbreakarmor1.Content = equipbreakarmor[1];
+            Lbreakarmor2.Content = equipbreakarmor[2];
+            Lbreakarmor3.Content = equipbreakarmor[3];
+            Lbreakarmor4.Content = equipbreakarmor[4];
+            Lbreakarmor5.Content = equipbreakarmor[5];
+            Lbreakarmor6.Content = equipbreakarmor[6];
+            Lbreakarmor7.Content = equipbreakarmor[7];
+            Lbreakarmor8.Content = equipbreakarmor[8];
         }
 
 
@@ -820,6 +832,7 @@ namespace snqxap
                     gg[i].dodgeup = 1.00;
                     gg[i].hitup = 1.00;
                     gg[i].shotspeedup = 1.00;
+                    gg[i].armorup = 1.00;
                     gg[i].rateup = 0.00;
                     lastgunindex[i] = -1;
                     skillupdamage[i] = new Double();
@@ -827,6 +840,8 @@ namespace snqxap
                     skilluphit[i] = new Double();
                     skilldamageagain[i] = new Double();
                     skillupshotspeed[i] = new double();
+                    skilluparmor[i] = new Double();
+                    skilluparmor[i] = 1;
                     skillupshotspeed[i] = 1;
                     skilluphit[i] = 1;
                     skillupdodge[i] = 1;
@@ -841,7 +856,7 @@ namespace snqxap
                     equipcrit[i] =0;
                     equipnightsee[i] = 0;
                     equipshotspeed[i] = 0;      
-                    equipbreakarmor[i] = 0;
+                    equipbreakarmor[i] = 10;
                     merry[i] = 1;
                     equiprifledslug[i] = false;
                     gridlist[i] = new List<Border>();
@@ -2812,64 +2827,64 @@ namespace snqxap
             for (int i = 0; i < EQUIP_NUMBER; i++)
                 equip[i] = new Equip();
             equip[0].name = "IOP T1外骨骼"; equip[0].property1 = "回避"; equip[0].down1 = 6; equip[0].up1 = 8; equip[0].property2 = "伤害"; equip[0].down2 = -2; equip[0].up2 = -1; equip[0].type = 10; equip[0].rank = 2;
-            equip[1].name = "IOP T2外骨骼"; equip[1].property1 = "回避"; equip[1].down1 = 10; equip[1].up1 = 12; equip[1].property2 = "伤害"; equip[1].down2 = -4; equip[1].up2 = -3; equip[1].type = 10; equip[1].rank = 3;
-            equip[2].name = "IOP T3外骨骼"; equip[2].property1 = "回避"; equip[2].down1 = 14; equip[2].up1 = 16; equip[2].property2 = "伤害"; equip[2].down2 = -6; equip[2].up2 = -5; equip[2].type = 10; equip[2].rank = 4;
-            equip[3].name = "IOP T4外骨骼"; equip[3].property1 = "回避"; equip[3].down1 = 20; equip[3].up1 = 25; equip[3].property2 = "伤害"; equip[3].down2 = -8; equip[3].up2 = -6; equip[3].type = 10; equip[3].rank = 5;
+            equip[1].name = "IOP T2外骨骼"; equip[1].bonus1 = 0.4; equip[1].property1 = "回避"; equip[1].down1 = 10; equip[1].up1 = Math.Round(12 * (1+equip[1].bonus1)); equip[1].property2 = "伤害"; equip[1].down2 = -4; equip[1].up2 = -3; equip[1].type = 10; equip[1].rank = 3;
+            equip[2].name = "IOP T3外骨骼"; equip[2].bonus1 = 0.4; equip[2].property1 = "回避"; equip[2].down1 = 14; equip[2].up1 = Math.Round(16 * (1+equip[2].bonus1)); equip[2].property2 = "伤害"; equip[2].down2 = -6; equip[2].up2 = -5; equip[2].type = 10; equip[2].rank = 4;
+            equip[3].name = "IOP T4外骨骼"; equip[3].bonus1 = 0.4; equip[3].property1 = "回避"; equip[3].down1 = 20; equip[3].up1 = Math.Round(25 * (1+equip[3].bonus1)); equip[3].property2 = "伤害"; equip[3].down2 = -8; equip[3].up2 = -6; equip[3].type = 10; equip[3].rank = 5;
             equip[4].name = "M61穿甲弹"; equip[4].property1 = "穿甲"; equip[4].down1 = 25; equip[4].up1 = 35; equip[4].type = 5; equip[4].rank = 2;
-            equip[5].name = "M993穿甲弹"; equip[5].property1 = "穿甲"; equip[5].down1 = 40; equip[5].up1 = 50; equip[5].type = 5; equip[5].rank = 3;
-            equip[6].name = "Mk169穿甲弹"; equip[6].property1 = "穿甲"; equip[6].down1 = 55; equip[6].up1 = 65; equip[6].type = 5; equip[6].rank = 4;
-            equip[7].name = "Mk211高爆穿甲弹"; equip[7].property1 = "穿甲"; equip[7].down1 = 70; equip[7].up1 = 80; equip[7].type = 5; equip[7].rank = 5;
+            equip[5].name = "M993穿甲弹"; equip[5].bonus1 = 0.5; equip[5].property1 = "穿甲"; equip[5].down1 = 40; equip[5].up1 =  Math.Round(50* (1+equip[5].bonus1)); equip[5].type = 5; equip[5].rank = 3;
+            equip[6].name = "Mk169穿甲弹"; equip[6].bonus1 = 0.5; equip[6].property1 = "穿甲"; equip[6].down1 = 55; equip[6].up1 =  Math.Round(65* (1+equip[6].bonus1)); equip[6].type = 5; equip[6].rank = 4;
+            equip[7].name = "Mk211高爆穿甲弹"; equip[7].bonus1 = 0.5; equip[7].property1 = "穿甲"; equip[7].down1 = 70; equip[7].up1 = Math.Round(80 * (1+equip[7].bonus1)); equip[7].type = 5; equip[7].rank = 5;
             equip[8].name = "JHP高速弹"; equip[8].property1 = "伤害"; equip[8].down1 = 1; equip[8].up1 = 1; equip[8].type = 8; equip[8].rank = 2;
-            equip[9].name = "三星FMJ高速弹"; equip[9].property1 = "伤害"; equip[9].down1 = 2; equip[9].up1 = 2; equip[9].type = 8; equip[9].rank = 3;
-            equip[10].name = "四星FMJ高速弹"; equip[10].property1 = "伤害"; equip[10].down1 = 3; equip[10].up1 = 4; equip[10].type = 8; equip[10].rank = 4;
-            equip[11].name = "HVAP高速弹"; equip[11].property1 = "伤害"; equip[11].down1 = 5; equip[11].up1 = 8; equip[11].type = 8; equip[11].rank = 5;
+            equip[9].name = "三星FMJ高速弹"; equip[9].bonus1 = 0.5; equip[9].property1 = "伤害"; equip[9].down1 = 2; equip[9].up1 = Math.Round(2 * (1 + equip[9].bonus1)); equip[9].type = 8; equip[9].rank = 3;
+            equip[10].name = "四星FMJ高速弹"; equip[10].bonus1 = 0.5; equip[10].property1 = "伤害"; equip[10].down1 = 3; equip[10].up1 = Math.Round(4 * (1 + equip[10].bonus1)); equip[10].type = 8; equip[10].rank = 4;
+            equip[11].name = "HVAP高速弹"; equip[11].bonus1 = 0.4; equip[11].property1 = "伤害"; equip[11].down1 = 5; equip[11].up1 = Math.Round(8 * (1 + equip[11].bonus1)); equip[11].type = 8; equip[11].rank = 5;
             equip[12].name = "光瞄 - BM 3-12X40"; equip[12].property1 = "暴击率"; equip[12].down1 = 5; equip[12].up1 = 8; equip[12].type = 1; equip[12].rank = 2;
-            equip[13].name = "光瞄 - LRA 2-12X50"; equip[13].property1 = "暴击率"; equip[13].down1 = 9; equip[13].up1 = 12; equip[13].type = 1; equip[13].rank = 3;
-            equip[14].name = "光瞄 - PSO-1"; equip[14].property1 = "暴击率"; equip[14].down1 = 13; equip[14].up1 = 16; equip[14].type = 1; equip[14].rank = 4;
-            equip[15].name = "光瞄 - VFL 6-24X56"; equip[15].property1 = "暴击率"; equip[15].down1 = 17; equip[15].up1 = 24; equip[15].type = 1; equip[15].rank = 5;
+            equip[13].name = "光瞄 - LRA 2-12X50"; equip[13].bonus1 = 1; equip[13].property1 = "暴击率"; equip[13].down1 = 9; equip[13].up1 = Math.Round(12 * (1 + equip[13].bonus1)); equip[13].type = 1; equip[13].rank = 3;
+            equip[14].name = "光瞄 - PSO-1"; equip[14].bonus1 = 1; equip[14].property1 = "暴击率"; equip[14].down1 = 13; equip[14].up1 = Math.Round(16 * (1 + equip[14].bonus1)); equip[14].type = 1; equip[14].rank = 4;
+            equip[15].name = "光瞄 - VFL 6-24X56"; equip[15].bonus1 = 1; equip[15].property1 = "暴击率"; equip[15].down1 = 17; equip[15].up1 = Math.Round(24 * (1 + equip[15].bonus1)); equip[15].type = 1; equip[15].rank = 5; 
             equip[16].name = "全息 - EOT 506"; equip[16].property1 = "命中"; equip[16].down1 = 1; equip[16].up1 = 1; equip[16].property2 = "伤害"; equip[16].down2 = 1; equip[16].up2 = 1; equip[16].property3 = "射速"; equip[16].down3 = -1; equip[16].up3 = -1; equip[16].type = 2; equip[16].rank = 2;
-            equip[17].name = "全息 - EOT 512"; equip[17].property1 = "命中"; equip[17].down1 = 2; equip[17].up1 = 2; equip[17].property2 = "伤害"; equip[17].down2 = 1; equip[17].up2 = 2; equip[17].property3 = "射速"; equip[17].down3 = -2; equip[17].up3 = -2; equip[17].type = 2; equip[17].rank = 3;
-            equip[18].name = "全息 - EOT 516"; equip[18].property1 = "命中"; equip[18].down1 = 3; equip[18].up1 = 5; equip[18].property2 = "伤害"; equip[18].down2 = 2; equip[18].up2 = 3; equip[18].property3 = "射速"; equip[18].down3 = -4; equip[18].up3 = -3; equip[18].type = 2; equip[18].rank = 4;
-            equip[19].name = "全息 - EOT 518"; equip[19].property1 = "命中"; equip[19].down1 = 6; equip[19].up1 = 10; equip[19].property2 = "伤害"; equip[19].down2 = 4; equip[19].up2 = 6; equip[19].property3 = "射速"; equip[19].down3 = -6; equip[19].up3 = -4; equip[19].type = 2; equip[19].rank = 5;
+            equip[17].name = "全息 - EOT 512"; equip[17].bonus1 = 0.5; equip[17].bonus2 = 0.5; equip[17].property1 = "命中"; equip[17].down1 = 2; equip[17].up1 = Math.Round(2* (1 + equip[17].bonus1)); equip[17].property2 = "伤害"; equip[17].down2 = 1; equip[17].up2 =Math.Round( 2* (1 + equip[17].bonus2)); equip[17].property3 = "射速"; equip[17].down3 = -2; equip[17].up3 = -2; equip[17].type = 2; equip[17].rank = 3;
+            equip[18].name = "全息 - EOT 516"; equip[18].bonus1 = 0.4; equip[18].bonus2 = 0.4; equip[18].property1 = "命中"; equip[18].down1 = 3; equip[18].up1 =Math.Round( 5* (1 + equip[17].bonus1)); equip[18].property2 = "伤害"; equip[18].down2 = 2; equip[18].up2 = Math.Round(3* (1 + equip[18].bonus2)); equip[18].property3 = "射速"; equip[18].down3 = -4; equip[18].up3 = -3; equip[18].type = 2; equip[18].rank = 4;
+            equip[19].name = "全息 - EOT 518"; equip[19].bonus1 = 0.4; equip[19].bonus2 = 0.4; equip[19].property1 = "命中"; equip[19].down1 = 6; equip[19].up1 = Math.Round(10 * (1 + equip[17].bonus1)); equip[19].property2 = "伤害"; equip[19].down2 = 4; equip[19].up2 = Math.Round(6 * (1 + equip[19].bonus2)); equip[19].property3 = "射速"; equip[19].down3 = -6; equip[19].up3 = -4; equip[19].type = 2; equip[19].rank = 5; 
             equip[20].name = "ACOG - AMP COMPM2"; equip[20].property1 = "命中"; equip[20].down1 = 2; equip[20].up1 = 3; equip[20].property2 = "射速"; equip[20].down2 = -1; equip[20].up2 = -1; equip[20].type = 3; equip[20].rank = 2;
-            equip[21].name = "ACOG - AMP COMPM4"; equip[21].property1 = "命中"; equip[21].down1 = 4; equip[21].up1 = 6; equip[21].property2 = "射速"; equip[21].down2 = -2; equip[21].up2 = -1; equip[21].type = 3; equip[21].rank = 3;
-            equip[22].name = "ACOG - COG M150"; equip[22].property1 = "命中"; equip[22].down1 = 7; equip[22].up1 = 10; equip[22].property2 = "射速"; equip[22].down2 = -3; equip[22].up2 = -1; equip[22].type = 3; equip[27].rank = 4;
-            equip[23].name = "ACOG - ITI MARS"; equip[23].property1 = "命中"; equip[23].down1 = 11; equip[23].up1 = 15; equip[23].property2 = "射速"; equip[23].down2 = -4; equip[23].up2 = -1; equip[23].type = 3; equip[28].rank = 5;
+            equip[21].name = "ACOG - AMP COMPM4"; equip[21].bonus1 = 1; equip[21].property1 = "命中"; equip[21].down1 = 4; equip[21].up1 = Math.Round(6* (1 + equip[21].bonus1)); equip[21].property2 = "射速"; equip[21].down2 = -2; equip[21].up2 = -1; equip[21].type = 3; equip[21].rank = 3;
+            equip[22].name = "ACOG - COG M150"; equip[22].bonus1 = 1; equip[22].property1 = "命中"; equip[22].down1 = 7; equip[22].up1 =Math.Round( 10* (1 + equip[22].bonus1)); equip[22].property2 = "射速"; equip[22].down2 = -3; equip[22].up2 = -1; equip[22].type = 3; equip[27].rank = 4;
+            equip[23].name = "ACOG - ITI MARS"; equip[23].bonus1 = 1; equip[23].property1 = "命中"; equip[23].down1 = 11; equip[23].up1 = Math.Round(15 * (1 + equip[23].bonus1)); equip[23].property2 = "射速"; equip[23].down2 = -4; equip[23].up2 = -1; equip[23].type = 3; equip[28].rank = 5; 
             equip[24].name = "夜视 - PEQ-2"; equip[24].property1 = "夜视抵消"; equip[24].down1 = 51; equip[24].up1 = 55; equip[24].type = 4; equip[24].rank = 2;
             equip[25].name = "夜视 - PEQ-5"; equip[25].property1 = "夜视抵消"; equip[25].down1 = 61; equip[25].up1 = 70; equip[25].type = 4; equip[25].rank = 3;
             equip[26].name = "夜视 - PEQ-15"; equip[26].property1 = "夜视抵消"; equip[26].down1 = 76; equip[26].up1 = 85; equip[26].type = 4; equip[26].rank = 4;
             equip[27].name = "夜视 - PEQ-16A"; equip[27].property1 = "夜视抵消"; equip[27].down1 = 91; equip[27].up1 = 100; equip[27].type = 4; equip[27].rank = 5;
-            equip[28].name = "16Lab次口径穿甲弹"; equip[28].property1 = "穿甲"; equip[28].down1 = 80; equip[28].up1 = 80; equip[28].type = 5; equip[28].rank = 5;
+            equip[28].name = "16Lab次口径穿甲弹"; equip[28].bonus1 = 0.5; equip[28].property1 = "穿甲"; equip[28].down1 = 80; equip[28].up1 = Math.Round(80 * (1 + equip[28].bonus1)); equip[28].type = 5; equip[28].rank = 5;
             equip[29].name = "16Lab红外指示器"; equip[29].property1 = "夜视抵消"; equip[29].down1 = 100; equip[29].up1 = 100; equip[29].type = 4; equip[29].rank = 5;
             equip[30].name = " "; equip[30].type = 13; equip[30].rank = 2;
             equip[31].name = "IOP X1外骨骼"; equip[31].property1 = "回避"; equip[31].down1 = 2; equip[31].up1 = 3; equip[31].type = 10; equip[31].rank = 2;
-            equip[32].name = "IOP X2外骨骼"; equip[32].property1 = "回避"; equip[32].down1 = 4; equip[32].up1 = 5; equip[32].type = 10; equip[32].rank = 3;
-            equip[33].name = "IOP X3外骨骼"; equip[33].property1 = "回避"; equip[33].down1 = 6; equip[33].up1 = 7; equip[33].type = 10; equip[33].rank = 4;
-            equip[34].name = "IOP X4外骨骼"; equip[34].property1 = "回避"; equip[34].down1 = 8; equip[34].up1 = 12; equip[34].type = 10; equip[34].rank = 5;
-            equip[35].name = "国家竞赛穿甲弹"; equip[35].property1 = "射速"; equip[35].down1 = 1; equip[35].up1 = 8; equip[35].property2 = "穿甲"; equip[35].down2 = 75; equip[35].up2 = 85; equip[35].type = 5; equip[35].rank = 5; equip[35].forwhat = 32;
-            equip[36].name = ".300BLK高速弹"; equip[36].property1 = "伤害"; equip[36].down1 = 8; equip[36].up1 = 12; equip[36].property2 = "命中"; equip[36].down2 = -5; equip[36].up2 = -1; equip[36].type = 8; equip[36].rank = 5; equip[36].forwhat = 52;
-            equip[37].name = "Titan火控芯片"; equip[37].property1 = "伤害"; equip[37].down1 = -4; equip[37].up1 = -2; equip[37].property2 = "射速"; equip[37].down2 = -8; equip[37].up2 = -1; equip[37].property3 = "弹链"; equip[37].down3 = 1; equip[37].up3 = 2; equip[37].type = 9; equip[37].rank = 5; equip[37].forwhat = 67;
-            equip[38].name = "GSG UX外骨骼"; equip[38].property1 = "伤害"; equip[38].down1 = -10; equip[38].up1 = -6; equip[38].property2 = "回避"; equip[38].down2 = 30; equip[38].up2 = 45; equip[38].type = 10; equip[38].rank = 5; equip[38].forwhat = 24;
+            equip[32].name = "IOP X2外骨骼"; equip[32].bonus1 = 0.8; equip[32].property1 = "回避"; equip[32].down1 = 4; equip[32].up1 =Math.Round( 5* (1 + equip[32].bonus1)); equip[32].type = 10; equip[32].rank = 3;
+            equip[33].name = "IOP X3外骨骼"; equip[33].bonus1 = 0.9; equip[33].property1 = "回避"; equip[33].down1 = 6; equip[33].up1 =Math.Round( 7* (1 + equip[33].bonus1)); equip[33].type = 10; equip[33].rank = 4;
+            equip[34].name = "IOP X4外骨骼"; equip[34].bonus1 = 0.7; equip[34].property1 = "回避"; equip[34].down1 = 8; equip[34].up1 = Math.Round(12 * (1 + equip[34].bonus1)); equip[34].type = 10; equip[34].rank = 5;
+            equip[35].name = "国家竞赛穿甲弹"; equip[35].bonus1 = 0.3; equip[35].bonus2 = 0.5; equip[35].property1 = "射速"; equip[35].down1 = 1; equip[35].up1 = Math.Round(8 * (1 + equip[35].bonus1)); equip[35].property2 = "穿甲"; equip[35].down2 = 75; equip[35].up2 = Math.Round(85 * (1 + equip[35].bonus2)); equip[35].type = 5; equip[35].rank = 5; equip[35].forwhat = 32;
+            equip[36].name = ".300BLK高速弹"; equip[36].bonus1 = 0.3; equip[36].property1 = "伤害"; equip[36].down1 = 8; equip[36].up1 = Math.Round(12 * (1 + equip[36].bonus1)); equip[36].property2 = "命中"; equip[36].down2 = -5; equip[36].up2 = -1; equip[36].type = 8; equip[36].rank = 5; equip[36].forwhat = 52;
+            equip[37].name = "Titan火控芯片"; equip[37].bonus3 = 0.5; equip[37].property1 = "伤害"; equip[37].down1 = -4; equip[37].up1 = -2; equip[37].property2 = "射速"; equip[37].down2 = -8; equip[37].up2 = -1; equip[37].property3 = "弹链"; equip[37].down3 = 3; equip[37].up3 = Math.Round(4 * (1 + equip[37].bonus3)); equip[37].type = 9; equip[37].rank = 5; equip[37].forwhat = 67;
+            equip[38].name = "GSG UX外骨骼"; equip[38].bonus2 = 0.3; equip[38].property1 = "伤害"; equip[38].down1 = -10; equip[38].up1 = -6; equip[38].property2 = "回避"; equip[38].down2 = 30; equip[38].up2 = Math.Round(45 * (1 + equip[38].bonus2)); equip[38].type = 10; equip[38].rank = 5; equip[38].forwhat = 24; 
             equip[39].name = "AC1消音器"; equip[39].property1 = "暴击率"; equip[39].down1 = 4; equip[39].up1 = 5; equip[39].property2 = "回避"; equip[39].down2 = 2; equip[39].up2 = 2; equip[39].type = 13; equip[39].rank = 2;
-            equip[40].name = "AC2消音器"; equip[40].property1 = "暴击率"; equip[40].down1 = 6; equip[40].up1 = 8; equip[40].property2 = "回避"; equip[40].down2 = 3; equip[40].up2 = 3; equip[40].type = 13; equip[40].rank = 3;
-            equip[41].name = "AC3消音器"; equip[41].property1 = "暴击率"; equip[41].down1 = 9; equip[41].up1 = 11; equip[41].property2 = "回避"; equip[41].down2 = 4; equip[41].up2 = 5; equip[41].type = 13; equip[41].rank = 4;
-            equip[42].name = "AC4消音器"; equip[42].property1 = "暴击率"; equip[42].down1 = 12; equip[42].up1 = 15; equip[42].property2 = "回避"; equip[42].down2 = 6; equip[42].up2 = 8; equip[42].type = 13; equip[42].rank = 5;
-            equip[43].name = "IOP大容量弹药箱"; equip[43].property1 = "弹链"; equip[43].down1 = 1; equip[43].up1 = 1; equip[43].property2 = "穿甲"; equip[43].down2 = -1; equip[43].up2 = -1; equip[43].type = 14; equip[43].rank = 4;
-            equip[44].name = "IOP极限弹药箱"; equip[44].property1 = "弹链"; equip[44].down1 = 2; equip[44].up1 = 3; equip[44].property2 = "穿甲"; equip[44].down2 = -3; equip[44].up2 = -2; equip[44].type = 14; equip[44].rank = 5;
-            equip[45].name = "ILM空尖弹"; equip[45].property1 = "伤害"; equip[45].down1 = 1; equip[45].up1 = 1; equip[45].property2 = "穿甲"; equip[45].down2 = -1; equip[45].up2 = -1; equip[45].type = 6; equip[45].rank = 2;
-            equip[46].name = "ILM空尖弹"; equip[46].property1 = "伤害"; equip[46].down1 = 2; equip[46].up1 = 3; equip[46].property2 = "穿甲"; equip[46].down2 = -3; equip[46].up2 = -2; equip[46].type = 6; equip[46].rank = 3;
-            equip[47].name = "ILM空尖弹"; equip[47].property1 = "伤害"; equip[47].down1 = 4; equip[47].up1 = 6; equip[47].property2 = "穿甲"; equip[47].down2 = -6; equip[47].up2 = -4; equip[47].type = 6; equip[47].rank = 4;
-            equip[48].name = "ILM空尖弹"; equip[48].property1 = "伤害"; equip[48].down1 = 7; equip[48].up1 = 10; equip[48].property2 = "穿甲"; equip[48].down2 = -10; equip[48].up2 = -7; equip[48].type = 6; equip[48].rank = 5;
+            equip[40].name = "AC2消音器"; equip[40].bonus1 = 0.3; equip[40].bonus2 = 0.4; equip[40].property1 = "暴击率"; equip[40].down1 = 6; equip[40].up1 = Math.Round( 8* (1 + equip[40].bonus1)); equip[40].property2 = "回避"; equip[40].down2 = 3; equip[40].up2 = Math.Round( 3* (1 + equip[40].bonus2)); equip[40].type = 13; equip[40].rank = 3;
+            equip[41].name = "AC3消音器"; equip[41].bonus1 = 0.3; equip[41].bonus2 = 0.4; equip[41].property1 = "暴击率"; equip[41].down1 = 9; equip[41].up1 =  Math.Round(11* (1 + equip[41].bonus1)); equip[41].property2 = "回避"; equip[41].down2 = 4; equip[41].up2 = Math.Round( 5* (1 + equip[41].bonus2)); equip[41].type = 13; equip[41].rank = 4;
+            equip[42].name = "AC4消音器"; equip[42].bonus1 = 0.3; equip[42].bonus2 = 0.3; equip[42].property1 = "暴击率"; equip[42].down1 = 12; equip[42].up1 = Math.Round(15 * (1 + equip[42].bonus1)); equip[42].property2 = "回避"; equip[42].down2 = 6; equip[42].up2 = Math.Round(8 * (1 + equip[42].bonus2)); equip[42].type = 13; equip[42].rank = 5;
+            equip[43].name = "IOP大容量弹药箱"; equip[43].bonus1 = 2; equip[43].property1 = "弹链"; equip[43].down1 = 1; equip[43].up1 =Math.Round( 1* (1 + equip[43].bonus1)); equip[43].property2 = "穿甲"; equip[43].down2 = -1; equip[43].up2 = -1; equip[43].type = 14; equip[43].rank = 4;
+            equip[44].name = "IOP极限弹药箱"; equip[44].bonus1 = 0.7; equip[44].property1 = "弹链"; equip[44].down1 = 2; equip[44].up1 = Math.Round(3 * (1 + equip[44].bonus1)); equip[44].property2 = "穿甲"; equip[44].down2 = -3; equip[44].up2 = -2; equip[44].type = 14; equip[44].rank = 5; 
+            equip[45].name = "ILM二星空尖弹"; equip[45].property1 = "伤害"; equip[45].down1 = 1; equip[45].up1 = 1; equip[45].property2 = "穿甲"; equip[45].down2 = -1; equip[45].up2 = -1; equip[45].type = 6; equip[45].rank = 2;
+            equip[46].name = "ILM三星空尖弹"; equip[46].bonus1 = 0.7; equip[46].property1 = "伤害"; equip[46].down1 = 2; equip[46].up1 =Math.Round(  3* (1 + equip[46].bonus1)); equip[46].property2 = "穿甲"; equip[46].down2 = -3; equip[46].up2 = -2; equip[46].type = 6; equip[46].rank = 3;
+            equip[47].name = "ILM四星空尖弹"; equip[47].bonus1 = 0.5; equip[47].property1 = "伤害"; equip[47].down1 = 4; equip[47].up1 = Math.Round( 6* (1 + equip[47].bonus1)); equip[47].property2 = "穿甲"; equip[47].down2 = -6; equip[47].up2 = -4; equip[47].type = 6; equip[47].rank = 4;
+            equip[48].name = "ILM五星空尖弹"; equip[48].bonus1 = 0.5; equip[48].property1 = "伤害"; equip[48].down1 = 7; equip[48].up1 = Math.Round(10 * (1 + equip[48].bonus1)); equip[48].property2 = "穿甲"; equip[48].down2 = -10; equip[48].up2 = -7; equip[48].type = 6; equip[48].rank = 5; 
             equip[49].name = "#1猎鹿弹"; equip[49].property1 = "伤害"; equip[49].down1 = 1; equip[49].up1 = 1; equip[49].property2 = "暴击伤害"; equip[49].down2 = 3; equip[49].up2 = 4; equip[49].type = 7; equip[49].rank = 2;
-            equip[50].name = "#0猎鹿弹"; equip[50].property1 = "伤害"; equip[50].down1 = 2; equip[50].up1 = 3; equip[50].property2 = "暴击伤害"; equip[50].down2 = 5; equip[50].up2 = 6; equip[50].type = 7; equip[50].rank = 3;
-            equip[51].name = "#00猎鹿弹"; equip[51].property1 = "伤害"; equip[51].down1 = 4; equip[51].up1 = 6; equip[51].property2 = "暴击伤害"; equip[51].down2 = 7; equip[51].up2 = 9; equip[51].type = 7; equip[51].rank = 4;
-            equip[52].name = "#000猎鹿弹"; equip[52].property1 = "伤害"; equip[52].down1 = 7; equip[52].up1 = 10; equip[52].property2 = "暴击伤害"; equip[52].down2 = 10; equip[52].up2 = 15; equip[52].type = 7; equip[52].rank = 5;
-            equip[53].name = "冬活奖励鹿弹"; equip[53].property1 = "伤害"; equip[53].down1 = 10; equip[53].up1 = 10; equip[53].property2 = "暴击伤害"; equip[53].down2 = 15; equip[53].up2 = 15; equip[53].type = 7; equip[53].rank = 5;
+            equip[50].name = "#0猎鹿弹"; equip[50].bonus1 = 0.5; equip[50].bonus2 = 0.5; equip[50].property1 = "伤害"; equip[50].down1 = 2; equip[50].up1 =Math.Round(  3* (1 + equip[50].bonus1)); equip[50].property2 = "暴击伤害"; equip[50].down2 = 5; equip[50].up2 = Math.Round( 6* (1 + equip[50].bonus2)); equip[50].type = 7; equip[50].rank = 3;
+            equip[51].name = "#00猎鹿弹"; equip[51].bonus1 = 0.5; equip[51].bonus2 = 0.6; equip[51].property1 = "伤害"; equip[51].down1 = 4; equip[51].up1 = Math.Round( 6* (1 + equip[51].bonus1)); equip[51].property2 = "暴击伤害"; equip[51].down2 = 7; equip[51].up2 = Math.Round( 9* (1 + equip[51].bonus2)); equip[51].type = 7; equip[51].rank = 4;
+            equip[52].name = "#000猎鹿弹"; equip[52].bonus1 = 0.5; equip[52].bonus2 = 0.5; equip[52].property1 = "伤害"; equip[52].down1 = 7; equip[52].up1 = Math.Round( 10* (1 + equip[52].bonus1)); equip[52].property2 = "暴击伤害"; equip[52].down2 = 10; equip[52].up2 = Math.Round( 15* (1 + equip[52].bonus2)); equip[52].type = 7; equip[52].rank = 5;
+            equip[53].name = "冬活奖励鹿弹"; equip[53].bonus1 = 0.5; equip[53].bonus2 = 0.5; equip[53].property1 = "伤害"; equip[53].down1 = 10; equip[53].up1 = Math.Round(10 * (1 + equip[53].bonus1)); equip[53].property2 = "暴击伤害"; equip[53].down2 = 15; equip[53].up2 = Math.Round(15 * (1 + equip[53].bonus2)); equip[53].type = 7; equip[53].rank = 5;
             equip[54].name = "BK独头弹"; equip[54].property1 = "命中"; equip[54].down1 = 1; equip[54].up1 = 2; equip[54].property2 = "目标"; equip[54].down2 = -2; equip[54].up2 = -2; equip[54].type = 7; equip[54].rank = 2;
-            equip[55].name = "FST独头弹"; equip[55].property1 = "命中"; equip[55].down1 = 3; equip[55].up1 = 4; equip[55].property2 = "目标"; equip[55].down2 = -2; equip[55].up2 = -2; equip[55].type = 7; equip[55].rank = 3;
-            equip[56].name = "WAD独头弹"; equip[56].property1 = "命中"; equip[56].down1 = 5; equip[56].up1 = 7; equip[56].property2 = "目标"; equip[56].down2 = -2; equip[56].up2 = -2; equip[56].type = 7; equip[56].rank = 4;
-            equip[57].name = "SABOT独头弹"; equip[57].property1 = "命中"; equip[57].down1 = 8; equip[57].up1 = 12; equip[57].property2 = "目标"; equip[57].down2 = -2; equip[57].up2 = -2; equip[57].type = 7; equip[57].rank = 5;
-            equip[58].name = "冬活奖励防弹插板"; equip[58].property1 = "护甲"; equip[58].down1 = 8; equip[58].up1 = 8; equip[58].property2 = "回避"; equip[58].down2 = -2; equip[58].up2 = -2; equip[58].type = 11; equip[58].rank = 5;
+            equip[55].name = "FST独头弹"; equip[55].bonus1 = 1; equip[55].property1 = "命中"; equip[55].down1 = 3; equip[55].up1 = Math.Round( 4 * (1 + equip[55].bonus1)); equip[55].property2 = "目标"; equip[55].down2 = -2; equip[55].up2 = -2; equip[55].type = 7; equip[55].rank = 3;
+            equip[56].name = "WAD独头弹"; equip[56].bonus1 = 0.9; equip[56].property1 = "命中"; equip[56].down1 = 5; equip[56].up1 =  Math.Round(7 * (1 + equip[56].bonus1)); equip[56].property2 = "目标"; equip[56].down2 = -2; equip[56].up2 = -2; equip[56].type = 7; equip[56].rank = 4;
+            equip[57].name = "SABOT独头弹"; equip[57].bonus1 = 0.7; equip[57].property1 = "命中"; equip[57].down1 = 8; equip[57].up1 = Math.Round( 12 * (1 + equip[57].bonus1)); equip[57].property2 = "目标"; equip[57].down2 = -2; equip[57].up2 = -2; equip[57].type = 7; equip[57].rank = 5;
+            equip[58].name = "冬活奖励防弹插板"; equip[58].bonus1 = 0.4; equip[58].property1 = "护甲"; equip[58].down1 = 8; equip[58].up1 = Math.Round(8 * (1 + equip[58].bonus1)); equip[58].property2 = "回避"; equip[58].down2 = -2; equip[58].up2 = -2; equip[58].type = 11; equip[58].rank = 5; 
             for (int i = 0; i < EQUIP_NUMBER;i++ )
             {
                 if (!String.IsNullOrEmpty(equip[i].property1))
@@ -2883,7 +2898,7 @@ namespace snqxap
                     equip[i].tooltip += " 至 ";
                     if (equip[i].up1 > 0)
                         equip[i].tooltip += "+";
-                    equip[i].tooltip +=equip[i].up1;
+                    equip[i].tooltip += equip[i].up1;
                     if (equip[i].property1 == "夜视抵消")
                         equip[i].tooltip += "%";         
                 }
@@ -2898,7 +2913,7 @@ namespace snqxap
                     equip[i].tooltip += " 至 ";
                     if (equip[i].up2 > 0)
                         equip[i].tooltip += "+";
-                    equip[i].tooltip += equip[i].up2;
+                    equip[i].tooltip += equip[i].up2 ;
                     if (equip[i].property2 == "暴击伤害")
                         equip[i].tooltip += "%";
                 }
@@ -5810,14 +5825,27 @@ namespace snqxap
         {
             nowhit.Content = (Double.Parse(enemyhit.Text) * skilldownhit).ToString("0");  
             nowdamage.Content = (Double.Parse(enemydamage.Text) * skilldowndamage).ToString("0");
+            double ebreakarmor = Double.Parse(enemybreakarmor.Text);
+            double enemycalcdamage = Double.Parse(nowdamage.Content.ToString());
             switch (combo)
             {
                 case 0:
                     {
                         if(Combo0.SelectedIndex!=-1)
                         {
-                            if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
+                            {
+                                if (ebreakarmor > 0)
+                                {
+                                    if (ebreakarmor <= Double.Parse(Larmor0.Content.ToString()))
+                                        enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor0.Content.ToString())));
+                                    else
+                                        enemycalcdamage += 2;
+                                    tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                }
+                                else
+                                    tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");               
+                            }
                             else
                                 tank.Content = 0;         
                         }
@@ -5829,8 +5857,19 @@ namespace snqxap
                     {
                         if (Combo1.SelectedIndex != -1)
                         {
-                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp1.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge1.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
+                            {
+                                if (ebreakarmor > 0)
+                                {
+                                    if (ebreakarmor <= Double.Parse(Larmor1.Content.ToString()))
+                                        enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor1.Content.ToString())));
+                                    else
+                                        enemycalcdamage += 2;
+                                    tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp1.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge1.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                }
+                                else
+                                    tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp1.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge1.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            }
                             else
                                 tank.Content = 0;
                         }
@@ -5842,8 +5881,19 @@ namespace snqxap
                     {
                         if (Combo2.SelectedIndex != -1)
                         {
-                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp2.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
+                            {
+                                if (ebreakarmor > 0)
+                                {
+                                    if (ebreakarmor <= Double.Parse(Larmor2.Content.ToString()))
+                                        enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor2.Content.ToString())));
+                                    else
+                                        enemycalcdamage += 2;
+                                    tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp2.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                }
+                                else
+                                    tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp2.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            }
                             else
                                 tank.Content = 0;
                         }
@@ -5855,8 +5905,19 @@ namespace snqxap
                     {
                         if (Combo3.SelectedIndex != -1)
                         {
-                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp3.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
+                            {
+                                if (ebreakarmor > 0)
+                                {
+                                    if (ebreakarmor <= Double.Parse(Larmor3.Content.ToString()))
+                                        enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor3.Content.ToString())));
+                                    else
+                                        enemycalcdamage += 2;
+                                    tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp3.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                }
+                                else
+                                    tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp3.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            }
                             else
                                 tank.Content = 0;
                         }
@@ -5868,8 +5929,19 @@ namespace snqxap
                     {
                         if (Combo4.SelectedIndex != -1)
                         {
-                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp4.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
+                            {
+                                if (ebreakarmor > 0)
+                                {
+                                    if (ebreakarmor <= Double.Parse(Larmor4.Content.ToString()))
+                                        enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor4.Content.ToString())));
+                                    else
+                                        enemycalcdamage += 2;
+                                    tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp4.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                }
+                                else
+                                    tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp4.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                             }
                             else
                                 tank.Content = 0;
                         }
@@ -5881,8 +5953,19 @@ namespace snqxap
                     {
                         if (Combo5.SelectedIndex != -1)
                         {
-                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp5.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
+                            {
+                                if (ebreakarmor > 0)
+                                {
+                                    if (ebreakarmor <= Double.Parse(Larmor5.Content.ToString()))
+                                        enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor5.Content.ToString())));
+                                    else
+                                        enemycalcdamage += 2;
+                                    tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp5.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                }
+                                else
+                                    tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp5.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            }
                             else
                                 tank.Content = 0;
                         }
@@ -5894,8 +5977,19 @@ namespace snqxap
                     {
                         if (Combo6.SelectedIndex != -1)
                         {
-                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp6.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
+                            {
+                                if (ebreakarmor > 0)
+                                {
+                                    if (ebreakarmor <= Double.Parse(Larmor6.Content.ToString()))
+                                        enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor6.Content.ToString())));
+                                    else
+                                        enemycalcdamage += 2;
+                                    tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp6.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                }
+                                else
+                                    tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp6.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            }
                             else
                                 tank.Content = 0;
                         }
@@ -5907,8 +6001,19 @@ namespace snqxap
                     {
                         if (Combo7.SelectedIndex != -1)
                         {
-                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp7.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
+                            {
+                                if (ebreakarmor > 0)
+                                {
+                                    if (ebreakarmor <= Double.Parse(Larmor7.Content.ToString()))
+                                        enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor7.Content.ToString())));
+                                    else
+                                        enemycalcdamage += 2;
+                                    tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp7.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                }
+                                else
+                                    tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp7.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            }
                             else
                                 tank.Content = 0;
                         }
@@ -5920,8 +6025,19 @@ namespace snqxap
                     {
                         if (Combo8.SelectedIndex != -1)
                         {
-                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp8.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
+                            {
+                                if (ebreakarmor > 0)
+                                {
+                                    if (ebreakarmor <= Double.Parse(Larmor8.Content.ToString()))
+                                        enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor8.Content.ToString())));
+                                    else
+                                        enemycalcdamage += 2;
+                                    tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp8.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                }
+                                else
+                                    tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp8.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            }
                             else
                                 tank.Content = 0;
                         }
@@ -5942,14 +6058,27 @@ namespace snqxap
         {
             nowhit.Content = (Double.Parse(enemyhit.Text) * skilldownhit).ToString("0");
             nowdamage.Content = (Double.Parse(enemydamage.Text) * skilldowndamage).ToString("0");
+            double ebreakarmor = Double.Parse(enemybreakarmor.Text);
+            double enemycalcdamage = Double.Parse(nowdamage.Content.ToString());
             switch (combo)
             {
                 case 0:
                     {
                         if (Combo0.SelectedIndex != -1)
                         {
-                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
-                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
+                            {
+                                if (ebreakarmor > 0)
+                                {
+                                    if (ebreakarmor <= Double.Parse(Larmor0.Content.ToString()))
+                                        enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor0.Content.ToString())));
+                                    else
+                                        enemycalcdamage += 2;
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                }
+                                else
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            }
                             else
                                 ftank.Content = 0;
                         }
@@ -5961,8 +6090,19 @@ namespace snqxap
                     {
                         if (Combo1.SelectedIndex != -1)
                         {
-                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
-                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp1.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge1.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
+                            {
+                                if (ebreakarmor > 0)
+                                {
+                                    if (ebreakarmor <= Double.Parse(Larmor1.Content.ToString()))
+                                        enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor1.Content.ToString())));
+                                    else
+                                        enemycalcdamage += 2;
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp1.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge1.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                }
+                                else
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp1.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge1.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            }
                             else
                                 ftank.Content = 0;
                         }
@@ -5974,8 +6114,19 @@ namespace snqxap
                     {
                         if (Combo2.SelectedIndex != -1)
                         {
-                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
-                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp2.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
+                            {
+                                if (ebreakarmor > 0)
+                                {
+                                    if (ebreakarmor <= Double.Parse(Larmor2.Content.ToString()))
+                                        enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor2.Content.ToString())));
+                                    else
+                                        enemycalcdamage += 2;
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp2.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                }
+                                else
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp2.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            }
                             else
                                 ftank.Content = 0;
                         }
@@ -5987,8 +6138,19 @@ namespace snqxap
                     {
                         if (Combo3.SelectedIndex != -1)
                         {
-                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
-                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp3.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
+                            {
+                                if (ebreakarmor > 0)
+                                {
+                                    if (ebreakarmor <= Double.Parse(Larmor3.Content.ToString()))
+                                        enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor3.Content.ToString())));
+                                    else
+                                        enemycalcdamage += 2;
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp3.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                }
+                                else
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp3.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            }
                             else
                                 ftank.Content = 0;
                         }
@@ -6000,8 +6162,19 @@ namespace snqxap
                     {
                         if (Combo4.SelectedIndex != -1)
                         {
-                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
-                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp4.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
+                            {
+                                if (ebreakarmor > 0)
+                                {
+                                    if (ebreakarmor <= Double.Parse(Larmor4.Content.ToString()))
+                                        enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor4.Content.ToString())));
+                                    else
+                                        enemycalcdamage += 2;
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp4.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                }
+                                else
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp4.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            }
                             else
                                 ftank.Content = 0;
                         }
@@ -6013,8 +6186,19 @@ namespace snqxap
                     {
                         if (Combo5.SelectedIndex != -1)
                         {
-                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
-                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp5.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
+                            {
+                                if (ebreakarmor > 0)
+                                {
+                                    if (ebreakarmor <= Double.Parse(Larmor5.Content.ToString()))
+                                        enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor5.Content.ToString())));
+                                    else
+                                        enemycalcdamage += 2;
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp5.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                }
+                                else
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp5.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            }
                             else
                                 ftank.Content = 0;
                         }
@@ -6026,8 +6210,19 @@ namespace snqxap
                     {
                         if (Combo6.SelectedIndex != -1)
                         {
-                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
-                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp6.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
+                            {
+                                if (ebreakarmor > 0)
+                                {
+                                    if (ebreakarmor <= Double.Parse(Larmor6.Content.ToString()))
+                                        enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor6.Content.ToString())));
+                                    else
+                                        enemycalcdamage += 2;
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp6.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                }
+                                else
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp6.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            }
                             else
                                 ftank.Content = 0;
                         }
@@ -6039,8 +6234,19 @@ namespace snqxap
                     {
                         if (Combo7.SelectedIndex != -1)
                         {
-                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
-                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp7.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
+                            {
+                                if (ebreakarmor > 0)
+                                {
+                                    if (ebreakarmor <= Double.Parse(Larmor7.Content.ToString()))
+                                        enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor7.Content.ToString())));
+                                    else
+                                        enemycalcdamage += 2;
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp7.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                }
+                                else
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp7.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            }
                             else
                                 ftank.Content = 0;
                         }
@@ -6052,8 +6258,19 @@ namespace snqxap
                     {
                         if (Combo8.SelectedIndex != -1)
                         {
-                               if (Double.Parse(nowhit.Content.ToString()) != 0&& Double.Parse(nowdamage.Content.ToString()) != 0)
-                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp8.Content.ToString()) / Double.Parse(nowdamage.Content.ToString())) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
+                            {
+                                if (ebreakarmor > 0)
+                                {
+                                    if (ebreakarmor <= Double.Parse(Larmor8.Content.ToString()))
+                                        enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor8.Content.ToString())));
+                                    else
+                                        enemycalcdamage += 2;
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp8.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                }
+                                else
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp8.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            }
                             else
                                 ftank.Content = 0;
                         }
@@ -6174,6 +6391,7 @@ namespace snqxap
                 gg[i].dodgeup = 1.00;
                 gg[i].hitup = 1.00;
                 gg[i].shotspeedup = 1.00;
+                gg[i].armorup = 1.00;
                 lastgunindex[i] = -1;
                 gg[i].rateup = 0;
                 clearequip(i);
@@ -6237,15 +6455,15 @@ namespace snqxap
             cb7.IsChecked = false;
             cb8.IsChecked = false;
 
-            Lskillrate0.Content = "0%";
-            Lskillrate1.Content = "0%";
-            Lskillrate2.Content = "0%";
-            Lskillrate3.Content = "0%";
-            Lskillrate4.Content = "0%";
-            Lskillrate5.Content = "0%";
-            Lskillrate6.Content = "0%";
-            Lskillrate7.Content = "0%";
-            Lskillrate8.Content = "0%";
+            Lbreakarmor0.Content = equipbreakarmor[0];
+            Lbreakarmor1.Content = equipbreakarmor[1];
+            Lbreakarmor2.Content = equipbreakarmor[2];
+            Lbreakarmor3.Content = equipbreakarmor[3];
+            Lbreakarmor4.Content = equipbreakarmor[4];
+            Lbreakarmor5.Content = equipbreakarmor[5];
+            Lbreakarmor6.Content = equipbreakarmor[6];
+            Lbreakarmor7.Content = equipbreakarmor[7];
+            Lbreakarmor8.Content = equipbreakarmor[8];
 
             Level0.SelectedIndex = 99;
             Level1.SelectedIndex = 99;
@@ -6367,6 +6585,9 @@ namespace snqxap
             Merry0.Foreground = br;
             Merry8.Content = "♡";
             Merry8.Foreground = br;
+
+            enemyarmor.Text = "0";
+            enemybreakarmor.Text = "0";
         }
         /// <summary>
         /// 选中左上格副T
@@ -6481,6 +6702,7 @@ namespace snqxap
                 skillupdodge[i] = 1;
                 skillupdamage[i] = 1;
                 skilldamageagain[i] = 1;
+                skilluparmor[i] = 1;
 
             }
 
@@ -8176,6 +8398,12 @@ namespace snqxap
             float num3 = 100f;
             double maxLife = Math.Ceiling((num + levelselect * num2) * array[0] * gun[select].ratiohp / num3);
 
+            num = 2f;
+            num2 = 0.161f;
+            num3 = 100f;
+            double maxarmor = Math.Ceiling((num + levelselect * num2) * array[6] * gun[select].ratioarmor / num3);
+
+
             num = 16f;
             num2 = 100f;
             double basePow = Math.Ceiling(num * array[1] * gun[select].ratiopow / num2);
@@ -8244,18 +8472,25 @@ namespace snqxap
                             tbt += "暴击率+" + ((gg[0].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[0].rateup != 0)
                             tbt += "发动率+" + (gg[0].rateup * 100).ToString("0") + "% ";
+                        if (gg[0].armorup != 0)
+                            tbt += "护盾+" + ((gg[0].armorup-1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb0.Text = tbt;
+                        Lcritharm0.Content = ((1.5 + equipcritharm[0]) * 100).ToString() + "%";
+                        Larmor0.Content = (maxarmor+equiparmor[0]) * gg[0].armorup * skilluparmor[0];
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[0]) * gg[0].shotspeedup * (skillupshotspeed[0]) > 120)
                             Lshotspeed0.Content = 120;
+                        else if(gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[0]) * gg[0].shotspeedup * (skillupshotspeed[0]) > 60)
+                             Lshotspeed0.Content = 60;
                         else
                             Lshotspeed0.Content = Math.Floor(((baseRate + maxAddRate + equipshotspeed[0]) * gg[0].shotspeedup * (skillupshotspeed[0]))).ToString("0");
                         if (Double.Parse(Lshotspeed0.Content.ToString()) < 15)
                             Lshotspeed0.Content = 15;
                         if (Double.Parse(Lhit0.Content.ToString()) < 1)
                             Lhit0.Content = 1;
-                        calcprobabiliy(0, select, skillselect);
+                        //calcprobabiliy(0, select, skillselect);
+                        Lbreakarmor0.Content = equipbreakarmor[0];
                         double crit = (gun[select].crit + equipcrit[0]) * gg[0].critup;
                         Lcrit0.Content = (crit * 100).ToString("0") + "%";
                         Ldodge0.Content = Math.Floor(((Math.Ceiling((baseDodge + maxAddDodge) * merry[0]) + equipdodge[0]) * gg[0].dodgeup * (skillupdodge[0]))).ToString("0");
@@ -8306,18 +8541,24 @@ namespace snqxap
                             tbt += "暴击率+" + ((gg[1].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[1].rateup != 0)
                             tbt += "发动率+" + (gg[1].rateup * 100).ToString("0") + "% ";
+                        if (gg[1].armorup != 0)
+                            tbt += "护盾+" + ((gg[1].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb1.Text = tbt;
+                        Lcritharm1.Content = ((1.5 + equipcritharm[1]) * 100).ToString() + "%";
+                        Larmor1.Content = (maxarmor+equiparmor[1]) * gg[1].armorup * skilluparmor[1];
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[1]) * gg[1].shotspeedup * (skillupshotspeed[1]) > 120)
                             Lshotspeed1.Content = 120;
+                        else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[1]) * gg[1].shotspeedup * (skillupshotspeed[1]) > 60)
+                            Lshotspeed1.Content = 60;
                         else
                             Lshotspeed1.Content = Math.Floor(((baseRate + maxAddRate + equipshotspeed[1]) * gg[1].shotspeedup * (skillupshotspeed[1]))).ToString("0");
                         if (Double.Parse(Lshotspeed1.Content.ToString()) < 15)
                             Lshotspeed1.Content = 15;
                         if (Double.Parse(Lhit1.Content.ToString()) < 1)
                             Lhit1.Content = 1;
-                        calcprobabiliy(1, select, skillselect);
+                        Lbreakarmor1.Content = equipbreakarmor[1];
                         double crit = (gun[select].crit + equipcrit[1]) * gg[1].critup;
                         Lcrit1.Content = (crit * 100).ToString("0") + "%";
                         Ldodge1.Content = Math.Floor(((Math.Ceiling((baseDodge + maxAddDodge) * merry[1]) + equipdodge[1]) * gg[1].dodgeup * (skillupdodge[1]))).ToString("0");
@@ -8366,18 +8607,24 @@ namespace snqxap
                             tbt += "暴击率+" + ((gg[2].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[2].rateup != 0)
                             tbt += "发动率+" + (gg[2].rateup * 100).ToString("0") + "% ";
+                        if (gg[2].armorup != 0)
+                            tbt += "护盾+" + ((gg[2].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb2.Text = tbt;
+                        Lcritharm2.Content = ((1.5 + equipcritharm[2]) * 100).ToString() + "%";
+                        Larmor2.Content = (maxarmor+equiparmor[2]) * gg[2].armorup * skilluparmor[2];
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[2]) * gg[2].shotspeedup * (skillupshotspeed[2]) > 120)
                             Lshotspeed2.Content = 120;
+                        else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[2]) * gg[2].shotspeedup * (skillupshotspeed[2]) > 60)
+                            Lshotspeed2.Content = 60;
                         else
                             Lshotspeed2.Content = Math.Floor(((baseRate + maxAddRate + equipshotspeed[2]) * gg[2].shotspeedup * (skillupshotspeed[2]))).ToString("0");
                         if (Double.Parse(Lshotspeed2.Content.ToString()) < 15)
                             Lshotspeed2.Content = 15;
                         if (Double.Parse(Lhit2.Content.ToString()) < 1)
                             Lhit2.Content = 1;
-                        calcprobabiliy(2, select, skillselect);
+                        Lbreakarmor2.Content = equipbreakarmor[2];
                         double crit = (gun[select].crit + equipcrit[2]) * gg[2].critup;
                         Lcrit2.Content = (crit * 100).ToString("0") + "%";
                         Ldodge2.Content = Math.Floor(((Math.Ceiling((baseDodge + maxAddDodge) * merry[2]) + equipdodge[2]) * gg[2].dodgeup * (skillupdodge[2]))).ToString("0");
@@ -8426,18 +8673,24 @@ namespace snqxap
                             tbt += "暴击率+" + ((gg[3].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[3].rateup != 0)
                             tbt += "发动率+" + (gg[3].rateup * 100).ToString("0") + "% ";
+                        if (gg[3].armorup != 0)
+                            tbt += "护盾+" + ((gg[3].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb3.Text = tbt;
+                        Lcritharm3.Content = ((1.5 + equipcritharm[3]) * 100).ToString() + "%";
+                        Larmor3.Content = (maxarmor+equiparmor[3]) * gg[3].armorup * skilluparmor[3];
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[3]) * gg[3].shotspeedup * (skillupshotspeed[3]) > 120)
                             Lshotspeed3.Content = 120;
+                        else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[3]) * gg[3].shotspeedup * (skillupshotspeed[3]) > 60)
+                            Lshotspeed3.Content = 60;
                         else
                             Lshotspeed3.Content = Math.Floor(((baseRate + maxAddRate + equipshotspeed[3]) * gg[3].shotspeedup * (skillupshotspeed[3]))).ToString("0");
                         if (Double.Parse(Lshotspeed3.Content.ToString()) < 15)
                             Lshotspeed3.Content = 15;
                         if (Double.Parse(Lhit3.Content.ToString()) < 1)
                             Lhit3.Content = 1;
-                        calcprobabiliy(3, select, skillselect);
+                        Lbreakarmor3.Content = equipbreakarmor[3];
                         double crit = (gun[select].crit + equipcrit[3]) * gg[3].critup;
                         Lcrit3.Content = (crit * 100).ToString("0") + "%";
                         Ldodge3.Content = Math.Floor(((Math.Ceiling((baseDodge + maxAddDodge) * merry[3]) + equipdodge[3]) * gg[3].dodgeup * (skillupdodge[3]))).ToString("0");
@@ -8486,18 +8739,24 @@ namespace snqxap
                             tbt += "暴击率+" + ((gg[4].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[4].rateup != 0)
                             tbt += "发动率+" + (gg[4].rateup * 100).ToString("0") + "% ";
+                        if (gg[4].armorup != 0)
+                            tbt += "护盾+" + ((gg[4].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb4.Text = tbt;
+                        Lcritharm4.Content = ((1.5 + equipcritharm[4]) * 100).ToString() + "%";
+                        Larmor4.Content = (maxarmor+equiparmor[4]) * gg[4].armorup * skilluparmor[4];
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[4]) * gg[4].shotspeedup * (skillupshotspeed[4]) > 120)
                             Lshotspeed4.Content = 120;
+                        else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[4]) * gg[4].shotspeedup * (skillupshotspeed[4]) > 60)
+                            Lshotspeed4.Content = 60;
                         else
                             Lshotspeed4.Content = Math.Floor(((baseRate + maxAddRate + equipshotspeed[4]) * gg[4].shotspeedup * (skillupshotspeed[4]))).ToString("0");
                         if (Double.Parse(Lshotspeed4.Content.ToString()) < 15)
                             Lshotspeed4.Content = 15;
                         if (Double.Parse(Lhit4.Content.ToString()) < 1)
                             Lhit4.Content = 1;
-                        calcprobabiliy(4, select, skillselect);
+                        Lbreakarmor4.Content = equipbreakarmor[4];
                         double crit = (gun[select].crit + equipcrit[4]) * gg[4].critup;
                         Lcrit4.Content = (crit * 100).ToString("0") + "%";
                         Ldodge4.Content = Math.Floor(((Math.Ceiling((baseDodge + maxAddDodge) * merry[4]) + equipdodge[4]) * gg[4].dodgeup * (skillupdodge[4]))).ToString("0");
@@ -8546,18 +8805,24 @@ namespace snqxap
                             tbt += "暴击率+" + ((gg[5].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[5].rateup != 0)
                             tbt += "发动率+" + (gg[5].rateup * 100).ToString("0") + "% ";
+                        if (gg[5].armorup != 0)
+                            tbt += "护盾+" + ((gg[5].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb5.Text = tbt;
+                        Lcritharm5.Content = ((1.5 + equipcritharm[5]) * 100).ToString() + "%";
+                        Larmor5.Content = (maxarmor+equiparmor[5]) * gg[5].armorup * skilluparmor[5];
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[5]) * gg[5].shotspeedup * (skillupshotspeed[5]) > 120)
                             Lshotspeed5.Content = 120;
+                        else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[5]) * gg[5].shotspeedup * (skillupshotspeed[5]) > 60)
+                            Lshotspeed5.Content = 60;
                         else
                             Lshotspeed5.Content = Math.Floor(((baseRate + maxAddRate + equipshotspeed[5]) * gg[5].shotspeedup * (skillupshotspeed[5]))).ToString("0");
                         if (Double.Parse(Lshotspeed5.Content.ToString()) < 15)
                             Lshotspeed5.Content = 15;
                         if (Double.Parse(Lhit5.Content.ToString()) < 1)
                             Lhit5.Content = 1;
-                        calcprobabiliy(5, select, skillselect);
+                        Lbreakarmor5.Content = equipbreakarmor[5];
                         double crit = (gun[select].crit + equipcrit[5]) * gg[5].critup;
                         Lcrit5.Content = (crit * 100).ToString("0") + "%";
                         Ldodge5.Content = Math.Floor(((Math.Ceiling((baseDodge + maxAddDodge) * merry[5]) + equipdodge[5]) * gg[5].dodgeup * (skillupdodge[5]))).ToString("0");
@@ -8606,18 +8871,24 @@ namespace snqxap
                             tbt += "暴击率+" + ((gg[6].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[6].rateup != 0)
                             tbt += "发动率+" + (gg[6].rateup * 100).ToString("0") + "% ";
+                        if (gg[6].armorup != 0)
+                            tbt += "护盾+" + ((gg[6].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb6.Text = tbt;
+                        Lcritharm6.Content = ((1.5 + equipcritharm[6]) * 100).ToString() + "%";
+                        Larmor6.Content = (maxarmor+equiparmor[6]) * gg[6].armorup * skilluparmor[6];
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[6]) * gg[6].shotspeedup * (skillupshotspeed[6]) > 120)
                             Lshotspeed6.Content = 120;
+                        else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[6]) * gg[6].shotspeedup * (skillupshotspeed[6]) > 60)
+                            Lshotspeed6.Content = 60;
                         else
                             Lshotspeed6.Content = Math.Floor(((baseRate + maxAddRate + equipshotspeed[6]) * gg[6].shotspeedup * (skillupshotspeed[6]))).ToString("0");
                         if (Double.Parse(Lshotspeed6.Content.ToString()) < 15)
                             Lshotspeed6.Content = 15;
                         if (Double.Parse(Lhit6.Content.ToString()) < 1)
                             Lhit6.Content = 1;
-                        calcprobabiliy(6, select, skillselect);
+                        Lbreakarmor6.Content = equipbreakarmor[6];
                         double crit = (gun[select].crit + equipcrit[6]) * gg[6].critup;
                         Lcrit6.Content = (crit * 100).ToString("0") + "%";
                         Ldodge6.Content = Math.Floor(((Math.Ceiling((baseDodge + maxAddDodge) * merry[6] )+ equipdodge[6]) * gg[6].dodgeup * (skillupdodge[6]))).ToString("0");
@@ -8666,18 +8937,24 @@ namespace snqxap
                             tbt += "暴击率+" + ((gg[7].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[7].rateup != 0)
                             tbt += "发动率+" + (gg[7].rateup * 100).ToString("0") + "% ";
+                        if (gg[7].armorup != 0)
+                            tbt += "护盾+" + ((gg[7].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb7.Text = tbt;
+                        Lcritharm7.Content = ((1.5 + equipcritharm[7]) * 100).ToString() + "%";
+                        Larmor7.Content = (maxarmor+equiparmor[7]) * gg[7].armorup * skilluparmor[7];
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[7]) * gg[7].shotspeedup * (skillupshotspeed[7]) > 120)
                             Lshotspeed7.Content = 120;
+                        else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[7]) * gg[7].shotspeedup * (skillupshotspeed[7]) > 60)
+                            Lshotspeed7.Content = 60;
                         else
                             Lshotspeed7.Content = Math.Floor(((baseRate + maxAddRate + equipshotspeed[7]) * gg[7].shotspeedup * (skillupshotspeed[7]))).ToString("0");
                         if (Double.Parse(Lshotspeed7.Content.ToString()) < 15)
                             Lshotspeed7.Content = 15;
                         if (Double.Parse(Lhit7.Content.ToString()) < 1)
                             Lhit7.Content = 1;
-                        calcprobabiliy(7, select, skillselect);
+                        Lbreakarmor7.Content = equipbreakarmor[7];
                         double crit = (gun[select].crit + equipcrit[7]) * gg[7].critup;
                         Lcrit7.Content = (crit * 100).ToString("0") + "%";
                         Ldodge7.Content = Math.Floor(((Math.Ceiling((baseDodge + maxAddDodge) * merry[7] )+ equipdodge[7]) * gg[7].dodgeup * (skillupdodge[7]))).ToString("0");
@@ -8726,18 +9003,24 @@ namespace snqxap
                             tbt += "暴击率+" + ((gg[8].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[8].rateup != 0)
                             tbt += "发动率+" + (gg[8].rateup * 100).ToString("0") + "% ";
+                        if (gg[8].armorup != 0)
+                            tbt += "护盾+" + ((gg[8].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb8.Text = tbt;
+                        Lcritharm8.Content = ((1.5 + equipcritharm[8]) * 100).ToString() + "%";
+                        Larmor8.Content = (maxarmor+equiparmor[8]) * gg[8].armorup * skilluparmor[8];
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[8]) * gg[8].shotspeedup * (skillupshotspeed[8]) > 120)
                             Lshotspeed8.Content = 120;
+                        else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[80]) * gg[8].shotspeedup * (skillupshotspeed[8]) > 60)
+                            Lshotspeed8.Content = 60;
                         else
                             Lshotspeed8.Content = Math.Floor(((baseRate + maxAddRate + equipshotspeed[8]) * gg[8].shotspeedup * (skillupshotspeed[8]))).ToString("0");
                         if (Double.Parse(Lshotspeed8.Content.ToString()) < 15)
                             Lshotspeed8.Content = 15;
                         if (Double.Parse(Lhit8.Content.ToString()) < 1)
                             Lhit8.Content = 1;
-                        calcprobabiliy(8, select, skillselect);
+                        Lbreakarmor8.Content = equipbreakarmor[8];
                         double crit = (gun[select].crit + equipcrit[8]) * gg[8].critup;
                         Lcrit8.Content = (crit * 100).ToString("0") + "%";
                         Ldodge8.Content = Math.Floor(((Math.Ceiling((baseDodge + maxAddDodge) * merry[8] )+ equipdodge[8]) * gg[8].dodgeup * (skillupdodge[8]))).ToString("0");
@@ -9056,7 +9339,7 @@ namespace snqxap
         /// <param name="combo">哪一格</param>
         /// <param name="index">该格枪娘index</param>
         /// <param name="skillindex">该格技能等级index</param>
-        private void calcprobabiliy(int combo,int index,int skillindex)
+  /*      private void calcprobabiliy(int combo,int index,int skillindex)
         {
             if (index == -1||skillindex == -1)
                 return;
@@ -9142,7 +9425,7 @@ namespace snqxap
             }
            
                   
-        }
+        }*/
         /// <summary>
         /// 更新技能固定伤害
         /// </summary>
@@ -9877,7 +10160,7 @@ namespace snqxap
             int index = Combo0.SelectedIndex;
             if(index==-1||skillindex == -1)
                 return;
-            calcprobabiliy(0, index, skillindex);
+         //   calcprobabiliy(0, index, skillindex);
             renewskill();
         }
         /// <summary>
@@ -9891,7 +10174,7 @@ namespace snqxap
             int index = Combo1.SelectedIndex;
             if (index == -1 || skillindex == -1)
                 return;
-            calcprobabiliy(1, index, skillindex);
+          //  calcprobabiliy(1, index, skillindex);
             renewskill();
         }
         /// <summary>
@@ -9905,7 +10188,7 @@ namespace snqxap
             int index = Combo2.SelectedIndex;
             if (index == -1 || skillindex == -1)
                 return;
-            calcprobabiliy(2, index, skillindex);
+          //  calcprobabiliy(2, index, skillindex);
             renewskill();
         }
         /// <summary>
@@ -9919,7 +10202,7 @@ namespace snqxap
             int index = Combo3.SelectedIndex;
             if (index == -1 || skillindex == -1)
                 return;
-            calcprobabiliy(3, index, skillindex);
+          //  calcprobabiliy(3, index, skillindex);
             renewskill();
         }
         /// <summary>
@@ -9933,7 +10216,7 @@ namespace snqxap
             int index = Combo4.SelectedIndex;
             if (index == -1 || skillindex == -1)
                 return;
-            calcprobabiliy(4, index, skillindex);
+          //  calcprobabiliy(4, index, skillindex);
             renewskill();
         }
         /// <summary>
@@ -9947,7 +10230,7 @@ namespace snqxap
             int index = Combo5.SelectedIndex;
             if (index == -1 || skillindex == -1)
                 return;
-            calcprobabiliy(5, index, skillindex);
+          //  calcprobabiliy(5, index, skillindex);
             renewskill();
         }
         /// <summary>
@@ -9961,7 +10244,7 @@ namespace snqxap
             int index = Combo6.SelectedIndex;
             if (index == -1 || skillindex == -1)
                 return;
-            calcprobabiliy(6, index, skillindex);
+          //  calcprobabiliy(6, index, skillindex);
             renewskill();
         }
         /// <summary>
@@ -9975,7 +10258,7 @@ namespace snqxap
             int index = Combo7.SelectedIndex;
             if (index == -1 || skillindex == -1)
                 return;
-            calcprobabiliy(7, index, skillindex);
+          //  calcprobabiliy(7, index, skillindex);
             renewskill();
         }
         /// <summary>
@@ -9989,7 +10272,7 @@ namespace snqxap
             int index = Combo8.SelectedIndex;
             if (index == -1 || skillindex == -1)
                 return;
-            calcprobabiliy(8, index, skillindex);
+          //  calcprobabiliy(8, index, skillindex);
             renewskill();
         }
         /// <summary>
@@ -10690,7 +10973,7 @@ namespace snqxap
                     equipcrit[combo] =0;
                     equipnightsee[combo] = 0;
                     equipshotspeed[combo] = 0;      
-                    equipbreakarmor[combo] = 0;
+                    equipbreakarmor[combo] = 10;
             equiparmor[combo] = 0;
             equipcritharm[combo] = 0;
             equiprifledslug[combo] = false;
@@ -10748,6 +11031,21 @@ namespace snqxap
                                 case "弹链":
                                     {
                                         equipbelt[combo] += int.Parse(number.ToString());
+                                        break;
+                                    }
+                                case "暴击伤害":
+                                    {
+                                        equipcritharm[combo] += double.Parse(number.ToString()) / 100;
+                                        break;
+                                    }
+                                case "护甲":
+                                    {
+                                        equiparmor[combo] += int.Parse(number.ToString());
+                                        break;
+                                    }
+                                case "目标":
+                                    {
+                                        equiprifledslug[combo] = true;
                                         break;
                                     }
                                 default: break;
@@ -10868,6 +11166,21 @@ namespace snqxap
                                 case "弹链":
                                     {
                                         equipbelt[combo] += int.Parse(number.ToString());
+                                        break;
+                                    }
+                                case "暴击伤害":
+                                    {
+                                        equipcritharm[combo] += double.Parse(number.ToString()) / 100;
+                                        break;
+                                    }
+                                case "护甲":
+                                    {
+                                        equiparmor[combo] += int.Parse(number.ToString());
+                                        break;
+                                    }
+                                case "目标":
+                                    {
+                                        equiprifledslug[combo] = true;
                                         break;
                                     }
                                 default: break;
@@ -14292,6 +14605,8 @@ namespace snqxap
         private void enemyarmor_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!IsNumber(enemyarmor.Text))
+                enemyarmor.Text = "0";
+            if (int.Parse(enemyarmor.Text) < 0)
                 enemyarmor.Text = "0";
             for (int i = 0; i < 9; i++)
             {
@@ -18772,6 +19087,15 @@ namespace snqxap
                 calcequip(8, equipindex3, equip[equipindex3].down3 + equiptb833.SelectedIndex, 3);
             }
             renewskill();
+        }
+
+        private void enemybreakarmor_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!IsNumber(enemybreakarmor.Text))
+                enemybreakarmor.Text = "0";
+            if (int.Parse(enemybreakarmor.Text)<0)
+                enemybreakarmor.Text = "0";
+            renewtank();
         }
     }
 }

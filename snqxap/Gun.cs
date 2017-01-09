@@ -37,6 +37,9 @@ namespace snqxap
         public double up2 { get; set; }
         public double up3 { get; set; }
 
+        public double bonus1 { get; set; } //强化系数
+        public double bonus2 { get; set; } //强化系数
+        public double bonus3 { get; set; } //强化系数
     }
 
     class Gun
@@ -100,8 +103,7 @@ namespace snqxap
         public double dodgeup { get; set; }
         public double critup { get; set; }
         public double rateup { get; set; }
-
-
+        public double armorup { get; set; }
         public void cleargg()
         {
             this.critup = 1.00;
