@@ -22,7 +22,7 @@ using System.Windows.Shapes;
 //               暴击穿甲不暴击不穿甲的平均伤害导致效能偏低
 //              独头弹算法未写
 //              技能
-//              光环(已导入光环数据-->需求：手枪光环成长/霰弹、机枪光环计算逻辑与显示逻辑
+//              光环(已导入光环数据-->霰弹、机枪光环计算逻辑与显示逻辑
 //              冬活、boss数据和功能介绍
 //              霰弹index
 //              png
@@ -73,6 +73,7 @@ namespace snqxap
         int[] lastgunindex = new int[9];//存上次格内枪娘
         int howmany;//计算在场枪娘数用
         bool innight;
+        double[] multiple = new double[9];
         double[] merry = new double[9];
         List<Border>[] gridlist = new List<Border>[9];
 
@@ -857,6 +858,7 @@ namespace snqxap
                     equipnightsee[i] = 0;
                     equipshotspeed[i] = 0;      
                     equipbreakarmor[i] = 10;
+                    multiple[i] = 1;
                     merry[i] = 1;
                     equiprifledslug[i] = false;
                     gridlist[i] = new List<Border>();
@@ -867,7 +869,7 @@ namespace snqxap
             skilldownhit = 1;
             skilldowndamage = 1;
 
-            for(int i =1;i<=101;i++)
+            for(int i =1;i<101;i++)
             {
                 Level0.Items.Add(i);
                 Level1.Items.Add(i);
@@ -3582,7 +3584,7 @@ namespace snqxap
             gridlist[7].Add(buffGrid71); gridlist[7].Add(buffGrid72); gridlist[7].Add(buffGrid73); gridlist[7].Add(buffGrid74); gridlist[7].Add(buffGrid75); gridlist[7].Add(buffGrid76); gridlist[7].Add(buffGrid77); gridlist[7].Add(buffGrid78); gridlist[7].Add(buffGrid79);
             gridlist[8].Add(buffGrid81); gridlist[8].Add(buffGrid82); gridlist[8].Add(buffGrid83); gridlist[8].Add(buffGrid84); gridlist[8].Add(buffGrid85); gridlist[8].Add(buffGrid86); gridlist[8].Add(buffGrid87); gridlist[8].Add(buffGrid88); gridlist[8].Add(buffGrid89);
 
-
+           
 
             //检查更新
             string strGatherJsonUrl = "http://jyying.cn/snqxap/AssemblyInfo";
@@ -3611,7 +3613,8 @@ namespace snqxap
         /// <param name="select">该格所选枪娘index</param>
         /// <param name="grid">临近格在该格的哪个方向（电脑小键盘）</param>
         /// <param name="ggi">哪一格</param>
-        public void othercombochange(int nextselect,int select,int grid,int ggi)
+        /// <param name="ggf">从哪一格</param>
+        public void othercombochange(int nextselect,int select,int grid,int ggi,int ggf)
         {
             switch (gun[nextselect].number)
             {
@@ -3620,12 +3623,12 @@ namespace snqxap
                     {
                         if (gun[nextselect].effect0 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                             }
                         break;
                     }
@@ -3633,21 +3636,21 @@ namespace snqxap
                     {
                         if (gun[nextselect].effect0 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect1 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         break;
                     }
@@ -3655,30 +3658,30 @@ namespace snqxap
                     {
                         if (gun[nextselect].effect0 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect1 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect2 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         break;
                     }
@@ -3686,39 +3689,39 @@ namespace snqxap
                     {
                         if (gun[nextselect].effect0 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect1 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect2 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect3 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         break;
                     }
@@ -3726,48 +3729,48 @@ namespace snqxap
                     {
                         if (gun[nextselect].effect0 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect1 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect2 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect3 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect4 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         break;
                     }
@@ -3775,57 +3778,57 @@ namespace snqxap
                     {
                         if (gun[nextselect].effect0 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect1 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect2 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect3 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect4 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect5 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         break;
                     }
@@ -3833,66 +3836,66 @@ namespace snqxap
                     {
                         if (gun[nextselect].effect0 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect1 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect2 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect3 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect4 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect5 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect6 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         break;
                     }
@@ -3900,75 +3903,75 @@ namespace snqxap
                     {
                         if (gun[nextselect].effect0 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect1 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect2 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect3 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect4 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect5 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect6 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         else if (gun[nextselect].effect7 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup;
-                            gg[ggi].damageup += gun[nextselect].damageup;
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup;
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup;
-                            gg[ggi].hitup += gun[nextselect].hitup;
-                            gg[ggi].rateup += gun[nextselect].rateup;
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
+                            gg[ggi].rateup += gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
                         }
                         break;
                     }
@@ -4208,15 +4211,15 @@ namespace snqxap
             {
                 if(index1!=-1)
                 {
-                    othercombochange(index1, index0, 4, 0);
+                    othercombochange(index1, index0, 4, 0,1);
                 }
                 if(index3!=-1)
                 {
-                    othercombochange(index3, index0, 8, 0);
+                    othercombochange(index3, index0, 8, 0,3);
                 }
                 if(index4!=-1)
                 {
-                    othercombochange(index4, index0, 7, 0);
+                    othercombochange(index4, index0, 7, 0,4);
                 }
                 renewindex(0);
                 if(rb0.IsChecked == true)
@@ -4251,23 +4254,23 @@ namespace snqxap
             {
                 if (index0 != -1)
                 {
-                    othercombochange(index0, index1, 6, 1);
+                    othercombochange(index0, index1, 6, 1,0);
                 }
                 if (index2 != -1)
                 {
-                    othercombochange(index2, index1, 4, 1);
+                    othercombochange(index2, index1, 4, 1,2);
                 }
                 if (index3 != -1)
                 {
-                    othercombochange(index3, index1, 9, 1);
+                    othercombochange(index3, index1, 9, 1,3);
                 }
                 if (index4 != -1)
                 {
-                    othercombochange(index4, index1, 8, 1);
+                    othercombochange(index4, index1, 8, 1,4);
                 }
                 if (index5 != -1)
                 {
-                    othercombochange(index5, index1, 7, 1);
+                    othercombochange(index5, index1, 7, 1,5);
                 }
                 renewindex(1);
                 if (rb1.IsChecked == true)
@@ -4300,15 +4303,15 @@ namespace snqxap
             {
                 if (index1 != -1)
                 {
-                    othercombochange(index1, index2, 6, 2);
+                    othercombochange(index1, index2, 6, 2,1);
                 }
                 if (index4 != -1)
                 {
-                    othercombochange(index4, index2, 9, 2);
+                    othercombochange(index4, index2, 9, 2,4);
                 }
                 if (index5 != -1)
                 {
-                    othercombochange(index5, index2, 8, 2);
+                    othercombochange(index5, index2, 8, 2,5);
                 }
                 renewindex(2);
                 if (rb2.IsChecked == true)
@@ -4343,23 +4346,23 @@ namespace snqxap
             {
                 if (index0 != -1)
                 {
-                    othercombochange(index0, index3, 2, 3);
+                    othercombochange(index0, index3, 2, 3,0);
                 }
                 if (index1 != -1)
                 {
-                    othercombochange(index1, index3, 1, 3);
+                    othercombochange(index1, index3, 1, 3,1);
                 }
                 if (index4 != -1)
                 {
-                    othercombochange(index4, index3, 4, 3);
+                    othercombochange(index4, index3, 4, 3,4);
                 }
                 if (index6 != -1)
                 {
-                    othercombochange(index6, index3, 8, 3);
+                    othercombochange(index6, index3, 8, 3,6);
                 }
                 if (index7 != -1)
                 {
-                    othercombochange(index7, index3, 7, 3);
+                    othercombochange(index7, index3, 7, 3,7);
                 }
                 renewindex(3);
                 if (rb3.IsChecked == true)
@@ -4397,35 +4400,35 @@ namespace snqxap
             {
                 if (index0 != -1)
                 {
-                    othercombochange(index0, index4, 3, 4);
+                    othercombochange(index0, index4, 3, 4,0);
                 }
                 if (index1 != -1)
                 {
-                    othercombochange(index1, index4, 2, 4);
+                    othercombochange(index1, index4, 2, 4,1);
                 }
                 if (index3 != -1)
                 {
-                    othercombochange(index3, index4, 6, 4);
+                    othercombochange(index3, index4, 6, 4,3);
                 }
                 if (index2 != -1)
                 {
-                    othercombochange(index2, index4, 1, 4);
+                    othercombochange(index2, index4, 1, 4,2);
                 }
                 if (index5 != -1)
                 {
-                    othercombochange(index5, index4, 4, 4);
+                    othercombochange(index5, index4, 4, 4,5);
                 }
                 if (index6 != -1)
                 {
-                    othercombochange(index6, index4, 9, 4);
+                    othercombochange(index6, index4, 9, 4,6);
                 }
                 if (index7 != -1)
                 {
-                    othercombochange(index7, index4, 8, 4);
+                    othercombochange(index7, index4, 8, 4,7);
                 }
                 if (index8 != -1)
                 {
-                    othercombochange(index8, index4, 7, 4);
+                    othercombochange(index8, index4, 7, 4,8);
                 }
                 renewindex(4);
                 if (rb4.IsChecked == true)
@@ -4459,23 +4462,23 @@ namespace snqxap
             {
                 if (index1 != -1)
                 {
-                    othercombochange(index1, index5, 3, 5);
+                    othercombochange(index1, index5, 3, 5,1);
                 }
                 if (index2 != -1)
                 {
-                    othercombochange(index2, index5, 2, 5);
+                    othercombochange(index2, index5, 2, 5,2);
                 }
                 if (index4 != -1)
                 {
-                    othercombochange(index4, index5, 6, 5);
+                    othercombochange(index4, index5, 6, 5,4);
                 }
                 if (index7 != -1)
                 {
-                    othercombochange(index7, index5, 9, 5);
+                    othercombochange(index7, index5, 9, 5,7);
                 }
                 if (index8 != -1)
                 {
-                    othercombochange(index8, index5, 8, 5);
+                    othercombochange(index8, index5, 8, 5,8);
                 }
                 renewindex(5);
                 if (rb5.IsChecked == true)
@@ -4507,15 +4510,15 @@ namespace snqxap
             {
                 if (index3 != -1)
                 {
-                    othercombochange(index3, index6, 2, 6);
+                    othercombochange(index3, index6, 2, 6,3);
                 }
                 if (index4 != -1)
                 {
-                    othercombochange(index4, index6, 1, 6);
+                    othercombochange(index4, index6, 1, 6,4);
                 }
                 if (index7 != -1)
                 {
-                    othercombochange(index7, index6, 4, 6);
+                    othercombochange(index7, index6, 4, 6,7);
                 }
                 renewindex(6);
                 if (rb6.IsChecked == true)
@@ -4549,23 +4552,23 @@ namespace snqxap
             {
                 if (index3 != -1)
                 {
-                    othercombochange(index3, index7, 3, 7);
+                    othercombochange(index3, index7, 3, 7,3);
                 }
                 if (index4 != -1)
                 {
-                    othercombochange(index4, index7, 2, 7);
+                    othercombochange(index4, index7, 2, 7,4);
                 }
                 if (index5 != -1)
                 {
-                    othercombochange(index5, index7, 1, 7);
+                    othercombochange(index5, index7, 1, 7,5);
                 }
                 if (index6 != -1)
                 {
-                    othercombochange(index6, index7, 6, 7);
+                    othercombochange(index6, index7, 6, 7,6);
                 }
                 if (index8 != -1)
                 {
-                    othercombochange(index8, index7, 4, 7);
+                    othercombochange(index8, index7, 4, 7,8);
                 }
                 renewindex(7);
                 if (rb7.IsChecked == true)
@@ -4597,15 +4600,15 @@ namespace snqxap
             {
                 if (index4 != -1)
                 {
-                    othercombochange(index4, index8, 3, 8);
+                    othercombochange(index4, index8, 3, 8,4);
                 }
                 if (index5 != -1)
                 {
-                    othercombochange(index5, index8, 2, 8);
+                    othercombochange(index5, index8, 2, 8,5);
                 }
                 if (index7 != -1)
                 {
-                    othercombochange(index7, index8, 6, 8);
+                    othercombochange(index7, index8, 6, 8,7);
                 }
                 renewindex(8);
                 if (rb8.IsChecked == true)
@@ -4632,6 +4635,7 @@ namespace snqxap
                 
                 return;
             }
+
             for (int i = 0; i < 9; i++)
             {
                 if (getcombogunname(i) != ""&&getcombogunname(i)!=null)
@@ -4778,6 +4782,30 @@ namespace snqxap
                 Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
                 Combo0.Foreground = br;
             }
+            int levelselect = Level0.SelectedIndex;
+            if (levelselect == -1 || levelselect == 100)
+                return;
+            multiple[0] = 1;
+            if (gun[select].what == 4)
+            {
+                if (levelselect + 1 >= 90)
+                {
+                    multiple[0] = 2;
+                }
+                else if (levelselect + 1 >= 70)
+                {
+                    multiple[0] = 1.75;
+                }
+                else if (levelselect + 1 >= 30)
+                {
+                    multiple[0] = 1.5;
+                }
+                else if (levelselect + 1 >= 10)
+                {
+                    multiple[0] = 1.25;
+                }
+            }
+
             if (select!=-1)
                 calccombo0buff();
             calccombo1buff();
@@ -4958,6 +4986,30 @@ namespace snqxap
                 Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
                 Combo1.Foreground = br;
             }
+            int levelselect = Level1.SelectedIndex;
+            if (levelselect == -1 || levelselect == 100)
+                return;
+            multiple[1] = 1;
+            if (gun[select].what == 4)
+            {
+                if (levelselect + 1 >= 90)
+                {
+                    multiple[1] = 2;
+                }
+                else if (levelselect + 1 >= 70)
+                {
+                    multiple[1] = 1.75;
+                }
+                else if (levelselect + 1 >= 30)
+                {
+                    multiple[1] = 1.5;
+                }
+                else if (levelselect + 1 >= 10)
+                {
+                    multiple[1] = 1.25;
+                }
+            }
+
             if (select != -1)
                 calccombo1buff();
             calccombo0buff();
@@ -5137,6 +5189,30 @@ namespace snqxap
                 Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
                 Combo2.Foreground = br;
             }
+            int levelselect = Level2.SelectedIndex;
+            if (levelselect == -1 || levelselect == 100)
+                return;
+            multiple[2] = 1;
+            if (gun[select].what == 4)
+            {
+                if (levelselect + 1 >= 90)
+                {
+                    multiple[2] = 2;
+                }
+                else if (levelselect + 1 >= 70)
+                {
+                    multiple[2] = 1.75;
+                }
+                else if (levelselect + 1 >= 30)
+                {
+                    multiple[2] = 1.5;
+                }
+                else if (levelselect + 1 >= 10)
+                {
+                    multiple[2] = 1.25;
+                }
+            }
+
             if (select != -1)
                 calccombo2buff();
             calccombo0buff();
@@ -5319,6 +5395,30 @@ namespace snqxap
                 Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
                 Combo3.Foreground = br;
             }
+            int levelselect = Level3.SelectedIndex;
+            if (levelselect == -1 || levelselect == 100)
+                return;
+            multiple[3] = 1;
+            if (gun[select].what == 4)
+            {
+                if (levelselect + 1 >= 90)
+                {
+                    multiple[3] = 2;
+                }
+                else if (levelselect + 1 >= 70)
+                {
+                    multiple[3] = 1.75;
+                }
+                else if (levelselect + 1 >= 30)
+                {
+                    multiple[3] = 1.5;
+                }
+                else if (levelselect + 1 >= 10)
+                {
+                    multiple[3] = 1.25;
+                }
+            }
+
             if (select != -1)
                 calccombo3buff();
             calccombo0buff();
@@ -5613,6 +5713,30 @@ namespace snqxap
                 Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
                 Combo4.Foreground = br;
             }
+            int levelselect = Level4.SelectedIndex;
+            if (levelselect == -1 || levelselect == 100)
+                return;
+            multiple[4] = 1;
+            if (gun[select].what == 4)
+            {
+                if (levelselect + 1 >= 90)
+                {
+                    multiple[4] = 2;
+                }
+                else if (levelselect + 1 >= 70)
+                {
+                    multiple[4] = 1.75;
+                }
+                else if (levelselect + 1 >= 30)
+                {
+                    multiple[4] = 1.5;
+                }
+                else if (levelselect + 1 >= 10)
+                {
+                    multiple[4] = 1.25;
+                }
+            }
+
             if (select != -1)
                 calccombo4buff();
             calccombo0buff();
@@ -5799,6 +5923,30 @@ namespace snqxap
                 Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
                 Combo5.Foreground = br;
             }
+            int levelselect = Level5.SelectedIndex;
+            if (levelselect == -1 || levelselect == 100)
+                return;
+            multiple[5] = 1;
+            if (gun[select].what == 4)
+            {
+                if (levelselect + 1 >= 90)
+                {
+                    multiple[5] = 2;
+                }
+                else if (levelselect + 1 >= 70)
+                {
+                    multiple[5] = 1.75;
+                }
+                else if (levelselect + 1 >= 30)
+                {
+                    multiple[5] = 1.5;
+                }
+                else if (levelselect + 1 >= 10)
+                {
+                    multiple[5] = 1.25;
+                }
+            }
+
             if (select != -1)
                 calccombo5buff();
             calccombo0buff();
@@ -5987,6 +6135,30 @@ namespace snqxap
                 Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
                 Combo6.Foreground = br;
             }
+            int levelselect = Level6.SelectedIndex;
+            if (levelselect == -1 || levelselect == 100)
+                return;
+            multiple[6] = 1;
+            if (gun[select].what == 4)
+            {
+                if (levelselect + 1 >= 90)
+                {
+                    multiple[6] = 2;
+                }
+                else if (levelselect + 1 >= 70)
+                {
+                    multiple[6] = 1.75;
+                }
+                else if (levelselect + 1 >= 30)
+                {
+                    multiple[6] = 1.5;
+                }
+                else if (levelselect + 1 >= 10)
+                {
+                    multiple[6] = 1.25;
+                }
+            }
+
             if (select != -1)
                 calccombo6buff();
             calccombo0buff();
@@ -6173,6 +6345,30 @@ namespace snqxap
                 Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
                 Combo7.Foreground = br;
             }
+            int levelselect = Level7.SelectedIndex;
+            if (levelselect == -1 || levelselect == 100)
+                return;
+            multiple[7] = 1;
+            if (gun[select].what == 4)
+            {
+                if (levelselect + 1 >= 90)
+                {
+                    multiple[7] = 2;
+                }
+                else if (levelselect + 1 >= 70)
+                {
+                    multiple[7] = 1.75;
+                }
+                else if (levelselect + 1 >= 30)
+                {
+                    multiple[7] = 1.5;
+                }
+                else if (levelselect + 1 >= 10)
+                {
+                    multiple[7] = 1.25;
+                }
+            }
+
             if (select != -1)
                 calccombo7buff();
             calccombo0buff();
@@ -6362,6 +6558,30 @@ namespace snqxap
                 Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("red"));
                 Combo8.Foreground = br;
             }
+            int levelselect = Level0.SelectedIndex;
+            if (levelselect == -1 || levelselect == 100)
+                return;
+            multiple[8] = 1;
+            if (gun[select].what == 4)
+            {
+                if (levelselect + 1 >= 90)
+                {
+                    multiple[8] = 2;
+                }
+                else if (levelselect + 1 >= 70)
+                {
+                    multiple[8] = 1.75;
+                }
+                else if (levelselect + 1 >= 30)
+                {
+                    multiple[8] = 1.5;
+                }
+                else if (levelselect + 1 >= 10)
+                {
+                    multiple[8] = 1.25;
+                }
+            }
+
             if (select != -1)
                 calccombo8buff();
             calccombo0buff();
@@ -9033,6 +9253,7 @@ namespace snqxap
                 return;
             if (levelselect == -1 || levelselect == 100)
                 return;
+          
             showbuff(combo, select);
             float[] array = arrAbilityRatio[gun[select].what];
             float num = 55f;
@@ -9114,7 +9335,7 @@ namespace snqxap
                             tbt += "暴击率+" + ((gg[0].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[0].rateup != 0)
                             tbt += "冷却-" + (gg[0].rateup * 100).ToString("0") + "% ";
-                        if (gg[0].armorup != 0)
+                        if (gg[0].armorup != 1)
                             tbt += "护甲+" + ((gg[0].armorup-1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
@@ -9183,7 +9404,7 @@ namespace snqxap
                             tbt += "暴击率+" + ((gg[1].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[1].rateup != 0)
                             tbt += "冷却-" + (gg[1].rateup * 100).ToString("0") + "% ";
-                        if (gg[1].armorup != 0)
+                        if (gg[1].armorup != 1)
                             tbt += "护甲+" + ((gg[1].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
@@ -9249,7 +9470,7 @@ namespace snqxap
                             tbt += "暴击率+" + ((gg[2].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[2].rateup != 0)
                             tbt += "冷却-" + (gg[2].rateup * 100).ToString("0") + "% ";
-                        if (gg[2].armorup != 0)
+                        if (gg[2].armorup != 1)
                             tbt += "护甲+" + ((gg[2].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
@@ -9315,7 +9536,7 @@ namespace snqxap
                             tbt += "暴击率+" + ((gg[3].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[3].rateup != 0)
                             tbt += "冷却-" + (gg[3].rateup * 100).ToString("0") + "% ";
-                        if (gg[3].armorup != 0)
+                        if (gg[3].armorup != 1)
                             tbt += "护甲+" + ((gg[3].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
@@ -9381,7 +9602,7 @@ namespace snqxap
                             tbt += "暴击率+" + ((gg[4].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[4].rateup != 0)
                             tbt += "冷却-" + (gg[4].rateup * 100).ToString("0") + "% ";
-                        if (gg[4].armorup != 0)
+                        if (gg[4].armorup != 1)
                             tbt += "护甲+" + ((gg[4].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
@@ -9447,7 +9668,7 @@ namespace snqxap
                             tbt += "暴击率+" + ((gg[5].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[5].rateup != 0)
                             tbt += "冷却-" + (gg[5].rateup * 100).ToString("0") + "% ";
-                        if (gg[5].armorup != 0)
+                        if (gg[5].armorup != 1)
                             tbt += "护甲+" + ((gg[5].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
@@ -9513,7 +9734,7 @@ namespace snqxap
                             tbt += "暴击率+" + ((gg[6].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[6].rateup != 0)
                             tbt += "冷却-" + (gg[6].rateup * 100).ToString("0") + "% ";
-                        if (gg[6].armorup != 0)
+                        if (gg[6].armorup != 1)
                             tbt += "护甲+" + ((gg[6].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
@@ -9579,7 +9800,7 @@ namespace snqxap
                             tbt += "暴击率+" + ((gg[7].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[7].rateup != 0)
                             tbt += "冷却-" + (gg[7].rateup * 100).ToString("0") + "% ";
-                        if (gg[7].armorup != 0)
+                        if (gg[7].armorup != 1)
                             tbt += "护甲+" + ((gg[7].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
@@ -9645,7 +9866,7 @@ namespace snqxap
                             tbt += "暴击率+" + ((gg[8].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[8].rateup != 0)
                             tbt += "冷却-" + (gg[8].rateup * 100).ToString("0") + "% ";
-                        if (gg[8].armorup != 0)
+                        if (gg[8].armorup != 1)
                             tbt += "护甲+" + ((gg[8].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
@@ -9696,6 +9917,38 @@ namespace snqxap
             if (skillselect == -1)
                 return;
 
+            multiple[0] = 1;
+            if (gun[select].what == 4)
+            {
+                if (levelselect + 1 >= 90)
+                {
+                    multiple[0] = 2;
+                }
+                else if (levelselect + 1 >= 70)
+                {
+                    multiple[0] = 1.75;
+                }
+                else if (levelselect + 1 >= 30)
+                {
+                    multiple[0] = 1.5;
+                }
+                else if (levelselect + 1 >= 10)
+                {
+                    multiple[0] = 1.25;
+                }
+            }
+
+            if (select != -1)
+                calccombo0buff();
+            calccombo1buff();
+            calccombo2buff();
+            calccombo3buff();
+            calccombo4buff();
+            calccombo5buff();
+            calccombo6buff();
+            calccombo7buff();
+            calccombo8buff();
+
             clearskill();
             calclevel(select, levelselect,0,skillselect);
             renewskill();
@@ -9726,6 +9979,37 @@ namespace snqxap
             int skillselect = SkillLevel1.SelectedIndex;
             if (skillselect == -1)
                 return;
+
+            multiple[1] = 1;
+            if (gun[select].what == 4)
+            {
+                if (levelselect + 1 >= 90)
+                {
+                    multiple[1] = 2;
+                }
+                else if (levelselect + 1 >= 70)
+                {
+                    multiple[1] = 1.75;
+                }
+                else if (levelselect + 1 >= 30)
+                {
+                    multiple[1] = 1.5;
+                }
+                else if (levelselect + 1 >= 10)
+                {
+                    multiple[1] = 1.25;
+                }
+            }
+            if (select != -1)
+                calccombo1buff();
+            calccombo0buff();
+            calccombo2buff();
+            calccombo3buff();
+            calccombo4buff();
+            calccombo5buff();
+            calccombo6buff();
+            calccombo7buff();
+            calccombo8buff();
             clearskill();
             calclevel(select, levelselect, 1,skillselect);
             renewskill();
@@ -9759,6 +10043,37 @@ namespace snqxap
             int skillselect = SkillLevel2.SelectedIndex;
             if (skillselect == -1)
                 return;
+
+            multiple[2] = 1;
+            if (gun[select].what == 4)
+            {
+                if (levelselect + 1 >= 90)
+                {
+                    multiple[2] = 2;
+                }
+                else if (levelselect + 1 >= 70)
+                {
+                    multiple[2] = 1.75;
+                }
+                else if (levelselect + 1 >= 30)
+                {
+                    multiple[2] = 1.5;
+                }
+                else if (levelselect + 1 >= 10)
+                {
+                    multiple[2] = 1.25;
+                }
+            }
+            if (select != -1)
+                calccombo2buff();
+            calccombo1buff();
+            calccombo0buff();
+            calccombo3buff();
+            calccombo4buff();
+            calccombo5buff();
+            calccombo6buff();
+            calccombo7buff();
+            calccombo8buff();
             clearskill();
             calclevel(select, levelselect, 2,skillselect);
             renewskill();
@@ -9792,6 +10107,37 @@ namespace snqxap
             int skillselect = SkillLevel3.SelectedIndex;
             if (skillselect == -1)
                 return;
+
+            multiple[3] = 1;
+            if (gun[select].what == 4)
+            {
+                if (levelselect + 1 >= 90)
+                {
+                    multiple[3] = 2;
+                }
+                else if (levelselect + 1 >= 70)
+                {
+                    multiple[3] = 1.75;
+                }
+                else if (levelselect + 1 >= 30)
+                {
+                    multiple[3] = 1.5;
+                }
+                else if (levelselect + 1 >= 10)
+                {
+                    multiple[3] = 1.25;
+                }
+            }
+            if (select != -1)
+                calccombo3buff();
+            calccombo1buff();
+            calccombo2buff();
+            calccombo0buff();
+            calccombo4buff();
+            calccombo5buff();
+            calccombo6buff();
+            calccombo7buff();
+            calccombo8buff();
             clearskill();
             calclevel(select, levelselect, 3,skillselect);
             renewskill();
@@ -9825,6 +10171,37 @@ namespace snqxap
             int skillselect = SkillLevel4.SelectedIndex;
             if (skillselect == -1)
                 return;
+
+            multiple[4] = 1;
+            if (gun[select].what == 4)
+            {
+                if (levelselect + 1 >= 90)
+                {
+                    multiple[4] = 2;
+                }
+                else if (levelselect + 1 >= 70)
+                {
+                    multiple[4] = 1.75;
+                }
+                else if (levelselect + 1 >= 30)
+                {
+                    multiple[4] = 1.5;
+                }
+                else if (levelselect + 1 >= 10)
+                {
+                    multiple[4] = 1.25;
+                }
+            }
+            if (select != -1)
+                calccombo4buff();
+            calccombo1buff();
+            calccombo2buff();
+            calccombo3buff();
+            calccombo0buff();
+            calccombo5buff();
+            calccombo6buff();
+            calccombo7buff();
+            calccombo8buff();
             clearskill();
             calclevel(select, levelselect, 4,skillselect);
             renewskill();
@@ -9859,6 +10236,36 @@ namespace snqxap
             int skillselect = SkillLevel5.SelectedIndex;
             if (skillselect == -1)
                 return;
+            multiple[5] = 1;
+            if (gun[select].what == 4)
+            {
+                if (levelselect + 1 >= 90)
+                {
+                    multiple[5] = 2;
+                }
+                else if (levelselect + 1 >= 70)
+                {
+                    multiple[5] = 1.75;
+                }
+                else if (levelselect + 1 >= 30)
+                {
+                    multiple[5] = 1.5;
+                }
+                else if (levelselect + 1 >= 10)
+                {
+                    multiple[5] = 1.25;
+                }
+            }
+            if (select != -1)
+                calccombo5buff();
+            calccombo1buff();
+            calccombo2buff();
+            calccombo3buff();
+            calccombo4buff();
+            calccombo0buff();
+            calccombo6buff();
+            calccombo7buff();
+            calccombo8buff();
             clearskill();
             calclevel(select, levelselect, 5,skillselect);
             renewskill();
@@ -9892,6 +10299,36 @@ namespace snqxap
             int skillselect = SkillLevel6.SelectedIndex;
             if (skillselect == -1)
                 return;
+            multiple[6] = 1;
+            if (gun[select].what == 4)
+            {
+                if (levelselect + 1 >= 90)
+                {
+                    multiple[6] = 2;
+                }
+                else if (levelselect + 1 >= 70)
+                {
+                    multiple[6] = 1.75;
+                }
+                else if (levelselect + 1 >= 30)
+                {
+                    multiple[6] = 1.5;
+                }
+                else if (levelselect + 1 >= 10)
+                {
+                    multiple[6] = 1.25;
+                }
+            }
+            if (select != -1)
+                calccombo6buff();
+            calccombo1buff();
+            calccombo2buff();
+            calccombo3buff();
+            calccombo4buff();
+            calccombo5buff();
+            calccombo0buff();
+            calccombo7buff();
+            calccombo8buff();
             clearskill();
             calclevel(select, levelselect, 6,skillselect);
             renewskill();
@@ -9925,6 +10362,36 @@ namespace snqxap
             int skillselect = SkillLevel7.SelectedIndex;
             if (skillselect == -1)
                 return;
+            multiple[7] = 1;
+            if (gun[select].what == 4)
+            {
+                if (levelselect + 1 >= 90)
+                {
+                    multiple[7] = 2;
+                }
+                else if (levelselect + 1 >= 70)
+                {
+                    multiple[7] = 1.75;
+                }
+                else if (levelselect + 1 >= 30)
+                {
+                    multiple[7] = 1.5;
+                }
+                else if (levelselect + 1 >= 10)
+                {
+                    multiple[7] = 1.25;
+                }
+            }
+            if (select != -1)
+                calccombo7buff();
+            calccombo1buff();
+            calccombo2buff();
+            calccombo3buff();
+            calccombo4buff();
+            calccombo5buff();
+            calccombo6buff();
+            calccombo0buff();
+            calccombo8buff();
             clearskill();
             calclevel(select, levelselect, 7,skillselect);
             renewskill();
@@ -9958,6 +10425,36 @@ namespace snqxap
             int skillselect = SkillLevel8.SelectedIndex;
             if (skillselect == -1)
                 return;
+            multiple[8] = 1;
+            if (gun[select].what == 4)
+            {
+                if (levelselect + 1 >= 90)
+                {
+                    multiple[8] = 2;
+                }
+                else if (levelselect + 1 >= 70)
+                {
+                    multiple[8] = 1.75;
+                }
+                else if (levelselect + 1 >= 30)
+                {
+                    multiple[8] = 1.5;
+                }
+                else if (levelselect + 1 >= 10)
+                {
+                    multiple[8] = 1.25;
+                }
+            }
+            if (select != -1)
+                calccombo2buff();
+            calccombo1buff();
+            calccombo2buff();
+            calccombo3buff();
+            calccombo4buff();
+            calccombo5buff();
+            calccombo6buff();
+            calccombo7buff();
+            calccombo0buff();
             clearskill();
             calclevel(select, levelselect, 8,skillselect);
             renewskill();
@@ -15713,196 +16210,9 @@ namespace snqxap
 
         private void showbuff(int combo,int index)
         {
-            if (index == -1)
+            if (index == -1||index == GUN_NUMBER)
                 return;
-            double multiple = 1;
-            if(gun[index].type == 4)
-            {
-                switch (combo)
-                {
-                    case 0:
-                        {
-                            if(Level0.SelectedIndex+1>90)
-                            {
-                                multiple = 2;
-                            }
-                            else if(Level0.SelectedIndex + 1 > 70)
-                            {
-                                multiple = 1.75;
-                            }
-                            else if (Level0.SelectedIndex + 1 > 30)
-                            {
-                                multiple = 1.5;
-                            }
-                            else if (Level0.SelectedIndex + 1 > 10)
-                            {
-                                multiple = 1.25;
-                            }
-                            break;
-                        }
-                    case 1:
-                        {
-                            if (Level1.SelectedIndex + 1 > 90)
-                            {
-                                multiple = 2;
-                            }
-                            else if (Level1.SelectedIndex + 1 > 70)
-                            {
-                                multiple = 1.75;
-                            }
-                            else if (Level1.SelectedIndex + 1 > 30)
-                            {
-                                multiple = 1.5;
-                            }
-                            else if (Level1.SelectedIndex + 1 > 10)
-                            {
-                                multiple = 1.25;
-                            }
-                            break;
-                        }
-                    case 2:
-                        {
-                            if (Level2.SelectedIndex + 1 > 90)
-                            {
-                                multiple = 2;
-                            }
-                            else if (Level2.SelectedIndex + 1 > 70)
-                            {
-                                multiple = 1.75;
-                            }
-                            else if (Level2.SelectedIndex + 1 > 30)
-                            {
-                                multiple = 1.5;
-                            }
-                            else if (Level2.SelectedIndex + 1 > 10)
-                            {
-                                multiple = 1.25;
-                            }
-                            break;
-                        }
-                    case 3:
-                        {
-                            if (Level3.SelectedIndex + 1 > 90)
-                            {
-                                multiple = 2;
-                            }
-                            else if (Level3.SelectedIndex + 1 > 70)
-                            {
-                                multiple = 1.75;
-                            }
-                            else if (Level3.SelectedIndex + 1 > 30)
-                            {
-                                multiple = 1.5;
-                            }
-                            else if (Level3.SelectedIndex + 1 > 10)
-                            {
-                                multiple = 1.25;
-                            }
-                            break;
-                        }
-                    case 4:
-                        {
-                            if (Level4.SelectedIndex + 1 > 90)
-                            {
-                                multiple = 2;
-                            }
-                            else if (Level4.SelectedIndex + 1 > 70)
-                            {
-                                multiple = 1.75;
-                            }
-                            else if (Level4.SelectedIndex + 1 > 30)
-                            {
-                                multiple = 1.5;
-                            }
-                            else if (Level4.SelectedIndex + 1 > 10)
-                            {
-                                multiple = 1.25;
-                            }
-                            break;
-                        }
-                    case 5:
-                        {
-                            if (Level5.SelectedIndex + 1 > 90)
-                            {
-                                multiple = 2;
-                            }
-                            else if (Level5.SelectedIndex + 1 > 70)
-                            {
-                                multiple = 1.75;
-                            }
-                            else if (Level5.SelectedIndex + 1 > 30)
-                            {
-                                multiple = 1.5;
-                            }
-                            else if (Level5.SelectedIndex + 1 > 10)
-                            {
-                                multiple = 1.25;
-                            }
-                            break;
-                        }
-                    case 6:
-                        {
-                            if (Level6.SelectedIndex + 1 > 90)
-                            {
-                                multiple = 2;
-                            }
-                            else if (Level6.SelectedIndex + 1 > 70)
-                            {
-                                multiple = 1.75;
-                            }
-                            else if (Level6.SelectedIndex + 1 > 30)
-                            {
-                                multiple = 1.5;
-                            }
-                            else if (Level6.SelectedIndex + 1 > 10)
-                            {
-                                multiple = 1.25;
-                            }
-                            break;
-                        }
-                    case 7:
-                        {
-                            if (Level7.SelectedIndex + 1 > 90)
-                            {
-                                multiple = 2;
-                            }
-                            else if (Level7.SelectedIndex + 1 > 70)
-                            {
-                                multiple = 1.75;
-                            }
-                            else if (Level7.SelectedIndex + 1 > 30)
-                            {
-                                multiple = 1.5;
-                            }
-                            else if (Level7.SelectedIndex + 1 > 10)
-                            {
-                                multiple = 1.25;
-                            }
-                            break;
-                        }
-                    case 8:
-                        {
-                            if (Level8.SelectedIndex + 1 > 90)
-                            {
-                                multiple = 2;
-                            }
-                            else if (Level8.SelectedIndex + 1 > 70)
-                            {
-                                multiple = 1.75;
-                            }
-                            else if (Level8.SelectedIndex + 1 > 30)
-                            {
-                                multiple = 1.5;
-                            }
-                            else if (Level8.SelectedIndex + 1 > 10)
-                            {
-                                multiple = 1.25;
-                            }
-                            break;
-                        }
-                }
-                gun[index].damageup *= multiple; gun[index].shotspeedup *= multiple; gun[index].hitup *= multiple; gun[index].dodgeup *= multiple;
-            }
+       
             string tbt = "";
             switch (gun[index].to)
             {
@@ -15939,19 +16249,19 @@ namespace snqxap
                 default: break;
             }
             if (gun[index].damageup != 0)
-                tbt += "伤害+" + ((gun[index].damageup) * 100).ToString("0") + "% ";
+                tbt += "伤害+" + ((gun[index].damageup) * 100 * multiple[combo]).ToString("0") + "% ";
             if (gun[index].shotspeedup != 0)
-                tbt += "射速+" + ((gun[index].shotspeedup) * 100).ToString("0") + "% ";
+                tbt += "射速+" + ((gun[index].shotspeedup) * 100 * multiple[combo]).ToString("0") + "% ";
             if (gun[index].hitup != 0)
-                tbt += "命中+" + ((gun[index].hitup) * 100).ToString("0") + "% ";
+                tbt += "命中+" + ((gun[index].hitup) * 100 * multiple[combo]).ToString("0") + "% ";
             if (gun[index].dodgeup != 0)
-                tbt += "回避+" + ((gun[index].dodgeup) * 100).ToString("0") + "% ";
+                tbt += "回避+" + ((gun[index].dodgeup) * 100 * multiple[combo]).ToString("0") + "% ";
             if (gun[index].critup != 0)
-                tbt += "暴击率+" + ((gun[index].critup) * 100).ToString("0") + "% ";
+                tbt += "暴击率+" + ((gun[index].critup) * 100 * multiple[combo]).ToString("0") + "% ";
             if (gun[index].rateup != 0)
-                tbt += "冷却-" + (gun[index].rateup * 100).ToString("0") + "% ";
+                tbt += "冷却-" + (gun[index].rateup * 100 * multiple[combo]).ToString("0") + "% ";
             if (gun[index].armorup != 0)
-                tbt += "护甲+" + (gun[index].armorup * 100).ToString("0") + "% ";
+                tbt += "护甲+" + (gun[index].armorup * 100 * multiple[combo]).ToString("0") + "% ";
             if (tbt == "")
                 tbt = "无";
             Brush br = new SolidColorBrush(Color.FromRgb(0,255,222));
