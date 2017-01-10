@@ -22,7 +22,7 @@ using System.Windows.Shapes;
 //               暴击穿甲不暴击不穿甲的平均伤害导致效能偏低
 //              独头弹算法未写
 //              技能
-//              光环
+//              光环(已导入光环数据-->需求：手枪光环成长/霰弹、机枪光环计算逻辑与显示逻辑
 //              冬活、boss数据和功能介绍
 //              霰弹index
 //              png
@@ -277,236 +277,236 @@ namespace snqxap
             for (int i = 0; i < GUN_NUMBER + 1; i++)
                 gun[i] = new Gun();
 
-            gun[14].name = "汤姆森"; gun[14].what = 3;gun[14].crit = 0.05; gun[14].belt = 0; gun[14].number = 2; gun[14].effect0 = 1; gun[14].effect1 = 7; gun[14].damageup = 0.12; gun[14].hitup = 0; gun[14].shotspeedup = 0; gun[14].critup = 0; gun[14].dodgeup = 0.15; gun[14].to = 2;
-            gun[26].name = "司登MkⅡ"; gun[26].what = 3; gun[26].crit = 0.05; gun[26].belt = 0; gun[26].number = 3; gun[26].effect0 = 1; gun[26].effect1 = 4; gun[26].effect2 = 7; gun[26].damageup = 0; gun[26].hitup = 0.1; gun[26].shotspeedup = 0; gun[26].critup = 0; gun[26].dodgeup = 0.3; gun[26].to = 2;
-            gun[91].name = "UMP9"; gun[91].what = 3; gun[91].crit = 0.05; gun[91].belt = 0; gun[91].number = 3; gun[91].effect0 = 1; gun[91].effect1 = 4; gun[91].effect2 = 7; gun[91].damageup = 0; gun[91].hitup = 0.3; gun[91].shotspeedup = 0.12; gun[91].critup = 0; gun[91].dodgeup = 0; gun[91].to = 2;
-            gun[18].name = "Vector"; gun[18].what = 3; gun[18].crit = 0.05; gun[18].belt = 0; gun[18].number = 1; gun[18].effect0 = 4; gun[18].damageup = 0; gun[18].hitup = 0; gun[18].shotspeedup = 0.25; gun[18].critup = 0; gun[18].dodgeup = 0; gun[18].to = 2;
-            gun[25].name = "蝎式"; gun[25].what = 3; gun[25].crit = 0.05; gun[25].belt = 0; gun[25].number = 1; gun[25].effect0 = 4; gun[25].damageup = 0; gun[25].hitup = 0.5; gun[25].shotspeedup = 0.15; gun[25].critup = 0; gun[25].dodgeup = 0; gun[25].to = 2;
-            gun[15].name = "M3"; gun[15].what = 3; gun[15].crit = 0.05; gun[15].belt = 0; gun[15].number = 1; gun[15].effect0 = 4; gun[15].damageup = 0; gun[15].hitup = 0.4; gun[15].shotspeedup = 0; gun[15].critup = 0; gun[15].dodgeup = 0.3; gun[15].to = 2;
-            gun[83].name = "IDW";gun[83].what = 3; gun[83].crit = 0.05; gun[83].belt = 0; gun[83].number = 3; gun[83].effect0 = 1; gun[83].effect1 = 4; gun[83].effect2 = 7; gun[83].damageup = 0; gun[83].hitup = 0; gun[83].shotspeedup = 0; gun[83].critup = 0; gun[83].dodgeup = 0.2; gun[83].to = 2;
-            gun[28].name = "微型乌兹"; gun[28].what = 3; gun[28].crit = 0.05; gun[28].belt = 0; gun[28].number = 2; gun[28].effect0 = 2; gun[28].effect1 = 8; gun[28].damageup = 0.18; gun[28].hitup = 0; gun[28].shotspeedup = 0; gun[28].critup = 0; gun[28].dodgeup = 0; gun[28].to = 2;
-            gun[17].name = "FMG-9"; gun[17].what = 3;gun[17].crit = 0.05; gun[17].belt = 0; gun[17].number = 2; gun[17].effect0 = 1; gun[17].effect1 = 7; gun[17].damageup = 0.1; gun[17].hitup = 0; gun[17].shotspeedup = 0; gun[17].critup = 0; gun[17].dodgeup = 0.12; gun[17].to = 2;
-            gun[16].name = "MAC-10"; gun[16].what = 3; gun[16].crit = 0.05; gun[16].belt = 0; gun[16].number = 3; gun[16].effect0 = 1; gun[16].effect1 = 4; gun[16].effect2 = 7; gun[16].damageup = 0.12; gun[16].hitup = 0; gun[16].shotspeedup = 0; gun[16].critup = 0; gun[16].dodgeup = 0; gun[16].to = 2;
-            gun[29].name = "M45"; gun[29].what = 3; gun[29].crit = 0.05; gun[29].belt = 0; gun[29].number = 2; gun[29].effect0 = 1; gun[29].effect1 = 7; gun[29].damageup = 0; gun[29].hitup = 0; gun[29].shotspeedup = 0.1; gun[29].critup = 0; gun[29].dodgeup = 0.1; gun[29].to = 2;
-            gun[82].name = "Spectre M4"; gun[82].what = 3;  gun[82].crit = 0.05; gun[82].belt = 0; gun[82].number = 1; gun[82].effect0 = 4; gun[82].damageup = 0.2; gun[82].hitup = 0; gun[82].shotspeedup = 0; gun[82].critup = 0; gun[82].dodgeup = 0; gun[82].to = 2;
-            gun[20].name = "PPS-43"; gun[20].what = 3;  gun[20].crit = 0.05; gun[20].belt = 0; gun[20].number = 3; gun[20].effect0 = 1; gun[20].effect1 = 4; gun[20].effect2 = 7; gun[20].damageup = 0.12; gun[20].hitup = 0; gun[20].shotspeedup = 0; gun[20].critup = 0; gun[20].dodgeup = 0; gun[20].to = 2;
-            gun[22].name = "PP-2000"; gun[22].what = 3;  gun[22].crit = 0.05; gun[22].belt = 0; gun[22].number = 2; gun[22].effect0 = 1; gun[22].effect1 = 7; gun[22].damageup = 0.1; gun[22].hitup = 0.25; gun[22].shotspeedup = 0; gun[22].critup = 0; gun[22].dodgeup = 0; gun[22].to = 2;
-            gun[24].name = "MP5"; gun[24].what = 3; gun[24].crit = 0.05; gun[24].belt = 0; gun[24].number = 2; gun[24].effect0 = 1; gun[24].effect1 = 7; gun[24].damageup = 0; gun[24].hitup = 0.4; gun[24].shotspeedup = 0; gun[24].critup = 0.2; gun[24].dodgeup = 0; gun[24].to = 2;
-            gun[27].name = "伯莱塔38型"; gun[27].what = 3;gun[27].crit = 0.05; gun[27].belt = 0; gun[27].number = 2; gun[27].effect0 = 1; gun[27].effect1 = 7; gun[27].damageup = 0.05; gun[27].hitup = 0; gun[27].shotspeedup = 0.1; gun[27].critup = 0; gun[27].dodgeup = 0; gun[27].to = 2;
-            gun[23].name = "MP40"; gun[23].what = 3; gun[23].crit = 0.05; gun[23].belt = 0; gun[23].number = 2; gun[23].effect0 = 1; gun[23].effect1 = 7; gun[23].damageup = 0; gun[23].hitup = 0.25; gun[23].shotspeedup = 0; gun[23].critup = 0; gun[23].dodgeup = 0.2; gun[23].to = 2;
-            gun[19].name = "PPSh-41"; gun[19].what = 3; gun[19].crit = 0.05; gun[19].belt = 0; gun[19].number = 2; gun[19].effect0 = 2; gun[19].effect1 = 8; gun[19].damageup = 0.1; gun[19].hitup = 0; gun[19].shotspeedup = 0.05; gun[19].critup = 0; gun[19].dodgeup = 0; gun[19].to = 2;
-            gun[84].name = "64式"; gun[84].what = 3; gun[84].crit = 0.05; gun[84].belt = 0; gun[84].number = 1; gun[84].effect0 = 4; gun[84].damageup = 0; gun[84].hitup = 0; gun[84].shotspeedup = 0.2; gun[84].critup = 0; gun[84].dodgeup = 0; gun[84].to = 2;
-            gun[92].name = "UMP45"; gun[92].what = 3;  gun[92].crit = 0.05; gun[92].belt = 0; gun[92].number = 3; gun[92].effect0 = 1; gun[92].effect1 = 4; gun[92].effect2 = 7; gun[92].damageup = 0.15; gun[92].hitup = 0.0; gun[92].shotspeedup = 0; gun[92].critup = 0.5; gun[92].dodgeup = 0; gun[92].to = 2;
-            gun[104].name = "索米"; gun[104].what = 3; gun[104].crit = 0.05; gun[104].belt = 0; gun[104].number = 2; gun[104].effect0 = 1; gun[104].effect1 = 7; gun[104].damageup = 0; gun[104].hitup = 0.3; gun[104].shotspeedup = 0.15; gun[104].critup = 0; gun[104].dodgeup = 0; gun[104].to = 2;
-            gun[94].name = "OTs-12"; gun[94].what = 2; gun[94].crit = 0.2; gun[94].belt = 0; gun[94].number = 2; gun[94].effect0 = 6; gun[94].effect1 = 9; gun[94].damageup = 0.15; gun[94].hitup = 0; gun[94].shotspeedup = 0.2; gun[94].critup = 0; gun[94].dodgeup = 0; gun[94].to = 3;
-            gun[58].name = "G36"; gun[58].what = 2; gun[58].crit = 0.2; gun[58].belt = 0; gun[58].number = 2; gun[58].effect0 = 6; gun[58].effect1 = 3; gun[58].damageup = 0.3; gun[58].hitup = 0; gun[58].shotspeedup = 0.1; gun[58].critup = 0; gun[58].dodgeup = 0; gun[58].to = 3;
-            gun[95].name = "FAL"; gun[95].what = 2;  gun[95].crit = 0.2; gun[95].belt = 0; gun[95].number = 3; gun[95].effect0 = 3; gun[95].effect1 = 6; gun[95].effect2 = 9; gun[95].damageup = 0; gun[95].hitup = 0; gun[95].shotspeedup = 0; gun[95].critup = 0; gun[95].dodgeup = 0.2; gun[95].to = 3;
-            gun[59].name = "HK416"; gun[59].what = 2; gun[59].crit = 0.2; gun[59].belt = 0; gun[59].number = 1; gun[59].effect0 = 6; gun[59].damageup = 0.4; gun[59].hitup = 0; gun[59].shotspeedup = 0; gun[59].critup = 0; gun[59].dodgeup = 0; gun[59].to = 3;
-            gun[56].name = "G41"; gun[56].what = 2; gun[56].crit = 0.2; gun[56].belt = 0; gun[56].number = 2; gun[56].effect0 = 3; gun[56].effect1 = 9; gun[56].damageup = 0; gun[56].hitup = 0.5; gun[56].shotspeedup = 0; gun[56].critup = 0; gun[56].dodgeup = 0.15; gun[56].to = 3;
-            gun[60].name = "56-1式"; gun[60].what = 2; gun[60].crit = 0.2; gun[60].belt = 0; gun[60].number = 1; gun[60].effect0 = 6; gun[60].damageup = 0; gun[60].hitup = 0; gun[60].shotspeedup = 0; gun[60].critup = 0.1; gun[60].dodgeup = 0.15; gun[60].to = 3;
-            gun[50].name = "M4A1"; gun[50].what = 2;gun[50].crit = 0.2; gun[50].belt = 0; gun[50].number = 1; gun[50].effect0 = 7; gun[50].damageup = 0; gun[50].hitup = 0; gun[50].shotspeedup = 0.18; gun[50].critup = 0; gun[50].dodgeup = 0; gun[50].to = 2;
-            gun[49].name = "M16A1"; gun[49].what = 2; gun[49].crit = 0.2; gun[49].belt = 0; gun[49].number = 1; gun[49].effect0 = 1; gun[49].damageup = 0.18; gun[49].hitup = 0; gun[49].shotspeedup = 0; gun[49].critup = 0; gun[49].dodgeup = 0; gun[49].to = 2;
-            gun[52].name = "ST AR-15"; gun[52].what = 2;gun[52].crit = 0.2; gun[52].belt = 0; gun[52].number = 1; gun[52].effect0 = 9; gun[52].damageup = 0; gun[52].hitup = 0; gun[52].shotspeedup = 0; gun[52].critup = 0; gun[52].dodgeup = 0.36; gun[52].to = 2;
-            gun[62].name = "FAMAS"; gun[62].what = 2; gun[62].crit = 0.2; gun[62].belt = 0; gun[62].number = 1; gun[62].effect0 = 3; gun[62].damageup = 0.25; gun[62].hitup = 0.6; gun[62].shotspeedup = 0; gun[62].critup = 0; gun[62].dodgeup = 0; gun[62].to = 3;
-            gun[53].name = "AK-47"; gun[53].what = 2;  gun[53].crit = 0.2; gun[53].belt = 0; gun[53].number = 1; gun[53].effect0 = 2; gun[53].damageup = 0; gun[53].hitup = 0; gun[53].shotspeedup = 0; gun[53].critup = 0; gun[53].dodgeup = 0.18; gun[53].to = 3;
-            gun[55].name = "StG44"; gun[55].what = 2; gun[55].crit = 0.2; gun[55].belt = 0; gun[55].number = 1; gun[55].effect0 = 6; gun[55].damageup = 0; gun[55].hitup = 0.6; gun[55].shotspeedup = 0; gun[55].critup = 0; gun[55].dodgeup = 0.2; gun[55].to = 3;
-            gun[97].name = "CZ-805"; gun[97].what = 2; gun[97].crit = 0.2; gun[97].belt = 0; gun[97].number = 2; gun[97].effect0 = 3; gun[97].effect1 = 9; gun[97].damageup = 0; gun[97].hitup = 0.5; gun[97].shotspeedup = 0.25; gun[97].critup = 0; gun[97].dodgeup = 0; gun[97].to = 3;
-            gun[51].name = "M4 SOPMODII"; gun[51].what = 2;  gun[51].crit = 0.2; gun[51].belt = 0; gun[51].number = 1; gun[51].effect0 = 3; gun[51].damageup = 0; gun[51].hitup = 0; gun[51].shotspeedup = 0; gun[51].critup = 0; gun[51].dodgeup = 0.36; gun[51].to = 2;
-            gun[65].name = "TAR-21"; gun[65].what = 2;  gun[65].crit = 0.2; gun[65].belt = 0; gun[65].number = 2; gun[65].effect0 = 3; gun[65].effect1 = 9; gun[65].damageup = 0; gun[65].hitup = 0; gun[65].shotspeedup = 0; gun[65].critup = 0; gun[65].dodgeup = 0.18; gun[65].to = 3;
-            gun[64].name = "加利尔"; gun[64].what = 2; gun[64].crit = 0.2; gun[64].belt = 0; gun[64].number = 1; gun[64].effect0 = 6; gun[64].damageup = 0; gun[64].hitup = 0.5; gun[64].shotspeedup = 0; gun[64].critup = 0; gun[64].dodgeup = 0.1; gun[64].to = 3;
-            gun[66].name = "SIG-510"; gun[66].what = 2; gun[66].crit = 0.2; gun[66].belt = 0; gun[66].number = 2; gun[66].effect0 = 3; gun[66].effect1 = 9; gun[66].damageup = 0.2; gun[66].hitup = 0; gun[66].shotspeedup = 0.1; gun[66].critup = 0; gun[66].dodgeup = 0; gun[66].to = 3;
-            gun[57].name = "G3"; gun[57].what = 2; gun[57].crit = 0.2; gun[57].belt = 0; gun[57].number = 1; gun[57].effect0 = 8; gun[57].damageup = 0; gun[57].hitup = 0.5; gun[57].shotspeedup = 0.2; gun[57].critup = 0; gun[57].dodgeup = 0; gun[57].to = 3;
-            gun[96].name = "F2000"; gun[96].what = 2; gun[96].crit = 0.2; gun[96].belt = 0; gun[96].number = 1; gun[96].effect0 = 6; gun[96].damageup = 0.2; gun[96].hitup = 0; gun[96].shotspeedup = 0; gun[96].critup = 0; gun[96].dodgeup = 0.1; gun[96].to = 3;
-            gun[63].name = "FNC"; gun[63].what = 2; gun[63].crit = 0.2; gun[63].belt = 0; gun[63].number = 1; gun[63].effect0 = 9; gun[63].damageup = 0; gun[63].hitup = 0.5; gun[63].shotspeedup = 0; gun[63].critup = 0; gun[63].dodgeup = 0.12; gun[63].to = 3;
-            gun[61].name = "L85A1"; gun[61].what = 2; gun[61].crit = 0.2; gun[61].belt = 0; gun[61].number = 1; gun[61].effect0 = 8; gun[61].damageup = 0.2; gun[61].hitup = 0.5; gun[61].shotspeedup = 0; gun[61].critup = 0; gun[61].dodgeup = 0; gun[61].to = 3;
-            gun[107].name = "9a-91"; gun[107].what = 2;  gun[107].crit = 0.2; gun[107].belt = 0; gun[107].number = 2; gun[107].effect0 = 3; gun[107].effect1 = 9; gun[107].damageup = 0; gun[107].hitup = 0; gun[107].shotspeedup = 0.1; gun[107].critup = 0; gun[107].dodgeup = 0.15; gun[107].to = 3;
-            gun[54].name = "AS Val"; gun[54].what = 2; gun[54].crit = 0.2; gun[54].belt = 0; gun[54].number = 1; gun[54].effect0 = 8; gun[54].damageup = 0.25; gun[54].hitup = 0; gun[54].shotspeedup = 0.1; gun[54].critup = 0; gun[54].dodgeup = 0; gun[54].to = 3;
-            gun[103].name = "维尔德MkⅡ"; gun[103].what = 4; gun[103].crit = 0.4; gun[103].belt = 0; gun[103].number = 5; gun[103].effect0 = 1; gun[103].effect1 = 2; gun[103].effect2 = 4; gun[103].effect3 = 7;gun[103].effect4 = 8; gun[103].damageup = 0.18; gun[103].hitup = 0; gun[103].shotspeedup = 0.1; gun[103].critup = 0; gun[103].dodgeup = 0; gun[103].to = 1;
-            gun[3].name = "纳甘左轮"; gun[3].what = 4; gun[3].crit = 0.2; gun[3].belt = 0; gun[3].number = 2; gun[3].effect0 = 2; gun[3].effect1 = 8; gun[3].damageup = 0.25; gun[3].hitup = 0; gun[3].shotspeedup = 0; gun[3].critup = 0.1; gun[3].dodgeup = 0; gun[3].to = 1;
-            gun[0].name = "柯尔特左轮"; gun[0].what = 4; gun[0].crit = 0.2; gun[0].belt = 0; gun[0].number = 4; gun[0].effect0 = 2; gun[0].effect1 = 4; gun[0].effect2 = 6; gun[0].effect3 = 8; gun[0].damageup = 0.15; gun[0].hitup = 0.5; gun[0].shotspeedup = 0; gun[0].critup = 0; gun[0].dodgeup = 0; gun[0].to = 1;
-            gun[86].name = "灰熊MkⅤ"; gun[86].what = 4; gun[86].crit = 0.2; gun[86].belt = 0; gun[86].number = 5; gun[86].effect0 = 1; gun[86].effect1 = 2; gun[86].effect2 = 6; gun[86].effect3 = 7; gun[86].effect4 = 8; gun[86].damageup = 0.18; gun[86].hitup = 0; gun[86].shotspeedup = 0; gun[86].critup = 0; gun[86].dodgeup = 0.2; gun[86].to = 1;
-            gun[4].name = "托卡列夫"; gun[4].what = 4; gun[4].crit = 0.2; gun[4].belt = 0; gun[4].number = 4; gun[4].effect0 = 2; gun[4].effect1 = 3; gun[4].effect2 = 8; gun[4].effect3 = 9; gun[4].damageup = 0; gun[4].hitup = 0.5; gun[4].shotspeedup = 0.12; gun[4].critup = 0; gun[4].dodgeup = 0; gun[4].to = 1;
-            gun[13].name = "格洛克17"; gun[13].what = 4; gun[13].crit = 0.2; gun[13].belt = 0; gun[13].number = 5; gun[13].effect0 = 1; gun[13].effect1 = 3; gun[13].effect2 = 6; gun[13].effect3 = 7; gun[13].effect4 = 9; gun[13].damageup = 0; gun[13].hitup = 0.5; gun[13].shotspeedup = 0; gun[13].critup = 0; gun[13].dodgeup = 0.25; gun[13].to = 1;
-            gun[6].name = "马卡洛夫"; gun[6].what = 4;gun[6].crit = 0.2; gun[6].belt = 0; gun[6].number = 4; gun[6].effect0 = 1; gun[6].effect1 = 4; gun[6].effect2 = 6; gun[6].effect3 = 7; gun[6].damageup = 0.12; gun[6].hitup = 0; gun[6].shotspeedup = 0.1; gun[6].critup = 0; gun[6].dodgeup = 0; gun[6].to = 1;
-            gun[5].name = "斯捷奇金"; gun[5].what = 4; gun[5].crit = 0.2; gun[5].belt = 0; gun[5].number = 4; gun[5].effect0 = 2; gun[5].effect1 = 3; gun[5].effect2 = 8; gun[5].effect3 = 9; gun[5].damageup = 0.1; gun[5].hitup = 0; gun[5].shotspeedup = 0.15; gun[5].critup = 0; gun[5].dodgeup = 0; gun[5].to = 1;
-            gun[12].name = "阿斯特拉左轮"; gun[12].what = 4; gun[12].crit = 0.2; gun[12].belt = 0; gun[12].number = 4; gun[12].effect0 = 1; gun[12].effect1 = 3; gun[12].effect2 = 7; gun[12].effect3 = 9; gun[12].damageup = 0; gun[12].hitup = 0; gun[12].shotspeedup = 0.15; gun[12].critup = 0; gun[12].dodgeup = 0.15; gun[12].to = 1;
-            gun[9].name = "P08"; gun[9].what = 4;gun[9].crit = 0.2; gun[9].belt = 0; gun[9].number = 2; gun[9].effect0 = 2; gun[9].effect1 = 8; gun[9].damageup = 0.2; gun[9].hitup = 0.6; gun[9].shotspeedup = 0; gun[9].critup = 0; gun[9].dodgeup = 0; gun[9].to = 1;
-            gun[89].name = "Mk23"; gun[89].what = 4; gun[89].crit = 0.2; gun[89].belt = 0; gun[89].number = 4; gun[89].effect0 = 3; gun[89].effect1 = 4; gun[89].effect2 = 6; gun[89].effect3 = 9; gun[89].damageup = 0.25; gun[89].hitup = 0; gun[89].shotspeedup = 0; gun[89].critup = 0; gun[89].dodgeup = 0; gun[89].to = 1;
-            gun[1].name = "M1911"; gun[1].what = 4; gun[1].crit = 0.2; gun[1].belt = 0; gun[1].number = 4; gun[1].effect0 = 2; gun[1].effect1 = 4; gun[1].effect2 = 6; gun[1].effect3 = 8; gun[1].damageup = 0; gun[1].hitup = 0.5; gun[1].shotspeedup = 0.1; gun[1].critup = 0; gun[1].dodgeup = 0; gun[1].to = 1;
-            gun[8].name = "PPK"; gun[8].what = 4; gun[8].crit = 0.2; gun[8].belt = 0; gun[8].number = 4; gun[8].effect0 = 1; gun[8].effect1 = 4; gun[8].effect2 = 6; gun[8].effect3 = 7; gun[8].damageup = 0; gun[8].hitup = 0; gun[8].shotspeedup = 0.2; gun[8].critup = 0.1; gun[8].dodgeup = 0; gun[8].to = 1;
-            gun[10].name = "C96"; gun[10].what = 4; gun[10].crit = 0.2; gun[10].belt = 0; gun[10].number = 3; gun[10].effect0 = 1; gun[10].effect1 = 6; gun[10].effect2 = 7; gun[10].damageup = 0; gun[10].hitup = 0.5; gun[10].shotspeedup = 0; gun[10].critup = 0; gun[10].dodgeup = 0.25; gun[10].to = 1;
-            gun[87].name = "M950A"; gun[87].what = 4; gun[87].crit = 0.2; gun[87].belt = 0; gun[87].number = 4; gun[87].effect0 = 1; gun[87].effect1 = 3; gun[87].effect2 = 7; gun[87].effect3 = 9; gun[87].damageup = 0; gun[87].hitup = 0.5; gun[87].shotspeedup = 0.18; gun[87].critup = 0; gun[87].dodgeup = 0; gun[87].to = 1;
-            gun[7].name = "P38"; gun[7].what = 4;gun[7].crit = 0.2; gun[7].belt = 0; gun[7].number = 4; gun[7].effect0 = 2; gun[7].effect1 = 3; gun[7].effect2 = 8; gun[7].effect3 = 9; gun[7].damageup = 0; gun[7].hitup = 0.5; gun[7].shotspeedup = 0.1; gun[7].critup = 0; gun[7].dodgeup = 0; gun[7].to = 1;
-            gun[2].name = "M9"; gun[2].what = 4; gun[2].crit = 0.2; gun[2].belt = 0; gun[2].number = 4; gun[2].effect0 = 1; gun[2].effect1 = 2; gun[2].effect2 = 7; gun[2].effect3 = 8; gun[2].damageup = 0; gun[2].hitup = 0; gun[2].shotspeedup = 0; gun[2].critup = 0; gun[2].dodgeup = 0.4; gun[2].to = 1;
-            gun[90].name = "P7"; gun[90].what = 4; gun[90].crit = 0.2; gun[90].belt = 0; gun[90].number = 6; gun[90].effect0 = 1; gun[90].effect1 = 2; gun[90].effect2 = 3; gun[90].effect3 = 7; gun[90].effect4 = 8; gun[90].effect5 = 9; gun[90].damageup = 0; gun[90].hitup = 0; gun[90].shotspeedup = 0.1; gun[90].critup = 0; gun[90].dodgeup = 0.2; gun[90].to = 1;
-            gun[11].name = "92式"; gun[11].what = 4; gun[11].crit = 0.2; gun[11].belt = 0; gun[11].number = 8; gun[11].effect0 = 1; gun[11].effect1 = 2; gun[11].effect2 = 3; gun[11].effect3 = 4; gun[11].effect4 = 6; gun[11].effect5 = 7; gun[11].effect6 = 8; gun[11].effect7 = 9; gun[11].damageup = 0; gun[11].hitup = 0.35; gun[11].shotspeedup = 0; gun[11].critup = 0; gun[11].dodgeup = 0.25; gun[11].to = 1;
-            gun[80].name = "FNP-9"; gun[80].what = 4; gun[80].crit = 0.2; gun[80].belt = 0; gun[80].number = 5; gun[80].effect0 = 2; gun[80].effect1 = 3; gun[80].effect2 = 6; gun[80].effect3 = 8; gun[80].effect4 = 9; gun[80].damageup = 0; gun[80].hitup = 0.5; gun[80].shotspeedup = 0.1; gun[80].critup = 0; gun[80].dodgeup = 0; gun[80].to = 1;
-            gun[81].name = "MP-446"; gun[81].what = 4; gun[81].crit = 0.2; gun[81].belt = 0; gun[81].number = 5; gun[81].effect0 = 1; gun[81].effect1 = 2; gun[81].effect2 = 4; gun[81].effect3 = 7; gun[81].effect4 = 8; gun[81].damageup = 0.2; gun[81].hitup = 0; gun[81].shotspeedup = 0; gun[81].critup = 0; gun[81].dodgeup = 0; gun[81].to = 1;
-            gun[37].name = "西蒙诺夫"; gun[37].what = 5; gun[37].crit = 0.4; gun[37].belt = 0; gun[37].number = 2;gun[37].effect0 = 2;gun[37].effect1 = 8; gun[37].rateup = 0.18; gun[37].damageup = 0; gun[37].hitup = 0; gun[37].shotspeedup = 0; gun[37].critup = 0; gun[37].dodgeup = 0; gun[37].to = 4;
-            gun[46].name = "FN-49"; gun[46].what = 5;  gun[46].crit = 0.4; gun[46].belt = 0; gun[46].number = 2; gun[46].effect0 = 3; gun[46].effect1 = 9; gun[46].rateup = 0.18; gun[46].damageup = 0; gun[46].hitup = 0; gun[46].shotspeedup = 0; gun[46].critup = 0; gun[46].dodgeup = 0; gun[46].to = 4;
-            gun[45].name = "李-恩菲尔德"; gun[45].what = 5; gun[45].crit = 0.4; gun[45].belt = 0; gun[45].number = 2; gun[45].effect0 = 2; gun[45].effect1 = 8; gun[45].rateup = 0.25; gun[45].damageup = 0; gun[45].hitup = 0; gun[45].shotspeedup = 0; gun[45].critup = 0; gun[45].dodgeup = 0; gun[45].to = 4;
-            gun[48].name = "NTW-20"; gun[48].what = 5; gun[48].crit = 0.4; gun[48].belt = 0; gun[48].number = 1;gun[48].effect0 = 6;gun[48].rateup = 0.25; gun[48].damageup = 0; gun[48].hitup = 0; gun[48].shotspeedup = 0; gun[48].critup = 0; gun[48].dodgeup = 0; gun[48].to = 4;
-            gun[38].name = "PTRD"; gun[38].what = 5;gun[38].crit = 0.4; gun[38].belt = 0; gun[38].number = 1; gun[38].effect0 = 6; gun[38].rateup = 0.22; gun[38].damageup = 0; gun[38].hitup = 0; gun[38].shotspeedup = 0; gun[38].critup = 0; gun[38].dodgeup = 0; gun[38].to = 4;
-            gun[36].name = "SVT-38"; gun[36].what = 5;gun[36].crit = 0.4; gun[36].belt = 0; gun[36].number = 1; gun[36].effect0 = 6; gun[36].rateup = 0.18; gun[36].damageup = 0; gun[36].hitup = 0; gun[36].shotspeedup = 0; gun[36].critup = 0; gun[36].dodgeup = 0; gun[36].to = 4;
-            gun[43].name = "WA2000"; gun[43].what = 5; gun[43].crit = 0.4; gun[43].belt = 0; gun[43].number = 1; gun[43].effect0 = 6; gun[43].rateup = 0.25; gun[43].damageup = 0; gun[43].hitup = 0; gun[43].shotspeedup = 0; gun[43].critup = 0; gun[43].dodgeup = 0; gun[43].to = 4;
-            gun[33].name = "M14"; gun[33].what = 5; gun[33].crit = 0.4; gun[33].belt = 0; gun[33].number = 2; gun[33].effect0 = 3; gun[33].effect1 = 9; gun[33].rateup = 0.2; gun[33].damageup = 0; gun[33].hitup = 0; gun[33].shotspeedup = 0; gun[33].critup = 0; gun[33].dodgeup = 0; gun[33].to = 4;
-            gun[34].name = "M21"; gun[34].what = 5; gun[34].crit = 0.4; gun[34].belt = 0; gun[34].number = 2; gun[34].effect0 = 2; gun[34].effect1 = 8; gun[34].rateup = 0.2; gun[34].damageup = 0; gun[34].hitup = 0; gun[34].shotspeedup = 0; gun[34].critup = 0; gun[34].dodgeup = 0; gun[34].to = 4;
-            gun[47].name = "BM59"; gun[47].what = 5; gun[47].crit = 0.4; gun[47].belt = 0; gun[47].number = 1; gun[47].effect0 = 6; gun[47].rateup = 0.18; gun[47].damageup = 0; gun[47].hitup = 0; gun[47].shotspeedup = 0; gun[47].critup = 0; gun[47].dodgeup = 0; gun[47].to = 4;
-            gun[30].name = "M1加兰德"; gun[30].what = 5; gun[30].crit = 0.4; gun[30].belt = 0; gun[30].number = 1; gun[30].effect0 = 6; gun[30].rateup = 0.2; gun[30].damageup = 0; gun[30].hitup = 0; gun[30].shotspeedup = 0; gun[30].critup = 0; gun[30].dodgeup = 0; gun[30].to = 4;
-            gun[40].name = "SV-98"; gun[40].what = 5;gun[40].crit = 0.4; gun[40].belt = 0; gun[40].number = 1; gun[40].effect0 = 3; gun[40].rateup = 0.2; gun[40].damageup = 0; gun[40].hitup = 0; gun[40].shotspeedup = 0; gun[40].critup = 0; gun[40].dodgeup = 0; gun[40].to = 4;
-            gun[42].name = "G43"; gun[42].what = 5; gun[42].crit = 0.4; gun[42].belt = 0; gun[42].number = 2; gun[42].effect0 = 3; gun[42].effect1 = 9; gun[42].rateup = 0.2; gun[42].damageup = 0; gun[42].hitup = 0; gun[42].shotspeedup = 0; gun[42].critup = 0; gun[42].dodgeup = 0; gun[42].to = 4;
-            gun[85].name = "汉阳造88式"; gun[85].what = 5; gun[85].crit = 0.4; gun[85].belt = 0; gun[85].number = 1; gun[85].effect0 = 6; gun[85].rateup = 0.22; gun[85].damageup = 0; gun[85].hitup = 0; gun[85].shotspeedup = 0; gun[85].critup = 0; gun[85].dodgeup = 0; gun[85].to = 4;
-            gun[41].name = "Kar98k"; gun[41].what = 5;  gun[41].crit = 0.4; gun[41].belt = 0; gun[41].number = 2; gun[41].effect0 = 3; gun[41].effect1 = 9; gun[41].rateup = 0.25; gun[41].damageup = 0; gun[41].hitup = 0; gun[41].shotspeedup = 0; gun[41].critup = 0; gun[41].dodgeup = 0; gun[41].to = 4;
-            gun[35].name = "莫辛-纳甘"; gun[35].what = 5; gun[35].crit = 0.4; gun[35].belt = 0; gun[35].number = 1; gun[35].effect0 = 9; gun[35].rateup = 0.22; gun[35].damageup = 0; gun[35].hitup = 0; gun[35].shotspeedup = 0; gun[35].critup = 0; gun[35].dodgeup = 0; gun[35].to = 4;
-            gun[32].name = "春田"; gun[32].what = 5; gun[32].crit = 0.4; gun[32].belt = 0; gun[32].number = 1; gun[32].effect0 = 9; gun[32].rateup = 0.22;  gun[32].damageup = 0; gun[32].hitup = 0; gun[32].shotspeedup = 0; gun[32].critup = 0; gun[32].dodgeup = 0; gun[32].to = 4;
-            gun[69].name = "M60"; gun[69].what = 6; gun[69].crit = 0.05; gun[69].belt = 9; gun[69].number = 0; gun[69].damageup = 0; gun[69].hitup = 0; gun[69].shotspeedup = 0; gun[69].critup = 0; gun[69].dodgeup = 0; gun[69].to = 0;
-            gun[98].name = "MG5"; gun[98].what = 6;gun[98].crit = 0.05; gun[98].belt = 11; gun[98].number = 0; gun[98].damageup = 0; gun[98].hitup = 0; gun[98].shotspeedup = 0; gun[98].critup = 0; gun[98].dodgeup = 0; gun[98].to = 0;
-            gun[67].name = "M1918"; gun[67].what = 6;gun[67].crit = 0.05; gun[67].belt = 8; gun[67].number = 0; gun[67].damageup = 0; gun[67].hitup = 0; gun[67].shotspeedup = 0; gun[67].critup = 0; gun[67].dodgeup = 0; gun[67].to = 0;
-            gun[78].name = "MG3"; gun[78].what = 6; gun[78].crit = 0.05; gun[78].belt = 10; gun[78].number = 0; gun[78].damageup = 0; gun[78].hitup = 0; gun[78].shotspeedup = 0; gun[78].critup = 0; gun[78].dodgeup = 0; gun[78].to = 0;
-            gun[71].name = "M1919A4"; gun[71].what = 6; gun[71].crit = 0.05; gun[71].belt = 9; gun[71].number = 0; gun[71].damageup = 0; gun[71].hitup = 0; gun[71].shotspeedup = 0; gun[71].critup = 0; gun[71].dodgeup = 0; gun[71].to = 0;
-            gun[75].name = "PK"; gun[75].what = 6;gun[75].crit = 0.05; gun[75].belt = 11; gun[75].number = 0; gun[75].damageup = 0; gun[75].hitup = 0; gun[75].shotspeedup = 0; gun[75].critup = 0; gun[75].dodgeup = 0; gun[75].to = 0;
-            gun[101].name = "内格夫"; gun[101].what = 6;gun[101].crit = 0.05; gun[101].belt = 9; gun[101].number = 0; gun[101].damageup = 0; gun[101].hitup = 0; gun[101].shotspeedup = 0; gun[101].critup = 0; gun[101].dodgeup = 0; gun[101].to = 0;
-            gun[74].name = "RPD"; gun[74].what = 6; gun[74].crit = 0.05; gun[74].belt = 8; gun[74].number = 0; gun[74].damageup = 0; gun[74].hitup = 0; gun[74].shotspeedup = 0; gun[74].critup = 0; gun[74].dodgeup = 0; gun[74].to = 0;
-            gun[68].name = "M2HB"; gun[68].what = 6; gun[68].crit = 0.05; gun[68].belt = 10; gun[68].number = 0; gun[68].damageup = 0; gun[68].hitup = 0; gun[68].shotspeedup = 0; gun[68].critup = 0; gun[68].dodgeup = 0; gun[68].to = 0;
-            gun[72].name = "LWMMG"; gun[72].what = 6; gun[72].crit = 0.05; gun[72].belt = 9; gun[72].number = 0; gun[72].damageup = 0; gun[72].hitup = 0; gun[72].shotspeedup = 0; gun[72].critup = 0; gun[72].dodgeup = 0; gun[72].to = 0;
-            gun[70].name = "M249 SAW"; gun[70].what = 6;gun[70].crit = 0.05; gun[70].belt = 8; gun[70].number = 0; gun[70].damageup = 0; gun[70].hitup = 0; gun[70].shotspeedup = 0; gun[70].critup = 0; gun[70].dodgeup = 0; gun[70].to = 0;
-            gun[100].name = "AAT-52"; gun[100].what = 6;gun[100].crit = 0.05; gun[100].belt = 10; gun[100].number = 0; gun[100].damageup = 0; gun[100].hitup = 0; gun[100].shotspeedup = 0; gun[100].critup = 0; gun[100].dodgeup = 0; gun[100].to = 0;
-            gun[73].name = "DP28"; gun[73].what = 6; gun[73].crit = 0.05; gun[73].belt = 9; gun[73].number = 0; gun[73].damageup = 0; gun[73].hitup = 0; gun[73].shotspeedup = 0; gun[73].critup = 0; gun[73].dodgeup = 0; gun[73].to = 0;
-            gun[76].name = "MG42"; gun[76].what = 6; gun[76].crit = 0.05; gun[76].belt = 10; gun[76].number = 0; gun[76].damageup = 0; gun[76].hitup = 0; gun[76].shotspeedup = 0; gun[76].critup = 0; gun[76].dodgeup = 0; gun[76].to = 0;
-            gun[77].name = "MG34"; gun[77].what = 6; gun[77].crit = 0.05; gun[77].belt = 10; gun[77].number = 0; gun[77].damageup = 0; gun[77].hitup = 0; gun[77].shotspeedup = 0; gun[77].critup = 0; gun[77].dodgeup = 0; gun[77].to = 0;
-            gun[79].name = "布伦"; gun[79].what = 6;  gun[79].crit = 0.05; gun[79].belt = 8; gun[79].number = 0; gun[79].damageup = 0; gun[79].hitup = 0; gun[79].shotspeedup = 0; gun[79].critup = 0; gun[79].dodgeup = 0; gun[79].to = 0;
-            gun[99].name = "FG42"; gun[99].what = 6; gun[99].crit = 0.05; gun[99].belt = 8; gun[99].number = 0; gun[99].damageup = 0; gun[99].hitup = 0; gun[99].shotspeedup = 0; gun[99].critup = 0; gun[99].dodgeup = 0; gun[99].to = 0;
-            gun[110].name = "MK48"; gun[110].what = 6;  gun[110].crit = 0.05; gun[110].belt = 10; gun[110].number = 0; gun[110].damageup = 0; gun[110].hitup = 0; gun[110].shotspeedup = 0; gun[110].critup = 0; gun[110].dodgeup = 0; gun[110].to = 0;
-            gun[102].name = "谢尔久科夫"; gun[102].what = 4; gun[102].crit = 0.2; gun[102].belt = 0; gun[102].number = 3; gun[102].effect0 = 2; gun[102].effect1 = 4; gun[102].effect2 = 8; gun[102].damageup = 0.2; gun[102].hitup = 0.3; gun[102].to = 1;
+            gun[14].name = "汤姆森"; gun[14].what = 3;gun[14].crit = 0.05; gun[14].belt = 0;
+            gun[26].name = "司登MkⅡ"; gun[26].what = 3; gun[26].crit = 0.05; gun[26].belt = 0;
+            gun[91].name = "UMP9"; gun[91].what = 3; gun[91].crit = 0.05; gun[91].belt = 0; 
+            gun[18].name = "Vector"; gun[18].what = 3; gun[18].crit = 0.05; gun[18].belt = 0;
+            gun[25].name = "蝎式"; gun[25].what = 3; gun[25].crit = 0.05; gun[25].belt = 0; 
+            gun[15].name = "M3"; gun[15].what = 3; gun[15].crit = 0.05; gun[15].belt = 0; 
+            gun[83].name = "IDW";gun[83].what = 3; gun[83].crit = 0.05; gun[83].belt = 0; 
+            gun[28].name = "微型乌兹"; gun[28].what = 3; gun[28].crit = 0.05; gun[28].belt = 0;
+            gun[17].name = "FMG-9"; gun[17].what = 3;gun[17].crit = 0.05; gun[17].belt = 0;
+            gun[16].name = "MAC-10"; gun[16].what = 3; gun[16].crit = 0.05; gun[16].belt = 0;
+            gun[29].name = "M45"; gun[29].what = 3; gun[29].crit = 0.05; gun[29].belt = 0; 
+            gun[82].name = "Spectre M4"; gun[82].what = 3;  gun[82].crit = 0.05; gun[82].belt = 0;
+            gun[20].name = "PPS-43"; gun[20].what = 3;  gun[20].crit = 0.05; gun[20].belt = 0; 
+            gun[22].name = "PP-2000"; gun[22].what = 3;  gun[22].crit = 0.05; gun[22].belt = 0;
+            gun[24].name = "MP5"; gun[24].what = 3; gun[24].crit = 0.05; gun[24].belt = 0; 
+            gun[27].name = "伯莱塔38型"; gun[27].what = 3;gun[27].crit = 0.05; gun[27].belt = 0;
+            gun[23].name = "MP40"; gun[23].what = 3; gun[23].crit = 0.05; gun[23].belt = 0;
+            gun[19].name = "PPSh-41"; gun[19].what = 3; gun[19].crit = 0.05; gun[19].belt = 0;
+            gun[84].name = "64式"; gun[84].what = 3; gun[84].crit = 0.05; gun[84].belt = 0; 
+            gun[92].name = "UMP45"; gun[92].what = 3;  gun[92].crit = 0.05; gun[92].belt = 0;
+            gun[104].name = "索米"; gun[104].what = 3; gun[104].crit = 0.05; gun[104].belt = 0;
+            gun[94].name = "OTs-12"; gun[94].what = 2; gun[94].crit = 0.2; gun[94].belt = 0; 
+            gun[58].name = "G36"; gun[58].what = 2; gun[58].crit = 0.2; gun[58].belt = 0; 
+            gun[95].name = "FAL"; gun[95].what = 2;  gun[95].crit = 0.2; gun[95].belt = 0; 
+            gun[59].name = "HK416"; gun[59].what = 2; gun[59].crit = 0.2; gun[59].belt = 0;
+            gun[56].name = "G41"; gun[56].what = 2; gun[56].crit = 0.2; gun[56].belt = 0; 
+            gun[60].name = "56-1式"; gun[60].what = 2; gun[60].crit = 0.2; gun[60].belt = 0;
+            gun[50].name = "M4A1"; gun[50].what = 2;gun[50].crit = 0.2; gun[50].belt = 0; 
+            gun[49].name = "M16A1"; gun[49].what = 2; gun[49].crit = 0.2; gun[49].belt = 0;
+            gun[52].name = "ST AR-15"; gun[52].what = 2;gun[52].crit = 0.2; gun[52].belt = 0;
+            gun[62].name = "FAMAS"; gun[62].what = 2; gun[62].crit = 0.2; gun[62].belt = 0; 
+            gun[53].name = "AK-47"; gun[53].what = 2;  gun[53].crit = 0.2; gun[53].belt = 0;
+            gun[55].name = "StG44"; gun[55].what = 2; gun[55].crit = 0.2; gun[55].belt = 0; 
+            gun[97].name = "CZ-805"; gun[97].what = 2; gun[97].crit = 0.2; gun[97].belt = 0;
+            gun[51].name = "M4 SOPMODII"; gun[51].what = 2;  gun[51].crit = 0.2; gun[51].belt = 0;
+            gun[65].name = "TAR-21"; gun[65].what = 2;  gun[65].crit = 0.2; gun[65].belt = 0; 
+            gun[64].name = "加利尔"; gun[64].what = 2; gun[64].crit = 0.2; gun[64].belt = 0; 
+            gun[66].name = "SIG-510"; gun[66].what = 2; gun[66].crit = 0.2; gun[66].belt = 0;
+            gun[57].name = "G3"; gun[57].what = 2; gun[57].crit = 0.2; gun[57].belt = 0; 
+            gun[96].name = "F2000"; gun[96].what = 2; gun[96].crit = 0.2; gun[96].belt = 0;
+            gun[63].name = "FNC"; gun[63].what = 2; gun[63].crit = 0.2; gun[63].belt = 0; 
+            gun[61].name = "L85A1"; gun[61].what = 2; gun[61].crit = 0.2; gun[61].belt = 0;
+            gun[107].name = "9a-91"; gun[107].what = 2;  gun[107].crit = 0.2; gun[107].belt = 0;
+            gun[54].name = "AS Val"; gun[54].what = 2; gun[54].crit = 0.2; gun[54].belt = 0; 
+            gun[103].name = "维尔德MkⅡ"; gun[103].what = 4; gun[103].crit = 0.4; gun[103].belt = 0;
+            gun[3].name = "纳甘左轮"; gun[3].what = 4; gun[3].crit = 0.2; gun[3].belt = 0;
+            gun[0].name = "柯尔特左轮"; gun[0].what = 4; gun[0].crit = 0.2; gun[0].belt = 0;
+            gun[86].name = "灰熊MkⅤ"; gun[86].what = 4; gun[86].crit = 0.2; gun[86].belt = 0;
+            gun[4].name = "托卡列夫"; gun[4].what = 4; gun[4].crit = 0.2; gun[4].belt = 0; 
+            gun[13].name = "格洛克17"; gun[13].what = 4; gun[13].crit = 0.2; gun[13].belt = 0;
+            gun[6].name = "马卡洛夫"; gun[6].what = 4;gun[6].crit = 0.2; gun[6].belt = 0; 
+            gun[5].name = "斯捷奇金"; gun[5].what = 4; gun[5].crit = 0.2; gun[5].belt = 0; 
+            gun[12].name = "阿斯特拉左轮"; gun[12].what = 4; gun[12].crit = 0.2; gun[12].belt = 0;
+            gun[9].name = "P08"; gun[9].what = 4;gun[9].crit = 0.2; gun[9].belt = 0; 
+            gun[89].name = "Mk23"; gun[89].what = 4; gun[89].crit = 0.2; gun[89].belt = 0;
+            gun[1].name = "M1911"; gun[1].what = 4; gun[1].crit = 0.2; gun[1].belt = 0; 
+            gun[8].name = "PPK"; gun[8].what = 4; gun[8].crit = 0.2; gun[8].belt = 0; 
+            gun[10].name = "C96"; gun[10].what = 4; gun[10].crit = 0.2; gun[10].belt = 0;
+            gun[87].name = "M950A"; gun[87].what = 4; gun[87].crit = 0.2; gun[87].belt = 0;
+            gun[7].name = "P38"; gun[7].what = 4;gun[7].crit = 0.2; gun[7].belt = 0;
+            gun[2].name = "M9"; gun[2].what = 4; gun[2].crit = 0.2; gun[2].belt = 0;
+            gun[90].name = "P7"; gun[90].what = 4; gun[90].crit = 0.2; gun[90].belt = 0;
+            gun[11].name = "92式"; gun[11].what = 4; gun[11].crit = 0.2; gun[11].belt = 0;
+            gun[80].name = "FNP-9"; gun[80].what = 4; gun[80].crit = 0.2; gun[80].belt = 0;
+            gun[81].name = "MP-446"; gun[81].what = 4; gun[81].crit = 0.2; gun[81].belt = 0;
+            gun[37].name = "西蒙诺夫"; gun[37].what = 5; gun[37].crit = 0.4; gun[37].belt = 0;
+            gun[46].name = "FN-49"; gun[46].what = 5;  gun[46].crit = 0.4; gun[46].belt = 0; 
+            gun[45].name = "李-恩菲尔德"; gun[45].what = 5; gun[45].crit = 0.4; gun[45].belt = 0;
+            gun[48].name = "NTW-20"; gun[48].what = 5; gun[48].crit = 0.4; gun[48].belt = 0;
+            gun[38].name = "PTRD"; gun[38].what = 5;gun[38].crit = 0.4; gun[38].belt = 0; 
+            gun[36].name = "SVT-38"; gun[36].what = 5;gun[36].crit = 0.4; gun[36].belt = 0;
+            gun[43].name = "WA2000"; gun[43].what = 5; gun[43].crit = 0.4; gun[43].belt = 0;
+            gun[33].name = "M14"; gun[33].what = 5; gun[33].crit = 0.4; gun[33].belt = 0; 
+            gun[34].name = "M21"; gun[34].what = 5; gun[34].crit = 0.4; gun[34].belt = 0; 
+            gun[47].name = "BM59"; gun[47].what = 5; gun[47].crit = 0.4; gun[47].belt = 0;
+            gun[30].name = "M1加兰德"; gun[30].what = 5; gun[30].crit = 0.4; gun[30].belt = 0;
+            gun[40].name = "SV-98"; gun[40].what = 5;gun[40].crit = 0.4; gun[40].belt = 0; 
+            gun[42].name = "G43"; gun[42].what = 5; gun[42].crit = 0.4; gun[42].belt = 0; 
+            gun[85].name = "汉阳造88式"; gun[85].what = 5; gun[85].crit = 0.4; gun[85].belt = 0;
+            gun[41].name = "Kar98k"; gun[41].what = 5;  gun[41].crit = 0.4; gun[41].belt = 0; 
+            gun[35].name = "莫辛-纳甘"; gun[35].what = 5; gun[35].crit = 0.4; gun[35].belt = 0;
+            gun[32].name = "春田"; gun[32].what = 5; gun[32].crit = 0.4; gun[32].belt = 0; 
+            gun[69].name = "M60"; gun[69].what = 6; gun[69].crit = 0.05; gun[69].belt = 9; 
+            gun[98].name = "MG5"; gun[98].what = 6;gun[98].crit = 0.05; gun[98].belt = 11;
+            gun[67].name = "M1918"; gun[67].what = 6;gun[67].crit = 0.05; gun[67].belt = 8;
+            gun[78].name = "MG3"; gun[78].what = 6; gun[78].crit = 0.05; gun[78].belt = 10; 
+            gun[71].name = "M1919A4"; gun[71].what = 6; gun[71].crit = 0.05; gun[71].belt = 9;
+            gun[75].name = "PK"; gun[75].what = 6;gun[75].crit = 0.05; gun[75].belt = 11; 
+            gun[101].name = "内格夫"; gun[101].what = 6;gun[101].crit = 0.05; gun[101].belt = 9; 
+            gun[74].name = "RPD"; gun[74].what = 6; gun[74].crit = 0.05; gun[74].belt = 8; 
+            gun[68].name = "M2HB"; gun[68].what = 6; gun[68].crit = 0.05; gun[68].belt = 10; 
+            gun[72].name = "LWMMG"; gun[72].what = 6; gun[72].crit = 0.05; gun[72].belt = 9;
+            gun[70].name = "M249 SAW"; gun[70].what = 6;gun[70].crit = 0.05; gun[70].belt = 8;
+            gun[100].name = "AAT-52"; gun[100].what = 6;gun[100].crit = 0.05; gun[100].belt = 10;
+            gun[73].name = "DP28"; gun[73].what = 6; gun[73].crit = 0.05; gun[73].belt = 9; 
+            gun[76].name = "MG42"; gun[76].what = 6; gun[76].crit = 0.05; gun[76].belt = 10;
+            gun[77].name = "MG34"; gun[77].what = 6; gun[77].crit = 0.05; gun[77].belt = 10;
+            gun[79].name = "布伦"; gun[79].what = 6;  gun[79].crit = 0.05; gun[79].belt = 8; 
+            gun[99].name = "FG42"; gun[99].what = 6; gun[99].crit = 0.05; gun[99].belt = 8;
+            gun[110].name = "MK48"; gun[110].what = 6;  gun[110].crit = 0.05; gun[110].belt = 10;
+            gun[102].name = "谢尔久科夫"; gun[102].what = 4; gun[102].crit = 0.2; gun[102].belt = 0;
 
-            gun[44].name = "56式半";gun[44].what = 5; gun[44].crit = 0.4;gun[44].belt = 0;gun[44].number = 2;gun[44].effect0 = 2;gun[44].effect1 = 8;gun[44].rateup = 0.2;gun[44].to = 4;
+            gun[44].name = "56式半";gun[44].what = 5; gun[44].crit = 0.4;gun[44].belt = 0;
             gun[44].eatratio = 110; gun[44].ratiododge = 115; gun[44].ratiohit = 105; gun[44].ratiohp = 105; gun[44].ratiopow = 100;gun[44].ratiorate = 110;
             gun[44].type = 101;gun[44].probability = 40; gun[44].skilleffect1 = 100; gun[44].skilleffect2 = 2;gun[44].skilleffect3 = 0; gun[44].skilleffect4 = 0; gun[44].growth = 0.6; gun[44].growth_type = 3;
 
-            gun[88].name = "SPP-1"; gun[88].what = 4; gun[88].crit = 0.2; gun[88].belt = 0; gun[88].number = 4; gun[88].effect0 = 1; gun[88].effect1 = 2; gun[88].effect2 = 7; gun[88].effect3 = 8; gun[88].hitup = 0.8; gun[88].damageup = 0.1; gun[88].to = 1;
+            gun[88].name = "SPP-1"; gun[88].what = 4; gun[88].crit = 0.2; gun[88].belt = 0; 
             gun[88].eatratio = 135; gun[88].ratiododge = 90; gun[88].ratiohit = 110; gun[88].ratiohp = 115; gun[88].ratiopow = 115; gun[88].ratiorate = 85;
             gun[88].type = 204; gun[88].probability = 40; gun[88].skilleffect1 = 20; gun[88].skilleffect2 = 8; gun[88].skilleffect3 = 0; gun[88].skilleffect4 = 0; gun[88].growth = 0.5; gun[88].growth_type = 3;
 
-            gun[105].name = "Z-62"; gun[105].what = 3; gun[105].crit = 0.05; gun[105].belt = 0; gun[105].number = 2; gun[105].effect0 = 1; gun[105].effect1 = 4; gun[105].damageup = 0.12; gun[105].dodgeup = 0.1; gun[105].to = 2;
+            gun[105].name = "Z-62"; gun[105].what = 3; gun[105].crit = 0.05; gun[105].belt = 0; 
             gun[105].eatratio = 120; gun[105].ratiododge = 115; gun[105].ratiohit = 120; gun[105].ratiohp = 95; gun[105].ratiopow = 95; gun[105].ratiorate = 95;
             gun[105].type = 404; gun[105].probability = 28; gun[105].skilleffect1 = 1.5; gun[105].skilleffect2 = 0.5; gun[105].skilleffect3 = 2; gun[105].skilleffect4 = 1; gun[105].growth = 1; gun[105].growth_type = 4;
 
-            gun[106].name = "PSG-1"; gun[106].what = 5; gun[106].crit = 0.4; gun[106].belt = 0; gun[106].number = 1; gun[106].effect0 = 9; gun[106].rateup = 0.22; gun[106].to = 4;
+            gun[106].name = "PSG-1"; gun[106].what = 5; gun[106].crit = 0.4; gun[106].belt = 0; 
             gun[106].eatratio = 105; gun[106].ratiododge = 85; gun[106].ratiohit = 125; gun[106].ratiohp = 105; gun[106].ratiopow = 120; gun[106].ratiorate = 120;
             gun[106].type = 502; gun[106].probability = 30; gun[106].skilleffect1 = 2.4; gun[106].skilleffect2 = 2; gun[106].skilleffect3 = 0; gun[106].skilleffect4 = 0; gun[106].growth = 1.2; gun[106].growth_type = 2;
 
-            gun[108].name = "OTs-14"; gun[108].what = 2; gun[108].crit = 0.2; gun[108].belt = 0; gun[108].number = 3; gun[108].effect0 = 3; gun[108].effect1 = 6;gun[108].effect2 = 9; gun[108].hitup = 0.65; gun[108].shotspeedup = 0.25; gun[108].to = 3;
+            gun[108].name = "OTs-14"; gun[108].what = 2; gun[108].crit = 0.2; gun[108].belt = 0;
             gun[108].eatratio = 125; gun[108].ratiododge = 125; gun[108].ratiohit = 125; gun[108].ratiohp = 100; gun[108].ratiopow = 105; gun[108].ratiorate = 110;
             gun[108].type = 131; gun[108].probability = 32; gun[108].skilleffect1 = 120; gun[108].skilleffect2 = 5; gun[108].skilleffect3 = 0; gun[108].skilleffect4 = 0; gun[108].growth = 0.6; gun[108].growth_type = 3;
 
-            gun[109].name = "ARX-160"; gun[109].what = 2; gun[109].crit = 0.2; gun[109].belt = 0; gun[109].number = 1; gun[109].effect0 = 3; gun[109].damageup = 0.25; gun[109].hitup = 0.5; gun[109].to = 3;
+            gun[109].name = "ARX-160"; gun[109].what = 2; gun[109].crit = 0.2; gun[109].belt = 0;
             gun[109].eatratio = 115; gun[109].ratiododge = 120; gun[109].ratiohit = 120; gun[109].ratiohp = 90; gun[109].ratiopow = 110; gun[109].ratiorate = 110;
             gun[109].type = 601; gun[109].probability = 22; gun[109].skilleffect1 = 2.2; gun[109].skilleffect2 = 1; gun[109].skilleffect3 = 0; gun[109].skilleffect4 = 0; gun[109].growth = 1.5; gun[109].growth_type = 2;
 
-            gun[111].name = "G11"; gun[111].what = 2; gun[111].crit = 0.2; gun[111].belt = 0; gun[111].number = 1; gun[111].effect0 = 6; gun[111].damageup = 0.3; gun[111].dodgeup = 0.1; gun[111].to = 3;
+            gun[111].name = "G11"; gun[111].what = 2; gun[111].crit = 0.2; gun[111].belt = 0; 
             gun[111].eatratio = 110; gun[111].ratiododge = 105; gun[111].ratiohit = 115; gun[111].ratiohp = 110; gun[111].ratiopow = 100; gun[111].ratiorate = 145;
             gun[111].type = 108; gun[111].probability = 32; gun[111].skilleffect1 = 2.2; gun[111].skilleffect2 = 3; gun[111].skilleffect3 = 0; gun[111].skilleffect4 = 0; gun[111].growth = 0.5; gun[111].growth_type = 3;
 
-            gun[113].name = "Super SASS";gun[113].what = 5; gun[113].crit = 0.4; gun[113].belt = 0; gun[113].number = 1; gun[113].effect0 = 9; gun[113].rateup = 0.20; gun[113].to = 4;
+            gun[113].name = "Super SASS";gun[113].what = 5; gun[113].crit = 0.4; gun[113].belt = 0;
             gun[113].eatratio = 105; gun[113].ratiododge = 90; gun[113].ratiohit = 110; gun[113].ratiohp = 100; gun[113].ratiopow = 115; gun[113].ratiorate = 120;
             gun[113].type = 503; gun[113].probability = 30; gun[113].skilleffect1 = 2.2; gun[113].skilleffect2 = 2; gun[113].skilleffect3 = 0; gun[113].skilleffect4 = 0; gun[113].growth = 1.2; gun[113].growth_type = 2;
 
-            gun[39].name = "SVD"; gun[39].what = 5; gun[39].crit = 0.4; gun[39].belt = 0; gun[39].number = 2; gun[39].effect0 = 3; gun[39].effect1 = 9; gun[39].rateup = 0.22; gun[39].to = 4;
+            gun[39].name = "SVD"; gun[39].what = 5; gun[39].crit = 0.4; gun[39].belt = 0; 
             gun[39].eatratio = 120; gun[39].ratiododge = 100; gun[39].ratiohit = 120; gun[39].ratiohp = 90; gun[39].ratiopow = 120; gun[39].ratiorate = 110;
             gun[39].type = 102; gun[39].probability = 36; gun[39].skilleffect1 = 50; gun[39].skilleffect2 = 5; gun[39].skilleffect3 = 0; gun[39].skilleffect4 = 0; gun[39].growth = 0.6; gun[39].growth_type = 3;
 
-            gun[112].name = "P99"; gun[112].what = 4; gun[112].crit = 0.2; gun[112].belt = 0; gun[112].number = 3; gun[112].effect0 = 2; gun[112].effect1 = 6; gun[112].effect2 = 8; gun[112].shotspeedup = 0.05; gun[112].dodgeup = 0.35; gun[112].to = 1;
+            gun[112].name = "P99"; gun[112].what = 4; gun[112].crit = 0.2; gun[112].belt = 0; 
             gun[112].eatratio = 110; gun[112].ratiododge = 125; gun[112].ratiohit = 120; gun[112].ratiohp = 90; gun[112].ratiopow = 115; gun[112].ratiorate = 115;
             gun[112].type = 4; gun[112].probability = 32; gun[112].skilleffect1 = 30; gun[112].skilleffect2 = 5; gun[112].skilleffect3 = 0; gun[112].skilleffect4 = 0; gun[112].growth = 0.6; gun[112].growth_type = 3;
 
-            gun[114].name = "MG4"; gun[114].what = 6; gun[114].crit = 0.05; gun[114].belt = 9; gun[114].number = 0; gun[114].to = 0;
+            gun[114].name = "MG4"; gun[114].what = 6; gun[114].crit = 0.05; gun[114].belt = 9;
             gun[114].eatratio = 135; gun[114].ratiododge = 120; gun[114].ratiohit = 120; gun[114].ratiohp = 110; gun[114].ratiopow = 95; gun[114].ratiorate = 125;
             gun[114].type = 101; gun[114].probability = 32; gun[114].skilleffect1 = 30; gun[114].skilleffect2 = 8; gun[114].skilleffect3 = 0; gun[114].skilleffect4 = 0; gun[114].growth = 1.2; gun[114].growth_type = 2;
 
-            gun[93].name = "G36C"; gun[93].what = 3; gun[93].crit = 0.05; gun[93].belt = 0; gun[93].number = 3; gun[93].effect0 = 1; gun[93].effect1 = 4; gun[93].effect2 = 7; gun[93].damageup = 0.1; gun[93].shotspeedup = 0.08; gun[93].to = 2;
+            gun[93].name = "G36C"; gun[93].what = 3; gun[93].crit = 0.05; gun[93].belt = 0; 
             gun[93].eatratio = 95; gun[93].ratiododge = 120; gun[93].ratiohit = 110; gun[93].ratiohp = 115; gun[93].ratiopow = 135; gun[93].ratiorate = 110;
             gun[93].type = 106; gun[93].probability = 20; gun[93].skilleffect1 = 2; gun[93].skilleffect2 = 0; gun[93].skilleffect3 = 0; gun[93].skilleffect4 = 0; gun[93].growth = 1; gun[93].growth_type = 2;
 
-            gun[115].name = "NZ75"; gun[115].what = 4; gun[115].crit = 0.2; gun[115].belt = 0; gun[115].number = 6; gun[115].effect0 = 1; gun[115].effect1 = 4; gun[115].effect2 = 7; gun[115].effect3 = 3; gun[115].effect4 = 6; gun[115].effect5 = 9; gun[115].damageup = 0.1; gun[115].dodgeup = 0.25; gun[115].to = 1;
+            gun[115].name = "NZ75"; gun[115].what = 4; gun[115].crit = 0.2; gun[115].belt = 0;
             gun[115].eatratio = 125; gun[115].ratiododge = 95; gun[115].ratiohit = 120; gun[115].ratiohp = 110; gun[115].ratiopow = 115; gun[115].ratiorate = 115;
             gun[115].type = 202; gun[115].probability = 20; gun[115].skilleffect1 = 15; gun[115].skilleffect2 = 8; gun[115].skilleffect3 = 0; gun[115].skilleffect4 = 0; gun[115].growth = 0.6; gun[115].growth_type = 3;
 
-            gun[116].name = "79式"; gun[116].what = 3; gun[116].crit = 0.05; gun[116].belt = 0; gun[116].number = 2; gun[116].effect0 = 1; gun[116].effect1 = 7; gun[116].damageup = 0.2; gun[116].to = 2;
+            gun[116].name = "79式"; gun[116].what = 3; gun[116].crit = 0.05; gun[116].belt = 0;
             gun[116].eatratio = 100; gun[116].ratiododge = 125; gun[116].ratiohit = 110; gun[116].ratiohp = 110; gun[116].ratiopow = 130; gun[116].ratiorate = 115;
             gun[116].type = 403; gun[116].probability = 30; gun[116].skilleffect1 = 2; gun[116].skilleffect2 = 2.5; gun[116].skilleffect3 = 0; gun[116].skilleffect4 = 0; gun[116].growth = 1; gun[116].growth_type = 2;
 
-            gun[117].name = "M99"; gun[117].what = 5; gun[117].crit = 0.4; gun[117].belt = 0; gun[117].number = 2; gun[117].effect0 = 3; gun[117].effect1 = 9; gun[117].rateup = 0.25; gun[117].to = 4;
+            gun[117].name = "M99"; gun[117].what = 5; gun[117].crit = 0.4; gun[117].belt = 0;
             gun[117].eatratio = 135; gun[117].ratiododge = 85; gun[117].ratiohit = 110; gun[117].ratiohp = 100; gun[117].ratiopow = 135; gun[117].ratiorate = 90;
             gun[117].type = 502; gun[117].probability = 16; gun[117].skilleffect1 = 4; gun[117].skilleffect2 = 2; gun[117].skilleffect3 = 0; gun[117].skilleffect4 = 0; gun[117].growth = 1.2; gun[117].growth_type = 2;
 
-            gun[118].name = "95式"; gun[118].what = 2; gun[118].crit = 0.2; gun[118].belt = 0; gun[118].number = 1; gun[118].effect0 = 3; gun[118].damageup = 0.1; gun[118].dodgeup = 0.18; gun[118].to = 3;
+            gun[118].name = "95式"; gun[118].what = 2; gun[118].crit = 0.2; gun[118].belt = 0; 
             gun[118].eatratio = 120; gun[118].ratiododge = 110; gun[118].ratiohit = 120; gun[118].ratiohp = 105; gun[118].ratiopow = 120; gun[118].ratiorate = 105;
             gun[118].type = 101; gun[118].probability = 40; gun[118].skilleffect1 = 30; gun[118].skilleffect2 = 8; gun[118].skilleffect3 = 0; gun[118].skilleffect4 = 0; gun[118].growth = 0.6; gun[118].growth_type = 3;
 
-            gun[119].name = "97式"; gun[119].what = 2; gun[119].crit = 0.2; gun[119].belt = 0; gun[119].number = 1; gun[119].effect0 = 9; gun[119].shotspeedup = 0.1; gun[119].dodgeup = 0.18; gun[119].to = 3;
+            gun[119].name = "97式"; gun[119].what = 2; gun[119].crit = 0.2; gun[119].belt = 0; 
             gun[119].eatratio = 125; gun[119].ratiododge = 105; gun[119].ratiohit = 120; gun[119].ratiohp = 105; gun[119].ratiopow = 115; gun[119].ratiorate = 105;
             gun[119].type = 102; gun[119].probability = 40; gun[119].skilleffect1 = 30; gun[119].skilleffect2 = 8; gun[119].skilleffect3 = 0; gun[119].skilleffect4 = 0; gun[119].growth = 0.6; gun[119].growth_type = 3;
 
-            gun[120].name = "EVO 3"; gun[120].what = 3; gun[120].crit = 0.05; gun[120].belt = 0; gun[120].number = 1; gun[120].effect0 = 4; gun[120].hitup = 0.55; gun[120].to = 2;
+            gun[120].name = "EVO 3"; gun[120].what = 3; gun[120].crit = 0.05; gun[120].belt = 0; 
             gun[120].eatratio = 105; gun[120].ratiododge = 115; gun[120].ratiohit = 115; gun[120].ratiohp = 110; gun[120].ratiopow = 90; gun[120].ratiorate = 120;
             gun[120].type = 401; gun[120].probability = 20; gun[120].skilleffect1 = 1.6; gun[120].skilleffect2 = 2.5; gun[120].skilleffect3 = 0; gun[120].skilleffect4 = 0; gun[120].growth = 1.5; gun[120].growth_type = 2;
 
-            gun[31].name = "M1A1"; gun[31].what = 5; gun[31].crit = 0.4; gun[31].belt = 0; gun[31].number = 1; gun[31].effect0 = 6; gun[31].rateup = 0.2; gun[31].to = 4;
+            gun[31].name = "M1A1"; gun[31].what = 5; gun[31].crit = 0.4; gun[31].belt = 0; 
             gun[31].eatratio = 115; gun[31].ratiododge = 130; gun[31].ratiohit = 105; gun[31].ratiohp = 95; gun[31].ratiopow = 90; gun[31].ratiorate = 115;
             gun[31].type = 102; gun[31].probability = 36; gun[31].skilleffect1 = 30; gun[31].skilleffect2 = 8; gun[31].skilleffect3 = 0; gun[31].skilleffect4 = 0; gun[31].growth = 0.6; gun[31].growth_type = 3;
 
-            gun[121].name = "59式"; gun[121].what = 4; gun[121].crit = 0.2; gun[121].belt = 0; gun[121].number = 5; gun[121].effect0 = 2; gun[121].effect1 = 3; gun[121].effect2 = 6; gun[121].effect3 = 8; gun[121].effect4 = 9; gun[121].damageup = 0.15; gun[121].hitup = 0.3; gun[121].to = 1;
+            gun[121].name = "59式"; gun[121].what = 4; gun[121].crit = 0.2; gun[121].belt = 0;
             gun[121].eatratio = 130; gun[121].ratiododge = 120; gun[121].ratiohit = 115; gun[121].ratiohp = 90; gun[121].ratiopow = 95; gun[121].ratiorate = 110;
             gun[121].type = 234; gun[121].probability = 40; gun[121].skilleffect1 = 30; gun[121].skilleffect2 = 12; gun[121].skilleffect3 = 0; gun[121].skilleffect4 = 0; gun[121].growth = 0.8; gun[121].growth_type = 3;
 
-            gun[122].name = "63式"; gun[122].what = 2; gun[122].crit = 0.2; gun[122].belt = 0; gun[122].number = 1; gun[122].effect0 = 6; gun[122].damageup = 0.1; gun[122].shotspeedup = 0.2; gun[122].to = 3;
+            gun[122].name = "63式"; gun[122].what = 2; gun[122].crit = 0.2; gun[122].belt = 0; 
             gun[122].eatratio = 100; gun[122].ratiododge = 100; gun[122].ratiohit = 100; gun[122].ratiohp = 100; gun[122].ratiopow = 120; gun[122].ratiorate = 110;
             gun[122].type = 103; gun[122].probability = 32; gun[122].skilleffect1 = 200; gun[122].skilleffect2 = 8; gun[122].skilleffect3 = 0; gun[122].skilleffect4 = 0; gun[122].growth = 1.2; gun[122].growth_type = 3;
 
-            gun[123].name = "AR70"; gun[123].what = 2; gun[123].crit = 0.2; gun[123].belt = 0; gun[123].number = 1; gun[123].effect0 = 9; gun[123].shotspeedup = 0.16; gun[123].hitup = 0.75; gun[123].to = 3;
+            gun[123].name = "AR70"; gun[123].what = 2; gun[123].crit = 0.2; gun[123].belt = 0;
             gun[123].eatratio = 120; gun[123].ratiododge = 100; gun[123].ratiohit = 105; gun[123].ratiohp = 100; gun[123].ratiopow = 110; gun[123].ratiorate = 105;
             gun[123].type = 601; gun[123].probability = 22; gun[123].skilleffect1 = 2.2; gun[123].skilleffect2 = 1; gun[123].skilleffect3 = 0; gun[123].skilleffect4 = 0; gun[123].growth = 1.5; gun[123].growth_type = 2;
 
-            gun[125].name = "PP-19"; gun[125].what = 3; gun[125].crit = 0.05; gun[125].belt = 0; gun[125].number = 1; gun[125].effect0 = 4; gun[125].damageup = 0.24; gun[125].to = 2;
+            gun[125].name = "PP-19"; gun[125].what = 3; gun[125].crit = 0.05; gun[125].belt = 0; 
             gun[125].eatratio = 110; gun[125].ratiododge = 120; gun[125].ratiohit = 115; gun[125].ratiohp = 100; gun[125].ratiopow = 95; gun[125].ratiorate = 115;
             gun[125].type = 401; gun[125].probability = 18; gun[125].skilleffect1 = 2; gun[125].skilleffect2 = 2.5; gun[125].skilleffect3 = 0; gun[125].skilleffect4 = 0; gun[125].growth = 1.5; gun[125].growth_type = 2;
 
-            gun[124].name = "SR-3MP"; gun[124].what = 3; gun[124].crit = 0.05; gun[124].belt = 0; gun[124].number = 3; gun[124].effect0 = 1; gun[124].effect1 = 4; gun[124].effect2 = 7; gun[124].shotspeedup = 0.15; gun[124].critup = 0.5; gun[124].to = 2;
+            gun[124].name = "SR-3MP"; gun[124].what = 3; gun[124].crit = 0.05; gun[124].belt = 0; 
             gun[124].eatratio = 95; gun[124].ratiododge = 125; gun[124].ratiohit = 115; gun[124].ratiohp = 110; gun[124].ratiopow = 130; gun[124].ratiorate = 120;
             gun[124].type = 101; gun[124].probability = 45; gun[124].skilleffect1 = 160; gun[124].skilleffect2 = 3; gun[124].skilleffect3 = 0; gun[124].skilleffect4 = 0; gun[124].growth = 0.6; gun[124].growth_type = 3;
 
-            gun[21].name = "PP-90"; gun[21].what = 3; gun[21].crit = 0.05; gun[21].belt = 0; gun[21].number = 2; gun[21].effect0 = 1; gun[21].effect1 = 7; gun[21].damageup = 0.08; gun[21].dodgeup = 0.2; gun[21].to = 2;
+            gun[21].name = "PP-90"; gun[21].what = 3; gun[21].crit = 0.05; gun[21].belt = 0; 
             gun[21].eatratio = 120; gun[21].ratiododge = 130; gun[21].ratiohit = 100; gun[21].ratiohp = 90; gun[21].ratiopow = 90; gun[21].ratiorate = 120;
             gun[21].type = 104; gun[21].probability = 24; gun[21].skilleffect1 = 120; gun[21].skilleffect2 = 5; gun[21].skilleffect3 = 0; gun[21].skilleffect4 = 0; gun[21].growth = 0.8; gun[21].growth_type = 3;
 
-            gun[126].name = "6P62"; gun[126].what = 2; gun[126].crit = 0.2; gun[126].belt = 0; gun[126].number = 1; gun[126].effect0 = 6; gun[126].damageup = 0.35; gun[126].to = 3;
+            gun[126].name = "6P62"; gun[126].what = 2; gun[126].crit = 0.2; gun[126].belt = 0;
             gun[126].eatratio = 125; gun[126].ratiododge = 75; gun[126].ratiohit = 85; gun[126].ratiohp = 110; gun[126].ratiopow = 150; gun[126].ratiorate = 80;
             gun[126].type = 101; gun[126].probability = 40; gun[126].skilleffect1 = 100; gun[126].skilleffect2 = 2; gun[126].skilleffect3 = 0; gun[126].skilleffect4 = 0; gun[126].growth = 0.6; gun[126].growth_type = 3;
 
-            gun[127].name = "Bren Ten"; gun[127].what = 4; gun[127].crit = 0.2; gun[127].belt = 0; gun[127].number = 0; gun[127].effect0 = 6; gun[127].damageup = 0.35; gun[127].to = 1;
+            gun[127].name = "Bren Ten"; gun[127].what = 4; gun[127].crit = 0.2; gun[127].belt = 0;
             gun[127].eatratio = 110; gun[127].ratiododge = 90; gun[127].ratiohit = 110; gun[127].ratiohp = 105; gun[127].ratiopow = 120; gun[127].ratiorate = 110;
             gun[127].equiptype1 = "4,13"; gun[127].equiptype2 = "6"; gun[127].equiptype3 = "9,10,12";
 
-            gun[128].name = "PSM"; gun[128].what = 4; gun[128].crit = 0.2; gun[128].belt = 0; gun[128].number = 0; gun[128].effect0 = 6; gun[128].damageup = 0.35; gun[128].to = 1;
+            gun[128].name = "PSM"; gun[128].what = 4; gun[128].crit = 0.2; gun[128].belt = 0; 
             gun[128].eatratio = 135; gun[128].ratiododge = 135; gun[128].ratiohit = 120; gun[128].ratiohp = 85; gun[128].ratiopow = 80; gun[128].ratiorate = 115;
             gun[128].equiptype1 = "4,13"; gun[128].equiptype2 = "6"; gun[128].equiptype3 = "9,10,12";
 
-            gun[129].name = "USP Compact"; gun[129].what = 4; gun[129].crit = 0.2; gun[129].belt = 0; gun[129].number = 0; gun[129].effect0 = 6; gun[129].damageup = 0.35; gun[129].to = 1;
+            gun[129].name = "USP Compact"; gun[129].what = 4; gun[129].crit = 0.2; gun[129].belt = 0;
             gun[129].eatratio = 115; gun[129].ratiododge = 120; gun[129].ratiohit = 125; gun[129].ratiohp = 100; gun[129].ratiopow = 90; gun[129].ratiorate = 120;
             gun[129].equiptype1 = "4,13"; gun[129].equiptype2 = "6"; gun[129].equiptype3 = "9,10,12";
 
-            gun[130].name = "RO635"; gun[130].what = 3; gun[130].crit = 0.05; gun[130].belt = 0; gun[130].number = 5; gun[130].effect0 = 1; gun[130].effect1 = 2; gun[130].effect2 = 4; gun[130].effect3 = 7; gun[130].effect4 = 8;gun[130].shotspeedup = 0.1; gun[130].hitup = 0.35; gun[130].to = 2;
+            gun[130].name = "RO635"; gun[130].what = 3; gun[130].crit = 0.05; gun[130].belt = 0; 
             gun[130].eatratio = 105; gun[130].ratiododge = 120; gun[130].ratiohit = 125; gun[130].ratiohp = 110; gun[130].ratiopow = 105; gun[130].ratiorate = 125;
             gun[130].equiptype1 = "9,10,12"; gun[130].equiptype2 = "6"; gun[130].equiptype3 = "1,2,3,4,13";
 
-            gun[131].name = "M1887"; gun[131].what = 7; gun[131].crit = 0.4; gun[131].belt = 5; gun[131].number = 1; gun[131].effect0 = 1; gun[131].to = 6;
-            gun[132].name = "M37"; gun[132].what = 7; gun[132].crit = 0.4; gun[132].belt = 5; gun[132].number = 2; gun[132].effect0 = 1; gun[132].effect1 = 2; gun[132].damageup = 0.12; gun[132].to = 6;
-            gun[133].name = "M500"; gun[133].what = 7; gun[133].crit = 0.4; gun[133].belt = 5; gun[133].number = 2; gun[133].effect0 = 1; gun[133].effect1 = 2; gun[133].damageup = 0.12; gun[133].to = 6;
-            gun[134].name = "M590"; gun[134].what = 7; gun[134].crit = 0.4; gun[134].belt = 5; gun[134].number = 2; gun[134].effect0 = 1; gun[134].effect1 = 2; gun[134].hitup = 0.35; gun[134].to = 6;
-            gun[135].name = "KSG"; gun[135].what = 7; gun[135].crit = 0.4; gun[135].belt = 6; gun[135].number = 2; gun[135].effect0 = 1; gun[135].effect1 = 2; gun[135].damageup = 0.15; gun[135].to = 6;
-            gun[136].name = "KS - 23"; gun[136].what = 7; gun[136].crit = 0.4; gun[136].belt = 4; gun[136].number = 1; gun[136].effect0 = 1; gun[136].damageup = 0.20; gun[136].to = 6;
-            gun[137].name = "RMB - 93"; gun[137].what = 7; gun[137].crit = 0.4; gun[137].belt = 5; gun[137].number = 1; gun[137].effect0 = 1; gun[137].damageup = 0.1; gun[137].hitup = 0.3; gun[137].to = 6;
-            gun[138].name = "97式霰"; gun[138].what = 7; gun[138].crit = 0.4; gun[138].belt = 4; gun[138].number = 3; gun[138].effect0 = 1; gun[138].effect1 = 2; gun[138].effect2 = 3; gun[138].damageup = 0.1; gun[138].to = 6;
+            gun[131].name = "M1887"; gun[131].what = 7; gun[131].crit = 0.4; gun[131].belt = 5; 
+            gun[132].name = "M37"; gun[132].what = 7; gun[132].crit = 0.4; gun[132].belt = 5; 
+            gun[133].name = "M500"; gun[133].what = 7; gun[133].crit = 0.4; gun[133].belt = 5;
+            gun[134].name = "M590"; gun[134].what = 7; gun[134].crit = 0.4; gun[134].belt = 5;
+            gun[135].name = "KSG"; gun[135].what = 7; gun[135].crit = 0.4; gun[135].belt = 6; 
+            gun[136].name = "KS - 23"; gun[136].what = 7; gun[136].crit = 0.4; gun[136].belt = 4;
+            gun[137].name = "RMB - 93"; gun[137].what = 7; gun[137].crit = 0.4; gun[137].belt = 5;
+            gun[138].name = "97式霰"; gun[138].what = 7; gun[138].crit = 0.4; gun[138].belt = 4; 
             gun[131].eatratio = 115; gun[131].ratiododge = 95; gun[131].ratiohit = 95; gun[131].ratiohp = 125; gun[131].ratiopow = 125; gun[131].ratiorate = 80; gun[131].ratioarmor = 120; gun[131].skillpool = 100101;
             gun[132].eatratio = 90; gun[132].ratiododge = 115; gun[132].ratiohit = 120; gun[132].ratiohp = 115; gun[132].ratiopow = 125; gun[132].ratiorate = 105; gun[132].ratioarmor = 120; gun[132].skillpool = 100101;
             gun[133].eatratio = 95; gun[133].ratiododge = 90; gun[133].ratiohit = 105; gun[133].ratiohp = 120; gun[133].ratiopow = 110; gun[133].ratiorate = 115; gun[133].ratioarmor = 115; gun[133].skillpool = 100101;
@@ -2823,6 +2823,648 @@ namespace snqxap
             gun[136].equiptype3 = "1,2,3,4";
             gun[137].equiptype3 = "1,2,3,4";
             gun[138].equiptype3 = "1,2,3,4";
+
+            gun[0].grid_center = 5;
+            gun[1].grid_center = 5;
+            gun[2].grid_center = 5;
+            gun[3].grid_center = 5;
+            gun[4].grid_center = 5;
+            gun[5].grid_center = 5;
+            gun[6].grid_center = 5;
+            gun[7].grid_center = 5;
+            gun[8].grid_center = 5;
+            gun[9].grid_center = 5;
+            gun[10].grid_center = 5;
+            gun[11].grid_center = 5;
+            gun[12].grid_center = 5;
+            gun[13].grid_center = 5;
+            gun[14].grid_center = 5;
+            gun[15].grid_center = 5;
+            gun[16].grid_center = 5;
+            gun[17].grid_center = 5;
+            gun[18].grid_center = 5;
+            gun[19].grid_center = 5;
+            gun[20].grid_center = 5;
+            gun[21].grid_center = 5;
+            gun[22].grid_center = 5;
+            gun[23].grid_center = 5;
+            gun[24].grid_center = 5;
+            gun[25].grid_center = 5;
+            gun[26].grid_center = 5;
+            gun[27].grid_center = 5;
+            gun[28].grid_center = 5;
+            gun[29].grid_center = 5;
+            gun[30].grid_center = 5;
+            gun[31].grid_center = 5;
+            gun[32].grid_center = 5;
+            gun[33].grid_center = 5;
+            gun[34].grid_center = 5;
+            gun[35].grid_center = 5;
+            gun[36].grid_center = 5;
+            gun[37].grid_center = 5;
+            gun[38].grid_center = 5;
+            gun[39].grid_center = 5;
+            gun[40].grid_center = 5;
+            gun[41].grid_center = 5;
+            gun[42].grid_center = 5;
+            gun[43].grid_center = 5;
+            gun[44].grid_center = 5;
+            gun[45].grid_center = 5;
+            gun[46].grid_center = 5;
+            gun[47].grid_center = 5;
+            gun[48].grid_center = 5;
+            gun[49].grid_center = 5;
+            gun[50].grid_center = 5;
+            gun[51].grid_center = 5;
+            gun[52].grid_center = 5;
+            gun[53].grid_center = 5;
+            gun[54].grid_center = 5;
+            gun[55].grid_center = 5;
+            gun[56].grid_center = 5;
+            gun[57].grid_center = 5;
+            gun[58].grid_center = 5;
+            gun[59].grid_center = 5;
+            gun[60].grid_center = 5;
+            gun[61].grid_center = 5;
+            gun[62].grid_center = 5;
+            gun[63].grid_center = 5;
+            gun[64].grid_center = 5;
+            gun[65].grid_center = 5;
+            gun[66].grid_center = 5;
+            gun[67].grid_center = 4;
+            gun[68].grid_center = 4;
+            gun[69].grid_center = 1;
+            gun[70].grid_center = 4;
+            gun[71].grid_center = 7;
+            gun[72].grid_center = 4;
+            gun[73].grid_center = 7;
+            gun[74].grid_center = 4;
+            gun[75].grid_center = 4;
+            gun[76].grid_center = 1;
+            gun[77].grid_center = 7;
+            gun[78].grid_center = 4;
+            gun[79].grid_center = 1;
+            gun[80].grid_center = 5;
+            gun[81].grid_center = 5;
+            gun[82].grid_center = 5;
+            gun[83].grid_center = 5;
+            gun[84].grid_center = 5;
+            gun[85].grid_center = 5;
+            gun[86].grid_center = 5;
+            gun[87].grid_center = 5;
+            gun[88].grid_center = 5;
+            gun[89].grid_center = 5;
+            gun[90].grid_center = 5;
+            gun[91].grid_center = 5;
+            gun[92].grid_center = 5;
+            gun[93].grid_center = 5;
+            gun[94].grid_center = 5;
+            gun[95].grid_center = 5;
+            gun[96].grid_center = 5;
+            gun[97].grid_center = 5;
+            gun[98].grid_center = 4;
+            gun[99].grid_center = 4;
+            gun[100].grid_center = 1;
+            gun[101].grid_center = 4;
+            gun[102].grid_center = 5;
+            gun[103].grid_center = 5;
+            gun[104].grid_center = 5;
+            gun[105].grid_center = 5;
+            gun[106].grid_center = 5;
+            gun[107].grid_center = 5;
+            gun[108].grid_center = 5;
+            gun[109].grid_center = 5;
+            gun[110].grid_center = 7;
+            gun[111].grid_center = 5;
+            gun[112].grid_center = 5;
+            gun[113].grid_center = 5;
+            gun[114].grid_center = 4;
+            gun[115].grid_center = 5;
+            gun[116].grid_center = 5;
+            gun[117].grid_center = 5;
+            gun[118].grid_center = 5;
+            gun[119].grid_center = 5;
+            gun[120].grid_center = 5;
+            gun[121].grid_center = 5;
+            gun[122].grid_center = 5;
+            gun[123].grid_center = 5;
+            gun[124].grid_center = 5;
+            gun[125].grid_center = 5;
+            gun[126].grid_center = 5;
+            gun[127].grid_center = 5;
+            gun[128].grid_center = 5;
+            gun[129].grid_center = 5;
+            gun[130].grid_center = 5;
+            gun[131].grid_center = 6;
+            gun[132].grid_center = 6;
+            gun[133].grid_center = 3;
+            gun[134].grid_center = 9;
+            gun[135].grid_center = 6;
+            gun[136].grid_center = 3;
+            gun[137].grid_center = 9;
+            gun[138].grid_center = 6;
+
+            gun[0].damageup = 0.12;
+            gun[0].hitup = 0.25;
+            gun[1].shotspeedup = 0.1;
+            gun[1].hitup = 0.25;
+            gun[2].dodgeup = 0.3;
+            gun[3].damageup = 0.16;
+            gun[3].critup = 0.08;
+            gun[4].shotspeedup = 0.1;
+            gun[4].hitup = 0.25;
+            gun[5].damageup = 0.06;
+            gun[5].shotspeedup = 0.12;
+            gun[6].damageup = 0.1;
+            gun[6].shotspeedup = 0.06;
+            gun[7].shotspeedup = 0.07;
+            gun[7].hitup = 0.28;
+            gun[8].shotspeedup = 0.16;
+            gun[8].critup = 0.08;
+            gun[9].damageup = 0.07;
+            gun[9].hitup = 0.35;
+            gun[10].hitup = 0.32;
+            gun[10].dodgeup = 0.15;
+            gun[11].hitup = 0.25;
+            gun[11].dodgeup = 0.2;
+            gun[12].shotspeedup = 0.1;
+            gun[12].dodgeup = 0.1;
+            gun[13].hitup = 0.2;
+            gun[13].dodgeup = 0.25;
+            gun[14].damageup = 0.12;
+            gun[14].dodgeup = 0.15;
+            gun[15].hitup = 0.4;
+            gun[15].dodgeup = 0.3;
+            gun[16].damageup = 0.12;
+            gun[17].damageup = 0.1;
+            gun[17].dodgeup = 0.12;
+            gun[18].shotspeedup = 0.25;
+            gun[19].damageup = 0.1;
+            gun[19].shotspeedup = 0.05;
+            gun[20].damageup = 0.12;
+            gun[21].damageup = 0.08;
+            gun[21].dodgeup = 0.2;
+            gun[22].damageup = 0.1;
+            gun[22].hitup = 0.25;
+            gun[23].hitup = 0.25;
+            gun[23].dodgeup = 0.2;
+            gun[24].hitup = 0.4;
+            gun[24].critup = 0.2;
+            gun[25].shotspeedup = 0.15;
+            gun[25].hitup = 0.5;
+            gun[26].hitup = 0.1;
+            gun[26].dodgeup = 0.3;
+            gun[27].damageup = 0.05;
+            gun[27].shotspeedup = 0.1;
+            gun[28].damageup = 0.18;
+            gun[29].shotspeedup = 0.1;
+            gun[29].dodgeup = 0.1;
+            gun[30].rateup = 0.12;
+            gun[31].rateup = 0.12;
+            gun[32].rateup = 0.15;
+            gun[33].rateup = 0.12;
+            gun[34].rateup = 0.12;
+            gun[35].rateup = 0.15;
+            gun[36].rateup = 0.1;
+            gun[37].rateup = 0.1;
+            gun[38].rateup = 0.15;
+            gun[39].rateup = 0.15;
+            gun[40].rateup = 0.12;
+            gun[41].rateup = 0.18;
+            gun[42].rateup = 0.1;
+            gun[43].rateup = 0.18;
+            gun[44].rateup = 0.12;
+            gun[45].rateup = 0.18;
+            gun[46].rateup = 0.1;
+            gun[47].rateup = 0.1;
+            gun[48].rateup = 0.18;
+            gun[49].damageup = 0.1;
+            gun[49].dodgeup = 0.12;
+            gun[50].damageup = 0.18;
+            gun[50].critup = 0.3;
+            gun[51].hitup = 0.5;
+            gun[51].dodgeup = 0.12;
+            gun[52].shotspeedup = 0.1;
+            gun[52].dodgeup = 0.12;
+            gun[53].dodgeup = 0.18;
+            gun[54].damageup = 0.25;
+            gun[54].shotspeedup = 0.1;
+            gun[55].dodgeup = 0.2;
+            gun[55].hitup = 0.6;
+            gun[56].hitup = 0.5;
+            gun[56].dodgeup = 0.15;
+            gun[57].shotspeedup = 0.2;
+            gun[57].hitup = 0.5;
+            gun[58].damageup = 0.3;
+            gun[58].shotspeedup = 0.1;
+            gun[59].damageup = 0.4;
+            gun[60].dodgeup = 0.15;
+            gun[60].critup = 0.1;
+            gun[61].damageup = 0.2;
+            gun[61].hitup = 0.5;
+            gun[62].damageup = 0.25;
+            gun[62].hitup = 0.6;
+            gun[63].hitup = 0.5;
+            gun[63].dodgeup = 0.12;
+            gun[64].hitup = 0.5;
+            gun[64].dodgeup = 0.1;
+            gun[65].dodgeup = 0.18;
+            gun[66].damageup = 0.2;
+            gun[66].shotspeedup = 0.1;
+            gun[67].damageup = 0.15;
+            gun[67].armorup = 0.1;
+            gun[68].damageup = 0.22;
+            gun[69].damageup = 0.1;
+            gun[69].shotspeedup = 0.08;
+            gun[70].shotspeedup = 0.12;
+            gun[70].hitup = 0.1;
+            gun[71].hitup = 0.25;
+            gun[71].armorup = 0.1;
+            gun[72].damageup = 0.1;
+            gun[72].shotspeedup = 0.1;
+            gun[73].shotspeedup = 0.15;
+            gun[74].shotspeedup = 0.16;
+            gun[75].damageup = 0.18;
+            gun[76].damageup = 0.22;
+            gun[77].damageup = 0.2;
+            gun[78].damageup = 0.1;
+            gun[78].hitup = 0.15;
+            gun[79].shotspeedup = 0.1;
+            gun[79].hitup = 0.12;
+            gun[80].shotspeedup = 0.1;
+            gun[80].hitup = 0.2;
+            gun[81].damageup = 0.14;
+            gun[82].damageup = 0.2;
+            gun[83].dodgeup = 0.2;
+            gun[84].shotspeedup = 0.2;
+            gun[85].rateup = 0.12;
+            gun[86].damageup = 0.15;
+            gun[86].dodgeup = 0.1;
+            gun[87].shotspeedup = 0.15;
+            gun[87].hitup = 0.25;
+            gun[88].damageup = 0.06;
+            gun[88].hitup = 0.45;
+            gun[89].damageup = 0.18;
+            gun[90].shotspeedup = 0.1;
+            gun[90].dodgeup = 0.12;
+            gun[91].shotspeedup = 0.12;
+            gun[91].hitup = 0.3;
+            gun[92].damageup = 0.18;
+            gun[92].critup = 0.3;
+            gun[93].damageup = 0.1;
+            gun[93].shotspeedup = 0.08;
+            gun[94].damageup = 0.15;
+            gun[94].shotspeedup = 0.2;
+            gun[95].dodgeup = 0.2;
+            gun[96].damageup = 0.2;
+            gun[96].dodgeup = 0.1;
+            gun[97].shotspeedup = 0.25;
+            gun[97].hitup = 0.5;
+            gun[98].damageup = 0.1;
+            gun[98].armorup = 0.1;
+            gun[99].hitup = 0.3;
+            gun[100].shotspeedup = 0.2;
+            gun[101].armorup = 0.2;
+            gun[102].damageup = 0.12;
+            gun[102].hitup = 0.2;
+            gun[103].damageup = 0.1;
+            gun[103].shotspeedup = 0.08;
+            gun[104].shotspeedup = 0.15;
+            gun[104].hitup = 0.3;
+            gun[105].damageup = 0.12;
+            gun[105].dodgeup = 0.1;
+            gun[106].rateup = 0.15;
+            gun[107].shotspeedup = 0.1;
+            gun[107].dodgeup = 0.15;
+            gun[108].shotspeedup = 0.25;
+            gun[108].hitup = 0.65;
+            gun[109].damageup = 0.25;
+            gun[109].hitup = 0.5;
+            gun[110].shotspeedup = 0.18;
+            gun[111].damageup = 0.3;
+            gun[111].dodgeup = 0.1;
+            gun[112].shotspeedup = 0.05;
+            gun[112].dodgeup = 0.2;
+            gun[113].rateup = 0.12;
+            gun[114].hitup = 0.12;
+            gun[114].armorup = 0.15;
+            gun[115].damageup = 0.1;
+            gun[115].dodgeup = 0.15;
+            gun[116].damageup = 0.2;
+            gun[117].rateup = 0.18;
+            gun[118].damageup = 0.1;
+            gun[118].dodgeup = 0.18;
+            gun[119].shotspeedup = 0.1;
+            gun[119].dodgeup = 0.18;
+            gun[120].hitup = 0.55;
+            gun[121].damageup = 0.1;
+            gun[121].hitup = 0.25;
+            gun[122].damageup = 0.1;
+            gun[122].shotspeedup = 0.2;
+            gun[123].shotspeedup = 0.16;
+            gun[123].hitup = 0.75;
+            gun[124].shotspeedup = 0.18;
+            gun[124].critup = 0.3;
+            gun[125].damageup = 0.24;
+            gun[126].damageup = 0.35;
+            gun[127].damageup = 0.08;
+            gun[127].shotspeedup = 0.05;
+            gun[128].hitup = 0.12;
+            gun[128].dodgeup = 0.4;
+            gun[129].shotspeedup = 0.14;
+            gun[130].shotspeedup = 0.1;
+            gun[130].hitup = 0.35;
+            gun[131].damageup = 0.2;
+            gun[131].hitup = 0.2;
+            gun[132].damageup = 0.18;
+            gun[133].damageup = 0.18;
+            gun[134].hitup = 0.55;
+            gun[135].damageup = 0.2;
+            gun[136].damageup = 0.12;
+            gun[136].hitup = 0.3;
+            gun[137].damageup = 0.12;
+            gun[138].damageup = 0.12;
+
+            gun[0].number = 4; gun[0].effect0 = 4; gun[0].effect1 = 8; gun[0].effect2 = 2; gun[0].effect3 = 6;
+            gun[1].number = 4; gun[1].effect0 = 4; gun[1].effect1 = 8; gun[1].effect2 = 2; gun[1].effect3 = 6;
+            gun[2].number = 4; gun[2].effect0 = 8; gun[2].effect1 = 2; gun[2].effect2 = 9; gun[2].effect3 = 3;
+            gun[3].number = 3; gun[3].effect0 = 4; gun[3].effect1 = 8; gun[3].effect2 = 2;
+            gun[4].number = 4; gun[4].effect0 = 8; gun[4].effect1 = 2; gun[4].effect2 = 9; gun[4].effect3 = 3;
+            gun[5].number = 4; gun[5].effect0 = 8; gun[5].effect1 = 2; gun[5].effect2 = 9; gun[5].effect3 = 3;
+            gun[6].number = 4; gun[6].effect0 = 7; gun[6].effect1 = 4; gun[6].effect2 = 1; gun[6].effect3 = 6;
+            gun[7].number = 4; gun[7].effect0 = 8; gun[7].effect1 = 2; gun[7].effect2 = 9; gun[7].effect3 = 3;
+            gun[8].number = 4; gun[8].effect0 = 7; gun[8].effect1 = 4; gun[8].effect2 = 1; gun[8].effect3 = 6;
+            gun[9].number = 3; gun[9].effect0 = 8; gun[9].effect1 = 2; gun[9].effect2 = 6;
+            gun[10].number = 3; gun[10].effect0 = 7; gun[10].effect1 = 1; gun[10].effect2 = 6;
+            gun[11].number = 8; gun[11].effect0 = 7; gun[11].effect1 = 4; gun[11].effect2 = 1; gun[11].effect3 = 8; gun[11].effect4 = 2; gun[11].effect5 = 9; gun[11].effect6 = 6; gun[11].effect7 = 3;
+            gun[12].number = 4; gun[12].effect0 = 7; gun[12].effect1 = 1; gun[12].effect2 = 9; gun[12].effect3 = 3;
+            gun[13].number = 5; gun[13].effect0 = 7; gun[13].effect1 = 1; gun[13].effect2 = 9; gun[13].effect3 = 6; gun[13].effect4 = 3;
+            gun[14].number = 2; gun[14].effect0 = 7; gun[14].effect1 = 1;
+            gun[15].number = 1; gun[15].effect0 = 4;
+            gun[16].number = 3; gun[16].effect0 = 7; gun[16].effect1 = 4; gun[16].effect2 = 1;
+            gun[17].number = 2; gun[17].effect0 = 7; gun[17].effect1 = 1;
+            gun[18].number = 1; gun[18].effect0 = 4;
+            gun[19].number = 2; gun[19].effect0 = 8; gun[19].effect1 = 2;
+            gun[20].number = 3; gun[20].effect0 = 7; gun[20].effect1 = 4; gun[20].effect2 = 1;
+            gun[21].number = 2; gun[21].effect0 = 7; gun[21].effect1 = 1;
+            gun[22].number = 2; gun[22].effect0 = 7; gun[22].effect1 = 1;
+            gun[23].number = 2; gun[23].effect0 = 7; gun[23].effect1 = 1;
+            gun[24].number = 2; gun[24].effect0 = 7; gun[24].effect1 = 1;
+            gun[25].number = 1; gun[25].effect0 = 4;
+            gun[26].number = 3; gun[26].effect0 = 7; gun[26].effect1 = 4; gun[26].effect2 = 1;
+            gun[27].number = 2; gun[27].effect0 = 7; gun[27].effect1 = 1;
+            gun[28].number = 2; gun[28].effect0 = 8; gun[28].effect1 = 2;
+            gun[29].number = 2; gun[29].effect0 = 7; gun[29].effect1 = 1;
+            gun[30].number = 1; gun[30].effect0 = 6;
+            gun[31].number = 2; gun[31].effect0 = 8; gun[31].effect1 = 2;
+            gun[32].number = 1; gun[32].effect0 = 3;
+            gun[33].number = 2; gun[33].effect0 = 9; gun[33].effect1 = 3;
+            gun[34].number = 2; gun[34].effect0 = 8; gun[34].effect1 = 2;
+            gun[35].number = 1; gun[35].effect0 = 8;
+            gun[36].number = 1; gun[36].effect0 = 6;
+            gun[37].number = 2; gun[37].effect0 = 8; gun[37].effect1 = 2;
+            gun[38].number = 1; gun[38].effect0 = 2;
+            gun[39].number = 2; gun[39].effect0 = 9; gun[39].effect1 = 3;
+            gun[40].number = 1; gun[40].effect0 = 9;
+            gun[41].number = 2; gun[41].effect0 = 9; gun[41].effect1 = 3;
+            gun[42].number = 2; gun[42].effect0 = 9; gun[42].effect1 = 3;
+            gun[43].number = 1; gun[43].effect0 = 6;
+            gun[44].number = 2; gun[44].effect0 = 8; gun[44].effect1 = 2;
+            gun[45].number = 2; gun[45].effect0 = 8; gun[45].effect1 = 2;
+            gun[46].number = 2; gun[46].effect0 = 9; gun[46].effect1 = 3;
+            gun[47].number = 1; gun[47].effect0 = 6;
+            gun[48].number = 1; gun[48].effect0 = 6;
+            gun[49].number = 4; gun[49].effect0 = 8; gun[49].effect1 = 2; gun[49].effect2 = 9; gun[49].effect3 = 3;
+            gun[50].number = 5; gun[50].effect0 = 8; gun[50].effect1 = 2; gun[50].effect2 = 9; gun[50].effect3 = 6; gun[50].effect4 = 3;
+            gun[51].number = 3; gun[51].effect0 = 9; gun[51].effect1 = 6; gun[51].effect2 = 3;
+            gun[52].number = 3; gun[52].effect0 = 9; gun[52].effect1 = 6; gun[52].effect2 = 3;
+            gun[53].number = 1; gun[53].effect0 = 8;
+            gun[54].number = 1; gun[54].effect0 = 2;
+            gun[55].number = 1; gun[55].effect0 = 6;
+            gun[56].number = 2; gun[56].effect0 = 9; gun[56].effect1 = 3;
+            gun[57].number = 1; gun[57].effect0 = 2;
+            gun[58].number = 2; gun[58].effect0 = 9; gun[58].effect1 = 6;
+            gun[59].number = 1; gun[59].effect0 = 6;
+            gun[60].number = 1; gun[60].effect0 = 6;
+            gun[61].number = 1; gun[61].effect0 = 2;
+            gun[62].number = 1; gun[62].effect0 = 9;
+            gun[63].number = 1; gun[63].effect0 = 3;
+            gun[64].number = 1; gun[64].effect0 = 6;
+            gun[65].number = 2; gun[65].effect0 = 9; gun[65].effect1 = 3;
+            gun[66].number = 2; gun[66].effect0 = 9; gun[66].effect1 = 3;//
+            gun[67].number = 1; gun[67].effect0 = 6; 
+            gun[68].number = 1; gun[68].effect0 = 6;
+            gun[69].number = 2; gun[69].effect0 = 9; gun[69].effect1 = 3;
+            gun[70].number = 2; gun[70].effect0 = 9; gun[70].effect1 = 6;
+            gun[71].number = 1; gun[71].effect0 = 3; 
+            gun[72].number = 1; gun[72].effect0 = 6;
+            gun[73].number = 2; gun[73].effect0 = 9; gun[73].effect1 = 3;
+            gun[74].number = 2; gun[74].effect0 = 9; gun[74].effect1 = 3;
+            gun[75].number = 2; gun[75].effect0 = 9; gun[75].effect1 = 6;
+            gun[76].number = 1; gun[76].effect0 = 9; 
+            gun[77].number = 1; gun[77].effect0 = 3;
+            gun[78].number = 2; gun[78].effect0 = 9; gun[78].effect1 = 3;
+            gun[79].number = 2; gun[79].effect0 = 9; gun[79].effect1 = 3;//
+            gun[80].number = 5; gun[80].effect0 = 8; gun[80].effect1 = 2; gun[80].effect2 = 9; gun[80].effect3 = 6; gun[80].effect4 = 3;
+            gun[81].number = 5; gun[81].effect0 = 7; gun[81].effect1 = 4; gun[81].effect2 = 1; gun[81].effect3 = 8; gun[81].effect4 = 2;
+            gun[82].number = 1; gun[82].effect0 = 4;
+            gun[83].number = 3; gun[83].effect0 = 7; gun[83].effect1 = 4; gun[83].effect2 = 1;
+            gun[84].number = 1; gun[84].effect0 = 4;
+            gun[85].number = 1; gun[85].effect0 = 6;
+            gun[86].number = 5; gun[86].effect0 = 7; gun[86].effect1 = 1; gun[86].effect2 = 8; gun[86].effect3 = 2; gun[86].effect4 = 6;
+            gun[87].number = 4; gun[87].effect0 = 7; gun[87].effect1 = 1; gun[87].effect2 = 9; gun[87].effect3 = 3;
+            gun[88].number = 4; gun[88].effect0 = 7; gun[88].effect1 = 1; gun[88].effect2 = 8; gun[88].effect3 = 2;
+            gun[89].number = 4; gun[89].effect0 = 7; gun[89].effect1 = 4; gun[89].effect2 = 1; gun[89].effect3 = 6;
+            gun[90].number = 6; gun[90].effect0 = 7; gun[90].effect1 = 1; gun[90].effect2 = 8; gun[90].effect3 = 2; gun[90].effect4 = 9; gun[90].effect5 = 3;
+            gun[91].number = 3; gun[91].effect0 = 7; gun[91].effect1 = 4; gun[91].effect2 = 1;
+            gun[92].number = 3; gun[92].effect0 = 7; gun[92].effect1 = 4; gun[92].effect2 = 1;
+            gun[93].number = 3; gun[93].effect0 = 7; gun[93].effect1 = 4; gun[93].effect2 = 1;
+            gun[94].number = 2; gun[94].effect0 = 6; gun[94].effect1 = 3;
+            gun[95].number = 3; gun[95].effect0 = 9; gun[95].effect1 = 6; gun[95].effect2 = 3;
+            gun[96].number = 1; gun[96].effect0 = 6;
+            gun[97].number = 2; gun[97].effect0 = 9; gun[97].effect1 = 3;//
+            gun[98].number = 2; gun[98].effect0 = 9; gun[98].effect1 = 3;
+            gun[99].number = 2; gun[99].effect0 = 9; gun[99].effect1 = 3;
+            gun[100].number = 1; gun[100].effect0 = 9; 
+            gun[101].number = 3; gun[101].effect0 = 9; gun[101].effect1 = 3; gun[101].effect2 = 6;//
+            gun[102].number = 3; gun[102].effect0 = 4; gun[102].effect1 = 8; gun[102].effect2 = 2;
+            gun[103].number = 5; gun[103].effect0 = 7; gun[103].effect1 = 4; gun[103].effect2 = 1; gun[103].effect3 = 8; gun[103].effect4 = 2;
+            gun[104].number = 2; gun[104].effect0 = 7; gun[104].effect1 = 1;
+            gun[105].number = 2; gun[105].effect0 = 7; gun[105].effect1 = 4;
+            gun[106].number = 2; gun[106].effect0 = 8; gun[106].effect1 = 2;
+            gun[107].number = 2; gun[107].effect0 = 9; gun[107].effect1 = 3;
+            gun[108].number = 3; gun[108].effect0 = 9; gun[108].effect1 = 6; gun[108].effect2 = 3;
+            gun[109].number = 1; gun[109].effect0 = 9;//
+            gun[110].number = 2; gun[110].effect0 = 9; gun[110].effect1 = 3;//
+            gun[111].number = 1; gun[111].effect0 = 6;
+            gun[112].number = 3; gun[112].effect0 = 8; gun[112].effect1 = 2; gun[112].effect2 = 6;
+            gun[113].number = 1; gun[113].effect0 = 3;//
+            gun[114].number = 2; gun[114].effect0 = 9; gun[114].effect1 = 3;//
+            gun[115].number = 6; gun[115].effect0 = 4; gun[115].effect1 = 8; gun[115].effect2 = 2; gun[115].effect3 = 9; gun[115].effect4 = 6; gun[115].effect5 = 3;
+            gun[116].number = 2; gun[116].effect0 = 7; gun[116].effect1 = 1;
+            gun[117].number = 1; gun[117].effect0 = 6;
+            gun[118].number = 1; gun[118].effect0 = 9;
+            gun[119].number = 1; gun[119].effect0 = 3;
+            gun[120].number = 1; gun[120].effect0 = 4;
+            gun[121].number = 5; gun[121].effect0 = 8; gun[121].effect1 = 2; gun[121].effect2 = 9; gun[121].effect3 = 6; gun[121].effect4 = 3;
+            gun[122].number = 1; gun[122].effect0 = 6;
+            gun[123].number = 1; gun[123].effect0 = 3;
+            gun[124].number = 3; gun[124].effect0 = 7; gun[124].effect1 = 4; gun[124].effect2 = 1;
+            gun[125].number = 1; gun[125].effect0 = 4;
+            gun[126].number = 1; gun[126].effect0 = 6;
+            gun[127].number = 4; gun[127].effect0 = 4; gun[127].effect1 = 8; gun[127].effect2 = 2; gun[127].effect3 = 6;
+            gun[128].number = 4; gun[128].effect0 = 4; gun[128].effect1 = 9; gun[128].effect2 = 6; gun[128].effect3 = 3;
+            gun[129].number = 3; gun[129].effect0 = 7; gun[129].effect1 = 1; gun[129].effect2 = 6;
+            gun[130].number = 5; gun[130].effect0 = 7; gun[130].effect1 = 4; gun[130].effect2 = 1; gun[130].effect3 = 8; gun[130].effect4 = 2;
+            gun[131].number = 1; gun[131].effect0 = 4;
+            gun[132].number = 2; gun[132].effect0 = 1; gun[132].effect1 = 7;
+            gun[133].number = 2; gun[133].effect0 = 1; gun[133].effect1 = 7;
+            gun[134].number = 2; gun[134].effect0 = 1; gun[134].effect1 = 7;
+            gun[135].number = 2; gun[135].effect0 = 1; gun[135].effect1 = 7;
+            gun[136].number = 1; gun[136].effect0 = 7;
+            gun[137].number = 1; gun[137].effect0 = 1;
+            gun[138].number = 3; gun[138].effect0 = 1; gun[138].effect1 = 4; gun[138].effect2 = 7;
+
+            gun[0].to = 1;
+            gun[1].to = 1;
+            gun[2].to = 1;
+            gun[3].to = 1;
+            gun[4].to = 1;
+            gun[5].to = 1;
+            gun[6].to = 1;
+            gun[7].to = 1;
+            gun[8].to = 1;
+            gun[9].to = 1;
+            gun[10].to = 1;
+            gun[11].to = 1;
+            gun[12].to = 1;
+            gun[13].to = 1;
+            gun[14].to = 2;
+            gun[15].to = 2;
+            gun[16].to = 2;
+            gun[17].to = 2;
+            gun[18].to = 2;
+            gun[19].to = 2;
+            gun[20].to = 2;
+            gun[21].to = 2;
+            gun[22].to = 2;
+            gun[23].to = 2;
+            gun[24].to = 2;
+            gun[25].to = 2;
+            gun[26].to = 2;
+            gun[27].to = 2;
+            gun[28].to = 2;
+            gun[29].to = 2;
+            gun[30].to = 4;
+            gun[31].to = 4;
+            gun[32].to = 4;
+            gun[33].to = 4;
+            gun[34].to = 4;
+            gun[35].to = 4;
+            gun[36].to = 4;
+            gun[37].to = 4;
+            gun[38].to = 4;
+            gun[39].to = 4;
+            gun[40].to = 4;
+            gun[41].to = 4;
+            gun[42].to = 4;
+            gun[43].to = 4;
+            gun[44].to = 4;
+            gun[45].to = 4;
+            gun[46].to = 4;
+            gun[47].to = 4;
+            gun[48].to = 4;
+            gun[49].to = 3;
+            gun[50].to = 2;
+            gun[51].to = 3;
+            gun[52].to = 3;
+            gun[53].to = 3;
+            gun[54].to = 3;
+            gun[55].to = 3;
+            gun[56].to = 3;
+            gun[57].to = 3;
+            gun[58].to = 3;
+            gun[59].to = 3;
+            gun[60].to = 3;
+            gun[61].to = 3;
+            gun[62].to = 3;
+            gun[63].to = 3;
+            gun[64].to = 3;
+            gun[65].to = 3;
+            gun[66].to = 3;
+            gun[67].to = 7;
+            gun[68].to = 7;
+            gun[69].to = 7;
+            gun[70].to = 7;
+            gun[71].to = 7;
+            gun[72].to = 7;
+            gun[73].to = 7;
+            gun[74].to = 7;
+            gun[75].to = 7;
+            gun[76].to = 7;
+            gun[77].to = 7;
+            gun[78].to = 7;
+            gun[79].to = 7;
+            gun[80].to = 1;
+            gun[81].to = 1;
+            gun[82].to = 2;
+            gun[83].to = 2;
+            gun[84].to = 2;
+            gun[85].to = 4;
+            gun[86].to = 1;
+            gun[87].to = 1;
+            gun[88].to = 1;
+            gun[89].to = 1;
+            gun[90].to = 1;
+            gun[91].to = 2;
+            gun[92].to = 2;
+            gun[93].to = 2;
+            gun[94].to = 3;
+            gun[95].to = 3;
+            gun[96].to = 3;
+            gun[97].to = 3;
+            gun[98].to = 7;
+            gun[99].to = 7;
+            gun[100].to = 7;
+            gun[101].to = 7;
+            gun[102].to = 1;
+            gun[103].to = 1;
+            gun[104].to = 2;
+            gun[105].to = 2;
+            gun[106].to = 4;
+            gun[107].to = 3;
+            gun[108].to = 3;
+            gun[109].to = 3;
+            gun[110].to = 7;
+            gun[111].to = 3;
+            gun[112].to = 1;
+            gun[113].to = 4;
+            gun[114].to = 7;
+            gun[115].to = 1;
+            gun[116].to = 2;
+            gun[117].to = 4;
+            gun[118].to = 3;
+            gun[119].to = 3;
+            gun[120].to = 2;
+            gun[121].to = 1;
+            gun[122].to = 3;
+            gun[123].to = 1;
+            gun[124].to = 2;
+            gun[125].to = 2;
+            gun[126].to = 3;
+            gun[127].to = 1;
+            gun[128].to = 1;
+            gun[129].to = 1;
+            gun[130].to = 2;
+            gun[131].to = 6;
+            gun[132].to = 6;
+            gun[133].to = 6;
+            gun[134].to = 6;
+            gun[135].to = 6;
+            gun[136].to = 6;
+            gun[137].to = 6;
+            gun[138].to = 6;
+
 
             for (int i = 0; i < EQUIP_NUMBER; i++)
                 equip[i] = new Equip();
@@ -8471,9 +9113,9 @@ namespace snqxap
                         if (gg[0].critup != 1)
                             tbt += "暴击率+" + ((gg[0].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[0].rateup != 0)
-                            tbt += "发动率+" + (gg[0].rateup * 100).ToString("0") + "% ";
+                            tbt += "冷却-" + (gg[0].rateup * 100).ToString("0") + "% ";
                         if (gg[0].armorup != 0)
-                            tbt += "护盾+" + ((gg[0].armorup-1) * 100).ToString("0") + "% ";
+                            tbt += "护甲+" + ((gg[0].armorup-1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb0.Text = tbt;
@@ -8540,9 +9182,9 @@ namespace snqxap
                         if (gg[1].critup != 1)
                             tbt += "暴击率+" + ((gg[1].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[1].rateup != 0)
-                            tbt += "发动率+" + (gg[1].rateup * 100).ToString("0") + "% ";
+                            tbt += "冷却-" + (gg[1].rateup * 100).ToString("0") + "% ";
                         if (gg[1].armorup != 0)
-                            tbt += "护盾+" + ((gg[1].armorup - 1) * 100).ToString("0") + "% ";
+                            tbt += "护甲+" + ((gg[1].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb1.Text = tbt;
@@ -8606,9 +9248,9 @@ namespace snqxap
                         if (gg[2].critup != 1)
                             tbt += "暴击率+" + ((gg[2].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[2].rateup != 0)
-                            tbt += "发动率+" + (gg[2].rateup * 100).ToString("0") + "% ";
+                            tbt += "冷却-" + (gg[2].rateup * 100).ToString("0") + "% ";
                         if (gg[2].armorup != 0)
-                            tbt += "护盾+" + ((gg[2].armorup - 1) * 100).ToString("0") + "% ";
+                            tbt += "护甲+" + ((gg[2].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb2.Text = tbt;
@@ -8672,9 +9314,9 @@ namespace snqxap
                         if (gg[3].critup != 1)
                             tbt += "暴击率+" + ((gg[3].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[3].rateup != 0)
-                            tbt += "发动率+" + (gg[3].rateup * 100).ToString("0") + "% ";
+                            tbt += "冷却-" + (gg[3].rateup * 100).ToString("0") + "% ";
                         if (gg[3].armorup != 0)
-                            tbt += "护盾+" + ((gg[3].armorup - 1) * 100).ToString("0") + "% ";
+                            tbt += "护甲+" + ((gg[3].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb3.Text = tbt;
@@ -8738,9 +9380,9 @@ namespace snqxap
                         if (gg[4].critup != 1)
                             tbt += "暴击率+" + ((gg[4].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[4].rateup != 0)
-                            tbt += "发动率+" + (gg[4].rateup * 100).ToString("0") + "% ";
+                            tbt += "冷却-" + (gg[4].rateup * 100).ToString("0") + "% ";
                         if (gg[4].armorup != 0)
-                            tbt += "护盾+" + ((gg[4].armorup - 1) * 100).ToString("0") + "% ";
+                            tbt += "护甲+" + ((gg[4].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb4.Text = tbt;
@@ -8804,9 +9446,9 @@ namespace snqxap
                         if (gg[5].critup != 1)
                             tbt += "暴击率+" + ((gg[5].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[5].rateup != 0)
-                            tbt += "发动率+" + (gg[5].rateup * 100).ToString("0") + "% ";
+                            tbt += "冷却-" + (gg[5].rateup * 100).ToString("0") + "% ";
                         if (gg[5].armorup != 0)
-                            tbt += "护盾+" + ((gg[5].armorup - 1) * 100).ToString("0") + "% ";
+                            tbt += "护甲+" + ((gg[5].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb5.Text = tbt;
@@ -8870,9 +9512,9 @@ namespace snqxap
                         if (gg[6].critup != 1)
                             tbt += "暴击率+" + ((gg[6].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[6].rateup != 0)
-                            tbt += "发动率+" + (gg[6].rateup * 100).ToString("0") + "% ";
+                            tbt += "冷却-" + (gg[6].rateup * 100).ToString("0") + "% ";
                         if (gg[6].armorup != 0)
-                            tbt += "护盾+" + ((gg[6].armorup - 1) * 100).ToString("0") + "% ";
+                            tbt += "护甲+" + ((gg[6].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb6.Text = tbt;
@@ -8936,9 +9578,9 @@ namespace snqxap
                         if (gg[7].critup != 1)
                             tbt += "暴击率+" + ((gg[7].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[7].rateup != 0)
-                            tbt += "发动率+" + (gg[7].rateup * 100).ToString("0") + "% ";
+                            tbt += "冷却-" + (gg[7].rateup * 100).ToString("0") + "% ";
                         if (gg[7].armorup != 0)
-                            tbt += "护盾+" + ((gg[7].armorup - 1) * 100).ToString("0") + "% ";
+                            tbt += "护甲+" + ((gg[7].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb7.Text = tbt;
@@ -9002,9 +9644,9 @@ namespace snqxap
                         if (gg[8].critup != 1)
                             tbt += "暴击率+" + ((gg[8].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[8].rateup != 0)
-                            tbt += "发动率+" + (gg[8].rateup * 100).ToString("0") + "% ";
+                            tbt += "冷却-" + (gg[8].rateup * 100).ToString("0") + "% ";
                         if (gg[8].armorup != 0)
-                            tbt += "护盾+" + ((gg[8].armorup - 1) * 100).ToString("0") + "% ";
+                            tbt += "护甲+" + ((gg[8].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb8.Text = tbt;
@@ -15073,6 +15715,194 @@ namespace snqxap
         {
             if (index == -1)
                 return;
+            double multiple = 1;
+            if(gun[index].type == 4)
+            {
+                switch (combo)
+                {
+                    case 0:
+                        {
+                            if(Level0.SelectedIndex+1>90)
+                            {
+                                multiple = 2;
+                            }
+                            else if(Level0.SelectedIndex + 1 > 70)
+                            {
+                                multiple = 1.75;
+                            }
+                            else if (Level0.SelectedIndex + 1 > 30)
+                            {
+                                multiple = 1.5;
+                            }
+                            else if (Level0.SelectedIndex + 1 > 10)
+                            {
+                                multiple = 1.25;
+                            }
+                            break;
+                        }
+                    case 1:
+                        {
+                            if (Level1.SelectedIndex + 1 > 90)
+                            {
+                                multiple = 2;
+                            }
+                            else if (Level1.SelectedIndex + 1 > 70)
+                            {
+                                multiple = 1.75;
+                            }
+                            else if (Level1.SelectedIndex + 1 > 30)
+                            {
+                                multiple = 1.5;
+                            }
+                            else if (Level1.SelectedIndex + 1 > 10)
+                            {
+                                multiple = 1.25;
+                            }
+                            break;
+                        }
+                    case 2:
+                        {
+                            if (Level2.SelectedIndex + 1 > 90)
+                            {
+                                multiple = 2;
+                            }
+                            else if (Level2.SelectedIndex + 1 > 70)
+                            {
+                                multiple = 1.75;
+                            }
+                            else if (Level2.SelectedIndex + 1 > 30)
+                            {
+                                multiple = 1.5;
+                            }
+                            else if (Level2.SelectedIndex + 1 > 10)
+                            {
+                                multiple = 1.25;
+                            }
+                            break;
+                        }
+                    case 3:
+                        {
+                            if (Level3.SelectedIndex + 1 > 90)
+                            {
+                                multiple = 2;
+                            }
+                            else if (Level3.SelectedIndex + 1 > 70)
+                            {
+                                multiple = 1.75;
+                            }
+                            else if (Level3.SelectedIndex + 1 > 30)
+                            {
+                                multiple = 1.5;
+                            }
+                            else if (Level3.SelectedIndex + 1 > 10)
+                            {
+                                multiple = 1.25;
+                            }
+                            break;
+                        }
+                    case 4:
+                        {
+                            if (Level4.SelectedIndex + 1 > 90)
+                            {
+                                multiple = 2;
+                            }
+                            else if (Level4.SelectedIndex + 1 > 70)
+                            {
+                                multiple = 1.75;
+                            }
+                            else if (Level4.SelectedIndex + 1 > 30)
+                            {
+                                multiple = 1.5;
+                            }
+                            else if (Level4.SelectedIndex + 1 > 10)
+                            {
+                                multiple = 1.25;
+                            }
+                            break;
+                        }
+                    case 5:
+                        {
+                            if (Level5.SelectedIndex + 1 > 90)
+                            {
+                                multiple = 2;
+                            }
+                            else if (Level5.SelectedIndex + 1 > 70)
+                            {
+                                multiple = 1.75;
+                            }
+                            else if (Level5.SelectedIndex + 1 > 30)
+                            {
+                                multiple = 1.5;
+                            }
+                            else if (Level5.SelectedIndex + 1 > 10)
+                            {
+                                multiple = 1.25;
+                            }
+                            break;
+                        }
+                    case 6:
+                        {
+                            if (Level6.SelectedIndex + 1 > 90)
+                            {
+                                multiple = 2;
+                            }
+                            else if (Level6.SelectedIndex + 1 > 70)
+                            {
+                                multiple = 1.75;
+                            }
+                            else if (Level6.SelectedIndex + 1 > 30)
+                            {
+                                multiple = 1.5;
+                            }
+                            else if (Level6.SelectedIndex + 1 > 10)
+                            {
+                                multiple = 1.25;
+                            }
+                            break;
+                        }
+                    case 7:
+                        {
+                            if (Level7.SelectedIndex + 1 > 90)
+                            {
+                                multiple = 2;
+                            }
+                            else if (Level7.SelectedIndex + 1 > 70)
+                            {
+                                multiple = 1.75;
+                            }
+                            else if (Level7.SelectedIndex + 1 > 30)
+                            {
+                                multiple = 1.5;
+                            }
+                            else if (Level7.SelectedIndex + 1 > 10)
+                            {
+                                multiple = 1.25;
+                            }
+                            break;
+                        }
+                    case 8:
+                        {
+                            if (Level8.SelectedIndex + 1 > 90)
+                            {
+                                multiple = 2;
+                            }
+                            else if (Level8.SelectedIndex + 1 > 70)
+                            {
+                                multiple = 1.75;
+                            }
+                            else if (Level8.SelectedIndex + 1 > 30)
+                            {
+                                multiple = 1.5;
+                            }
+                            else if (Level8.SelectedIndex + 1 > 10)
+                            {
+                                multiple = 1.25;
+                            }
+                            break;
+                        }
+                }
+                gun[index].damageup *= multiple; gun[index].shotspeedup *= multiple; gun[index].hitup *= multiple; gun[index].dodgeup *= multiple;
+            }
             string tbt = "";
             switch (gun[index].to)
             {
@@ -15119,7 +15949,9 @@ namespace snqxap
             if (gun[index].critup != 0)
                 tbt += "暴击率+" + ((gun[index].critup) * 100).ToString("0") + "% ";
             if (gun[index].rateup != 0)
-                tbt += "发动率+" + (gun[index].rateup * 100).ToString("0") + "% ";
+                tbt += "冷却-" + (gun[index].rateup * 100).ToString("0") + "% ";
+            if (gun[index].armorup != 0)
+                tbt += "护甲+" + (gun[index].armorup * 100).ToString("0") + "% ";
             if (tbt == "")
                 tbt = "无";
             Brush br = new SolidColorBrush(Color.FromRgb(0,255,222));

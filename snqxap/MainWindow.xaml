@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="「干死雪球」阵型计算器 - h@jyying.cn - v1.3.7 44e其实是一张练级地图版" Height="885" Width="960">
 
- <!--   <Viewbox Stretch="Fill">-->
+    <Viewbox Stretch="Fill">
         <Grid  Height="855" Width="950">
             <Grid HorizontalAlignment="Left" Height="735" Margin="0,0,0,0" VerticalAlignment="Top" Width="735">
                 <Grid.Background>
@@ -847,5 +847,5 @@
                 </Grid>
             </Grid>
         </Grid>
-  <!--  </Viewbox>-->
+    </Viewbox>
 </Window>

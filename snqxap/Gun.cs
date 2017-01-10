@@ -60,12 +60,14 @@ namespace snqxap
         public double dodgeup { get; set; }
         public double critup { get; set; }
         public double rateup { get; set; }
+        public double armorup { get; set; }
         public int to { get; set; } // all 1 ar 2 smg 3 4 hg 6 mg 7 sg no 0 
         public string name { get; set; } //名字
         public double crit { get; set; }//暴击率
         public string equiptype1 { get; set; }//一栏装备类型
         public string equiptype2 { get; set; }//二栏装备类型
         public string equiptype3 { get; set; }//三栏装备类型
+        public int grid_center { get; set; }//光环中心
         /// <summary
         /// 2 ar 3 smg 4 hg 5 rf 6 mg 7 sg   
         /// </summary>
@@ -78,7 +80,7 @@ namespace snqxap
         public double eatratio { get; set; }
         public double ratiorate { get; set; } //射速
         public double ratiododge { get; set; }//闪避
-        public double ratioarmor { get; set; }//护盾
+        public double ratioarmor { get; set; }//护甲
 
         public int skillpool { get; set; }
 
