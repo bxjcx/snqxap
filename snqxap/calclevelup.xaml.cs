@@ -29,7 +29,7 @@ namespace snqxap
     public partial class calclevelup : Window
     {
         public const int MAX_LEVEL = 100; 
-        public const int MAP_NUMBER = 80; 
+        public const int MAP_NUMBER = 90; 
         int[] leveldata = new int[MAX_LEVEL-1];
         map[] allmap = new map[MAP_NUMBER];
 
@@ -223,6 +223,16 @@ namespace snqxap
             allmap[77].name = "62e"; allmap[77].exp = 450; allmap[77].downlevel = 97;
             allmap[78].name = "63e"; allmap[78].exp = 460; allmap[78].downlevel = 99;
             allmap[79].name = "64e"; allmap[79].exp = 470; allmap[79].downlevel = 100;
+            allmap[80].name = "71"; allmap[80].exp = 450; allmap[80].downlevel = 95;
+            allmap[81].name = "72"; allmap[81].exp = 450; allmap[81].downlevel = 96;
+            allmap[82].name = "73"; allmap[82].exp = 460; allmap[82].downlevel = 97;
+            allmap[83].name = "74"; allmap[83].exp = 460; allmap[83].downlevel = 98;
+            allmap[84].name = "75"; allmap[84].exp = 470; allmap[84].downlevel = 99;
+            allmap[85].name = "76"; allmap[85].exp = 470; allmap[85].downlevel = 100;
+            allmap[86].name = "71e"; allmap[86].exp = 470; allmap[86].downlevel = 99;
+            allmap[87].name = "72e"; allmap[87].exp = 470; allmap[87].downlevel = 100;
+            allmap[88].name = "73e"; allmap[88].exp = 480; allmap[88].downlevel = 100;
+            allmap[89].name = "74e"; allmap[89].exp = 480; allmap[89].downlevel = 100;
 
             for (int i = 0; i < MAP_NUMBER; i++)
             {

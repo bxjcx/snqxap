@@ -366,6 +366,26 @@
     <Resource Include="assets\阿斯特拉左轮.png" />
     <Resource Include="assets\马卡洛夫.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\6P62.png" />
+    <Resource Include="assets\97式霰.png" />
+    <Resource Include="assets\Bren Ten.png" />
+    <Resource Include="assets\KS-23.png" />
+    <Resource Include="assets\KSG.png" />
+    <Resource Include="assets\M1887.png" />
+    <Resource Include="assets\M37.png" />
+    <Resource Include="assets\M500.png" />
+    <Resource Include="assets\M590.png" />
+    <Resource Include="assets\RMB-93.png" />
+    <Resource Include="assets\RO635.png" />
+    <Resource Include="assets\USP Compact.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Five-seveN.png" />
+    <Resource Include="assets\G28.png" />
+    <Resource Include="assets\OTs-44.png" />
+    <Resource Include="assets\PSM.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

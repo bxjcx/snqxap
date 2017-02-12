@@ -19,7 +19,7 @@ namespace snqxap
         public int dodge { get; set; }*/
         public int rank { get; set; }
    //     public int belt { get; set; }
-        public int forwhat {get;set;}
+        public string forwhat {get;set;}
         /// <summary>
         /// 1光瞄/2全息/3acog/4夜视/5穿甲/6空尖/7猎鹿or独头/8高速/9芯片/10外骨/11插板/12勋章/13消音器/14弹药箱
         /// </summary>
@@ -73,7 +73,7 @@ namespace snqxap
         /// </summary>
         public int what { get; set; }   
         public int belt { get; set; }//弹链
-
+        public double cd { get; set; }//冷却
         public double ratiohp { get; set; }//hp
         public double ratiopow { get; set; }//伤害
         public double ratiohit { get; set; } //命中
@@ -82,18 +82,18 @@ namespace snqxap
         public double ratiododge { get; set; }//闪避
         public double ratioarmor { get; set; }//护甲
 
-        public int skillpool { get; set; }
+        //public int skillpool { get; set; }
 
 
-        public int probability {get;set;}
-        public double skilleffect1 { get; set; }
-        public double skilleffect2 { get; set; }
-        public double skilleffect3 { get; set; }
-        public double skilleffect4 { get; set; }
-        public double growth { get; set; }
-        public int growth_type { get;set;}
+        //public int probability {get;set;}
+        //public double skilleffect1 { get; set; }
+        //public double skilleffect2 { get; set; }
+        //public double skilleffect3 { get; set; }
+        //public double skilleffect4 { get; set; }
+        //public double growth { get; set; }
+        //public int growth_type { get;set;}
         public int type { get; set; } 
-        public Equip equip { get; set; }
+        //public Equip equip { get; set; }
 
     }
 
@@ -113,7 +113,8 @@ namespace snqxap
             this.dodgeup = 1.00;
             this.hitup = 1.00;
             this.shotspeedup = 1.00;
-            this.rateup = 0.00;
+            this.rateup = 1.00;
+            this.armorup = 1.00;
         }
     }
 
