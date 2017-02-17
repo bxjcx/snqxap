@@ -1,7 +1,7 @@
 ﻿<Window x:Class="snqxap.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="「干死雪球」阵型计算器 - h@jyying.cn - v2.0.3 长征版" Height="885" Width="960">
+        Title="「干死雪球」阵型计算器 - h@jyying.cn - v2.0.4 斗法版" Height="885" Width="960">
 
     <Viewbox Stretch="Fill">
         <Grid  Height="855" Width="950">
@@ -21,17 +21,17 @@
                         </Image.ToolTip>
                     </Image>
                     <Label Name="Merry0" Content="♡" FontSize="16" Margin="90,212,98,0" MouseUp="Merry0_MouseUp"/>
-                    <ComboBox   BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="147" Height="30" SelectionChanged="Combo0_SelectionChanged">
+                    <ComboBox   BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Height="30" SelectionChanged="Combo0_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="#FF454443" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="147,0,0,0" SelectedIndex="0" SelectionChanged="Level0_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="145,0,0,0" SelectedIndex="0" SelectionChanged="Level0_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="45" Height="30" Margin="200,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel0_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="195,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel0_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
@@ -93,17 +93,17 @@
                         </Image.ToolTip>
                     </Image>
                     <Label Name="Merry1" Content="♡" FontSize="16" Margin="90,212,98,0" MouseUp="Merry1_MouseUp"/>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="147" Height="30" SelectionChanged="Combo1_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Height="30" SelectionChanged="Combo1_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="147,0,0,0" SelectedIndex="0" SelectionChanged="Level1_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="145,0,0,0" SelectedIndex="0" SelectionChanged="Level1_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="45" Height="30" Margin="200,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel1_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="195,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel1_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
@@ -165,17 +165,17 @@
                         </Image.ToolTip>
                     </Image>
                     <Label Name="Merry2" Content="♡" FontSize="16" Margin="90,212,98,0" MouseUp="Merry2_MouseUp"/>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Combo2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="147" Height="30" SelectionChanged="Combo2_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Combo2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Height="30" SelectionChanged="Combo2_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="147,0,0,0" SelectedIndex="0" SelectionChanged="Level2_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="145,0,0,0" SelectedIndex="0" SelectionChanged="Level2_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="45" Height="30" Margin="200,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel2_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="195,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel2_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
@@ -237,17 +237,17 @@
                         </Image.ToolTip>
                     </Image>
                     <Label Name="Merry3" Content="♡" FontSize="16" Margin="90,210,98,0" MouseUp="Merry3_MouseUp"/>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="147" Height="30" SelectionChanged="Combo3_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Height="30" SelectionChanged="Combo3_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="147,0,0,0" SelectedIndex="0" SelectionChanged="Level3_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="145,0,0,0" SelectedIndex="0" SelectionChanged="Level3_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="45" Height="30" Margin="200,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel3_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="195,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel3_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
@@ -309,17 +309,17 @@
                         </Image.ToolTip>
                     </Image>
                     <Label Name="Merry4" Content="♡" FontSize="16" Margin="90,210,98,0" MouseUp="Merry4_MouseUp"/>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="147" Height="30" SelectionChanged="Combo4_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Height="30" SelectionChanged="Combo4_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="147,0,0,0" SelectedIndex="0" SelectionChanged="Level4_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="145,0,0,0" SelectedIndex="0" SelectionChanged="Level4_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="45" Height="30" Margin="200,0,0,0" SelectedIndex="0"  SelectionChanged="SkillLevel4_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="195,0,0,0" SelectedIndex="0"  SelectionChanged="SkillLevel4_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
@@ -381,17 +381,17 @@
                         </Image.ToolTip>
                     </Image>
                     <Label Name="Merry5" Content="♡" FontSize="16" Margin="90,210,98,0" MouseUp="Merry5_MouseUp"/>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="147" Height="30" SelectionChanged="Combo5_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Height="30" SelectionChanged="Combo5_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="147,0,0,0" SelectedIndex="0" SelectionChanged="Level5_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="145,0,0,0" SelectedIndex="0" SelectionChanged="Level5_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="45" Height="30" Margin="200,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel5_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="195,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel5_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
@@ -453,17 +453,17 @@
                         </Image.ToolTip>
                     </Image>
                     <Label Name="Merry6" Content="♡" FontSize="16" Margin="90,208,98,0" MouseUp="Merry6_MouseUp"/>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="147" Height="30" SelectionChanged="Combo6_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Height="30" SelectionChanged="Combo6_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="147,0,0,0" SelectedIndex="0" SelectionChanged="Level6_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="145,0,0,0" SelectedIndex="0" SelectionChanged="Level6_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="45" Height="30" Margin="200,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel6_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="195,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel6_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
@@ -525,17 +525,17 @@
                         </Image.ToolTip>
                     </Image>
                     <Label Name="Merry7" Content="♡" FontSize="16" Margin="90,208,98,0" MouseUp="Merry7_MouseUp"/>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="147" Height="30" SelectionChanged="Combo7_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Height="30" SelectionChanged="Combo7_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="147,0,0,0" SelectedIndex="0" SelectionChanged="Level7_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="145,0,0,0" SelectedIndex="0" SelectionChanged="Level7_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="45" Height="30" Margin="200,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel7_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="195,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel7_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
@@ -597,17 +597,17 @@
                         </Image.ToolTip>
                     </Image>
                     <Label Name="Merry8" Content="♡" FontSize="16" Margin="90,208,98,0" MouseUp="Merry8_MouseUp"/>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="147" Height="30" SelectionChanged="Combo8_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Height="30" SelectionChanged="Combo8_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="30" Margin="147,0,0,0" SelectedIndex="0" SelectionChanged="Level8_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Level8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="145,0,0,0" SelectedIndex="0" SelectionChanged="Level8_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="45" Height="30" Margin="200,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel8_SelectionChanged">
+                    <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="SkillLevel8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="195,0,0,0" SelectedIndex="0" SelectionChanged="SkillLevel8_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
                         </ComboBox.Background>
@@ -685,18 +685,18 @@
                 <Grid.Background>
                     <ImageBrush ImageSource="/assets/yushe3.png"/>
                 </Grid.Background>
-                <Slider PreviewMouseUp="slider_PreviewMouseUp" Minimum="0" TickFrequency="1" Maximum="23" x:Name="slider" IsSnapToTickEnabled="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="281" Height="21" Margin="10,93,0,0" Opacity="0.8"/>
-                <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ElementName=slider, Path=Value}" FontSize="15" VerticalAlignment="Top" Margin="296,93,0,0"/>
+                <Slider  Minimum="0" TickFrequency="1" Maximum="30" x:Name="slider" IsSnapToTickEnabled="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="281" Height="21" Margin="10,93,0,0" Opacity="0.8"/>
+                <TextBox  TextChanged="textBlock_TextChanged"  x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ElementName=slider, Path=Value}" FontSize="15" VerticalAlignment="Top" Margin="296,93,0,0" Opacity="0.5" BorderThickness="0" IsEnabled="False" Width="24"/>
                 <Label  FontSize="15" Content="秒 ←时间点" Margin="320,88,195,2"/>
                 <Button Content="About" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Click="About_Click" Margin="480,30,0,0" Opacity="0.6"/>
                 <Button Content="Log" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Click="UpdateData_Click" Margin="480,3,0,0" Opacity="0.6"/>
                 <Button x:Name="button" Content="敌方数据" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="button_Click" Margin="480,57,0,0" Opacity="0.6"/>
                 <!--      <Button IsEnabled="False" Content="凑数用按钮" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="480,84,0,0" Opacity="0.6"/>  -->
                 <Label Content="对回避" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="113,0,0,0"/>
-                <Label Content="敌人伤害指数：" FontSize="15" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="108" Margin="280,0,0,0"/>
+                <Label Content="铁血伤害指数：" FontSize="15" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="108" Margin="280,0,0,0"/>
                 <Label Content="对命中" FontSize="15" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="113,24,0,0" Width="55"/>
                 <Label Content="　伤害" FontSize="15" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="113,48,0,0" Width="55"/>
-                <Label Content="敌人主坦肉度：" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="280,24,0,0"/>
+                <Label Content="铁血主坦肉度：" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="280,24,0,0"/>
                 <Label Content="一战消耗资源：" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114" Margin="75,72,0,0"/>
                 <Label Content="副坦肉度：" FontSize="15" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="310,48,0,0"/>
                 <TextBox TextChanged="TextBox2_TextChanged" Name="enemyhit" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="173,28,0,0" Opacity="0.5"/>
@@ -713,7 +713,7 @@
                 <Grid Width="100" Height="100" Margin="560,4,0,6" >
                     <Image Visibility="Hidden" Name="bignews"  Source="zhaijiang.jpg" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
                     <TextBlock Name="UpdateTb"  HorizontalAlignment="Right"  Margin="-80,87,10,-3" Width="170" ToolTip="更新信息">
-                       <Hyperlink IsEnabled="False" Name="hyperLink" NavigateUri="http://tieba.baidu.com/p/4660523760" Click="Hyperlink_Click">可更新新版本</Hyperlink>
+                       <Hyperlink IsEnabled="False" Name="hyperLink" NavigateUri="http://pan.baidu.com/s/1qYDAwHm" Click="Hyperlink_Click">可更新新版本</Hyperlink>
                     </TextBlock>
                 </Grid>
 
@@ -874,9 +874,9 @@
                 </Grid>
                 <Grid Margin="0,735,0,0">
                     <CheckBox Name="cbIsnight" Content="夜战" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="cbIsnight_Click"/>
-                    <Label Content="敌人护甲值：" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="0,25,0,0"/>
+                    <Label Content="铁血护甲值：" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="0,25,0,0"/>
                     <TextBox TextChanged="enemyarmor_TextChanged" Name="enemyarmor" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40"  Margin="108,30,0,0" Opacity="0.5"/>
-                <Label Content="敌人穿甲值：" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="0,55,0,0"/>
+                <Label Content="铁血穿甲值：" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="0,55,0,0"/>
                 <TextBox TextChanged="enemybreakarmor_TextChanged" Name="enemybreakarmor" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40"  Margin="108,60,0,0" Opacity="0.5"/>
                 <Button x:Name="xhbutton" Content="夏活相关" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="xhbutton_Click" Margin="85,88,0,0" Opacity="0.6"/>
                     <Button x:Name="calclevelupbutton" Content="其他计算器" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="calclevelup_Click" Margin="5,88,0,0" Opacity="0.6"/>

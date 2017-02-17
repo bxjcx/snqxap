@@ -74,6 +74,7 @@ namespace snqxap
         public int what { get; set; }   
         public int belt { get; set; }//弹链
         public double cd { get; set; }//冷却
+        public string startcd { get; set; }//初始cd
         public double ratiohp { get; set; }//hp
         public double ratiopow { get; set; }//伤害
         public double ratiohit { get; set; } //命中

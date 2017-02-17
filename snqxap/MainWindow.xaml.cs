@@ -17,14 +17,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-//待编写的部分：       
-//               先不管非夜战能放非夜战技能
+//可能编写的部分：       
 //               暴击穿甲不暴击不穿甲的平均伤害导致效能偏低
-//              独头弹算法未写
-//              技能
-//              7图经验等
 //              冬活、dboss数据和功能介绍
-//              霰弹index
 //              PSM png
 namespace snqxap
 {
@@ -225,15 +220,6 @@ namespace snqxap
             cb7.IsChecked = false;
             cb8.IsChecked = false;
 
-            /*Lskillrate0.Content = "0%";
-            Lskillrate1.Content = "0%";
-            Lskillrate2.Content = "0%";
-            Lskillrate3.Content = "0%";
-            Lskillrate4.Content = "0%";
-            Lskillrate5.Content = "0%";
-            Lskillrate6.Content = "0%";
-            Lskillrate7.Content = "0%";
-            Lskillrate8.Content = "0%";*/
             Lbreakarmor0.Content = equipbreakarmor[0];
             Lbreakarmor1.Content = equipbreakarmor[1];
             Lbreakarmor2.Content = equipbreakarmor[2];
@@ -244,7 +230,6 @@ namespace snqxap
             Lbreakarmor7.Content = equipbreakarmor[7];
             Lbreakarmor8.Content = equipbreakarmor[8];
         }
-
 
         /// <summary>
         /// 获取更新urll内容
@@ -2688,7 +2673,7 @@ namespace snqxap
             gun[134].number = 2; gun[134].effect0 = 1; gun[134].effect1 = 7;
             gun[135].number = 2; gun[135].effect0 = 1; gun[135].effect1 = 7;
             gun[136].number = 1; gun[136].effect0 = 1;
-            gun[137].number = 1; gun[137].effect0 = 1;
+            gun[137].number = 1; gun[137].effect0 = 7;
             gun[138].number = 3; gun[138].effect0 = 1; gun[138].effect1 = 4; gun[138].effect2 = 7;
 
             gun[0].to = 1;
@@ -2880,8 +2865,8 @@ namespace snqxap
             equip[40].name = "AC2消音器"; equip[40].bonus1 = 0.3; equip[40].bonus2 = 0.4; equip[40].property1 = "暴击率"; equip[40].down1 = 6; equip[40].up1 = Math.Floor( 8* (1 + equip[40].bonus1)); equip[40].property2 = "回避"; equip[40].down2 = 3; equip[40].up2 = Math.Floor( 3* (1 + equip[40].bonus2)); equip[40].type = 13; equip[40].rank = 3;
             equip[41].name = "AC3消音器"; equip[41].bonus1 = 0.3; equip[41].bonus2 = 0.4; equip[41].property1 = "暴击率"; equip[41].down1 = 9; equip[41].up1 =  Math.Floor(11* (1 + equip[41].bonus1)); equip[41].property2 = "回避"; equip[41].down2 = 4; equip[41].up2 = Math.Floor( 5* (1 + equip[41].bonus2)); equip[41].type = 13; equip[41].rank = 4;
             equip[42].name = "AC4消音器"; equip[42].bonus1 = 0.3; equip[42].bonus2 = 0.3; equip[42].property1 = "暴击率"; equip[42].down1 = 12; equip[42].up1 = Math.Floor(15 * (1 + equip[42].bonus1)); equip[42].property2 = "回避"; equip[42].down2 = 6; equip[42].up2 = Math.Floor(8 * (1 + equip[42].bonus2)); equip[42].type = 13; equip[42].rank = 5;
-            equip[43].name = "IOP大容量弹药箱"; equip[43].bonus1 = 2; equip[43].property1 = "弹链"; equip[43].down1 = 1; equip[43].up1 =Math.Floor( 1* (1 + equip[43].bonus1)); equip[43].property2 = "穿甲"; equip[43].down2 = -1; equip[43].up2 = -1; equip[43].type = 14; equip[43].rank = 4;
-            equip[44].name = "IOP极限弹药箱"; equip[44].bonus1 = 0.7; equip[44].property1 = "弹链"; equip[44].down1 = 2; equip[44].up1 = Math.Floor(3 * (1 + equip[44].bonus1)); equip[44].property2 = "穿甲"; equip[44].down2 = -3; equip[44].up2 = -2; equip[44].type = 14; equip[44].rank = 5; 
+            equip[43].name = "IOP大容量弹链箱"; equip[43].bonus1 = 2; equip[43].property1 = "弹链"; equip[43].down1 = 1; equip[43].up1 =Math.Floor( 1* (1 + equip[43].bonus1)); equip[43].property2 = "穿甲"; equip[43].down2 = -1; equip[43].up2 = -1; equip[43].type = 14; equip[43].rank = 4;
+            equip[44].name = "IOP极限弹链箱"; equip[44].bonus1 = 0.7; equip[44].property1 = "弹链"; equip[44].down1 = 2; equip[44].up1 = Math.Floor(3 * (1 + equip[44].bonus1)); equip[44].property2 = "穿甲"; equip[44].down2 = -3; equip[44].up2 = -2; equip[44].type = 14; equip[44].rank = 5; 
             equip[45].name = "ILM二星空尖弹"; equip[45].property1 = "伤害"; equip[45].down1 = 1; equip[45].up1 = 1; equip[45].property2 = "穿甲"; equip[45].down2 = -1; equip[45].up2 = -1; equip[45].type = 6; equip[45].rank = 2;
             equip[46].name = "ILM三星空尖弹"; equip[46].bonus1 = 0.7; equip[46].property1 = "伤害"; equip[46].down1 = 2; equip[46].up1 =Math.Floor(  3* (1 + equip[46].bonus1)); equip[46].property2 = "穿甲"; equip[46].down2 = -3; equip[46].up2 = -2; equip[46].type = 6; equip[46].rank = 3;
             equip[47].name = "ILM四星空尖弹"; equip[47].bonus1 = 0.5; equip[47].property1 = "伤害"; equip[47].down1 = 4; equip[47].up1 = Math.Floor( 6* (1 + equip[47].bonus1)); equip[47].property2 = "穿甲"; equip[47].down2 = -6; equip[47].up2 = -4; equip[47].type = 6; equip[47].rank = 4;
@@ -3459,14 +3444,17 @@ namespace snqxap
         public double Index(double shotspeed,double damage,double crit,double enemydodge,double hit,double belt,int combo,double damageagain)
        {
            double frame = Math.Ceiling(50 / shotspeed * 30);
+            double slidertime = slider.Value;
+            if (slidertime == 0)
+                slidertime = 1;
             if (hit == 0)
                 return 0;
             else if (belt == 0)
                 return 30 * damage / frame * (1 - crit + crit * (1.5+equipcritharm[combo])) / (1 + enemydodge / hit) * damageagain;
             else if(belt > 7) 
             {
-                
-                if (slider.Value != 0)
+             
+                if (slidertime != 0)
                 {
                    // if (skillupbelt[combo] != 0)
                    // {
@@ -3476,7 +3464,7 @@ namespace snqxap
                    //     double roletime0 = (double)(belt - skillupbelt[combo]) / 3 + 4 + 200 / shotspeed;
                     
                    ////     skilltime[combo]
-                   //            double role = Math.Ceiling(slider.Value / roletime0);
+                   //            double role = Math.Ceiling(slidertime / roletime0);
                    //            double skillrole = Math.Ceiling(skilltime[combo]/roletime0);
 
                    // }
@@ -3485,54 +3473,69 @@ namespace snqxap
 
                     if (skillupnegev[combo] != 0)
                     {
-                        double role = Math.Ceiling(slider.Value / roletime);
-                        if (slider.Value % roletime > shottime)
+                        double role = Math.Ceiling(slidertime / roletime);
+                        if (slidertime % roletime > shottime && (slidertime + 1) % roletime > 1)
                             return 0;
-                        else if ((slider.Value + 1) % roletime > shottime)
+                        else if ((slidertime + 1) % roletime > shottime)
                         {
                             if (role > 4)
                             {
-                                return (shottime - (slider.Value % roletime)) * 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) * (1 + 3 * skillupnegev[combo]) ;
-                     
+                                return (shottime - (slidertime % roletime)) * 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) * (1 + 3 * skillupnegev[combo]);
+
                             }
                             else
-                            return (shottime - (slider.Value % roletime)) * 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) * (1 + (role - 1) * skillupnegev[combo]);
+                                return (shottime - (slidertime % roletime)) * 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) * (1 + (role - 1) * skillupnegev[combo]);
+                        }
+                        else if ((slidertime + 1) % roletime < 1)
+                        {
+                            if (role > 4)
+                            {
+                                return (((slidertime +1)% roletime)) * 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) * (1 + 3 * skillupnegev[combo]);
+
+                            }
+                            else
+                                return ( ((slidertime +1)% roletime)) * 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) * (1 + (role - 1) * skillupnegev[combo]);
+
                         }
                         else
                         {
-                            if(role>4)
+                            if (role > 4)
                             {
                                 return 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) * (1 + 3 * skillupnegev[combo]);
                             }
                             else
-                            return 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) * (1 + (role - 1) * skillupnegev[combo]);
+                                return 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) * (1 + (role - 1) * skillupnegev[combo]);
                         }
 
                     }
 
                     else
                     {
-                        if (slider.Value % roletime > shottime)
+                        if (slidertime % roletime > shottime&& (slidertime + 1) % roletime>1)
                             return 0;
-                        else if ((slider.Value + 1) % roletime > shottime)
+                        else if ((slidertime + 1) % roletime > shottime)
                         {
-                            return (shottime - (slider.Value % roletime)) * 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) * skilluprenju[combo] / (1 + enemydodge / hit);
+                            return (shottime - (slidertime % roletime)) * 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) * skilluprenju[combo] / (1 + enemydodge / hit);
+                        }
+                        else if ((slidertime + 1) % roletime < 1)
+                        {
+                            return (((slidertime+1) % roletime)) * 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) * skilluprenju[combo] / (1 + enemydodge / hit);
                         }
                         else
                             return 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) * skilluprenju[combo] / (1 + enemydodge / hit);
                         //double shotdamage = belt * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit);
-                        //if (slider.Value < shottime)
+                        //if (slidertime < shottime)
                         //    return (shotdamage / shottime);
-                        //else if (slider.Value < roletime)
-                        //    return (shotdamage / slider.Value);
-                        //else if (slider.Value < (shottime + roletime))
-                        //    return ((shotdamage + shotdamage / shottime * (slider.Value-roletime)) / slider.Value);
-                        //else if (slider.Value < 2 * roletime)
-                        //    return 2 * shotdamage / slider.Value;
-                        //else if (slider.Value < 2 * roletime + 3 * shottime)
-                        //    return ((2 * shotdamage + shotdamage / shottime * (slider.Value-2*roletime)) / slider.Value);
+                        //else if (slidertime < roletime)
+                        //    return (shotdamage / slidertime);
+                        //else if (slidertime < (shottime + roletime))
+                        //    return ((shotdamage + shotdamage / shottime * (slidertime-roletime)) / slidertime);
+                        //else if (slidertime < 2 * roletime)
+                        //    return 2 * shotdamage / slidertime;
+                        //else if (slidertime < 2 * roletime + 3 * shottime)
+                        //    return ((2 * shotdamage + shotdamage / shottime * (slidertime-2*roletime)) / slidertime);
                         //else
-                        //    return 3 * shotdamage / slider.Value;
+                        //    return 3 * shotdamage / slidertime;
                     }
                 }
                 else
@@ -3541,7 +3544,7 @@ namespace snqxap
             else
             {
 
-                if (slider.Value != 0)
+                if (slidertime != 0)
                 {
                     int index = 0;
                     double shottime = (50/shotspeed + 0.5)*belt;
@@ -3568,18 +3571,18 @@ namespace snqxap
                     if (skilltarget[combo] == 5)
                         target = 5;
                     double shotdamage = belt * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) * target;
-                    if (slider.Value < shottime)
+                    if (slidertime < shottime)
                         return (shotdamage / shottime);
-                    else if (slider.Value < roletime)
-                        return (shotdamage / slider.Value);
-                    else if (slider.Value < (shottime + roletime))
-                        return ((shotdamage + shotdamage / shottime * (slider.Value - roletime)) / slider.Value);
-                    else if (slider.Value < 2 * roletime)
-                        return 2 * shotdamage / slider.Value;
-                    else if (slider.Value < 2 * roletime + 3 * shottime)
-                        return ((2 * shotdamage + shotdamage / shottime * (slider.Value - 2 * roletime)) / slider.Value);
+                    else if (slidertime < roletime)
+                        return (shotdamage / slidertime);
+                    else if (slidertime < (shottime + roletime))
+                        return ((shotdamage + shotdamage / shottime * (slidertime - roletime)) / slidertime);
+                    else if (slidertime < 2 * roletime)
+                        return 2 * shotdamage / slidertime;
+                    else if (slidertime < 2 * roletime + 3 * shottime)
+                        return ((2 * shotdamage + shotdamage / shottime * (slidertime - 2 * roletime)) / slidertime);
                     else
-                        return 3 * shotdamage / slider.Value;
+                        return 3 * shotdamage / slidertime;
                   
                 
                 }
@@ -9427,19 +9430,19 @@ namespace snqxap
                         Image0.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[0].damageup != 1)
-                            tbt += "伤害+" + ((gg[0].damageup - 1) * 100).ToString("0") + "% ";
+                            tbt += "伤害+" + Math.Floor((gg[0].damageup - 1) * 100).ToString("0") + "% ";
                         if (gg[0].shotspeedup != 1)
-                            tbt += "射速+" + ((gg[0].shotspeedup - 1) * 100).ToString("0") + "% ";
+                            tbt += "射速+" + Math.Floor((gg[0].shotspeedup - 1) * 100).ToString("0") + "% ";
                         if (gg[0].hitup != 1)
-                            tbt += "命中+" + ((gg[0].hitup - 1) * 100).ToString("0") + "% ";
+                            tbt += "命中+" + Math.Floor((gg[0].hitup - 1) * 100).ToString("0") + "% ";
                         if (gg[0].dodgeup != 1)
-                            tbt += "回避+" + ((gg[0].dodgeup - 1) * 100).ToString("0") + "% ";
+                            tbt += "回避+" + Math.Floor((gg[0].dodgeup - 1) * 100).ToString("0") + "% ";
                         if (gg[0].critup != 1)
-                            tbt += "暴击率+" + ((gg[0].critup - 1) * 100).ToString("0") + "% ";
+                            tbt += "暴击率+" + Math.Floor((gg[0].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[0].rateup != 1)
-                            tbt += "冷却-" + ((1-gg[0].rateup)* 100).ToString("0") + "% ";
+                            tbt += "冷却-" + Math.Floor((1-gg[0].rateup)* 100).ToString("0") + "% ";
                         if (gg[0].armorup != 1)
-                            tbt += "护甲+" + ((gg[0].armorup-1) * 100).ToString("0") + "% ";
+                            tbt += "护甲+" + Math.Floor((gg[0].armorup-1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb0.Text = tbt;
@@ -9460,6 +9463,8 @@ namespace snqxap
                             Ltime0.Content = 8;
                         else
                             Ltime0.Content = (gun[select].cd * gg[0].rateup).ToString("0.00");
+                        if(!string.IsNullOrEmpty(gun[select].startcd))
+                        Lontime0.Content = (Double.Parse(gun[select].startcd) * gg[0].rateup).ToString("0.00");
                         Lbreakarmor0.Content = equipbreakarmor[0];
                           double crit  = 0;
                           if (isfullcrit[0])
@@ -9511,19 +9516,19 @@ namespace snqxap
                         Image1.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[1].damageup != 1)
-                            tbt += "伤害+" + ((gg[1].damageup - 1) * 100).ToString("0") + "% ";
+                            tbt += "伤害+" + Math.Floor((gg[1].damageup - 1) * 100).ToString("0") + "% ";
                         if (gg[1].shotspeedup != 1)
-                            tbt += "射速+" + ((gg[1].shotspeedup - 1) * 100).ToString("0") + "% ";
+                            tbt += "射速+" + Math.Floor((gg[1].shotspeedup - 1) * 100).ToString("0") + "% ";
                         if (gg[1].hitup != 1)
-                            tbt += "命中+" + ((gg[1].hitup - 1) * 100).ToString("0") + "% ";
+                            tbt += "命中+" + Math.Floor((gg[1].hitup - 1) * 100).ToString("0") + "% ";
                         if (gg[1].dodgeup != 1)
-                            tbt += "回避+" + ((gg[1].dodgeup - 1) * 100).ToString("0") + "% ";
+                            tbt += "回避+" + Math.Floor((gg[1].dodgeup - 1) * 100).ToString("0") + "% ";
                         if (gg[1].critup != 1)
-                            tbt += "暴击率+" + ((gg[1].critup - 1) * 100).ToString("0") + "% ";
+                            tbt += "暴击率+" + Math.Floor((gg[1].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[1].rateup != 1)
-                            tbt += "冷却-" + ((1 - gg[1].rateup ) * 100).ToString("0") + "% ";
+                            tbt += "冷却-" + Math.Floor((1 - gg[1].rateup ) * 100).ToString("0") + "% ";
                         if (gg[1].armorup != 1)
-                            tbt += "护甲+" + ((gg[1].armorup - 1) * 100).ToString("0") + "% ";
+                            tbt += "护甲+" + Math.Floor((gg[1].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb1.Text = tbt;
@@ -9543,6 +9548,8 @@ namespace snqxap
                             Ltime1.Content = 8;
                         else
                             Ltime1.Content = (gun[select].cd * gg[1].rateup).ToString("0.00");
+                        if (!string.IsNullOrEmpty(gun[select].startcd))
+                            Lontime1.Content = (Double.Parse(gun[select].startcd) * gg[1].rateup).ToString("0.00");
                         Lbreakarmor1.Content = equipbreakarmor[1];
                         double crit = 0;
                         if (isfullcrit[1])
@@ -9592,19 +9599,19 @@ namespace snqxap
                         Image2.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[2].damageup != 1)
-                            tbt += "伤害+" + ((gg[2].damageup - 1) * 100).ToString("0") + "% ";
+                            tbt += "伤害+" + Math.Floor((gg[2].damageup - 1) * 100).ToString("0") + "% ";
                         if (gg[2].shotspeedup != 1)
-                            tbt += "射速+" + ((gg[2].shotspeedup - 1) * 100).ToString("0") + "% ";
+                            tbt += "射速+" + Math.Floor((gg[2].shotspeedup - 1) * 100).ToString("0") + "% ";
                         if (gg[2].hitup != 1)
-                            tbt += "命中+" + ((gg[2].hitup - 1) * 100).ToString("0") + "% ";
+                            tbt += "命中+" + Math.Floor((gg[2].hitup - 1) * 100).ToString("0") + "% ";
                         if (gg[2].dodgeup != 1)
-                            tbt += "回避+" + ((gg[2].dodgeup - 1) * 100).ToString("0") + "% ";
+                            tbt += "回避+" + Math.Floor((gg[2].dodgeup - 1) * 100).ToString("0") + "% ";
                         if (gg[2].critup != 1)
-                            tbt += "暴击率+" + ((gg[2].critup - 1) * 100).ToString("0") + "% ";
+                            tbt += "暴击率+" + Math.Floor((gg[2].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[2].rateup != 1)
-                            tbt += "冷却-" + ((1 - gg[2].rateup  ) * 100).ToString("0") + "% ";
+                            tbt += "冷却-" + Math.Floor((1 - gg[2].rateup  ) * 100).ToString("0") + "% ";
                         if (gg[2].armorup != 1)
-                            tbt += "护甲+" + ((gg[2].armorup - 1) * 100).ToString("0") + "% ";
+                            tbt += "护甲+" + Math.Floor((gg[2].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb2.Text = tbt;
@@ -9624,6 +9631,8 @@ namespace snqxap
                             Ltime2.Content = 8;
                         else
                             Ltime2.Content = (gun[select].cd * gg[2].rateup).ToString("0.00");
+                        if (!string.IsNullOrEmpty(gun[select].startcd))
+                            Lontime2.Content = (Double.Parse(gun[select].startcd) * gg[2].rateup).ToString("0.00");
                         Lbreakarmor2.Content = equipbreakarmor[2];
                         double crit = 0;
                         if (isfullcrit[2])
@@ -9673,19 +9682,19 @@ namespace snqxap
                         Image3.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[3].damageup != 1)
-                            tbt += "伤害+" + ((gg[3].damageup - 1) * 100).ToString("0") + "% ";
+                            tbt += "伤害+" + Math.Floor((gg[3].damageup - 1) * 100).ToString("0") + "% ";
                         if (gg[3].shotspeedup != 1)
-                            tbt += "射速+" + ((gg[3].shotspeedup - 1) * 100).ToString("0") + "% ";
+                            tbt += "射速+" + Math.Floor((gg[3].shotspeedup - 1) * 100).ToString("0") + "% ";
                         if (gg[3].hitup != 1)
-                            tbt += "命中+" + ((gg[3].hitup - 1) * 100).ToString("0") + "% ";
+                            tbt += "命中+" + Math.Floor((gg[3].hitup - 1) * 100).ToString("0") + "% ";
                         if (gg[3].dodgeup != 1)
-                            tbt += "回避+" + ((gg[3].dodgeup - 1) * 100).ToString("0") + "% ";
+                            tbt += "回避+" + Math.Floor((gg[3].dodgeup - 1) * 100).ToString("0") + "% ";
                         if (gg[3].critup != 1)
-                            tbt += "暴击率+" + ((gg[3].critup - 1) * 100).ToString("0") + "% ";
+                            tbt += "暴击率+" + Math.Floor((gg[3].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[3].rateup != 1)
-                            tbt += "冷却-" + ((1 - gg[3].rateup ) * 100).ToString("0") + "% ";
+                            tbt += "冷却-" + Math.Floor((1 - gg[3].rateup ) * 100).ToString("0") + "% ";
                         if (gg[3].armorup != 1)
-                            tbt += "护甲+" + ((gg[3].armorup - 1) * 100).ToString("0") + "% ";
+                            tbt += "护甲+" + Math.Floor((gg[3].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb3.Text = tbt;
@@ -9705,6 +9714,8 @@ namespace snqxap
                             Ltime3.Content = 8;
                         else
                             Ltime3.Content = (gun[select].cd * gg[3].rateup).ToString("0.00");
+                        if (!string.IsNullOrEmpty(gun[select].startcd))
+                            Lontime3.Content = (Double.Parse(gun[select].startcd) * gg[3].rateup).ToString("0.00");
                         Lbreakarmor3.Content = equipbreakarmor[3];
                         double crit = 0;
                         if (isfullcrit[3])
@@ -9754,19 +9765,19 @@ namespace snqxap
                         Image4.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[4].damageup != 1)
-                            tbt += "伤害+" + ((gg[4].damageup - 1) * 100).ToString("0") + "% ";
+                            tbt += "伤害+" + Math.Floor((gg[4].damageup - 1) * 100).ToString("0") + "% ";
                         if (gg[4].shotspeedup != 1)
-                            tbt += "射速+" + ((gg[4].shotspeedup - 1) * 100).ToString("0") + "% ";
+                            tbt += "射速+" + Math.Floor((gg[4].shotspeedup - 1) * 100).ToString("0") + "% ";
                         if (gg[4].hitup != 1)
-                            tbt += "命中+" + ((gg[4].hitup - 1) * 100).ToString("0") + "% ";
+                            tbt += "命中+" + Math.Floor((gg[4].hitup - 1) * 100).ToString("0") + "% ";
                         if (gg[4].dodgeup != 1)
-                            tbt += "回避+" + ((gg[4].dodgeup - 1) * 100).ToString("0") + "% ";
+                            tbt += "回避+" + Math.Floor((gg[4].dodgeup - 1) * 100).ToString("0") + "% ";
                         if (gg[4].critup != 1)
-                            tbt += "暴击率+" + ((gg[4].critup - 1) * 100).ToString("0") + "% ";
+                            tbt += "暴击率+" + Math.Floor((gg[4].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[4].rateup != 1)
-                            tbt += "冷却-" + ((1 - gg[4].rateup ) * 100).ToString("0") + "% ";
+                            tbt += "冷却-" + Math.Floor((1 - gg[4].rateup ) * 100).ToString("0") + "% ";
                         if (gg[4].armorup != 1)
-                            tbt += "护甲+" + ((gg[4].armorup - 1) * 100).ToString("0") + "% ";
+                            tbt += "护甲+" + Math.Floor((gg[4].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb4.Text = tbt;
@@ -9786,6 +9797,8 @@ namespace snqxap
                             Ltime4.Content = 8;
                         else
                             Ltime4.Content = (gun[select].cd * gg[4].rateup).ToString("0.00");
+                        if (!string.IsNullOrEmpty(gun[select].startcd))
+                            Lontime4.Content = (Double.Parse(gun[select].startcd) * gg[4].rateup).ToString("0.00");
                         Lbreakarmor4.Content = equipbreakarmor[4];
                         double crit = 0;
                         if (isfullcrit[4])
@@ -9835,19 +9848,19 @@ namespace snqxap
                         Image5.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[5].damageup != 1)
-                            tbt += "伤害+" + ((gg[5].damageup - 1) * 100).ToString("0") + "% ";
+                            tbt += "伤害+" + Math.Floor((gg[5].damageup - 1) * 100).ToString("0") + "% ";
                         if (gg[5].shotspeedup != 1)
-                            tbt += "射速+" + ((gg[5].shotspeedup - 1) * 100).ToString("0") + "% ";
+                            tbt += "射速+" + Math.Floor((gg[5].shotspeedup - 1) * 100).ToString("0") + "% ";
                         if (gg[5].hitup != 1)
-                            tbt += "命中+" + ((gg[5].hitup - 1) * 100).ToString("0") + "% ";
+                            tbt += "命中+" + Math.Floor((gg[5].hitup - 1) * 100).ToString("0") + "% ";
                         if (gg[5].dodgeup != 1)
-                            tbt += "回避+" + ((gg[5].dodgeup - 1) * 100).ToString("0") + "% ";
+                            tbt += "回避+" + Math.Floor((gg[5].dodgeup - 1) * 100).ToString("0") + "% ";
                         if (gg[5].critup != 1)
-                            tbt += "暴击率+" + ((gg[5].critup - 1) * 100).ToString("0") + "% ";
+                            tbt += "暴击率+" + Math.Floor((gg[5].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[5].rateup != 1)
-                            tbt += "冷却-" + ((1 - gg[5].rateup ) * 100).ToString("0") + "% ";
+                            tbt += "冷却-" + Math.Floor((1 - gg[5].rateup ) * 100).ToString("0") + "% ";
                         if (gg[5].armorup != 1)
-                            tbt += "护甲+" + ((gg[5].armorup - 1) * 100).ToString("0") + "% ";
+                            tbt += "护甲+" + Math.Floor((gg[5].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb5.Text = tbt;
@@ -9867,6 +9880,8 @@ namespace snqxap
                             Ltime5.Content = 8;
                         else
                             Ltime5.Content =(gun[select].cd * gg[5].rateup).ToString("0.00");
+                        if (!string.IsNullOrEmpty(gun[select].startcd))
+                            Lontime5.Content = (Double.Parse(gun[select].startcd) * gg[5].rateup).ToString("0.00");
                         Lbreakarmor5.Content = equipbreakarmor[5];
                         double crit = 0;
                         if (isfullcrit[5])
@@ -9916,19 +9931,19 @@ namespace snqxap
                         Image6.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[6].damageup != 1)
-                            tbt += "伤害+" + ((gg[6].damageup - 1) * 100).ToString("0") + "% ";
+                            tbt += "伤害+" + Math.Floor((gg[6].damageup - 1) * 100).ToString("0") + "% ";
                         if (gg[6].shotspeedup != 1)
-                            tbt += "射速+" + ((gg[6].shotspeedup - 1) * 100).ToString("0") + "% ";
+                            tbt += "射速+" + Math.Floor((gg[6].shotspeedup - 1) * 100).ToString("0") + "% ";
                         if (gg[6].hitup != 1)
-                            tbt += "命中+" + ((gg[6].hitup - 1) * 100).ToString("0") + "% ";
+                            tbt += "命中+" + Math.Floor((gg[6].hitup - 1) * 100).ToString("0") + "% ";
                         if (gg[6].dodgeup != 1)
-                            tbt += "回避+" + ((gg[6].dodgeup - 1) * 100).ToString("0") + "% ";
+                            tbt += "回避+" + Math.Floor((gg[6].dodgeup - 1) * 100).ToString("0") + "% ";
                         if (gg[6].critup != 1)
-                            tbt += "暴击率+" + ((gg[6].critup - 1) * 100).ToString("0") + "% ";
+                            tbt += "暴击率+" + Math.Floor((gg[6].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[6].rateup != 1)
-                            tbt += "冷却-" + ((1 - gg[6].rateup ) * 100).ToString("0") + "% ";
+                            tbt += "冷却-" + Math.Floor((1 - gg[6].rateup ) * 100).ToString("0") + "% ";
                         if (gg[6].armorup != 1)
-                            tbt += "护甲+" + ((gg[6].armorup - 1) * 100).ToString("0") + "% ";
+                            tbt += "护甲+" + Math.Floor((gg[6].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb6.Text = tbt;
@@ -9948,6 +9963,8 @@ namespace snqxap
                             Ltime6.Content = 8;
                         else
                             Ltime6.Content = (gun[select].cd * gg[6].rateup).ToString("0.00");
+                        if (!string.IsNullOrEmpty(gun[select].startcd))
+                            Lontime6.Content = (Double.Parse(gun[select].startcd) * gg[6].rateup).ToString("0.00");
                         Lbreakarmor6.Content = equipbreakarmor[6];
                         double crit = 0;
                         if (isfullcrit[6])
@@ -9996,19 +10013,19 @@ namespace snqxap
                         Image7.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[7].damageup != 1)
-                            tbt += "伤害+" + ((gg[7].damageup - 1) * 100).ToString("0") + "% ";
+                            tbt += "伤害+" + Math.Floor((gg[7].damageup - 1) * 100).ToString("0") + "% ";
                         if (gg[7].shotspeedup != 1)
-                            tbt += "射速+" + ((gg[7].shotspeedup - 1) * 100).ToString("0") + "% ";
+                            tbt += "射速+" + Math.Floor((gg[7].shotspeedup - 1) * 100).ToString("0") + "% ";
                         if (gg[7].hitup != 1)
-                            tbt += "命中+" + ((gg[7].hitup - 1) * 100).ToString("0") + "% ";
+                            tbt += "命中+" + Math.Floor((gg[7].hitup - 1) * 100).ToString("0") + "% ";
                         if (gg[7].dodgeup != 1)
-                            tbt += "回避+" + ((gg[7].dodgeup - 1) * 100).ToString("0") + "% ";
+                            tbt += "回避+" + Math.Floor((gg[7].dodgeup - 1) * 100).ToString("0") + "% ";
                         if (gg[7].critup != 1)
-                            tbt += "暴击率+" + ((gg[7].critup - 1) * 100).ToString("0") + "% ";
+                            tbt += "暴击率+" + Math.Floor((gg[7].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[7].rateup != 1)
-                            tbt += "冷却-" + ((1 - gg[7].rateup ) * 100).ToString("0") + "% ";
+                            tbt += "冷却-" + Math.Floor((1 - gg[7].rateup ) * 100).ToString("0") + "% ";
                         if (gg[7].armorup != 1)
-                            tbt += "护甲+" + ((gg[7].armorup - 1) * 100).ToString("0") + "% ";
+                            tbt += "护甲+" + Math.Floor((gg[7].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb7.Text = tbt;
@@ -10028,6 +10045,8 @@ namespace snqxap
                             Ltime7.Content = 8;
                         else
                             Ltime7.Content = (gun[select].cd * gg[7].rateup).ToString("0.00");
+                        if (!string.IsNullOrEmpty(gun[select].startcd))
+                            Lontime7.Content = (Double.Parse(gun[select].startcd) * gg[7].rateup).ToString("0.00");
                         Lbreakarmor7.Content = equipbreakarmor[7];
                         double crit = 0;
                         if (isfullcrit[7])
@@ -10077,19 +10096,19 @@ namespace snqxap
                         Image8.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[8].damageup != 1)
-                            tbt += "伤害+" + ((gg[8].damageup - 1) * 100).ToString("0") + "% ";
+                            tbt += "伤害+" + Math.Floor((gg[8].damageup - 1) * 100).ToString("0") + "% ";
                         if (gg[8].shotspeedup != 1)
-                            tbt += "射速+" + ((gg[8].shotspeedup - 1) * 100).ToString("0") + "% ";
+                            tbt += "射速+" + Math.Floor((gg[8].shotspeedup - 1) * 100).ToString("0") + "% ";
                         if (gg[8].hitup != 1)
-                            tbt += "命中+" + ((gg[8].hitup - 1) * 100).ToString("0") + "% ";
+                            tbt += "命中+" + Math.Floor((gg[8].hitup - 1) * 100).ToString("0") + "% ";
                         if (gg[8].dodgeup != 1)
-                            tbt += "回避+" + ((gg[8].dodgeup - 1) * 100).ToString("0") + "% ";
+                            tbt += "回避+" + Math.Floor((gg[8].dodgeup - 1) * 100).ToString("0") + "% ";
                         if (gg[8].critup != 1)
-                            tbt += "暴击率+" + ((gg[8].critup - 1) * 100).ToString("0") + "% ";
+                            tbt += "暴击率+" + Math.Floor((gg[8].critup - 1) * 100).ToString("0") + "% ";
                         if (gg[8].rateup != 1)
-                            tbt += "冷却-" + ((1 - gg[8].rateup ) * 100).ToString("0") + "% ";
+                            tbt += "冷却-" + Math.Floor((1 - gg[8].rateup ) * 100).ToString("0") + "% ";
                         if (gg[8].armorup != 1)
-                            tbt += "护甲+" + ((gg[8].armorup - 1) * 100).ToString("0") + "% ";
+                            tbt += "护甲+" + Math.Floor((gg[8].armorup - 1) * 100).ToString("0") + "% ";
                         if (tbt == "")
                             tbt = "无";
                         tb8.Text = tbt;
@@ -10109,6 +10128,8 @@ namespace snqxap
                             Ltime8.Content = 8;
                         else
                             Ltime8.Content = (gun[select].cd * gg[8].rateup).ToString("0.00");
+                        if (!string.IsNullOrEmpty(gun[select].startcd))
+                            Lontime8.Content = (Double.Parse(gun[select].startcd) * gg[8].rateup).ToString("0.00");
                         Lbreakarmor8.Content = equipbreakarmor[8];
                         double crit = 0;
                         if (isfullcrit[8])
@@ -10969,60 +10990,6 @@ namespace snqxap
             }
         }
 
-        private void renewontime(int combo, string time)
-        {
-            switch (combo)
-            {
-                case 0:
-                    {
-                        Lontime0.Content = time;
-                        return;
-                    }
-                case 1:
-                    {
-                        Lontime1.Content = time;
-                        return;
-                    }
-                case 2:
-                    {
-                        Lontime2.Content = time;
-                        return;
-                    }
-                case 3:
-                    {
-                        Lontime3.Content = time;
-                        return;
-                    }
-                case 4:
-                    {
-                        Lontime4.Content = time;
-                        return;
-                    }
-                case 5:
-                    {
-                        Lontime5.Content = time;
-                        return;
-                    }
-                case 6:
-                    {
-                        Lontime6.Content = time;
-                        return;
-                    }
-                case 7:
-                    {
-                        Lontime7.Content = time;
-                        return;
-                    }
-                case 8:
-                    {
-                        Lontime8.Content = time;
-                        return;
-                    }
-                default:
-                    return;
-            }
-        }
-
         private double getontime(int combo)
         {
             switch (combo)
@@ -11218,7 +11185,7 @@ namespace snqxap
                         double attime = 5.9 + 1.0 / 3 * skillindex;
                         gun[index].cd = Math.Round(cdtime, 1);
                         renewattime(combo, Math.Floor(attime).ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         double updem1 = 12 + 10.0 / 9 * skillindex;
                         string read = "提升己方" + Math.Floor(updem1) + "%伤害";
                         renewread(combo, read);
@@ -11231,7 +11198,7 @@ namespace snqxap
                         double attime = 2.39 + 1 / 6 * (skillindex + 1);
                         gun[index].cd = Math.Round(cdtime, 1);
                         renewattime(combo, Math.Round(attime, 1).ToString());
-                        renewontime(combo, "1");
+                        gun[index].startcd = ("1");
                         double updem1 = 20 + 8.0 / 5 * (skillindex + 1);
                         double updem2 = 27 + 9.0 / 5 * (skillindex + 1);
                         string read = "烟雾弹,半径2.5,降射速" + Math.Floor(updem1) + "%移速" + Math.Floor(updem2) + "%(不算)";
@@ -11242,7 +11209,7 @@ namespace snqxap
                     {
                         double cdtime = 15 - 1.0 / 3 * skillindex;
                         gun[index].cd = Math.Round(cdtime, 1);
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         double updem1 = 0;
                         switch(skillindex)
                         {
@@ -11291,7 +11258,7 @@ namespace snqxap
 
                               gun[index].cd = Math.Round(cdtime, 1);
                               renewattime(combo, Math.Floor(attime).ToString());
-                              renewontime(combo, "3");
+                              gun[index].startcd = ("3");
 
                               string read = "(夜)降低对方全体" + Math.Floor(updem1) + "%伤害";
                             renewread(combo, read);
@@ -11322,7 +11289,7 @@ namespace snqxap
                             }
                             gun[index].cd = Math.Round(cdtime, 1);
                             renewattime(combo, attime.ToString());
-                            renewontime(combo, "3");
+                            gun[index].startcd = ("3");
 
                             string read = "(昼)降低对方全体" + Math.Floor(updem1) + "%伤害";
                             renewread(combo, read);
@@ -11345,7 +11312,7 @@ namespace snqxap
 
                         gun[index].cd = Math.Round(cdtime, 1);
                         renewattime(combo, Math.Floor(attime).ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "提升己方" + Math.Floor(updem1) + "%回避";
                         renewread(combo, read);
                         break;
@@ -11365,7 +11332,7 @@ namespace snqxap
                         double attime = 5.9 + 1.0 / 3 * skillindex;
                         gun[index].cd = Math.Round(cdtime, 1);
                         renewattime(combo, Math.Floor(attime).ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "提升己方" + Math.Floor(updem1) + "%射速";
                         renewread(combo, read);
                         break;
@@ -11396,7 +11363,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "降低敌方全体" + updem1*100 + "%命中";
                         renewread(combo, read);
                         break;
@@ -11423,7 +11390,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "(夜)提升全体" + updem1*100 + "%命中";
                         renewread(combo, read);
                         break;
@@ -11452,7 +11419,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "提升全体" + updem1*100 + "%伤害,"+updem2*100+"%暴击率";
                         renewread(combo, read);
                         break;
@@ -11486,7 +11453,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         if (innight)
                         {
                             string read = "(夜)提升全体" + updem1 * 100 + "%回避";
@@ -11521,7 +11488,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "(夜)提升全体" + updem1 * 100 + "%命中";
                         renewread(combo, read);
                         break;
@@ -11549,7 +11516,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "提升全体" + updem1 * 100 + "%伤害," + updem2 * 100 + "%射速";
                         renewread(combo, read);
                         break;
@@ -11575,7 +11542,7 @@ namespace snqxap
                         }
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "提升全体" + updem1 * 100 + "%射速";
                         renewread(combo, read);
                         break;
@@ -11602,7 +11569,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "降低敌方全体" + updem1 * 100 + "%伤害";
                         renewread(combo, read);
                         break;
@@ -11620,7 +11587,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "8");
+                        gun[index].startcd = ("8");
                         string read = "力场盾";
                         renewread(combo, read);
                         break;
@@ -11642,7 +11609,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "手榴弹,半径2.5," + (updem1 +1 )+ "倍";
                         renewread(combo, read);
                         break;
@@ -11666,7 +11633,7 @@ namespace snqxap
                      //   }
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "1");
+                        gun[index].startcd = ("1");
                         string read = "烟雾弹,半径2.5,降射速" + updem1*100 + "%移速" + updem2*100 + "%(不算)";
                         renewread(combo, read);
                         break;
@@ -11690,7 +11657,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "6");
+                        gun[index].startcd = ("6");
                         string read = "提升自身" + updem1 * 100 + "%回避";
                         renewread(combo, read);
                         break;
@@ -11713,7 +11680,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "燃烧弹,半径1.5," + (updem1 + 1) + "倍,dot "+(updem2+1)+"倍(不算)";
                         renewread(combo, read);
                         break;
@@ -11735,7 +11702,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "手榴弹,半径2.5," + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
@@ -11759,7 +11726,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "5");
+                        gun[index].startcd = ("5");
                         string read = "提升自身" + updem1 * 100 + "%回避";
                         renewread(combo, read);
                         break;
@@ -11782,7 +11749,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "燃烧弹,半径2.5," +( updem1 + 1) + "倍,dot " + (updem2 + 1) + "倍(不算)";
                         renewread(combo, read);
                         break;
@@ -11800,7 +11767,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "8");
+                        gun[index].startcd = ("8");
                         string read = "力场盾";
                         renewread(combo, read);
                         break;
@@ -11823,7 +11790,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "燃烧弹,半径1.5," + (updem1 + 1) + "倍,dot " + (updem2 + 1 )+ "倍(不算)";
                         renewread(combo, read);
                         break;
@@ -11841,7 +11808,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "5");
+                        gun[index].startcd = ("5");
                         string read = "闪光弹,半径2.5";
                         renewread(combo, read);
                         break;
@@ -11861,7 +11828,7 @@ namespace snqxap
                         }
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "10");
+                        gun[index].startcd = ("10");
                         string read = "2s瞄准,当前" + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
@@ -11885,7 +11852,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "5");
+                        gun[index].startcd = ("5");
                         string read = "提升自身" + updem1 * 100 + "%射速";
                         renewread(combo, read);
                         break;
@@ -11906,7 +11873,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "15");
+                        gun[index].startcd = ("15");
                         string read = "2s瞄准,最右" + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
@@ -11930,7 +11897,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "5");
+                        gun[index].startcd = ("5");
                         string read = "提升自身" + updem1 * 100 + "%伤害";
                         renewread(combo, read);
                         break;
@@ -11951,7 +11918,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "10");
+                        gun[index].startcd = ("10");
                         string read = "2s瞄准,特定" + updem1 + 1 + "倍";
                         renewread(combo, read);
                         break;
@@ -11971,7 +11938,7 @@ namespace snqxap
                         }
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "10");
+                        gun[index].startcd = ("10");
                         string read = "2s瞄准,特定" + updem1 + 1 + "倍";
                         renewread(combo, read);
                         break;
@@ -11995,7 +11962,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "5");
+                        gun[index].startcd = ("5");
                         string read = "提升自身" + updem1 * 100 + "%射速";
                         renewread(combo, read);
                         break;
@@ -12016,7 +11983,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "15");
+                        gun[index].startcd = ("15");
                         string read = "2s瞄准,最左" + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
@@ -12040,7 +12007,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "5");
+                        gun[index].startcd = ("5");
                         string read = "提升自身" + updem1 * 100 + "%射速";
                         renewread(combo, read);
                         break;
@@ -12061,7 +12028,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "10");
+                        gun[index].startcd = ("10");
                         string read = "2s瞄准,最左" + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
@@ -12082,7 +12049,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "8");
+                        gun[index].startcd = ("8");
                         string read = "2次1s瞄准,当前" + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
@@ -12108,7 +12075,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "5");
+                        gun[index].startcd = ("5");
                         if (innight)
                         {
                             string read = "(夜)提升自身" + updem1 * 100 + "%射速";
@@ -12140,7 +12107,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "5");
+                        gun[index].startcd = ("5");
                         string read = "提升自身" + updem1 * 100 + "%射速";
                         renewread(combo, read);
                         break;
@@ -12164,7 +12131,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "5");
+                        gun[index].startcd = ("5");
                         string read = "提升自身" + updem1 * 100 + "%伤害";
                         renewread(combo, read);
                         break;
@@ -12188,7 +12155,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "5");
+                        gun[index].startcd = ("5");
                         string read = "提升自身" + updem1 * 100 + "%伤害";
                         renewread(combo, read);
                         break;
@@ -12209,7 +12176,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "15");
+                        gun[index].startcd = ("15");
                         string read = "2s瞄准,最左" + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
@@ -12227,7 +12194,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "5");
+                        gun[index].startcd = ("5");
                         string read = "闪光弹,半径2.5";
                         renewread(combo, read);
                         break;
@@ -12251,7 +12218,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "4");
+                        gun[index].startcd = ("4");
                         string read = "提升自身" + updem1 * 100 + "%伤害";
                         renewread(combo, read);
                         break;
@@ -12273,7 +12240,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "8");
+                        gun[index].startcd = ("8");
                         string read = "杀伤榴弹,半径1," +( updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
@@ -12294,7 +12261,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "8");
+                        gun[index].startcd = ("8");
                         string read = "杀伤榴弹,半径1," + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
@@ -12318,7 +12285,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "4");
+                        gun[index].startcd = ("4");
                         string read = "提升自身" + updem1 * 100 + "%射速";
                         renewread(combo, read);
                         break;
@@ -12345,7 +12312,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "5");
+                        gun[index].startcd = ("5");
                         string read = "提升自身" + updem1 * 100 + "%伤害," + updem2 * 100 + "%命中";
                         renewread(combo, read);
                         break;
@@ -12371,7 +12338,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "5");
+                        gun[index].startcd = ("5");
                         if (innight)
                         {
                             string read = "(夜)提升自身" + updem1 * 100 + "%伤害";
@@ -12400,7 +12367,7 @@ namespace snqxap
                         }
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "8");
+                        gun[index].startcd = ("8");
                         string read = "爆破榴弹,半径3," + (updem1 + 1 )+ "倍";
                         renewread(combo, read);
                         break;
@@ -12424,7 +12391,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "4");
+                        gun[index].startcd = ("4");
                         string read = "提升自身" + updem1 * 100 + "%伤害";
                         renewread(combo, read);
                         break;
@@ -12447,7 +12414,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "8");
+                        gun[index].startcd = ("8");
                         string read = "杀伤榴弹,半径1," + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
@@ -12470,7 +12437,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "8");
+                        gun[index].startcd = ("8");
                         string read = "爆破榴弹,半径3," + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
@@ -12493,7 +12460,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "8");
+                        gun[index].startcd = ("8");
                         string read = "爆破榴弹,半径3," + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
@@ -12520,7 +12487,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "6");
+                        gun[index].startcd = ("6");
                         string read = "提升自身" + updem1 * 100 + "%伤害," + updem2 * 100 + "%射速";
                         renewread(combo, read);
                         break;
@@ -12544,7 +12511,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "5");
+                        gun[index].startcd = ("5");
                         string read = "提升自身" + updem1 * 100 + "%命中";
                         renewread(combo, read);
                         break;
@@ -12571,7 +12538,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "6");
+                        gun[index].startcd = ("6");
                         string read = "提升自身" + updem1 * 100 + "%伤害," + updem2 * 100 + "%射速";
                         renewread(combo, read);
                         break;
@@ -12595,7 +12562,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "8");
+                        gun[index].startcd = ("8");
                         string read = "提升自身" + updem1 * 100 + "%伤害";
                         renewread(combo, read);
                         break;
@@ -12618,7 +12585,7 @@ namespace snqxap
                    //     string cd = "(此技能算法未写,暂时平均加到伤害上)";
                         gun[index].cd = -1;
                         renewattime(combo, "99");
-                        renewontime(combo, "-1");
+                        gun[index].startcd = ("-1");
                         string read = "被动,每攻击3次,下次伤害" +( updem1 +1) + "倍";
                         renewread(combo, read);
                         break;
@@ -12643,7 +12610,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "8");
+                        gun[index].startcd = ("8");
                         if (innight)
                         {
                             string read = "(夜)提升自身" + updem1 * 100 + "%伤害";
@@ -12681,7 +12648,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "8");
+                        gun[index].startcd = ("8");
                         if (innight)
                         {
                             string read = "(夜)提升自身" + updem1 * 100 + "%伤害,弹链+" + updem2 + "(不算弹链时间)";
@@ -12714,7 +12681,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "提升自身" + updem1 * 100 + "%命中,必爆";
                         renewread(combo, read);
                         break;
@@ -12739,7 +12706,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "提升自身" + updem1 * 100 + "%命中,必爆";
                         renewread(combo, read);
                         break;
@@ -12767,7 +12734,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "8");
+                        gun[index].startcd = ("8");
 
 
                         string read = "提升自身" + updem1 * 100 + "%伤害,弹链+" + updem2 + "(不算弹链时间)";
@@ -12793,7 +12760,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "6");
+                        gun[index].startcd = ("6");
                         string read = "提升自身" + updem1 * 100 + "%伤害";
                         renewread(combo, read);
                         break;
@@ -12815,7 +12782,7 @@ namespace snqxap
                      //   string cd = "(此技能算法未写,暂时平均加到伤害上)";
                         gun[index].cd = -1;
                         renewattime(combo, "99");
-                        renewontime(combo, "-1");
+                        gun[index].startcd = ("-1");
                         string read = "被动,每攻击3次,下次伤害" +( updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
@@ -12839,7 +12806,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "6");
+                        gun[index].startcd = ("6");
                         string read = "提升自身" + updem1 * 100 + "%伤害";
                         renewread(combo, read);
                         break;
@@ -12867,7 +12834,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "8");
+                        gun[index].startcd = ("8");
 
 
                         string read = "提升自身" + updem1 * 100 + "%伤害,弹链+" + updem2 + "(不算弹链时间)";
@@ -12897,7 +12864,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "8");
+                        gun[index].startcd = ("8");
 
 
                         string read = "提升自身" + updem1 * 100 + "%伤害,弹链+" + updem2 + "(不算弹链时间)";
@@ -12927,7 +12894,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "降低敌方全体" + updem1 * 100 + "%回避";
                         renewread(combo, read);
                         break;
@@ -12948,7 +12915,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "降低敌方全体" + updem1 * 100 + "%射速(不算)";
                         renewread(combo, read);
                         break;
@@ -12972,7 +12939,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "6");
+                        gun[index].startcd = ("6");
                         string read = "提升自身" + updem1 * 100 + "%回避";
                         renewread(combo, read);
                         break;
@@ -13000,7 +12967,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "8");
+                        gun[index].startcd = ("8");
                         if (innight)
                         {
                             string read = "(夜)提升自身" + updem1 * 100 + "%伤害";
@@ -13034,7 +13001,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
 
                             string read = "提升全体" + updem1 * 100 + "%伤害";
                             renewread(combo, read);
@@ -13062,7 +13029,7 @@ namespace snqxap
                         }
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "提升全体" + updem1 * 100 + "%射速";
                         renewread(combo, read);
                         break;
@@ -13090,7 +13057,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "降低敌方全体" + updem1 * 100 + "%回避";
                         renewread(combo, read);
                         break;
@@ -13126,7 +13093,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
 
                         if (innight)
                         {
@@ -13138,8 +13105,6 @@ namespace snqxap
                             string read = "(昼)提升全体" + updem1 * 100 + "%伤害";
                             renewread(combo, read);
                         }
-                        break;
-
                         break;
                     }
                 case 100603:
@@ -13165,7 +13130,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
 
                             string read = "提升全体" + updem1 * 100 + "%回避";
                             renewread(combo, read);
@@ -13190,7 +13155,7 @@ namespace snqxap
                    //     }
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "1");
+                        gun[index].startcd = ("1");
                         string read = "烟雾弹,半径2.5,降射速" + updem1 * 100 + "%移速" + updem2 * 100 + "%(不算)";
                         renewread(combo, read);
                         break;
@@ -13214,7 +13179,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "4");
+                        gun[index].startcd = ("4");
                         string read = "提升自身" + updem1 * 100 + "%射速";
                         renewread(combo, read);
                         break;
@@ -13236,7 +13201,7 @@ namespace snqxap
                       //  string cd = "(此技能算法未写,暂时平均加到伤害上)";
                         gun[index].cd = -1;
                         renewattime(combo, "99");
-                        renewontime(combo, "-1");
+                        gun[index].startcd = ("-1");
                         string read = "被动,每攻击3次,下次伤害" + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
@@ -13272,7 +13237,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "8");
+                        gun[index].startcd = ("8");
 
                         if (innight)
                         {
@@ -13303,7 +13268,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "0");
+                        gun[index].startcd = ("0");
                         string read = "每次换弹提升伤害" + updem1 * 100 + "%,可叠加25s";
                         renewread(combo, read);
                         break;
@@ -13329,7 +13294,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
 
                         string read = "提升全体" + updem1 * 100 + "%伤害";
                         renewread(combo, read);
@@ -13356,7 +13321,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "降低敌方全体" + updem1 * 100 + "%命中";
                         renewread(combo, read);
                         break;
@@ -13380,7 +13345,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "6");
+                        gun[index].startcd = ("6");
                         string read = "提升自身" + updem1 * 100 + "%回避";
                         renewread(combo, read);
                         break;
@@ -13407,7 +13372,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "5");
+                        gun[index].startcd = ("5");
                         if (innight)
                         {
                             string read = "(夜)提升自身" + updem1 * 100 + "%伤害";
@@ -13437,7 +13402,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "8");
+                        gun[index].startcd = ("8");
                         string read = "杀伤榴弹,半径1," + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
@@ -13462,7 +13427,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "提升自身" + updem1 * 100 + "%命中,必爆";
                         renewread(combo, read);
                         break;
@@ -13486,7 +13451,7 @@ namespace snqxap
                         //     renewtime(combo, num2);
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "6");
+                        gun[index].startcd = ("6");
                  
                         string read = "每次攻击造成" + (updem1+1) + "次伤害";
 
@@ -13517,7 +13482,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "8");
+                        gun[index].startcd = ("8");
 
 
                         string read = "提升自身" + updem1 * 100 + "%伤害,弹链+" + updem2+"(不算弹链时间)";
@@ -13540,7 +13505,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "降低敌方全体" + updem1 * 100 + "%射速(不算)";
                         renewread(combo, read);
                         break;
@@ -13558,7 +13523,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "6");
+                        gun[index].startcd = ("6");
                         string read = "闪光弹,半径2.5";
                         renewread(combo, read);
                         break;
@@ -13579,7 +13544,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "15");
+                        gun[index].startcd = ("15");
                         string read = "2s瞄准,最右" + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
@@ -13602,7 +13567,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "4");
+                        gun[index].startcd = ("4");
 
                             string read = "提升自身" + updem1 * 100 + "%伤害";
                             renewread(combo, read);
@@ -13628,7 +13593,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "4");
+                        gun[index].startcd = ("4");
                         string read = "提升自身" + updem1 * 100 + "%射速";
                         renewread(combo, read);
                         break;
@@ -13666,7 +13631,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         if (innight)
                         {
                             string read = "(夜)降低敌方全体" + updem1 * 100 + "%回避";
@@ -13701,7 +13666,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "4");
+                        gun[index].startcd = ("4");
 
         
                             string read = "提升自身" + updem1 * 100 + "%伤害";
@@ -13726,7 +13691,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "手榴弹,半径2.5," + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
@@ -13752,7 +13717,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
 
                         string read = "提升全体" + updem1 * 100 + "%伤害";
                         renewread(combo, read);
@@ -13784,7 +13749,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "2");
+                        gun[index].startcd = ("2");
                         string read = "提升全体" + updem2 * 100 + "%回避," + updem1 * 100 + "%命中";
                         renewread(combo, read);
                         break;
@@ -13811,7 +13776,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "2");
+                        gun[index].startcd = ("2");
                         string read = "提升全体" + updem1 * 100 + "%命中";
                         renewread(combo, read);
                         break;
@@ -13840,7 +13805,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "3");
+                        gun[index].startcd = ("3");
                         string read = "提升自身" + updem2 * 100 + "%回避,降低敌方全体" + updem1 * 100 + "%伤害";
                         renewread(combo, read);
                         break;
@@ -13861,7 +13826,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "15");
+                        gun[index].startcd = ("15");
                         string read = "固定伤害,击退"+(updem1+1)+"码";
                         renewread(combo, read);
                         break;
@@ -13883,7 +13848,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "8");
+                        gun[index].startcd = ("8");
                         string read = "额外一次"+(updem1+1)+"倍攻击,击退" +( updem2 + 2 )+ "码";
                         renewread(combo, read);
                         break;
@@ -13911,7 +13876,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "10");
+                        gun[index].startcd = ("10");
                         string read = "提升自身" + updem1 * 100 + "%护甲";
                         renewread(combo, read);
                         break;
@@ -13939,7 +13904,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "10");
+                        gun[index].startcd = ("10");
                         string read = "提升自身" + updem1 * 100 + "%护甲";
                         renewread(combo, read);
                         break;
@@ -13962,7 +13927,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "8");
+                        gun[index].startcd = ("8");
                         string read = "额外一次" + (updem1+1) + "倍攻击,击退" + (updem2 + 2) + "码";
                         renewread(combo, read);
                         break;
@@ -13990,7 +13955,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "8");
+                        gun[index].startcd = ("8");
 
         
                             string read = "提升自身" + updem1 * 100 + "%伤害,目标5";
@@ -14022,7 +13987,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "10");
+                        gun[index].startcd = ("10");
                         string read = "提升自身" + updem1 * 100 + "%护甲," + updem2 * 100 + "%回避";
                         renewread(combo, read);
                         break;
@@ -14050,7 +14015,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "2");
+                        gun[index].startcd = ("2");
                         string read = "提升全体" + updem1 * 100 + "%射速," + updem2 * 100 + "%暴击率";
                         renewread(combo, read);
                         break;
@@ -14068,7 +14033,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "6");
+                        gun[index].startcd = ("6");
                         string read = "闪光弹,半径2.5";
                         renewread(combo, read);
                         break;
@@ -14088,7 +14053,7 @@ namespace snqxap
                         }
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "15");
+                        gun[index].startcd = ("15");
                         string read = "2s瞄准,当前" + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
@@ -14112,7 +14077,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        renewontime(combo, "6");
+                        gun[index].startcd = ("6");
                         string read = "提升自身" + updem1 * 100 + "%伤害";
                         renewread(combo, read);
                         break;
@@ -19230,19 +19195,19 @@ namespace snqxap
                 default: break;
             }
             if (gun[index].damageup != 0)
-                tbt += "伤害+" + ((gun[index].damageup) * 100 * multiple[combo]).ToString("0") + "% ";
+                tbt += "伤害+" + Math.Floor((gun[index].damageup) * 100 * multiple[combo]).ToString("0") + "% ";
             if (gun[index].shotspeedup != 0)
-                tbt += "射速+" + ((gun[index].shotspeedup) * 100 * multiple[combo]).ToString("0") + "% ";
+                tbt += "射速+" + Math.Floor((gun[index].shotspeedup) * 100 * multiple[combo]).ToString("0") + "% ";
             if (gun[index].hitup != 0)
-                tbt += "命中+" + ((gun[index].hitup) * 100 * multiple[combo]).ToString("0") + "% ";
+                tbt += "命中+" + Math.Floor((gun[index].hitup) * 100 * multiple[combo]).ToString("0") + "% ";
             if (gun[index].dodgeup != 0)
-                tbt += "回避+" + ((gun[index].dodgeup) * 100 * multiple[combo]).ToString("0") + "% ";
+                tbt += "回避+" + Math.Floor((gun[index].dodgeup) * 100 * multiple[combo]).ToString("0") + "% ";
             if (gun[index].critup != 0)
-                tbt += "暴击率+" + ((gun[index].critup) * 100 * multiple[combo]).ToString("0") + "% ";
+                tbt += "暴击率+" + Math.Floor((gun[index].critup) * 100 * multiple[combo]).ToString("0") + "% ";
             if (gun[index].rateup != 0)
-                tbt += "冷却-" + ((gun[index].rateup) * 100 * multiple[combo]).ToString("0") + "% ";
+                tbt += "冷却-" + Math.Floor((gun[index].rateup) * 100 * multiple[combo]).ToString("0") + "% ";
             if (gun[index].armorup != 0)
-                tbt += "护甲+" + (gun[index].armorup * 100 * multiple[combo]).ToString("0") + "% ";
+                tbt += "护甲+" + Math.Floor(gun[index].armorup * 100 * multiple[combo]).ToString("0") + "% ";
             if (tbt == "")
                 tbt = "无";
             Brush br = new SolidColorBrush(Color.FromRgb(0,255,222));
@@ -23353,6 +23318,38 @@ namespace snqxap
                 if (temp[i] == b)
                     return true;
             return false;
+        }
+
+        private void textBlock_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (getattime(0) > 0 && cb0.IsChecked == true)
+                if (slider.Value > skilltime[0] + getattime(0) || slider.Value < skilltime[0])
+                    cb0.IsChecked = false;
+            if (getattime(1) > 0 && cb1.IsChecked == true)
+                if (slider.Value > skilltime[1] + getattime(1) || slider.Value < skilltime[1])
+                    cb1.IsChecked = false;
+            if (getattime(2) > 0 && cb2.IsChecked == true)
+                if (slider.Value > skilltime[2] + getattime(2) || slider.Value < skilltime[2])
+                    cb2.IsChecked = false;
+            if (getattime(3) > 0 && cb3.IsChecked == true)
+                if (slider.Value > skilltime[3] + getattime(3) || slider.Value < skilltime[3])
+                    cb3.IsChecked = false;
+            if (getattime(4) > 0 && cb4.IsChecked == true)
+                if (slider.Value > skilltime[4] + getattime(4) || slider.Value < skilltime[4])
+                    cb4.IsChecked = false;
+            if (getattime(5) > 0 && cb5.IsChecked == true)
+                if (slider.Value > skilltime[5] + getattime(5) || slider.Value < skilltime[5])
+                    cb5.IsChecked = false;
+            if (getattime(6) > 0 && cb6.IsChecked == true)
+                if (slider.Value > skilltime[6] + getattime(6) || slider.Value < skilltime[6])
+                    cb6.IsChecked = false;
+            if (getattime(7) > 0 && cb7.IsChecked == true)
+                if (slider.Value > skilltime[7] + getattime(7) || slider.Value < skilltime[7])
+                    cb7.IsChecked = false;
+            if (getattime(8) > 0 && cb8.IsChecked == true)
+                if (slider.Value > skilltime[8] + getattime(8) || slider.Value < skilltime[8])
+                    cb8.IsChecked = false;
+            renewskill();
         }
     }
 }
