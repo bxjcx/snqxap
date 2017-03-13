@@ -68,7 +68,7 @@ namespace snqxap
         public string equiptype2 { get; set; }//二栏装备类型
         public string equiptype3 { get; set; }//三栏装备类型
         public int grid_center { get; set; }//光环中心
-        /// <summary
+        /// <summary>
         /// 2 ar 3 smg 4 hg 5 rf 6 mg 7 sg   
         /// </summary>
         public int what { get; set; }   
