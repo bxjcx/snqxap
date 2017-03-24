@@ -6553,19 +6553,9 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                if (ebreakarmor > 0)
-                                {
-                                    if (ebreakarmor <= Double.Parse(Larmor0.Content.ToString()))
-                                    //    enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor0.Content.ToString())));
-                                        enemycalcdamage = Math.Ceiling(Math.Max(1, enemycalcdamage + Math.Min(2, ebreakarmor - Double.Parse(Larmor0.Content.ToString()))));
-                           
-                                    else
-                                        enemycalcdamage += 2;
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                                }
-                                else
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                            }
+                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor0.Content.ToString()))));
+                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                              }
                             else
                                 ftank.Content = 0;
                         }
@@ -6579,17 +6569,7 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                if (ebreakarmor > 0)
-                                {
-                                    if (ebreakarmor <= Double.Parse(Larmor1.Content.ToString()))
-                                     //   enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor1.Content.ToString())));
-                                        enemycalcdamage = Math.Ceiling(Math.Max(1, enemycalcdamage + Math.Min(2, ebreakarmor - Double.Parse(Larmor1.Content.ToString()))));
-                           
-                                    else
-                                        enemycalcdamage += 2;
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp1.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge1.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                                }
-                                else
+                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor1.Content.ToString()))));
                                     ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp1.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge1.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             }
                             else
@@ -6605,19 +6585,9 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                if (ebreakarmor > 0)
-                                {
-                                    if (ebreakarmor <= Double.Parse(Larmor2.Content.ToString()))
-                                       // enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor2.Content.ToString())));
-                                        enemycalcdamage = Math.Ceiling(Math.Max(1, enemycalcdamage + Math.Min(2, ebreakarmor - Double.Parse(Larmor2.Content.ToString()))));
-                           
-                                    else
-                                        enemycalcdamage += 2;
+                               enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor2.Content.ToString()))));
                                     ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp2.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                                }
-                                else
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp2.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                            }
+                             }
                             else
                                 ftank.Content = 0;
                         }
@@ -6631,19 +6601,9 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                if (ebreakarmor > 0)
-                                {
-                                    if (ebreakarmor <= Double.Parse(Larmor3.Content.ToString()))
-                                //        enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor3.Content.ToString())));
-                                        enemycalcdamage = Math.Ceiling(Math.Max(1, enemycalcdamage + Math.Min(2, ebreakarmor - Double.Parse(Larmor3.Content.ToString()))));
-                           
-                                    else
-                                        enemycalcdamage += 2;
+                            enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor3.Content.ToString()))));
                                     ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp3.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                                }
-                                else
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp3.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                            }
+                                             }
                             else
                                 ftank.Content = 0;
                         }
@@ -6657,19 +6617,9 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                if (ebreakarmor > 0)
-                                {
-                                    if (ebreakarmor <= Double.Parse(Larmor4.Content.ToString()))
-                                        //enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor4.Content.ToString())));
-                                        enemycalcdamage = Math.Ceiling(Math.Max(1, enemycalcdamage + Math.Min(2, ebreakarmor - Double.Parse(Larmor4.Content.ToString()))));
-                           
-                                    else
-                                        enemycalcdamage += 2;
+                                    enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor4.Content.ToString()))));
                                     ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp4.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                                }
-                                else
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp4.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                            }
+                             }
                             else
                                 ftank.Content = 0;
                         }
@@ -6683,19 +6633,9 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                if (ebreakarmor > 0)
-                                {
-                                    if (ebreakarmor <= Double.Parse(Larmor5.Content.ToString()))
-                                   //     enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor5.Content.ToString())));
-                                        enemycalcdamage = Math.Ceiling(Math.Max(1, enemycalcdamage + Math.Min(2, ebreakarmor - Double.Parse(Larmor5.Content.ToString()))));
-                           
-                                    else
-                                        enemycalcdamage += 2;
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp5.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                            enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor5.Content.ToString()))));
+                                  ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp5.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                                 }
-                                else
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp5.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                            }
                             else
                                 ftank.Content = 0;
                         }
@@ -6709,20 +6649,10 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                if (ebreakarmor > 0)
-                                {
-                                    if (ebreakarmor <= Double.Parse(Larmor6.Content.ToString()))
-                                       // enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor6.Content.ToString())));
-                                        enemycalcdamage = Math.Ceiling(Math.Max(1, enemycalcdamage + Math.Min(2, ebreakarmor - Double.Parse(Larmor6.Content.ToString()))));
-                           
-                                    else
-                                        enemycalcdamage += 2;
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp6.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                           enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor6.Content.ToString()))));
+                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp6.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                                 }
                                 else
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp6.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                            }
-                            else
                                 ftank.Content = 0;
                         }
                         else
@@ -6735,20 +6665,10 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                if (ebreakarmor > 0)
-                                {
-                                    if (ebreakarmor <= Double.Parse(Larmor7.Content.ToString()))
-                                     //   enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor7.Content.ToString())));
-                                        enemycalcdamage = Math.Ceiling(Math.Max(1, enemycalcdamage + Math.Min(2, ebreakarmor - Double.Parse(Larmor7.Content.ToString()))));
-                           
-                                    else
-                                        enemycalcdamage += 2;
+                             enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor7.Content.ToString()))));
                                     ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp7.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                                 }
-                                else
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp7.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                            }
-                            else
+                                 else
                                 ftank.Content = 0;
                         }
                         else
@@ -6761,20 +6681,10 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                if (ebreakarmor > 0)
-                                {
-                                    if (ebreakarmor <= Double.Parse(Larmor8.Content.ToString()))
-                                       // enemycalcdamage = Math.Floor(Math.Max(enemycalcdamage / 10, enemycalcdamage + ebreakarmor - Double.Parse(Larmor8.Content.ToString())));
-                                        enemycalcdamage = Math.Ceiling(Math.Max(1, enemycalcdamage + Math.Min(2, ebreakarmor - Double.Parse(Larmor8.Content.ToString()))));
-                           
-                                    else
-                                        enemycalcdamage += 2;
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp8.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor8.Content.ToString()))));
+                                     ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp8.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                                 }
                                 else
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp8.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                            }
-                            else
                                 ftank.Content = 0;
                         }
                         else
@@ -9346,11 +9256,11 @@ namespace snqxap
                 return;
             if (levelselect == -1 || levelselect == 100)
                 return;
-            for(int i =0;i<9;i++)
+            for (int i = 0; i < 9; i++)
             {
-                if(gg[i].rateup>1.3)
+                if (gg[i].rateup < 0.7)
                 {
-                    gg[i].rateup = 1.3;
+                    gg[i].rateup = 0.7;
                 }
             }
             showbuff(combo, select);
