@@ -6620,7 +6620,11 @@ namespace snqxap
                             {
                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor2.Content.ToString()))));
                                     ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp2.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+<<<<<<< HEAD
                             }
+=======
+                             }
+>>>>>>> origin/master
                             else
                                 ftank.Content = 0;
                         }
@@ -6636,7 +6640,11 @@ namespace snqxap
                             {
                             enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor3.Content.ToString()))));
                                     ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp3.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+<<<<<<< HEAD
                             }
+=======
+                                             }
+>>>>>>> origin/master
                             else
                                 ftank.Content = 0;
                         }
@@ -6652,7 +6660,7 @@ namespace snqxap
                             {
                                     enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor4.Content.ToString()))));
                                     ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp4.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                            }
+                             }
                             else
                                 ftank.Content = 0;
                         }
@@ -6700,8 +6708,13 @@ namespace snqxap
                             {
                              enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor7.Content.ToString()))));
                                     ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp7.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+<<<<<<< HEAD
                             }
                             else
+=======
+                                }
+                                 else
+>>>>>>> origin/master
                                 ftank.Content = 0;
                         }
                         else
