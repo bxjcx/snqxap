@@ -30,11 +30,11 @@ namespace snqxap
         /// <summary>
         /// 枪娘总数
         /// </summary>
-        public const int GUN_NUMBER = 153; 
+        public const int GUN_NUMBER = 159; 
         /// <summary>
         /// 装备总数
         /// </summary>
-        public const int EQUIP_NUMBER = 66;
+        public const int EQUIP_NUMBER = 70;
         /// <summary>
         /// 0-3 外骨骼 4-7 穿甲弹 8-11 高速弹 12-15 光学瞄具 16-19 全息 20-23 红点 24-27夜视 28五星穿甲 29五星夜视
         /// AR 全息/光喵/ACOG/夜视 高速弹 外骨 smg 外骨 空 全息/光喵/ACOG/夜视
@@ -54,6 +54,7 @@ namespace snqxap
         Double[] skillupnegev = new Double[9];
         Double[] skilltime = new Double[9];
         Double[] skilluprenju = new Double[9];
+        Double[] skillupboom = new Double[9];
         Double[] skillsolidmultiple = new Double[9];
         int[] skilltarget = new int[9];
         int[] equipdamage = new int[9];
@@ -496,24 +497,24 @@ namespace snqxap
 
             gun[141].name = "OTs-44"; gun[141].what = 5; gun[141].crit = 0.4; gun[141].belt = 0;
             gun[141].eatratio = 135; gun[141].ratiododge = 85; gun[141].ratiohit = 90; gun[141].ratiohp = 90; gun[141].ratiopow = 135; gun[141].ratiorate = 90;
-            gun[141].equiptype1 = "5"; gun[141].equiptype2 = "1,2,3,13"; gun[141].equiptype3 = "9"; gun[141].type = 103003;
+            gun[141].equiptype1 = "5"; gun[141].equiptype2 = "1,2,3,13"; gun[141].equiptype3 = "9,15"; gun[141].type = 103003;
             gun[141].grid_center = 5; gun[141].number = 2; gun[141].effect0 = 3; gun[141].effect1 = 9;gun[141].rateup = 0.12; gun[141].to = 4;
 
             gun[142].name = "G28"; gun[142].what = 5; gun[142].crit = 0.4; gun[142].belt = 0;
             gun[142].eatratio = 120; gun[142].ratiododge = 85; gun[142].ratiohit = 120; gun[142].ratiohp = 100; gun[142].ratiopow = 110; gun[142].ratiorate = 115;
-            gun[142].equiptype1 = "5"; gun[142].equiptype2 = "1,2,3,13"; gun[142].equiptype3 = "9"; gun[142].type = 100124;
+            gun[142].equiptype1 = "5"; gun[142].equiptype2 = "1,2,3,13"; gun[142].equiptype3 = "9,15"; gun[142].type = 100124;
             gun[142].grid_center = 5; gun[142].number = 2; gun[142].effect0 = 2; gun[142].effect1 = 8; gun[142].rateup = 0.15; gun[142].to = 4;
             if (DateTime.Now > DateTime.Parse("2017-03-21"))
             {
                 gun[143].name = "SSG 69"; gun[143].what = 5; gun[143].crit = 0.4; gun[143].belt = 0;
                 gun[143].eatratio = 120; gun[143].ratiododge = 115; gun[143].ratiohit = 125; gun[143].ratiohp = 90; gun[143].ratiopow = 120; gun[143].ratiorate = 85;
-                gun[143].equiptype1 = "5"; gun[143].equiptype2 = "1,2,3,13"; gun[143].equiptype3 = "9"; gun[143].type = 100102;
+                gun[143].equiptype1 = "5"; gun[143].equiptype2 = "1,2,3,13"; gun[143].equiptype3 = "9,15"; gun[143].type = 100102;
                 gun[143].grid_center = 5; gun[143].number = 1; gun[143].effect0 = 6; gun[143].rateup = 0.12; gun[143].to = 4;
             }
 
             gun[144].name = "IWS 2000"; gun[144].what = 5; gun[144].crit = 0.4; gun[144].belt = 0;
             gun[144].eatratio = 130; gun[144].ratiododge = 80; gun[144].ratiohit = 110; gun[144].ratiohp = 100; gun[144].ratiopow = 142; gun[144].ratiorate = 90;
-            gun[144].equiptype1 = "5"; gun[144].equiptype2 = "1,2,3,13"; gun[144].equiptype3 = "9"; gun[144].type = 105705;
+            gun[144].equiptype1 = "5"; gun[144].equiptype2 = "1,2,3,13"; gun[144].equiptype3 = "9,15"; gun[144].type = 105705;
             gun[144].grid_center = 5; gun[144].number = 2; gun[144].effect0 = 2; gun[144].effect1 = 8; gun[144].rateup = 0.18; gun[144].to = 4;
 
             gun[145].name = "AEK-999"; gun[145].what = 6; gun[145].crit = 0.05; gun[145].belt = 10;
@@ -556,6 +557,37 @@ namespace snqxap
             gun[152].eatratio = 90; gun[152].ratiododge = 85; gun[152].ratiohit = 110; gun[152].ratiohp = 125; gun[152].ratiopow = 120; gun[152].ratiorate = 125; gun[152].ratioarmor = 115;
             gun[152].equiptype1 = "9,11"; gun[152].equiptype2 = "7"; gun[152].equiptype3 = "1,2,3,4"; gun[152].type = 100122;
             gun[152].grid_center = 6; gun[152].number = 2; gun[152].effect0 = 4; gun[152].effect1 = 7; gun[152].damageup = 0.2; gun[152].to = 6;
+            if (DateTime.Now > DateTime.Parse("2017-05-21"))
+            {
+                gun[153].name = "HK45"; gun[153].what = 4; gun[153].crit = 0.2; gun[153].belt = 0;
+                gun[153].eatratio = 110; gun[153].ratiododge = 115; gun[153].ratiohit = 125; gun[153].ratiohp = 100; gun[153].ratiopow = 130; gun[153].ratiorate = 105;
+                gun[153].equiptype1 = "4,13"; gun[153].equiptype2 = "6"; gun[153].equiptype3 = "9,10,12"; gun[153].type = 106101;
+                gun[153].grid_center = 5; gun[153].number = 4; gun[153].effect0 = 1; gun[153].effect1 = 3; gun[153].effect2 = 7; gun[153].effect3 = 9; gun[153].damageup = 0.16; gun[153].to = 1;
+            }
+            gun[154].name = "Spitfire"; gun[154].what = 4; gun[154].crit = 0.2; gun[154].belt = 0;
+            gun[154].eatratio = 120; gun[154].ratiododge = 95; gun[154].ratiohit = 120; gun[154].ratiohp = 105; gun[154].ratiopow = 120; gun[154].ratiorate = 110;
+            gun[154].equiptype1 = "4,13"; gun[154].equiptype2 = "6"; gun[154].equiptype3 = "9,10,12"; gun[154].type = 101602;
+            gun[154].grid_center = 4; gun[154].number = 4; gun[154].effect0 = 1; gun[154].effect1 = 3; gun[154].effect2 = 7; gun[154].effect3 = 9; gun[154].damageup = 0.15; gun[154].hitup = 0.2; gun[154].to = 1;
+
+            gun[155].name = "SCW"; gun[155].what = 3; gun[155].crit = 0.05; gun[155].belt = 0;
+            gun[155].eatratio = 100; gun[155].ratiododge = 120; gun[155].ratiohit = 110; gun[155].ratiohp = 95; gun[155].ratiopow = 125; gun[155].ratiorate = 120;
+            gun[155].equiptype1 = "9,10,12"; gun[155].equiptype2 = "6"; gun[155].equiptype3 = "1,2,3,4,13"; gun[155].type = 101903;
+            gun[155].grid_center = 5; gun[155].number = 1; gun[155].effect0 = 4; gun[155].shotspeedup = 0.1; gun[155].damageup = 0.06; gun[155].to = 2;
+
+            gun[156].name = "利贝罗勒"; gun[156].what = 2; gun[156].crit = 0.2; gun[156].belt = 0;
+            gun[156].eatratio = 135; gun[156].ratiododge = 85; gun[156].ratiohit = 95; gun[156].ratiohp = 100; gun[156].ratiopow = 130; gun[156].ratiorate = 90;
+            gun[156].equiptype1 = "1,2,3,4,13"; gun[156].equiptype2 = "8"; gun[156].equiptype3 = "9,10,12"; gun[156].type = 106203;
+            gun[156].grid_center = 5; gun[156].number = 2; gun[156].effect0 = 2; gun[156].effect1 = 8; gun[156].damageup = 0.2; gun[156].to = 2;
+
+            gun[157].name = "RFB"; gun[157].what = 2; gun[157].crit = 0.2; gun[157].belt = 0;
+            gun[157].eatratio = 145; gun[157].ratiododge = 100; gun[157].ratiohit = 140; gun[157].ratiohp = 95; gun[157].ratiopow = 135; gun[157].ratiorate = 75;
+            gun[157].equiptype1 = "1,2,3,4,13"; gun[157].equiptype2 = "8"; gun[157].equiptype3 = "9,10,12"; gun[157].type = 106404;
+            gun[157].grid_center = 5; gun[157].number = 3; gun[157].effect0 = 3; gun[157].effect1 = 6; gun[157].effect2 = 9; gun[157].hitup = 0.3; gun[157].dodgeup = 0.18; gun[157].to = 3;
+
+            gun[158].name = "PKP"; gun[158].what = 6; gun[158].crit = 0.05; gun[158].belt = 10;
+            gun[158].eatratio = 115; gun[158].ratiododge = 120; gun[158].ratiohit = 130; gun[158].ratiohp = 100; gun[158].ratiopow = 120; gun[158].ratiorate = 120;
+            gun[158].equiptype1 = "5"; gun[158].equiptype2 = "1,2,3"; gun[158].equiptype3 = "9,14"; gun[158].type = 106304;
+            gun[158].grid_center = 7; gun[158].number = 3; gun[158].effect0 = 3; gun[158].effect1 = 6; gun[158].effect2 = 9; gun[158].shotspeedup = 0.15; gun[158].hitup = 0.12; gun[158].to = 7;
 
             for (int i = 0; i < GUN_NUMBER + 1; i++)//加颜色
             {
@@ -885,6 +917,7 @@ namespace snqxap
                     skillupbelt[i] = new double();
                     skillupnegev[i] = new double();
                     skilluprenju[i] = new double();
+                skillupboom[i] = new double();
                 skillsolidmultiple[i] = new double();
                     skilltime[i] = new double();
                     skilltime[i] = 0;
@@ -898,6 +931,7 @@ namespace snqxap
                     skillupnegev[i] = 0;
                 skillsolidmultiple[i] = 0;
                     skilluprenju[i] = 1;
+                skillupboom[i] = 0;
                     skillupdamage[i] = 1;
                     skilldamageagain[i] = 0;
                     skilltarget[i] = 1;
@@ -2108,25 +2142,25 @@ namespace snqxap
             gun[27].equiptype3 = "1,2,3,4,13";
             gun[28].equiptype3 = "1,2,3,4,13";
             gun[29].equiptype3 = "1,2,3,4,13";
-            gun[30].equiptype3 = "9";
-            gun[31].equiptype3 = "9";
-            gun[32].equiptype3 = "9";
-            gun[33].equiptype3 = "9";
-            gun[34].equiptype3 = "9";
-            gun[35].equiptype3 = "9";
-            gun[36].equiptype3 = "9";
-            gun[37].equiptype3 = "9";
-            gun[38].equiptype3 = "9";
-            gun[39].equiptype3 = "9";
-            gun[40].equiptype3 = "9";
-            gun[41].equiptype3 = "9";
-            gun[42].equiptype3 = "9";
-            gun[43].equiptype3 = "9";
-            gun[44].equiptype3 = "9";
-            gun[45].equiptype3 = "9";
-            gun[46].equiptype3 = "9";
-            gun[47].equiptype3 = "9";
-            gun[48].equiptype3 = "9";
+            gun[30].equiptype3 = "9,15";
+            gun[31].equiptype3 = "9,15";
+            gun[32].equiptype3 = "9,15";
+            gun[33].equiptype3 = "9,15";
+            gun[34].equiptype3 = "9,15";
+            gun[35].equiptype3 = "9,15";
+            gun[36].equiptype3 = "9,15";
+            gun[37].equiptype3 = "9,15";
+            gun[38].equiptype3 = "9,15";
+            gun[39].equiptype3 = "9,15";
+            gun[40].equiptype3 = "9,15";
+            gun[41].equiptype3 = "9,15";
+            gun[42].equiptype3 = "9,15";
+            gun[43].equiptype3 = "9,15";
+            gun[44].equiptype3 = "9,15";
+            gun[45].equiptype3 = "9,15";
+            gun[46].equiptype3 = "9,15";
+            gun[47].equiptype3 = "9,15";
+            gun[48].equiptype3 = "9,15";
             gun[49].equiptype3 = "9,10,11,12";
             gun[50].equiptype3 = "9,10,12";
             gun[51].equiptype3 = "8";
@@ -2163,7 +2197,7 @@ namespace snqxap
             gun[82].equiptype3 = "1,2,3,4,13";
             gun[83].equiptype3 = "1,2,3,4,13";
             gun[84].equiptype3 = "1,2,3,4,13";
-            gun[85].equiptype3 = "9";
+            gun[85].equiptype3 = "9,15";
             gun[86].equiptype3 = "9,10,12";
             gun[87].equiptype3 = "9,10,12";
             gun[88].equiptype3 = "9,10,12";
@@ -2184,18 +2218,18 @@ namespace snqxap
             gun[103].equiptype3 = "9,10,12";
             gun[104].equiptype3 = "1,2,3,4,13";
             gun[105].equiptype3 = "1,2,3,4,13";
-            gun[106].equiptype3 = "9";
+            gun[106].equiptype3 = "9,15";
             gun[107].equiptype3 = "9,10,12";
             gun[108].equiptype3 = "9,10,12";
             gun[109].equiptype3 = "9,10,12";
             gun[110].equiptype3 = "9,14";
             gun[111].equiptype3 = "9,10,12";
             gun[112].equiptype3 = "9,10,12";
-            gun[113].equiptype3 = "9";
+            gun[113].equiptype3 = "9,15";
             gun[114].equiptype3 = "9,14";
             gun[115].equiptype3 = "9,10,12";
             gun[116].equiptype3 = "1,2,3,4,13";
-            gun[117].equiptype3 = "9";
+            gun[117].equiptype3 = "9,15";
             gun[118].equiptype3 = "9,10,12";
             gun[119].equiptype3 = "9,10,12";
             gun[120].equiptype3 = "1,2,3,4,13";
@@ -2560,10 +2594,7 @@ namespace snqxap
             gun[124].shotspeedup = 0.18;
             gun[124].critup = 0.3;
             gun[125].damageup = 0.24;
-            if (DateTime.Now > DateTime.Parse("2017-01-21"))
-            {
-                gun[126].damageup = 0.35;
-            }
+            gun[126].damageup = 0.35;
             gun[127].damageup = 0.08;
             gun[127].shotspeedup = 0.05;
             gun[128].hitup = 0.28;
@@ -2880,10 +2911,10 @@ namespace snqxap
             equip[5].name = "M993穿甲弹"; equip[5].bonus1 = 0.5; equip[5].property1 = "穿甲"; equip[5].down1 = 40; equip[5].up1 =  Math.Floor(50* (1+equip[5].bonus1)); equip[5].type = 5; equip[5].rank = 3;
             equip[6].name = "Mk169穿甲弹"; equip[6].bonus1 = 0.5; equip[6].property1 = "穿甲"; equip[6].down1 = 55; equip[6].up1 =  Math.Floor(65* (1+equip[6].bonus1)); equip[6].type = 5; equip[6].rank = 4;
             equip[7].name = "Mk211高爆穿甲弹"; equip[7].bonus1 = 0.5; equip[7].property1 = "穿甲"; equip[7].down1 = 70; equip[7].up1 = Math.Floor(80 * (1+equip[7].bonus1)); equip[7].type = 5; equip[7].rank = 5;
-            equip[8].name = "JHP高速弹"; equip[8].property1 = "伤害"; equip[8].down1 = 1; equip[8].up1 = 1; equip[8].type = 8; equip[8].rank = 2;
-            equip[9].name = "三星FMJ高速弹"; equip[9].bonus1 = 0.5; equip[9].property1 = "伤害"; equip[9].down1 = 2; equip[9].up1 = Math.Floor(2 * (1 + equip[9].bonus1)); equip[9].type = 8; equip[9].rank = 3;
-            equip[10].name = "四星FMJ高速弹"; equip[10].bonus1 = 0.5; equip[10].property1 = "伤害"; equip[10].down1 = 3; equip[10].up1 = Math.Floor(4 * (1 + equip[10].bonus1)); equip[10].type = 8; equip[10].rank = 4;
-            equip[11].name = "HVAP高速弹"; equip[11].bonus1 = 0.4; equip[11].property1 = "伤害"; equip[11].down1 = 5; equip[11].up1 = Math.Floor(8 * (1 + equip[11].bonus1)); equip[11].type = 8; equip[11].rank = 5;
+            equip[8].name = "JHP高速弹"; equip[8].property1 = "伤害"; equip[8].down1 = 2; equip[8].up1 = 2; equip[8].type = 8; equip[8].rank = 2;
+            equip[9].name = "三星FMJ高速弹"; equip[9].bonus1 = 1; equip[9].property1 = "伤害"; equip[9].down1 = 3; equip[9].up1 = Math.Floor(4 * (1 + equip[9].bonus1)); equip[9].type = 8; equip[9].rank = 3;
+            equip[10].name = "四星FMJ高速弹"; equip[10].bonus1 = 0.8; equip[10].property1 = "伤害"; equip[10].down1 = 5; equip[10].up1 = Math.Floor(7 * (1 + equip[10].bonus1)); equip[10].type = 8; equip[10].rank = 4;
+            equip[11].name = "HVAP高速弹"; equip[11].bonus1 = 0.7; equip[11].property1 = "伤害"; equip[11].down1 = 8; equip[11].up1 = Math.Floor(12 * (1 + equip[11].bonus1)); equip[11].type = 8; equip[11].rank = 5;
             equip[12].name = "光瞄 - BM 3-12X40"; equip[12].property1 = "暴击率"; equip[12].down1 = 5; equip[12].up1 = 8; equip[12].type = 1; equip[12].rank = 2;
             equip[13].name = "光瞄 - LRA 2-12X50"; equip[13].bonus1 = 1; equip[13].property1 = "暴击率"; equip[13].down1 = 9; equip[13].up1 = Math.Floor(12 * (1 + equip[13].bonus1)); equip[13].type = 1; equip[13].rank = 3;
             equip[14].name = "光瞄 - PSO-1"; equip[14].bonus1 = 1; equip[14].property1 = "暴击率"; equip[14].down1 = 13; equip[14].up1 = Math.Floor(16 * (1 + equip[14].bonus1)); equip[14].type = 1; equip[14].rank = 4;
@@ -2908,7 +2939,7 @@ namespace snqxap
             equip[33].name = "IOP X3外骨骼"; equip[33].bonus1 = 0.9; equip[33].property1 = "回避"; equip[33].down1 = 6; equip[33].up1 =Math.Floor( 7* (1 + equip[33].bonus1)); equip[33].type = 10; equip[33].rank = 4;
             equip[34].name = "IOP X4外骨骼"; equip[34].bonus1 = 0.7; equip[34].property1 = "回避"; equip[34].down1 = 8; equip[34].up1 = Math.Floor(12 * (1 + equip[34].bonus1)); equip[34].type = 10; equip[34].rank = 5;
             equip[35].name = "国家竞赛穿甲弹"; equip[35].bonus1 = 0.3; equip[35].bonus2 = 0.5; equip[35].property1 = "射速"; equip[35].down1 = 1; equip[35].up1 = Math.Floor(8 * (1 + equip[35].bonus1)); equip[35].property2 = "穿甲"; equip[35].down2 = 75; equip[35].up2 = Math.Floor(85 * (1 + equip[35].bonus2)); equip[35].type = 5; equip[35].rank = 5; equip[35].forwhat = "32";
-            equip[36].name = ".300BLK高速弹"; equip[36].bonus1 = 0.3; equip[36].property1 = "伤害"; equip[36].down1 = 8; equip[36].up1 = Math.Floor(12 * (1 + equip[36].bonus1)); equip[36].property2 = "命中"; equip[36].down2 = -5; equip[36].up2 = -1; equip[36].type = 8; equip[36].rank = 5; equip[36].forwhat = "52";
+            equip[36].name = ".300BLK高速弹"; equip[36].bonus1 = 0.6; equip[36].property1 = "伤害"; equip[36].down1 = 12; equip[36].up1 = Math.Floor(16 * (1 + equip[36].bonus1)); equip[36].property2 = "命中"; equip[36].down2 = -5; equip[36].up2 = -1; equip[36].type = 8; equip[36].rank = 5; equip[36].forwhat = "52";
             equip[37].name = "Titan火控芯片"; equip[37].bonus3 = 0.5; equip[37].property1 = "伤害"; equip[37].down1 = -4; equip[37].up1 = -2; equip[37].property2 = "射速"; equip[37].down2 = -8; equip[37].up2 = -1; equip[37].property3 = "弹链"; equip[37].down3 = 3; equip[37].up3 = Math.Floor(4 * (1 + equip[37].bonus3)); equip[37].type = 9; equip[37].rank = 5; equip[37].forwhat = "67";
             equip[38].name = "GSG UX外骨骼"; equip[38].bonus2 = 0.3; equip[38].property1 = "伤害"; equip[38].down1 = -10; equip[38].up1 = -6; equip[38].property2 = "回避"; equip[38].down2 = 30; equip[38].up2 = Math.Floor(45 * (1 + equip[38].bonus2)); equip[38].type = 10; equip[38].rank = 5; equip[38].forwhat = "24"; 
             equip[39].name = "AC1消音器"; equip[39].property1 = "暴击率"; equip[39].down1 = 4; equip[39].up1 = 5; equip[39].property2 = "回避"; equip[39].down2 = 2; equip[39].up2 = 2; equip[39].type = 13; equip[39].rank = 2;
@@ -2940,7 +2971,11 @@ namespace snqxap
             equip[62].name = "Type2防弹插板"; equip[62].bonus1 = 0.4; equip[62].property1 = "护甲"; equip[62].down1 = 4; equip[62].up1 = Math.Floor(5 * (1 + equip[62].bonus1)); equip[62].property2 = "回避"; equip[62].down2 = -1; equip[62].up2 = -1; equip[62].type = 11; equip[62].rank = 4;
             equip[63].name = "Type3防弹插板"; equip[63].bonus1 = 0.4; equip[63].property1 = "护甲"; equip[63].down1 = 6; equip[63].up1 = Math.Floor(8 * (1 + equip[63].bonus1)); equip[63].property2 = "回避"; equip[63].down2 = -3; equip[63].up2 = -2; equip[63].type = 11; equip[63].rank = 5;
             equip[64].name = "16Lab防弹插板"; equip[64].bonus1 = 0.4; equip[64].property1 = "护甲"; equip[64].down1 = 8; equip[64].up1 = Math.Floor(8 * (1 + equip[64].bonus1)); equip[64].property2 = "回避"; equip[64].down2 = -2; equip[64].up2 = -2; equip[64].type = 11; equip[64].rank = 5;
-            equip[65].name = "Hayha记忆芯片"; equip[65].bonus1 = 0.4; equip[65].bonus2 = 0.3; equip[65].bonus3 = 0.7; equip[65].property1 = "伤害"; equip[65].down1 = 12; equip[65].up1 = Math.Floor(18 * (1 + equip[65].bonus1)); equip[65].property2 = "回避"; equip[65].down2 = 2; equip[65].up2 = Math.Floor(4 * (1 + equip[65].bonus2)); equip[65].property3 = "暴击伤害"; equip[65].down3 = 8; equip[65].up3 = Math.Floor(12 * (1 + equip[65].bonus3)); equip[65].type = 9; equip[65].rank = 5; equip[65].forwhat = "35";
+            equip[65].name = "Hayha记忆芯片"; equip[65].bonus1 = 0.2; equip[65].bonus2 = 0.3; equip[65].bonus3 = 0.5; equip[65].property1 = "伤害"; equip[65].down1 = 18; equip[65].up1 = Math.Floor(25 * (1 + equip[65].bonus1)); equip[65].property2 = "回避"; equip[65].down2 = 2; equip[65].up2 = Math.Floor(4 * (1 + equip[65].bonus2)); equip[65].property3 = "暴击伤害"; equip[65].down3 = 15; equip[65].up3 = Math.Floor(20 * (1 + equip[65].bonus3)); equip[65].type = 9; equip[65].rank = 5; equip[65].forwhat = "35";
+            equip[66].name = "破旧披风"; equip[66].property1 = "暴击伤害"; equip[66].down1 = 3; equip[66].up1 = 4; equip[66].property2 = "速度"; equip[66].down2 = -3; equip[66].up2 = -3; equip[66].type = 15; equip[66].rank = 2;
+            equip[67].name = "伪装披风"; equip[67].bonus1 = 0.9; equip[67].property1 = "暴击伤害"; equip[67].down1 = 5; equip[67].up1 = Math.Floor(7 * (1 + equip[67].bonus1)); equip[67].property2 = "速度"; equip[67].down2 = -3; equip[67].up2 = -3; equip[67].type = 15; equip[67].rank = 3;
+            equip[68].name = "城市迷彩披风"; equip[68].bonus1 = 0.8; equip[68].property1 = "暴击伤害"; equip[68].down1 = 8; equip[68].up1 = Math.Floor(10 * (1 + equip[68].bonus1)); equip[68].property2 = "速度"; equip[68].down2 = -3; equip[68].up2 = -3; equip[68].type = 15; equip[68].rank = 4;
+            equip[69].name = "热光学迷彩披风"; equip[69].bonus1 = 0.7; equip[69].property1 = "暴击伤害"; equip[69].down1 = 11; equip[69].up1 = Math.Floor(15 * (1 + equip[69].bonus1)); equip[69].property2 = "速度"; equip[69].down2 = -3; equip[69].up2 = -3; equip[69].type = 15; equip[69].rank = 5;
             for (int i = 0; i < EQUIP_NUMBER;i++ )
             {
                 if (!String.IsNullOrEmpty(equip[i].property1))
@@ -3500,7 +3535,7 @@ namespace snqxap
        /// <returns></returns>
         public double Index(double shotspeed,double damage,double crit,double enemydodge,double hit,double belt,int combo,double damageagain)
        {
-           double frame = Math.Ceiling(50 / shotspeed * 30);
+           double frame = Math.Ceiling(50 / shotspeed / 0.03333334);
             double slidertime = slider.Value;
             if (slidertime == 0)
                 slidertime = 1;
@@ -3547,11 +3582,11 @@ namespace snqxap
                         {
                             if (role > 4)
                             {
-                                return (((slidertime +1)% roletime)) * 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) * (1 + 3 * skillupnegev[combo]);
+                                return (((slidertime + 1) % roletime)) * 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) * (1 + 3 * skillupnegev[combo]);
 
                             }
                             else
-                                return ( ((slidertime +1)% roletime)) * 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) * (1 + (role - 1) * skillupnegev[combo]);
+                                return (((slidertime + 1) % roletime)) * 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) * (1 + (role - 1) * skillupnegev[combo]);
 
                         }
                         else
@@ -3566,7 +3601,25 @@ namespace snqxap
 
                     }
 
-                    else if(skilluprenju[combo]==1)
+                    else if (skillupboom[combo] != 0)
+                    {
+                        if (slidertime % roletime > shottime && (slidertime + 1) % roletime > 1)
+                            return 0;
+                        else if ((slidertime + 1) % roletime > shottime)
+                        {
+                            return (shottime - (slidertime % roletime)) * 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo]))  / (1 + enemydodge / hit) + (shottime - (slidertime % roletime)) * 3 * skillupboom[combo] * (1.5 + equipcritharm[combo]) * damage / (1 + enemydodge / hit);
+                        }
+                        else if ((slidertime + 1) % roletime < 1)
+                        {
+                            return (((slidertime + 1) % roletime)) * 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) + ((slidertime + 1) % roletime) * 3 * skillupboom[combo] * (1.5 + equipcritharm[combo]) * damage / (1 + enemydodge / hit);
+                        }
+                        else
+                        {
+                            return 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo]))  / (1 + enemydodge / hit) + 3 * skillupboom[combo] * (1.5 + equipcritharm[combo]) * damage / (1 + enemydodge / hit);
+                        }
+                    }
+
+                    else if (skilluprenju[combo] == 1)
                     {
                         if (slidertime % roletime > shottime && (slidertime + 1) % roletime > 1)
                             return 0;
@@ -3775,9 +3828,12 @@ namespace snqxap
                 {
                     othercombochange(index1, index0, 4, 0,1);
                 }
-                if (index3 != -1 && gun[index3].grid_center == 5)
+                if (index3 != -1 )
                 {
-                    othercombochange(index3, index0, 8, 0,3);
+                    if (gun[index3].grid_center == 5)
+                       othercombochange(index3, index0, 8, 0,3);
+                    else if(gun[index3].grid_center == 4)
+                        othercombochange(index3, index0, 7, 0, 3);  //eg 未改完
                 }
                 if (index4 != -1 && gun[index4].grid_center == 5)
                 {
@@ -7185,7 +7241,7 @@ namespace snqxap
                     {
                         equiprifledslug[0] = true;
                     }
-                    if (gun[Combo0.SelectedIndex].type == 301502 || gun[Combo0.SelectedIndex].type == 301503 || gun[Combo0.SelectedIndex].type == 301504 || gun[Combo0.SelectedIndex].type == 200201)
+                    if (gun[Combo0.SelectedIndex].type == 301502 || gun[Combo0.SelectedIndex].type == 301503 || gun[Combo0.SelectedIndex].type == 301504 || gun[Combo0.SelectedIndex].type == 200201 || gun[Combo0.SelectedIndex].type == 106304)
                     {
                         return;
                     }
@@ -7229,7 +7285,7 @@ namespace snqxap
                     {
                         equiprifledslug[1] = true;
                     }
-                    if (gun[Combo1.SelectedIndex].type == 301502 || gun[Combo1.SelectedIndex].type == 301503 || gun[Combo1.SelectedIndex].type == 301504 || gun[Combo1.SelectedIndex].type == 200201)
+                    if (gun[Combo1.SelectedIndex].type == 301502 || gun[Combo1.SelectedIndex].type == 301503 || gun[Combo1.SelectedIndex].type == 301504 || gun[Combo1.SelectedIndex].type == 200201 || gun[Combo1.SelectedIndex].type == 106304)
                     {
                         return;
                     }
@@ -7275,7 +7331,7 @@ namespace snqxap
                     {
                         equiprifledslug[2] = true;
                     }
-                    if (gun[Combo2.SelectedIndex].type == 301502 || gun[Combo2.SelectedIndex].type == 301503 || gun[Combo2.SelectedIndex].type == 301504 || gun[Combo2.SelectedIndex].type == 200201)
+                    if (gun[Combo2.SelectedIndex].type == 301502 || gun[Combo2.SelectedIndex].type == 301503 || gun[Combo2.SelectedIndex].type == 301504 || gun[Combo2.SelectedIndex].type == 200201 || gun[Combo2.SelectedIndex].type == 106304)
                     {
                         return;
                     }
@@ -7321,7 +7377,7 @@ namespace snqxap
                     {
                         equiprifledslug[3] = true;
                     }
-                    if (gun[Combo3.SelectedIndex].type == 301502 || gun[Combo3.SelectedIndex].type == 301503 || gun[Combo3.SelectedIndex].type == 301504 || gun[Combo3.SelectedIndex].type == 200201)
+                    if (gun[Combo3.SelectedIndex].type == 301502 || gun[Combo3.SelectedIndex].type == 301503 || gun[Combo3.SelectedIndex].type == 301504 || gun[Combo3.SelectedIndex].type == 200201 || gun[Combo3.SelectedIndex].type == 106304)
                     {
                         return;
                     }
@@ -7366,7 +7422,7 @@ namespace snqxap
                     {
                         equiprifledslug[4] = true;
                     }
-                    if (gun[Combo4.SelectedIndex].type == 301502 || gun[Combo4.SelectedIndex].type == 301503 || gun[Combo4.SelectedIndex].type == 301504 || gun[Combo4.SelectedIndex].type == 200201)
+                    if (gun[Combo4.SelectedIndex].type == 301502 || gun[Combo4.SelectedIndex].type == 301503 || gun[Combo4.SelectedIndex].type == 301504 || gun[Combo4.SelectedIndex].type == 200201 || gun[Combo4.SelectedIndex].type == 106304)
                     {
                         return;
                     }
@@ -7411,7 +7467,7 @@ namespace snqxap
                     {
                         equiprifledslug[5] = true;
                     }
-                        if (gun[Combo5.SelectedIndex].type == 301502 || gun[Combo5.SelectedIndex].type == 301503 || gun[Combo5.SelectedIndex].type == 301504 || gun[Combo5.SelectedIndex].type == 200201)
+                        if (gun[Combo5.SelectedIndex].type == 301502 || gun[Combo5.SelectedIndex].type == 301503 || gun[Combo5.SelectedIndex].type == 301504 || gun[Combo5.SelectedIndex].type == 200201 || gun[Combo5.SelectedIndex].type == 106304)
                         {
                             return;
                         }
@@ -7458,7 +7514,7 @@ namespace snqxap
                     {
                         equiprifledslug[6] = true;
                     }
-                    if (gun[Combo6.SelectedIndex].type == 301502 || gun[Combo6.SelectedIndex].type == 301503 || gun[Combo6.SelectedIndex].type == 301504 || gun[Combo6.SelectedIndex].type == 200201)
+                    if (gun[Combo6.SelectedIndex].type == 301502 || gun[Combo6.SelectedIndex].type == 301503 || gun[Combo6.SelectedIndex].type == 301504 || gun[Combo6.SelectedIndex].type == 200201 || gun[Combo6.SelectedIndex].type == 106304)
                     {
                         return;
                     }
@@ -7506,7 +7562,7 @@ namespace snqxap
                     {
                         equiprifledslug[7] = true;
                     }
-                    if (gun[Combo7.SelectedIndex].type == 301502 || gun[Combo7.SelectedIndex].type == 301503 || gun[Combo7.SelectedIndex].type == 301504 || gun[Combo7.SelectedIndex].type == 200201)
+                    if (gun[Combo7.SelectedIndex].type == 301502 || gun[Combo7.SelectedIndex].type == 301503 || gun[Combo7.SelectedIndex].type == 301504 || gun[Combo7.SelectedIndex].type == 200201 || gun[Combo7.SelectedIndex].type == 106304)
                     {
                         return;
                     }
@@ -7553,7 +7609,7 @@ namespace snqxap
                     {
                         equiprifledslug[8] = true;
                     }
-                    if (gun[Combo8.SelectedIndex].type == 301502 || gun[Combo8.SelectedIndex].type == 301503 || gun[Combo8.SelectedIndex].type == 301504 || gun[Combo8.SelectedIndex].type == 200201)
+                    if (gun[Combo8.SelectedIndex].type == 301502 || gun[Combo8.SelectedIndex].type == 301503 || gun[Combo8.SelectedIndex].type == 301504 || gun[Combo8.SelectedIndex].type == 200201 || gun[Combo8.SelectedIndex].type == 106304)
                     {
                         return;
                     }
@@ -11295,7 +11351,8 @@ namespace snqxap
                             case 8: { updem1 = 3; break; }
                             case 9: { updem1 = 3.2; break; }
                         }
-                        string read = "闪光弹,半径2.5,眩晕" + updem1 + "s";
+                        renewattime(combo, updem1.ToString());
+                        string read = "闪光弹,半径2.5";
                         renewread(combo, read);
                         break;
                     }
@@ -14445,10 +14502,191 @@ namespace snqxap
                         renewread(combo, read);
                         break;
                     }
-                default:
-                    break;            
+                case 106101:
+                    {
+                        double cdtime = 0;
+                        double attime = 0;
+                        double updem1 = 0;
+                        double updem2 = 0;
 
-      
+                        switch (skillindex) { case 0: { cdtime = 15; break; } case 1: { cdtime = 14.7; break; } case 2: { cdtime = 14.3; break; } case 3: { cdtime = 14; break; } case 4: { cdtime = 13.7; break; } case 5: { cdtime = 13.3; break; } case 6: { cdtime = 13; break; } case 7: { cdtime = 12.7; break; } case 8: { cdtime = 12.3; break; } case 9: { cdtime = 12; break; } }
+                        switch (skillindex)
+                        {
+                            case 0: { attime = 5; break; }
+                            case 1: { attime = 6; break; }
+                            case 2: { attime = 6; break; }
+                            case 3: { attime = 6; break; }
+                            case 4: { attime = 7; break; }
+                            case 5: { attime = 7; break; }
+                            case 6: { attime = 7; break; }
+                            case 7: { attime = 8; break; }
+                            case 8: { attime = 8; break; }
+                            case 9: { attime = 8; break; }
+                        }
+                        switch (skillindex) { case 0: { updem1 = 0.06; break; } case 1: { updem1 = 0.07; break; } case 2: { updem1 = 0.08; break; } case 3: { updem1 = 0.09; break; } case 4: { updem1 = 0.1; break; } case 5: { updem1 = 0.11; break; } case 6: { updem1 = 0.12; break; } case 7: { updem1 = 0.13; break; } case 8: { updem1 = 0.14; break; } case 9: { updem1 = 0.15; break; } }
+                        switch (skillindex) { case 0: { updem2 = 0.05; break; } case 1: { updem2 = 0.06; break; } case 2: { updem2 = 0.06; break; } case 3: { updem2 = 0.07; break; } case 4: { updem2 = 0.07; break; } case 5: { updem2 = 0.08; break; } case 6: { updem2 = 0.08; break; } case 7: { updem2 = 0.09; break; } case 8: { updem2 = 0.09; break; } case 9: { updem2 = 0.1; break; } }
+
+                        if (ischecked)
+                        {
+                            for (int i = 0; i < 9; i++)
+                            {
+                                skillupdamage[i] *= 1 + updem1;
+                                skilluphit[i] *= 1 + updem2;
+                                renewindex(i);
+                            }                         
+                        }
+
+                        gun[index].cd = cdtime;
+                        renewattime(combo, attime.ToString());
+                        gun[index].startcd = ("3");
+                        string read = "提升全体" + updem1 * 100 + "%伤害," + updem2 * 100 + "%命中";
+                        renewread(combo, read);
+                        break;
+                    }
+                case 101602:
+                    {
+                        double cdtime = 0;
+                        double attime = 0;
+                        double updem1 = 0;
+                        double updem2 = 0;
+
+                        switch (skillindex) { case 0: { cdtime = 15.00; break; } case 1: { cdtime = 14.70; break; } case 2: { cdtime = 14.30; break; } case 3: { cdtime = 14.00; break; } case 4: { cdtime = 13.70; break; } case 5: { cdtime = 13.30; break; } case 6: { cdtime = 13.00; break; } case 7: { cdtime = 12.70; break; } case 8: { cdtime = 12.30; break; } case 9: { cdtime = 12.00; break; } }
+                        switch (skillindex) { case 0: { attime = 5.00; break; } case 1: { attime = 6.00; break; } case 2: { attime = 6.00; break; } case 3: { attime = 6.00; break; } case 4: { attime = 7.00; break; } case 5: { attime = 7.00; break; } case 6: { attime = 7.00; break; } case 7: { attime = 8.00; break; } case 8: { attime = 8.00; break; } case 9: { attime = 8.00; break; } }
+                        switch (skillindex) { case 0: { updem1 = 0.16; break; } case 1: { updem1 = 0.17; break; } case 2: { updem1 = 0.19; break; } case 3: { updem1 = 0.2; break; } case 4: { updem1 = 0.21; break; } case 5: { updem1 = 0.23; break; } case 6: { updem1 = 0.24; break; } case 7: { updem1 = 0.25; break; } case 8: { updem1 = 0.27; break; } case 9: { updem1 = 0.28; break; } }
+
+                        gun[index].cd = cdtime;
+                        renewattime(combo, attime.ToString());
+                        gun[index].startcd = ("3");
+                        string read = "降低敌方全体" + updem1 * 100 + "%射速(不算)";
+                        renewread(combo, read);
+                        break;
+                    }
+                case 101903:
+                    {
+                        double cdtime = 0;
+                        double attime = 0;
+                        double updem1 = 0;
+                        double updem2 = 0;
+
+                        switch (skillindex) { case 0: { cdtime = 10; break; } case 1: { cdtime = 9.8; break; } case 2: { cdtime = 9.6; break; } case 3: { cdtime = 9.3; break; } case 4: { cdtime = 9.1; break; } case 5: { cdtime = 8.9; break; } case 6: { cdtime = 8.7; break; } case 7: { cdtime = 8.4; break; } case 8: { cdtime = 8.2; break; } case 9: { cdtime = 8; break; } }
+                        switch (skillindex) { case 0: { attime = 3; break; } case 1: { attime = 3.2; break; } case 2: { attime = 3.4; break; } case 3: { attime = 3.7; break; } case 4: { attime = 3.9; break; } case 5: { attime = 4.1; break; } case 6: { attime = 4.3; break; } case 7: { attime = 4.6; break; } case 8: { attime = 4.8; break; } case 9: { attime = 5; break; } }
+                        switch (skillindex) { case 0: { updem1 = 1; break; } case 1: { updem1 = 1.06; break; } case 2: { updem1 = 1.11; break; } case 3: { updem1 = 1.11; break; } case 4: { updem1 = 1.22; break; } case 5: { updem1 = 1.28; break; } case 6: { updem1 = 1.33; break; } case 7: { updem1 = 1.39; break; } case 8: { updem1 = 1.44; break; } case 9: { updem1 = 1.5; break; } }
+                        switch (skillindex) { case 0: { updem2 = 0.25; break; } case 1: { updem2 = 0.27; break; } case 2: { updem2 = 0.28; break; } case 3: { updem2 = 0.3; break; } case 4: { updem2 = 0.32; break; } case 5: { updem2 = 0.33; break; } case 6: { updem2 = 0.35; break; } case 7: { updem2 = 0.37; break; } case 8: { updem2 = 0.38; break; } case 9: { updem2 = 0.4; break; } }
+
+                        if (ischecked)
+                        {
+                                skillupdamage[combo] *= 1 + updem1;
+                                skillupdodge[combo] *= 1 + updem2;
+                                renewindex(combo);
+                        }
+
+                        gun[index].cd = cdtime;
+                        renewattime(combo, attime.ToString());
+                        gun[index].startcd = ("6");
+                        string read = "提升自身" + updem1 * 100 + "%伤害," + updem2 * 100 + "%回避";
+                        renewread(combo, read);
+                        break;
+                    }
+                case 106203:
+                    {
+                        double cdtime = 0;
+                        double attime = 0;
+                        double updem1 = 0;
+                        double updem2 = 0;
+
+                        switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
+                        switch (skillindex) { case 0: { attime = 3; break; } case 1: { attime = 3.2; break; } case 2: { attime = 3.4; break; } case 3: { attime = 3.7; break; } case 4: { attime = 3.9; break; } case 5: { attime = 4.1; break; } case 6: { attime = 4.3; break; } case 7: { attime = 4.6; break; } case 8: { attime = 4.8; break; } case 9: { attime = 5; break; } }
+                        switch (skillindex) { case 0: { updem1 = 0.15; break; } case 1: { updem1 = 0.16; break; } case 2: { updem1 = 0.17; break; } case 3: { updem1 = 0.18; break; } case 4: { updem1 = 0.19; break; } case 5: { updem1 = 0.21; break; } case 6: { updem1 = 0.22; break; } case 7: { updem1 = 0.23; break; } case 8: { updem1 = 0.24; break; } case 9: { updem1 = 0.25; break; } }
+                      
+                        if (ischecked)
+                        {
+                            if (combo - 3 >= 0)
+                            {
+                                skillupdamage[combo-3] *= 1 + updem1;
+                                skillupshotspeed[combo-3] *= 1 + updem1;
+                                skilluphit[combo-3] *= 1 + updem1;
+                            }
+                            if (combo + 3 <= 8)
+                            {
+                                skillupdamage[combo + 3] *= 1 + updem1;
+                                skillupshotspeed[combo + 3] *= 1 + updem1;
+                                skilluphit[combo + 3] *= 1 + updem1;
+                            }
+                            renewindex(combo);
+                        }
+
+                        gun[index].cd = cdtime;
+                        renewattime(combo, attime.ToString());
+                        gun[index].startcd = ("6");
+                        string read = "发动时位于自身影响格上的队友提升" + updem1 * 100 + "%伤害," + updem1 * 100 + "%射速,"+ updem1 * 100 + " %命中";
+                        renewread(combo, read);
+                        break;
+                    }
+                case 106404:
+                    {
+                        double cdtime = 0;
+                        double attime = 0;
+                        double updem1 = 0;
+                        double updem2 = 0;
+
+                        switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
+                        switch (skillindex)
+                        {
+                            case 0: { attime = 5; break; }
+                            case 1: { attime = 6; break; }
+                            case 2: { attime = 6; break; }
+                            case 3: { attime = 6; break; }
+                            case 4: { attime = 7; break; }
+                            case 5: { attime = 7; break; }
+                            case 6: { attime = 7; break; }
+                            case 7: { attime = 8; break; }
+                            case 8: { attime = 8; break; }
+                            case 9: { attime = 8; break; }
+                        }
+                        switch (skillindex) { case 0: { updem1 = 0.5; break; } case 1: { updem1 = 0.53; break; } case 2: { updem1 = 0.57; break; } case 3: { updem1 = 0.6; break; } case 4: { updem1 = 0.63; break; } case 5: { updem1 = 0.67; break; } case 6: { updem1 = 0.7; break; } case 7: { updem1 = 0.73; break; } case 8: { updem1 = 0.77; break; } case 9: { updem1 = 0.8; break; } }
+                        switch (skillindex) { case 0: { updem2 = 0.25; break; } case 1: { updem2 = 0.27; break; } case 2: { updem2 = 0.28; break; } case 3: { updem2 = 0.3; break; } case 4: { updem2 = 0.32; break; } case 5: { updem2 = 0.33; break; } case 6: { updem2 = 0.35; break; } case 7: { updem2 = 0.37; break; } case 8: { updem2 = 0.38; break; } case 9: { updem2 = 0.4; break; } }
+
+                        if (ischecked)
+                        {
+                            skillupdamage[combo] *= 1 + updem1;
+                            skilluphit[combo] *= 1 + updem2;
+                            renewindex(combo);
+                        }
+
+                        gun[index].cd = cdtime;
+                        renewattime(combo, attime.ToString());
+                        gun[index].startcd = ("6");
+                        string read = "攻击目标切换后排,提升自身" + updem1 * 100 + "%伤害," + updem2 * 100 + "%命中";
+                        renewread(combo, read);
+                        break;
+                    }
+                case 106304:
+                    {
+                        double cdtime = 0;
+                        double attime = 0;
+                        double updem1 = 0;
+                        double updem2 = 0;
+
+                        switch (skillindex) { case 0: { updem1 = 0.05; break; } case 1: { updem1 = 0.07; break; } case 2: { updem1 = 0.08; break; } case 3: { updem1 = 0.1; break; } case 4: { updem1 = 0.12; break; } case 5: { updem1 = 0.13; break; } case 6: { updem1 = 0.15; break; } case 7: { updem1 = 0.17; break; } case 8: { updem1 = 0.18; break; } case 9: { updem1 = 0.2; break; } }
+
+
+                        skillupboom[combo] = 1 + updem1;
+                        renewindex(combo);
+
+
+                        //  string cd = "(此技能算法未写,暂时平均加到伤害上)";
+                        gun[index].cd = -1;
+                        renewattime(combo, "99");
+                        gun[index].startcd = ("-1");
+                        string read = "" + updem1 *100+ "%再射一发必暴击子弹";
+                        renewread(combo, read);
+                        break;
+                    }
+                    
+                default:
+                    break;
+
+                    
             }
 
             return;
