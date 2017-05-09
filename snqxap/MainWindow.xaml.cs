@@ -3855,9 +3855,9 @@ namespace snqxap
                             //  case 3: { othercombochange(index2, index0, 1, 0, 2); break; }
                     }
                 }
-                if (index4 != -1 && gun[index4].grid_center == 5)
+                if (index4 != -1 )
                 {
-                    switch (gun[index1].grid_center)
+                    switch (gun[index4].grid_center)
                     {
                         case 2: { othercombochange(index4, index0, 4, 0, 4); break; }
                         case 3: { othercombochange(index4, index0, 5, 0, 4); break; }
@@ -7669,6 +7669,7 @@ namespace snqxap
                 skilluprenju[i] = 1;
                 skillsolidmultiple[i] = 0;
                 skillupnegev[i] = 0;
+                skillupboom[i] = 0;
                 isfullcrit[i] = false;
 
             }
@@ -15063,14 +15064,16 @@ namespace snqxap
                                 skillupdamage[combo-3] *= 1 + updem1;
                                 skillupshotspeed[combo-3] *= 1 + updem1;
                                 skilluphit[combo-3] *= 1 + updem1;
+                                renewindex(combo - 3);
                             }
                             if (combo + 3 <= 8)
                             {
                                 skillupdamage[combo + 3] *= 1 + updem1;
                                 skillupshotspeed[combo + 3] *= 1 + updem1;
                                 skilluphit[combo + 3] *= 1 + updem1;
+                                renewindex(combo + 3);
                             }
-                            renewindex(combo);
+         
                         }
 
                         gun[index].cd = cdtime;
