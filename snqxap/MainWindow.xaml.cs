@@ -894,7 +894,7 @@ namespace snqxap
             {
                 gun[i].image = "/assets/" + gun[i].name + ".png";
             }
-        
+            gun[153].image = "/assets/MP5.png"; ;
             gun[GUN_NUMBER].image = "";
             for (int i = 0; i < 9; i++)
                 {
@@ -2972,10 +2972,10 @@ namespace snqxap
             equip[63].name = "Type3防弹插板"; equip[63].bonus1 = 0.4; equip[63].property1 = "护甲"; equip[63].down1 = 6; equip[63].up1 = Math.Floor(8 * (1 + equip[63].bonus1)); equip[63].property2 = "回避"; equip[63].down2 = -3; equip[63].up2 = -2; equip[63].type = 11; equip[63].rank = 5;
             equip[64].name = "16Lab防弹插板"; equip[64].bonus1 = 0.4; equip[64].property1 = "护甲"; equip[64].down1 = 8; equip[64].up1 = Math.Floor(8 * (1 + equip[64].bonus1)); equip[64].property2 = "回避"; equip[64].down2 = -2; equip[64].up2 = -2; equip[64].type = 11; equip[64].rank = 5;
             equip[65].name = "Hayha记忆芯片"; equip[65].bonus1 = 0.2; equip[65].bonus2 = 0.3; equip[65].bonus3 = 0.5; equip[65].property1 = "伤害"; equip[65].down1 = 18; equip[65].up1 = Math.Floor(25 * (1 + equip[65].bonus1)); equip[65].property2 = "回避"; equip[65].down2 = 2; equip[65].up2 = Math.Floor(4 * (1 + equip[65].bonus2)); equip[65].property3 = "暴击伤害"; equip[65].down3 = 15; equip[65].up3 = Math.Floor(20 * (1 + equip[65].bonus3)); equip[65].type = 9; equip[65].rank = 5; equip[65].forwhat = "35";
-            equip[66].name = "破旧披风"; equip[66].property1 = "暴击伤害"; equip[66].down1 = 3; equip[66].up1 = 4; equip[66].property2 = "速度"; equip[66].down2 = -3; equip[66].up2 = -3; equip[66].type = 15; equip[66].rank = 2;
-            equip[67].name = "伪装披风"; equip[67].bonus1 = 0.9; equip[67].property1 = "暴击伤害"; equip[67].down1 = 5; equip[67].up1 = Math.Floor(7 * (1 + equip[67].bonus1)); equip[67].property2 = "速度"; equip[67].down2 = -3; equip[67].up2 = -3; equip[67].type = 15; equip[67].rank = 3;
-            equip[68].name = "城市迷彩披风"; equip[68].bonus1 = 0.8; equip[68].property1 = "暴击伤害"; equip[68].down1 = 8; equip[68].up1 = Math.Floor(10 * (1 + equip[68].bonus1)); equip[68].property2 = "速度"; equip[68].down2 = -3; equip[68].up2 = -3; equip[68].type = 15; equip[68].rank = 4;
-            equip[69].name = "热光学迷彩披风"; equip[69].bonus1 = 0.7; equip[69].property1 = "暴击伤害"; equip[69].down1 = 11; equip[69].up1 = Math.Floor(15 * (1 + equip[69].bonus1)); equip[69].property2 = "速度"; equip[69].down2 = -3; equip[69].up2 = -3; equip[69].type = 15; equip[69].rank = 5;
+            equip[66].name = "破旧披风"; equip[66].property1 = "暴击伤害"; equip[66].down1 = 3; equip[66].up1 = 4; equip[66].property2 = "移速"; equip[66].down2 = -3; equip[66].up2 = -3; equip[66].type = 15; equip[66].rank = 2;
+            equip[67].name = "伪装披风"; equip[67].bonus1 = 0.9; equip[67].property1 = "暴击伤害"; equip[67].down1 = 5; equip[67].up1 = Math.Floor(7 * (1 + equip[67].bonus1)); equip[67].property2 = "移速"; equip[67].down2 = -3; equip[67].up2 = -3; equip[67].type = 15; equip[67].rank = 3;
+            equip[68].name = "城市迷彩披风"; equip[68].bonus1 = 0.8; equip[68].property1 = "暴击伤害"; equip[68].down1 = 8; equip[68].up1 = Math.Floor(10 * (1 + equip[68].bonus1)); equip[68].property2 = "移速"; equip[68].down2 = -3; equip[68].up2 = -3; equip[68].type = 15; equip[68].rank = 4;
+            equip[69].name = "热光学迷彩披风"; equip[69].bonus1 = 0.7; equip[69].property1 = "暴击伤害"; equip[69].down1 = 11; equip[69].up1 = Math.Floor(15 * (1 + equip[69].bonus1)); equip[69].property2 = "移速"; equip[69].down2 = -3; equip[69].up2 = -3; equip[69].type = 15; equip[69].rank = 5;
             for (int i = 0; i < EQUIP_NUMBER;i++ )
             {
                 if (!String.IsNullOrEmpty(equip[i].property1))
@@ -3812,10 +3812,12 @@ namespace snqxap
             int index1 = Combo1.SelectedIndex;
             int index3 = Combo3.SelectedIndex;
             int index4 = Combo4.SelectedIndex;
-
+            
             int index2 = Combo2.SelectedIndex;
             int index5 = Combo5.SelectedIndex;
             int index8 = Combo8.SelectedIndex;
+            int index6 = Combo6.SelectedIndex;
+            int index7 = Combo7.SelectedIndex;
             if (index0 == -1 || index0 == GUN_NUMBER)
             {
                 Combo0.SelectedIndex = GUN_NUMBER;
@@ -3826,18 +3828,45 @@ namespace snqxap
             {
                 if(index1!=-1&&gun[index1].grid_center == 5)
                 {
-                    othercombochange(index1, index0, 4, 0,1);
+                    switch (gun[index1].grid_center)
+                    {
+                        case 2: { othercombochange(index1, index0, 1, 0, 1); break; }
+                        case 3: { othercombochange(index1, index0, 2, 0, 1); break; }
+                        case 5: { othercombochange(index1, index0, 4, 0, 1); break; }
+                        case 6: { othercombochange(index1, index0, 5, 0, 1); break; }
+                        case 8: { othercombochange(index1, index0, 7, 0, 1); break; }
+                        case 9: { othercombochange(index1, index0, 8, 0, 1); break; }
+                            //   case 4: { othercombochange(index3, index0, 7, 0, 3); break; }
+                            //  case 3: { othercombochange(index2, index0, 1, 0, 2); break; }
+                    }
+               
                 }
                 if (index3 != -1 )
                 {
-                    if (gun[index3].grid_center == 5)
-                       othercombochange(index3, index0, 8, 0,3);
-                    else if(gun[index3].grid_center == 4)
-                        othercombochange(index3, index0, 7, 0, 3);  //eg 未改完
+                    switch (gun[index3].grid_center)
+                    {
+                        case 1: { othercombochange(index3, index0, 4, 0, 3); break; }
+                        case 2: { othercombochange(index3, index0, 5, 0, 3); break; }
+                        case 3: { othercombochange(index3, index0, 6, 0, 3); break; }
+                        case 4: { othercombochange(index3, index0, 7, 0, 3); break; }
+                        case 5: { othercombochange(index3, index0, 8, 0, 3); break; }
+                        case 6: { othercombochange(index3, index0, 9, 0, 3); break; }
+
+                            //  case 3: { othercombochange(index2, index0, 1, 0, 2); break; }
+                    }
                 }
                 if (index4 != -1 && gun[index4].grid_center == 5)
                 {
-                    othercombochange(index4, index0, 7, 0,4);
+                    switch (gun[index1].grid_center)
+                    {
+                        case 2: { othercombochange(index4, index0, 4, 0, 4); break; }
+                        case 3: { othercombochange(index4, index0, 5, 0, 4); break; }
+                        case 5: { othercombochange(index4, index0, 7, 0, 4); break; }
+                        case 6: { othercombochange(index4, index0, 8, 0, 4) ; break; }
+                            //   case 4: { othercombochange(index3, index0, 7, 0, 3); break; }
+                            //  case 3: { othercombochange(index2, index0, 1, 0, 2); break; }
+                    }
+                
                 }
                 if (index2 != -1)
                 {
@@ -3864,6 +3893,23 @@ namespace snqxap
                         case 3: { othercombochange(index8, index0, 7, 0, 8); break; }
                     }
                 }
+                if (index6 != -1)
+                {
+                    switch (gun[index6].grid_center)
+                    {
+                        case 1: { othercombochange(index6, index0, 7, 0, 6); break; }
+                        case 2: { othercombochange(index6, index0, 8, 0, 6); break; }
+                        case 3: { othercombochange(index6, index0, 9, 0, 6); break; }
+                    }
+                }
+                if (index7 != -1)
+                {
+                    switch (gun[index7].grid_center)
+                    {
+                        case 2: { othercombochange(index8, index0, 7, 0, 7); break; }
+                        case 3: { othercombochange(index8, index0, 8, 0, 7); break; }
+                    }
+                }
                 renewindex(0);
                 if(rb0.IsChecked == true)
                     calctank(0);
@@ -3886,6 +3932,9 @@ namespace snqxap
             int index3 = Combo3.SelectedIndex;
             int index4 = Combo4.SelectedIndex;
             int index5 = Combo5.SelectedIndex;
+            int index6 = Combo6.SelectedIndex;
+            int index7 = Combo7.SelectedIndex;
+            int index8 = Combo8.SelectedIndex;
 
             if (index1 == -1 || index1 == GUN_NUMBER)
             {
@@ -3895,25 +3944,86 @@ namespace snqxap
             }
             else
             {
-                if (index0 != -1 && gun[index0].grid_center == 5)
+                if (index0 != -1)
                 {
-                    othercombochange(index0, index1, 6, 1,0);
+                    switch (gun[index0].grid_center)
+                    {
+                        case 1: { othercombochange(index0, index1, 2, 1, 0); break; }
+                        case 2: { othercombochange(index0, index1, 3, 1, 0); break; }
+                        case 4: { othercombochange(index0, index1, 5, 1, 0); break; }
+                        case 5: { othercombochange(index0, index1, 6, 1, 0); break; }
+                        case 7: { othercombochange(index0, index1, 8, 1, 0); break; }
+                        case 8: { othercombochange(index0, index1, 9, 1, 0); break; }
+                    }
                 }
-                if (index2 != -1 && gun[index2].grid_center == 5)
+                if (index2 != -1)
                 {
-                    othercombochange(index2, index1, 4, 1,2);
+                    switch (gun[index2].grid_center)
+                    {
+                        case 2: { othercombochange(index2, index1, 1, 1, 2); break; }
+                        case 3: { othercombochange(index2, index1, 2, 1, 2); break; }
+                        case 5: { othercombochange(index2, index1, 4, 1, 2); break; }
+                        case 6: { othercombochange(index2, index1, 5, 1, 2); break; }
+                        case 8: { othercombochange(index2, index1, 7, 1, 2); break; }
+                        case 9: { othercombochange(index2, index1, 8, 1, 2); break; }
+                    }        
                 }
-                if (index3 != -1 && gun[index3].grid_center == 5)
+                if (index3 != -1)
                 {
-                    othercombochange(index3, index1, 9, 1,3);
+                    switch (gun[index3].grid_center)
+                    {
+                        case 1: { othercombochange(index3, index1, 5, 1, 3); break; }
+                        case 2: { othercombochange(index3, index1, 6, 1, 3); break; }
+                        case 4: { othercombochange(index3, index1, 8, 1, 3); break; }
+                        case 5: { othercombochange(index3, index1, 9, 1, 3); break; }
+                    }                 
                 }
-                if (index4 != -1 && gun[index4].grid_center == 5)
+                if (index4 != -1)
                 {
-                    othercombochange(index4, index1, 8, 1,4);
+                    switch (gun[index4].grid_center)
+                    {
+                        case 1: { othercombochange(index4, index1, 4, 1, 4); break; }
+                        case 2: { othercombochange(index4, index1, 5, 1, 4); break; }
+                        case 3: { othercombochange(index4, index1, 6, 1, 4); break; }
+                        case 4: { othercombochange(index4, index1, 7, 1, 4); break; }
+                        case 5: { othercombochange(index4, index1, 8, 1, 4); break; }
+                        case 6: { othercombochange(index4, index1, 9, 1, 4); break; }
+                    }               
                 }
-                if (index5 != -1 && gun[index5].grid_center == 5)
+                if (index5 != -1)
                 {
-                    othercombochange(index5, index1, 7, 1,5);
+                    switch (gun[index5].grid_center)
+                    {
+                        case 2: { othercombochange(index5, index1, 4, 1, 5); break; }
+                        case 3: { othercombochange(index5, index1, 5, 1, 5); break; }
+                        case 5: { othercombochange(index5, index1, 7, 1, 5); break; }
+                        case 6: { othercombochange(index5, index1, 8, 1, 5); break; }
+                    }            
+                }
+                if (index6 != -1)
+                {
+                    switch (gun[index6].grid_center)
+                    {
+                        case 1: { othercombochange(index6, index1, 8, 1, 6); break; }
+                        case 2: { othercombochange(index6, index1, 9, 1, 6); break; }
+                    }
+                }
+                if (index7 != -1)
+                {
+                    switch (gun[index7].grid_center)
+                    {
+                        case 1: { othercombochange(index7, index1, 7, 1, 7); break; }
+                        case 2: { othercombochange(index7, index1, 8, 1, 7); break; }
+                        case 3: { othercombochange(index7, index1, 9, 1, 7); break; }
+                    }
+                }
+                if (index8 != -1)
+                {
+                    switch (gun[index8].grid_center)
+                    {
+                        case 2: { othercombochange(index8, index1, 7, 1, 8); break; }
+                        case 3: { othercombochange(index8, index1, 8, 1, 8); break; }
+                    }
                 }
                 renewindex(1);
                 if (rb1.IsChecked == true)
@@ -3939,6 +4049,8 @@ namespace snqxap
             int index0 = Combo0.SelectedIndex;
             int index3 = Combo3.SelectedIndex;
             int index6 = Combo6.SelectedIndex;
+            int index7 = Combo7.SelectedIndex;
+            int index8 = Combo8.SelectedIndex;
 
             if (index2 == -1 || index2 == GUN_NUMBER)
             {
@@ -3948,17 +4060,42 @@ namespace snqxap
             }
             else
             {
-                if (index1 != -1 && gun[index1].grid_center == 5)
+                if (index1 != -1)
                 {
-                    othercombochange(index1, index2, 6, 2,1);
+                    switch (gun[index1].grid_center)
+                    {
+                        case 1: { othercombochange(index1, index2, 2, 2, 1); break; }
+                        case 2: { othercombochange(index1, index2, 3, 2, 1); break; }
+                        case 4: { othercombochange(index1, index2, 5, 2, 1); break; }
+                        case 5: { othercombochange(index1, index2, 6, 2, 1); break; }
+                        case 7: { othercombochange(index1, index2, 8, 2, 1); break; }
+                        case 8: { othercombochange(index1, index2, 9, 2, 1); break; }
+                    }
+                         
                 }
-                if (index4 != -1 && gun[index4].grid_center == 5)
+                if (index4 != -1)
                 {
-                    othercombochange(index4, index2, 9, 2,4);
+                    switch (gun[index4].grid_center)
+                    {
+                        case 1: { othercombochange(index4, index2, 5, 2, 4); break; }
+                        case 2: { othercombochange(index4, index2, 6, 2, 4); break; }
+                        case 4: { othercombochange(index4, index2, 8, 2, 4); break; }
+                        case 5: { othercombochange(index4, index2, 9, 2, 4); break; }
+                    }
+                  
                 }
-                if (index5 != -1 && gun[index5].grid_center == 5)
+                if (index5 != -1)
                 {
-                    othercombochange(index5, index2, 8, 2,5);
+                    switch (gun[index5].grid_center)
+                    {
+                        case 1: { othercombochange(index5, index2, 4, 2, 5); break; }
+                        case 2: { othercombochange(index5, index2, 5, 2, 5); break; }
+                        case 3: { othercombochange(index5, index2, 6, 2, 5); break; }
+                        case 4: { othercombochange(index5, index2, 7, 2, 5); break; }
+                        case 5: { othercombochange(index5, index2, 8, 2, 5); break; }
+                        case 6: { othercombochange(index5, index2, 9, 2, 5); break; }
+                    }
+               
                 }
                 if (index0 != -1)
                 {
@@ -3982,6 +4119,23 @@ namespace snqxap
                     switch (gun[index6].grid_center)
                     {
                         case 1: { othercombochange(index6, index2, 9, 2, 6); break; }
+                    }
+                }
+                if (index7 != -1)
+                {
+                    switch (gun[index7].grid_center)
+                    {
+                        case 1: { othercombochange(index7, index2, 8, 2, 7); break; }
+                        case 2: { othercombochange(index7, index2, 9, 2, 7); break; }
+                    }
+                }
+                if (index8 != -1)
+                {
+                    switch (gun[index8].grid_center)
+                    {
+                        case 1: { othercombochange(index8, index2, 7, 2, 8); break; }
+                        case 2: { othercombochange(index8, index2, 8, 2, 8); break; }
+                        case 3: { othercombochange(index8, index2, 9, 2, 8); break; }
                     }
                 }
                 renewindex(2);
@@ -4019,25 +4173,64 @@ namespace snqxap
             }
             else
             {
-                if (index0 != -1 && gun[index0].grid_center == 5)
+                if (index0 != -1 )
                 {
-                    othercombochange(index0, index3, 2, 3,0);
+                    switch (gun[index0].grid_center)
+                    {
+                        case 4: { othercombochange(index0, index3, 1, 3, 0); break; }
+                        case 5: { othercombochange(index0, index3, 2, 3, 0); break; }
+                        case 6: { othercombochange(index0, index3, 3, 3, 0); break; }
+                        case 7: { othercombochange(index0, index3, 4, 3, 0); break; }
+                        case 8: { othercombochange(index0, index3, 5, 3, 0); break; }
+                        case 9: { othercombochange(index0, index3, 6, 3, 0); break; }
+                    }
+                
                 }
-                if (index1 != -1 && gun[index1].grid_center == 5)
+                if (index1 != -1)
                 {
-                    othercombochange(index1, index3, 1, 3,1);
+                    switch (gun[index1].grid_center)
+                    {
+                        case 5: { othercombochange(index1, index3, 1, 3, 1); break; }
+                        case 6: { othercombochange(index1, index3, 2, 3, 1); break; }
+                        case 8: { othercombochange(index1, index3, 4, 3, 1); break; }
+                        case 9: { othercombochange(index1, index3, 5, 3, 1); break; }
+                    }                 
                 }
-                if (index4 != -1 && gun[index4].grid_center == 5)
+                if (index4 != -1)
                 {
-                    othercombochange(index4, index3, 4, 3,4);
+                    switch (gun[index4].grid_center)
+                    {
+                        case 2: { othercombochange(index4, index3, 1, 3, 4); break; }
+                        case 3: { othercombochange(index4, index3, 2, 3, 4); break; }
+                        case 5: { othercombochange(index4, index3, 4, 3, 4); break; }
+                        case 6: { othercombochange(index4, index3, 5, 3, 4); break; }
+                        case 8: { othercombochange(index4, index3, 7, 3, 4); break; }
+                        case 9: { othercombochange(index4, index3, 8, 3, 4); break; }
+                    }
                 }
-                if (index6 != -1 && gun[index6].grid_center == 5)
+                if (index6 != -1 )
                 {
-                    othercombochange(index6, index3, 8, 3,6);
+                    switch (gun[index6].grid_center)
+                    {
+                        case 1: { othercombochange(index6, index3, 4, 3, 6); break; }
+                        case 2: { othercombochange(index6, index3, 5, 3, 6); break; }
+                        case 3: { othercombochange(index6, index3, 6, 3, 6); break; }
+                        case 4: { othercombochange(index6, index3, 7, 3, 6); break; }
+                        case 5: { othercombochange(index6, index3, 8, 3, 6); break; }
+                        case 6: { othercombochange(index6, index3, 9, 3, 6); break; }
+                    }
+               
                 }
-                if (index7 != -1 && gun[index7].grid_center == 5)
+                if (index7 != -1 )
                 {
-                    othercombochange(index7, index3, 7, 3,7);
+                    switch (gun[index7].grid_center)
+                    {
+                        case 2: { othercombochange(index7, index3, 4, 3, 7); break; }
+                        case 3: { othercombochange(index7, index3, 5, 3, 7); break; }
+                        case 5: { othercombochange(index7, index3, 7, 3, 7); break; }
+                        case 6: { othercombochange(index7, index3, 8, 3, 7); break; }
+                    }
+               
                 }
                 if (index2 != -1)
                 {
@@ -4099,37 +4292,100 @@ namespace snqxap
             }
             else
             {
-                if (index0 != -1 && gun[index0].grid_center == 5)
+                if (index0 != -1)
                 {
-                    othercombochange(index0, index4, 3, 4,0);
+                    switch (gun[index0].grid_center)
+                    {
+                        case 4: { othercombochange(index0, index4, 2, 4, 0); break; }
+                        case 5: { othercombochange(index0, index4, 3, 4, 0); break; }
+                        case 7: { othercombochange(index0, index4, 5, 4, 0); break; }
+                        case 8: { othercombochange(index0, index4, 6, 4, 0); break; }
+                    }    
                 }
-                if (index1 != -1 && gun[index1].grid_center == 5)
+                if (index1 != -1)
                 {
-                    othercombochange(index1, index4, 2, 4,1);
+                    switch (gun[index1].grid_center)
+                    {
+                        case 4: { othercombochange(index1, index4, 1, 4, 1); break; }
+                        case 5: { othercombochange(index1, index4, 2, 4, 1); break; }
+                        case 6: { othercombochange(index1, index4, 3, 4, 1); break; }
+                        case 7: { othercombochange(index1, index4, 4, 4, 1); break; }
+                        case 8: { othercombochange(index1, index4, 5, 4, 1); break; }
+                        case 9: { othercombochange(index1, index4, 6, 4, 1); break; }
+                    }
+                   
                 }
-                if (index3 != -1 && gun[index3].grid_center == 5)
+                if (index3 != -1 )
                 {
-                    othercombochange(index3, index4, 6, 4,3);
+                    switch (gun[index3].grid_center)
+                    {
+                        case 1: { othercombochange(index3, index4, 2, 4, 3); break; }
+                        case 2: { othercombochange(index3, index4, 3, 4, 3); break; }
+                        case 4: { othercombochange(index3, index4, 5, 4, 3); break; }
+                        case 5: { othercombochange(index3, index4, 6, 4, 3); break; }
+                        case 7: { othercombochange(index3, index4, 8, 4, 3); break; }
+                        case 8: { othercombochange(index3, index4, 9, 4, 3); break; }
+                    }
+          
                 }
-                if (index2 != -1 && gun[index2].grid_center == 5)
+                if (index2 != -1 )
                 {
-                    othercombochange(index2, index4, 1, 4,2);
+                    switch (gun[index2].grid_center)
+                    {
+                        case 5: { othercombochange(index2, index4, 1, 4, 2); break; }
+                        case 6: { othercombochange(index2, index4, 2, 4, 2); break; }
+                        case 8: { othercombochange(index2, index4, 4, 4, 2); break; }
+                        case 9: { othercombochange(index2, index4, 5, 4, 2); break; }
+                    }
+    
                 }
-                if (index5 != -1 && gun[index5].grid_center == 5)
+                if (index5 != -1)
                 {
-                    othercombochange(index5, index4, 4, 4,5);
+                    switch (gun[index5].grid_center)
+                    {
+                        case 2: { othercombochange(index5, index4, 1, 4, 5); break; }
+                        case 3: { othercombochange(index5, index4, 2, 4, 5); break; }
+                        case 5: { othercombochange(index5, index4, 4, 4, 5); break; }
+                        case 6: { othercombochange(index5, index4, 5, 4, 5); break; }
+                        case 8: { othercombochange(index5, index4, 7, 4, 5); break; }
+                        case 9: { othercombochange(index5, index4, 8, 4, 5); break; }
+                    }
+             
                 }
-                if (index6 != -1 && gun[index6].grid_center == 5)
+                if (index6 != -1)
                 {
-                    othercombochange(index6, index4, 9, 4,6);
+                    switch (gun[index6].grid_center)
+                    {
+                        case 1: { othercombochange(index6, index4, 5, 4, 6); break; }
+                        case 2: { othercombochange(index6, index4, 6, 4, 6); break; }
+                        case 4: { othercombochange(index6, index4, 8, 4, 6); break; }
+                        case 5: { othercombochange(index6, index4, 9, 4, 6); break; }
+                    }
+                
                 }
-                if (index7 != -1 && gun[index7].grid_center == 5)
+                if (index7 != -1)
                 {
-                    othercombochange(index7, index4, 8, 4,7);
+                    switch (gun[index7].grid_center)
+                    {
+                        case 1: { othercombochange(index7, index4, 4, 4, 7); break; }
+                        case 2: { othercombochange(index7, index4, 5, 4, 7); break; }
+                        case 3: { othercombochange(index7, index4, 6, 4, 7); break; }
+                        case 4: { othercombochange(index7, index4, 7, 4, 7); break; }
+                        case 5: { othercombochange(index7, index4, 8, 4, 7); break; }
+                        case 6: { othercombochange(index7, index4, 9, 4, 7); break; }
+                    }
+                 
                 }
-                if (index8 != -1 && gun[index8].grid_center == 5)
+                if (index8 != -1 )
                 {
-                    othercombochange(index8, index4, 7, 4,8);
+                    switch (gun[index8].grid_center)
+                    {
+                        case 2: { othercombochange(index8, index4, 4, 4, 8); ; break; }
+                        case 3: { othercombochange(index8, index4, 5, 4, 8); ; break; }
+                        case 5: { othercombochange(index8, index4, 7, 4, 8); ; break; }
+                        case 6: { othercombochange(index8, index4, 8, 4, 8); ; break; }
+                    }
+                  
                 }
                 renewindex(4);
                 if (rb4.IsChecked == true)
@@ -4165,25 +4421,66 @@ namespace snqxap
             }
             else
             {
-                if (index1 != -1 && gun[index1].grid_center == 5)
+                if (index1 != -1 )
                 {
-                    othercombochange(index1, index5, 3, 5,1);
+                    switch (gun[index1].grid_center)
+                    {
+                        case 4: { othercombochange(index1, index5, 2, 5, 1); break; }
+                        case 5: { othercombochange(index1, index5, 3, 5, 1); break; }
+                        case 7: { othercombochange(index1, index5, 5, 5, 1); break; }
+                        case 8: { othercombochange(index1, index5, 6, 5, 1); break; }
+                    }
+               
                 }
-                if (index2 != -1 && gun[index2].grid_center == 5)
+                if (index2 != -1 )
                 {
-                    othercombochange(index2, index5, 2, 5,2);
+                    switch (gun[index2].grid_center)
+                    {
+                        case 4: { othercombochange(index2, index5, 1, 5, 2); break; }
+                        case 5: { othercombochange(index2, index5, 2, 5, 2); break; }
+                        case 6: { othercombochange(index2, index5, 3, 5, 2); break; }
+                        case 7: { othercombochange(index2, index5, 4, 5, 2); break; }
+                        case 8: { othercombochange(index2, index5, 5, 5, 2); break; }
+                        case 9: { othercombochange(index2, index5, 6, 5, 2); break; }
+                    }
+            
                 }
-                if (index4 != -1 && gun[index4].grid_center == 5)
+                if (index4 != -1 )
                 {
-                    othercombochange(index4, index5, 6, 5,4);
+                    switch (gun[index4].grid_center)
+                    {
+                        case 1: { othercombochange(index4, index5, 2, 5, 4); ; break; }
+                        case 2: { othercombochange(index4, index5, 3, 5, 4); ; break; }
+                        case 4: { othercombochange(index4, index5, 5, 5, 4); ; break; }
+                        case 5: { othercombochange(index4, index5, 6, 5, 4); ; break; }
+                        case 7: { othercombochange(index4, index5, 8, 5, 4); ; break; }
+                        case 8: { othercombochange(index4, index5, 9, 5, 4); ; break; }
+                    }
+                 
                 }
-                if (index7 != -1 && gun[index7].grid_center == 5)
+                if (index7 != -1 )
                 {
-                    othercombochange(index7, index5, 9, 5,7);
+                    switch (gun[index7].grid_center)
+                    {
+                        case 1: { othercombochange(index7, index5, 5, 5, 7); break; }
+                        case 2: { othercombochange(index7, index5, 6, 5, 7); break; }
+                        case 4: { othercombochange(index7, index5, 8, 5, 7); break; }
+                        case 5: { othercombochange(index7, index5, 9, 5, 7); break; }
+                    }
+             
                 }
-                if (index8 != -1 && gun[index8].grid_center == 5)
+                if (index8 != -1 )
                 {
-                    othercombochange(index8, index5, 8, 5,8);
+                    switch (gun[index8].grid_center)
+                    {
+                        case 1: { othercombochange(index8, index5, 4, 5, 8); break; }
+                        case 2: { othercombochange(index8, index5, 5, 5, 8); break; }
+                        case 3: { othercombochange(index8, index5, 6, 5, 8); break; }
+                        case 4: { othercombochange(index8, index5, 7, 5, 8); break; }
+                        case 5: { othercombochange(index8, index5, 8, 5, 8); break; }
+                        case 6: { othercombochange(index8, index5, 9, 5, 8); break; }
+                    }
+              
                 }
                 if (index0 != -1)
                 {
@@ -4233,6 +4530,8 @@ namespace snqxap
             int index2 = Combo2.SelectedIndex;
             int index5 = Combo5.SelectedIndex;
             int index8 = Combo8.SelectedIndex;
+            int index0 = Combo0.SelectedIndex;
+            int index1 = Combo1.SelectedIndex;
             if (index6 == -1 || index6 == GUN_NUMBER)
             {
                 Combo6.SelectedIndex = GUN_NUMBER;
@@ -4241,23 +4540,65 @@ namespace snqxap
             }
             else
             {
-                if (index3 != -1 && gun[index3].grid_center == 5)
+                if (index3 != -1)
                 {
-                    othercombochange(index3, index6, 2, 6,3);
+                    switch (gun[index3].grid_center)
+                    {
+                        case 4: { othercombochange(index3, index6, 1, 6, 3); break; }
+                        case 5: { othercombochange(index3, index6, 2, 6, 3); break; }
+                        case 6: { othercombochange(index3, index6, 3, 6, 3); break; }
+                        case 7: { othercombochange(index3, index6, 4, 6, 3); break; }
+                        case 8: { othercombochange(index3, index6, 5, 6, 3); break; }
+                        case 9: { othercombochange(index3, index6, 6, 6, 3); break; }
+                    }
+                 
                 }
-                if (index4 != -1 && gun[index4].grid_center == 5)
+                if (index4 != -1)
                 {
-                    othercombochange(index4, index6, 1, 6,4);
+                    switch (gun[index4].grid_center)
+                    {
+                        case 5: { othercombochange(index4, index6, 1, 6, 4); break; }
+                        case 6: { othercombochange(index4, index6, 2, 6, 4); break; }
+                        case 8: { othercombochange(index4, index6, 4, 6, 4); break; }
+                        case 9: { othercombochange(index4, index6, 5, 6, 4); break; }
+                    }
+           
                 }
-                if (index7 != -1 && gun[index7].grid_center == 5)
+                if (index7 != -1 )
                 {
-                    othercombochange(index7, index6, 4, 6,7);
+                    switch (gun[index7].grid_center)
+                    {
+                        case 2: { othercombochange(index7, index6, 1, 6, 7); break; }
+                        case 3: { othercombochange(index7, index6, 2, 6, 7); break; }
+                        case 5: { othercombochange(index7, index6, 4, 6, 7); break; }
+                        case 6: { othercombochange(index7, index6, 5, 6, 7); break; }
+                        case 8: { othercombochange(index7, index6, 7, 6, 7); break; }
+                        case 9: { othercombochange(index7, index6, 8, 6, 7); break; }
+                    }
+             
                 }
                 if (index2 != -1)
                 {
                     switch (gun[index2].grid_center)
                     {
                         case 9: { othercombochange(index2, index6, 1, 6, 2); break; }
+                    }
+
+                }
+                if (index0 != -1)
+                {
+                    switch (gun[index0].grid_center)
+                    {
+                        case 7: { othercombochange(index0, index6, 1, 6, 0); break; }
+                    }
+
+                }
+                if (index1 != -1)
+                {
+                    switch (gun[index1].grid_center)
+                    {
+                        case 8: { othercombochange(index1, index6, 1, 6, 1); break; }
+                        case 9: { othercombochange(index1, index6, 2, 6, 1); break; }
                     }
 
                 }
@@ -4299,7 +4640,9 @@ namespace snqxap
             int index5 = Combo5.SelectedIndex;
             int index4 = Combo4.SelectedIndex;
             int index7 = Combo7.SelectedIndex;
-
+            int index0 = Combo0.SelectedIndex;
+            int index1 = Combo1.SelectedIndex;
+            int index2 = Combo2.SelectedIndex;
             if (index7 == -1 || index7 == GUN_NUMBER)
             {
                 Combo7.SelectedIndex = GUN_NUMBER;
@@ -4308,26 +4651,97 @@ namespace snqxap
             }
             else
             {
-                if (index3 != -1 && gun[index3].grid_center == 5)
+                if (index3 != -1 )
                 {
-                    othercombochange(index3, index7, 3, 7,3);
+                    switch (gun[index3].grid_center)
+                    {
+                        case 4: { othercombochange(index3, index7, 2, 7, 3); break; }
+                        case 5: { othercombochange(index3, index7, 3, 7, 3); break; }
+                        case 7: { othercombochange(index3, index7, 5, 7, 3); break; }
+                        case 8: { othercombochange(index3, index7, 6, 7, 3); break; }
+                    }
+                   
                 }
-                if (index4 != -1 && gun[index4].grid_center == 5)
+                if (index4 != -1)
                 {
-                    othercombochange(index4, index7, 2, 7,4);
+                    switch (gun[index4].grid_center)
+                    {
+                        case 4: { othercombochange(index4, index7, 1, 7, 4); break; }
+                        case 5: { othercombochange(index4, index7, 2, 7, 4); break; }
+                        case 6: { othercombochange(index4, index7, 3, 7, 4); break; }
+                        case 7: { othercombochange(index4, index7, 4, 7, 4); break; }
+                        case 8: { othercombochange(index4, index7, 5, 7, 4); break; }
+                        case 9: { othercombochange(index4, index7, 6, 7, 4); break; }
+                    }
+     
                 }
-                if (index5 != -1 && gun[index5].grid_center == 5)
+                if (index5 != -1 )
                 {
-                    othercombochange(index5, index7, 1, 7,5);
+                    switch (gun[index5].grid_center)
+                    {
+                        case 5: { othercombochange(index5, index7, 1, 7, 5); break; }
+                        case 6: { othercombochange(index5, index7, 2, 7, 5); break; }
+                        case 8: { othercombochange(index5, index7, 4, 7, 5); break; }
+                        case 9: { othercombochange(index5, index7, 5, 7, 5); break; }
+                    }
+               
                 }
-                if (index6 != -1 && gun[index6].grid_center == 5)
+                if (index6 != -1 )
                 {
-                    othercombochange(index6, index7, 6, 7,6);
+                    switch (gun[index6].grid_center)
+                    {
+                        case 1: { othercombochange(index6, index7, 2, 7, 6); break; }
+                        case 2: { othercombochange(index6, index7, 3, 7, 6); break; }
+                        case 4: { othercombochange(index6, index7, 5, 7, 6); break; }
+                        case 5: { othercombochange(index6, index7, 6, 7, 6); break; }
+                        case 7: { othercombochange(index6, index7, 8, 7, 6); break; }
+                        case 8: { othercombochange(index6, index7, 9, 7, 6); break; }
+                    }
+               
                 }
-                if (index8 != -1 && gun[index8].grid_center == 5)
+                if (index8 != -1 )
                 {
-                    othercombochange(index8, index7, 4, 7,8);
+                    switch (gun[index8].grid_center)
+                    {
+                        case 2: { othercombochange(index8, index7, 1, 7, 8); break; }
+                        case 3: { othercombochange(index8, index7, 2, 7, 8); break; }
+                        case 5: { othercombochange(index8, index7, 4, 7, 8); break; }
+                        case 6: { othercombochange(index8, index7, 5, 7, 8); break; }
+                        case 8: { othercombochange(index8, index7, 7, 7, 8); break; }
+                        case 9: { othercombochange(index8, index7, 8, 7, 8); break; }
+                    }
+                  
                 }
+                if (index0 != -1)
+                {
+                    switch (gun[index0].grid_center)
+                    {
+                        case 7: { othercombochange(index0, index7, 2, 7, 0); break; }
+                        case 8: { othercombochange(index0, index7, 3, 7, 8); break; }
+
+                    }
+
+                }
+                if (index1 != -1)
+                {
+                    switch (gun[index1].grid_center)
+                    {
+                        case 7: { othercombochange(index1, index7, 1, 7, 1); break; }
+                        case 8: { othercombochange(index1, index7, 2, 7, 1); break; }
+                        case 9: { othercombochange(index1, index7, 3, 7, 1); break; }
+                    }
+
+                }
+                if (index2 != -1)
+                {
+                    switch (gun[index2].grid_center)
+                    {
+                        case 8: { othercombochange(index2, index7, 2, 7, 2); break; }
+                        case 9: { othercombochange(index2, index7, 3, 7, 2); break; }
+                    }
+
+                }
+
                 renewindex(7);
                 if (rb7.IsChecked == true)
                     calctank(7);
@@ -4351,6 +4765,8 @@ namespace snqxap
             int index0 = Combo0.SelectedIndex;
             int index3 = Combo3.SelectedIndex;
             int index6 = Combo6.SelectedIndex;
+            int index1 = Combo1.SelectedIndex;
+            int index2 = Combo2.SelectedIndex;
             if (index8 == -1 || index8 == GUN_NUMBER)
             {
                 Combo8.SelectedIndex = GUN_NUMBER;
@@ -4359,23 +4775,65 @@ namespace snqxap
             }
             else
             {
-                if (index4 != -1 && gun[index4].grid_center == 5)
+                if (index4 != -1)
                 {
-                    othercombochange(index4, index8, 3, 8,4);
+                    switch (gun[index4].grid_center)
+                    {
+                        case 4: { othercombochange(index4, index8, 2, 8, 4); break; }
+                        case 5: { othercombochange(index4, index8, 3, 8, 4); break; }
+                        case 7: { othercombochange(index4, index8, 5, 8, 4); break; }
+                        case 8: { othercombochange(index4, index8, 6, 8, 4); break; }
+                    }
+                 
                 }
-                if (index5 != -1 && gun[index5].grid_center == 5)
+                if (index5 != -1)
                 {
-                    othercombochange(index5, index8, 2, 8,5);
+                    switch (gun[index5].grid_center)
+                    {
+                        case 4: { othercombochange(index5, index8, 1, 8, 5); ; break; }
+                        case 5: { othercombochange(index5, index8, 2, 8, 5); ; break; }
+                        case 6: { othercombochange(index5, index8, 3, 8, 5); ; break; }
+                        case 7: { othercombochange(index5, index8, 4, 8, 5); ; break; }
+                        case 8: { othercombochange(index5, index8, 5, 8, 5); ; break; }
+                        case 9: { othercombochange(index5, index8, 6, 8, 5); ; break; }
+                    }
+    
                 }
-                if (index7 != -1 && gun[index7].grid_center == 5)
+                if (index7 != -1)
                 {
-                    othercombochange(index7, index8, 6, 8,7);
+                    switch (gun[index7].grid_center)
+                    {
+                        case 1: { othercombochange(index7, index8, 2, 8, 7); break; }
+                        case 2: { othercombochange(index7, index8, 3, 8, 7); break; }
+                        case 4: { othercombochange(index7, index8, 5, 8, 7); break; }
+                        case 5: { othercombochange(index7, index8, 6, 8, 7); break; }
+                        case 7: { othercombochange(index7, index8, 8, 8, 7); break; }
+                        case 8: { othercombochange(index7, index8, 9, 8, 7); break; }
+                    }
+     
                 }
                 if (index0 != -1)
                 {
                     switch (gun[index0].grid_center)
                     {
                         case 7: { othercombochange(index0, index8, 3, 8, 0); break; }
+                    }
+                }
+                if (index1 != -1)
+                {
+                    switch (gun[index1].grid_center)
+                    {
+                        case 7: { othercombochange(index1, index8, 2, 8, 1); break; }
+                        case 8: { othercombochange(index1, index8, 3, 8, 1); break; }
+                    }
+                }
+                if (index2 != -1)
+                {
+                    switch (gun[index2].grid_center)
+                    {
+                        case 7: { othercombochange(index2, index8, 1, 8, 2); break; }
+                        case 8: { othercombochange(index2, index8, 2, 8, 2); break; }
+                        case 9: { othercombochange(index2, index8, 3, 8, 2); break; }
                     }
                 }
                 if (index3 != -1)
@@ -14618,7 +15076,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("6");
-                        string read = "发动时位于自身影响格上的队友提升" + updem1 * 100 + "%伤害," + updem1 * 100 + "%射速,"+ updem1 * 100 + " %命中";
+                        string read = "发动时位于自身影响格上的队友提升" + updem1 * 100 + "%伤害," + updem1 * 100 + "%射速,"+ updem1 * 100 + "%命中";
                         renewread(combo, read);
                         break;
                     }
@@ -14670,7 +15128,7 @@ namespace snqxap
                         switch (skillindex) { case 0: { updem1 = 0.05; break; } case 1: { updem1 = 0.07; break; } case 2: { updem1 = 0.08; break; } case 3: { updem1 = 0.1; break; } case 4: { updem1 = 0.12; break; } case 5: { updem1 = 0.13; break; } case 6: { updem1 = 0.15; break; } case 7: { updem1 = 0.17; break; } case 8: { updem1 = 0.18; break; } case 9: { updem1 = 0.2; break; } }
 
 
-                        skillupboom[combo] = 1 + updem1;
+                        skillupboom[combo] = updem1;
                         renewindex(combo);
 
 

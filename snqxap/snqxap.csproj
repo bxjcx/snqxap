@@ -409,6 +409,13 @@
     <Resource Include="assets\SPAS-12.png" />
     <Resource Include="assets\Super-Shorty.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\PKP.png" />
+    <Resource Include="assets\RFB.png" />
+    <Resource Include="assets\SCW.png" />
+    <Resource Include="assets\Spitfire.png" />
+    <Resource Include="assets\利贝罗勒.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
