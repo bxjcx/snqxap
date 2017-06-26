@@ -23,11 +23,12 @@
             <Label x:Name="label5" Content="队长：" HorizontalAlignment="Left" Margin="265,84,0,0" FontSize="15" VerticalAlignment="Top"/>
             <Label x:Name="label6" Content="MVP：" HorizontalAlignment="Left" Margin="71,116,0,0" FontSize="15" VerticalAlignment="Top"/>
             <Label x:Name="label7" Content="队长+MVP：" HorizontalAlignment="Left" Margin="220,116,0,0" FontSize="15" VerticalAlignment="Top"/>
+            <Label x:Name="label15" Content="吃书：" HorizontalAlignment="Left" Margin="75,146,0,0" FontSize="15" VerticalAlignment="Top"/>
             <Label x:Name="calclbdz" Content="" HorizontalAlignment="Left" Margin="313,84,0,0" FontSize="15" VerticalAlignment="Top"/>
             <Label x:Name="calclbmvp" Content="" HorizontalAlignment="Left" Margin="120,116,0,0" FontSize="15" VerticalAlignment="Top"/>
             <Label x:Name="calclbdzmvp" Content="" HorizontalAlignment="Left" Margin="313,116,0,0" FontSize="15" VerticalAlignment="Top"/>
-            <Label  Content="网页版：jyying.cn/snqxap/calclevel.html。次数为战斗次数，不是进图次数。" HorizontalAlignment="Left" Margin="11,146,0,0" FontSize="12" VerticalAlignment="Top"/>
-            <Label  Content="枪娘升级经验来自作者表格，衰减和各图经验来自deathmoon1。（均是精品贴）" HorizontalAlignment="Left" Margin="5,172,0,0" FontSize="12" VerticalAlignment="Top"/>
+            <Label x:Name="calclbbook" Content="" HorizontalAlignment="Left" Margin="120,146,0,0" FontSize="15" VerticalAlignment="Top"/>
+            <Label  Content="网页版：jyying.cn/snqxap/calclevel.html。次数为战斗次数，不是进图次数。" HorizontalAlignment="Left" Margin="11,182,0,0" FontSize="12" VerticalAlignment="Top"/>
         </Grid>
         <Grid Width="450" Margin="0,210,0,0">
             <Label Foreground="red" x:Name="label13" Content="好感度计算器" HorizontalAlignment="Left" Margin="175,0,0,0" FontSize="12" VerticalAlignment="Top"/>

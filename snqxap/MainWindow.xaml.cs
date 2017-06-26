@@ -17,8 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-//可能编写的部分：       
-//              数据和功能介绍
+
 namespace snqxap
 {
 
@@ -30,7 +29,7 @@ namespace snqxap
         /// <summary>
         /// 枪娘总数
         /// </summary>
-        public const int GUN_NUMBER = 159; 
+        public const int GUN_NUMBER = 163; 
         /// <summary>
         /// 装备总数
         /// </summary>
@@ -541,7 +540,7 @@ namespace snqxap
             gun[149].name = "M1897"; gun[149].what = 7; gun[149].crit = 0.4; gun[149].belt = 4;
             gun[149].eatratio = 100; gun[149].ratiododge = 95; gun[149].ratiohit = 100; gun[149].ratiohp = 115; gun[149].ratiopow = 120; gun[149].ratiorate = 100; gun[149].ratioarmor = 115;
             gun[149].equiptype1 = "9,11"; gun[149].equiptype2 = "7"; gun[149].equiptype3 = "1,2,3,4"; gun[149].type = 103202;
-            gun[149].grid_center = 6; gun[149].number = 2; gun[149].effect0 = 1; gun[149].effect1 = 7; gun[149].hitup = 0.5; gun[149].to = 6;
+            gun[149].grid_center = 6; gun[149].number = 2; gun[149].effect0 = 1; gun[149].effect1 = 4; gun[149].hitup = 0.5; gun[149].to = 6;
 
             gun[150].name = "Super-Shorty"; gun[150].what = 7; gun[150].crit = 0.4; gun[150].belt = 3;
             gun[150].eatratio = 125; gun[150].ratiododge = 135; gun[150].ratiohit = 105; gun[150].ratiohp = 110; gun[150].ratiopow = 85; gun[150].ratiorate = 110; gun[150].ratioarmor = 110;
@@ -579,7 +578,7 @@ namespace snqxap
             gun[156].equiptype1 = "1,2,3,4,13"; gun[156].equiptype2 = "8"; gun[156].equiptype3 = "9,10,12"; gun[156].type = 106203;
             gun[156].grid_center = 5; gun[156].number = 2; gun[156].effect0 = 2; gun[156].effect1 = 8; gun[156].damageup = 0.2; gun[156].to = 2;
 
-            gun[157].name = "RFB"; gun[157].what = 2; gun[157].crit = 0.2; gun[157].belt = 0;
+            gun[157].name = "RFB"; gun[157].what = 2; gun[157].crit = 0.3; gun[157].belt = 0;
             gun[157].eatratio = 145; gun[157].ratiododge = 100; gun[157].ratiohit = 140; gun[157].ratiohp = 95; gun[157].ratiopow = 135; gun[157].ratiorate = 75;
             gun[157].equiptype1 = "1,2,3,4,13"; gun[157].equiptype2 = "8"; gun[157].equiptype3 = "9,10,12"; gun[157].type = 106404;
             gun[157].grid_center = 5; gun[157].number = 3; gun[157].effect0 = 3; gun[157].effect1 = 6; gun[157].effect2 = 9; gun[157].hitup = 0.3; gun[157].dodgeup = 0.18; gun[157].to = 3;
@@ -588,6 +587,27 @@ namespace snqxap
             gun[158].eatratio = 115; gun[158].ratiododge = 120; gun[158].ratiohit = 130; gun[158].ratiohp = 100; gun[158].ratiopow = 120; gun[158].ratiorate = 120;
             gun[158].equiptype1 = "5"; gun[158].equiptype2 = "1,2,3"; gun[158].equiptype3 = "9,14"; gun[158].type = 106304;
             gun[158].grid_center = 7; gun[158].number = 3; gun[158].effect0 = 3; gun[158].effect1 = 6; gun[158].effect2 = 9; gun[158].shotspeedup = 0.15; gun[158].hitup = 0.12; gun[158].to = 7;
+
+            gun[159].name = "八一式马"; gun[159].what = 5; gun[159].crit = 0.4; gun[159].belt = 0;
+            gun[159].eatratio = 125; gun[159].ratiododge = 120; gun[159].ratiohit = 115; gun[159].ratiohp = 85; gun[159].ratiopow = 110; gun[159].ratiorate = 90;
+            gun[159].equiptype1 = "5"; gun[159].equiptype2 = "1,2,3,13"; gun[159].equiptype3 = "9,15"; gun[159].type = 100412;
+            gun[159].grid_center = 5; gun[159].number = 1; gun[159].effect0 = 9;  gun[159].rateup = 0.12; gun[159].to = 4;
+
+            gun[160].name = "ART556"; gun[160].what = 2; gun[160].crit = 0.2; gun[160].belt = 0;
+            gun[160].eatratio = 130; gun[160].ratiododge = 110; gun[160].ratiohit = 120; gun[160].ratiohp = 105; gun[160].ratiopow = 110; gun[160].ratiorate = 100;
+            gun[160].equiptype1 = "1,2,3,4,13"; gun[160].equiptype2 = "8"; gun[160].equiptype3 = "9,10,12"; gun[160].type = 101704;
+            gun[160].grid_center = 5; gun[160].number = 2; gun[160].effect0 = 3; gun[160].effect1 = 9; gun[160].hitup = 0.5; gun[160].dodgeup = 0.15; gun[160].to = 3;
+
+            gun[161].name = "诺爱尔"; gun[161].what = 4; gun[161].crit = 0.2; gun[161].belt = 0;
+            gun[161].eatratio = 120; gun[161].ratiododge = 110; gun[161].ratiohit = 120; gun[161].ratiohp = 90; gun[161].ratiopow = 140; gun[161].ratiorate = 120;
+            gun[161].equiptype1 = "4,13"; gun[161].equiptype2 = "6"; gun[161].equiptype3 = "9,10,12"; gun[161].type = 106406;
+            gun[161].grid_center = 5; gun[161].number = 6; gun[161].effect0 = 1; gun[161].effect1 = 2; gun[161].effect2 = 3; gun[161].effect3 = 7; gun[161].effect4 = 8; gun[161].effect5 = 9; gun[161].shotspeedup = 0.15; gun[161].dodgeup = 0.1; gun[161].to = 1;
+
+            gun[162].name = "艾尔菲尔特"; gun[162].what = 7; gun[162].crit = 0.4; gun[162].belt = 5;
+            gun[162].eatratio = 95; gun[162].ratiododge = 80; gun[162].ratiohit = 120; gun[162].ratiohp = 125; gun[162].ratiopow = 130; gun[162].ratiorate = 110; gun[162].ratioarmor = 125;
+            gun[162].equiptype1 = "9,11"; gun[162].equiptype2 = "7"; gun[162].equiptype3 = "1,2,3,4"; gun[162].type = 106407;
+            gun[162].grid_center = 6; gun[162].number = 2; gun[162].effect0 = 1; gun[162].effect1 = 7; gun[162].damageup = 0.15; gun[162].hitup = 0.15; gun[162].to = 6;
+
 
             for (int i = 0; i < GUN_NUMBER + 1; i++)//加颜色
             {
@@ -895,6 +915,10 @@ namespace snqxap
                 gun[i].image = "/assets/" + gun[i].name + ".png";
             }
             gun[153].image = "/assets/MP5.png"; ;
+            gun[159].image = "/assets/MP5.png"; ;
+            gun[160].image = "/assets/MP5.png"; ;
+            gun[161].image = "/assets/MP5.png"; ;
+            gun[162].image = "/assets/MP5.png"; ;
             gun[GUN_NUMBER].image = "";
             for (int i = 0; i < 9; i++)
                 {
@@ -1613,7 +1637,7 @@ namespace snqxap
             gun[104].ratiorate = 120;
             gun[94].ratiorate = 105;
             gun[58].ratiorate = 110;
-            gun[95].ratiorate = 105;
+            gun[95].ratiorate = 108;
             gun[59].ratiorate = 115;
             gun[56].ratiorate = 115;
             gun[60].ratiorate = 105;
@@ -1788,7 +1812,7 @@ namespace snqxap
             gun[92].type = 102403;
             gun[93].type = 103104;
             gun[94].type = 100406;
-            gun[95].type = 102108;
+            gun[95].type = 102117;
             gun[96].type = 100101;
             gun[97].type = 102106;
             gun[98].type = 301504;
@@ -2649,7 +2673,7 @@ namespace snqxap
             gun[32].number = 1; gun[32].effect0 = 9;
             gun[33].number = 2; gun[33].effect0 = 9; gun[33].effect1 = 3;
             gun[34].number = 2; gun[34].effect0 = 8; gun[34].effect1 = 2;
-            gun[35].number = 1; gun[35].effect0 = 8;
+            gun[35].number = 1; gun[35].effect0 = 2;
             gun[36].number = 1; gun[36].effect0 = 6;
             gun[37].number = 2; gun[37].effect0 = 8; gun[37].effect1 = 2;
             gun[38].number = 1; gun[38].effect0 = 8;
@@ -11753,7 +11777,7 @@ namespace snqxap
                             case 9: { attime = 8; break; }
                         }
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
                         double updem1 = 0;
                         switch (skillindex)
                         {
@@ -11795,7 +11819,7 @@ namespace snqxap
                         double cdtime = 0;
                         switch (skillindex) { case 0: { cdtime = 15; break; } case 1: { cdtime = 14.7; break; } case 2: { cdtime = 14.3; break; } case 3: { cdtime = 14; break; } case 4: { cdtime = 13.7; break; } case 5: { cdtime = 13.3; break; } case 6: { cdtime = 13; break; } case 7: { cdtime = 12.7; break; } case 8: { cdtime = 12.3; break; } case 9: { cdtime = 12; break; } }
                         gun[index].cd = cdtime;
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("5");
                         double updem1 = 0;
                         switch(skillindex)
                         {
@@ -11859,7 +11883,7 @@ namespace snqxap
 
 
                               renewattime(combo, attime.ToString());
-                              gun[index].startcd = ("3");
+                              gun[index].startcd = ("6");
 
                               string read = "(夜)降低对方全体" + Math.Floor(updem1) + "%伤害";
                             renewread(combo, read);
@@ -11904,7 +11928,7 @@ namespace snqxap
                                 case 9: { attime = 5; break; }
                             }
                             renewattime(combo, attime.ToString());
-                            gun[index].startcd = ("3");
+                            gun[index].startcd = ("6");
 
                             string read = "(昼)降低对方全体" + Math.Floor(updem1) + "%伤害";
                             renewread(combo, read);
@@ -11941,7 +11965,7 @@ namespace snqxap
                         }
 
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
                         string read = "提升己方" + Math.Floor(updem1) + "%回避";
                         renewread(combo, read);
                         break;
@@ -11988,7 +12012,7 @@ namespace snqxap
                             case 9: { attime = 8; break; }
                         }
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
                         string read = "提升己方" + Math.Floor(updem1) + "%射速";
                         renewread(combo, read);
                         break;
@@ -12019,7 +12043,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
                         string read = "降低敌方全体" + updem1*100 + "%命中";
                         renewread(combo, read);
                         break;
@@ -12075,7 +12099,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
                         string read = "提升全体" + updem1*100 + "%伤害,"+updem2*100+"%暴击率";
                         renewread(combo, read);
                         break;
@@ -12109,7 +12133,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
                         if (innight)
                         {
                             string read = "(夜)提升全体" + updem1 * 100 + "%回避";
@@ -12172,7 +12196,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
                         string read = "提升全体" + updem1 * 100 + "%伤害," + updem2 * 100 + "%射速";
                         renewread(combo, read);
                         break;
@@ -12198,7 +12222,7 @@ namespace snqxap
                         }
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
                         string read = "提升全体" + updem1 * 100 + "%射速";
                         renewread(combo, read);
                         break;
@@ -12222,7 +12246,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
                         string read = "降低敌方全体" + updem1 * 100 + "%伤害";
                         renewread(combo, read);
                         break;
@@ -12324,8 +12348,8 @@ namespace snqxap
                         double updem2 = 0;
 
                         switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
-                        switch (skillindex) { case 0: { attime = 2; break; } case 1: { attime = 2.2; break; } case 2: { attime = 2.4; break; } case 3: { attime = 2.7; break; } case 4: { attime = 2.9; break; } case 5: { attime = 3.1; break; } case 6: { attime = 3.3; break; } case 7: { attime = 3.6; break; } case 8: { attime = 3.8; break; } case 9: { attime = 4; break; } }
-                        switch (skillindex) { case 0: { updem1 = 2.50; updem2 = 0.00; break; } case 1: { updem1 = 2.90; updem2 = 0.10; break; } case 2: { updem1 = 3.30; updem2 = 0.20; break; } case 3: { updem1 = 3.70; updem2 = 0.30; break; } case 4: { updem1 = 4.10; updem2 = 0.40; break; } case 5: { updem1 = 4.40; updem2 = 0.60; break; } case 6: { updem1 = 4.80; updem2 = 0.70; break; } case 7: { updem1 = 5.20; updem2 = 0.80; break; } case 8: { updem1 = 5.60; updem2 = 0.90; break; } case 9: { updem1 = 6.00; updem2 = 1.00; break; } }
+                        switch (skillindex) { case 0: { attime = 2; break; } case 1: { attime = 2.4; break; } case 2: { attime = 2.7; break; } case 3: { attime = 3; break; } case 4: { attime = 3.4; break; } case 5: { attime = 3.7; break; } case 6: { attime = 4; break; } case 7: { attime = 4.4; break; } case 8: { attime = 4.7; break; } case 9: { attime = 5; break; } }
+                        switch (skillindex) { case 0: { updem1 = 2.50; updem2 = -0.50; break; } case 1: { updem1 = 2.90; updem2 = -0.40; break; } case 2: { updem1 = 3.30; updem2 = -0.4; break; } case 3: { updem1 = 3.70; updem2 = -0.30; break; } case 4: { updem1 = 4.10; updem2 = -0.30; break; } case 5: { updem1 = 4.40; updem2 = -0.20; break; } case 6: { updem1 = 4.80; updem2 = -0.20; break; } case 7: { updem1 = 5.20; updem2 = -0.10; break; } case 8: { updem1 = 5.60; updem2 = -0.10; break; } case 9: { updem1 = 6.00; updem2 = 0.00; break; } }
 
                         if (ischecked)
                         {
@@ -12336,7 +12360,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("3");
-                        string read = "燃烧弹,半径1.5," + (updem1 + 1) + "倍,dot "+(updem2+1)+"倍(不算)";
+                        string read = "燃烧弹,半径1.5," + (updem1 + 1) + "倍,每0.33秒"+(updem2+1)+"倍(不算)";
                         renewread(combo, read);
                         break;
                     }
@@ -12395,8 +12419,8 @@ namespace snqxap
                         double updem2 = 0;
 
                         switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
-                        switch (skillindex) { case 0: { attime = 2; break; } case 1: { attime = 2.2; break; } case 2: { attime = 2.4; break; } case 3: { attime = 2.7; break; } case 4: { attime = 2.9; break; } case 5: { attime = 3.1; break; } case 6: { attime = 3.3; break; } case 7: { attime = 3.6; break; } case 8: { attime = 3.8; break; } case 9: { attime = 4; break; } }
-                        switch (skillindex) { case 0: { updem1 = 1.80; updem2 = 0.00; break; } case 1: { updem1 = 2.10; updem2 = 0.10; break; } case 2: { updem1 = 2.40; updem2 = 0.20; break; } case 3: { updem1 = 2.70; updem2 = 0.30; break; } case 4: { updem1 = 3.00; updem2 = 0.40; break; } case 5: { updem1 = 3.30; updem2 = 0.60; break; } case 6: { updem1 = 3.60; updem2 = 0.70; break; } case 7: { updem1 = 3.90; updem2 = 0.80; break; } case 8: { updem1 = 4.20; updem2 = 0.90; break; } case 9: { updem1 = 4.50; updem2 = 1.00; break; } }
+                        switch (skillindex) { case 0: { attime = 2; break; } case 1: { attime = 2.4; break; } case 2: { attime = 2.7; break; } case 3: { attime = 3; break; } case 4: { attime = 3.4; break; } case 5: { attime = 3.7; break; } case 6: { attime = 4; break; } case 7: { attime = 4.4; break; } case 8: { attime = 4.7; break; } case 9: { attime = 5; break; } }
+                        switch (skillindex) { case 0: { updem1 = 1.80; updem2 = -0.50; break; } case 1: { updem1 = 2.10; updem2 = -0.40; break; } case 2: { updem1 = 2.40; updem2 = -0.40; break; } case 3: { updem1 = 2.70; updem2 = -0.30; break; } case 4: { updem1 = 3.00; updem2 = -0.30; break; } case 5: { updem1 = 3.30; updem2 = -0.20; break; } case 6: { updem1 = 3.60; updem2 = -0.20; break; } case 7: { updem1 = 3.90; updem2 = -0.10; break; } case 8: { updem1 = 4.20; updem2 = -0.10; break; } case 9: { updem1 = 4.50; updem2 = 0.00; break; } }
 
                         if (ischecked)
                         {
@@ -12407,7 +12431,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("3");
-                        string read = "燃烧弹,半径2.5," +( updem1 + 1) + "倍,dot " + (updem2 + 1) + "倍(不算)";
+                        string read = "燃烧弹,半径1.5," + (updem1 + 1) + "倍,每0.33秒" + (updem2 + 1) + "倍(不算)";
                         renewread(combo, read);
                         break;
                     }
@@ -12437,8 +12461,8 @@ namespace snqxap
                         double updem2 = 0;
 
                         switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
-                        switch (skillindex) { case 0: { attime = 2; break; } case 1: { attime = 2.2; break; } case 2: { attime = 2.4; break; } case 3: { attime = 2.7; break; } case 4: { attime = 2.9; break; } case 5: { attime = 3.1; break; } case 6: { attime = 3.3; break; } case 7: { attime = 3.6; break; } case 8: { attime = 3.8; break; } case 9: { attime = 4; break; } }
-                        switch (skillindex) { case 0: { updem1 = 2.30; updem2 = 0.10; break; } case 1: { updem1 = 3.00; updem2 = 0.30; break; } case 2: { updem1 = 3.70; updem2 = 0.60; break; } case 3: { updem1 = 4.30; updem2 = 0.80; break; } case 4: { updem1 = 5.00; updem2 = 1.00; break; } case 5: { updem1 = 2.50; updem2 = 0.00; break; } case 6: { updem1 = 3.30; updem2 = 0.20; break; } case 7: { updem1 = 4.10; updem2 = 0.40; break; } case 8: { updem1 = 4.80; updem2 = 0.70; break; } case 9: { updem1 = 5.60; updem2 = 0.90; break; } }
+                        switch (skillindex) { case 0: { attime = 2; break; } case 1: { attime = 2.4; break; } case 2: { attime = 2.7; break; } case 3: { attime = 3; break; } case 4: { attime = 3.4; break; } case 5: { attime = 3.7; break; } case 6: { attime = 4; break; } case 7: { attime = 4.4; break; } case 8: { attime = 4.7; break; } case 9: { attime = 5; break; } }
+                        switch (skillindex) { case 0: { updem1 = 2.00; updem2 = -0.50; break; } case 1: { updem1 = 2.30; updem2 = -0.40; break; } case 2: { updem1 = 2.70; updem2 = -0.40; break; } case 3: { updem1 = 3.0; updem2 = -0.3; break; } case 4: { updem1 = 3.3; updem2 = -0.30; break; } case 5: { updem1 = 3.7; updem2 = -0.20; break; } case 6: { updem1 = 4.00; updem2 = -0.20; break; } case 7: { updem1 = 4.30; updem2 = -0.10; break; } case 8: { updem1 = 4.7; updem2 = -0.10; break; } case 9: { updem1 = 5; updem2 = 0.00; break; } }
 
                         if (ischecked)
                         {
@@ -12449,7 +12473,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("3");
-                        string read = "燃烧弹,半径1.5," + (updem1 + 1) + "倍,dot " + (updem2 + 1 )+ "倍(不算)";
+                        string read = "燃烧弹,半径1.5," + (updem1 + 1) + "倍,每0.33秒" + (updem2 + 1) + "倍(不算)";
                         renewread(combo, read);
                         break;
                     }
@@ -12488,7 +12512,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("10");
-                        string read = "2s瞄准,当前" + (updem1 + 1) + "倍";
+                        string read = "1.5s瞄准,当前" + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
                     }
@@ -12533,8 +12557,8 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("15");
-                        string read = "2s瞄准,最右" + (updem1 + 1) + "倍";
+                        gun[index].startcd = ("10");
+                        string read = "1.5s瞄准,最右" + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
                     }
@@ -12580,7 +12604,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("10");
-                        string read = "2s瞄准,特定" + (updem1 + 1 )+ "倍";
+                        string read = "1.5s瞄准,特定" + (updem1 + 1 )+ "倍";
                         renewread(combo, read);
                         break;
                     }
@@ -12601,7 +12625,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("10");
-                        string read = "2s瞄准,特定" +( updem1 + 1) + "倍";
+                        string read = "1.5s瞄准,特定" +( updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
                     }
@@ -12693,7 +12717,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("10");
-                        string read = "2s瞄准,最左" + (updem1 + 1) + "倍";
+                        string read = "1.5s瞄准,最左" + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
                     }
@@ -12897,7 +12921,7 @@ namespace snqxap
                         double updem2 = 0;
 
                         switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
-                        switch (skillindex) { case 0: { updem1 = 2.2; break; } case 1: { updem1 = 2.8; break; } case 2: { updem1 = 3.5; break; } case 3: { updem1 = 4.1; break; } case 4: { updem1 = 4.8; break; } case 5: { updem1 = 5.4; break; } case 6: { updem1 = 6.1; break; } case 7: { updem1 = 6.7; break; } case 8: { updem1 = 7.4; break; } case 9: { updem1 = 8; break; } }
+                        switch (skillindex) { case 0: { updem1 = 5; break; } case 1: { updem1 = 6; break; } case 2: { updem1 = 7; break; } case 3: { updem1 = 8; break; } case 4: { updem1 = 9; break; } case 5: { updem1 = 10; break; } case 6: { updem1 = 11; break; } case 7: { updem1 = 12; break; } case 8: { updem1 = 13; break; } case 9: { updem1 = 14; break; } }
 
                         if (ischecked)
                         {
@@ -12908,7 +12932,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("8");
-                        string read = "杀伤榴弹,半径1," +( updem1 + 1) + "倍";
+                        string read = "杀伤榴弹,半径1.5," +( updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
                     }
@@ -12920,7 +12944,7 @@ namespace snqxap
                         double updem2 = 0;
 
                         switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
-                        switch (skillindex) { case 0: { updem1 = 2.5; break; } case 1: { updem1 = 3.1; break; } case 2: { updem1 = 3.6; break; } case 3: { updem1 = 4.2; break; } case 4: { updem1 = 4.7; break; } case 5: { updem1 = 5.3; break; } case 6: { updem1 = 5.8; break; } case 7: { updem1 = 6.4; break; } case 8: { updem1 = 6.9; break; } case 9: { updem1 = 7.5; break; } }
+                        switch (skillindex) { case 0: { updem1 = 4; break; } case 1: { updem1 = 4.8; break; } case 2: { updem1 = 5.6; break; } case 3: { updem1 = 6.3; break; } case 4: { updem1 = 7.1; break; } case 5: { updem1 = 7.9; break; } case 6: { updem1 = 8.7; break; } case 7: { updem1 = 9.4; break; } case 8: { updem1 = 10.2; break; } case 9: { updem1 = 11; break; } }
                         if (ischecked)
                         {
                               skillsolidmultiple[combo] = updem1+1;
@@ -12930,7 +12954,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("8");
-                        string read = "杀伤榴弹,半径1," + (updem1 + 1) + "倍";
+                        string read = "杀伤榴弹,半径1.5," + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
                     }
@@ -13037,7 +13061,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("8");
-                        string read = "爆破榴弹,半径3," + (updem1 + 1 )+ "倍";
+                        string read = "爆破榴弹,半径4," + (updem1 + 1 )+ "倍";
                         renewread(combo, read);
                         break;
                     }
@@ -13073,7 +13097,7 @@ namespace snqxap
                         double updem2 = 0;
 
                         switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
-                        switch (skillindex) { case 0: { updem1 = 2; break; } case 1: { updem1 = 2.5; break; } case 2: { updem1 = 3; break; } case 3: { updem1 = 3.5; break; } case 4: { updem1 = 4; break; } case 5: { updem1 = 4.5; break; } case 6: { updem1 = 5; break; } case 7: { updem1 = 5.5; break; } case 8: { updem1 = 6; break; } case 9: { updem1 = 6.5; break; } }
+                        switch (skillindex) { case 0: { updem1 = 3; break; } case 1: { updem1 = 3.7; break; } case 2: { updem1 = 4.3; break; } case 3: { updem1 = 5; break; } case 4: { updem1 = 5.7; break; } case 5: { updem1 = 6.3; break; } case 6: { updem1 = 7; break; } case 7: { updem1 = 7.7; break; } case 8: { updem1 = 8.3; break; } case 9: { updem1 = 9; break; } }
 
 
                         if (ischecked)
@@ -13085,7 +13109,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("8");
-                        string read = "杀伤榴弹,半径1," + (updem1 + 1) + "倍";
+                        string read = "杀伤榴弹,半径1.5," + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
                     }
@@ -13109,7 +13133,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("8");
-                        string read = "爆破榴弹,半径3," + (updem1 + 1) + "倍";
+                        string read = "爆破榴弹,半径4," + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
                     }
@@ -13133,7 +13157,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("8");
-                        string read = "爆破榴弹,半径3," + (updem1 + 1) + "倍";
+                        string read = "爆破榴弹,半径4," + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
                     }
@@ -13302,11 +13326,11 @@ namespace snqxap
                         double updem1 = 0;
                         double updem2 = 0;
 
-                        switch (skillindex) { case 0: { attime = 4.00; break; } case 1: { attime = 4.20; break; } case 2: { attime = 4.40; break; } case 3: { attime = 4.70; break; } case 4: { attime = 4.90; break; } case 5: { attime = 5.10; break; } case 6: { attime = 5.30; break; } case 7: { attime = 5.60; break; } case 8: { attime = 5.80; break; } case 9: { attime = 6.00; break; } }
+                        switch (skillindex) { case 0: { attime = 6.00; break; } case 1: { attime = 6.20; break; } case 2: { attime = 6.40; break; } case 3: { attime = 6.70; break; } case 4: { attime = 6.90; break; } case 5: { attime = 7.10; break; } case 6: { attime = 7.30; break; } case 7: { attime = 7.60; break; } case 8: { attime = 7.80; break; } case 9: { attime = 8.00; break; } }
                         if (innight)
-                            switch (skillindex) { case 0: { updem1 = 0.4; break; } case 1: { updem1 = 0.47; break; } case 2: { updem1 = 0.54; break; } case 3: { updem1 = 0.62; break; } case 4: { updem1 = 0.69; break; } case 5: { updem1 = 0.76; break; } case 6: { updem1 = 0.83; break; } case 7: { updem1 = 0.91; break; } case 8: { updem1 = 0.98; break; } case 9: { updem1 = 1.05; break; } }
+                            switch (skillindex) { case 0: { updem1 = 0.25; break; } case 1: { updem1 = 0.27; break; } case 2: { updem1 = 0.29; break; } case 3: { updem1 = 0.32; break; } case 4: { updem1 = 0.34; break; } case 5: { updem1 = 0.36; break; } case 6: { updem1 = 0.38; break; } case 7: { updem1 = 0.41; break; } case 8: { updem1 = 0.43; break; } case 9: { updem1 = 0.45; break; } }
                         else
-                            switch (skillindex) { case 0: { updem1 = 0.12; break; } case 1: { updem1 = 0.15; break; } case 2: { updem1 = 0.17; break; } case 3: { updem1 = 0.2; break; } case 4: { updem1 = 0.22; break; } case 5: { updem1 = 0.25; break; } case 6: { updem1 = 0.27; break; } case 7: { updem1 = 0.3; break; } case 8: { updem1 = 0.32; break; } case 9: { updem1 = 0.35; break; } }
+                            switch (skillindex) { case 0: { updem1 = 0.05; break; } case 1: { updem1 = 0.06; break; } case 2: { updem1 = 0.06; break; } case 3: { updem1 = 0.07; break; } case 4: { updem1 = 0.07; break; } case 5: { updem1 = 0.08; break; } case 6: { updem1 = 0.08; break; } case 7: { updem1 = 0.09; break; } case 8: { updem1 = 0.09; break; } case 9: { updem1 = 0.1; break; } }
 
                         switch (skillindex) { case 0: { updem2 = 1; break; } case 1: { updem2 = 2; break; } case 2: { updem2 = 2; break; } case 3: { updem2 = 2; break; } case 4: { updem2 = 2; break; } case 5: { updem2 = 3; break; } case 6: { updem2 = 3; break; } case 7: { updem2 = 3; break; } case 8: { updem2 = 3; break; } case 9: { updem2 = 4; break; } }
                      
@@ -13566,7 +13590,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
                         string read = "降低敌方全体" + updem1 * 100 + "%回避";
                         renewread(combo, read);
                         break;
@@ -13587,7 +13611,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
                         string read = "降低敌方全体" + updem1 * 100 + "%射速(不算)";
                         renewread(combo, read);
                         break;
@@ -13625,12 +13649,16 @@ namespace snqxap
                         double updem2 = 0;
 
                         switch (skillindex) { case 0: { cdtime = 10.00; break; } case 1: { cdtime = 9.80; break; } case 2: { cdtime = 9.60; break; } case 3: { cdtime = 9.30; break; } case 4: { cdtime = 9.10; break; } case 5: { cdtime = 8.90; break; } case 6: { cdtime = 8.70; break; } case 7: { cdtime = 8.40; break; } case 8: { cdtime = 8.20; break; } case 9: { cdtime = 8.00; break; } }
-                        switch (skillindex) { case 0: { attime = 6.00; break; } case 1: { attime = 6.40; break; } case 2: { attime = 6.80; break; } case 3: { attime = 7.40; break; } case 4: { attime = 7.80; break; } case 5: { attime = 8.20; break; } case 6: { attime = 8.60; break; } case 7: { attime = 9.20; break; } case 8: { attime = 9.60; break; } case 9: { attime = 10.00; break; } } 
-                        if (innight)
+                            if (innight)
+                        {
+                            switch (skillindex) { case 0: { attime = 6.00; break; } case 1: { attime = 6.40; break; } case 2: { attime = 6.80; break; } case 3: { attime = 7.40; break; } case 4: { attime = 7.80; break; } case 5: { attime = 8.20; break; } case 6: { attime = 8.60; break; } case 7: { attime = 9.20; break; } case 8: { attime = 9.60; break; } case 9: { attime = 10.00; break; } }
                             switch (skillindex) { case 0: { updem1 = 0.5; break; } case 1: { updem1 = 0.54; break; } case 2: { updem1 = 0.59; break; } case 3: { updem1 = 0.63; break; } case 4: { updem1 = 0.68; break; } case 5: { updem1 = 0.72; break; } case 6: { updem1 = 0.77; break; } case 7: { updem1 = 0.81; break; } case 8: { updem1 = 0.86; break; } case 9: { updem1 = 0.9; break; } }
-                        
+                        }
                         else
-                            switch (skillindex) { case 0: { updem1 = 0.16; break; } case 1: { updem1 = 0.18; break; } case 2: { updem1 = 0.19; break; } case 3: { updem1 = 0.21; break; } case 4: { updem1 = 0.22; break; } case 5: { updem1 = 0.24; break; } case 6: { updem1 = 0.25; break; } case 7: { updem1 = 0.27; break; } case 8: { updem1 = 0.28; break; } case 9: { updem1 = 0.3; break; } } 
+                        {
+                            switch (skillindex) { case 0: { attime = 3.5; break; } case 1: { attime = 3.8; break; } case 2: { attime = 4.1; break; } case 3: { attime = 4.3; break; } case 4: { attime = 4.6; break; } case 5: { attime = 4.9; break; } case 6: { attime = 5.2; break; } case 7: { attime = 5.4; break; } case 8: { attime = 5.7; break; } case 9: { attime = 6.00; break; } }
+                            switch (skillindex) { case 0: { updem1 = 0.16; break; } case 1: { updem1 = 0.18; break; } case 2: { updem1 = 0.19; break; } case 3: { updem1 = 0.21; break; } case 4: { updem1 = 0.22; break; } case 5: { updem1 = 0.24; break; } case 6: { updem1 = 0.25; break; } case 7: { updem1 = 0.27; break; } case 8: { updem1 = 0.28; break; } case 9: { updem1 = 0.3; break; } }
+                        }
                         if (ischecked)
                         {
                             skillupdamage[combo] *= 1 + updem1;
@@ -13673,7 +13701,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
 
                             string read = "提升全体" + updem1 * 100 + "%伤害";
                             renewread(combo, read);
@@ -13701,7 +13729,7 @@ namespace snqxap
                         }
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
                         string read = "提升全体" + updem1 * 100 + "%射速";
                         renewread(combo, read);
                         break;
@@ -13729,7 +13757,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
                         string read = "降低敌方全体" + updem1 * 100 + "%回避";
                         renewread(combo, read);
                         break;
@@ -13765,7 +13793,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
 
                         if (innight)
                         {
@@ -13802,7 +13830,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
 
                             string read = "提升全体" + updem1 * 100 + "%回避";
                             renewread(combo, read);
@@ -13966,7 +13994,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
 
                         string read = "提升全体" + updem1 * 100 + "%伤害";
                         renewread(combo, read);
@@ -13993,7 +14021,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
                         string read = "降低敌方全体" + updem1 * 100 + "%命中";
                         renewread(combo, read);
                         break;
@@ -14065,7 +14093,7 @@ namespace snqxap
                         double updem2 = 0;
 
                         switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
-                        switch (skillindex) { case 0: { updem1 = 2.2; break; } case 1: { updem1 = 2.7; break; } case 2: { updem1 = 3.3; break; } case 3: { updem1 = 3.8; break; } case 4: { updem1 = 4.3; break; } case 5: { updem1 = 4.9; break; } case 6: { updem1 = 5.4; break; } case 7: { updem1 = 5.9; break; } case 8: { updem1 = 6.5; break; } case 9: { updem1 = 7; break; } }
+                        switch (skillindex) { case 0: { updem1 = 3.5; break; } case 1: { updem1 = 4.2; break; } case 2: { updem1 = 4.9; break; } case 3: { updem1 = 5.7; break; } case 4: { updem1 = 6.4; break; } case 5: { updem1 = 7.1; break; } case 6: { updem1 = 7.8; break; } case 7: { updem1 = 8.6; break; } case 8: { updem1 = 9.3; break; } case 9: { updem1 = 10; break; } }
 
                         if (ischecked)
                         {
@@ -14076,7 +14104,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("8");
-                        string read = "杀伤榴弹,半径1," + (updem1 + 1) + "倍";
+                        string read = "杀伤榴弹,半径1.5," + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
                     }
@@ -14178,7 +14206,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
                         string read = "降低敌方全体" + updem1 * 100 + "%射速(不算)";
                         renewread(combo, read);
                         break;
@@ -14196,7 +14224,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("6");
+                        gun[index].startcd = ("5");
                         string read = "闪光弹,半径2.5";
                         renewread(combo, read);
                         break;
@@ -14305,7 +14333,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
                         if (innight)
                         {
                             string read = "(夜)降低敌方全体" + updem1 * 100 + "%回避";
@@ -14392,7 +14420,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
 
                         string read = "提升全体" + updem1 * 100 + "%伤害";
                         renewread(combo, read);
@@ -14424,7 +14452,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("2");
+                        gun[index].startcd = ("6");
                         string read = "提升全体" + updem2 * 100 + "%回避," + updem1 * 100 + "%命中";
                         renewread(combo, read);
                         break;
@@ -14451,7 +14479,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("2");
+                        gun[index].startcd = ("6");
                         string read = "提升全体" + updem1 * 100 + "%命中";
                         renewread(combo, read);
                         break;
@@ -14746,7 +14774,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("2");
+                        gun[index].startcd = ("6");
                         string read = "提升全体" + updem1 * 100 + "%射速," + updem2 * 100 + "%暴击率";
                         renewread(combo, read);
                         break;
@@ -14764,7 +14792,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("6");
+                        gun[index].startcd = ("5");
                         string read = "闪光弹,半径2.5";
                         renewread(combo, read);
                         break;
@@ -14930,7 +14958,7 @@ namespace snqxap
                         }
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("2");
+                        gun[index].startcd = ("6");
                         string read = "飞斧,目标" + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
@@ -14997,7 +15025,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
                         string read = "提升全体" + updem1 * 100 + "%伤害," + updem2 * 100 + "%命中";
                         renewread(combo, read);
                         break;
@@ -15015,7 +15043,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("3");
+                        gun[index].startcd = ("6");
                         string read = "降低敌方全体" + updem1 * 100 + "%射速(不算)";
                         renewread(combo, read);
                         break;
@@ -15143,7 +15171,132 @@ namespace snqxap
                         renewread(combo, read);
                         break;
                     }
-                    
+                case 100412:
+                    {
+                        double cdtime = 0;
+                        double attime = 0;
+                        double updem1 = 0;
+                        double updem2 = 0;
+
+                        switch (skillindex) { case 0: { cdtime = 10; break; } case 1: { cdtime = 9.8; break; } case 2: { cdtime = 9.6; break; } case 3: { cdtime = 9.3; break; } case 4: { cdtime = 9.1; break; } case 5: { cdtime = 8.9; break; } case 6: { cdtime = 8.7; break; } case 7: { cdtime = 8.4; break; } case 8: { cdtime = 8.2; break; } case 9: { cdtime = 8; break; } }
+                        switch (skillindex) { case 0: { attime = 3; break; } case 1: { attime = 3.2; break; } case 2: { attime = 3.4; break; } case 3: { attime = 3.7; break; } case 4: { attime = 3.9; break; } case 5: { attime = 4.1; break; } case 6: { attime = 4.3; break; } case 7: { attime = 4.6; break; } case 8: { attime = 4.8; break; } case 9: { attime = 5; break; } }
+                        if (innight)
+                            switch (skillindex) { case 0: { updem1 = 0.5; break; } case 1: { updem1 = 0.54; break; } case 2: { updem1 = 0.59; break; } case 3: { updem1 = 0.63; break; } case 4: { updem1 = 0.68; break; } case 5: { updem1 = 0.72; break; } case 6: { updem1 = 0.77; break; } case 7: { updem1 = 0.81; break; } case 8: { updem1 = 0.86; break; } case 9: { updem1 = 0.9; break; } }
+                        else
+                            switch (skillindex) { case 0: { updem1 = 0.15; break; } case 1: { updem1 = 0.16; break; } case 2: { updem1 = 0.18; break; } case 3: { updem1 = 0.19; break; } case 4: { updem1 = 0.21; break; } case 5: { updem1 = 0.22; break; } case 6: { updem1 = 0.24; break; } case 7: { updem1 = 0.25; break; } case 8: { updem1 = 0.27; break; } case 9: { updem1 = 0.28; break; } }
+                        if (ischecked)
+                        {
+                            skillupshotspeed[combo] *= 1 + updem1;
+                            renewindex(combo);
+                        }
+
+                        gun[index].cd = cdtime;
+                        renewattime(combo, attime.ToString());
+                        gun[index].startcd = ("8");
+                        if (innight)
+                        {
+                            string read = "(夜)提升自身" + updem1 * 100 + "%射速";
+                            renewread(combo, read);
+                        }
+                        else
+                        {
+                            string read = "(昼)提升自身" + updem1 * 100 + "%射速";
+                            renewread(combo, read);
+                        }
+                        break;
+                    }
+                case 101704:
+                    {
+                        double cdtime = 0;
+                        double attime = 0;
+                        double updem1 = 0;
+                        double updem2 = 0;
+
+                        switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
+                        switch (skillindex) { case 0: { attime = 3.00; break; } case 1: { attime = 3.20; break; } case 2: { attime = 3.40; break; } case 3: { attime = 3.70; break; } case 4: { attime = 3.90; break; } case 5: { attime = 4.10; break; } case 6: { attime = 4.30; break; } case 7: { attime = 4.60; break; } case 8: { attime = 4.80; break; } case 9: { attime = 5.00; break; } }
+                        switch (skillindex) { case 0: { updem1 = 0.5; updem2 = 0.16; break; } case 1: { updem1 = 0.54; updem2 = 0.17; break; } case 2: { updem1 = 0.58; updem2 = 0.18; break; } case 3: { updem1 = 0.62; updem2 = 0.19; break; } case 4: { updem1 = 0.66; updem2 = 0.2; break; } case 5: { updem1 = 0.69; updem2 = 0.21; break; } case 6: { updem1 = 0.73; updem2 = 0.22; break; } case 7: { updem1 = 0.77; updem2 = 0.23; break; } case 8: { updem1 = 0.81; updem2 = 0.24; break; } case 9: { updem1 = 0.85; updem2 = 0.25; break; } }
+
+                        if (ischecked)
+                        {
+
+                            skillupdamage[combo] *= 1 + updem1;
+                            skillupshotspeed[combo] *= 1 + updem2;
+                            renewindex(combo);
+
+                        }
+
+                        gun[index].cd = cdtime;
+                        renewattime(combo, attime.ToString());
+                        gun[index].startcd = ("6");
+                        string read = "提升自身" + updem1 * 100 + "%伤害," + updem2 * 100 + "%射速";
+                        renewread(combo, read);
+                        break;
+                    }
+                case 106406:
+                    {
+                        double cdtime = 0;
+                        double attime = 0;
+                        double updem1 = 0;
+                        double updem2 = 0;
+
+                        switch (skillindex) { case 0: { cdtime = 15; break; } case 1: { cdtime = 14.7; break; } case 2: { cdtime = 14.3; break; } case 3: { cdtime = 14; break; } case 4: { cdtime = 13.7; break; } case 5: { cdtime = 13.3; break; } case 6: { cdtime = 13; break; } case 7: { cdtime = 12.7; break; } case 8: { cdtime = 12.3; break; } case 9: { cdtime = 12; break; } }
+                        switch (skillindex) { case 0: { updem1 = 0.6; break; } case 1: { updem1 = 0.7; break; } case 2: { updem1 = 0.7; break; } case 3: { updem1 = 0.8; break; } case 4: { updem1 = 0.9; break; } case 5: { updem1 = 0.9; break; } case 6: { updem1 = 1; break; } case 7: { updem1 = 1.1; break; } case 8: { updem1 = 1.1; break; } case 9: { updem1 = 1.2; break; } }
+                        if (ischecked)
+                        {
+                            skillsolidmultiple[combo] = updem1 * 8;
+                            renewindex(combo);
+                        }
+                        gun[index].cd = cdtime;
+                        renewattime(combo, attime.ToString());
+                        gun[index].startcd = ("6");
+                        string read = "冲刺,小范围8次" + (updem1) + "倍";
+                        renewread(combo, read);
+                        break;
+                    }
+                case 106407:
+                    {
+                        double cdtime = 0;
+                        double attime = 0;
+                        double updem1 = 0;
+                        double updem2 = 0;
+
+                        switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
+                        switch (skillindex) { case 0: { updem1 = 4; break; } case 1: { updem1 = 4.4; break; } case 2: { updem1 = 4.9; break; } case 3: { updem1 = 5.3; break; } case 4: { updem1 = 5.8; break; } case 5: { updem1 = 6.2; break; } case 6: { updem1 = 6.7; break; } case 7: { updem1 = 7.1; break; } case 8: { updem1 = 7.6; break; } case 9: { updem1 = 8; break; } }
+                        switch (skillindex) { case 0: { updem2 = 6; break; } case 1: { updem2 = 6.7; break; } case 2: { updem2 = 7.3; break; } case 3: { updem2 = 8; break; } case 4: { updem2 = 8.7; break; } case 5: { updem2 = 9.3; break; } case 6: { updem2 = 10; break; } case 7: { updem2 = 10.7; break; } case 8: { updem2 = 11.3; break; } case 9: { updem2 = 12; break; } }
+                        if (ischecked)
+                        {
+                            skillsolidmultiple[combo] = updem1 +updem2;
+                            renewindex(combo);
+                        }
+                        gun[index].cd = cdtime;
+                        renewattime(combo, attime.ToString());
+                        gun[index].startcd = ("10");
+                        string read = (updem1) + "倍伤害锁定，随后导弹1.5半径"+(updem2)+"倍伤害";
+                        renewread(combo, read);
+                        break;
+                    }
+                case 102117:
+                    {
+                        double cdtime = 0;
+                        double attime = 0;
+                        double updem1 = 0;
+                        double updem2 = 0;
+
+                        switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
+                        switch (skillindex) { case 0: { updem1 = 2.5; break; } case 1: { updem1 = 2.8; break; } case 2: { updem1 = 3.1; break; } case 3: { updem1 = 3.3; break; } case 4: { updem1 = 3.6; break; } case 5: { updem1 = 3.9; break; } case 6: { updem1 = 4.2; break; } case 7: { updem1 = 4.4; break; } case 8: { updem1 = 4.7; break; } case 9: { updem1 = 5; break; } }
+                        if (ischecked)
+                        {
+                            skillsolidmultiple[combo] = updem1 * 3;
+                            renewindex(combo);
+                        }
+                        gun[index].cd = cdtime;
+                        renewattime(combo, attime.ToString());
+                        gun[index].startcd = ("6");
+                        string read = "扔3次榴弹,1.5半径," + (updem1) + "倍";
+                        renewread(combo, read);
+                        break;
+                    }
+
                 default:
                     break;
 

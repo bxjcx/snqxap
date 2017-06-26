@@ -370,6 +370,13 @@ namespace snqxap
             int tolevel = int.Parse(toleveltb.Text);
             int nowexp = int.Parse(nowdatatb.Text);
 
+            int expbook = nowexp;
+            for (int i = nowlevel; i < tolevel; i++)
+            {
+                expbook += leveldata[i - 1];
+            }
+            double book = double.Parse(expbook.ToString()) / 3000;
+
             int allcountpt = 0;
             int allcountdz = 0;
             int allcountmvp = 0;
@@ -446,7 +453,6 @@ namespace snqxap
             }
 
             nowexp = int.Parse(nowdatatb.Text);
-
             for (int i = nowlevel; i < tolevel; i++)
             {
                 team = switchteam(i);
@@ -515,6 +521,7 @@ namespace snqxap
                     calclbdz.Content = allcountdz.ToString() + "次";
                     calclbmvp.Content = allcountmvp.ToString() + "次";
                     calclbdzmvp.Content = allcountdzmvp.ToString() + "次";
+            calclbbook.Content = book.ToString() + "本";
         }
 
         private void nowlovetb_TextChanged(object sender, TextChangedEventArgs e)
