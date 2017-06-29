@@ -914,11 +914,6 @@ namespace snqxap
             {
                 gun[i].image = "/assets/" + gun[i].name + ".png";
             }
-            gun[153].image = "/assets/MP5.png"; ;
-            gun[159].image = "/assets/MP5.png"; ;
-            gun[160].image = "/assets/MP5.png"; ;
-            gun[161].image = "/assets/MP5.png"; ;
-            gun[162].image = "/assets/MP5.png"; ;
             gun[GUN_NUMBER].image = "";
             for (int i = 0; i < 9; i++)
                 {
@@ -3066,7 +3061,7 @@ namespace snqxap
                 MessageBox.Show("弃坑啦。");
                 this.Close();
             }
-            string Pattren = @"(\d\.){3}\d";
+            string Pattren = @"^\d[\d\.]+\d$";
             Regex regex = new Regex(Pattren);
             Match m = regex.Match(strContent);
             if (!m.Success || strContent.Length > 10)
@@ -14269,7 +14264,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("4");
+                        gun[index].startcd = ("2");
 
                             string read = "提升自身" + updem1 * 100 + "%伤害";
                             renewread(combo, read);
@@ -14295,7 +14290,7 @@ namespace snqxap
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
-                        gun[index].startcd = ("4");
+                        gun[index].startcd = ("2");
                         string read = "提升自身" + updem1 * 100 + "%射速";
                         renewread(combo, read);
                         break;

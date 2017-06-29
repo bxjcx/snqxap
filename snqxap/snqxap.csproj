@@ -416,6 +416,13 @@
     <Resource Include="assets\Spitfire.png" />
     <Resource Include="assets\利贝罗勒.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\ART556.png" />
+    <Resource Include="assets\HK45.png" />
+    <Resource Include="assets\八一式马.png" />
+    <Resource Include="assets\艾尔菲尔特.png" />
+    <Resource Include="assets\诺爱尔.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
