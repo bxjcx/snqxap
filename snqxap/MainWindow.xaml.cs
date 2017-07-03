@@ -9926,7 +9926,7 @@ namespace snqxap
                             tbt = "无";
                         tb0.Text = tbt;
                         Lcritharm0.Content = ((1.5 + equipcritharm[0]) * 100).ToString() + "%";
-                        Larmor0.Content = ((maxarmor + equiparmor[0]) * gg[0].armorup * skilluparmor[0]).ToString("0");
+                        Larmor0.Content = Math.Floor(((maxarmor + equiparmor[0]) * gg[0].armorup * skilluparmor[0])).ToString("0");
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[0]) * gg[0].shotspeedup * (skillupshotspeed[0]) > 120)
                             Lshotspeed0.Content = 120;
                         else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[0]) * gg[0].shotspeedup * (skillupshotspeed[0]) > 60)
@@ -10013,7 +10013,7 @@ namespace snqxap
                             tbt = "无";
                         tb1.Text = tbt;
                         Lcritharm1.Content = ((1.5 + equipcritharm[1]) * 100).ToString() + "%";
-                        Larmor1.Content = ((maxarmor + equiparmor[1]) * gg[1].armorup * skilluparmor[1]).ToString("0");
+                        Larmor1.Content = Math.Floor(((maxarmor + equiparmor[1]) * gg[1].armorup * skilluparmor[1])).ToString("0");
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[1]) * gg[1].shotspeedup * (skillupshotspeed[1]) > 120)
                             Lshotspeed1.Content = 120;
                         else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[1]) * gg[1].shotspeedup * (skillupshotspeed[1]) > 60)
@@ -10097,7 +10097,7 @@ namespace snqxap
                             tbt = "无";
                         tb2.Text = tbt;
                         Lcritharm2.Content = ((1.5 + equipcritharm[2]) * 100).ToString() + "%";
-                        Larmor2.Content = ((maxarmor + equiparmor[2]) * gg[2].armorup * skilluparmor[2]).ToString("0");
+                        Larmor2.Content = Math.Floor(((maxarmor + equiparmor[2]) * gg[2].armorup * skilluparmor[2])).ToString("0");
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[2]) * gg[2].shotspeedup * (skillupshotspeed[2]) > 120)
                             Lshotspeed2.Content = 120;
                         else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[2]) * gg[2].shotspeedup * (skillupshotspeed[2]) > 60)
@@ -10181,7 +10181,7 @@ namespace snqxap
                             tbt = "无";
                         tb3.Text = tbt;
                         Lcritharm3.Content = ((1.5 + equipcritharm[3]) * 100).ToString() + "%";
-                        Larmor3.Content = ((maxarmor + equiparmor[3]) * gg[3].armorup * skilluparmor[3]).ToString("0");
+                        Larmor3.Content = Math.Floor(((maxarmor + equiparmor[3]) * gg[3].armorup * skilluparmor[3])).ToString("0");
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[3]) * gg[3].shotspeedup * (skillupshotspeed[3]) > 120)
                             Lshotspeed3.Content = 120;
                         else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[3]) * gg[3].shotspeedup * (skillupshotspeed[3]) > 60)
@@ -10265,7 +10265,7 @@ namespace snqxap
                             tbt = "无";
                         tb4.Text = tbt;
                         Lcritharm4.Content = ((1.5 + equipcritharm[4]) * 100).ToString() + "%";
-                        Larmor4.Content = ((maxarmor + equiparmor[4]) * gg[4].armorup * skilluparmor[4]).ToString("0");
+                        Larmor4.Content = Math.Floor(((maxarmor + equiparmor[4]) * gg[4].armorup * skilluparmor[4])).ToString("0");
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[4]) * gg[4].shotspeedup * (skillupshotspeed[4]) > 120)
                             Lshotspeed4.Content = 120;
                         else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[4]) * gg[4].shotspeedup * (skillupshotspeed[4]) > 60)
@@ -10349,7 +10349,7 @@ namespace snqxap
                             tbt = "无";
                         tb5.Text = tbt;
                         Lcritharm5.Content = ((1.5 + equipcritharm[5]) * 100).ToString() + "%";
-                        Larmor5.Content = ((maxarmor + equiparmor[5]) * gg[5].armorup * skilluparmor[5]).ToString("0");
+                        Larmor5.Content = Math.Floor(((maxarmor + equiparmor[5]) * gg[5].armorup * skilluparmor[5])).ToString("0");
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[5]) * gg[5].shotspeedup * (skillupshotspeed[5]) > 120)
                             Lshotspeed5.Content = 120;
                         else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[5]) * gg[5].shotspeedup * (skillupshotspeed[5]) > 60)
@@ -10433,7 +10433,7 @@ namespace snqxap
                             tbt = "无";
                         tb6.Text = tbt;
                         Lcritharm6.Content = ((1.5 + equipcritharm[6]) * 100).ToString() + "%";
-                        Larmor6.Content = ((maxarmor + equiparmor[6]) * gg[6].armorup * skilluparmor[6]).ToString("0");
+                        Larmor6.Content = Math.Floor(((maxarmor + equiparmor[6]) * gg[6].armorup * skilluparmor[6])).ToString("0");
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[6]) * gg[6].shotspeedup * (skillupshotspeed[6]) > 120)
                             Lshotspeed6.Content = 120;
                         else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[6]) * gg[6].shotspeedup * (skillupshotspeed[6]) > 60)
@@ -10517,7 +10517,7 @@ namespace snqxap
                             tbt = "无";
                         tb7.Text = tbt;
                         Lcritharm7.Content = ((1.5 + equipcritharm[7]) * 100).ToString() + "%";
-                        Larmor7.Content = ((maxarmor + equiparmor[7]) * gg[7].armorup * skilluparmor[7]).ToString("0");
+                        Larmor7.Content = Math.Floor(((maxarmor + equiparmor[7]) * gg[7].armorup * skilluparmor[7])).ToString("0");
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[7]) * gg[7].shotspeedup * (skillupshotspeed[7]) > 120)
                             Lshotspeed7.Content = 120;
                         else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[7]) * gg[7].shotspeedup * (skillupshotspeed[7]) > 60)
@@ -10602,7 +10602,7 @@ namespace snqxap
                             tbt = "无";
                         tb8.Text = tbt;
                         Lcritharm8.Content = ((1.5 + equipcritharm[8]) * 100).ToString() + "%";
-                        Larmor8.Content = ((maxarmor + equiparmor[8]) * gg[8].armorup * skilluparmor[8]).ToString("0");
+                        Larmor8.Content = Math.Floor(((maxarmor + equiparmor[8]) * gg[8].armorup * skilluparmor[8])).ToString("0");
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[8]) * gg[8].shotspeedup * (skillupshotspeed[8]) > 120)
                             Lshotspeed8.Content = 120;
                         else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[8]) * gg[8].shotspeedup * (skillupshotspeed[8]) > 60)
