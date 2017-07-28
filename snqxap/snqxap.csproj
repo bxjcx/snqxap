@@ -70,6 +70,7 @@
     <Compile Include="enemydata.xaml.cs">
       <DependentUpon>enemydata.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Fairy.cs" />
     <Compile Include="Summary.xaml.cs">
       <DependentUpon>Summary.xaml</DependentUpon>
     </Compile>
@@ -422,6 +423,23 @@
     <Resource Include="assets\八一式马.png" />
     <Resource Include="assets\艾尔菲尔特.png" />
     <Resource Include="assets\诺爱尔.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\fairy\airborne_3.png" />
+    <Resource Include="assets\fairy\air_attack_3.png" />
+    <Resource Include="assets\fairy\armor_3.png" />
+    <Resource Include="assets\fairy\bombard_3.png" />
+    <Resource Include="assets\fairy\empty_3.png" />
+    <Resource Include="assets\fairy\fighting_3.png" />
+    <Resource Include="assets\fairy\fortress_3.png" />
+    <Resource Include="assets\fairy\illumine_3.png" />
+    <Resource Include="assets\fairy\Landmines_3.png" />
+    <Resource Include="assets\fairy\No_consumption_3.png" />
+    <Resource Include="assets\fairy\rescue_3.png" />
+    <Resource Include="assets\fairy\shield_3.png" />
+    <Resource Include="assets\fairy\sniper_3.png" />
+    <Resource Include="assets\fairy\target_3.png" />
+    <Resource Include="assets\fairy\固甲妖精.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

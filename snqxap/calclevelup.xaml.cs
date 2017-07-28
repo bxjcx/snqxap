@@ -29,7 +29,7 @@ namespace snqxap
     public partial class calclevelup : Window
     {
         public const int MAX_LEVEL = 100; 
-        public const int MAP_NUMBER = 104; 
+        public const int MAP_NUMBER = 108; 
         int[] leveldata = new int[MAX_LEVEL-1];
         map[] allmap = new map[MAP_NUMBER];
 
@@ -247,6 +247,10 @@ namespace snqxap
             allmap[101].name = "82e"; allmap[101].exp = 480; allmap[101].downlevel = 100;
             allmap[102].name = "83e"; allmap[102].exp = 490; allmap[102].downlevel = 100;
             allmap[103].name = "84e"; allmap[103].exp = 490; allmap[103].downlevel = 100;
+            allmap[104].name = "61n"; allmap[104].exp = 490; allmap[104].downlevel = 100;
+            allmap[105].name = "62n"; allmap[105].exp = 490; allmap[105].downlevel = 100;
+            allmap[106].name = "63n"; allmap[106].exp = 500; allmap[106].downlevel = 100;
+            allmap[107].name = "64n"; allmap[107].exp = 500; allmap[107].downlevel = 100;
 
             for (int i = 0; i < MAP_NUMBER; i++)
             {
