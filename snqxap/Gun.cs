@@ -30,16 +30,20 @@ namespace snqxap
         public string property1 { get; set; }
         public string property2 { get; set; }
         public string property3 { get; set; }
+        public string property4 { get; set; }
         public double down1 { get; set; }
         public double down2 { get; set; }   
         public double down3 { get; set; }
+        public double down4 { get; set; }
         public double up1 { get; set; }
         public double up2 { get; set; }
         public double up3 { get; set; }
+        public double up4 { get; set; }
 
         public double bonus1 { get; set; } //强化系数
         public double bonus2 { get; set; } //强化系数
         public double bonus3 { get; set; } //强化系数
+        public double bonus4 { get; set; } //强化系数
     }
 
     class Gun
