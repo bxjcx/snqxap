@@ -21,6 +21,8 @@ namespace snqxap
         public int skilllevel;
         public int star;
 
+        public double cd;
+
         public double powbuff;
         public double hitbuff;
         public double dodgebuff;

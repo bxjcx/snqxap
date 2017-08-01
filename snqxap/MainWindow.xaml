@@ -58,11 +58,13 @@
             <Image Source="zhaijiang.jpg" Name="FairyImage" Margin="10,10,10,659" RenderTransformOrigin="0,0"/>
             <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="fairynamecombo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="196" Height="30" SelectionChanged="fairynamecombo_SelectionChanged" Margin="0,192,0,0"/>
             <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="fairylevel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="0,221,0,0" SelectedIndex="0" SelectionChanged="fairylevel_SelectionChanged"/>
-            <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="fairyskilllevel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="146,221,0,0" SelectedIndex="0" SelectionChanged="fairyskilllevel_SelectionChanged"/>
-            <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="fairystar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="72,220,0,0" SelectedIndex="0" SelectionChanged="fairystar_SelectionChanged"/>
+            <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="fairyskilllevel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="108,221,0,0" SelectedIndex="0" SelectionChanged="fairyskilllevel_SelectionChanged"/>
+            <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="fairystar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="30" Margin="56,220,0,0" SelectedIndex="0" SelectionChanged="fairystar_SelectionChanged"/>
             <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="fairytalentcombo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="196" Height="30" SelectionChanged="fairytalentcombo_SelectionChanged" Margin="0,252,0,0"/>
                 <Label Content="天赋:" Foreground="Red"  HorizontalAlignment="Left" Margin="0,283,0,0" VerticalAlignment="Top" FontSize="12" />
                 <Label Name="Ltalentread" Foreground="Red"  Content="" HorizontalAlignment="Left" Margin="32,283,0,0" VerticalAlignment="Top" FontSize="12"/>
+            
+                <CheckBox  Click="cb9_Click" Name="cb9" Content="" HorizontalAlignment="Left" Margin="163,227,0,608"/>
 
                 <Grid Width="100" Height="100" Margin="52,718,48,37" >
                 <Image Visibility="Hidden" x:Name="bignews"  Source="zhaijiang.jpg" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>

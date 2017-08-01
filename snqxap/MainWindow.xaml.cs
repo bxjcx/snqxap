@@ -88,6 +88,7 @@ namespace snqxap
         FairyTalent[] fairytalent = new FairyTalent[FAIRY_TALENT_NUMBER + 1];
         Boolean zhedie = true;
         Boolean fairyzhedie = true;
+        double shield = 0;
 
         float[] equipupRatio = { }; 
 
@@ -3141,7 +3142,8 @@ namespace snqxap
           //  fairynamecombo.Items.Add(BrushEquipCombobox(2, fairy[1].name));
             for (int i = 1; i <= 100;i++ )
                 fairylevel.Items.Add(i);
-
+            for (int i = 1; i <= 10; i++)
+                fairyskilllevel.Items.Add(i);
             for (int i = 0; i < FAIRY_TALENT_NUMBER + 1; i++)
                 fairytalent[i] = new FairyTalent();
             fairytalent[1].name = "杀伤型I"; fairytalent[1].rateswitch = 1;
@@ -5860,6 +5862,7 @@ namespace snqxap
             calcskill(6, Combo6.SelectedIndex, SkillLevel6.SelectedIndex, cb6.IsChecked == true, Level6.SelectedIndex);
             calcskill(7, Combo7.SelectedIndex, SkillLevel7.SelectedIndex, cb7.IsChecked == true, Level7.SelectedIndex);
             calcskill(8, Combo8.SelectedIndex, SkillLevel8.SelectedIndex, cb8.IsChecked == true, Level8.SelectedIndex);
+            calcfairyskill();
             calctalent();
             for (int i = 0; i < 9; i++)
                 renewindex(i);
@@ -7089,7 +7092,7 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                  enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor0.Content.ToString()))));
-                                    tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                    tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString()+shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                                }
                             else
                                 tank.Content = 0;         
@@ -7105,7 +7108,7 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor1.Content.ToString()))));
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp1.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge1.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp1.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge1.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                               }
                             else
                                 tank.Content = 0;
@@ -7121,7 +7124,7 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor2.Content.ToString()))));
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp2.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp2.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                           }
                             else
                                 tank.Content = 0;
@@ -7137,7 +7140,7 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor3.Content.ToString()))));
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp3.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp3.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             }
                             else
                                 tank.Content = 0;
@@ -7153,7 +7156,7 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor4.Content.ToString()))));
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp4.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp4.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             }
                             else
                                 tank.Content = 0;
@@ -7169,7 +7172,7 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor5.Content.ToString()))));
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp5.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp5.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                                }
                             else
                                 tank.Content = 0;
@@ -7185,7 +7188,7 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor6.Content.ToString()))));
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp6.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp6.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                           }
                             else
                                 tank.Content = 0;
@@ -7201,7 +7204,7 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor7.Content.ToString()))));
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp7.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp7.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                            }
                             else
                                 tank.Content = 0;
@@ -7217,7 +7220,7 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor8.Content.ToString()))));
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp8.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp8.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                              }
                             else
                                 tank.Content = 0;
@@ -7250,7 +7253,7 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor0.Content.ToString()))));
-                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                               }
                             else
                                 ftank.Content = 0;
@@ -7266,7 +7269,7 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor1.Content.ToString()))));
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp1.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge1.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp1.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge1.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             }
                             else
                                 ftank.Content = 0;
@@ -7282,7 +7285,7 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor2.Content.ToString()))));
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp2.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp2.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             }
                             else
                                 ftank.Content = 0;
@@ -7298,7 +7301,7 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                             enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor3.Content.ToString()))));
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp3.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp3.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             }
                             else
                                 ftank.Content = 0;
@@ -7314,7 +7317,7 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                     enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor4.Content.ToString()))));
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp4.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp4.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             }
                             else
                                 ftank.Content = 0;
@@ -7330,7 +7333,7 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                             enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor5.Content.ToString()))));
-                                  ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp5.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                  ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp5.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                                 }
                             else
                                 ftank.Content = 0;
@@ -7346,7 +7349,7 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                            enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor6.Content.ToString()))));
-                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp6.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp6.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                                 }
                                 else
                                 ftank.Content = 0;
@@ -7362,7 +7365,7 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                              enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor7.Content.ToString()))));
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp7.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp7.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                             }
                             else
                                 ftank.Content = 0;
@@ -7378,7 +7381,7 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                  enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor8.Content.ToString()))));
-                                     ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp8.Content.ToString()) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                     ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp8.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
                                 }
                                 else
                                 ftank.Content = 0;
@@ -7822,7 +7825,9 @@ namespace snqxap
                 isfullcrit[i] = false;
 
             }
-
+            shield = 0;
+            ump40skillclose = 0;
+            ump40skillopen = 0;
             skilldowndodge = 1;
             skilldownhit = 1;
             skilldowndamage = 1;
@@ -7879,6 +7884,8 @@ namespace snqxap
                 calcskill(6, Combo6.SelectedIndex, SkillLevel6.SelectedIndex, cb6.IsChecked == true, Level6.SelectedIndex);
                 calcskill(7, Combo7.SelectedIndex, SkillLevel7.SelectedIndex, cb7.IsChecked == true, Level7.SelectedIndex);
                 calcskill(8, Combo8.SelectedIndex, SkillLevel8.SelectedIndex, cb8.IsChecked == true, Level8.SelectedIndex);
+                calcfairyskill();
+                calctalent();
             }
             renewtank();
         }
@@ -7933,6 +7940,8 @@ namespace snqxap
                 calcskill(6, Combo6.SelectedIndex, SkillLevel6.SelectedIndex, cb6.IsChecked == true, Level6.SelectedIndex);
                 calcskill(7, Combo7.SelectedIndex, SkillLevel7.SelectedIndex, cb7.IsChecked == true, Level7.SelectedIndex);
                 calcskill(8, Combo8.SelectedIndex, SkillLevel8.SelectedIndex, cb8.IsChecked == true, Level8.SelectedIndex);
+                calcfairyskill();
+                calctalent();
             }
             renewtank();
         }
@@ -7988,6 +7997,8 @@ namespace snqxap
                 calcskill(6, Combo6.SelectedIndex, SkillLevel6.SelectedIndex, cb6.IsChecked == true, Level6.SelectedIndex);
                 calcskill(7, Combo7.SelectedIndex, SkillLevel7.SelectedIndex, cb7.IsChecked == true, Level7.SelectedIndex);
                 calcskill(8, Combo8.SelectedIndex, SkillLevel8.SelectedIndex, cb8.IsChecked == true, Level8.SelectedIndex);
+                calcfairyskill();
+                calctalent();
             }
             renewtank();
         }
@@ -8043,6 +8054,8 @@ namespace snqxap
                 calcskill(6, Combo6.SelectedIndex, SkillLevel6.SelectedIndex, cb6.IsChecked == true, Level6.SelectedIndex);
                 calcskill(7, Combo7.SelectedIndex, SkillLevel7.SelectedIndex, cb7.IsChecked == true, Level7.SelectedIndex);
                 calcskill(8, Combo8.SelectedIndex, SkillLevel8.SelectedIndex, cb8.IsChecked == true, Level8.SelectedIndex);
+                calcfairyskill();
+                calctalent();
             }
             renewtank();
         }
@@ -8098,6 +8111,9 @@ namespace snqxap
                 calcskill(6, Combo6.SelectedIndex, SkillLevel6.SelectedIndex, cb6.IsChecked == true, Level6.SelectedIndex);
                 calcskill(7, Combo7.SelectedIndex, SkillLevel7.SelectedIndex, cb7.IsChecked == true, Level7.SelectedIndex);
                 calcskill(8, Combo8.SelectedIndex, SkillLevel8.SelectedIndex, cb8.IsChecked == true, Level8.SelectedIndex);
+
+                calcfairyskill();
+                calctalent();
             }
             renewtank();
         }
@@ -8154,6 +8170,8 @@ namespace snqxap
                 calcskill(6, Combo6.SelectedIndex, SkillLevel6.SelectedIndex, cb6.IsChecked == true, Level6.SelectedIndex);
                 calcskill(7, Combo7.SelectedIndex, SkillLevel7.SelectedIndex, cb7.IsChecked == true, Level7.SelectedIndex);
                 calcskill(8, Combo8.SelectedIndex, SkillLevel8.SelectedIndex, cb8.IsChecked == true, Level8.SelectedIndex);
+                calcfairyskill();
+                calctalent();
             }
             renewtank();
         }
@@ -8210,6 +8228,8 @@ namespace snqxap
                 calcskill(5, Combo5.SelectedIndex, SkillLevel5.SelectedIndex, cb5.IsChecked == true, Level5.SelectedIndex);
                 calcskill(7, Combo7.SelectedIndex, SkillLevel7.SelectedIndex, cb7.IsChecked == true, Level7.SelectedIndex);
                 calcskill(8, Combo8.SelectedIndex, SkillLevel8.SelectedIndex, cb8.IsChecked == true, Level8.SelectedIndex);
+                calcfairyskill();
+                calctalent();
 
             }
             renewtank();
@@ -8267,6 +8287,8 @@ namespace snqxap
                 calcskill(5, Combo5.SelectedIndex, SkillLevel5.SelectedIndex, cb5.IsChecked == true, Level5.SelectedIndex);
                 calcskill(6, Combo6.SelectedIndex, SkillLevel6.SelectedIndex, cb6.IsChecked == true, Level6.SelectedIndex);
                 calcskill(8, Combo8.SelectedIndex, SkillLevel8.SelectedIndex, cb8.IsChecked == true, Level8.SelectedIndex);
+                calcfairyskill();
+                calctalent();
             }
             renewtank();
         }
@@ -8323,6 +8345,8 @@ namespace snqxap
                 calcskill(5, Combo5.SelectedIndex, SkillLevel5.SelectedIndex, cb5.IsChecked == true, Level5.SelectedIndex);
                 calcskill(6, Combo6.SelectedIndex, SkillLevel6.SelectedIndex, cb6.IsChecked == true, Level6.SelectedIndex);
                 calcskill(7, Combo7.SelectedIndex, SkillLevel7.SelectedIndex, cb7.IsChecked == true, Level7.SelectedIndex);
+                calcfairyskill();
+                calctalent();
             }
             renewtank();
         }
@@ -12157,6 +12181,7 @@ namespace snqxap
                             {
                                 skillupdodge[i] *= 1 + (Math.Floor(updem1) / 100);
                                 renewindex(i);
+                                renewtank();
                             }
                         }
                         double cdtime = 0;
@@ -12341,6 +12366,7 @@ namespace snqxap
                             {
                                 skillupdodge[i] *= 1 + updem1;
                                 renewindex(i);
+                                renewtank();
                             }
                         }
 
@@ -12544,6 +12570,8 @@ namespace snqxap
                         {
                                 skillupdodge[combo] *= 1 + updem1;
                                 renewindex(combo);
+                            renewtank();
+
                         }
 
                         gun[index].cd = cdtime;
@@ -12615,6 +12643,7 @@ namespace snqxap
                         {
                             skillupdodge[combo] *= 1 + updem1;
                             renewindex(combo);
+                            renewtank();
                         }
 
                         gun[index].cd = cdtime;
@@ -13844,6 +13873,7 @@ namespace snqxap
                         {
                             skillupdodge[combo] *= 1 + updem1;
                             renewindex(combo);
+                            renewtank();
                         }
 
                         gun[index].cd = cdtime;
@@ -14038,6 +14068,7 @@ namespace snqxap
                             {
                                 skillupdodge[i] *= 1 + updem1;
                                 renewindex(i);
+                                renewtank();
                             }
                         }
 
@@ -14254,6 +14285,7 @@ namespace snqxap
                         {
                             skillupdodge[combo] *= 1 + updem1;
                             renewindex(combo);
+                            renewtank();
                         }
 
                         gun[index].cd = cdtime;
@@ -15146,6 +15178,7 @@ namespace snqxap
                         {
                             skillupdodge[combo] *= 1 + updem1;
                             renewindex(combo);
+                            renewtank();
                         }
 
                         gun[index].cd = cdtime;
@@ -15278,6 +15311,7 @@ namespace snqxap
                                 skillupdamage[combo] *= 1 + updem1;
                                 skillupdodge[combo] *= 1 + updem2;
                                 renewindex(combo);
+                            renewtank();
                         }
 
                         gun[index].cd = cdtime;
@@ -15531,6 +15565,7 @@ namespace snqxap
                             skillupdamage[combo] *= Math.Pow((updem1 + 1), rate);
                             skillupdodge[combo] *= Math.Pow((updem2 + 1), rate);
                             renewindex(combo);
+                            renewtank();
                             string read = "(释放时)每2秒伤害上升"+updem1*100+"%,回避下降"+Math.Abs(updem2)*100+"%,最多叠加5层";
                             renewread(combo, read);
 
@@ -15543,6 +15578,7 @@ namespace snqxap
                             skillupdodge[combo] *= Math.Pow((downdem1 +1),rate);
                             skillupdamage[combo] *= Math.Pow((downdem2 + 1), rate);
                             renewindex(combo);
+                            renewtank();
                             string read = "(释放时)每2秒回避上升" + downdem1 * 100 + "%,伤害下降" + Math.Abs(downdem2) * 100 + "%,最多叠加5层";
                             renewread(combo, read);
 
@@ -15666,6 +15702,7 @@ namespace snqxap
                         }
                         break;
                     }
+          
                 default:
                     break;
 
@@ -24957,14 +24994,16 @@ namespace snqxap
             fairy[fairyindex].star = starindex + 1;
             fairy[fairyindex].calcfairybuff();
             FairyImage.ToolTip = "伤害："+fairy[fairyindex].powbuff+ "% 命中：" + fairy[fairyindex].hitbuff+ "% 回避：" + fairy[fairyindex].dodgebuff+ "% 护甲：" + fairy[fairyindex].armorbuff+ "% 爆伤：" + fairy[fairyindex].critharmbuff+"%";
-            for (int i = 0; i < 9; i++)
-                renewindex(i);
-            calctalent();
+            //for (int i = 0; i < 9; i++)
+            //    renewindex(i);
+            renewskill();
+          //  calctalent();
         }
 
         private void fairyskilllevel_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           // calctalent();
+            // calctalent();
+            renewskill();
         }
 
         private void fairystar_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -25131,6 +25170,7 @@ namespace snqxap
                         {
                             skillupdodge[i] *= updem1 + 1;
                             renewindex(i);
+                            renewtank();
                         }
                         fairytalentcombo.ToolTip = "发动率" + (rate * 100) + "%,全体回避提升" + (updem1 * 100) + "%";
                         break;
@@ -25142,6 +25182,7 @@ namespace snqxap
                         {
                             skillupdodge[i] *= updem1 + 1;
                             renewindex(i);
+                            renewtank();
                         }
                         fairytalentcombo.ToolTip = "发动率" + (rate * 100) + "%,全体回避提升" + (updem1 * 100) + "%";
                         break;
@@ -25153,6 +25194,7 @@ namespace snqxap
                         {
                             skilluparmor[i] *= updem1 + 1;
                             renewindex(i);
+                            renewtank();
                         }
                         fairytalentcombo.ToolTip = "发动率" + (rate * 100) + "%,全体护甲提升" + (updem1 * 100) + "%";
                         break;
@@ -25164,6 +25206,7 @@ namespace snqxap
                         {
                             skilluparmor[i] *= updem1 + 1;
                             renewindex(i);
+                            renewtank();
                         }
                         fairytalentcombo.ToolTip = "发动率" + (rate * 100) + "%,全体护甲提升" + (updem1 * 100) + "%";
                         break;
@@ -25201,6 +25244,7 @@ namespace snqxap
                                 skillupdamage[i] *= updem1 + 1;
                                 skillupdodge[i] *= updem2 + 1;
                                 renewindex(i);
+                                renewtank();
                             }
                         }
                         fairytalentcombo.ToolTip = "发动率" + (rate * 100) + "%,SMG伤害提升" + (updem1 * 100) + "%,回避提升" + (updem2 * 100) + "%";
@@ -25249,6 +25293,7 @@ namespace snqxap
                                 skilluparmor[i] *= updem1 + 1;
                                 skillupcrit[i] *= updem2 + 1;
                                 renewindex(i);
+                                renewtank();
                             }
                         }
                         fairytalentcombo.ToolTip = "发动率" + (rate * 100) + "%,SG护甲提升" + (updem1 * 100) + "%,暴击率提升" + (updem2 * 100) + "%";
@@ -25315,5 +25360,401 @@ namespace snqxap
                     break;
             }
         }
+
+        private void cb9_Click(object sender, RoutedEventArgs e)
+        {
+            renewskill();
+        }
+
+        private void calcfairyskill()
+        {
+            bool ischecked = cb9.IsChecked == true;
+            int fairyindex = fairynamecombo.SelectedIndex;
+            int levelindex = fairylevel.SelectedIndex;
+            int starindex = fairystar.SelectedIndex;
+            int skillindex = fairyskilllevel.SelectedIndex;
+            if (fairyindex < 1 || levelindex == -1 || starindex == -1 || skillindex == -1)
+                return;
+            switch (fairy[fairyindex].type)
+            {
+                case 900110:
+                    {
+                        double cdtime = 99;
+                        double attime = 20;
+                        double updem1 = 0;
+                        double updem2 = 0;
+                        double point = 1;
+                        double turncd = 0;
+                        switch (skillindex) { case 0: { updem1 = 0.05; updem2 = 0.05; break; } case 1: { updem1 = 0.07; updem2 = 0.05; break; } case 2: { updem1 = 0.08; updem2 = 0.06; break; } case 3: { updem1 = 0.1; updem2 = 0.06; break; } case 4: { updem1 = 0.12; updem2 = 0.07; break; } case 5: { updem1 = 0.13; updem2 = 0.07; break; } case 6: { updem1 = 0.15; updem2 = 0.08; break; } case 7: { updem1 = 0.17; updem2 = 0.08; break; } case 8: { updem1 = 0.18; updem2 = 0.09; break; } case 9: { updem1 = 0.2; updem2 = 0.1; break; } }
+
+                        if (slider.Value > attime)
+                            return;
+                        if (ischecked)
+                        {
+                            for (int i = 0; i < 9; i++)
+                            {
+                                skillupdamage[i] *= 1 + updem1;
+                                skillupshotspeed[i] *= 1 + updem2;
+                                renewindex(i);
+                            }
+                        }
+                        fairy[fairyindex].cd = cdtime;
+                        cb9.ToolTip = "持续" + attime + "s,提升全体" + updem1 * 100 + "%伤害," + updem2 * 100 + "%射速,消耗点数"+point+",cd"+turncd+"回合";
+                        break;
+                    }
+                case 900111:
+                    {
+                        double cdtime = 99;
+                        double attime = 20;
+                        double updem1 = 0;
+                        double updem2 = 0;
+                        double point = 1;
+                        double turncd = 0;
+                        switch (skillindex) { case 0: { updem1 = 0.1; updem2 = 0.1; break; } case 1: { updem1 = 0.14; updem2 = 0.12; break; } case 2: { updem1 = 0.19; updem2 = 0.13; break; } case 3: { updem1 = 0.23; updem2 = 0.15; break; } case 4: { updem1 = 0.28; updem2 = 0.17; break; } case 5: { updem1 = 0.32; updem2 = 0.18; break; } case 6: { updem1 = 0.37; updem2 = 0.2; break; } case 7: { updem1 = 0.41; updem2 = 0.22; break; } case 8: { updem1 = 0.46; updem2 = 0.23; break; } case 9: { updem1 = 0.5; updem2 = 0.25; break; } }
+
+                        if (slider.Value > attime)
+                            return;
+                        if (ischecked)
+                        {
+                            for (int i = 0; i < 9; i++)
+                            {
+                                skilluphit[i] *= 1 + updem1;
+                                skillupcrit[i] *= 1 + updem2;
+                                renewindex(i);
+                            }
+                        }
+                        fairy[fairyindex].cd = cdtime;
+                        cb9.ToolTip = "持续" + attime + "s,提升全体" + updem1 * 100 + "%命中," + updem2 * 100 + "%暴击率,消耗点数" + point + ",cd" + turncd + "回合"; 
+                        break;
+                    }
+                case 900103:
+                    {
+                        double cdtime = 99;
+                        double attime = 20;
+                        double updem1 = 0;
+                        double updem2 = 0;
+                        double point = 3;
+                        double turncd = 0;
+                        switch (skillindex) { case 0: { updem1 = 0.15;break; } case 1: { updem1 = 0.19; break; } case 2: { updem1 = 0.23; break; } case 3: { updem1 = 0.27;  break; } case 4: { updem1 = 0.31; break; } case 5: { updem1 = 0.34;  break; } case 6: { updem1 = 0.38;  break; } case 7: { updem1 = 0.42; break; } case 8: { updem1 = 0.46; break; } case 9: { updem1 = 0.5; break; } }
+
+                        if (slider.Value > attime)
+                            return;
+                        if (ischecked)
+                        {
+                            for (int i = 0; i < 9; i++)
+                            {
+                                if (gun[getcombogunindex(i)].what == 7)
+                                {
+                                    skilluparmor[i] *= updem1 + 1;
+                                    renewindex(i);
+                                    renewtank();
+                                }
+                            }
+                        }
+                        fairy[fairyindex].cd = cdtime;
+                        cb9.ToolTip = "持续" + attime + "s,提升SG" + updem1 * 100 + "%护甲,消耗点数" + point + ",cd" + turncd + "回合";
+                        break;
+                    }
+                case 900101:
+                    {
+                        double cdtime = 99;
+                        double attime = 99;
+                        double updem1 = 0;
+                        double updem2 = 0;
+                        double point = 3;
+                        double turncd = 0;
+                        switch (skillindex) { case 0: { updem1 = 40; break; } case 1: { updem1 = 50; break; } case 2: { updem1 = 60; break; } case 3: { updem1 = 70; break; } case 4: { updem1 = 80; break; } case 5: { updem1 = 90; break; } case 6: { updem1 = 100; break; } case 7: { updem1 = 110; break; } case 8: { updem1 = 130; break; } case 9: { updem1 = 150; break; } }
+
+                        if (slider.Value > attime)
+                            return;
+                        if (ischecked)
+                        {
+                            shield = updem1;
+                            renewtank();
+                        }
+                        fairy[fairyindex].cd = cdtime;
+                        cb9.ToolTip = "给每个SMG " + updem1 + "血护盾,消耗点数" + point + ",cd" + turncd + "回合";
+                        break;
+                    }
+                case 6:
+                    {
+                        double cdtime = 99;
+                        double attime = 20;
+                        double updem1 = 0;
+                        double updem2 = 0;
+                        double point = 5;
+                        double turncd = 1;
+                        switch (skillindex) { case 0: { updem1 = 0.1; break; } case 1: { updem1 = 0.12; break; } case 2: { updem1 = 0.14; break; } case 3: { updem1 = 0.17; break; } case 4: { updem1 = 0.19; break; } case 5: { updem1 = 0.21; break; } case 6: { updem1 = 0.23; break; } case 7: { updem1 = 0.26; break; } case 8: { updem1 = 0.28; break; } case 9: { updem1 = 0.3; break; } }
+
+                        if (slider.Value > attime)
+                            return;
+                        if (ischecked)
+                        {
+                            skilldowndamage *=1 - updem1;
+                            renewtank();
+                        }
+                        fairy[fairyindex].cd = cdtime;
+                        cb9.ToolTip = "持续" + attime + "s,回合内每场战斗减伤" + updem1 *100+ "%,消耗点数" + point + ",cd" + turncd + "回合";
+                        break;
+                    }
+                case 900104:
+                    {
+                        double cdtime = 99;
+                        double attime = 99;
+                        double updem1 = 0;
+                        double updem2 = 0;
+                        double point = 2;
+                        double turncd = 0;
+                        switch (skillindex) { case 0: { updem1 = 250; break; } case 1: { updem1 = 300; break; } case 2: { updem1 = 350; break; } case 3: { updem1 = 400; break; } case 4: { updem1 = 500; break; } case 5: { updem1 = 600; break; } case 6: { updem1 = 700; break; } case 7: { updem1 = 800; break; } case 8: { updem1 = 900; break; } case 9: { updem1 = 1000; break; } }
+
+                        if (slider.Value > attime)
+                            return;
+                        if (ischecked)
+                        {
+                           // shield = updem1;
+                           // renewtank();
+                        }
+                        fairy[fairyindex].cd = cdtime;
+                        cb9.ToolTip = "放置一个 " + updem1 + "血的靶子,消耗点数" + point + ",cd" + turncd + "回合";
+                        break;
+                    }
+                case 900102:
+                    {
+                        double cdtime = 99;
+                        double attime = 99;
+                        double updem1 = 0;
+                        double updem2 = 0;
+                        double point = 2;
+                        double turncd = 0;
+                        switch (skillindex) { case 0: { updem1 = 2500; break; } case 1: { updem1 = 4000; break; } case 2: { updem1 = 5500; break; } case 3: { updem1 = 7000; break; } case 4: { updem1 = 8500; break; } case 5: { updem1 = 10000; break; } case 6: { updem1 = 12500; break; } case 7: { updem1 = 15000; break; } case 8: { updem1 = 17500; break; } case 9: { updem1 = 20000; break; } }
+
+                        if (slider.Value > attime)
+                            return;
+                        if (ischecked)
+                        {
+                            // shield = updem1;
+                            // renewtank();
+                        }
+                        fairy[fairyindex].cd = cdtime;
+                        cb9.ToolTip = "瞄准血量最高角色," + updem1 + "点伤害,消耗点数" + point + ",cd" + turncd + "回合";
+                        break;
+                    }
+                case 900108:
+                    {
+                        double cdtime = 99;
+                        double attime = 99;
+                        double updem1 = 0;
+                        double updem2 = 0;
+                        double point = 3;
+                        double turncd = 0;
+                        switch (skillindex) { case 0: { updem1 = 200; break; } case 1: { updem1 = 300; break; } case 2: { updem1 = 400; break; } case 3: { updem1 = 500; break; } case 4: { updem1 = 600; break; } case 5: { updem1 = 700; break; } case 6: { updem1 = 800; break; } case 7: { updem1 = 900; break; } case 8: { updem1 = 1000; break; } case 9: { updem1 = 1200; break; } }
+
+                        if (slider.Value > attime)
+                            return;
+                        if (ischecked)
+                        {
+                            // shield = updem1;
+                            // renewtank();
+                        }
+                        fairy[fairyindex].cd = cdtime;
+                        cb9.ToolTip = "半径2.5," + updem1 + "点伤害,消耗点数" + point + ",cd" + turncd + "回合";
+                        break;
+                    }
+                case 900109:
+                    {
+                        double cdtime = 99;
+                        double attime = 99;
+                        double updem1 = 0;
+                        double updem2 = 0;
+                        double point = 3;
+                        double turncd = 0;
+                        switch (skillindex) { case 0: { updem1 = 80; break; } case 1: { updem1 = 120; break; } case 2: { updem1 = 160; break; } case 3: { updem1 = 200; break; } case 4: { updem1 = 240; break; } case 5: { updem1 = 280; break; } case 6: { updem1 = 320; break; } case 7: { updem1 = 360; break; } case 8: { updem1 = 400; break; } case 9: { updem1 = 500; break; } }
+
+                        if (slider.Value > attime)
+                            return;
+                        if (ischecked)
+                        {
+                            // shield = updem1;
+                            // renewtank();
+                        }
+                        fairy[fairyindex].cd = cdtime;
+                        cb9.ToolTip = "敌方全体," + updem1 + "点伤害,消耗点数" + point + ",cd" + turncd + "回合";
+                        break;
+                    }
+                case 8:
+                    {
+                        double cdtime = 99;
+                        double attime = 20;
+                        double updem1 = 0;
+                        double updem2 = 0;
+                        double point = 2;
+                        double turncd = 1;
+                        switch (skillindex) { case 0: { updem1 = 0.03; break; } case 1: { updem1 = 0.035; break; } case 2: { updem1 = 0.04; break; } case 3: { updem1 = 0.045; break; } case 4: { updem1 = 0.05; break; } case 5: { updem1 = 0.06; break; } case 6: { updem1 = 0.07; break; } case 7: { updem1 = 0.08; break; } case 8: { updem1 = 0.09; break; } case 9: { updem1 = 0.1; break; } }
+
+                        if (slider.Value > attime)
+                            return;
+                        if (ischecked)
+                        {
+                            for (int i = 0; i < 9; i++)
+                            {
+                                skillupdodge[i] *= 1 + updem1;
+                                renewindex(i);
+                                renewtank();
+                            }
+                        }
+                        fairy[fairyindex].cd = cdtime;
+                        cb9.ToolTip = "血量百分比最少人形+1编,回合内每场战斗全体回避提升" + updem1*100 + "%,持续"+attime+"s,消耗点数" + point + ",cd" + turncd + "回合";
+                        break;
+                    }
+                case 9:
+                    {
+                        double cdtime = 99;
+                        double attime = 99;
+                        double updem1 = 0;
+                        double updem2 = 0;
+                        double point = 5;
+                        double turncd = 3;
+                        switch (skillindex) { case 0: { updem1 = 0.2; break; } case 1: { updem1 = 0.23; break; } case 2: { updem1 = 0.26; break; } case 3: { updem1 = 0.3; break; } case 4: { updem1 = 0.33; break; } case 5: { updem1 = 0.36; break; } case 6: { updem1 = 0.4; break; } case 7: { updem1 = 0.43; break; } case 8: { updem1 = 0.46; break; } case 9: { updem1 = 0.5; break; } }
+
+                        if (slider.Value > attime)
+                            return;
+                        if (ischecked)
+                        {
+                            // shield = updem1;
+                            // renewtank();
+                        }
+                        fairy[fairyindex].cd = cdtime;
+                        cb9.ToolTip = "相邻格无人点埋雷,存在2回合,敌人触碰减少当前血量" + updem1 *100+ "%,消耗点数" + point + ",cd" + turncd + "回合";
+                        break;
+                    }
+                case 10:
+                    {
+                        double cdtime = 99;
+                        double attime = 99;
+                        double updem1 = 0;
+                        double updem2 = 0;
+                        double point = 5;
+                        double turncd = 3;
+                        switch (skillindex) { case 0: { updem1 = 0.1; break; } case 1: { updem1 = 0.11; break; } case 2: { updem1 = 0.12; break; } case 3: { updem1 = 0.13; break; } case 4: { updem1 = 0.14; break; } case 5: { updem1 = 0.15; break; } case 6: { updem1 = 0.16; break; } case 7: { updem1 = 0.17; break; } case 8: { updem1 = 0.18; break; } case 9: { updem1 = 0.2; break; } }
+
+                        if (slider.Value > attime)
+                            return;
+                        if (ischecked)
+                        {
+                            // shield = updem1;
+                            // renewtank();
+                        }
+                        fairy[fairyindex].cd = cdtime;
+                        cb9.ToolTip = "部署火箭发射器,存在2回合,敌人2格内移动时减少当前血量" + updem1 * 100 + "%,消耗点数" + point + ",cd" + turncd + "回合";
+                        break;
+                    }
+                case 11:
+                    {
+                        double cdtime = 99;
+                        double attime = 99;
+                        double updem1 = 0;
+                        double updem2 = 0;
+                        double point = 5;
+                        double turncd = 3;
+                        switch (skillindex) { case 0: { updem1 = 0.1; break; } case 1: { updem1 = 0.12; break; } case 2: { updem1 = 0.14; break; } case 3: { updem1 = 0.17; break; } case 4: { updem1 = 0.19; break; } case 5: { updem1 = 0.21; break; } case 6: { updem1 = 0.23; break; } case 7: { updem1 = 0.26; break; } case 8: { updem1 = 0.28; break; } case 9: { updem1 = 0.3; break; } }
+
+                        if (slider.Value > attime)
+                            return;
+                        if (ischecked)
+                        {
+                            for (int i = 0; i < 9; i++)
+                            {
+                                skillupdamage[i] *= 1 + updem1;
+                                skilluphit[i] *= 1 + updem1;
+                                skillupdodge[i] *= 1 + updem1;
+                                skilluparmor[i] *= 1 + updem1;
+                                skillupcrit[i] *= 1 + updem1;
+                                renewindex(i);
+                                renewtank();
+                            }
+                        }
+                        fairy[fairyindex].cd = cdtime;
+                        cb9.ToolTip = "部署堡垒,3回合内本格战斗提升伤害、命中、回避、护甲、暴击率" + updem1 * 100 + "%,消耗点数" + point + ",cd" + turncd + "回合";
+                        break;
+                    }
+                case 12:
+                    {
+                        double cdtime = 99;
+                        double attime = 99;
+                        double updem1 = 0;
+                        double updem2 = 0;
+                        double point = 1;
+                        double turncd = 1;
+                        switch (skillindex) { case 0: { updem1 = 0.05; break; } case 1: { updem1 = 0.08; break; } case 2: { updem1 = 0.1; break; } case 3: { updem1 = 0.12; break; } case 4: { updem1 = 0.14; break; } case 5: { updem1 = 0.16; break; } case 6: { updem1 = 0.18; break; } case 7: { updem1 = 0.2; break; } case 8: { updem1 = 0.22; break; } case 9: { updem1 = 0.25; break; } }
+
+                        if (slider.Value > attime)
+                            return;
+                        if (ischecked)
+                        {
+                            // shield = updem1;
+                            // renewtank();
+                        }
+                        fairy[fairyindex].cd = cdtime;
+                        cb9.ToolTip = "下场战斗经验提升" + updem1 * 100 + "%,消耗点数" + point + ",cd" + turncd + "回合";
+                        break;
+                    }
+                case 13:
+                    {
+                        double cdtime = 99;
+                        double attime = 99;
+                        string updem1 = "";
+                        double updem2 = 0;
+                        double point = 1;
+                        double turncd = 1;
+                        switch (skillindex) { case 0: { updem1 = "极小幅"; break; } case 1: { updem1 = "极小幅";  break; } case 2: { updem1 = "小幅"; break; } case 3: { updem1 = "小幅"; break; } case 4: { updem1 = "中幅"; break; } case 5: { updem1 = "中幅"; break; } case 6: { updem1 = "大幅"; break; } case 7: { updem1 = "大幅"; break; } case 8: { updem1 = "极大"; break; } case 9: { updem1 = "极大"; break; } }
+
+                        if (slider.Value > attime)
+                            return;
+                        if (ischecked)
+                        {
+                            // shield = updem1;
+                            // renewtank();
+                        }
+                        fairy[fairyindex].cd = cdtime;
+                        cb9.ToolTip = "下场战斗获得稀有人形概率" + updem1 + "提升,消耗点数" + point + ",cd" + turncd + "回合";
+                        break;
+                    }
+                case 14:
+                    {
+                        double cdtime = 99;
+                        double attime = 99;
+                        double updem1 = 0;
+                        double updem2 = 0;
+                        double point = 0;
+                        double turncd = 0;
+                        switch (skillindex) { case 0: { updem1 = 0.1; break; } case 1: { updem1 = 0.12; break; } case 2: { updem1 = 0.14; break; } case 3: { updem1 = 0.17; break; } case 4: { updem1 = 0.19; break; } case 5: { updem1 = 0.21; break; } case 6: { updem1 = 0.23; break; } case 7: { updem1 = 0.26; break; } case 8: { updem1 = 0.28; break; } case 9: { updem1 = 0.3; break; } }
+                        switch (skillindex) { case 0: { updem2 = 0; break; } case 1: { updem2 = 0; break; } case 2: { updem2 = 1; break; } case 3: { updem2 = 1; break; } case 4: { updem2 = 1; break; } case 5: { updem2 = 1; break; } case 6: { updem2 = 1; break; } case 7: { updem2 = 1; break; } case 8: { updem2 = 1; break; } case 9: { updem2 = 2; break; } }
+
+                        if (slider.Value > attime)
+                            return;
+                        if (ischecked)
+                        {
+                            if(innight)
+                            {
+                                for (int i = 0; i < 9; i++)
+                                    skilluphit[i] *= updem1+1;
+                            }
+                            // shield = updem1;
+                            // renewtank();
+                        }
+                        fairy[fairyindex].cd = cdtime;
+                        cb9.ToolTip = "(夜)视野+"+updem2+"格,全体命中提升" + updem1 * 100 + "%,消耗点数" + point + ",cd" + turncd + "回合";
+                        break;
+                    }
+                case 15:
+                    {
+                        cb9.ToolTip = "kirarin~☆";
+                        break;
+                    }
+                default:
+                    break;
+            }
+        }
+
     }
 }

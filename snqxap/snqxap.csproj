@@ -441,6 +441,17 @@
     <Resource Include="assets\fairy\target_3.png" />
     <Resource Include="assets\fairy\固甲妖精.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\DSR-50.png" />
+    <Resource Include="assets\F1.png" />
+    <Resource Include="assets\KLIN.png" />
+    <Resource Include="assets\PzB39.png" />
+    <Resource Include="assets\TMP.png" />
+    <Resource Include="assets\UMP40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\T91.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
