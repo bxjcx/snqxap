@@ -425,23 +425,6 @@
     <Resource Include="assets\诺爱尔.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="assets\fairy\airborne_3.png" />
-    <Resource Include="assets\fairy\air_attack_3.png" />
-    <Resource Include="assets\fairy\armor_3.png" />
-    <Resource Include="assets\fairy\bombard_3.png" />
-    <Resource Include="assets\fairy\empty_3.png" />
-    <Resource Include="assets\fairy\fighting_3.png" />
-    <Resource Include="assets\fairy\fortress_3.png" />
-    <Resource Include="assets\fairy\illumine_3.png" />
-    <Resource Include="assets\fairy\Landmines_3.png" />
-    <Resource Include="assets\fairy\No_consumption_3.png" />
-    <Resource Include="assets\fairy\rescue_3.png" />
-    <Resource Include="assets\fairy\shield_3.png" />
-    <Resource Include="assets\fairy\sniper_3.png" />
-    <Resource Include="assets\fairy\target_3.png" />
-    <Resource Include="assets\fairy\固甲妖精.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="assets\DSR-50.png" />
     <Resource Include="assets\F1.png" />
     <Resource Include="assets\KLIN.png" />
@@ -451,6 +434,32 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="assets\T91.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\fairy\勇士妖精.png" />
+    <Resource Include="assets\fairy\嘲讽妖精.png" />
+    <Resource Include="assets\fairy\增援妖精.png" />
+    <Resource Include="assets\fairy\工事妖精.png" />
+    <Resource Include="assets\fairy\布雷妖精.png" />
+    <Resource Include="assets\fairy\护盾妖精.png" />
+    <Resource Include="assets\fairy\指挥妖精.png" />
+    <Resource Include="assets\fairy\搜救妖精.png" />
+    <Resource Include="assets\fairy\暴怒妖精.png" />
+    <Resource Include="assets\fairy\火箭妖精.png" />
+    <Resource Include="assets\fairy\炮击妖精.png" />
+    <Resource Include="assets\fairy\照明妖精.png" />
+    <Resource Include="assets\fairy\狙击妖精.png" />
+    <Resource Include="assets\fairy\盾甲妖精.png" />
+    <Resource Include="assets\fairy\空袭妖精.png" />
+    <Resource Include="assets\fairy\空降妖精.png" />
+    <Resource Include="assets\fairy\防御妖精.png" />
+    <Resource Include="assets\fairy\黄金妖精.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\BossCerberus.png" />
+    <Resource Include="assets\DestroyerPlus.png" />
+    <Resource Include="assets\Golyat.png" />
+    <Resource Include="assets\GolyatPlus.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

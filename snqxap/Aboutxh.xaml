@@ -5,30 +5,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:snqxap"
         mc:Ignorable="d"
-       Title="夏活相关" Height="650" Width="600" ResizeMode="NoResize">
+       Title="夏活相关" Height="700" Width="600" ResizeMode="NoResize">
     <Grid>
-        <Label FontSize="14" Content="一些新计算公式：" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,0,0,0" Width="205"/>
-        <Label FontSize="14" Content="加属性的装备直接算作基础属性。暴击镜加成为加法。" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,23,0,0" Width="582"/>
-        <Label FontSize="14" Content="不带护甲铁血计算公式左转About。甲的数值不高。带甲的铁血回避很低或者也不高。" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,51,0,0" Width="572"/>
-        <Label FontSize="14" Content="穿甲-护甲>0 伤害：正常公式+2点   " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,79,0,0" Width="572"/>
-        <Label FontSize="14" Content=" &lt;=0 伤害：Ceiling(Max(1,伤害+Min(2,穿甲-护甲)))" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,107,0,0" Width="572"/>
-        <Label FontSize="14" Content="夜战命中=（枪娘命中+装备命中）*光环加成*技能加成*【1-0.9*（1-夜视仪）】" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,135,0,0" Width="572"/>
-        <Label FontSize="14" Content="夏活存在的新铁血（没属性）：" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,157,0,0" Width="221"/>
 
-        <Label Foreground="Chocolate" FontSize="14" Content="Aegis(钢铁侠) - 装甲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="441,193,0,0" Width="141"/>
-        <Image  Source="/assets/Aegis.png" Width="75" Height="100" Margin="366,249,153,273" />
-        <Label Foreground="Chocolate" FontSize="14" Content="Striker(毛妹) - 连发" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="441,345,0,0" Width="141"/>
-        <Image  Source="/assets/Striker.png" Width="75" Height="100" Margin="509,249,10,273" />
-        <Label Foreground="Chocolate" FontSize="14" Content="Nemeum(炮台、尼米亚) " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="418,221,-4,0" Width="180"/>
-        <Image  Source="/assets/Nemeum.png" Width="75" Height="100" Margin="434,249,85,273" />
-        <Label Foreground="Chocolate" FontSize="14" Content="Manticore(捕食者、蜘蛛、蝎狮) - 强，无敌" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="153,345,0,0" Width="283"/>
-        <Image  Source="/assets/Manticore.png" Width="194" Height="184" Margin="155,373,245,65" />
-        <Label Foreground="Chocolate" FontSize="14" Content="The Hunter Elite(精英猎手) - e2 boss" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="153,221,0,0" Width="255"/>
-        <Image  Source="/assets/e2boss.png" Width="150" Height="200" Margin="3,180,441,242" />
-        <Label Foreground="Chocolate" FontSize="14" Content="The Executioner Elite(精英刽子手) - e3 boss" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,573,0,0" Width="296"/>
-        <Image  Source="/assets/e3boss.png" Width="150" Height="200" Margin="3,378,441,44" />
-        <Label Foreground="Chocolate" FontSize="14" Content="Ouroboros(衔尾蛇) - e4 boss" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="369,573,0,0" Width="225"/>
-        <Image  Source="/assets/e4boss.png" Width="240" Height="180" Margin="349,378,5,64" />
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="650" VerticalAlignment="Top" Width="594">
+            <TabItem Header="深层映射">
+                <Grid Background="#FFE5E5E5">
+                    <Label Foreground="Black" FontSize="14" Content="BossCerberus(大狗)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="141"/>
+                    <Image  Source="/assets/BossCerberus.png" Margin="190,0,234,442" />
+                    <Label Foreground="Chocolate" FontSize="14" Content="2-4 30000血 25伤 5闪 20甲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,38,0,0" Width="196"/>
+                    <Label Foreground="Chocolate" FontSize="14" Content="3-4 30000血 25伤 5闪 20甲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,66,0,0" Width="196"/>
+                    <Label Foreground="Chocolate" FontSize="14" Content="迷宫 200000血 60伤 10闪 30甲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,94,0,0" Width="219"/>
+                    <Label Foreground="Black" FontSize="14" Content="DestroyerPlus(大萝莉)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="161,161,0,0" Width="160"/>
+                    <Image  Source="/assets/DestroyerPlus.png" Margin="0,122,423,238" />
+                    <Label Foreground="Chocolate" FontSize="14" Content="3-4 35000血 300伤 30闪 60穿 20甲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="161,189,0,0" Width="251"/>
+                    <Label Foreground="Chocolate" FontSize="14" Content="迷宫 75000血 300伤 50闪 80穿 30甲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="161,217,0,0" Width="251"/>
+                    <Label Foreground="Black" FontSize="14" Content="Golyat(黑雷)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="350,10,0,0" Width="159"/>
+                    <Image  Source="/assets/Golyat.png" Margin="447,-10,-24,390" />
+                    <Label Foreground="Chocolate" FontSize="14" Content="1-3 1500血 1000伤" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="345,38,-12,0" Width="251"/>
+                    <Label Foreground="Chocolate" FontSize="14" Content="2-4 12857血 900伤" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="345,66,-12,0" Width="251"/>
+                    <Label Foreground="Chocolate" FontSize="14" Content="3-2 13434血 927伤" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="345,94,-12,0" Width="251"/>
+                    <Label Foreground="Black" FontSize="14" Content="GolyatPlus(红雷)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="253,245,0,0" Width="159"/>
+                    <Image  Source="/assets/GolyatPlus.png" Margin="447,142,-24,238" />
+                    <Label Foreground="Chocolate" FontSize="14" Content="150000血 1000伤" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="253,273,0,0" Width="251"/>
+                    <Label Foreground="Black" FontSize="14" Content="迷宫其他boss：" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,340,0,0" Width="402"/>
+                    <Label Foreground="Chocolate" FontSize="14" Content="木星炮 7838血 206伤 133命中 0闪 14甲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,368,0,0" Width="402"/>
+                    <Label Foreground="Chocolate" FontSize="14" Content="稻草人 40000血 200伤 60射速 40闪 125命中 0穿 0甲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,396,0,0" Width="402"/>
+                    <Label Foreground="Chocolate" FontSize="14" Content="计量官 40000血 200伤 40射速 30闪 80命中 0穿 0甲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,424,0,0" Width="402"/>
+                    <Label Foreground="Chocolate" FontSize="14" Content="炼金术士 40000血 250伤 60射速 30闪 80命中 0穿 0甲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,452,0,0" Width="402"/>
+                    <Label Foreground="Chocolate" FontSize="14" Content="干扰者 40000血 220伤 60射速 50闪 75命中 0穿 0甲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,480,0,0" Width="402"/>
+                    <Label Foreground="Chocolate" FontSize="14" Content="猎手 40000血 180伤 65射速 30闪 100命中 0穿 30甲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,508,0,0" Width="402"/>
+                    <Label Foreground="Chocolate" FontSize="14" Content="刽子手 40000血 240伤 55射速 20闪 90命中 40穿 40甲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,536,0,0" Width="402"/>
+                    <Label Foreground="Chocolate" FontSize="14" Content="建筑师 40000血 200伤 50射速 40闪 100命中 0穿 35甲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,564,0,0" Width="402"/>
+                    <Label Foreground="Chocolate" FontSize="14" Content="梦想家 45000血 260伤 60射速 60闪 100命中 40穿 0甲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,592,0,-2" Width="402"/>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="魔方行动">
+                <Grid Background="#FFE5E5E5" Margin="0,0,0,-21">
+                    <Label FontSize="14" Content="一些新计算公式：" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,0,0,0" Width="205"/>
+                    <Label FontSize="14" Content="加属性的装备直接算作基础属性。暴击镜加成为加法。" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,23,0,0" Width="582"/>
+                    <Label FontSize="14" Content="不带护甲铁血计算公式左转About。甲的数值不高。带甲的铁血回避很低或者也不高。" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,51,0,0" Width="572"/>
+                    <Label FontSize="14" Content="穿甲-护甲>0 伤害：正常公式+2点   " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,79,0,0" Width="572"/>
+                    <Label FontSize="14" Content=" &lt;=0 伤害：Ceiling(Max(1,伤害+Min(2,穿甲-护甲)))" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,107,0,0" Width="572"/>
+                    <Label FontSize="14" Content="夜战命中=（枪娘命中+装备命中）*光环加成*技能加成*【1-0.9*（1-夜视仪）】" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,135,0,0" Width="572"/>
+                    <Label FontSize="14" Content="夏活存在的新铁血（没属性）：" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,157,0,0" Width="221"/>
+
+                    <Label Foreground="Chocolate" FontSize="14" Content="Aegis(钢铁侠) - 装甲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="441,193,0,0" Width="141"/>
+                    <Image  Source="/assets/Aegis.png" Width="75" Height="100" Margin="366,249,153,273" />
+                    <Label Foreground="Chocolate" FontSize="14" Content="Striker(毛妹) - 连发" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="441,345,0,0" Width="141"/>
+                    <Image  Source="/assets/Striker.png" Width="75" Height="100" Margin="509,249,10,273" />
+                    <Label Foreground="Chocolate" FontSize="14" Content="Nemeum(炮台、尼米亚) " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="418,221,-4,0" Width="180"/>
+                    <Image  Source="/assets/Nemeum.png" Width="75" Height="100" Margin="434,249,85,273" />
+                    <Label Foreground="Chocolate" FontSize="14" Content="Manticore(捕食者、蜘蛛、蝎狮) - 强，无敌" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="153,345,0,0" Width="283"/>
+                    <Image  Source="/assets/Manticore.png" Width="194" Height="184" Margin="155,373,245,65" />
+                    <Label Foreground="Chocolate" FontSize="14" Content="The Hunter Elite(精英猎手) - e2 boss" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="153,221,0,0" Width="255"/>
+                    <Image  Source="/assets/e2boss.png" Width="150" Height="200" Margin="3,180,441,242" />
+                    <Label Foreground="Chocolate" FontSize="14" Content="The Executioner Elite(精英刽子手) - e3 boss" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,573,0,0" Width="296"/>
+                    <Image  Source="/assets/e3boss.png" Width="150" Height="200" Margin="3,378,441,44" />
+                    <Label Foreground="Chocolate" FontSize="14" Content="Ouroboros(衔尾蛇) - e4 boss" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="369,573,0,0" Width="225"/>
+                    <Image  Source="/assets/e4boss.png" Width="240" Height="180" Margin="349,378,5,64" />
+                </Grid>
+            </TabItem>
+
+        </TabControl>
 
     </Grid>
 </Window>

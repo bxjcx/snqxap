@@ -87,6 +87,8 @@ namespace snqxap
         public double ratiododge { get; set; }//闪避
         public double ratioarmor { get; set; }//护甲
 
+        public bool doublecard { get; set; }//倍卡
+
         //public int skillpool { get; set; }
 
 
