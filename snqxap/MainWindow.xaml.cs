@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -26,10 +28,13 @@ namespace snqxap
     /// </summary>
     public partial class MainWindow : Window
     {
+
+
+
         /// <summary>
         /// 枪娘总数
         /// </summary>
-        public const int GUN_NUMBER = 171; 
+        public const int GUN_NUMBER = 171;
         /// <summary>
         /// 装备总数
         /// </summary>
@@ -74,6 +79,7 @@ namespace snqxap
         double skilldowndodge;//对敌人技能debuff
         double skilldownhit;
         double skilldowndamage;
+        double fairydowndamage;
         int[] lastgunindex = new int[9];//存上次格内枪娘
         int howmany;//计算在场枪娘数用
         bool innight;
@@ -84,13 +90,13 @@ namespace snqxap
         int ump40skillclose = 0;
         int ump40skillopen = 0;
         List<Border>[] gridlist = new List<Border>[9];
-        Fairy[] fairy = new Fairy[FAIRY_NUMBER+1];
+        Fairy[] fairy = new Fairy[FAIRY_NUMBER + 1];
         FairyTalent[] fairytalent = new FairyTalent[FAIRY_TALENT_NUMBER + 1];
         Boolean zhedie = true;
         Boolean fairyzhedie = true;
         double shield = 0;
 
-        float[] equipupRatio = { }; 
+        float[] equipupRatio = { };
 
 
 
@@ -114,8 +120,8 @@ namespace snqxap
         1f,
         0f
     },
-    new float[]  
-	{
+    new float[]
+    {
         1.6f,
         0.6f,
         1.2f,
@@ -125,7 +131,7 @@ namespace snqxap
         0f
     },
     new float[]
-	{
+    {
          0.6f,
         0.6f,
         0.8f,
@@ -133,10 +139,10 @@ namespace snqxap
         1.2f,
         1.8f,
         0f
-    
+
     },
     new float[]
-	{
+    {
           0.8f,
         2.4f,
         0.5f,
@@ -146,7 +152,7 @@ namespace snqxap
         0f
     },
     new float[]
-	{
+    {
         1.5f,
         1.8f,
         1.6f,
@@ -169,9 +175,14 @@ namespace snqxap
 
         public MainWindow()
         {
-       
+
             InitializeComponent();
-     
+
+            this.SourceInitialized += delegate (object sender, EventArgs e)
+            {
+                this._HwndSource = PresentationSource.FromVisual((Visual)sender) as HwndSource;
+            };
+            this.MouseMove += new MouseEventHandler(Window_MouseMove);
             baka();
 
             Combo0.SelectedIndex = GUN_NUMBER;
@@ -274,199 +285,200 @@ namespace snqxap
         /// <summary>
         /// 初始化数据，别问我为什么叫这个名字
         /// </summary>
-        public void baka() {
+        public void baka()
+        {
 
             howmany = 0;
 
             for (int i = 0; i < GUN_NUMBER + 1; i++)
                 gun[i] = new Gun();
 
-            gun[14].name = "汤姆森"; gun[14].what = 3;gun[14].crit = 0.05; gun[14].belt = 0;
+            gun[14].name = "汤姆森"; gun[14].what = 3; gun[14].crit = 0.05; gun[14].belt = 0;
             gun[26].name = "司登MkⅡ"; gun[26].what = 3; gun[26].crit = 0.05; gun[26].belt = 0;
-            gun[91].name = "UMP9"; gun[91].what = 3; gun[91].crit = 0.05; gun[91].belt = 0; 
+            gun[91].name = "UMP9"; gun[91].what = 3; gun[91].crit = 0.05; gun[91].belt = 0;
             gun[18].name = "Vector"; gun[18].what = 3; gun[18].crit = 0.05; gun[18].belt = 0;
-            gun[25].name = "蝎式"; gun[25].what = 3; gun[25].crit = 0.05; gun[25].belt = 0; 
-            gun[15].name = "M3"; gun[15].what = 3; gun[15].crit = 0.05; gun[15].belt = 0; 
-            gun[83].name = "IDW";gun[83].what = 3; gun[83].crit = 0.05; gun[83].belt = 0; 
+            gun[25].name = "蝎式"; gun[25].what = 3; gun[25].crit = 0.05; gun[25].belt = 0;
+            gun[15].name = "M3"; gun[15].what = 3; gun[15].crit = 0.05; gun[15].belt = 0;
+            gun[83].name = "IDW"; gun[83].what = 3; gun[83].crit = 0.05; gun[83].belt = 0;
             gun[28].name = "微型乌兹"; gun[28].what = 3; gun[28].crit = 0.05; gun[28].belt = 0;
-            gun[17].name = "FMG-9"; gun[17].what = 3;gun[17].crit = 0.05; gun[17].belt = 0;
+            gun[17].name = "FMG-9"; gun[17].what = 3; gun[17].crit = 0.05; gun[17].belt = 0;
             gun[16].name = "MAC-10"; gun[16].what = 3; gun[16].crit = 0.05; gun[16].belt = 0;
-            gun[29].name = "M45"; gun[29].what = 3; gun[29].crit = 0.05; gun[29].belt = 0; 
-            gun[82].name = "Spectre M4"; gun[82].what = 3;  gun[82].crit = 0.05; gun[82].belt = 0;
-            gun[20].name = "PPS-43"; gun[20].what = 3;  gun[20].crit = 0.05; gun[20].belt = 0; 
-            gun[22].name = "PP-2000"; gun[22].what = 3;  gun[22].crit = 0.05; gun[22].belt = 0;
-            gun[24].name = "MP5"; gun[24].what = 3; gun[24].crit = 0.05; gun[24].belt = 0; 
-            gun[27].name = "伯莱塔38型"; gun[27].what = 3;gun[27].crit = 0.05; gun[27].belt = 0;
+            gun[29].name = "M45"; gun[29].what = 3; gun[29].crit = 0.05; gun[29].belt = 0;
+            gun[82].name = "Spectre M4"; gun[82].what = 3; gun[82].crit = 0.05; gun[82].belt = 0;
+            gun[20].name = "PPS-43"; gun[20].what = 3; gun[20].crit = 0.05; gun[20].belt = 0;
+            gun[22].name = "PP-2000"; gun[22].what = 3; gun[22].crit = 0.05; gun[22].belt = 0;
+            gun[24].name = "MP5"; gun[24].what = 3; gun[24].crit = 0.05; gun[24].belt = 0;
+            gun[27].name = "伯莱塔38型"; gun[27].what = 3; gun[27].crit = 0.05; gun[27].belt = 0;
             gun[23].name = "MP40"; gun[23].what = 3; gun[23].crit = 0.05; gun[23].belt = 0;
             gun[19].name = "PPSh-41"; gun[19].what = 3; gun[19].crit = 0.05; gun[19].belt = 0;
-            gun[84].name = "64式"; gun[84].what = 3; gun[84].crit = 0.05; gun[84].belt = 0; 
-            gun[92].name = "UMP45"; gun[92].what = 3;  gun[92].crit = 0.05; gun[92].belt = 0;
+            gun[84].name = "64式"; gun[84].what = 3; gun[84].crit = 0.05; gun[84].belt = 0;
+            gun[92].name = "UMP45"; gun[92].what = 3; gun[92].crit = 0.05; gun[92].belt = 0;
             gun[104].name = "索米"; gun[104].what = 3; gun[104].crit = 0.05; gun[104].belt = 0;
-            gun[94].name = "OTs-12"; gun[94].what = 2; gun[94].crit = 0.2; gun[94].belt = 0; 
-            gun[58].name = "G36"; gun[58].what = 2; gun[58].crit = 0.2; gun[58].belt = 0; 
-            gun[95].name = "FAL"; gun[95].what = 2;  gun[95].crit = 0.2; gun[95].belt = 0; 
+            gun[94].name = "OTs-12"; gun[94].what = 2; gun[94].crit = 0.2; gun[94].belt = 0;
+            gun[58].name = "G36"; gun[58].what = 2; gun[58].crit = 0.2; gun[58].belt = 0;
+            gun[95].name = "FAL"; gun[95].what = 2; gun[95].crit = 0.2; gun[95].belt = 0;
             gun[59].name = "HK416"; gun[59].what = 2; gun[59].crit = 0.2; gun[59].belt = 0;
-            gun[56].name = "G41"; gun[56].what = 2; gun[56].crit = 0.2; gun[56].belt = 0; 
+            gun[56].name = "G41"; gun[56].what = 2; gun[56].crit = 0.2; gun[56].belt = 0;
             gun[60].name = "56-1式"; gun[60].what = 2; gun[60].crit = 0.2; gun[60].belt = 0;
-            gun[50].name = "M4A1"; gun[50].what = 2;gun[50].crit = 0.2; gun[50].belt = 0; 
+            gun[50].name = "M4A1"; gun[50].what = 2; gun[50].crit = 0.2; gun[50].belt = 0;
             gun[49].name = "M16A1"; gun[49].what = 2; gun[49].crit = 0.2; gun[49].belt = 0;
-            gun[52].name = "ST AR-15"; gun[52].what = 2;gun[52].crit = 0.2; gun[52].belt = 0;
-            gun[62].name = "FAMAS"; gun[62].what = 2; gun[62].crit = 0.2; gun[62].belt = 0; 
-            gun[53].name = "AK-47"; gun[53].what = 2;  gun[53].crit = 0.2; gun[53].belt = 0;
-            gun[55].name = "StG44"; gun[55].what = 2; gun[55].crit = 0.2; gun[55].belt = 0; 
+            gun[52].name = "ST AR-15"; gun[52].what = 2; gun[52].crit = 0.2; gun[52].belt = 0;
+            gun[62].name = "FAMAS"; gun[62].what = 2; gun[62].crit = 0.2; gun[62].belt = 0;
+            gun[53].name = "AK-47"; gun[53].what = 2; gun[53].crit = 0.2; gun[53].belt = 0;
+            gun[55].name = "StG44"; gun[55].what = 2; gun[55].crit = 0.2; gun[55].belt = 0;
             gun[97].name = "CZ-805"; gun[97].what = 2; gun[97].crit = 0.2; gun[97].belt = 0;
-            gun[51].name = "M4 SOPMODII"; gun[51].what = 2;  gun[51].crit = 0.2; gun[51].belt = 0;
-            gun[65].name = "TAR-21"; gun[65].what = 2;  gun[65].crit = 0.2; gun[65].belt = 0; 
-            gun[64].name = "加利尔"; gun[64].what = 2; gun[64].crit = 0.2; gun[64].belt = 0; 
+            gun[51].name = "M4 SOPMODII"; gun[51].what = 2; gun[51].crit = 0.2; gun[51].belt = 0;
+            gun[65].name = "TAR-21"; gun[65].what = 2; gun[65].crit = 0.2; gun[65].belt = 0;
+            gun[64].name = "加利尔"; gun[64].what = 2; gun[64].crit = 0.2; gun[64].belt = 0;
             gun[66].name = "SIG-510"; gun[66].what = 2; gun[66].crit = 0.2; gun[66].belt = 0;
-            gun[57].name = "G3"; gun[57].what = 2; gun[57].crit = 0.2; gun[57].belt = 0; 
+            gun[57].name = "G3"; gun[57].what = 2; gun[57].crit = 0.2; gun[57].belt = 0;
             gun[96].name = "F2000"; gun[96].what = 2; gun[96].crit = 0.2; gun[96].belt = 0;
-            gun[63].name = "FNC"; gun[63].what = 2; gun[63].crit = 0.2; gun[63].belt = 0; 
+            gun[63].name = "FNC"; gun[63].what = 2; gun[63].crit = 0.2; gun[63].belt = 0;
             gun[61].name = "L85A1"; gun[61].what = 2; gun[61].crit = 0.2; gun[61].belt = 0;
-            gun[107].name = "9a-91"; gun[107].what = 2;  gun[107].crit = 0.2; gun[107].belt = 0;
-            gun[54].name = "AS Val"; gun[54].what = 2; gun[54].crit = 0.2; gun[54].belt = 0; 
+            gun[107].name = "9a-91"; gun[107].what = 2; gun[107].crit = 0.2; gun[107].belt = 0;
+            gun[54].name = "AS Val"; gun[54].what = 2; gun[54].crit = 0.2; gun[54].belt = 0;
             gun[103].name = "维尔德MkⅡ"; gun[103].what = 4; gun[103].crit = 0.4; gun[103].belt = 0;
             gun[3].name = "纳甘左轮"; gun[3].what = 4; gun[3].crit = 0.2; gun[3].belt = 0;
             gun[0].name = "柯尔特左轮"; gun[0].what = 4; gun[0].crit = 0.2; gun[0].belt = 0;
             gun[86].name = "灰熊MkⅤ"; gun[86].what = 4; gun[86].crit = 0.2; gun[86].belt = 0;
-            gun[4].name = "托卡列夫"; gun[4].what = 4; gun[4].crit = 0.2; gun[4].belt = 0; 
+            gun[4].name = "托卡列夫"; gun[4].what = 4; gun[4].crit = 0.2; gun[4].belt = 0;
             gun[13].name = "格洛克17"; gun[13].what = 4; gun[13].crit = 0.2; gun[13].belt = 0;
-            gun[6].name = "马卡洛夫"; gun[6].what = 4;gun[6].crit = 0.2; gun[6].belt = 0; 
-            gun[5].name = "斯捷奇金"; gun[5].what = 4; gun[5].crit = 0.2; gun[5].belt = 0; 
+            gun[6].name = "马卡洛夫"; gun[6].what = 4; gun[6].crit = 0.2; gun[6].belt = 0;
+            gun[5].name = "斯捷奇金"; gun[5].what = 4; gun[5].crit = 0.2; gun[5].belt = 0;
             gun[12].name = "阿斯特拉左轮"; gun[12].what = 4; gun[12].crit = 0.2; gun[12].belt = 0;
-            gun[9].name = "P08"; gun[9].what = 4;gun[9].crit = 0.2; gun[9].belt = 0; 
+            gun[9].name = "P08"; gun[9].what = 4; gun[9].crit = 0.2; gun[9].belt = 0;
             gun[89].name = "Mk23"; gun[89].what = 4; gun[89].crit = 0.2; gun[89].belt = 0;
-            gun[1].name = "M1911"; gun[1].what = 4; gun[1].crit = 0.2; gun[1].belt = 0; 
-            gun[8].name = "PPK"; gun[8].what = 4; gun[8].crit = 0.2; gun[8].belt = 0; 
+            gun[1].name = "M1911"; gun[1].what = 4; gun[1].crit = 0.2; gun[1].belt = 0;
+            gun[8].name = "PPK"; gun[8].what = 4; gun[8].crit = 0.2; gun[8].belt = 0;
             gun[10].name = "C96"; gun[10].what = 4; gun[10].crit = 0.2; gun[10].belt = 0;
             gun[87].name = "M950A"; gun[87].what = 4; gun[87].crit = 0.2; gun[87].belt = 0;
-            gun[7].name = "P38"; gun[7].what = 4;gun[7].crit = 0.2; gun[7].belt = 0;
+            gun[7].name = "P38"; gun[7].what = 4; gun[7].crit = 0.2; gun[7].belt = 0;
             gun[2].name = "M9"; gun[2].what = 4; gun[2].crit = 0.2; gun[2].belt = 0;
             gun[90].name = "P7"; gun[90].what = 4; gun[90].crit = 0.2; gun[90].belt = 0;
             gun[11].name = "92式"; gun[11].what = 4; gun[11].crit = 0.2; gun[11].belt = 0;
             gun[80].name = "FNP-9"; gun[80].what = 4; gun[80].crit = 0.2; gun[80].belt = 0;
             gun[81].name = "MP-446"; gun[81].what = 4; gun[81].crit = 0.2; gun[81].belt = 0;
             gun[37].name = "西蒙诺夫"; gun[37].what = 5; gun[37].crit = 0.4; gun[37].belt = 0;
-            gun[46].name = "FN-49"; gun[46].what = 5;  gun[46].crit = 0.4; gun[46].belt = 0; 
+            gun[46].name = "FN-49"; gun[46].what = 5; gun[46].crit = 0.4; gun[46].belt = 0;
             gun[45].name = "李-恩菲尔德"; gun[45].what = 5; gun[45].crit = 0.4; gun[45].belt = 0;
             gun[48].name = "NTW-20"; gun[48].what = 5; gun[48].crit = 0.4; gun[48].belt = 0;
-            gun[38].name = "PTRD"; gun[38].what = 5;gun[38].crit = 0.4; gun[38].belt = 0; 
-            gun[36].name = "SVT-38"; gun[36].what = 5;gun[36].crit = 0.4; gun[36].belt = 0;
+            gun[38].name = "PTRD"; gun[38].what = 5; gun[38].crit = 0.4; gun[38].belt = 0;
+            gun[36].name = "SVT-38"; gun[36].what = 5; gun[36].crit = 0.4; gun[36].belt = 0;
             gun[43].name = "WA2000"; gun[43].what = 5; gun[43].crit = 0.4; gun[43].belt = 0;
-            gun[33].name = "M14"; gun[33].what = 5; gun[33].crit = 0.4; gun[33].belt = 0; 
-            gun[34].name = "M21"; gun[34].what = 5; gun[34].crit = 0.4; gun[34].belt = 0; 
+            gun[33].name = "M14"; gun[33].what = 5; gun[33].crit = 0.4; gun[33].belt = 0;
+            gun[34].name = "M21"; gun[34].what = 5; gun[34].crit = 0.4; gun[34].belt = 0;
             gun[47].name = "BM59"; gun[47].what = 5; gun[47].crit = 0.4; gun[47].belt = 0;
             gun[30].name = "M1加兰德"; gun[30].what = 5; gun[30].crit = 0.4; gun[30].belt = 0;
-            gun[40].name = "SV-98"; gun[40].what = 5;gun[40].crit = 0.4; gun[40].belt = 0; 
-            gun[42].name = "G43"; gun[42].what = 5; gun[42].crit = 0.4; gun[42].belt = 0; 
+            gun[40].name = "SV-98"; gun[40].what = 5; gun[40].crit = 0.4; gun[40].belt = 0;
+            gun[42].name = "G43"; gun[42].what = 5; gun[42].crit = 0.4; gun[42].belt = 0;
             gun[85].name = "汉阳造88式"; gun[85].what = 5; gun[85].crit = 0.4; gun[85].belt = 0;
-            gun[41].name = "Kar98k"; gun[41].what = 5;  gun[41].crit = 0.4; gun[41].belt = 0; 
+            gun[41].name = "Kar98k"; gun[41].what = 5; gun[41].crit = 0.4; gun[41].belt = 0;
             gun[35].name = "莫辛-纳甘"; gun[35].what = 5; gun[35].crit = 0.4; gun[35].belt = 0;
-            gun[32].name = "春田"; gun[32].what = 5; gun[32].crit = 0.4; gun[32].belt = 0; 
-            gun[69].name = "M60"; gun[69].what = 6; gun[69].crit = 0.05; gun[69].belt = 9; 
-            gun[98].name = "MG5"; gun[98].what = 6;gun[98].crit = 0.05; gun[98].belt = 11;
-            gun[67].name = "M1918"; gun[67].what = 6;gun[67].crit = 0.05; gun[67].belt = 8;
-            gun[78].name = "MG3"; gun[78].what = 6; gun[78].crit = 0.05; gun[78].belt = 10; 
+            gun[32].name = "春田"; gun[32].what = 5; gun[32].crit = 0.4; gun[32].belt = 0;
+            gun[69].name = "M60"; gun[69].what = 6; gun[69].crit = 0.05; gun[69].belt = 9;
+            gun[98].name = "MG5"; gun[98].what = 6; gun[98].crit = 0.05; gun[98].belt = 11;
+            gun[67].name = "M1918"; gun[67].what = 6; gun[67].crit = 0.05; gun[67].belt = 8;
+            gun[78].name = "MG3"; gun[78].what = 6; gun[78].crit = 0.05; gun[78].belt = 10;
             gun[71].name = "M1919A4"; gun[71].what = 6; gun[71].crit = 0.05; gun[71].belt = 9;
-            gun[75].name = "PK"; gun[75].what = 6;gun[75].crit = 0.05; gun[75].belt = 11; 
-            gun[101].name = "内格夫"; gun[101].what = 6;gun[101].crit = 0.05; gun[101].belt = 9; 
-            gun[74].name = "RPD"; gun[74].what = 6; gun[74].crit = 0.05; gun[74].belt = 8; 
-            gun[68].name = "M2HB"; gun[68].what = 6; gun[68].crit = 0.05; gun[68].belt = 10; 
+            gun[75].name = "PK"; gun[75].what = 6; gun[75].crit = 0.05; gun[75].belt = 11;
+            gun[101].name = "内格夫"; gun[101].what = 6; gun[101].crit = 0.05; gun[101].belt = 9;
+            gun[74].name = "RPD"; gun[74].what = 6; gun[74].crit = 0.05; gun[74].belt = 8;
+            gun[68].name = "M2HB"; gun[68].what = 6; gun[68].crit = 0.05; gun[68].belt = 10;
             gun[72].name = "LWMMG"; gun[72].what = 6; gun[72].crit = 0.05; gun[72].belt = 9;
-            gun[70].name = "M249 SAW"; gun[70].what = 6;gun[70].crit = 0.05; gun[70].belt = 8;
-            gun[100].name = "AAT-52"; gun[100].what = 6;gun[100].crit = 0.05; gun[100].belt = 10;
-            gun[73].name = "DP28"; gun[73].what = 6; gun[73].crit = 0.05; gun[73].belt = 9; 
+            gun[70].name = "M249 SAW"; gun[70].what = 6; gun[70].crit = 0.05; gun[70].belt = 8;
+            gun[100].name = "AAT-52"; gun[100].what = 6; gun[100].crit = 0.05; gun[100].belt = 10;
+            gun[73].name = "DP28"; gun[73].what = 6; gun[73].crit = 0.05; gun[73].belt = 9;
             gun[76].name = "MG42"; gun[76].what = 6; gun[76].crit = 0.05; gun[76].belt = 10;
             gun[77].name = "MG34"; gun[77].what = 6; gun[77].crit = 0.05; gun[77].belt = 10;
-            gun[79].name = "布伦"; gun[79].what = 6;  gun[79].crit = 0.05; gun[79].belt = 8; 
+            gun[79].name = "布伦"; gun[79].what = 6; gun[79].crit = 0.05; gun[79].belt = 8;
             gun[99].name = "FG42"; gun[99].what = 6; gun[99].crit = 0.05; gun[99].belt = 8;
-            gun[110].name = "MK48"; gun[110].what = 6;  gun[110].crit = 0.05; gun[110].belt = 10;
+            gun[110].name = "MK48"; gun[110].what = 6; gun[110].crit = 0.05; gun[110].belt = 10;
             gun[102].name = "谢尔久科夫"; gun[102].what = 4; gun[102].crit = 0.2; gun[102].belt = 0;
 
-            gun[44].name = "56式半";gun[44].what = 5; gun[44].crit = 0.4;gun[44].belt = 0;
-            gun[44].eatratio = 110; gun[44].ratiododge = 115; gun[44].ratiohit = 105; gun[44].ratiohp = 105; gun[44].ratiopow = 100;gun[44].ratiorate = 110;
-           
-            gun[88].name = "SPP-1"; gun[88].what = 4; gun[88].crit = 0.2; gun[88].belt = 0; 
+            gun[44].name = "56式半"; gun[44].what = 5; gun[44].crit = 0.4; gun[44].belt = 0;
+            gun[44].eatratio = 110; gun[44].ratiododge = 115; gun[44].ratiohit = 105; gun[44].ratiohp = 105; gun[44].ratiopow = 100; gun[44].ratiorate = 110;
+
+            gun[88].name = "SPP-1"; gun[88].what = 4; gun[88].crit = 0.2; gun[88].belt = 0;
             gun[88].eatratio = 135; gun[88].ratiododge = 90; gun[88].ratiohit = 110; gun[88].ratiohp = 115; gun[88].ratiopow = 115; gun[88].ratiorate = 85;
-         
-            gun[105].name = "Z-62"; gun[105].what = 3; gun[105].crit = 0.05; gun[105].belt = 0; 
+
+            gun[105].name = "Z-62"; gun[105].what = 3; gun[105].crit = 0.05; gun[105].belt = 0;
             gun[105].eatratio = 120; gun[105].ratiododge = 115; gun[105].ratiohit = 120; gun[105].ratiohp = 95; gun[105].ratiopow = 95; gun[105].ratiorate = 95;
-         
-            gun[106].name = "PSG-1"; gun[106].what = 5; gun[106].crit = 0.4; gun[106].belt = 0; 
+
+            gun[106].name = "PSG-1"; gun[106].what = 5; gun[106].crit = 0.4; gun[106].belt = 0;
             gun[106].eatratio = 105; gun[106].ratiododge = 85; gun[106].ratiohit = 125; gun[106].ratiohp = 105; gun[106].ratiopow = 120; gun[106].ratiorate = 120;
-         
+
             gun[108].name = "OTs-14"; gun[108].what = 2; gun[108].crit = 0.2; gun[108].belt = 0;
             gun[108].eatratio = 125; gun[108].ratiododge = 125; gun[108].ratiohit = 125; gun[108].ratiohp = 100; gun[108].ratiopow = 105; gun[108].ratiorate = 110;
-          
+
             gun[109].name = "ARX-160"; gun[109].what = 2; gun[109].crit = 0.2; gun[109].belt = 0;
             gun[109].eatratio = 115; gun[109].ratiododge = 120; gun[109].ratiohit = 120; gun[109].ratiohp = 90; gun[109].ratiopow = 110; gun[109].ratiorate = 110;
-          
-            gun[111].name = "G11"; gun[111].what = 2; gun[111].crit = 0.2; gun[111].belt = 0; 
+
+            gun[111].name = "G11"; gun[111].what = 2; gun[111].crit = 0.2; gun[111].belt = 0;
             gun[111].eatratio = 110; gun[111].ratiododge = 105; gun[111].ratiohit = 115; gun[111].ratiohp = 110; gun[111].ratiopow = 100; gun[111].ratiorate = 145;
-          
-            gun[113].name = "Super SASS";gun[113].what = 5; gun[113].crit = 0.4; gun[113].belt = 0;
+
+            gun[113].name = "Super SASS"; gun[113].what = 5; gun[113].crit = 0.4; gun[113].belt = 0;
             gun[113].eatratio = 105; gun[113].ratiododge = 90; gun[113].ratiohit = 110; gun[113].ratiohp = 100; gun[113].ratiopow = 115; gun[113].ratiorate = 120;
-          
-            gun[39].name = "SVD"; gun[39].what = 5; gun[39].crit = 0.4; gun[39].belt = 0; 
+
+            gun[39].name = "SVD"; gun[39].what = 5; gun[39].crit = 0.4; gun[39].belt = 0;
             gun[39].eatratio = 120; gun[39].ratiododge = 100; gun[39].ratiohit = 120; gun[39].ratiohp = 90; gun[39].ratiopow = 120; gun[39].ratiorate = 110;
-          
-            gun[112].name = "P99"; gun[112].what = 4; gun[112].crit = 0.2; gun[112].belt = 0; 
+
+            gun[112].name = "P99"; gun[112].what = 4; gun[112].crit = 0.2; gun[112].belt = 0;
             gun[112].eatratio = 110; gun[112].ratiododge = 125; gun[112].ratiohit = 120; gun[112].ratiohp = 90; gun[112].ratiopow = 115; gun[112].ratiorate = 115;
-          
+
             gun[114].name = "MG4"; gun[114].what = 6; gun[114].crit = 0.05; gun[114].belt = 9;
             gun[114].eatratio = 135; gun[114].ratiododge = 120; gun[114].ratiohit = 120; gun[114].ratiohp = 110; gun[114].ratiopow = 95; gun[114].ratiorate = 125;
-           
-            gun[93].name = "G36C"; gun[93].what = 3; gun[93].crit = 0.05; gun[93].belt = 0; 
+
+            gun[93].name = "G36C"; gun[93].what = 3; gun[93].crit = 0.05; gun[93].belt = 0;
             gun[93].eatratio = 95; gun[93].ratiododge = 120; gun[93].ratiohit = 120; gun[93].ratiohp = 115; gun[93].ratiopow = 135; gun[93].ratiorate = 110;
-         
+
             gun[115].name = "NZ75"; gun[115].what = 4; gun[115].crit = 0.2; gun[115].belt = 0;
             gun[115].eatratio = 125; gun[115].ratiododge = 95; gun[115].ratiohit = 120; gun[115].ratiohp = 110; gun[115].ratiopow = 115; gun[115].ratiorate = 115;
-         
+
             gun[116].name = "79式"; gun[116].what = 3; gun[116].crit = 0.05; gun[116].belt = 0;
             gun[116].eatratio = 100; gun[116].ratiododge = 125; gun[116].ratiohit = 110; gun[116].ratiohp = 110; gun[116].ratiopow = 130; gun[116].ratiorate = 115;
-         
+
             gun[117].name = "M99"; gun[117].what = 5; gun[117].crit = 0.4; gun[117].belt = 0;
             gun[117].eatratio = 135; gun[117].ratiododge = 85; gun[117].ratiohit = 110; gun[117].ratiohp = 100; gun[117].ratiopow = 135; gun[117].ratiorate = 90;
-          
-            gun[118].name = "95式"; gun[118].what = 2; gun[118].crit = 0.2; gun[118].belt = 0; 
+
+            gun[118].name = "95式"; gun[118].what = 2; gun[118].crit = 0.2; gun[118].belt = 0;
             gun[118].eatratio = 120; gun[118].ratiododge = 110; gun[118].ratiohit = 120; gun[118].ratiohp = 105; gun[118].ratiopow = 120; gun[118].ratiorate = 105;
-          
-            gun[119].name = "97式"; gun[119].what = 2; gun[119].crit = 0.2; gun[119].belt = 0; 
+
+            gun[119].name = "97式"; gun[119].what = 2; gun[119].crit = 0.2; gun[119].belt = 0;
             gun[119].eatratio = 125; gun[119].ratiododge = 105; gun[119].ratiohit = 120; gun[119].ratiohp = 105; gun[119].ratiopow = 115; gun[119].ratiorate = 105;
-          
-            gun[120].name = "EVO 3"; gun[120].what = 3; gun[120].crit = 0.05; gun[120].belt = 0; 
+
+            gun[120].name = "EVO 3"; gun[120].what = 3; gun[120].crit = 0.05; gun[120].belt = 0;
             gun[120].eatratio = 105; gun[120].ratiododge = 115; gun[120].ratiohit = 115; gun[120].ratiohp = 110; gun[120].ratiopow = 90; gun[120].ratiorate = 120;
-          
-            gun[31].name = "M1A1"; gun[31].what = 5; gun[31].crit = 0.4; gun[31].belt = 0; 
+
+            gun[31].name = "M1A1"; gun[31].what = 5; gun[31].crit = 0.4; gun[31].belt = 0;
             gun[31].eatratio = 115; gun[31].ratiododge = 130; gun[31].ratiohit = 120; gun[31].ratiohp = 95; gun[31].ratiopow = 90; gun[31].ratiorate = 115;
-          
+
             gun[121].name = "59式"; gun[121].what = 4; gun[121].crit = 0.2; gun[121].belt = 0;
             gun[121].eatratio = 130; gun[121].ratiododge = 120; gun[121].ratiohit = 115; gun[121].ratiohp = 90; gun[121].ratiopow = 95; gun[121].ratiorate = 110;
-          
-            gun[122].name = "63式"; gun[122].what = 2; gun[122].crit = 0.2; gun[122].belt = 0; 
+
+            gun[122].name = "63式"; gun[122].what = 2; gun[122].crit = 0.2; gun[122].belt = 0;
             gun[122].eatratio = 115; gun[122].ratiododge = 100; gun[122].ratiohit = 100; gun[122].ratiohp = 90; gun[122].ratiopow = 115; gun[122].ratiorate = 110;
-         
+
             gun[123].name = "AR70"; gun[123].what = 2; gun[123].crit = 0.2; gun[123].belt = 0;
             gun[123].eatratio = 120; gun[123].ratiododge = 100; gun[123].ratiohit = 105; gun[123].ratiohp = 100; gun[123].ratiopow = 110; gun[123].ratiorate = 105;
-         
-            gun[125].name = "PP-19"; gun[125].what = 3; gun[125].crit = 0.05; gun[125].belt = 0; 
+
+            gun[125].name = "PP-19"; gun[125].what = 3; gun[125].crit = 0.05; gun[125].belt = 0;
             gun[125].eatratio = 110; gun[125].ratiododge = 120; gun[125].ratiohit = 115; gun[125].ratiohp = 100; gun[125].ratiopow = 95; gun[125].ratiorate = 115;
-         
-            gun[124].name = "SR-3MP"; gun[124].what = 3; gun[124].crit = 0.05; gun[124].belt = 0; 
+
+            gun[124].name = "SR-3MP"; gun[124].what = 3; gun[124].crit = 0.05; gun[124].belt = 0;
             gun[124].eatratio = 95; gun[124].ratiododge = 125; gun[124].ratiohit = 115; gun[124].ratiohp = 110; gun[124].ratiopow = 130; gun[124].ratiorate = 120;
-         
-            gun[21].name = "PP-90"; gun[21].what = 3; gun[21].crit = 0.05; gun[21].belt = 0; 
+
+            gun[21].name = "PP-90"; gun[21].what = 3; gun[21].crit = 0.05; gun[21].belt = 0;
             gun[21].eatratio = 120; gun[21].ratiododge = 130; gun[21].ratiohit = 100; gun[21].ratiohp = 90; gun[21].ratiopow = 90; gun[21].ratiorate = 120;
-         
-          
-                gun[126].name = "6P62"; gun[126].what = 2; gun[126].crit = 0.2; gun[126].belt = 0;
-                gun[126].eatratio = 125; gun[126].ratiododge = 75; gun[126].ratiohit = 85; gun[126].ratiohp = 110; gun[126].ratiopow = 150; gun[126].ratiorate = 80;
-             
+
+
+            gun[126].name = "6P62"; gun[126].what = 2; gun[126].crit = 0.2; gun[126].belt = 0;
+            gun[126].eatratio = 125; gun[126].ratiododge = 75; gun[126].ratiohit = 85; gun[126].ratiohp = 110; gun[126].ratiopow = 150; gun[126].ratiorate = 80;
+
             gun[127].name = "Bren Ten"; gun[127].what = 4; gun[127].crit = 0.2; gun[127].belt = 0;
             gun[127].eatratio = 110; gun[127].ratiododge = 90; gun[127].ratiohit = 110; gun[127].ratiohp = 105; gun[127].ratiopow = 120; gun[127].ratiorate = 110;
             gun[127].equiptype1 = "4,13"; gun[127].equiptype2 = "6"; gun[127].equiptype3 = "9,10,12";
 
-            gun[128].name = "PSM"; gun[128].what = 4; gun[128].crit = 0.2; gun[128].belt = 0; 
+            gun[128].name = "PSM"; gun[128].what = 4; gun[128].crit = 0.2; gun[128].belt = 0;
             gun[128].eatratio = 135; gun[128].ratiododge = 135; gun[128].ratiohit = 120; gun[128].ratiohp = 85; gun[128].ratiopow = 80; gun[128].ratiorate = 115;
             gun[128].equiptype1 = "4,13"; gun[128].equiptype2 = "6"; gun[128].equiptype3 = "9,10,12";
 
@@ -474,24 +486,24 @@ namespace snqxap
             gun[129].eatratio = 115; gun[129].ratiododge = 120; gun[129].ratiohit = 125; gun[129].ratiohp = 100; gun[129].ratiopow = 90; gun[129].ratiorate = 120;
             gun[129].equiptype1 = "4,13"; gun[129].equiptype2 = "6"; gun[129].equiptype3 = "9,10,12";
 
-            gun[130].name = "RO635"; gun[130].what = 3; gun[130].crit = 0.05; gun[130].belt = 0; 
+            gun[130].name = "RO635"; gun[130].what = 3; gun[130].crit = 0.05; gun[130].belt = 0;
             gun[130].eatratio = 105; gun[130].ratiododge = 120; gun[130].ratiohit = 125; gun[130].ratiohp = 110; gun[130].ratiopow = 105; gun[130].ratiorate = 125;
             gun[130].equiptype1 = "9,10,12"; gun[130].equiptype2 = "6"; gun[130].equiptype3 = "1,2,3,4,13";
 
-            gun[131].name = "M1887"; gun[131].what = 7; gun[131].crit = 0.4; gun[131].belt = 4; 
-            gun[132].name = "M37"; gun[132].what = 7; gun[132].crit = 0.4; gun[132].belt = 4; 
+            gun[131].name = "M1887"; gun[131].what = 7; gun[131].crit = 0.4; gun[131].belt = 4;
+            gun[132].name = "M37"; gun[132].what = 7; gun[132].crit = 0.4; gun[132].belt = 4;
             gun[133].name = "M500"; gun[133].what = 7; gun[133].crit = 0.4; gun[133].belt = 4;
             gun[134].name = "M590"; gun[134].what = 7; gun[134].crit = 0.4; gun[134].belt = 4;
-            gun[135].name = "KSG"; gun[135].what = 7; gun[135].crit = 0.4; gun[135].belt = 5; 
+            gun[135].name = "KSG"; gun[135].what = 7; gun[135].crit = 0.4; gun[135].belt = 5;
             gun[136].name = "KS-23"; gun[136].what = 7; gun[136].crit = 0.4; gun[136].belt = 3;
             gun[137].name = "RMB-93"; gun[137].what = 7; gun[137].crit = 0.4; gun[137].belt = 4;
-            gun[138].name = "97式霰"; gun[138].what = 7; gun[138].crit = 0.4; gun[138].belt = 3; 
-            gun[131].eatratio = 115; gun[131].ratiododge = 95; gun[131].ratiohit = 95; gun[131].ratiohp = 125; gun[131].ratiopow = 125; gun[131].ratiorate = 80; gun[131].ratioarmor = 120; 
-            gun[132].eatratio = 90; gun[132].ratiododge = 115; gun[132].ratiohit = 120; gun[132].ratiohp = 115; gun[132].ratiopow = 125; gun[132].ratiorate = 105; gun[132].ratioarmor = 120; 
-            gun[133].eatratio = 95; gun[133].ratiododge = 90; gun[133].ratiohit = 105; gun[133].ratiohp = 120; gun[133].ratiopow = 110; gun[133].ratiorate = 115; gun[133].ratioarmor = 115; 
-            gun[134].eatratio = 95; gun[134].ratiododge = 90; gun[134].ratiohit = 105; gun[134].ratiohp = 120; gun[134].ratiopow = 115; gun[134].ratiorate = 120; gun[134].ratioarmor = 120; 
-            gun[135].eatratio = 100; gun[135].ratiododge = 110; gun[135].ratiohit = 115; gun[135].ratiohp = 115; gun[135].ratiopow = 100; gun[135].ratiorate = 115; gun[135].ratioarmor = 130; 
-            gun[136].eatratio = 90; gun[136].ratiododge = 90; gun[136].ratiohit = 85; gun[136].ratiohp = 125; gun[136].ratiopow = 150; gun[136].ratiorate = 95; gun[136].ratioarmor = 115; 
+            gun[138].name = "97式霰"; gun[138].what = 7; gun[138].crit = 0.4; gun[138].belt = 3;
+            gun[131].eatratio = 115; gun[131].ratiododge = 95; gun[131].ratiohit = 95; gun[131].ratiohp = 125; gun[131].ratiopow = 125; gun[131].ratiorate = 80; gun[131].ratioarmor = 120;
+            gun[132].eatratio = 90; gun[132].ratiododge = 115; gun[132].ratiohit = 120; gun[132].ratiohp = 115; gun[132].ratiopow = 125; gun[132].ratiorate = 105; gun[132].ratioarmor = 120;
+            gun[133].eatratio = 95; gun[133].ratiododge = 90; gun[133].ratiohit = 105; gun[133].ratiohp = 120; gun[133].ratiopow = 110; gun[133].ratiorate = 115; gun[133].ratioarmor = 115;
+            gun[134].eatratio = 95; gun[134].ratiododge = 90; gun[134].ratiohit = 105; gun[134].ratiohp = 120; gun[134].ratiopow = 115; gun[134].ratiorate = 120; gun[134].ratioarmor = 120;
+            gun[135].eatratio = 100; gun[135].ratiododge = 110; gun[135].ratiohit = 115; gun[135].ratiohp = 115; gun[135].ratiopow = 100; gun[135].ratiorate = 115; gun[135].ratioarmor = 130;
+            gun[136].eatratio = 90; gun[136].ratiododge = 90; gun[136].ratiohit = 85; gun[136].ratiohp = 125; gun[136].ratiopow = 150; gun[136].ratiorate = 95; gun[136].ratioarmor = 115;
             gun[137].eatratio = 100; gun[137].ratiododge = 120; gun[137].ratiohit = 95; gun[137].ratiohp = 110; gun[137].ratiopow = 105; gun[137].ratiorate = 110; gun[137].ratioarmor = 120;
             gun[138].eatratio = 105; gun[138].ratiododge = 115; gun[138].ratiohit = 100; gun[138].ratiohp = 120; gun[138].ratiopow = 110; gun[138].ratiorate = 105; gun[138].ratioarmor = 110;
 
@@ -500,15 +512,15 @@ namespace snqxap
             gun[139].equiptype1 = "4,13"; gun[139].equiptype2 = "6"; gun[139].equiptype3 = "9,10,12"; gun[139].type = 102003;
             gun[139].grid_center = 5; gun[139].number = 4; gun[139].effect0 = 2; gun[139].effect1 = 3; gun[139].effect2 = 8; gun[139].effect3 = 9; gun[139].critup = 0.1; gun[139].shotspeedup = 0.15; gun[139].to = 1;
 
-                gun[140].name = "MT-9"; gun[140].what = 3; gun[140].crit = 0.05; gun[140].belt = 0;
-                gun[140].eatratio = 100; gun[140].ratiododge = 105; gun[140].ratiohit = 120; gun[140].ratiohp = 115; gun[140].ratiopow = 100; gun[140].ratiorate = 115;
-                gun[140].equiptype1 = "9,10,12"; gun[140].equiptype2 = "6"; gun[140].equiptype3 = "1,2,3,4,13"; gun[140].type = 102205;
-                gun[140].grid_center = 5; gun[140].number = 2; gun[140].effect0 = 1; gun[140].effect1 = 7; gun[140].damageup = 0.1; gun[140].dodgeup = 0.12; gun[140].to = 2;
+            gun[140].name = "MT-9"; gun[140].what = 3; gun[140].crit = 0.05; gun[140].belt = 0;
+            gun[140].eatratio = 100; gun[140].ratiododge = 105; gun[140].ratiohit = 120; gun[140].ratiohp = 115; gun[140].ratiopow = 100; gun[140].ratiorate = 115;
+            gun[140].equiptype1 = "9,10,12"; gun[140].equiptype2 = "6"; gun[140].equiptype3 = "1,2,3,4,13"; gun[140].type = 102205;
+            gun[140].grid_center = 5; gun[140].number = 2; gun[140].effect0 = 1; gun[140].effect1 = 7; gun[140].damageup = 0.1; gun[140].dodgeup = 0.12; gun[140].to = 2;
 
             gun[141].name = "OTs-44"; gun[141].what = 5; gun[141].crit = 0.4; gun[141].belt = 0;
             gun[141].eatratio = 135; gun[141].ratiododge = 85; gun[141].ratiohit = 90; gun[141].ratiohp = 90; gun[141].ratiopow = 135; gun[141].ratiorate = 90;
             gun[141].equiptype1 = "5"; gun[141].equiptype2 = "1,2,3,13"; gun[141].equiptype3 = "9,15"; gun[141].type = 103003;
-            gun[141].grid_center = 5; gun[141].number = 2; gun[141].effect0 = 3; gun[141].effect1 = 9;gun[141].rateup = 0.12; gun[141].to = 4;
+            gun[141].grid_center = 5; gun[141].number = 2; gun[141].effect0 = 3; gun[141].effect1 = 9; gun[141].rateup = 0.12; gun[141].to = 4;
 
             gun[142].name = "G28"; gun[142].what = 5; gun[142].crit = 0.4; gun[142].belt = 0;
             gun[142].eatratio = 120; gun[142].ratiododge = 85; gun[142].ratiohit = 120; gun[142].ratiohp = 100; gun[142].ratiopow = 110; gun[142].ratiorate = 115;
@@ -530,17 +542,17 @@ namespace snqxap
             gun[145].name = "AEK-999"; gun[145].what = 6; gun[145].crit = 0.05; gun[145].belt = 10;
             gun[145].eatratio = 110; gun[145].ratiododge = 120; gun[145].ratiohit = 125; gun[145].ratiohp = 100; gun[145].ratiopow = 115; gun[145].ratiorate = 115;
             gun[145].equiptype1 = "5"; gun[145].equiptype2 = "1,2,3"; gun[145].equiptype3 = "9,14"; gun[145].type = 105204;
-            gun[145].grid_center = 4; gun[145].number = 2; gun[145].effect0 = 3; gun[145].effect1 = 9; gun[145].shotspeedup = 0.15;gun[145].armorup = 0.1; gun[145].to = 7;
+            gun[145].grid_center = 4; gun[145].number = 2; gun[145].effect0 = 3; gun[145].effect1 = 9; gun[145].shotspeedup = 0.15; gun[145].armorup = 0.1; gun[145].to = 7;
 
             gun[146].name = "希普卡"; gun[146].what = 3; gun[146].crit = 0.05; gun[146].belt = 0;
             gun[146].eatratio = 115; gun[146].ratiododge = 125; gun[146].ratiohit = 115; gun[146].ratiohp = 95; gun[146].ratiopow = 90; gun[146].ratiorate = 120;
             gun[146].equiptype1 = "9,10,12"; gun[146].equiptype2 = "6"; gun[146].equiptype3 = "1,2,3,4,13"; gun[146].type = 100203;
-            gun[146].grid_center = 5; gun[146].number = 2; gun[146].effect0 = 1; gun[146].effect1 = 7; gun[146].shotspeedup = 0.15;gun[146].dodgeup = 0.1; gun[146].to = 2;
+            gun[146].grid_center = 5; gun[146].number = 2; gun[146].effect0 = 1; gun[146].effect1 = 7; gun[146].shotspeedup = 0.15; gun[146].dodgeup = 0.1; gun[146].to = 2;
 
             gun[147].name = "CZ75"; gun[147].what = 4; gun[147].crit = 0.2; gun[147].belt = 0;
             gun[147].eatratio = 125; gun[147].ratiododge = 95; gun[147].ratiohit = 120; gun[147].ratiohp = 100; gun[147].ratiopow = 120; gun[147].ratiorate = 120;
             gun[147].equiptype1 = "4,13"; gun[147].equiptype2 = "6"; gun[147].equiptype3 = "9,10,12"; gun[147].type = 105805;
-            gun[147].grid_center = 5; gun[147].number = 4; gun[147].effect0 =1; gun[147].effect1 = 2; gun[147].effect2 = 7; gun[147].effect3 = 8; gun[147].damageup = 0.08; gun[147].shotspeedup = 0.1; gun[147].to = 1;
+            gun[147].grid_center = 5; gun[147].number = 4; gun[147].effect0 = 1; gun[147].effect1 = 2; gun[147].effect2 = 7; gun[147].effect3 = 8; gun[147].damageup = 0.08; gun[147].shotspeedup = 0.1; gun[147].to = 1;
             if (DateTime.Now > DateTime.Parse("2017-04-21"))
             {
                 gun[148].name = "ASh-12.7"; gun[148].what = 2; gun[148].crit = 0.2; gun[148].belt = 0;
@@ -602,7 +614,7 @@ namespace snqxap
             gun[159].name = "八一式马"; gun[159].what = 5; gun[159].crit = 0.4; gun[159].belt = 0;
             gun[159].eatratio = 125; gun[159].ratiododge = 120; gun[159].ratiohit = 115; gun[159].ratiohp = 85; gun[159].ratiopow = 110; gun[159].ratiorate = 90;
             gun[159].equiptype1 = "5"; gun[159].equiptype2 = "1,2,3,13"; gun[159].equiptype3 = "9,15"; gun[159].type = 100412;
-            gun[159].grid_center = 5; gun[159].number = 1; gun[159].effect0 = 9;  gun[159].rateup = 0.12; gun[159].to = 4;
+            gun[159].grid_center = 5; gun[159].number = 1; gun[159].effect0 = 9; gun[159].rateup = 0.12; gun[159].to = 4;
 
             gun[160].name = "ART556"; gun[160].what = 2; gun[160].crit = 0.2; gun[160].belt = 0;
             gun[160].eatratio = 130; gun[160].ratiododge = 110; gun[160].ratiohit = 120; gun[160].ratiohp = 105; gun[160].ratiopow = 110; gun[160].ratiorate = 100;
@@ -622,7 +634,7 @@ namespace snqxap
             gun[163].name = "UMP40"; gun[163].what = 3; gun[163].crit = 0.05; gun[163].belt = 0;
             gun[163].eatratio = 110; gun[163].ratiododge = 122; gun[163].ratiohit = 115; gun[163].ratiohp = 102; gun[163].ratiopow = 102; gun[163].ratiorate = 108;
             gun[163].equiptype1 = "9,10,12"; gun[163].equiptype2 = "6"; gun[163].equiptype3 = "1,2,3,4,13"; gun[163].type = 106501;
-            gun[163].grid_center = 5; gun[163].number = 4; gun[163].effect0 = 2; gun[163].effect1 = 3; gun[163].effect2 = 8; gun[163].effect3 = 9; gun[163].critup = 5;  gun[163].to = 3;
+            gun[163].grid_center = 5; gun[163].number = 4; gun[163].effect0 = 2; gun[163].effect1 = 3; gun[163].effect2 = 8; gun[163].effect3 = 9; gun[163].critup = 5; gun[163].to = 3;
 
             gun[164].name = "TMP"; gun[164].what = 3; gun[164].crit = 0.05; gun[164].belt = 0;
             gun[164].eatratio = 105; gun[164].ratiododge = 130; gun[164].ratiohit = 125; gun[164].ratiohp = 85; gun[164].ratiopow = 110; gun[164].ratiorate = 120;
@@ -653,12 +665,12 @@ namespace snqxap
             gun[169].eatratio = 115; gun[169].ratiododge = 115; gun[169].ratiohit = 110; gun[169].ratiohp = 112; gun[169].ratiopow = 115; gun[169].ratiorate = 115;
             gun[169].equiptype1 = "1,2,3,4,13"; gun[169].equiptype2 = "8"; gun[169].equiptype3 = "9,10,12"; gun[169].type = 105904;
             gun[169].grid_center = 8; gun[169].number = 2; gun[169].effect0 = 3; gun[169].effect1 = 9; gun[169].damageup = 0.2; gun[169].dodgeup = 0.12; gun[169].to = 3;
-               if (DateTime.Now > DateTime.Parse("2017-08-21"))
+            if (DateTime.Now > DateTime.Parse("2017-08-21"))
             {
-            gun[170].name = "wz.29"; gun[170].what = 5; gun[170].crit = 0.4; gun[170].belt = 0;
-            gun[170].eatratio = 110; gun[170].ratiododge = 105; gun[170].ratiohit = 105; gun[170].ratiohp = 110; gun[170].ratiopow = 110; gun[170].ratiorate = 95;
-            gun[170].equiptype1 = "5"; gun[170].equiptype2 = "1,2,3,13"; gun[170].equiptype3 = "9,15"; gun[170].type = 100401;
-            gun[170].grid_center = 5; gun[170].number = 1; gun[170].effect0 = 3; gun[170].rateup = 0.12; gun[170].to = 4;
+                gun[170].name = "wz.29"; gun[170].what = 5; gun[170].crit = 0.4; gun[170].belt = 0;
+                gun[170].eatratio = 110; gun[170].ratiododge = 105; gun[170].ratiohit = 105; gun[170].ratiohp = 110; gun[170].ratiopow = 110; gun[170].ratiorate = 95;
+                gun[170].equiptype1 = "5"; gun[170].equiptype2 = "1,2,3,13"; gun[170].equiptype3 = "9,15"; gun[170].type = 100401;
+                gun[170].grid_center = 5; gun[170].number = 1; gun[170].effect0 = 3; gun[170].rateup = 0.12; gun[170].to = 4;
             }
             for (int i = 0; i < GUN_NUMBER + 1; i++)//加颜色
             {
@@ -910,7 +922,7 @@ namespace snqxap
                 }
                 Combo7.Items.Add(l);
             }
-            for (int i = 0; i < GUN_NUMBER+1; i++)
+            for (int i = 0; i < GUN_NUMBER + 1; i++)
             {
                 Label l = new Label();
                 l.Content = gun[i].name;
@@ -941,25 +953,25 @@ namespace snqxap
                 }
                 Combo8.Items.Add(l);
             }
-                Merry0.Content = "♡";
-                Brush br2 = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
-                Merry0.Foreground = br2;
-                Merry1.Content = "♡";
-                Merry1.Foreground = br2;
-                Merry2.Content = "♡";
-                Merry2.Foreground = br2;
-                Merry3.Content = "♡";
-                Merry3.Foreground = br2;
-                Merry4.Content = "♡";
-                Merry4.Foreground = br2;
-                Merry5.Content = "♡";
-                Merry5.Foreground = br2;
-                Merry6.Content = "♡";
-                Merry6.Foreground = br2;
-                Merry0.Content = "♡";
-                Merry0.Foreground = br2;
-                Merry8.Content = "♡";
-                Merry8.Foreground = br2;
+            Merry0.Content = "♡";
+            Brush br2 = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
+            Merry0.Foreground = br2;
+            Merry1.Content = "♡";
+            Merry1.Foreground = br2;
+            Merry2.Content = "♡";
+            Merry2.Foreground = br2;
+            Merry3.Content = "♡";
+            Merry3.Foreground = br2;
+            Merry4.Content = "♡";
+            Merry4.Foreground = br2;
+            Merry5.Content = "♡";
+            Merry5.Foreground = br2;
+            Merry6.Content = "♡";
+            Merry6.Foreground = br2;
+            Merry0.Content = "♡";
+            Merry0.Foreground = br2;
+            Merry8.Content = "♡";
+            Merry8.Foreground = br2;
 
             for (int i = 0; i < GUN_NUMBER; i++) //加图像
             {
@@ -969,66 +981,67 @@ namespace snqxap
             gun[170].image = "/assets/MP5.png";
             gun[GUN_NUMBER].image = "";
             for (int i = 0; i < 9; i++)
-                {
-                    gg[i] = new GunGrid();
-                    gg[i].critup = 1.00;
-                    gg[i].damageup = 1.00;
-                    gg[i].dodgeup = 1.00;
-                    gg[i].hitup = 1.00;
-                    gg[i].shotspeedup = 1.00;
-                    gg[i].armorup = 1.00;
-                    gg[i].rateup = 1.00;
-                    lastgunindex[i] = -1;
-                    skillupdamage[i] = new Double();
-                    skillupdodge[i] = new Double();
-                    skilluphit[i] = new Double();
-                    skilldamageagain[i] = new Double();
-                    skillupshotspeed[i] = new double();
-                    skilluparmor[i] = new Double();
-                    skillupcrit[i] = new double();
-                    skillupbelt[i] = new double();
-                    skillupnegev[i] = new double();
-                    skilluprenju[i] = new double();
+            {
+                gg[i] = new GunGrid();
+                gg[i].critup = 1.00;
+                gg[i].damageup = 1.00;
+                gg[i].dodgeup = 1.00;
+                gg[i].hitup = 1.00;
+                gg[i].shotspeedup = 1.00;
+                gg[i].armorup = 1.00;
+                gg[i].rateup = 1.00;
+                lastgunindex[i] = -1;
+                skillupdamage[i] = new Double();
+                skillupdodge[i] = new Double();
+                skilluphit[i] = new Double();
+                skilldamageagain[i] = new Double();
+                skillupshotspeed[i] = new double();
+                skilluparmor[i] = new Double();
+                skillupcrit[i] = new double();
+                skillupbelt[i] = new double();
+                skillupnegev[i] = new double();
+                skilluprenju[i] = new double();
                 skillupboom[i] = new double();
                 skillsolidmultiple[i] = new double();
-                    skilltime[i] = new double();
-                    skilltime[i] = 0;
-                    isfullcrit[i] = false;
-                    skillupbelt[i] = 0;
-                    skilluparmor[i] = 1;
-                    skillupshotspeed[i] = 1;
-                    skilluphit[i] = 1;
-                    skillupdodge[i] = 1;
-                    skillupcrit[i] = 1;
-                    skillupnegev[i] = 0;
+                skilltime[i] = new double();
+                skilltime[i] = 0;
+                isfullcrit[i] = false;
+                skillupbelt[i] = 0;
+                skilluparmor[i] = 1;
+                skillupshotspeed[i] = 1;
+                skilluphit[i] = 1;
+                skillupdodge[i] = 1;
+                skillupcrit[i] = 1;
+                skillupnegev[i] = 0;
                 skillsolidmultiple[i] = 0;
-                    skilluprenju[i] = 1;
+                skilluprenju[i] = 1;
                 skillupboom[i] = 0;
-                    skillupdamage[i] = 1;
-                    skilldamageagain[i] = 0;
-                    skilltarget[i] = 1;
-                    equipdamage[i] = 0;                    
-                    equiparmor[i] = 0;
-                    equipcritharm[i] = 0;
-                    equiphit[i] = 0;
-                    equipdodge[i] = 0;
-                    equipbelt[i] = 0;
-                    equipcrit[i] =0;
-                    equipnightsee[i] = 0;
-                    equipshotspeed[i] = 0;      
-                    equipbreakarmor[i] = 10;
-                    multiple[i] = 1;
-                    merry[i] = 1;
-                    equiprifledslug[i] = false;
-                    gridlist[i] = new List<Border>();
+                skillupdamage[i] = 1;
+                skilldamageagain[i] = 0;
+                skilltarget[i] = 1;
+                equipdamage[i] = 0;
+                equiparmor[i] = 0;
+                equipcritharm[i] = 0;
+                equiphit[i] = 0;
+                equipdodge[i] = 0;
+                equipbelt[i] = 0;
+                equipcrit[i] = 0;
+                equipnightsee[i] = 0;
+                equipshotspeed[i] = 0;
+                equipbreakarmor[i] = 10;
+                multiple[i] = 1;
+                merry[i] = 1;
+                equiprifledslug[i] = false;
+                gridlist[i] = new List<Border>();
 
-                }
+            }
 
             skilldowndodge = 1;
             skilldownhit = 1;
             skilldowndamage = 1;
+            fairydowndamage = 1;
 
-            for(int i =1;i<101;i++)
+            for (int i = 1; i < 101; i++)
             {
                 Level0.Items.Add(i);
                 Level1.Items.Add(i);
@@ -2753,16 +2766,16 @@ namespace snqxap
             gun[64].number = 1; gun[64].effect0 = 6;
             gun[65].number = 2; gun[65].effect0 = 9; gun[65].effect1 = 3;
             gun[66].number = 2; gun[66].effect0 = 9; gun[66].effect1 = 3;//
-            gun[67].number = 1; gun[67].effect0 = 6; 
+            gun[67].number = 1; gun[67].effect0 = 6;
             gun[68].number = 1; gun[68].effect0 = 6;
             gun[69].number = 2; gun[69].effect0 = 9; gun[69].effect1 = 3;
             gun[70].number = 2; gun[70].effect0 = 3; gun[70].effect1 = 6;
-            gun[71].number = 1; gun[71].effect0 = 9; 
+            gun[71].number = 1; gun[71].effect0 = 9;
             gun[72].number = 1; gun[72].effect0 = 6;
             gun[73].number = 2; gun[73].effect0 = 9; gun[73].effect1 = 3;
             gun[74].number = 2; gun[74].effect0 = 9; gun[74].effect1 = 3;
             gun[75].number = 2; gun[75].effect0 = 9; gun[75].effect1 = 6;
-            gun[76].number = 1; gun[76].effect0 = 3; 
+            gun[76].number = 1; gun[76].effect0 = 3;
             gun[77].number = 1; gun[77].effect0 = 9;
             gun[78].number = 2; gun[78].effect0 = 9; gun[78].effect1 = 3;
             gun[79].number = 2; gun[79].effect0 = 9; gun[79].effect1 = 3;//
@@ -2786,7 +2799,7 @@ namespace snqxap
             gun[97].number = 2; gun[97].effect0 = 9; gun[97].effect1 = 3;//
             gun[98].number = 2; gun[98].effect0 = 9; gun[98].effect1 = 3;
             gun[99].number = 2; gun[99].effect0 = 9; gun[99].effect1 = 3;
-            gun[100].number = 1; gun[100].effect0 = 9; 
+            gun[100].number = 1; gun[100].effect0 = 9;
             gun[101].number = 3; gun[101].effect0 = 9; gun[101].effect1 = 3; gun[101].effect2 = 6;//
             gun[102].number = 3; gun[102].effect0 = 4; gun[102].effect1 = 8; gun[102].effect2 = 2;
             gun[103].number = 5; gun[103].effect0 = 7; gun[103].effect1 = 4; gun[103].effect2 = 1; gun[103].effect3 = 8; gun[103].effect4 = 2;
@@ -2976,13 +2989,13 @@ namespace snqxap
                 equip[i].forwhat = "";
             }
             equip[0].name = "IOP T1外骨骼"; equip[0].property1 = "回避"; equip[0].down1 = 6; equip[0].up1 = 8; equip[0].property2 = "伤害"; equip[0].down2 = -2; equip[0].up2 = -1; equip[0].type = 10; equip[0].rank = 2;
-            equip[1].name = "IOP T2外骨骼"; equip[1].bonus1 = 0.4; equip[1].property1 = "回避"; equip[1].down1 = 10; equip[1].up1 = Math.Floor(12 * (1+equip[1].bonus1)); equip[1].property2 = "伤害"; equip[1].down2 = -4; equip[1].up2 = -3; equip[1].type = 10; equip[1].rank = 3;
-            equip[2].name = "IOP T3外骨骼"; equip[2].bonus1 = 0.4; equip[2].property1 = "回避"; equip[2].down1 = 14; equip[2].up1 = Math.Floor(16 * (1+equip[2].bonus1)); equip[2].property2 = "伤害"; equip[2].down2 = -6; equip[2].up2 = -5; equip[2].type = 10; equip[2].rank = 4;
-            equip[3].name = "IOP T4外骨骼"; equip[3].bonus1 = 0.4; equip[3].property1 = "回避"; equip[3].down1 = 20; equip[3].up1 = Math.Floor(25 * (1+equip[3].bonus1)); equip[3].property2 = "伤害"; equip[3].down2 = -8; equip[3].up2 = -6; equip[3].type = 10; equip[3].rank = 5;
+            equip[1].name = "IOP T2外骨骼"; equip[1].bonus1 = 0.4; equip[1].property1 = "回避"; equip[1].down1 = 10; equip[1].up1 = Math.Floor(12 * (1 + equip[1].bonus1)); equip[1].property2 = "伤害"; equip[1].down2 = -4; equip[1].up2 = -3; equip[1].type = 10; equip[1].rank = 3;
+            equip[2].name = "IOP T3外骨骼"; equip[2].bonus1 = 0.4; equip[2].property1 = "回避"; equip[2].down1 = 14; equip[2].up1 = Math.Floor(16 * (1 + equip[2].bonus1)); equip[2].property2 = "伤害"; equip[2].down2 = -6; equip[2].up2 = -5; equip[2].type = 10; equip[2].rank = 4;
+            equip[3].name = "IOP T4外骨骼"; equip[3].bonus1 = 0.4; equip[3].property1 = "回避"; equip[3].down1 = 20; equip[3].up1 = Math.Floor(25 * (1 + equip[3].bonus1)); equip[3].property2 = "伤害"; equip[3].down2 = -8; equip[3].up2 = -6; equip[3].type = 10; equip[3].rank = 5;
             equip[4].name = "M61穿甲弹"; equip[4].property1 = "穿甲"; equip[4].down1 = 25; equip[4].up1 = 35; equip[4].type = 5; equip[4].rank = 2;
-            equip[5].name = "M993穿甲弹"; equip[5].bonus1 = 0.5; equip[5].property1 = "穿甲"; equip[5].down1 = 40; equip[5].up1 =  Math.Floor(50* (1+equip[5].bonus1)); equip[5].type = 5; equip[5].rank = 3;
-            equip[6].name = "Mk169穿甲弹"; equip[6].bonus1 = 0.5; equip[6].property1 = "穿甲"; equip[6].down1 = 55; equip[6].up1 =  Math.Floor(65* (1+equip[6].bonus1)); equip[6].type = 5; equip[6].rank = 4;
-            equip[7].name = "Mk211高爆穿甲弹"; equip[7].bonus1 = 0.5; equip[7].property1 = "穿甲"; equip[7].down1 = 70; equip[7].up1 = Math.Floor(80 * (1+equip[7].bonus1)); equip[7].type = 5; equip[7].rank = 5;
+            equip[5].name = "M993穿甲弹"; equip[5].bonus1 = 0.5; equip[5].property1 = "穿甲"; equip[5].down1 = 40; equip[5].up1 = Math.Floor(50 * (1 + equip[5].bonus1)); equip[5].type = 5; equip[5].rank = 3;
+            equip[6].name = "Mk169穿甲弹"; equip[6].bonus1 = 0.5; equip[6].property1 = "穿甲"; equip[6].down1 = 55; equip[6].up1 = Math.Floor(65 * (1 + equip[6].bonus1)); equip[6].type = 5; equip[6].rank = 4;
+            equip[7].name = "Mk211高爆穿甲弹"; equip[7].bonus1 = 0.5; equip[7].property1 = "穿甲"; equip[7].down1 = 70; equip[7].up1 = Math.Floor(80 * (1 + equip[7].bonus1)); equip[7].type = 5; equip[7].rank = 5;
             equip[8].name = "JHP高速弹"; equip[8].property1 = "伤害"; equip[8].down1 = 2; equip[8].up1 = 2; equip[8].type = 8; equip[8].rank = 2;
             equip[9].name = "三星FMJ高速弹"; equip[9].bonus1 = 1; equip[9].property1 = "伤害"; equip[9].down1 = 3; equip[9].up1 = Math.Floor(4 * (1 + equip[9].bonus1)); equip[9].type = 8; equip[9].rank = 3;
             equip[10].name = "四星FMJ高速弹"; equip[10].bonus1 = 0.8; equip[10].property1 = "伤害"; equip[10].down1 = 5; equip[10].up1 = Math.Floor(7 * (1 + equip[10].bonus1)); equip[10].type = 8; equip[10].rank = 4;
@@ -2990,15 +3003,15 @@ namespace snqxap
             equip[12].name = "光瞄 - BM 3-12X40"; equip[12].property1 = "暴击率"; equip[12].down1 = 5; equip[12].up1 = 8; equip[12].type = 1; equip[12].rank = 2;
             equip[13].name = "光瞄 - LRA 2-12X50"; equip[13].bonus1 = 1; equip[13].property1 = "暴击率"; equip[13].down1 = 9; equip[13].up1 = Math.Floor(12 * (1 + equip[13].bonus1)); equip[13].type = 1; equip[13].rank = 3;
             equip[14].name = "光瞄 - PSO-1"; equip[14].bonus1 = 1; equip[14].property1 = "暴击率"; equip[14].down1 = 13; equip[14].up1 = Math.Floor(16 * (1 + equip[14].bonus1)); equip[14].type = 1; equip[14].rank = 4;
-            equip[15].name = "光瞄 - VFL 6-24X56"; equip[15].bonus1 = 1; equip[15].property1 = "暴击率"; equip[15].down1 = 17; equip[15].up1 = Math.Floor(24 * (1 + equip[15].bonus1)); equip[15].type = 1; equip[15].rank = 5; 
+            equip[15].name = "光瞄 - VFL 6-24X56"; equip[15].bonus1 = 1; equip[15].property1 = "暴击率"; equip[15].down1 = 17; equip[15].up1 = Math.Floor(24 * (1 + equip[15].bonus1)); equip[15].type = 1; equip[15].rank = 5;
             equip[16].name = "全息 - EOT 506"; equip[16].property1 = "命中"; equip[16].down1 = 1; equip[16].up1 = 1; equip[16].property2 = "伤害"; equip[16].down2 = 1; equip[16].up2 = 1; equip[16].property3 = "射速"; equip[16].down3 = -1; equip[16].up3 = -1; equip[16].type = 2; equip[16].rank = 2;
-            equip[17].name = "全息 - EOT 512"; equip[17].bonus1 = 0.5; equip[17].bonus2 = 0.5; equip[17].property1 = "命中"; equip[17].down1 = 2; equip[17].up1 = Math.Floor(2* (1 + equip[17].bonus1)); equip[17].property2 = "伤害"; equip[17].down2 = 1; equip[17].up2 =Math.Floor( 2* (1 + equip[17].bonus2)); equip[17].property3 = "射速"; equip[17].down3 = -2; equip[17].up3 = -2; equip[17].type = 2; equip[17].rank = 3;
-            equip[18].name = "全息 - EOT 516"; equip[18].bonus1 = 0.4; equip[18].bonus2 = 0.4; equip[18].property1 = "命中"; equip[18].down1 = 3; equip[18].up1 =Math.Floor( 5* (1 + equip[18].bonus1)); equip[18].property2 = "伤害"; equip[18].down2 = 2; equip[18].up2 = Math.Floor(3* (1 + equip[18].bonus2)); equip[18].property3 = "射速"; equip[18].down3 = -4; equip[18].up3 = -3; equip[18].type = 2; equip[18].rank = 4;
-            equip[19].name = "全息 - EOT 518"; equip[19].bonus1 = 0.4; equip[19].bonus2 = 0.4; equip[19].property1 = "命中"; equip[19].down1 = 6; equip[19].up1 = Math.Floor(10 * (1 + equip[19].bonus1)); equip[19].property2 = "伤害"; equip[19].down2 = 4; equip[19].up2 = Math.Floor(6 * (1 + equip[19].bonus2)); equip[19].property3 = "射速"; equip[19].down3 = -6; equip[19].up3 = -4; equip[19].type = 2; equip[19].rank = 5; 
+            equip[17].name = "全息 - EOT 512"; equip[17].bonus1 = 0.5; equip[17].bonus2 = 0.5; equip[17].property1 = "命中"; equip[17].down1 = 2; equip[17].up1 = Math.Floor(2 * (1 + equip[17].bonus1)); equip[17].property2 = "伤害"; equip[17].down2 = 1; equip[17].up2 = Math.Floor(2 * (1 + equip[17].bonus2)); equip[17].property3 = "射速"; equip[17].down3 = -2; equip[17].up3 = -2; equip[17].type = 2; equip[17].rank = 3;
+            equip[18].name = "全息 - EOT 516"; equip[18].bonus1 = 0.4; equip[18].bonus2 = 0.4; equip[18].property1 = "命中"; equip[18].down1 = 3; equip[18].up1 = Math.Floor(5 * (1 + equip[18].bonus1)); equip[18].property2 = "伤害"; equip[18].down2 = 2; equip[18].up2 = Math.Floor(3 * (1 + equip[18].bonus2)); equip[18].property3 = "射速"; equip[18].down3 = -4; equip[18].up3 = -3; equip[18].type = 2; equip[18].rank = 4;
+            equip[19].name = "全息 - EOT 518"; equip[19].bonus1 = 0.4; equip[19].bonus2 = 0.4; equip[19].property1 = "命中"; equip[19].down1 = 6; equip[19].up1 = Math.Floor(10 * (1 + equip[19].bonus1)); equip[19].property2 = "伤害"; equip[19].down2 = 4; equip[19].up2 = Math.Floor(6 * (1 + equip[19].bonus2)); equip[19].property3 = "射速"; equip[19].down3 = -6; equip[19].up3 = -4; equip[19].type = 2; equip[19].rank = 5;
             equip[20].name = "ACOG - AMP COMPM2"; equip[20].property1 = "命中"; equip[20].down1 = 2; equip[20].up1 = 3; equip[20].property2 = "射速"; equip[20].down2 = -1; equip[20].up2 = -1; equip[20].type = 3; equip[20].rank = 2;
-            equip[21].name = "ACOG - AMP COMPM4"; equip[21].bonus1 = 1; equip[21].property1 = "命中"; equip[21].down1 = 4; equip[21].up1 = Math.Floor(6* (1 + equip[21].bonus1)); equip[21].property2 = "射速"; equip[21].down2 = -2; equip[21].up2 = -1; equip[21].type = 3; equip[21].rank = 3;
-            equip[22].name = "ACOG - COG M150"; equip[22].bonus1 = 1; equip[22].property1 = "命中"; equip[22].down1 = 7; equip[22].up1 =Math.Floor( 10* (1 + equip[22].bonus1)); equip[22].property2 = "射速"; equip[22].down2 = -3; equip[22].up2 = -1; equip[22].type = 3; equip[22].rank = 4;
-            equip[23].name = "ACOG - ITI MARS"; equip[23].bonus1 = 1; equip[23].property1 = "命中"; equip[23].down1 = 11; equip[23].up1 = Math.Floor(15 * (1 + equip[23].bonus1)); equip[23].property2 = "射速"; equip[23].down2 = -4; equip[23].up2 = -1; equip[23].type = 3; equip[23].rank = 5; 
+            equip[21].name = "ACOG - AMP COMPM4"; equip[21].bonus1 = 1; equip[21].property1 = "命中"; equip[21].down1 = 4; equip[21].up1 = Math.Floor(6 * (1 + equip[21].bonus1)); equip[21].property2 = "射速"; equip[21].down2 = -2; equip[21].up2 = -1; equip[21].type = 3; equip[21].rank = 3;
+            equip[22].name = "ACOG - COG M150"; equip[22].bonus1 = 1; equip[22].property1 = "命中"; equip[22].down1 = 7; equip[22].up1 = Math.Floor(10 * (1 + equip[22].bonus1)); equip[22].property2 = "射速"; equip[22].down2 = -3; equip[22].up2 = -1; equip[22].type = 3; equip[22].rank = 4;
+            equip[23].name = "ACOG - ITI MARS"; equip[23].bonus1 = 1; equip[23].property1 = "命中"; equip[23].down1 = 11; equip[23].up1 = Math.Floor(15 * (1 + equip[23].bonus1)); equip[23].property2 = "射速"; equip[23].down2 = -4; equip[23].up2 = -1; equip[23].type = 3; equip[23].rank = 5;
             equip[24].name = "夜视 - PEQ-2"; equip[24].property1 = "夜视抵消"; equip[24].down1 = 51; equip[24].up1 = 55; equip[24].type = 4; equip[24].rank = 2;
             equip[25].name = "夜视 - PEQ-5"; equip[25].property1 = "夜视抵消"; equip[25].down1 = 61; equip[25].up1 = 70; equip[25].type = 4; equip[25].rank = 3;
             equip[26].name = "夜视 - PEQ-15"; equip[26].property1 = "夜视抵消"; equip[26].down1 = 76; equip[26].up1 = 85; equip[26].type = 4; equip[26].rank = 4;
@@ -3007,32 +3020,32 @@ namespace snqxap
             equip[29].name = "16Lab红外指示器"; equip[29].property1 = "夜视抵消"; equip[29].down1 = 100; equip[29].up1 = 100; equip[29].type = 4; equip[29].rank = 5;
             equip[30].name = " "; equip[30].type = 13; equip[30].rank = 2; equip[30].forwhat = "-1";
             equip[31].name = "IOP X1外骨骼"; equip[31].property1 = "回避"; equip[31].down1 = 2; equip[31].up1 = 3; equip[31].type = 10; equip[31].rank = 2;
-            equip[32].name = "IOP X2外骨骼"; equip[32].bonus1 = 0.8; equip[32].property1 = "回避"; equip[32].down1 = 4; equip[32].up1 =Math.Floor( 5* (1 + equip[32].bonus1)); equip[32].type = 10; equip[32].rank = 3;
-            equip[33].name = "IOP X3外骨骼"; equip[33].bonus1 = 0.9; equip[33].property1 = "回避"; equip[33].down1 = 6; equip[33].up1 =Math.Floor( 7* (1 + equip[33].bonus1)); equip[33].type = 10; equip[33].rank = 4;
+            equip[32].name = "IOP X2外骨骼"; equip[32].bonus1 = 0.8; equip[32].property1 = "回避"; equip[32].down1 = 4; equip[32].up1 = Math.Floor(5 * (1 + equip[32].bonus1)); equip[32].type = 10; equip[32].rank = 3;
+            equip[33].name = "IOP X3外骨骼"; equip[33].bonus1 = 0.9; equip[33].property1 = "回避"; equip[33].down1 = 6; equip[33].up1 = Math.Floor(7 * (1 + equip[33].bonus1)); equip[33].type = 10; equip[33].rank = 4;
             equip[34].name = "IOP X4外骨骼"; equip[34].bonus1 = 0.7; equip[34].property1 = "回避"; equip[34].down1 = 8; equip[34].up1 = Math.Floor(12 * (1 + equip[34].bonus1)); equip[34].type = 10; equip[34].rank = 5;
             equip[35].name = "国家竞赛穿甲弹"; equip[35].bonus1 = 0.3; equip[35].bonus2 = 0.5; equip[35].property1 = "射速"; equip[35].down1 = 1; equip[35].up1 = Math.Floor(8 * (1 + equip[35].bonus1)); equip[35].property2 = "穿甲"; equip[35].down2 = 75; equip[35].up2 = Math.Floor(85 * (1 + equip[35].bonus2)); equip[35].type = 5; equip[35].rank = 5; equip[35].forwhat = "32";
             equip[36].name = ".300BLK高速弹"; equip[36].bonus1 = 0.6; equip[36].property1 = "伤害"; equip[36].down1 = 12; equip[36].up1 = Math.Floor(16 * (1 + equip[36].bonus1)); equip[36].property2 = "命中"; equip[36].down2 = -5; equip[36].up2 = -1; equip[36].type = 8; equip[36].rank = 5; equip[36].forwhat = "52";
             equip[37].name = "Titan火控芯片"; equip[37].bonus3 = 0.5; equip[37].property1 = "伤害"; equip[37].down1 = -4; equip[37].up1 = -2; equip[37].property2 = "射速"; equip[37].down2 = -8; equip[37].up2 = -1; equip[37].property3 = "弹链"; equip[37].down3 = 3; equip[37].up3 = Math.Floor(4 * (1 + equip[37].bonus3)); equip[37].type = 9; equip[37].rank = 5; equip[37].forwhat = "67";
-            equip[38].name = "GSG UX外骨骼"; equip[38].bonus2 = 0.3; equip[38].property1 = "伤害"; equip[38].down1 = -10; equip[38].up1 = -6; equip[38].property2 = "回避"; equip[38].down2 = 30; equip[38].up2 = Math.Floor(45 * (1 + equip[38].bonus2)); equip[38].type = 10; equip[38].rank = 5; equip[38].forwhat = "24"; 
+            equip[38].name = "GSG UX外骨骼"; equip[38].bonus2 = 0.3; equip[38].property1 = "伤害"; equip[38].down1 = -10; equip[38].up1 = -6; equip[38].property2 = "回避"; equip[38].down2 = 30; equip[38].up2 = Math.Floor(45 * (1 + equip[38].bonus2)); equip[38].type = 10; equip[38].rank = 5; equip[38].forwhat = "24";
             equip[39].name = "AC1消音器"; equip[39].property1 = "暴击率"; equip[39].down1 = 4; equip[39].up1 = 5; equip[39].property2 = "回避"; equip[39].down2 = 2; equip[39].up2 = 2; equip[39].type = 13; equip[39].rank = 2;
-            equip[40].name = "AC2消音器"; equip[40].bonus1 = 0.3; equip[40].bonus2 = 0.4; equip[40].property1 = "暴击率"; equip[40].down1 = 6; equip[40].up1 = Math.Floor( 8* (1 + equip[40].bonus1)); equip[40].property2 = "回避"; equip[40].down2 = 3; equip[40].up2 = Math.Floor( 3* (1 + equip[40].bonus2)); equip[40].type = 13; equip[40].rank = 3;
-            equip[41].name = "AC3消音器"; equip[41].bonus1 = 0.3; equip[41].bonus2 = 0.4; equip[41].property1 = "暴击率"; equip[41].down1 = 9; equip[41].up1 =  Math.Floor(11* (1 + equip[41].bonus1)); equip[41].property2 = "回避"; equip[41].down2 = 4; equip[41].up2 = Math.Floor( 5* (1 + equip[41].bonus2)); equip[41].type = 13; equip[41].rank = 4;
+            equip[40].name = "AC2消音器"; equip[40].bonus1 = 0.3; equip[40].bonus2 = 0.4; equip[40].property1 = "暴击率"; equip[40].down1 = 6; equip[40].up1 = Math.Floor(8 * (1 + equip[40].bonus1)); equip[40].property2 = "回避"; equip[40].down2 = 3; equip[40].up2 = Math.Floor(3 * (1 + equip[40].bonus2)); equip[40].type = 13; equip[40].rank = 3;
+            equip[41].name = "AC3消音器"; equip[41].bonus1 = 0.3; equip[41].bonus2 = 0.4; equip[41].property1 = "暴击率"; equip[41].down1 = 9; equip[41].up1 = Math.Floor(11 * (1 + equip[41].bonus1)); equip[41].property2 = "回避"; equip[41].down2 = 4; equip[41].up2 = Math.Floor(5 * (1 + equip[41].bonus2)); equip[41].type = 13; equip[41].rank = 4;
             equip[42].name = "AC4消音器"; equip[42].bonus1 = 0.3; equip[42].bonus2 = 0.3; equip[42].property1 = "暴击率"; equip[42].down1 = 12; equip[42].up1 = Math.Floor(15 * (1 + equip[42].bonus1)); equip[42].property2 = "回避"; equip[42].down2 = 6; equip[42].up2 = Math.Floor(8 * (1 + equip[42].bonus2)); equip[42].type = 13; equip[42].rank = 5;
-            equip[43].name = "IOP大容量弹链箱"; equip[43].bonus1 = 2; equip[43].property1 = "弹链"; equip[43].down1 = 1; equip[43].up1 =Math.Floor( 1* (1 + equip[43].bonus1)); equip[43].property2 = "回避"; equip[43].down2 = -1; equip[43].up2 = -1; equip[43].type = 14; equip[43].rank = 4;
-            equip[44].name = "IOP极限弹链箱"; equip[44].bonus1 = 0.7; equip[44].property1 = "弹链"; equip[44].down1 = 2; equip[44].up1 = Math.Floor(3 * (1 + equip[44].bonus1)); equip[44].property2 = "回避"; equip[44].down2 = -3; equip[44].up2 = -2; equip[44].type = 14; equip[44].rank = 5; 
+            equip[43].name = "IOP大容量弹链箱"; equip[43].bonus1 = 2; equip[43].property1 = "弹链"; equip[43].down1 = 1; equip[43].up1 = Math.Floor(1 * (1 + equip[43].bonus1)); equip[43].property2 = "回避"; equip[43].down2 = -1; equip[43].up2 = -1; equip[43].type = 14; equip[43].rank = 4;
+            equip[44].name = "IOP极限弹链箱"; equip[44].bonus1 = 0.7; equip[44].property1 = "弹链"; equip[44].down1 = 2; equip[44].up1 = Math.Floor(3 * (1 + equip[44].bonus1)); equip[44].property2 = "回避"; equip[44].down2 = -3; equip[44].up2 = -2; equip[44].type = 14; equip[44].rank = 5;
             equip[45].name = "ILM二星空尖弹"; equip[45].property1 = "伤害"; equip[45].down1 = 1; equip[45].up1 = 1; equip[45].property2 = "穿甲"; equip[45].down2 = -1; equip[45].up2 = -1; equip[45].type = 6; equip[45].rank = 2;
-            equip[46].name = "ILM三星空尖弹"; equip[46].bonus1 = 0.7; equip[46].property1 = "伤害"; equip[46].down1 = 2; equip[46].up1 =Math.Floor(  3* (1 + equip[46].bonus1)); equip[46].property2 = "穿甲"; equip[46].down2 = -3; equip[46].up2 = -2; equip[46].type = 6; equip[46].rank = 3;
-            equip[47].name = "ILM四星空尖弹"; equip[47].bonus1 = 0.5; equip[47].property1 = "伤害"; equip[47].down1 = 4; equip[47].up1 = Math.Floor( 6* (1 + equip[47].bonus1)); equip[47].property2 = "穿甲"; equip[47].down2 = -6; equip[47].up2 = -4; equip[47].type = 6; equip[47].rank = 4;
-            equip[48].name = "ILM五星空尖弹"; equip[48].bonus1 = 0.5; equip[48].property1 = "伤害"; equip[48].down1 = 7; equip[48].up1 = Math.Floor(10 * (1 + equip[48].bonus1)); equip[48].property2 = "穿甲"; equip[48].down2 = -10; equip[48].up2 = -7; equip[48].type = 6; equip[48].rank = 5; 
+            equip[46].name = "ILM三星空尖弹"; equip[46].bonus1 = 0.7; equip[46].property1 = "伤害"; equip[46].down1 = 2; equip[46].up1 = Math.Floor(3 * (1 + equip[46].bonus1)); equip[46].property2 = "穿甲"; equip[46].down2 = -3; equip[46].up2 = -2; equip[46].type = 6; equip[46].rank = 3;
+            equip[47].name = "ILM四星空尖弹"; equip[47].bonus1 = 0.5; equip[47].property1 = "伤害"; equip[47].down1 = 4; equip[47].up1 = Math.Floor(6 * (1 + equip[47].bonus1)); equip[47].property2 = "穿甲"; equip[47].down2 = -6; equip[47].up2 = -4; equip[47].type = 6; equip[47].rank = 4;
+            equip[48].name = "ILM五星空尖弹"; equip[48].bonus1 = 0.5; equip[48].property1 = "伤害"; equip[48].down1 = 7; equip[48].up1 = Math.Floor(10 * (1 + equip[48].bonus1)); equip[48].property2 = "穿甲"; equip[48].down2 = -10; equip[48].up2 = -7; equip[48].type = 6; equip[48].rank = 5;
             equip[49].name = "#1猎鹿弹"; equip[49].property1 = "伤害"; equip[49].down1 = 1; equip[49].up1 = 1; equip[49].property2 = "暴击伤害"; equip[49].down2 = 3; equip[49].up2 = 4; equip[49].type = 7; equip[49].rank = 2;
-            equip[50].name = "#0猎鹿弹"; equip[50].bonus1 = 0.5; equip[50].bonus2 = 0.5; equip[50].property1 = "伤害"; equip[50].down1 = 2; equip[50].up1 =Math.Floor(  3* (1 + equip[50].bonus1)); equip[50].property2 = "暴击伤害"; equip[50].down2 = 5; equip[50].up2 = Math.Floor( 6* (1 + equip[50].bonus2)); equip[50].type = 7; equip[50].rank = 3;
-            equip[51].name = "#00猎鹿弹"; equip[51].bonus1 = 0.5; equip[51].bonus2 = 0.6; equip[51].property1 = "伤害"; equip[51].down1 = 4; equip[51].up1 = Math.Floor( 6* (1 + equip[51].bonus1)); equip[51].property2 = "暴击伤害"; equip[51].down2 = 7; equip[51].up2 = Math.Floor( 9* (1 + equip[51].bonus2)); equip[51].type = 7; equip[51].rank = 4;
-            equip[52].name = "#000猎鹿弹"; equip[52].bonus1 = 0.5; equip[52].bonus2 = 0.5; equip[52].property1 = "伤害"; equip[52].down1 = 7; equip[52].up1 = Math.Floor( 10* (1 + equip[52].bonus1)); equip[52].property2 = "暴击伤害"; equip[52].down2 = 10; equip[52].up2 = Math.Floor( 15* (1 + equip[52].bonus2)); equip[52].type = 7; equip[52].rank = 5;
+            equip[50].name = "#0猎鹿弹"; equip[50].bonus1 = 0.5; equip[50].bonus2 = 0.5; equip[50].property1 = "伤害"; equip[50].down1 = 2; equip[50].up1 = Math.Floor(3 * (1 + equip[50].bonus1)); equip[50].property2 = "暴击伤害"; equip[50].down2 = 5; equip[50].up2 = Math.Floor(6 * (1 + equip[50].bonus2)); equip[50].type = 7; equip[50].rank = 3;
+            equip[51].name = "#00猎鹿弹"; equip[51].bonus1 = 0.5; equip[51].bonus2 = 0.6; equip[51].property1 = "伤害"; equip[51].down1 = 4; equip[51].up1 = Math.Floor(6 * (1 + equip[51].bonus1)); equip[51].property2 = "暴击伤害"; equip[51].down2 = 7; equip[51].up2 = Math.Floor(9 * (1 + equip[51].bonus2)); equip[51].type = 7; equip[51].rank = 4;
+            equip[52].name = "#000猎鹿弹"; equip[52].bonus1 = 0.5; equip[52].bonus2 = 0.5; equip[52].property1 = "伤害"; equip[52].down1 = 7; equip[52].up1 = Math.Floor(10 * (1 + equip[52].bonus1)); equip[52].property2 = "暴击伤害"; equip[52].down2 = 10; equip[52].up2 = Math.Floor(15 * (1 + equip[52].bonus2)); equip[52].type = 7; equip[52].rank = 5;
             equip[57].name = "16Lab奖励鹿弹"; equip[57].bonus1 = 0.5; equip[57].bonus2 = 0.5; equip[57].property1 = "伤害"; equip[57].down1 = 10; equip[57].up1 = Math.Floor(10 * (1 + equip[57].bonus1)); equip[57].property2 = "暴击伤害"; equip[57].down2 = 15; equip[57].up2 = Math.Floor(15 * (1 + equip[57].bonus2)); equip[57].type = 7; equip[57].rank = 5;
             equip[53].name = "BK独头弹"; equip[53].property1 = "命中"; equip[53].down1 = 1; equip[53].up1 = 2; equip[53].property2 = "目标"; equip[53].down2 = -2; equip[53].up2 = -2; equip[53].type = 7; equip[53].rank = 2;
-            equip[54].name = "FST独头弹"; equip[54].bonus1 = 1; equip[54].property1 = "命中"; equip[54].down1 = 3; equip[54].up1 = Math.Floor( 4 * (1 + equip[54].bonus1)); equip[54].property2 = "目标"; equip[54].down2 = -2; equip[54].up2 = -2; equip[54].type = 7; equip[54].rank = 3;
-            equip[55].name = "WAD独头弹"; equip[55].bonus1 = 0.9; equip[55].property1 = "命中"; equip[55].down1 = 5; equip[55].up1 =  Math.Floor(7 * (1 + equip[55].bonus1)); equip[55].property2 = "目标"; equip[55].down2 = -2; equip[55].up2 = -2; equip[55].type = 7; equip[55].rank = 4;
-            equip[56].name = "SABOT独头弹"; equip[56].bonus1 = 0.7; equip[56].property1 = "命中"; equip[56].down1 = 8; equip[56].up1 = Math.Floor( 12 * (1 + equip[56].bonus1)); equip[56].property2 = "目标"; equip[56].down2 = -2; equip[56].up2 = -2; equip[56].type = 7; equip[56].rank = 5;
+            equip[54].name = "FST独头弹"; equip[54].bonus1 = 1; equip[54].property1 = "命中"; equip[54].down1 = 3; equip[54].up1 = Math.Floor(4 * (1 + equip[54].bonus1)); equip[54].property2 = "目标"; equip[54].down2 = -2; equip[54].up2 = -2; equip[54].type = 7; equip[54].rank = 3;
+            equip[55].name = "WAD独头弹"; equip[55].bonus1 = 0.9; equip[55].property1 = "命中"; equip[55].down1 = 5; equip[55].up1 = Math.Floor(7 * (1 + equip[55].bonus1)); equip[55].property2 = "目标"; equip[55].down2 = -2; equip[55].up2 = -2; equip[55].type = 7; equip[55].rank = 4;
+            equip[56].name = "SABOT独头弹"; equip[56].bonus1 = 0.7; equip[56].property1 = "命中"; equip[56].down1 = 8; equip[56].up1 = Math.Floor(12 * (1 + equip[56].bonus1)); equip[56].property2 = "目标"; equip[56].down2 = -2; equip[56].up2 = -2; equip[56].type = 7; equip[56].rank = 5;
             if (DateTime.Now > DateTime.Parse("2017-03-01"))
             {
                 equip[58].name = "KSTSP"; equip[58].bonus1 = 0.5; equip[58].bonus2 = 0.1; equip[58].property1 = "暴击率"; equip[58].down1 = 32; equip[58].up1 = Math.Floor(32 * (1 + equip[58].bonus1)); equip[58].property2 = "暴击伤害"; equip[58].down2 = 40; equip[58].up2 = Math.Floor(40 * (1 + equip[58].bonus2)); equip[58].type = 1; equip[58].rank = 5; equip[58].forwhat = "53,60";
@@ -3049,33 +3062,33 @@ namespace snqxap
             equip[68].name = "城市迷彩披风"; equip[68].bonus1 = 0.8; equip[68].property1 = "暴击伤害"; equip[68].down1 = 8; equip[68].up1 = Math.Floor(10 * (1 + equip[68].bonus1)); equip[68].property2 = "移速"; equip[68].down2 = -3; equip[68].up2 = -3; equip[68].type = 15; equip[68].rank = 4;
             equip[69].name = "热光学迷彩披风"; equip[69].bonus1 = 0.7; equip[69].property1 = "暴击伤害"; equip[69].down1 = 11; equip[69].up1 = Math.Floor(15 * (1 + equip[69].bonus1)); equip[69].property2 = "移速"; equip[69].down2 = -3; equip[69].up2 = -3; equip[69].type = 15; equip[69].rank = 5;
 
-            equip[70].name = "特殊战机动装甲"; equip[70].bonus1 = 0.3; equip[70].bonus2 = 0.3; equip[70].property1 = "回避"; equip[70].down1 = 8; equip[70].up1 = Math.Floor(8 * (1 + equip[70].bonus1)); equip[70].property2 = "护甲"; equip[70].down2 = 15; equip[70].up2 = Math.Floor(15 * (1 + equip[70].bonus2)); equip[70].property3 = "命中-20,射速-10"; equip[70].down3 = -20; equip[70].up3 = -20;equip[70].type = 11; equip[70].rank = 5; equip[70].forwhat = "49";
+            equip[70].name = "特殊战机动装甲"; equip[70].bonus1 = 0.3; equip[70].bonus2 = 0.3; equip[70].property1 = "回避"; equip[70].down1 = 8; equip[70].up1 = Math.Floor(8 * (1 + equip[70].bonus1)); equip[70].property2 = "护甲"; equip[70].down2 = 15; equip[70].up2 = Math.Floor(15 * (1 + equip[70].bonus2)); equip[70].property3 = "命中-20,射速-10"; equip[70].down3 = -20; equip[70].up3 = -20; equip[70].type = 11; equip[70].rank = 5; equip[70].forwhat = "49";
             equip[71].name = "UMP UX外骨骼"; equip[71].bonus1 = 0.4; equip[71].bonus2 = 0.7; equip[71].property1 = "回避"; equip[71].down1 = 20; equip[71].up1 = Math.Floor(25 * (1 + equip[71].bonus1)); equip[71].property2 = "暴击伤害"; equip[71].down2 = 11; equip[71].up2 = Math.Floor(15 * (1 + equip[71].bonus2)); equip[71].type = 10; equip[71].rank = 5; equip[71].forwhat = "91,92,163";
             if (DateTime.Now > DateTime.Parse("2017-08-31"))
             {
                 equip[72].name = "PKN03M夜视瞄具"; equip[72].bonus2 = 0.6; equip[72].property1 = "夜视抵消"; equip[72].down1 = 100; equip[72].up1 = 100; equip[72].property2 = "伤害"; equip[72].down2 = 4; equip[72].up2 = Math.Floor(4 * (1 + equip[72].bonus2)); equip[72].type = 4; equip[72].rank = 5; equip[72].forwhat = "107";
             }
-            
-            for (int i = 0; i < EQUIP_NUMBER;i++ )
+
+            for (int i = 0; i < EQUIP_NUMBER; i++)
             {
                 if (!String.IsNullOrEmpty(equip[i].property1))
                 {
                     equip[i].tooltip += equip[i].property1;
-                    if(equip[i].down1 > 0)
+                    if (equip[i].down1 > 0)
                         equip[i].tooltip += "+";
                     equip[i].tooltip += equip[i].down1;
-                    if(equip[i].property1=="夜视抵消")
+                    if (equip[i].property1 == "夜视抵消")
                         equip[i].tooltip += "%";
                     equip[i].tooltip += " 至 ";
                     if (equip[i].up1 > 0)
                         equip[i].tooltip += "+";
                     equip[i].tooltip += equip[i].up1;
                     if (equip[i].property1 == "夜视抵消")
-                        equip[i].tooltip += "%";         
+                        equip[i].tooltip += "%";
                 }
-                if(!String.IsNullOrEmpty(equip[i].property2))
+                if (!String.IsNullOrEmpty(equip[i].property2))
                 {
-                    equip[i].tooltip +=" "+ equip[i].property2;
+                    equip[i].tooltip += " " + equip[i].property2;
                     if (equip[i].down2 > 0)
                         equip[i].tooltip += "+";
                     equip[i].tooltip += equip[i].down2;
@@ -3084,11 +3097,11 @@ namespace snqxap
                     equip[i].tooltip += " 至 ";
                     if (equip[i].up2 > 0)
                         equip[i].tooltip += "+";
-                    equip[i].tooltip += equip[i].up2 ;
+                    equip[i].tooltip += equip[i].up2;
                     if (equip[i].property2 == "暴击伤害")
                         equip[i].tooltip += "%";
                 }
-                if(!String.IsNullOrEmpty(equip[i].property3))
+                if (!String.IsNullOrEmpty(equip[i].property3))
                 {
                     if (equip[i].property3 == "命中-20,射速-10")
                     {
@@ -3105,10 +3118,10 @@ namespace snqxap
                             equip[i].tooltip += "+";
                         equip[i].tooltip += equip[i].up3;
                     }
-                }             
+                }
             }
 
-                gridlist[0].Add(buffGrid01); gridlist[0].Add(buffGrid02); gridlist[0].Add(buffGrid03); gridlist[0].Add(buffGrid04); gridlist[0].Add(buffGrid05); gridlist[0].Add(buffGrid06); gridlist[0].Add(buffGrid07); gridlist[0].Add(buffGrid08); gridlist[0].Add(buffGrid09);
+            gridlist[0].Add(buffGrid01); gridlist[0].Add(buffGrid02); gridlist[0].Add(buffGrid03); gridlist[0].Add(buffGrid04); gridlist[0].Add(buffGrid05); gridlist[0].Add(buffGrid06); gridlist[0].Add(buffGrid07); gridlist[0].Add(buffGrid08); gridlist[0].Add(buffGrid09);
             gridlist[1].Add(buffGrid11); gridlist[1].Add(buffGrid12); gridlist[1].Add(buffGrid13); gridlist[1].Add(buffGrid14); gridlist[1].Add(buffGrid15); gridlist[1].Add(buffGrid16); gridlist[1].Add(buffGrid17); gridlist[1].Add(buffGrid18); gridlist[1].Add(buffGrid19);
             gridlist[2].Add(buffGrid21); gridlist[2].Add(buffGrid22); gridlist[2].Add(buffGrid23); gridlist[2].Add(buffGrid24); gridlist[2].Add(buffGrid25); gridlist[2].Add(buffGrid26); gridlist[2].Add(buffGrid27); gridlist[2].Add(buffGrid28); gridlist[2].Add(buffGrid29);
             gridlist[3].Add(buffGrid31); gridlist[3].Add(buffGrid32); gridlist[3].Add(buffGrid33); gridlist[3].Add(buffGrid34); gridlist[3].Add(buffGrid35); gridlist[3].Add(buffGrid36); gridlist[3].Add(buffGrid37); gridlist[3].Add(buffGrid38); gridlist[3].Add(buffGrid39);
@@ -3143,12 +3156,13 @@ namespace snqxap
                 fairy[18].name = "黄金妖精"; fairy[18].pow = 60; fairy[18].hit = 58; fairy[18].dodge = 58; fairy[18].armor = 56; fairy[18].critharm = 58; fairy[18].grow = 320; fairy[18].type = 900117;
             }
             for (int i = 0; i < FAIRY_NUMBER; i++)
-            { fairynamecombo.Items.Add(BrushEquipCombobox(2, fairy[i].name));
+            {
+                fairynamecombo.Items.Add(BrushEquipCombobox(2, fairy[i].name));
                 fairy[i].powbuff = 1; fairy[i].armorbuff = 1; fairy[i].dodgebuff = 1; fairy[i].hitbuff = 1; fairy[i].critharmbuff = 1;
 
             }
-          //  fairynamecombo.Items.Add(BrushEquipCombobox(2, fairy[1].name));
-            for (int i = 1; i <= 100;i++ )
+            //  fairynamecombo.Items.Add(BrushEquipCombobox(2, fairy[1].name));
+            for (int i = 1; i <= 100; i++)
                 fairylevel.Items.Add(i);
             for (int i = 1; i <= 10; i++)
                 fairyskilllevel.Items.Add(i);
@@ -3212,43 +3226,43 @@ namespace snqxap
         /// <param name="grid">临近格在该格的哪个方向（电脑小键盘）</param>
         /// <param name="ggi">哪一格</param>
         /// <param name="ggf">从哪一格</param>
-        public void othercombochange(int nextselect,int select,int grid,int ggi,int ggf)
+        public void othercombochange(int nextselect, int select, int grid, int ggi, int ggf)
         {
             switch (gun[nextselect].number)
             {
-                      
+
                 case 1:
                     {
                         if (gun[nextselect].effect0 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
-                            }
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
+                        }
                         break;
                     }
                 case 2:
                     {
                         if (gun[nextselect].effect0 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect1 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         break;
                     }
@@ -3256,30 +3270,30 @@ namespace snqxap
                     {
                         if (gun[nextselect].effect0 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect1 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect2 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         break;
                     }
@@ -3287,39 +3301,39 @@ namespace snqxap
                     {
                         if (gun[nextselect].effect0 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect1 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect2 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect3 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         break;
                     }
@@ -3327,48 +3341,48 @@ namespace snqxap
                     {
                         if (gun[nextselect].effect0 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect1 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect2 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect3 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect4 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         break;
                     }
@@ -3376,57 +3390,57 @@ namespace snqxap
                     {
                         if (gun[nextselect].effect0 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect1 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect2 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect3 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect4 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect5 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         break;
                     }
@@ -3434,66 +3448,66 @@ namespace snqxap
                     {
                         if (gun[nextselect].effect0 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect1 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect2 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect3 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect4 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect5 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect6 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         break;
                     }
@@ -3501,75 +3515,75 @@ namespace snqxap
                     {
                         if (gun[nextselect].effect0 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect1 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect2 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect3 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect4 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect5 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect6 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         else if (gun[nextselect].effect7 == grid && (gun[nextselect].to == gun[select].what || gun[nextselect].to == 1))
                         {
-                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf] ; 
-                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf] ; 
-                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf] ; 
-                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf] ; 
-                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf] ; 
-                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf] ;   gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf] ; 
+                            gg[ggi].critup += gun[nextselect].critup * multiple[ggf];
+                            gg[ggi].damageup += gun[nextselect].damageup * multiple[ggf];
+                            gg[ggi].dodgeup += gun[nextselect].dodgeup * multiple[ggf];
+                            gg[ggi].shotspeedup += gun[nextselect].shotspeedup * multiple[ggf];
+                            gg[ggi].hitup += gun[nextselect].hitup * multiple[ggf];
+                            gg[ggi].rateup -= gun[nextselect].rateup * multiple[ggf]; gg[ggi].armorup += gun[nextselect].armorup * multiple[ggf];
                         }
                         break;
                     }
@@ -3586,15 +3600,15 @@ namespace snqxap
         public void renewindex(int comboi)
         {
             int select = 0;
-            switch(comboi)
+            switch (comboi)
             {
                 case 0:
                     {
-                        
-                       select = Combo0.SelectedIndex;
+
+                        select = Combo0.SelectedIndex;
                         int levelselect = Level0.SelectedIndex;
                         int skillselect = SkillLevel0.SelectedIndex;
-                        calclevel(select, levelselect, 0,skillselect);                     
+                        calclevel(select, levelselect, 0, skillselect);
                         break;
                     }
                 case 1:
@@ -3602,7 +3616,7 @@ namespace snqxap
                         select = Combo1.SelectedIndex;
                         int levelselect = Level1.SelectedIndex;
                         int skillselect = SkillLevel1.SelectedIndex;
-                        calclevel(select, levelselect, 1,skillselect);
+                        calclevel(select, levelselect, 1, skillselect);
                         break;
                     }
                 case 2:
@@ -3610,7 +3624,7 @@ namespace snqxap
                         select = Combo2.SelectedIndex;
                         int levelselect = Level2.SelectedIndex;
                         int skillselect = SkillLevel2.SelectedIndex;
-                        calclevel(select, levelselect, 2,skillselect);
+                        calclevel(select, levelselect, 2, skillselect);
                         break;
                     }
                 case 3:
@@ -3618,7 +3632,7 @@ namespace snqxap
                         select = Combo3.SelectedIndex;
                         int levelselect = Level3.SelectedIndex;
                         int skillselect = SkillLevel3.SelectedIndex;
-                        calclevel(select, levelselect, 3,skillselect);
+                        calclevel(select, levelselect, 3, skillselect);
                         break;
                     }
                 case 4:
@@ -3626,7 +3640,7 @@ namespace snqxap
                         select = Combo4.SelectedIndex;
                         int levelselect = Level4.SelectedIndex;
                         int skillselect = SkillLevel4.SelectedIndex;
-                        calclevel(select, levelselect, 4,skillselect);
+                        calclevel(select, levelselect, 4, skillselect);
                         break;
                     }
                 case 5:
@@ -3634,7 +3648,7 @@ namespace snqxap
                         select = Combo5.SelectedIndex;
                         int levelselect = Level5.SelectedIndex;
                         int skillselect = SkillLevel5.SelectedIndex;
-                        calclevel(select, levelselect, 5,skillselect);
+                        calclevel(select, levelselect, 5, skillselect);
                         break;
                     }
                 case 6:
@@ -3642,7 +3656,7 @@ namespace snqxap
                         select = Combo6.SelectedIndex;
                         int levelselect = Level6.SelectedIndex;
                         int skillselect = SkillLevel6.SelectedIndex;
-                        calclevel(select, levelselect, 6,skillselect);
+                        calclevel(select, levelselect, 6, skillselect);
                         break;
                     }
                 case 7:
@@ -3650,7 +3664,7 @@ namespace snqxap
                         select = Combo7.SelectedIndex;
                         int levelselect = Level7.SelectedIndex;
                         int skillselect = SkillLevel7.SelectedIndex;
-                        calclevel(select, levelselect, 7,skillselect);
+                        calclevel(select, levelselect, 7, skillselect);
                         break;
                     }
                 case 8:
@@ -3658,52 +3672,52 @@ namespace snqxap
                         select = Combo8.SelectedIndex;
                         int levelselect = Level8.SelectedIndex;
                         int skillselect = SkillLevel8.SelectedIndex;
-                        calclevel(select, levelselect, 8,skillselect);
+                        calclevel(select, levelselect, 8, skillselect);
                         break;
                     }
                 default:
                     break;
             }
         }
-       /// <summary>
-       /// 计算伤害指数
-       /// </summary>
-       /// <param name="shotspeed">射速</param>
-       /// <param name="damage">伤害</param>
-       /// <param name="crit">暴击</param>
-       /// <param name="enemydodge">敌方回避</param>
-       /// <param name="hit">命中</param>
-       /// <param name="belt">弹链</param>
-       /// <param name="combo">哪一格（目前没有用该参数）</param>
-       /// <param name="damageagain">是否有二次伤害（对应突击者之眼）</param>
-       /// <returns></returns>
-        public double Index(double shotspeed,double damage,double crit,double enemydodge,double hit,double belt,int combo,double damageagain)
-       {
-           double frame = Math.Ceiling(50 / shotspeed / 0.03333334);
+        /// <summary>
+        /// 计算伤害指数
+        /// </summary>
+        /// <param name="shotspeed">射速</param>
+        /// <param name="damage">伤害</param>
+        /// <param name="crit">暴击</param>
+        /// <param name="enemydodge">敌方回避</param>
+        /// <param name="hit">命中</param>
+        /// <param name="belt">弹链</param>
+        /// <param name="combo">哪一格（目前没有用该参数）</param>
+        /// <param name="damageagain">是否有二次伤害（对应突击者之眼）</param>
+        /// <returns></returns>
+        public double Index(double shotspeed, double damage, double crit, double enemydodge, double hit, double belt, int combo, double damageagain)
+        {
+            double frame = Math.Ceiling(50 / shotspeed / 0.03333334);
             double slidertime = slider.Value;
             if (slidertime == 0)
                 slidertime = 1;
             if (hit == 0)
                 return 0;
             else if (belt == 0)
-                return 30 * damage / frame * (1 - crit + crit * (1.5+equipcritharm[combo])) / (1 + enemydodge / hit) * damageagain;
-            else if(belt > 7) 
+                return 30 * damage / frame * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) * damageagain;
+            else if (belt > 7)
             {
-             
+
                 if (slidertime != 0)
                 {
-                   // if (skillupbelt[combo] != 0)
-                   // {
-                   //     double shottime1 = (double)belt / 3;
-                   //     double roletime1 = (double)belt / 3 + 4 + 200 / shotspeed;
-                   //     double shottime0 = (double)(belt - skillupbelt[combo]) / 3;
-                   //     double roletime0 = (double)(belt - skillupbelt[combo]) / 3 + 4 + 200 / shotspeed;
-                    
-                   ////     skilltime[combo]
-                   //            double role = Math.Ceiling(slidertime / roletime0);
-                   //            double skillrole = Math.Ceiling(skilltime[combo]/roletime0);
+                    // if (skillupbelt[combo] != 0)
+                    // {
+                    //     double shottime1 = (double)belt / 3;
+                    //     double roletime1 = (double)belt / 3 + 4 + 200 / shotspeed;
+                    //     double shottime0 = (double)(belt - skillupbelt[combo]) / 3;
+                    //     double roletime0 = (double)(belt - skillupbelt[combo]) / 3 + 4 + 200 / shotspeed;
 
-                   // }
+                    ////     skilltime[combo]
+                    //            double role = Math.Ceiling(slidertime / roletime0);
+                    //            double skillrole = Math.Ceiling(skilltime[combo]/roletime0);
+
+                    // }
                     double shottime = (double)belt / 3;
                     double roletime = (double)belt / 3 + 4 + 200 / shotspeed;
 
@@ -3716,7 +3730,7 @@ namespace snqxap
                         {
                             if (role > 4)
                             {
-                                return (shottime - (slidertime % roletime)) * 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) * Math.Pow(1 +  skillupnegev[combo],3);
+                                return (shottime - (slidertime % roletime)) * 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) * Math.Pow(1 + skillupnegev[combo], 3);
 
                             }
                             else
@@ -3730,7 +3744,7 @@ namespace snqxap
 
                             }
                             else
-                                return (((slidertime + 1) % roletime)) * 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) * Math.Pow(1 + skillupnegev[combo],(role - 1));
+                                return (((slidertime + 1) % roletime)) * 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) * Math.Pow(1 + skillupnegev[combo], (role - 1));
 
                         }
                         else
@@ -3740,7 +3754,7 @@ namespace snqxap
                                 return 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) * Math.Pow(1 + skillupnegev[combo], 3);
                             }
                             else
-                                return 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) * Math.Pow(1+  skillupnegev[combo], (role - 1));
+                                return 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) * Math.Pow(1 + skillupnegev[combo], (role - 1));
                         }
 
                     }
@@ -3751,7 +3765,7 @@ namespace snqxap
                             return 0;
                         else if ((slidertime + 1) % roletime > shottime)
                         {
-                            return (shottime - (slidertime % roletime)) * 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo]))  / (1 + enemydodge / hit) + (shottime - (slidertime % roletime)) * 3 * skillupboom[combo] * (1 - crit + crit * (1.5 + equipcritharm[combo])) * (1.5 + equipcritharm[combo]) * damage / (1 + enemydodge / hit);
+                            return (shottime - (slidertime % roletime)) * 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) + (shottime - (slidertime % roletime)) * 3 * skillupboom[combo] * (1 - crit + crit * (1.5 + equipcritharm[combo])) * (1.5 + equipcritharm[combo]) * damage / (1 + enemydodge / hit);
                         }
                         else if ((slidertime + 1) % roletime < 1)
                         {
@@ -3759,7 +3773,7 @@ namespace snqxap
                         }
                         else
                         {
-                            return 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo]))  / (1 + enemydodge / hit) + 3 * skillupboom[combo] * (1 - crit + crit * (1.5 + equipcritharm[combo])) * (1.5 + equipcritharm[combo]) * damage / (1 + enemydodge / hit);
+                            return 3 * damage * (1 - crit + crit * (1.5 + equipcritharm[combo])) / (1 + enemydodge / hit) + 3 * skillupboom[combo] * (1 - crit + crit * (1.5 + equipcritharm[combo])) * (1.5 + equipcritharm[combo]) * damage / (1 + enemydodge / hit);
                         }
                     }
 
@@ -3824,18 +3838,19 @@ namespace snqxap
                 if (slidertime != 0)
                 {
                     int index = 0;
-                    double shottime = (50/shotspeed + 0.5)*belt;
+                    double shottime = (50 / shotspeed + 0.5) * belt;
                     double roletime = 0;
                     switch (combo)
-                    { case 0: { index = Combo0.SelectedIndex; break; }
-                    case 1: { index = Combo1.SelectedIndex; break; }
-                    case 2: { index = Combo2.SelectedIndex; break; }
-                    case 3: { index = Combo3.SelectedIndex; break; }
-                    case 4: { index = Combo4.SelectedIndex; break; }
-                    case 5: { index = Combo5.SelectedIndex; break; }
-                    case 6: { index = Combo6.SelectedIndex; break; }
-                    case 7: { index = Combo7.SelectedIndex; break; }
-                    case 8: { index = Combo8.SelectedIndex; break; }     
+                    {
+                        case 0: { index = Combo0.SelectedIndex; break; }
+                        case 1: { index = Combo1.SelectedIndex; break; }
+                        case 2: { index = Combo2.SelectedIndex; break; }
+                        case 3: { index = Combo3.SelectedIndex; break; }
+                        case 4: { index = Combo4.SelectedIndex; break; }
+                        case 5: { index = Combo5.SelectedIndex; break; }
+                        case 6: { index = Combo6.SelectedIndex; break; }
+                        case 7: { index = Combo7.SelectedIndex; break; }
+                        case 8: { index = Combo8.SelectedIndex; break; }
                     }
                     if (index == 137)
                         roletime = (50 / shotspeed + 0.5) * belt + 1 + belt * 0.5;
@@ -3860,8 +3875,8 @@ namespace snqxap
                         return ((2 * shotdamage + shotdamage / shottime * (slidertime - 2 * roletime)) / slidertime);
                     else
                         return 3 * shotdamage / slidertime;
-                  
-                
+
+
                 }
                 else
                     return 0;
@@ -3874,7 +3889,7 @@ namespace snqxap
         /// <returns></returns>
         string getcombogunname(int combo)
         {
-            switch(combo)
+            switch (combo)
             {
                 case 0:
                     {
@@ -3965,14 +3980,14 @@ namespace snqxap
         /// </summary>
         void calccombo0buff()
         {
-         
+
             gg[0].cleargg();
 
             int index0 = Combo0.SelectedIndex;
             int index1 = Combo1.SelectedIndex;
             int index3 = Combo3.SelectedIndex;
             int index4 = Combo4.SelectedIndex;
-            
+
             int index2 = Combo2.SelectedIndex;
             int index5 = Combo5.SelectedIndex;
             int index8 = Combo8.SelectedIndex;
@@ -3986,7 +4001,7 @@ namespace snqxap
             }
             else
             {
-                if(index1!=-1&&gun[index1].grid_center == 5)
+                if (index1 != -1 && gun[index1].grid_center == 5)
                 {
                     switch (gun[index1].grid_center)
                     {
@@ -3999,9 +4014,9 @@ namespace snqxap
                             //   case 4: { othercombochange(index3, index0, 7, 0, 3); break; }
                             //  case 3: { othercombochange(index2, index0, 1, 0, 2); break; }
                     }
-               
+
                 }
-                if (index3 != -1 )
+                if (index3 != -1)
                 {
                     switch (gun[index3].grid_center)
                     {
@@ -4015,28 +4030,28 @@ namespace snqxap
                             //  case 3: { othercombochange(index2, index0, 1, 0, 2); break; }
                     }
                 }
-                if (index4 != -1 )
+                if (index4 != -1)
                 {
                     switch (gun[index4].grid_center)
                     {
                         case 2: { othercombochange(index4, index0, 4, 0, 4); break; }
                         case 3: { othercombochange(index4, index0, 5, 0, 4); break; }
                         case 5: { othercombochange(index4, index0, 7, 0, 4); break; }
-                        case 6: { othercombochange(index4, index0, 8, 0, 4) ; break; }
+                        case 6: { othercombochange(index4, index0, 8, 0, 4); break; }
                             //   case 4: { othercombochange(index3, index0, 7, 0, 3); break; }
                             //  case 3: { othercombochange(index2, index0, 1, 0, 2); break; }
                     }
-                
+
                 }
                 if (index2 != -1)
                 {
-                    switch(gun[index2].grid_center)
+                    switch (gun[index2].grid_center)
                     {
                         case 9: { othercombochange(index2, index0, 7, 0, 2); break; }
                         case 6: { othercombochange(index2, index0, 4, 0, 2); break; }
                         case 3: { othercombochange(index2, index0, 1, 0, 2); break; }
                     }
-                    
+
                 }
                 if (index5 != -1)
                 {
@@ -4071,7 +4086,7 @@ namespace snqxap
                     }
                 }
                 renewindex(0);
-                if(rb0.IsChecked == true)
+                if (rb0.IsChecked == true)
                     calctank(0);
                 if (rbf0.IsChecked == true)
                     calcftank(0);
@@ -4083,7 +4098,7 @@ namespace snqxap
         /// </summary>
         void calccombo1buff()
         {
-       
+
             gg[1].cleargg();
 
             int index0 = Combo0.SelectedIndex;
@@ -4126,7 +4141,7 @@ namespace snqxap
                         case 6: { othercombochange(index2, index1, 5, 1, 2); break; }
                         case 8: { othercombochange(index2, index1, 7, 1, 2); break; }
                         case 9: { othercombochange(index2, index1, 8, 1, 2); break; }
-                    }        
+                    }
                 }
                 if (index3 != -1)
                 {
@@ -4136,7 +4151,7 @@ namespace snqxap
                         case 2: { othercombochange(index3, index1, 6, 1, 3); break; }
                         case 4: { othercombochange(index3, index1, 8, 1, 3); break; }
                         case 5: { othercombochange(index3, index1, 9, 1, 3); break; }
-                    }                 
+                    }
                 }
                 if (index4 != -1)
                 {
@@ -4148,7 +4163,7 @@ namespace snqxap
                         case 4: { othercombochange(index4, index1, 7, 1, 4); break; }
                         case 5: { othercombochange(index4, index1, 8, 1, 4); break; }
                         case 6: { othercombochange(index4, index1, 9, 1, 4); break; }
-                    }               
+                    }
                 }
                 if (index5 != -1)
                 {
@@ -4158,7 +4173,7 @@ namespace snqxap
                         case 3: { othercombochange(index5, index1, 5, 1, 5); break; }
                         case 5: { othercombochange(index5, index1, 7, 1, 5); break; }
                         case 6: { othercombochange(index5, index1, 8, 1, 5); break; }
-                    }            
+                    }
                 }
                 if (index6 != -1)
                 {
@@ -4198,7 +4213,7 @@ namespace snqxap
         /// </summary>
         void calccombo2buff()
         {
-      
+
             gg[2].cleargg();
 
             int index2 = Combo2.SelectedIndex;
@@ -4231,7 +4246,7 @@ namespace snqxap
                         case 7: { othercombochange(index1, index2, 8, 2, 1); break; }
                         case 8: { othercombochange(index1, index2, 9, 2, 1); break; }
                     }
-                         
+
                 }
                 if (index4 != -1)
                 {
@@ -4242,7 +4257,7 @@ namespace snqxap
                         case 4: { othercombochange(index4, index2, 8, 2, 4); break; }
                         case 5: { othercombochange(index4, index2, 9, 2, 4); break; }
                     }
-                  
+
                 }
                 if (index5 != -1)
                 {
@@ -4255,7 +4270,7 @@ namespace snqxap
                         case 5: { othercombochange(index5, index2, 8, 2, 5); break; }
                         case 6: { othercombochange(index5, index2, 9, 2, 5); break; }
                     }
-               
+
                 }
                 if (index0 != -1)
                 {
@@ -4311,7 +4326,7 @@ namespace snqxap
         /// </summary>
         void calccombo3buff()
         {
-   
+
             gg[3].cleargg();
 
             int index0 = Combo0.SelectedIndex;
@@ -4325,7 +4340,7 @@ namespace snqxap
             int index5 = Combo5.SelectedIndex;
             int index8 = Combo8.SelectedIndex;
 
-            if (index3 == -1||index3 == GUN_NUMBER)
+            if (index3 == -1 || index3 == GUN_NUMBER)
             {
                 Combo3.SelectedIndex = GUN_NUMBER;
                 renewindex(3);
@@ -4333,7 +4348,7 @@ namespace snqxap
             }
             else
             {
-                if (index0 != -1 )
+                if (index0 != -1)
                 {
                     switch (gun[index0].grid_center)
                     {
@@ -4344,7 +4359,7 @@ namespace snqxap
                         case 8: { othercombochange(index0, index3, 5, 3, 0); break; }
                         case 9: { othercombochange(index0, index3, 6, 3, 0); break; }
                     }
-                
+
                 }
                 if (index1 != -1)
                 {
@@ -4354,7 +4369,7 @@ namespace snqxap
                         case 6: { othercombochange(index1, index3, 2, 3, 1); break; }
                         case 8: { othercombochange(index1, index3, 4, 3, 1); break; }
                         case 9: { othercombochange(index1, index3, 5, 3, 1); break; }
-                    }                 
+                    }
                 }
                 if (index4 != -1)
                 {
@@ -4368,7 +4383,7 @@ namespace snqxap
                         case 9: { othercombochange(index4, index3, 8, 3, 4); break; }
                     }
                 }
-                if (index6 != -1 )
+                if (index6 != -1)
                 {
                     switch (gun[index6].grid_center)
                     {
@@ -4379,9 +4394,9 @@ namespace snqxap
                         case 5: { othercombochange(index6, index3, 8, 3, 6); break; }
                         case 6: { othercombochange(index6, index3, 9, 3, 6); break; }
                     }
-               
+
                 }
-                if (index7 != -1 )
+                if (index7 != -1)
                 {
                     switch (gun[index7].grid_center)
                     {
@@ -4390,7 +4405,7 @@ namespace snqxap
                         case 5: { othercombochange(index7, index3, 7, 3, 7); break; }
                         case 6: { othercombochange(index7, index3, 8, 3, 7); break; }
                     }
-               
+
                 }
                 if (index2 != -1)
                 {
@@ -4460,7 +4475,7 @@ namespace snqxap
                         case 5: { othercombochange(index0, index4, 3, 4, 0); break; }
                         case 7: { othercombochange(index0, index4, 5, 4, 0); break; }
                         case 8: { othercombochange(index0, index4, 6, 4, 0); break; }
-                    }    
+                    }
                 }
                 if (index1 != -1)
                 {
@@ -4473,9 +4488,9 @@ namespace snqxap
                         case 8: { othercombochange(index1, index4, 5, 4, 1); break; }
                         case 9: { othercombochange(index1, index4, 6, 4, 1); break; }
                     }
-                   
+
                 }
-                if (index3 != -1 )
+                if (index3 != -1)
                 {
                     switch (gun[index3].grid_center)
                     {
@@ -4486,9 +4501,9 @@ namespace snqxap
                         case 7: { othercombochange(index3, index4, 8, 4, 3); break; }
                         case 8: { othercombochange(index3, index4, 9, 4, 3); break; }
                     }
-          
+
                 }
-                if (index2 != -1 )
+                if (index2 != -1)
                 {
                     switch (gun[index2].grid_center)
                     {
@@ -4497,7 +4512,7 @@ namespace snqxap
                         case 8: { othercombochange(index2, index4, 4, 4, 2); break; }
                         case 9: { othercombochange(index2, index4, 5, 4, 2); break; }
                     }
-    
+
                 }
                 if (index5 != -1)
                 {
@@ -4510,7 +4525,7 @@ namespace snqxap
                         case 8: { othercombochange(index5, index4, 7, 4, 5); break; }
                         case 9: { othercombochange(index5, index4, 8, 4, 5); break; }
                     }
-             
+
                 }
                 if (index6 != -1)
                 {
@@ -4521,7 +4536,7 @@ namespace snqxap
                         case 4: { othercombochange(index6, index4, 8, 4, 6); break; }
                         case 5: { othercombochange(index6, index4, 9, 4, 6); break; }
                     }
-                
+
                 }
                 if (index7 != -1)
                 {
@@ -4534,9 +4549,9 @@ namespace snqxap
                         case 5: { othercombochange(index7, index4, 8, 4, 7); break; }
                         case 6: { othercombochange(index7, index4, 9, 4, 7); break; }
                     }
-                 
+
                 }
-                if (index8 != -1 )
+                if (index8 != -1)
                 {
                     switch (gun[index8].grid_center)
                     {
@@ -4545,7 +4560,7 @@ namespace snqxap
                         case 5: { othercombochange(index8, index4, 7, 4, 8); ; break; }
                         case 6: { othercombochange(index8, index4, 8, 4, 8); ; break; }
                     }
-                  
+
                 }
                 renewindex(4);
                 if (rb4.IsChecked == true)
@@ -4581,7 +4596,7 @@ namespace snqxap
             }
             else
             {
-                if (index1 != -1 )
+                if (index1 != -1)
                 {
                     switch (gun[index1].grid_center)
                     {
@@ -4590,9 +4605,9 @@ namespace snqxap
                         case 7: { othercombochange(index1, index5, 5, 5, 1); break; }
                         case 8: { othercombochange(index1, index5, 6, 5, 1); break; }
                     }
-               
+
                 }
-                if (index2 != -1 )
+                if (index2 != -1)
                 {
                     switch (gun[index2].grid_center)
                     {
@@ -4603,9 +4618,9 @@ namespace snqxap
                         case 8: { othercombochange(index2, index5, 5, 5, 2); break; }
                         case 9: { othercombochange(index2, index5, 6, 5, 2); break; }
                     }
-            
+
                 }
-                if (index4 != -1 )
+                if (index4 != -1)
                 {
                     switch (gun[index4].grid_center)
                     {
@@ -4616,9 +4631,9 @@ namespace snqxap
                         case 7: { othercombochange(index4, index5, 8, 5, 4); ; break; }
                         case 8: { othercombochange(index4, index5, 9, 5, 4); ; break; }
                     }
-                 
+
                 }
-                if (index7 != -1 )
+                if (index7 != -1)
                 {
                     switch (gun[index7].grid_center)
                     {
@@ -4627,9 +4642,9 @@ namespace snqxap
                         case 4: { othercombochange(index7, index5, 8, 5, 7); break; }
                         case 5: { othercombochange(index7, index5, 9, 5, 7); break; }
                     }
-             
+
                 }
-                if (index8 != -1 )
+                if (index8 != -1)
                 {
                     switch (gun[index8].grid_center)
                     {
@@ -4640,7 +4655,7 @@ namespace snqxap
                         case 5: { othercombochange(index8, index5, 8, 5, 8); break; }
                         case 6: { othercombochange(index8, index5, 9, 5, 8); break; }
                     }
-              
+
                 }
                 if (index0 != -1)
                 {
@@ -4711,7 +4726,7 @@ namespace snqxap
                         case 8: { othercombochange(index3, index6, 5, 6, 3); break; }
                         case 9: { othercombochange(index3, index6, 6, 6, 3); break; }
                     }
-                 
+
                 }
                 if (index4 != -1)
                 {
@@ -4722,9 +4737,9 @@ namespace snqxap
                         case 8: { othercombochange(index4, index6, 4, 6, 4); break; }
                         case 9: { othercombochange(index4, index6, 5, 6, 4); break; }
                     }
-           
+
                 }
-                if (index7 != -1 )
+                if (index7 != -1)
                 {
                     switch (gun[index7].grid_center)
                     {
@@ -4735,7 +4750,7 @@ namespace snqxap
                         case 8: { othercombochange(index7, index6, 7, 6, 7); break; }
                         case 9: { othercombochange(index7, index6, 8, 6, 7); break; }
                     }
-             
+
                 }
                 if (index2 != -1)
                 {
@@ -4811,7 +4826,7 @@ namespace snqxap
             }
             else
             {
-                if (index3 != -1 )
+                if (index3 != -1)
                 {
                     switch (gun[index3].grid_center)
                     {
@@ -4820,7 +4835,7 @@ namespace snqxap
                         case 7: { othercombochange(index3, index7, 5, 7, 3); break; }
                         case 8: { othercombochange(index3, index7, 6, 7, 3); break; }
                     }
-                   
+
                 }
                 if (index4 != -1)
                 {
@@ -4833,9 +4848,9 @@ namespace snqxap
                         case 8: { othercombochange(index4, index7, 5, 7, 4); break; }
                         case 9: { othercombochange(index4, index7, 6, 7, 4); break; }
                     }
-     
+
                 }
-                if (index5 != -1 )
+                if (index5 != -1)
                 {
                     switch (gun[index5].grid_center)
                     {
@@ -4844,9 +4859,9 @@ namespace snqxap
                         case 8: { othercombochange(index5, index7, 4, 7, 5); break; }
                         case 9: { othercombochange(index5, index7, 5, 7, 5); break; }
                     }
-               
+
                 }
-                if (index6 != -1 )
+                if (index6 != -1)
                 {
                     switch (gun[index6].grid_center)
                     {
@@ -4857,9 +4872,9 @@ namespace snqxap
                         case 7: { othercombochange(index6, index7, 8, 7, 6); break; }
                         case 8: { othercombochange(index6, index7, 9, 7, 6); break; }
                     }
-               
+
                 }
-                if (index8 != -1 )
+                if (index8 != -1)
                 {
                     switch (gun[index8].grid_center)
                     {
@@ -4870,7 +4885,7 @@ namespace snqxap
                         case 8: { othercombochange(index8, index7, 7, 7, 8); break; }
                         case 9: { othercombochange(index8, index7, 8, 7, 8); break; }
                     }
-                  
+
                 }
                 if (index0 != -1)
                 {
@@ -4944,7 +4959,7 @@ namespace snqxap
                         case 7: { othercombochange(index4, index8, 5, 8, 4); break; }
                         case 8: { othercombochange(index4, index8, 6, 8, 4); break; }
                     }
-                 
+
                 }
                 if (index5 != -1)
                 {
@@ -4957,7 +4972,7 @@ namespace snqxap
                         case 8: { othercombochange(index5, index8, 5, 8, 5); ; break; }
                         case 9: { othercombochange(index5, index8, 6, 8, 5); ; break; }
                     }
-    
+
                 }
                 if (index7 != -1)
                 {
@@ -4970,7 +4985,7 @@ namespace snqxap
                         case 7: { othercombochange(index7, index8, 8, 8, 7); break; }
                         case 8: { othercombochange(index7, index8, 9, 8, 7); break; }
                     }
-     
+
                 }
                 if (index0 != -1)
                 {
@@ -5031,19 +5046,19 @@ namespace snqxap
         /// <param name="e"></param>
         private void Combo0_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-     
+
             int select = Combo0.SelectedIndex;
             if (select == -1)
             {
-                
+
                 return;
             }
 
             for (int i = 0; i < 9; i++)
             {
-                if (getcombogunname(i) != ""&&getcombogunname(i)!=null)
+                if (getcombogunname(i) != "" && getcombogunname(i) != null)
                     howmany++;
-                if (getcombogunname(i) == gun[select].name&& getcombogunname(i) != "" && getcombogunname(i) != null && i != 0)
+                if (getcombogunname(i) == gun[select].name && getcombogunname(i) != "" && getcombogunname(i) != null && i != 0)
                 {
                     switch (i)
                     {
@@ -5140,7 +5155,7 @@ namespace snqxap
                         default:
                             break;
                     }
-           
+
 
                     break;
                 }
@@ -5209,7 +5224,7 @@ namespace snqxap
                 }
             }
             cb0.IsChecked = false;
-            if (select!=-1)
+            if (select != -1)
                 calccombo0buff();
             calccombo1buff();
             calccombo2buff();
@@ -5242,7 +5257,7 @@ namespace snqxap
         /// <param name="e"></param>
         private void Combo1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-         
+
             int select = Combo1.SelectedIndex;
             if (select == -1)
                 return;
@@ -5446,7 +5461,7 @@ namespace snqxap
         /// <param name="e"></param>
         private void Combo2_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-         
+
             int select = Combo2.SelectedIndex;
             if (select == -1)
                 return;
@@ -5650,7 +5665,7 @@ namespace snqxap
         /// <param name="e"></param>
         private void Combo3_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
             int select = Combo3.SelectedIndex;
             if (select == -1)
                 return;
@@ -5755,7 +5770,7 @@ namespace snqxap
                         default:
                             break;
                     }
-           
+
 
                     break;
                 }
@@ -5836,12 +5851,12 @@ namespace snqxap
             calccombo7buff();
             calccombo8buff();
             lastgunindex[3] = select;
-/*
-            cb3.IsChecked = false;
-            if (isnightskill(gun[select].type) && cbIsnight.IsChecked == false)
-                cb3.IsEnabled = false;
-            else
-                cb3.IsEnabled = true;*/
+            /*
+                        cb3.IsChecked = false;
+                        if (isnightskill(gun[select].type) && cbIsnight.IsChecked == false)
+                            cb3.IsEnabled = false;
+                        else
+                            cb3.IsEnabled = true;*/
             clearequip(3);
             renewskill();
             calceat();
@@ -5963,7 +5978,7 @@ namespace snqxap
         /// <param name="e"></param>
         private void Combo4_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-          
+
             int select = Combo4.SelectedIndex;
             if (select == -1)
                 return;
@@ -6068,7 +6083,7 @@ namespace snqxap
                         default:
                             break;
                     }
-           
+
 
                     break;
                 }
@@ -6150,11 +6165,11 @@ namespace snqxap
             calccombo8buff();
 
             lastgunindex[4] = select;
-    /*        cb4.IsChecked = false;
-            if (isnightskill(gun[select].type) && cbIsnight.IsChecked == false)
-                cb4.IsEnabled = false;
-            else
-                cb4.IsEnabled = true;*/
+            /*        cb4.IsChecked = false;
+                    if (isnightskill(gun[select].type) && cbIsnight.IsChecked == false)
+                        cb4.IsEnabled = false;
+                    else
+                        cb4.IsEnabled = true;*/
             clearequip(4);
             renewskill();
             calceat();
@@ -6176,7 +6191,7 @@ namespace snqxap
         /// <param name="e"></param>
         private void Combo5_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-    
+
             int select = Combo5.SelectedIndex;
             if (select == -1)
                 return;
@@ -6184,7 +6199,7 @@ namespace snqxap
             {
                 if (getcombogunname(i) != "" && getcombogunname(i) != null)
                     howmany++;
-                   if(getcombogunname(i) == gun[select].name && getcombogunname(i) != "" && getcombogunname(i) != null && i != 5)
+                if (getcombogunname(i) == gun[select].name && getcombogunname(i) != "" && getcombogunname(i) != null && i != 5)
                 {
                     switch (i)
                     {
@@ -6361,11 +6376,11 @@ namespace snqxap
             calccombo8buff();
 
             lastgunindex[5] = select;
-   /*         cb5.IsChecked = false;
-            if (isnightskill(gun[select].type) && cbIsnight.IsChecked == false)
-                cb5.IsEnabled = false;
-            else
-                cb5.IsEnabled = true;*/
+            /*         cb5.IsChecked = false;
+                     if (isnightskill(gun[select].type) && cbIsnight.IsChecked == false)
+                         cb5.IsEnabled = false;
+                     else
+                         cb5.IsEnabled = true;*/
             clearequip(5);
             renewskill();
             calceat();
@@ -6387,7 +6402,7 @@ namespace snqxap
         /// <param name="e"></param>
         private void Combo6_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-      
+
             int select = Combo6.SelectedIndex;
             if (select == -1)
                 return;
@@ -6492,7 +6507,7 @@ namespace snqxap
                         default:
                             break;
                     }
-           
+
 
                     break;
                 }
@@ -6573,11 +6588,11 @@ namespace snqxap
             calccombo7buff();
             calccombo8buff();
             lastgunindex[6] = select;
-    /*        cb6.IsChecked = false;
-            if (isnightskill(gun[select].type) && cbIsnight.IsChecked == false)
-                cb6.IsEnabled = false;
-            else
-                cb6.IsEnabled = true;*/
+            /*        cb6.IsChecked = false;
+                    if (isnightskill(gun[select].type) && cbIsnight.IsChecked == false)
+                        cb6.IsEnabled = false;
+                    else
+                        cb6.IsEnabled = true;*/
             clearequip(6);
             renewskill();
             calceat();
@@ -6599,7 +6614,7 @@ namespace snqxap
         /// <param name="e"></param>
         private void Combo7_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-       
+
             int select = Combo7.SelectedIndex;
             if (select == -1)
                 return;
@@ -6607,7 +6622,7 @@ namespace snqxap
             {
                 if (getcombogunname(i) != "" && getcombogunname(i) != null)
                     howmany++;
-                if(getcombogunname(i) == gun[select].name && getcombogunname(i) != "" && getcombogunname(i) != null && i != 7)
+                if (getcombogunname(i) == gun[select].name && getcombogunname(i) != "" && getcombogunname(i) != null && i != 7)
                 {
                     switch (i)
                     {
@@ -6784,11 +6799,11 @@ namespace snqxap
             calccombo8buff();
 
             lastgunindex[7] = select;
-       /*     cb7.IsChecked = false;
-            if (isnightskill(gun[select].type) && cbIsnight.IsChecked == false)
-                cb7.IsEnabled = false;
-            else
-                cb7.IsEnabled = true;*/
+            /*     cb7.IsChecked = false;
+                 if (isnightskill(gun[select].type) && cbIsnight.IsChecked == false)
+                     cb7.IsEnabled = false;
+                 else
+                     cb7.IsEnabled = true;*/
             clearequip(7);
             renewskill();
 
@@ -6811,7 +6826,7 @@ namespace snqxap
         /// <param name="e"></param>
         private void Combo8_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-     
+
             int select = Combo8.SelectedIndex;
             if (select == -1)
                 return;
@@ -6819,7 +6834,7 @@ namespace snqxap
             {
                 if (getcombogunname(i) != "" && getcombogunname(i) != null)
                     howmany++;
-                if (getcombogunname(i) == gun[select].name && getcombogunname(i) != "" && getcombogunname(i) != null&&i!=8)
+                if (getcombogunname(i) == gun[select].name && getcombogunname(i) != "" && getcombogunname(i) != null && i != 8)
                 {
                     switch (i)
                     {
@@ -6916,7 +6931,7 @@ namespace snqxap
                         default:
                             break;
                     }
-           
+
 
                     break;
                 }
@@ -6930,10 +6945,10 @@ namespace snqxap
             }
             else
                 howmany = 0;
-            if (select != -1&&select != GUN_NUMBER)
+            if (select != -1 && select != GUN_NUMBER)
                 if (gun[select].name == getcombogunname(0) || gun[select].name == getcombogunname(1) || gun[select].name == getcombogunname(2) || gun[select].name == getcombogunname(3) || gun[select].name == getcombogunname(4) || gun[select].name == getcombogunname(5) || gun[select].name == getcombogunname(6) || gun[select].name == getcombogunname(7))
                 {
-                    Combo8.SelectedIndex = lastgunindex[8]; 
+                    Combo8.SelectedIndex = lastgunindex[8];
                     return;
                 }
 
@@ -6998,11 +7013,11 @@ namespace snqxap
             calccombo7buff();
 
             lastgunindex[8] = select;
-   /*         cb8.IsChecked = false;
-            if (isnightskill(gun[select].type) && cbIsnight.IsChecked == false)
-                cb8.IsEnabled = false;
-            else
-                cb8.IsEnabled = true;*/
+            /*         cb8.IsChecked = false;
+                     if (isnightskill(gun[select].type) && cbIsnight.IsChecked == false)
+                         cb8.IsEnabled = false;
+                     else
+                         cb8.IsEnabled = true;*/
             clearequip(8);
             renewskill();
 
@@ -7055,7 +7070,7 @@ namespace snqxap
             if (!IsNumber(enemydodge.Text))
                 enemydodge.Text = "0";
             int select = Combo0.SelectedIndex;
-            if(select!=-1)
+            if (select != -1)
                 renewindex(0);
             select = Combo1.SelectedIndex;
             if (select != -1)
@@ -7081,7 +7096,7 @@ namespace snqxap
             select = Combo8.SelectedIndex;
             if (select != -1)
                 renewindex(8);
-         }
+        }
 
         /// <summary>
         /// 计算主T肉度
@@ -7089,7 +7104,7 @@ namespace snqxap
         /// <param name="combo">哪一格</param>
         void calctank(int combo)
         {
-            nowhit.Content = (Double.Parse(enemyhit.Text) * skilldownhit).ToString("0");  
+            nowhit.Content = (Double.Parse(enemyhit.Text) * skilldownhit).ToString("0");
             nowdamage.Content = (Double.Parse(enemydamage.Text) * skilldowndamage).ToString("0");
             double ebreakarmor = Double.Parse(enemybreakarmor.Text);
             double enemycalcdamage = Double.Parse(nowdamage.Content.ToString());
@@ -7097,15 +7112,15 @@ namespace snqxap
             {
                 case 0:
                     {
-                        if(Combo0.SelectedIndex!=-1)
+                        if (Combo0.SelectedIndex != -1)
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor0.Content.ToString()))));
-                                    tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString()+shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                               }
+                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor0.Content.ToString()))));
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())*fairydowndamage).ToString("0.00");
+                            }
                             else
-                                tank.Content = 0;         
+                                tank.Content = 0;
                         }
                         else
                             tank.Content = 0;
@@ -7118,8 +7133,8 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor1.Content.ToString()))));
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp1.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge1.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                              }
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp1.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge1.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
+                            }
                             else
                                 tank.Content = 0;
                         }
@@ -7134,8 +7149,8 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor2.Content.ToString()))));
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp2.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                          }
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp2.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
+                            }
                             else
                                 tank.Content = 0;
                         }
@@ -7150,7 +7165,7 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor3.Content.ToString()))));
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp3.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp3.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
                                 tank.Content = 0;
@@ -7166,7 +7181,7 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor4.Content.ToString()))));
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp4.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp4.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
                                 tank.Content = 0;
@@ -7182,8 +7197,8 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor5.Content.ToString()))));
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp5.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                               }
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp5.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
+                            }
                             else
                                 tank.Content = 0;
                         }
@@ -7198,8 +7213,8 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor6.Content.ToString()))));
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp6.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                          }
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp6.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
+                            }
                             else
                                 tank.Content = 0;
                         }
@@ -7214,8 +7229,8 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor7.Content.ToString()))));
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp7.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                           }
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp7.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
+                            }
                             else
                                 tank.Content = 0;
                         }
@@ -7230,8 +7245,8 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor8.Content.ToString()))));
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp8.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                             }
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp8.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
+                            }
                             else
                                 tank.Content = 0;
                         }
@@ -7263,8 +7278,8 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor0.Content.ToString()))));
-                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                              }
+                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
+                            }
                             else
                                 ftank.Content = 0;
                         }
@@ -7279,7 +7294,7 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor1.Content.ToString()))));
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp1.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge1.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp1.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge1.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
                                 ftank.Content = 0;
@@ -7294,8 +7309,8 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                               enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor2.Content.ToString()))));
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp2.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor2.Content.ToString()))));
+                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp2.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
                                 ftank.Content = 0;
@@ -7310,8 +7325,8 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                            enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor3.Content.ToString()))));
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp3.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor3.Content.ToString()))));
+                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp3.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
                                 ftank.Content = 0;
@@ -7326,8 +7341,8 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                    enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor4.Content.ToString()))));
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp4.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor4.Content.ToString()))));
+                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp4.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
                                 ftank.Content = 0;
@@ -7342,9 +7357,9 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                            enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor5.Content.ToString()))));
-                                  ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp5.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                                }
+                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor5.Content.ToString()))));
+                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp5.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
+                            }
                             else
                                 ftank.Content = 0;
                         }
@@ -7358,10 +7373,10 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                           enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor6.Content.ToString()))));
-                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp6.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                                }
-                                else
+                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor6.Content.ToString()))));
+                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp6.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
+                            }
+                            else
                                 ftank.Content = 0;
                         }
                         else
@@ -7374,8 +7389,8 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                             enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor7.Content.ToString()))));
-                                    ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp7.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
+                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor7.Content.ToString()))));
+                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp7.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
                                 ftank.Content = 0;
@@ -7390,10 +7405,10 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor8.Content.ToString()))));
-                                     ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp8.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())).ToString("0.00");
-                                }
-                                else
+                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor8.Content.ToString()))));
+                                ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp8.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
+                            }
+                            else
                                 ftank.Content = 0;
                         }
                         else
@@ -7827,7 +7842,7 @@ namespace snqxap
         /// </summary>
         private void clearskill()
         {
-            for(int i = 0;i<9;i++)
+            for (int i = 0; i < 9; i++)
             {
                 skillupshotspeed[i] = 1;
                 skilluphit[i] = 1;
@@ -7851,6 +7866,7 @@ namespace snqxap
             skilldowndodge = 1;
             skilldownhit = 1;
             skilldowndamage = 1;
+            fairydowndamage = 1;
         }
         /// <summary>
         /// 左上格技能打勾事件
@@ -7875,7 +7891,7 @@ namespace snqxap
             {
                 if (gun[Combo0.SelectedIndex].type == 100122)
                 {
-                    if(equipcb01.Text.Contains("独头弹")||equipcb02.Text.Contains("独头弹")||equipcb03.Text.Contains("独头弹"))
+                    if (equipcb01.Text.Contains("独头弹") || equipcb02.Text.Contains("独头弹") || equipcb03.Text.Contains("独头弹"))
                     {
                         equiprifledslug[0] = true;
                     }
@@ -8170,11 +8186,11 @@ namespace snqxap
                         ump40skillopen = int.Parse(textBlock.Text);
                     }
                     if (gun[Combo5.SelectedIndex].type == 301502 || gun[Combo5.SelectedIndex].type == 301503 || gun[Combo5.SelectedIndex].type == 301504 || gun[Combo5.SelectedIndex].type == 200201 || gun[Combo5.SelectedIndex].type == 106304)
-                        {
-                            return;
-                        }
+                    {
+                        return;
+                    }
                 }
-           
+
                 skilltime[5] = 0;
                 clearskill();
                 renewdamage(5, 0);
@@ -8232,7 +8248,7 @@ namespace snqxap
                         return;
                     }
                 }
-           
+
                 skilltime[6] = 0;
                 clearskill();
                 renewdamage(6, 0);
@@ -8291,7 +8307,7 @@ namespace snqxap
                         return;
                     }
                 }
-           
+
                 skilltime[7] = 0;
                 clearskill();
                 renewdamage(7, 0);
@@ -8349,7 +8365,7 @@ namespace snqxap
                         return;
                     }
                 }
-           
+
                 skilltime[8] = 0;
                 clearskill();
                 renewdamage(8, 0);
@@ -8377,7 +8393,7 @@ namespace snqxap
         {
             double ammo = 0;
             double food = 0;
-            if(Combo0.SelectedIndex!=-1&&Combo0.SelectedIndex!=GUN_NUMBER)//2 ar 3 smg 4 hg 5 rf 6 mg
+            if (Combo0.SelectedIndex != -1 && Combo0.SelectedIndex != GUN_NUMBER)//2 ar 3 smg 4 hg 5 rf 6 mg
             {
                 switch (gun[Combo0.SelectedIndex].what)
                 {
@@ -8403,7 +8419,7 @@ namespace snqxap
                                 ammo += 6;
                                 food += 3;
                             }
-                            else 
+                            else
                             {
                                 ammo += 4;
                                 food += 2;
@@ -10031,8 +10047,8 @@ namespace snqxap
         /// <param name="e"></param>
         private void slider_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (getattime(0) > 0 && cb0.IsChecked==true)
-                if (slider.Value > skilltime[0] + getattime(0)||slider.Value < skilltime[0])
+            if (getattime(0) > 0 && cb0.IsChecked == true)
+                if (slider.Value > skilltime[0] + getattime(0) || slider.Value < skilltime[0])
                     cb0.IsChecked = false;
             if (getattime(1) > 0 && cb1.IsChecked == true)
                 if (slider.Value > skilltime[1] + getattime(1) || slider.Value < skilltime[1])
@@ -10058,7 +10074,7 @@ namespace snqxap
             if (getattime(8) > 0 && cb8.IsChecked == true)
                 if (slider.Value > skilltime[8] + getattime(8) || slider.Value < skilltime[8])
                     cb8.IsChecked = false;
-                renewskill();
+            renewskill();
         }
         /// <summary>
         /// 敌方数据按钮点击事件
@@ -10165,7 +10181,7 @@ namespace snqxap
 
                             //      Ldamage0.Content = Math.Ceiling(Math.Max(1, (Math.Ceiling((basePow + maxAddPow) * merry[0]) + equipdamage[0]) * gg[0].damageup * (skillupdamage[0]) + Math.Min(2, equipbreakarmor[0] - Int32.Parse(enemyarmor.Text))));
 
-                            Ldamage0.Content = floatdamage(basePow + maxAddPow, merry[0], equipdamage[0], gg[0].damageup * skillupdamage[0]*doublecardup * (fairy[fairyindex].powbuff), Math.Min(2, equipbreakarmor[0] - Int32.Parse(enemyarmor.Text)));
+                            Ldamage0.Content = floatdamage(basePow + maxAddPow, merry[0], equipdamage[0], gg[0].damageup * skillupdamage[0] * doublecardup * (fairy[fairyindex].powbuff), Math.Min(2, equipbreakarmor[0] - Int32.Parse(enemyarmor.Text)));
                         }
                         if (Int32.Parse(Lhp0.Content.ToString()) == 0)
                             Ldamage0.Content = 0;
@@ -10175,7 +10191,7 @@ namespace snqxap
                             Lhit0.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[0]) + equiphit[0]) * (fairy[fairyindex].hitbuff) * (100 - 0.9 * (100 - equipnightsee[0])) / 100 * gg[0].hitup * (skilluphit[0])).ToString();
                         else
                             Lhit0.Content = Math.Ceiling(((Math.Ceiling((basehit + maxAddHit) * merry[0]) + equiphit[0]) * (fairy[fairyindex].hitbuff) * gg[0].hitup * (skilluphit[0]))).ToString("0");
-                            Console.WriteLine(basehit + " " + maxAddHit + " " + merry[0] + " " + equiphit[0] + " " + fairy[fairyindex].hitbuff + " " + gg[0].hitup + " " + skilluphit[0]);
+                        Console.WriteLine(basehit + " " + maxAddHit + " " + merry[0] + " " + equiphit[0] + " " + fairy[fairyindex].hitbuff + " " + gg[0].hitup + " " + skilluphit[0]);
 
                         Image0.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
@@ -10196,7 +10212,7 @@ namespace snqxap
                         if (tbt == "")
                             tbt = "无";
                         tb0.Text = tbt;
-                        Lcritharm0.Content = Math.Ceiling((1+(0.5 + equipcritharm[0]) * (fairy[fairyindex].critharmbuff)) * 100).ToString() + "%";
+                        Lcritharm0.Content = Math.Ceiling((1 + (0.5 + equipcritharm[0]) * (fairy[fairyindex].critharmbuff)) * 100).ToString() + "%";
                         Larmor0.Content = Math.Ceiling(((maxarmor + equiparmor[0]) * doublecardup * (fairy[fairyindex].armorbuff) * gg[0].armorup * skilluparmor[0])).ToString("0");
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[0]) * gg[0].shotspeedup * (skillupshotspeed[0]) > 120)
                             Lshotspeed0.Content = 120;
@@ -10225,7 +10241,7 @@ namespace snqxap
                             crit = 1;
                         Lcrit0.Content = (crit * 100).ToString("0") + "%";
                         Ldodge0.Content = Math.Ceiling(((Math.Ceiling((baseDodge + maxAddDodge) * merry[0]) + equipdodge[0]) * doublecardup * (fairy[fairyindex].dodgebuff) * gg[0].dodgeup * (skillupdodge[0]))).ToString("0");
-                  //      Console.WriteLine(baseDodge + " " + maxAddDodge + " " + merry[0] + " " + equipdodge[0] + " " + fairy[fairyindex].dodgebuff + " " + gg[0].dodgeup + " " + skillupdodge[0]);
+                        //      Console.WriteLine(baseDodge + " " + maxAddDodge + " " + merry[0] + " " + equipdodge[0] + " " + fairy[fairyindex].dodgebuff + " " + gg[0].dodgeup + " " + skillupdodge[0]);
                         Lbelt0.Content = gun[select].belt + equipbelt[0] + skillupbelt[0];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
                         Lindex0.Content = Index(Double.Parse(Lshotspeed0.Content.ToString()), Double.Parse(Ldamage0.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit0.Content.ToString()), double.Parse(Lbelt0.Content.ToString()) - skillupbelt[0], 0, skilldamageagain[0]).ToString("0.00");
@@ -10284,7 +10300,7 @@ namespace snqxap
                         if (tbt == "")
                             tbt = "无";
                         tb1.Text = tbt;
-                        Lcritharm1.Content = Math.Ceiling((1 + (0.5+ equipcritharm[1]) * (fairy[fairyindex].critharmbuff)) * 100).ToString() + "%";
+                        Lcritharm1.Content = Math.Ceiling((1 + (0.5 + equipcritharm[1]) * (fairy[fairyindex].critharmbuff)) * 100).ToString() + "%";
                         Larmor1.Content = Math.Ceiling(((maxarmor + equiparmor[1]) * doublecardup * (fairy[fairyindex].armorbuff) * gg[1].armorup * skilluparmor[1])).ToString("0");
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[1]) * gg[1].shotspeedup * (skillupshotspeed[1]) > 120)
                             Lshotspeed1.Content = 120;
@@ -11039,7 +11055,7 @@ namespace snqxap
             calccombo8buff();
 
             clearskill();
-            calclevel(select, levelselect,0,skillselect);
+            calclevel(select, levelselect, 0, skillselect);
             renewskill();
 
             equipcb01.Items.Clear();
@@ -11100,7 +11116,7 @@ namespace snqxap
             calccombo7buff();
             calccombo8buff();
             clearskill();
-            calclevel(select, levelselect, 1,skillselect);
+            calclevel(select, levelselect, 1, skillselect);
             renewskill();
 
             equipcb11.Items.Clear();
@@ -11164,7 +11180,7 @@ namespace snqxap
             calccombo7buff();
             calccombo8buff();
             clearskill();
-            calclevel(select, levelselect, 2,skillselect);
+            calclevel(select, levelselect, 2, skillselect);
             renewskill();
 
             equipcb21.Items.Clear();
@@ -11228,7 +11244,7 @@ namespace snqxap
             calccombo7buff();
             calccombo8buff();
             clearskill();
-            calclevel(select, levelselect, 3,skillselect);
+            calclevel(select, levelselect, 3, skillselect);
             renewskill();
 
             equipcb31.Items.Clear();
@@ -11292,7 +11308,7 @@ namespace snqxap
             calccombo7buff();
             calccombo8buff();
             clearskill();
-            calclevel(select, levelselect, 4,skillselect);
+            calclevel(select, levelselect, 4, skillselect);
             renewskill();
 
             equipcb41.Items.Clear();
@@ -11356,7 +11372,7 @@ namespace snqxap
             calccombo7buff();
             calccombo8buff();
             clearskill();
-            calclevel(select, levelselect, 5,skillselect);
+            calclevel(select, levelselect, 5, skillselect);
             renewskill();
 
             equipcb51.Items.Clear();
@@ -11419,7 +11435,7 @@ namespace snqxap
             calccombo7buff();
             calccombo8buff();
             clearskill();
-            calclevel(select, levelselect, 6,skillselect);
+            calclevel(select, levelselect, 6, skillselect);
             renewskill();
 
             equipcb61.Items.Clear();
@@ -11482,7 +11498,7 @@ namespace snqxap
             calccombo0buff();
             calccombo8buff();
             clearskill();
-            calclevel(select, levelselect, 7,skillselect);
+            calclevel(select, levelselect, 7, skillselect);
             renewskill();
 
             equipcb71.Items.Clear();
@@ -11545,7 +11561,7 @@ namespace snqxap
             calccombo7buff();
             calccombo0buff();
             clearskill();
-            calclevel(select, levelselect, 8,skillselect);
+            calclevel(select, levelselect, 8, skillselect);
             renewskill();
 
             equipcb81.Items.Clear();
@@ -11659,7 +11675,7 @@ namespace snqxap
         /// </summary>
         /// <param name="combo">哪一格</param>
         /// <param name="damage">伤害值</param>
-        private void renewdamage(int combo,double damage)
+        private void renewdamage(int combo, double damage)
         {
             damage = Math.Floor(damage);
             switch (combo)
@@ -11718,7 +11734,7 @@ namespace snqxap
         /// </summary>
         /// <param name="combo">哪一格</param>
         /// <param name="time">技能冷却时间</param>
-        private void renewtime(int combo,string time)
+        private void renewtime(int combo, string time)
         {
             switch (combo)
             {
@@ -11727,42 +11743,42 @@ namespace snqxap
                         Ltime0.Content = time;
                         return;
                     }
-               case 1:
+                case 1:
                     {
                         Ltime1.Content = time;
                         return;
                     }
-               case 2:
+                case 2:
                     {
                         Ltime2.Content = time;
                         return;
                     }
-               case 3:
+                case 3:
                     {
                         Ltime3.Content = time;
                         return;
                     }
-               case 4:
+                case 4:
                     {
                         Ltime4.Content = time;
                         return;
                     }
-               case 5:
+                case 5:
                     {
                         Ltime5.Content = time;
                         return;
                     }
-               case 6:
+                case 6:
                     {
                         Ltime6.Content = time;
                         return;
                     }
-               case 7:
+                case 7:
                     {
                         Ltime7.Content = time;
                         return;
                     }
-               case 8:
+                case 8:
                     {
                         Ltime8.Content = time;
                         return;
@@ -12005,16 +12021,16 @@ namespace snqxap
         /// <param name="skillindex">该格技能等级index</param>
         /// <param name="ischecked">技能是否发动</param>
         /// <param name="levelindex">该格等级index</param>
-        private void calcskill(int combo,int index,int skillindex,bool ischecked,int levelindex)
+        private void calcskill(int combo, int index, int skillindex, bool ischecked, int levelindex)
         {
-            if (index == -1||skillindex == -1||levelindex == -1)
+            if (index == -1 || skillindex == -1 || levelindex == -1)
                 return;
             //double num1 = gun[index].skilleffect1 * (1f + (float)(skillindex) * gun[index].growth / 9f);
             //double num2 = gun[index].skilleffect2 * (1f + (float)(skillindex) * gun[index].growth / 9f);
             // double num3 = gun[index].skilleffect3 * (1f + (float)(skillindex) * gun[index].growth / 9f);
             //double num4 = gun[index].skilleffect4 * (1f + (float)(skillindex) * gun[index].growth / 9f);
             renewdamage(combo, 0);
-            switch(gun[index].type) 
+            switch (gun[index].type)
             {
                 case 100503:
                     {
@@ -12088,9 +12104,9 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         gun[index].startcd = ("5");
                         double updem1 = 0;
-                        switch(skillindex)
+                        switch (skillindex)
                         {
-                            case 0: { updem1 = 1.6; break;}
+                            case 0: { updem1 = 1.6; break; }
                             case 1: { updem1 = 1.8; break; }
                             case 2: { updem1 = 2; break; }
                             case 3: { updem1 = 2.1; break; }
@@ -12127,8 +12143,8 @@ namespace snqxap
                             }
                             if (ischecked)
                             {
-                                    skilldowndamage *= 1 - (updem1 / 100);
-                                    renewtank();
+                                skilldowndamage *= 1 - (updem1 / 100);
+                                renewtank();
                             }
                             double cdtime = 0;
                             switch (skillindex) { case 0: { cdtime = 15; break; } case 1: { cdtime = 14.7; break; } case 2: { cdtime = 14.3; break; } case 3: { cdtime = 14; break; } case 4: { cdtime = 13.7; break; } case 5: { cdtime = 13.3; break; } case 6: { cdtime = 13; break; } case 7: { cdtime = 12.7; break; } case 8: { cdtime = 12.3; break; } case 9: { cdtime = 12; break; } }
@@ -12149,10 +12165,10 @@ namespace snqxap
                             }
 
 
-                              renewattime(combo, attime.ToString());
-                              gun[index].startcd = ("6");
+                            renewattime(combo, attime.ToString());
+                            gun[index].startcd = ("6");
 
-                              string read = "(夜)降低对方全体" + Math.Floor(updem1) + "%伤害";
+                            string read = "(夜)降低对方全体" + Math.Floor(updem1) + "%伤害";
                             renewread(combo, read);
                             break;
                         }
@@ -12174,8 +12190,8 @@ namespace snqxap
                             }
                             if (ischecked)
                             {
-                                    skilldowndamage *= 1 - (updem1 / 100);
-                                    renewtank();
+                                skilldowndamage *= 1 - (updem1 / 100);
+                                renewtank();
                             }
                             double cdtime = 0;
                             switch (skillindex) { case 0: { cdtime = 15; break; } case 1: { cdtime = 14.7; break; } case 2: { cdtime = 14.3; break; } case 3: { cdtime = 14; break; } case 4: { cdtime = 13.7; break; } case 5: { cdtime = 13.3; break; } case 6: { cdtime = 13; break; } case 7: { cdtime = 12.7; break; } case 8: { cdtime = 12.3; break; } case 9: { cdtime = 12; break; } }
@@ -12204,7 +12220,7 @@ namespace snqxap
                     }
                 case 100602:
                     {
-                        double updem1 = 30 + 2.5 * (skillindex+1);
+                        double updem1 = 30 + 2.5 * (skillindex + 1);
                         if (ischecked)
                         {
                             for (int i = 0; i < 9; i++)
@@ -12218,7 +12234,7 @@ namespace snqxap
                         switch (skillindex) { case 0: { cdtime = 15; break; } case 1: { cdtime = 14.7; break; } case 2: { cdtime = 14.3; break; } case 3: { cdtime = 14; break; } case 4: { cdtime = 13.7; break; } case 5: { cdtime = 13.3; break; } case 6: { cdtime = 13; break; } case 7: { cdtime = 12.7; break; } case 8: { cdtime = 12.3; break; } case 9: { cdtime = 12; break; } }
                         gun[index].cd = cdtime;
                         double attime = 0;
-                                  switch (skillindex)
+                        switch (skillindex)
                         {
                             case 0: { attime = 5; break; }
                             case 1: { attime = 6; break; }
@@ -12312,7 +12328,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("6");
-                        string read = "降低敌方全体" + updem1*100 + "%命中";
+                        string read = "降低敌方全体" + updem1 * 100 + "%命中";
                         renewread(combo, read);
                         break;
                     }
@@ -12327,7 +12343,7 @@ namespace snqxap
                         switch (skillindex) { case 0: { attime = 8; break; } case 1: { attime = 9; break; } case 2: { attime = 10; break; } case 3: { attime = 11; break; } case 4: { attime = 12; break; } case 5: { attime = 12; break; } case 6: { attime = 13; break; } case 7: { attime = 13; break; } case 8: { attime = 14; break; } case 9: { attime = 15; break; } }
                         switch (skillindex) { case 0: { updem1 = 0.5; break; } case 1: { updem1 = 0.54; break; } case 2: { updem1 = 0.59; break; } case 3: { updem1 = 0.63; break; } case 4: { updem1 = 0.68; break; } case 5: { updem1 = 0.72; break; } case 6: { updem1 = 0.77; break; } case 7: { updem1 = 0.81; break; } case 8: { updem1 = 0.86; break; } case 9: { updem1 = 0.9; break; } }
 
-                        if (ischecked&&innight)
+                        if (ischecked && innight)
                         {
                             for (int i = 0; i < 9; i++)
                             {
@@ -12339,7 +12355,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("3");
-                        string read = "(夜)提升全体" + updem1*100 + "%命中";
+                        string read = "(夜)提升全体" + updem1 * 100 + "%命中";
                         renewread(combo, read);
                         break;
                     }
@@ -12353,8 +12369,8 @@ namespace snqxap
                         switch (skillindex) { case 0: { cdtime = 15; break; } case 1: { cdtime = 14.7; break; } case 2: { cdtime = 14.3; break; } case 3: { cdtime = 14; break; } case 4: { cdtime = 13.7; break; } case 5: { cdtime = 13.3; break; } case 6: { cdtime = 13; break; } case 7: { cdtime = 12.7; break; } case 8: { cdtime = 12.3; break; } case 9: { cdtime = 12; break; } }
                         switch (skillindex) { case 0: { attime = 5; break; } case 1: { attime = 6; break; } case 2: { attime = 6; break; } case 3: { attime = 6; break; } case 4: { attime = 7; break; } case 5: { attime = 7; break; } case 6: { attime = 7; break; } case 7: { attime = 8; break; } case 8: { attime = 8; break; } case 9: { attime = 8; break; } }
                         switch (skillindex) { case 0: { updem1 = 0.06; updem2 = 0.25; break; } case 1: { updem1 = 0.06; updem2 = 0.26; break; } case 2: { updem1 = 0.07; updem2 = 0.27; break; } case 3: { updem1 = 0.07; updem2 = 0.28; break; } case 4: { updem1 = 0.08; updem2 = 0.29; break; } case 5: { updem1 = 0.08; updem2 = 0.31; break; } case 6: { updem1 = 0.09; updem2 = 0.32; break; } case 7: { updem1 = 0.09; updem2 = 0.33; break; } case 8: { updem1 = 0.10; updem2 = 0.34; break; } case 9: { updem1 = 0.10; updem2 = 0.35; break; } }
-                        
-                        
+
+
                         if (ischecked)
                         {
                             for (int i = 0; i < 9; i++)
@@ -12368,7 +12384,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("6");
-                        string read = "提升全体" + updem1*100 + "%伤害,"+updem2*100+"%暴击率";
+                        string read = "提升全体" + updem1 * 100 + "%伤害," + updem2 * 100 + "%暴击率";
                         renewread(combo, read);
                         break;
                     }
@@ -12503,14 +12519,14 @@ namespace snqxap
                         double updem1 = 0;
                         double updem2 = 0;
 
-                        switch (skillindex) { case 0: { cdtime = 15; break; } case 1: { cdtime = 14.7; break; } case 2: { cdtime = 14.3; break; } case 3: { cdtime = 14; break; } case 4: { cdtime = 13.7; break; } case 5: { cdtime = 13.3; break; } case 6: { cdtime = 13; break; } case 7: { cdtime = 12.7; break; } case 8: { cdtime = 12.3; break; } case 9: { cdtime = 12; break; } } 
+                        switch (skillindex) { case 0: { cdtime = 15; break; } case 1: { cdtime = 14.7; break; } case 2: { cdtime = 14.3; break; } case 3: { cdtime = 14; break; } case 4: { cdtime = 13.7; break; } case 5: { cdtime = 13.3; break; } case 6: { cdtime = 13; break; } case 7: { cdtime = 12.7; break; } case 8: { cdtime = 12.3; break; } case 9: { cdtime = 12; break; } }
                         switch (skillindex) { case 0: { attime = 5; break; } case 1: { attime = 6; break; } case 2: { attime = 6; break; } case 3: { attime = 6; break; } case 4: { attime = 7; break; } case 5: { attime = 7; break; } case 6: { attime = 7; break; } case 7: { attime = 8; break; } case 8: { attime = 8; break; } case 9: { attime = 8; break; } }
                         switch (skillindex) { case 0: { updem1 = 0.15; break; } case 1: { updem1 = 0.16; break; } case 2: { updem1 = 0.17; break; } case 3: { updem1 = 0.18; break; } case 4: { updem1 = 0.19; break; } case 5: { updem1 = 0.21; break; } case 6: { updem1 = 0.22; break; } case 7: { updem1 = 0.23; break; } case 8: { updem1 = 0.24; break; } case 9: { updem1 = 0.25; break; } }
 
                         if (ischecked)
                         {
-                                skilldowndamage *= 1 - updem1;
-                                renewtank();
+                            skilldowndamage *= 1 - updem1;
+                            renewtank();
                         }
 
                         gun[index].cd = cdtime;
@@ -12545,19 +12561,19 @@ namespace snqxap
                         double updem1 = 0;
                         double updem2 = 0;
 
-                        switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } } 
+                        switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
                         switch (skillindex) { case 0: { updem1 = 0.8; break; } case 1: { updem1 = 1.2; break; } case 2: { updem1 = 1.6; break; } case 3: { updem1 = 2; break; } case 4: { updem1 = 2.4; break; } case 5: { updem1 = 2.9; break; } case 6: { updem1 = 3.3; break; } case 7: { updem1 = 3.7; break; } case 8: { updem1 = 4.1; break; } case 9: { updem1 = 4.5; break; } }
 
                         if (ischecked)
                         {
-                            skillsolidmultiple[combo] = updem1+1;
+                            skillsolidmultiple[combo] = updem1 + 1;
                             renewindex(combo);
                         }
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("3");
-                        string read = "手榴弹,半径2.5," + (updem1 +1 )+ "倍";
+                        string read = "手榴弹,半径2.5," + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
                     }
@@ -12573,15 +12589,15 @@ namespace snqxap
                         switch (skillindex) { case 0: { attime = 2.5; break; } case 1: { attime = 2.7; break; } case 2: { attime = 2.8; break; } case 3: { attime = 3; break; } case 4: { attime = 3.2; break; } case 5: { attime = 3.3; break; } case 6: { attime = 3.5; break; } case 7: { attime = 3.7; break; } case 8: { attime = 3.8; break; } case 9: { attime = 4; break; } }
                         switch (skillindex) { case 0: { updem1 = 0.20; updem2 = 0.30; break; } case 1: { updem1 = 0.22; updem2 = 0.32; break; } case 2: { updem1 = 0.24; updem2 = 0.34; break; } case 3: { updem1 = 0.25; updem2 = 0.37; break; } case 4: { updem1 = 0.27; updem2 = 0.39; break; } case 5: { updem1 = 0.29; updem2 = 0.41; break; } case 6: { updem1 = 0.31; updem2 = 0.43; break; } case 7: { updem1 = 0.32; updem2 = 0.46; break; } case 8: { updem1 = 0.34; updem2 = 0.48; break; } case 9: { updem1 = 0.36; updem2 = 0.50; break; } }
 
-                    //    if (ischecked)
-                     //   {
-                    //        skilldownhit *= 1 - updem1;
-                     //       renewindex(combo);
-                     //   }
+                        //    if (ischecked)
+                        //   {
+                        //        skilldownhit *= 1 - updem1;
+                        //       renewindex(combo);
+                        //   }
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("1");
-                        string read = "烟雾弹,半径2.5,降射速" + updem1*100 + "%移速" + updem2*100 + "%(不算)";
+                        string read = "烟雾弹,半径2.5,降射速" + updem1 * 100 + "%移速" + updem2 * 100 + "%(不算)";
                         renewread(combo, read);
                         break;
                     }
@@ -12598,8 +12614,8 @@ namespace snqxap
 
                         if (ischecked)
                         {
-                                skillupdodge[combo] *= 1 + updem1;
-                                renewindex(combo);
+                            skillupdodge[combo] *= 1 + updem1;
+                            renewindex(combo);
                             renewtank();
 
                         }
@@ -12631,7 +12647,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("3");
-                        string read = "燃烧弹,半径1.5," + (updem1 + 1) + "倍,每0.33秒"+(updem2+1)+"倍(不算)";
+                        string read = "燃烧弹,半径1.5," + (updem1 + 1) + "倍,每0.33秒" + (updem2 + 1) + "倍(不算)";
                         renewread(combo, read);
                         break;
                     }
@@ -12820,7 +12836,7 @@ namespace snqxap
                         double updem2 = 0;
 
                         switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
-                        switch (skillindex) { case 0: { updem1 = 1.5; break; } case 1: { updem1 = 1.8; break; } case 2: { updem1 = 2.2; break; } case 3: { updem1 = 2.5; break; } case 4: { updem1 = 2.8; break; } case 5: { updem1 = 3.2; break; } case 6: { updem1 = 3.5; break; } case 7: { updem1 = 3.8; break; } case 8: { updem1 = 4.2; break; } case 9: { updem1 = 4.5; break; } } 
+                        switch (skillindex) { case 0: { updem1 = 1.5; break; } case 1: { updem1 = 1.8; break; } case 2: { updem1 = 2.2; break; } case 3: { updem1 = 2.5; break; } case 4: { updem1 = 2.8; break; } case 5: { updem1 = 3.2; break; } case 6: { updem1 = 3.5; break; } case 7: { updem1 = 3.8; break; } case 8: { updem1 = 4.2; break; } case 9: { updem1 = 4.5; break; } }
                         if (ischecked)
                         {
                             skillsolidmultiple[combo] = updem1 + 1;
@@ -12866,17 +12882,17 @@ namespace snqxap
                         double updem2 = 0;
 
                         switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
-                        switch (skillindex) { case 0: { updem1 = 1.2; break; } case 1: { updem1 = 1.5; break; } case 2: { updem1 = 1.8; break; } case 3: { updem1 = 2.1; break; } case 4: { updem1 = 2.4; break; } case 5: { updem1 = 2.8; break; } case 6: { updem1 = 3.1; break; } case 7: { updem1 = 3.4; break; } case 8: { updem1 = 3.7; break; } case 9: { updem1 = 4; break; } } 
+                        switch (skillindex) { case 0: { updem1 = 1.2; break; } case 1: { updem1 = 1.5; break; } case 2: { updem1 = 1.8; break; } case 3: { updem1 = 2.1; break; } case 4: { updem1 = 2.4; break; } case 5: { updem1 = 2.8; break; } case 6: { updem1 = 3.1; break; } case 7: { updem1 = 3.4; break; } case 8: { updem1 = 3.7; break; } case 9: { updem1 = 4; break; } }
                         if (ischecked)
                         {
-                              skillsolidmultiple[combo] = updem1+1;
+                            skillsolidmultiple[combo] = updem1 + 1;
                             renewindex(combo);
                         }
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("10");
-                        string read = "1.5s瞄准,特定" + (updem1 + 1 )+ "倍";
+                        string read = "1.5s瞄准,特定" + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
                     }
@@ -12888,16 +12904,16 @@ namespace snqxap
                         double updem2 = 0;
 
                         switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
-                        switch (skillindex) { case 0: { updem1 = 1; break; } case 1: { updem1 = 1.3; break; } case 2: { updem1 = 1.6; break; } case 3: { updem1 = 1.8; break; } case 4: { updem1 = 2.1; break; } case 5: { updem1 = 2.4; break; } case 6: { updem1 = 2.7; break; } case 7: { updem1 = 2.9; break; } case 8: { updem1 = 3.2; break; } case 9: { updem1 = 3.5; break; } } 
+                        switch (skillindex) { case 0: { updem1 = 1; break; } case 1: { updem1 = 1.3; break; } case 2: { updem1 = 1.6; break; } case 3: { updem1 = 1.8; break; } case 4: { updem1 = 2.1; break; } case 5: { updem1 = 2.4; break; } case 6: { updem1 = 2.7; break; } case 7: { updem1 = 2.9; break; } case 8: { updem1 = 3.2; break; } case 9: { updem1 = 3.5; break; } }
                         if (ischecked)
                         {
-                              skillsolidmultiple[combo] = updem1+1;
+                            skillsolidmultiple[combo] = updem1 + 1;
                             renewindex(combo);
                         }
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("10");
-                        string read = "1.5s瞄准,特定" +( updem1 + 1) + "倍";
+                        string read = "1.5s瞄准,特定" + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
                     }
@@ -12933,10 +12949,10 @@ namespace snqxap
                         double updem2 = 0;
 
                         switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
-                        switch (skillindex) { case 0: { updem1 = 2.2; break; } case 1: { updem1 = 2.6; break; } case 2: { updem1 = 3; break; } case 3: { updem1 = 3.5; break; } case 4: { updem1 = 3.9; break; } case 5: { updem1 = 4.3; break; } case 6: { updem1 = 4.7; break; } case 7: { updem1 = 5.2; break; } case 8: { updem1 = 5.6; break; } case 9: { updem1 = 6; break; } } 
+                        switch (skillindex) { case 0: { updem1 = 2.2; break; } case 1: { updem1 = 2.6; break; } case 2: { updem1 = 3; break; } case 3: { updem1 = 3.5; break; } case 4: { updem1 = 3.9; break; } case 5: { updem1 = 4.3; break; } case 6: { updem1 = 4.7; break; } case 7: { updem1 = 5.2; break; } case 8: { updem1 = 5.6; break; } case 9: { updem1 = 6; break; } }
                         if (ischecked)
                         {
-                              skillsolidmultiple[combo] = updem1+1;
+                            skillsolidmultiple[combo] = updem1 + 1;
                             renewindex(combo);
                         }
 
@@ -12946,7 +12962,7 @@ namespace snqxap
                         string read = "2s瞄准,最左" + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
-                    }            
+                    }
                 case 100403:
                     {
                         double cdtime = 0;
@@ -12979,10 +12995,10 @@ namespace snqxap
                         double updem2 = 0;
 
                         switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
-                        switch (skillindex) { case 0: { updem1 = 1.2; break; } case 1: { updem1 = 1.5; break; } case 2: { updem1 = 1.8; break; } case 3: { updem1 = 2.1; break; } case 4: { updem1 = 2.4; break; } case 5: { updem1 = 2.8; break; } case 6: { updem1 = 3.1; break; } case 7: { updem1 = 3.4; break; } case 8: { updem1 = 3.7; break; } case 9: { updem1 = 4; break; } } 
+                        switch (skillindex) { case 0: { updem1 = 1.2; break; } case 1: { updem1 = 1.5; break; } case 2: { updem1 = 1.8; break; } case 3: { updem1 = 2.1; break; } case 4: { updem1 = 2.4; break; } case 5: { updem1 = 2.8; break; } case 6: { updem1 = 3.1; break; } case 7: { updem1 = 3.4; break; } case 8: { updem1 = 3.7; break; } case 9: { updem1 = 4; break; } }
                         if (ischecked)
                         {
-                              skillsolidmultiple[combo] = updem1+1;
+                            skillsolidmultiple[combo] = updem1 + 1;
                             renewindex(combo);
                         }
 
@@ -13001,10 +13017,10 @@ namespace snqxap
                         double updem2 = 0;
 
                         switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
-                        switch (skillindex) { case 0: { updem1 = 0.5; break; } case 1: { updem1 = 0.7; break; } case 2: { updem1 = 0.9; break; } case 3: { updem1 = 1.2; break; } case 4: { updem1 = 1.4; break; } case 5: { updem1 = 1.6; break; } case 6: { updem1 = 1.8; break; } case 7: { updem1 = 2.1; break; } case 8: { updem1 = 2.3; break; } case 9: { updem1 = 2.5; break; } } 
+                        switch (skillindex) { case 0: { updem1 = 0.5; break; } case 1: { updem1 = 0.7; break; } case 2: { updem1 = 0.9; break; } case 3: { updem1 = 1.2; break; } case 4: { updem1 = 1.4; break; } case 5: { updem1 = 1.6; break; } case 6: { updem1 = 1.8; break; } case 7: { updem1 = 2.1; break; } case 8: { updem1 = 2.3; break; } case 9: { updem1 = 2.5; break; } }
                         if (ischecked)
                         {
-                              skillsolidmultiple[combo] = updem1+1;
+                            skillsolidmultiple[combo] = updem1 + 1;
                             renewindex(combo);
                         }
 
@@ -13023,8 +13039,8 @@ namespace snqxap
                         double updem2 = 0;
 
                         switch (skillindex) { case 0: { cdtime = 10; break; } case 1: { cdtime = 9.8; break; } case 2: { cdtime = 9.6; break; } case 3: { cdtime = 9.3; break; } case 4: { cdtime = 9.1; break; } case 5: { cdtime = 8.9; break; } case 6: { cdtime = 8.7; break; } case 7: { cdtime = 8.4; break; } case 8: { cdtime = 8.2; break; } case 9: { cdtime = 8; break; } }
-                        switch (skillindex) { case 0: { attime = 3; break; } case 1: { attime = 3.2; break; } case 2: { attime = 3.4; break; } case 3: { attime = 3.7; break; } case 4: { attime = 3.9; break; } case 5: { attime = 4.1; break; } case 6: { attime = 4.3; break; } case 7: { attime = 4.6; break; } case 8: { attime = 4.8; break; } case 9: { attime = 5; break; } } 
-                        if(innight)
+                        switch (skillindex) { case 0: { attime = 3; break; } case 1: { attime = 3.2; break; } case 2: { attime = 3.4; break; } case 3: { attime = 3.7; break; } case 4: { attime = 3.9; break; } case 5: { attime = 4.1; break; } case 6: { attime = 4.3; break; } case 7: { attime = 4.6; break; } case 8: { attime = 4.8; break; } case 9: { attime = 5; break; } }
+                        if (innight)
                             switch (skillindex) { case 0: { updem1 = 0.45; break; } case 1: { updem1 = 0.49; break; } case 2: { updem1 = 0.54; break; } case 3: { updem1 = 0.58; break; } case 4: { updem1 = 0.63; break; } case 5: { updem1 = 0.67; break; } case 6: { updem1 = 0.72; break; } case 7: { updem1 = 0.76; break; } case 8: { updem1 = 0.81; break; } case 9: { updem1 = 0.85; break; } }
                         else
                             switch (skillindex) { case 0: { updem1 = 0.15; break; } case 1: { updem1 = 0.16; break; } case 2: { updem1 = 0.18; break; } case 3: { updem1 = 0.19; break; } case 4: { updem1 = 0.21; break; } case 5: { updem1 = 0.22; break; } case 6: { updem1 = 0.24; break; } case 7: { updem1 = 0.25; break; } case 8: { updem1 = 0.27; break; } case 9: { updem1 = 0.28; break; } }
@@ -13129,10 +13145,10 @@ namespace snqxap
                         double updem2 = 0;
 
                         switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
-                        switch (skillindex){case 0:{updem1 = 2.5; break;}case 1:{updem1 = 3; break;}case 2:{updem1 = 3.5; break;}case 3:{updem1 = 4; break;}case 4:{updem1 = 4.5; break;}case 5:{updem1 = 5; break;}case 6:{updem1 = 5.5; break;}case 7:{updem1 = 6; break;}case 8:{updem1 = 6.5; break;}case 9:{updem1 = 7; break;}}
+                        switch (skillindex) { case 0: { updem1 = 2.5; break; } case 1: { updem1 = 3; break; } case 2: { updem1 = 3.5; break; } case 3: { updem1 = 4; break; } case 4: { updem1 = 4.5; break; } case 5: { updem1 = 5; break; } case 6: { updem1 = 5.5; break; } case 7: { updem1 = 6; break; } case 8: { updem1 = 6.5; break; } case 9: { updem1 = 7; break; } }
                         if (ischecked)
                         {
-                              skillsolidmultiple[combo] = updem1+1;
+                            skillsolidmultiple[combo] = updem1 + 1;
                             renewindex(combo);
                         }
 
@@ -13197,14 +13213,14 @@ namespace snqxap
 
                         if (ischecked)
                         {
-                              skillsolidmultiple[combo] = updem1+1;
+                            skillsolidmultiple[combo] = updem1 + 1;
                             renewindex(combo);
                         }
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("8");
-                        string read = "杀伤榴弹,半径1.5," +( updem1 + 1) + "倍";
+                        string read = "杀伤榴弹,半径1.5," + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
                     }
@@ -13219,7 +13235,7 @@ namespace snqxap
                         switch (skillindex) { case 0: { updem1 = 4; break; } case 1: { updem1 = 4.8; break; } case 2: { updem1 = 5.6; break; } case 3: { updem1 = 6.3; break; } case 4: { updem1 = 7.1; break; } case 5: { updem1 = 7.9; break; } case 6: { updem1 = 8.7; break; } case 7: { updem1 = 9.4; break; } case 8: { updem1 = 10.2; break; } case 9: { updem1 = 11; break; } }
                         if (ischecked)
                         {
-                              skillsolidmultiple[combo] = updem1+1;
+                            skillsolidmultiple[combo] = updem1 + 1;
                             renewindex(combo);
                         }
 
@@ -13267,11 +13283,11 @@ namespace snqxap
 
                         if (ischecked)
                         {
-   
-                                skillupdamage[combo] *= 1 + updem1;
-                                skilluphit[combo] *= 1 + updem2;
-                                renewindex(combo);
-    
+
+                            skillupdamage[combo] *= 1 + updem1;
+                            skilluphit[combo] *= 1 + updem2;
+                            renewindex(combo);
+
                         }
 
                         gun[index].cd = cdtime;
@@ -13289,11 +13305,11 @@ namespace snqxap
                         double updem2 = 0;
 
                         switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
-                        switch (skillindex) { case 0: { attime = 3.67; break; } case 1: { attime = 3.93; break; } case 2: { attime = 4.20; break; } case 3: { attime = 4.43; break; } case 4: { attime = 4.70; break; } case 5: { attime = 4.97; break; } case 6: { attime = 5.23; break; } case 7: { attime = 5.47; break; } case 8: { attime = 5.73; break; } case 9: { attime = 6.00; break; } } 
+                        switch (skillindex) { case 0: { attime = 3.67; break; } case 1: { attime = 3.93; break; } case 2: { attime = 4.20; break; } case 3: { attime = 4.43; break; } case 4: { attime = 4.70; break; } case 5: { attime = 4.97; break; } case 6: { attime = 5.23; break; } case 7: { attime = 5.47; break; } case 8: { attime = 5.73; break; } case 9: { attime = 6.00; break; } }
                         if (innight)
                             switch (skillindex) { case 0: { updem1 = 1.1; break; } case 1: { updem1 = 1.18; break; } case 2: { updem1 = 1.26; break; } case 3: { updem1 = 1.33; break; } case 4: { updem1 = 1.41; break; } case 5: { updem1 = 1.49; break; } case 6: { updem1 = 1.57; break; } case 7: { updem1 = 1.64; break; } case 8: { updem1 = 1.72; break; } case 9: { updem1 = 1.8; break; } }
                         else
-                            switch (skillindex) { case 0: { updem1 = 0.35; break; } case 1: { updem1 = 0.38; break; } case 2: { updem1 = 0.41; break; } case 3: { updem1 = 0.43; break; } case 4: { updem1 = 0.46; break; } case 5: { updem1 = 0.49; break; } case 6: { updem1 = 0.52; break; } case 7: { updem1 = 0.54; break; } case 8: { updem1 = 0.57; break; } case 9: { updem1 = 0.6; break; } } 
+                            switch (skillindex) { case 0: { updem1 = 0.35; break; } case 1: { updem1 = 0.38; break; } case 2: { updem1 = 0.41; break; } case 3: { updem1 = 0.43; break; } case 4: { updem1 = 0.46; break; } case 5: { updem1 = 0.49; break; } case 6: { updem1 = 0.52; break; } case 7: { updem1 = 0.54; break; } case 8: { updem1 = 0.57; break; } case 9: { updem1 = 0.6; break; } }
                         if (ischecked)
                         {
                             skillupdamage[combo] *= 1 + updem1;
@@ -13327,13 +13343,13 @@ namespace snqxap
 
                         if (ischecked)
                         {
-                              skillsolidmultiple[combo] = updem1+1;
+                            skillsolidmultiple[combo] = updem1 + 1;
                             renewindex(combo);
                         }
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("8");
-                        string read = "爆破榴弹,半径4," + (updem1 + 1 )+ "倍";
+                        string read = "爆破榴弹,半径4," + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
                     }
@@ -13374,7 +13390,7 @@ namespace snqxap
 
                         if (ischecked)
                         {
-                              skillsolidmultiple[combo] = updem1+1;
+                            skillsolidmultiple[combo] = updem1 + 1;
                             renewindex(combo);
                         }
 
@@ -13398,7 +13414,7 @@ namespace snqxap
 
                         if (ischecked)
                         {
-                              skillsolidmultiple[combo] = updem1+1;
+                            skillsolidmultiple[combo] = updem1 + 1;
                             renewindex(combo);
                         }
 
@@ -13422,7 +13438,7 @@ namespace snqxap
 
                         if (ischecked)
                         {
-                              skillsolidmultiple[combo] = updem1+1;
+                            skillsolidmultiple[combo] = updem1 + 1;
                             renewindex(combo);
                         }
 
@@ -13544,17 +13560,17 @@ namespace snqxap
 
                         switch (skillindex) { case 0: { updem1 = 0.2; break; } case 1: { updem1 = 0.3; break; } case 2: { updem1 = 0.5; break; } case 3: { updem1 = 0.6; break; } case 4: { updem1 = 0.7; break; } case 5: { updem1 = 0.9; break; } case 6: { updem1 = 1; break; } case 7: { updem1 = 1.1; break; } case 8: { updem1 = 1.3; break; } case 9: { updem1 = 1.4; break; } }
 
-                     //   if (ischecked)
-                     //   {
-                            skilluprenju[combo] =1+ updem1 ;
-                            renewindex(combo);
-                     //   }
+                        //   if (ischecked)
+                        //   {
+                        skilluprenju[combo] = 1 + updem1;
+                        renewindex(combo);
+                        //   }
 
-                   //     string cd = "(此技能算法未写,暂时平均加到伤害上)";
+                        //     string cd = "(此技能算法未写,暂时平均加到伤害上)";
                         gun[index].cd = -1;
                         renewattime(combo, "99");
                         gun[index].startcd = ("-1");
-                        string read = "被动,每攻击3次,下次伤害" +( updem1 +1) + "倍";
+                        string read = "被动,每攻击3次,下次伤害" + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
                     }
@@ -13565,11 +13581,11 @@ namespace snqxap
                         double updem1 = 0;
                         double updem2 = 0;
 
-                        switch (skillindex) { case 0: { attime = 4.00; break; } case 1: { attime = 4.20; break; } case 2: { attime = 4.40; break; } case 3: { attime = 4.70; break; } case 4: { attime = 4.90; break; } case 5: { attime = 5.10; break; } case 6: { attime = 5.30; break; } case 7: { attime = 5.60; break; } case 8: { attime = 5.80; break; } case 9: { attime = 6.00; break; } } 
+                        switch (skillindex) { case 0: { attime = 4.00; break; } case 1: { attime = 4.20; break; } case 2: { attime = 4.40; break; } case 3: { attime = 4.70; break; } case 4: { attime = 4.90; break; } case 5: { attime = 5.10; break; } case 6: { attime = 5.30; break; } case 7: { attime = 5.60; break; } case 8: { attime = 5.80; break; } case 9: { attime = 6.00; break; } }
                         if (innight)
                             switch (skillindex) { case 0: { updem1 = 0.4; break; } case 1: { updem1 = 0.47; break; } case 2: { updem1 = 0.54; break; } case 3: { updem1 = 0.62; break; } case 4: { updem1 = 0.69; break; } case 5: { updem1 = 0.76; break; } case 6: { updem1 = 0.83; break; } case 7: { updem1 = 0.91; break; } case 8: { updem1 = 0.98; break; } case 9: { updem1 = 1.05; break; } }
                         else
-                            switch (skillindex) { case 0: { updem1 = 0.12; break; } case 1: { updem1 = 0.15; break; } case 2: { updem1 = 0.17; break; } case 3: { updem1 = 0.2; break; } case 4: { updem1 = 0.22; break; } case 5: { updem1 = 0.25; break; } case 6: { updem1 = 0.27; break; } case 7: { updem1 = 0.3; break; } case 8: { updem1 = 0.32; break; } case 9: { updem1 = 0.35; break; } } 
+                            switch (skillindex) { case 0: { updem1 = 0.12; break; } case 1: { updem1 = 0.15; break; } case 2: { updem1 = 0.17; break; } case 3: { updem1 = 0.2; break; } case 4: { updem1 = 0.22; break; } case 5: { updem1 = 0.25; break; } case 6: { updem1 = 0.27; break; } case 7: { updem1 = 0.3; break; } case 8: { updem1 = 0.32; break; } case 9: { updem1 = 0.35; break; } }
                         if (ischecked)
                         {
                             skillupdamage[combo] *= 1 + updem1;
@@ -13605,8 +13621,8 @@ namespace snqxap
                             switch (skillindex) { case 0: { updem1 = 0.05; break; } case 1: { updem1 = 0.06; break; } case 2: { updem1 = 0.06; break; } case 3: { updem1 = 0.07; break; } case 4: { updem1 = 0.07; break; } case 5: { updem1 = 0.08; break; } case 6: { updem1 = 0.08; break; } case 7: { updem1 = 0.09; break; } case 8: { updem1 = 0.09; break; } case 9: { updem1 = 0.1; break; } }
 
                         switch (skillindex) { case 0: { updem2 = 1; break; } case 1: { updem2 = 2; break; } case 2: { updem2 = 2; break; } case 3: { updem2 = 2; break; } case 4: { updem2 = 2; break; } case 5: { updem2 = 3; break; } case 6: { updem2 = 3; break; } case 7: { updem2 = 3; break; } case 8: { updem2 = 3; break; } case 9: { updem2 = 4; break; } }
-                     
-                        
+
+
                         if (ischecked)
                         {
                             skillupdamage[combo] *= 1 + updem1;
@@ -13637,7 +13653,7 @@ namespace snqxap
                         double updem2 = 0;
 
                         switch (skillindex) { case 0: { cdtime = 18.00; break; } case 1: { cdtime = 18.00; break; } case 2: { cdtime = 18.00; break; } case 3: { cdtime = 18.00; break; } case 4: { cdtime = 18.00; break; } case 5: { cdtime = 18.00; break; } case 6: { cdtime = 18.00; break; } case 7: { cdtime = 18.00; break; } case 8: { cdtime = 18.00; break; } case 9: { cdtime = 18.00; break; } }
-                        switch (skillindex) { case 0: { attime = 1.00; break; } case 1: { attime = 1.60; break; } case 2: { attime = 2.10; break; } case 3: { attime = 2.70; break; } case 4: { attime = 3.20; break; } case 5: { attime = 3.80; break; } case 6: { attime = 4.30; break; } case 7: { attime = 4.90; break; } case 8: { attime = 5.40; break; } case 9: { attime = 6.00; break; } } 
+                        switch (skillindex) { case 0: { attime = 1.00; break; } case 1: { attime = 1.60; break; } case 2: { attime = 2.10; break; } case 3: { attime = 2.70; break; } case 4: { attime = 3.20; break; } case 5: { attime = 3.80; break; } case 6: { attime = 4.30; break; } case 7: { attime = 4.90; break; } case 8: { attime = 5.40; break; } case 9: { attime = 6.00; break; } }
                         switch (skillindex) { case 0: { updem1 = 0.25; break; } case 1: { updem1 = 0.29; break; } case 2: { updem1 = 0.34; break; } case 3: { updem1 = 0.38; break; } case 4: { updem1 = 0.43; break; } case 5: { updem1 = 0.47; break; } case 6: { updem1 = 0.52; break; } case 7: { updem1 = 0.56; break; } case 8: { updem1 = 0.61; break; } case 9: { updem1 = 0.65; break; } }
 
                         if (ischecked)
@@ -13706,7 +13722,7 @@ namespace snqxap
 
 
                         string read = "提升自身" + updem1 * 100 + "%伤害,弹链+" + updem2 + "(不算弹链时间)";
-                            renewread(combo, read);
+                        renewread(combo, read);
                         break;
                     }
                 case 100110:
@@ -13743,15 +13759,15 @@ namespace snqxap
                         switch (skillindex) { case 0: { updem1 = 0.5; break; } case 1: { updem1 = 0.6; break; } case 2: { updem1 = 0.7; break; } case 3: { updem1 = 0.9; break; } case 4: { updem1 = 1; break; } case 5: { updem1 = 1.1; break; } case 6: { updem1 = 1.2; break; } case 7: { updem1 = 1.4; break; } case 8: { updem1 = 1.5; break; } case 9: { updem1 = 1.6; break; } }
 
 
-                        skilluprenju[combo] = 1 + updem1 ;
-                            renewindex(combo);
-                      
+                        skilluprenju[combo] = 1 + updem1;
+                        renewindex(combo);
 
-                     //   string cd = "(此技能算法未写,暂时平均加到伤害上)";
+
+                        //   string cd = "(此技能算法未写,暂时平均加到伤害上)";
                         gun[index].cd = -1;
                         renewattime(combo, "99");
                         gun[index].startcd = ("-1");
-                        string read = "被动,每攻击3次,下次伤害" +( updem1 + 1) + "倍";
+                        string read = "被动,每攻击3次,下次伤害" + (updem1 + 1) + "倍";
                         renewread(combo, read);
                         break;
                     }
@@ -13878,7 +13894,7 @@ namespace snqxap
                         switch (skillindex) { case 0: { attime = 5.00; break; } case 1: { attime = 6.00; break; } case 2: { attime = 6.00; break; } case 3: { attime = 6.00; break; } case 4: { attime = 7.00; break; } case 5: { attime = 7.00; break; } case 6: { attime = 7.00; break; } case 7: { attime = 8.00; break; } case 8: { attime = 8.00; break; } case 9: { attime = 8.00; break; } }
                         switch (skillindex) { case 0: { updem1 = 0.12; break; } case 1: { updem1 = 0.13; break; } case 2: { updem1 = 0.14; break; } case 3: { updem1 = 0.15; break; } case 4: { updem1 = 0.16; break; } case 5: { updem1 = 0.18; break; } case 6: { updem1 = 0.19; break; } case 7: { updem1 = 0.2; break; } case 8: { updem1 = 0.21; break; } case 9: { updem1 = 0.22; break; } }
 
-                     
+
 
 
                         gun[index].cd = cdtime;
@@ -13922,7 +13938,7 @@ namespace snqxap
                         double updem2 = 0;
 
                         switch (skillindex) { case 0: { cdtime = 10.00; break; } case 1: { cdtime = 9.80; break; } case 2: { cdtime = 9.60; break; } case 3: { cdtime = 9.30; break; } case 4: { cdtime = 9.10; break; } case 5: { cdtime = 8.90; break; } case 6: { cdtime = 8.70; break; } case 7: { cdtime = 8.40; break; } case 8: { cdtime = 8.20; break; } case 9: { cdtime = 8.00; break; } }
-                            if (innight)
+                        if (innight)
                         {
                             switch (skillindex) { case 0: { attime = 6.00; break; } case 1: { attime = 6.40; break; } case 2: { attime = 6.80; break; } case 3: { attime = 7.40; break; } case 4: { attime = 7.80; break; } case 5: { attime = 8.20; break; } case 6: { attime = 8.60; break; } case 7: { attime = 9.20; break; } case 8: { attime = 9.60; break; } case 9: { attime = 10.00; break; } }
                             switch (skillindex) { case 0: { updem1 = 0.5; break; } case 1: { updem1 = 0.54; break; } case 2: { updem1 = 0.59; break; } case 3: { updem1 = 0.63; break; } case 4: { updem1 = 0.68; break; } case 5: { updem1 = 0.72; break; } case 6: { updem1 = 0.77; break; } case 7: { updem1 = 0.81; break; } case 8: { updem1 = 0.86; break; } case 9: { updem1 = 0.9; break; } }
@@ -13962,7 +13978,7 @@ namespace snqxap
 
                         switch (skillindex) { case 0: { cdtime = 15.00; break; } case 1: { cdtime = 14.70; break; } case 2: { cdtime = 14.30; break; } case 3: { cdtime = 14.00; break; } case 4: { cdtime = 13.70; break; } case 5: { cdtime = 13.30; break; } case 6: { cdtime = 13.00; break; } case 7: { cdtime = 12.70; break; } case 8: { cdtime = 12.30; break; } case 9: { cdtime = 12.00; break; } }
                         switch (skillindex) { case 0: { attime = 5.00; break; } case 1: { attime = 6.00; break; } case 2: { attime = 6.00; break; } case 3: { attime = 6.00; break; } case 4: { attime = 7.00; break; } case 5: { attime = 7.00; break; } case 6: { attime = 7.00; break; } case 7: { attime = 8.00; break; } case 8: { attime = 8.00; break; } case 9: { attime = 8.00; break; } }
-                        switch (skillindex) { case 0: { updem1 = 0.15; break; } case 1: { updem1 = 0.16; break; } case 2: { updem1 = 0.17; break; } case 3: { updem1 = 0.18; break; } case 4: { updem1 = 0.19; break; } case 5: { updem1 = 0.2; break; } case 6: { updem1 = 0.21; break; } case 7: { updem1 = 0.22; break; } case 8: { updem1 = 0.23; break; } case 9: { updem1 = 0.25; break; } } 
+                        switch (skillindex) { case 0: { updem1 = 0.15; break; } case 1: { updem1 = 0.16; break; } case 2: { updem1 = 0.17; break; } case 3: { updem1 = 0.18; break; } case 4: { updem1 = 0.19; break; } case 5: { updem1 = 0.2; break; } case 6: { updem1 = 0.21; break; } case 7: { updem1 = 0.22; break; } case 8: { updem1 = 0.23; break; } case 9: { updem1 = 0.25; break; } }
                         if (ischecked)
                         {
                             for (int i = 0; i < 9; i++)
@@ -13976,8 +13992,8 @@ namespace snqxap
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("6");
 
-                            string read = "提升全体" + updem1 * 100 + "%伤害";
-                            renewread(combo, read);
+                        string read = "提升全体" + updem1 * 100 + "%伤害";
+                        renewread(combo, read);
 
                         break;
                     }
@@ -14106,8 +14122,8 @@ namespace snqxap
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("6");
 
-                            string read = "提升全体" + updem1 * 100 + "%回避";
-                            renewread(combo, read);
+                        string read = "提升全体" + updem1 * 100 + "%回避";
+                        renewread(combo, read);
                         break;
                     }
                 case 102403:
@@ -14122,11 +14138,11 @@ namespace snqxap
                         switch (skillindex) { case 0: { attime = 2.5; break; } case 1: { attime = 2.7; break; } case 2: { attime = 2.8; break; } case 3: { attime = 3; break; } case 4: { attime = 3.2; break; } case 5: { attime = 3.3; break; } case 6: { attime = 3.5; break; } case 7: { attime = 3.7; break; } case 8: { attime = 3.8; break; } case 9: { attime = 4; break; } }
                         switch (skillindex) { case 0: { updem1 = 0.25; updem2 = 0.30; break; } case 1: { updem1 = 0.27; updem2 = 0.32; break; } case 2: { updem1 = 0.28; updem2 = 0.34; break; } case 3: { updem1 = 0.30; updem2 = 0.37; break; } case 4: { updem1 = 0.32; updem2 = 0.39; break; } case 5: { updem1 = 0.33; updem2 = 0.41; break; } case 6: { updem1 = 0.35; updem2 = 0.43; break; } case 7: { updem1 = 0.37; updem2 = 0.46; break; } case 8: { updem1 = 0.38; updem2 = 0.48; break; } case 9: { updem1 = 0.40; updem2 = 0.50; break; } }
 
-                    //    if (ischecked)
-                    //    {
-                    //        skilldownhit *= 1 - updem1;
-                    //        renewindex(combo);
-                   //     }
+                        //    if (ischecked)
+                        //    {
+                        //        skilldownhit *= 1 - updem1;
+                        //        renewindex(combo);
+                        //     }
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("1");
@@ -14167,12 +14183,12 @@ namespace snqxap
 
                         switch (skillindex) { case 0: { updem1 = 0.5; break; } case 1: { updem1 = 0.7; break; } case 2: { updem1 = 0.8; break; } case 3: { updem1 = 1; break; } case 4: { updem1 = 1.2; break; } case 5: { updem1 = 1.3; break; } case 6: { updem1 = 1.5; break; } case 7: { updem1 = 1.7; break; } case 8: { updem1 = 1.8; break; } case 9: { updem1 = 2; break; } }
 
-                       
-                            skilluprenju[combo] = 1 + updem1 ;
-                            renewindex(combo);
-                    
 
-                      //  string cd = "(此技能算法未写,暂时平均加到伤害上)";
+                        skilluprenju[combo] = 1 + updem1;
+                        renewindex(combo);
+
+
+                        //  string cd = "(此技能算法未写,暂时平均加到伤害上)";
                         gun[index].cd = -1;
                         renewattime(combo, "99");
                         gun[index].startcd = ("-1");
@@ -14187,26 +14203,26 @@ namespace snqxap
                         double updem1 = 0;
                         double updem2 = 0;
 
-                        switch (skillindex) { case 0: { cdtime = 18.00; break; } case 1: { cdtime = 18.00; break; } case 2: { cdtime = 18.00; break; } case 3: { cdtime = 18.00; break; } case 4: { cdtime = 18.00; break; } case 5: { cdtime = 18.00; break; } case 6: { cdtime = 18.00; break; } case 7: { cdtime = 18.00; break; } case 8: { cdtime = 18.00; break; } case 9: { cdtime = 18.00; break; } } 
+                        switch (skillindex) { case 0: { cdtime = 18.00; break; } case 1: { cdtime = 18.00; break; } case 2: { cdtime = 18.00; break; } case 3: { cdtime = 18.00; break; } case 4: { cdtime = 18.00; break; } case 5: { cdtime = 18.00; break; } case 6: { cdtime = 18.00; break; } case 7: { cdtime = 18.00; break; } case 8: { cdtime = 18.00; break; } case 9: { cdtime = 18.00; break; } }
                         if (innight)
                         {
                             switch (skillindex) { case 0: { attime = 4.00; break; } case 1: { attime = 4.20; break; } case 2: { attime = 4.40; break; } case 3: { attime = 4.70; break; } case 4: { attime = 4.90; break; } case 5: { attime = 5.10; break; } case 6: { attime = 5.30; break; } case 7: { attime = 5.60; break; } case 8: { attime = 5.80; break; } case 9: { attime = 6.00; break; } }
 
                             switch (skillindex) { case 0: { updem1 = 0.32; break; } case 1: { updem1 = 0.38; break; } case 2: { updem1 = 0.44; break; } case 3: { updem1 = 0.5; break; } case 4: { updem1 = 0.56; break; } case 5: { updem1 = 0.61; break; } case 6: { updem1 = 0.67; break; } case 7: { updem1 = 0.73; break; } case 8: { updem1 = 0.79; break; } case 9: { updem1 = 0.85; break; } }
-                        
+
                         }
                         else
                         {
                             switch (skillindex) { case 0: { attime = 4.00; break; } case 1: { attime = 4.20; break; } case 2: { attime = 4.40; break; } case 3: { attime = 4.70; break; } case 4: { attime = 4.90; break; } case 5: { attime = 5.10; break; } case 6: { attime = 5.30; break; } case 7: { attime = 5.60; break; } case 8: { attime = 5.80; break; } case 9: { attime = 6.00; break; } }
 
                             switch (skillindex) { case 0: { updem1 = 0.1; break; } case 1: { updem1 = 0.12; break; } case 2: { updem1 = 0.14; break; } case 3: { updem1 = 0.17; break; } case 4: { updem1 = 0.19; break; } case 5: { updem1 = 0.21; break; } case 6: { updem1 = 0.23; break; } case 7: { updem1 = 0.26; break; } case 8: { updem1 = 0.28; break; } case 9: { updem1 = 0.3; break; } }
-                        
+
                         }
                         if (ischecked)
                         {
 
-                                skillupdamage[combo] *= 1 + updem1;
-                                renewindex(combo);
+                            skillupdamage[combo] *= 1 + updem1;
+                            renewindex(combo);
                         }
 
                         gun[index].cd = cdtime;
@@ -14234,11 +14250,11 @@ namespace snqxap
 
                         switch (skillindex) { case 0: { updem1 = 0.25; break; } case 1: { updem1 = 0.28; break; } case 2: { updem1 = 0.31; break; } case 3: { updem1 = 0.33; break; } case 4: { updem1 = 0.36; break; } case 5: { updem1 = 0.39; break; } case 6: { updem1 = 0.42; break; } case 7: { updem1 = 0.44; break; } case 8: { updem1 = 0.47; break; } case 9: { updem1 = 0.5; break; } }
 
-                      //  if (ischecked)
-                      //  {
-                                skillupnegev[combo] = updem1;
-                                renewindex(combo);
-                     //   }
+                        //  if (ischecked)
+                        //  {
+                        skillupnegev[combo] = updem1;
+                        renewindex(combo);
+                        //   }
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
@@ -14256,7 +14272,7 @@ namespace snqxap
 
                         switch (skillindex) { case 0: { cdtime = 15.00; break; } case 1: { cdtime = 14.70; break; } case 2: { cdtime = 14.30; break; } case 3: { cdtime = 14.00; break; } case 4: { cdtime = 13.70; break; } case 5: { cdtime = 13.30; break; } case 6: { cdtime = 13.00; break; } case 7: { cdtime = 12.70; break; } case 8: { cdtime = 12.30; break; } case 9: { cdtime = 12.00; break; } }
                         switch (skillindex) { case 0: { attime = 5.00; break; } case 1: { attime = 6.00; break; } case 2: { attime = 6.00; break; } case 3: { attime = 6.00; break; } case 4: { attime = 7.00; break; } case 5: { attime = 7.00; break; } case 6: { attime = 7.00; break; } case 7: { attime = 8.00; break; } case 8: { attime = 8.00; break; } case 9: { attime = 8.00; break; } }
-                        switch (skillindex) { case 0: { updem1 = 0.11; break; } case 1: { updem1 = 0.12; break; } case 2: { updem1 = 0.13; break; } case 3: { updem1 = 0.14; break; } case 4: { updem1 = 0.15; break; } case 5: { updem1 = 0.16; break; } case 6: { updem1 = 0.17; break; } case 7: { updem1 = 0.18; break; } case 8: { updem1 = 0.19; break; } case 9: { updem1 = 0.2; break; } } 
+                        switch (skillindex) { case 0: { updem1 = 0.11; break; } case 1: { updem1 = 0.12; break; } case 2: { updem1 = 0.13; break; } case 3: { updem1 = 0.14; break; } case 4: { updem1 = 0.15; break; } case 5: { updem1 = 0.16; break; } case 6: { updem1 = 0.17; break; } case 7: { updem1 = 0.18; break; } case 8: { updem1 = 0.19; break; } case 9: { updem1 = 0.2; break; } }
                         if (ischecked)
                         {
                             for (int i = 0; i < 9; i++)
@@ -14336,9 +14352,9 @@ namespace snqxap
                         switch (skillindex) { case 0: { attime = 3.67; break; } case 1: { attime = 3.93; break; } case 2: { attime = 4.20; break; } case 3: { attime = 4.43; break; } case 4: { attime = 4.70; break; } case 5: { attime = 4.97; break; } case 6: { attime = 5.23; break; } case 7: { attime = 5.47; break; } case 8: { attime = 5.73; break; } case 9: { attime = 6.00; break; } }
                         if (innight)
                             switch (skillindex) { case 0: { updem1 = 1.2; break; } case 1: { updem1 = 1.29; break; } case 2: { updem1 = 1.38; break; } case 3: { updem1 = 1.47; break; } case 4: { updem1 = 1.56; break; } case 5: { updem1 = 1.64; break; } case 6: { updem1 = 1.73; break; } case 7: { updem1 = 1.82; break; } case 8: { updem1 = 1.91; break; } case 9: { updem1 = 2; break; } }
-                        
+
                         else
-                            switch (skillindex) { case 0: { updem1 = 0.4; break; } case 1: { updem1 = 0.43; break; } case 2: { updem1 = 0.47; break; } case 3: { updem1 = 0.5; break; } case 4: { updem1 = 0.53; break; } case 5: { updem1 = 0.57; break; } case 6: { updem1 = 0.6; break; } case 7: { updem1 = 0.63; break; } case 8: { updem1 = 0.67; break; } case 9: { updem1 = 0.7; break; } } 
+                            switch (skillindex) { case 0: { updem1 = 0.4; break; } case 1: { updem1 = 0.43; break; } case 2: { updem1 = 0.47; break; } case 3: { updem1 = 0.5; break; } case 4: { updem1 = 0.53; break; } case 5: { updem1 = 0.57; break; } case 6: { updem1 = 0.6; break; } case 7: { updem1 = 0.63; break; } case 8: { updem1 = 0.67; break; } case 9: { updem1 = 0.7; break; } }
                         if (ischecked)
                         {
                             skillupdamage[combo] *= 1 + updem1;
@@ -14372,7 +14388,7 @@ namespace snqxap
 
                         if (ischecked)
                         {
-                              skillsolidmultiple[combo] = updem1+1;
+                            skillsolidmultiple[combo] = updem1 + 1;
                             renewindex(combo);
                         }
 
@@ -14421,19 +14437,19 @@ namespace snqxap
 
                         if (ischecked)
                         {
-                            skilldamageagain[combo] = updem1+1;
+                            skilldamageagain[combo] = updem1 + 1;
                             renewindex(combo);
                         }
                         //     renewtime(combo, num2);
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("6");
-                 
-                        string read = "每次攻击造成" + (updem1+1) + "次伤害";
+
+                        string read = "每次攻击造成" + (updem1 + 1) + "次伤害";
 
                         renewread(combo, read);
 
-                        break; 
+                        break;
                     }
                 case 105105:
                     {
@@ -14461,7 +14477,7 @@ namespace snqxap
                         gun[index].startcd = ("8");
 
 
-                        string read = "提升自身" + updem1 * 100 + "%伤害,弹链+" + updem2+"(不算弹链时间)";
+                        string read = "提升自身" + updem1 * 100 + "%伤害,弹链+" + updem2 + "(不算弹链时间)";
                         renewread(combo, read);
                         break;
                     }
@@ -14512,10 +14528,10 @@ namespace snqxap
                         double updem2 = 0;
 
                         switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
-                        switch (skillindex) { case 0: { updem1 = 2.5; break; } case 1: { updem1 = 3; break; } case 2: { updem1 = 3.5; break; } case 3: { updem1 = 4; break; } case 4: { updem1 = 4.5; break; } case 5: { updem1 = 5; break; } case 6: { updem1 = 5.5; break; } case 7: { updem1 = 6; break; } case 8: { updem1 = 6.5; break; } case 9: { updem1 = 7; break; } } 
+                        switch (skillindex) { case 0: { updem1 = 2.5; break; } case 1: { updem1 = 3; break; } case 2: { updem1 = 3.5; break; } case 3: { updem1 = 4; break; } case 4: { updem1 = 4.5; break; } case 5: { updem1 = 5; break; } case 6: { updem1 = 5.5; break; } case 7: { updem1 = 6; break; } case 8: { updem1 = 6.5; break; } case 9: { updem1 = 7; break; } }
                         if (ischecked)
                         {
-                              skillsolidmultiple[combo] = updem1+1;
+                            skillsolidmultiple[combo] = updem1 + 1;
                             renewindex(combo);
                         }
 
@@ -14535,7 +14551,7 @@ namespace snqxap
 
                         switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
                         switch (skillindex) { case 0: { attime = 9.00; break; } case 1: { attime = 9.70; break; } case 2: { attime = 10.30; break; } case 3: { attime = 11.00; break; } case 4: { attime = 11.70; break; } case 5: { attime = 12.30; break; } case 6: { attime = 13.00; break; } case 7: { attime = 13.70; break; } case 8: { attime = 14.30; break; } case 9: { attime = 15.00; break; } }
-                        switch (skillindex) { case 0: { updem1 = 0.3; break; } case 1: { updem1 = 0.32; break; } case 2: { updem1 = 0.34; break; } case 3: { updem1 = 0.37; break; } case 4: { updem1 = 0.39; break; } case 5: { updem1 = 0.41; break; } case 6: { updem1 = 0.43; break; } case 7: { updem1 = 0.46; break; } case 8: { updem1 = 0.48; break; } case 9: { updem1 = 0.5; break; } } 
+                        switch (skillindex) { case 0: { updem1 = 0.3; break; } case 1: { updem1 = 0.32; break; } case 2: { updem1 = 0.34; break; } case 3: { updem1 = 0.37; break; } case 4: { updem1 = 0.39; break; } case 5: { updem1 = 0.41; break; } case 6: { updem1 = 0.43; break; } case 7: { updem1 = 0.46; break; } case 8: { updem1 = 0.48; break; } case 9: { updem1 = 0.5; break; } }
                         if (ischecked)
                         {
                             skillupdamage[combo] *= 1 + updem1;
@@ -14546,8 +14562,8 @@ namespace snqxap
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("2");
 
-                            string read = "提升自身" + updem1 * 100 + "%伤害";
-                            renewread(combo, read);
+                        string read = "提升自身" + updem1 * 100 + "%伤害";
+                        renewread(combo, read);
 
                         break;
                     }
@@ -14645,10 +14661,10 @@ namespace snqxap
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("4");
 
-        
-                            string read = "提升自身" + updem1 * 100 + "%伤害";
-                            renewread(combo, read);
-      
+
+                        string read = "提升自身" + updem1 * 100 + "%伤害";
+                        renewread(combo, read);
+
                         break;
                     }
                 case 102103:
@@ -14663,7 +14679,7 @@ namespace snqxap
 
                         if (ischecked)
                         {
-                              skillsolidmultiple[combo] = updem1+1;
+                            skillsolidmultiple[combo] = updem1 + 1;
                             renewindex(combo);
                         }
 
@@ -14683,7 +14699,7 @@ namespace snqxap
 
                         switch (skillindex) { case 0: { cdtime = 15.00; break; } case 1: { cdtime = 14.70; break; } case 2: { cdtime = 14.30; break; } case 3: { cdtime = 14.00; break; } case 4: { cdtime = 13.70; break; } case 5: { cdtime = 13.30; break; } case 6: { cdtime = 13.00; break; } case 7: { cdtime = 12.70; break; } case 8: { cdtime = 12.30; break; } case 9: { cdtime = 12.00; break; } }
                         switch (skillindex) { case 0: { attime = 5.00; break; } case 1: { attime = 6.00; break; } case 2: { attime = 6.00; break; } case 3: { attime = 6.00; break; } case 4: { attime = 7.00; break; } case 5: { attime = 7.00; break; } case 6: { attime = 7.00; break; } case 7: { attime = 8.00; break; } case 8: { attime = 8.00; break; } case 9: { attime = 8.00; break; } }
-                        switch (skillindex) { case 0: { updem1 = 0.1; break; } case 1: { updem1 = 0.11; break; } case 2: { updem1 = 0.12; break; } case 3: { updem1 = 0.13; break; } case 4: { updem1 = 0.14; break; } case 5: { updem1 = 0.14; break; } case 6: { updem1 = 0.15; break; } case 7: { updem1 = 0.16; break; } case 8: { updem1 = 0.17; break; } case 9: { updem1 = 0.18; break; } } 
+                        switch (skillindex) { case 0: { updem1 = 0.1; break; } case 1: { updem1 = 0.11; break; } case 2: { updem1 = 0.12; break; } case 3: { updem1 = 0.13; break; } case 4: { updem1 = 0.14; break; } case 5: { updem1 = 0.14; break; } case 6: { updem1 = 0.15; break; } case 7: { updem1 = 0.16; break; } case 8: { updem1 = 0.17; break; } case 9: { updem1 = 0.18; break; } }
                         if (ischecked)
                         {
                             for (int i = 0; i < 9; i++)
@@ -14773,11 +14789,11 @@ namespace snqxap
                         if (ischecked)
                         {
 
-                                skillupdodge[combo] *= 1 + updem2;
-                                skilldowndamage *= 1 - updem1;
-                                renewindex(combo);
-                                renewtank();
- 
+                            skillupdodge[combo] *= 1 + updem2;
+                            skilldowndamage *= 1 - updem1;
+                            renewindex(combo);
+                            renewtank();
+
 
                         }
 
@@ -14799,13 +14815,13 @@ namespace snqxap
                         switch (skillindex) { case 0: { updem1 = 1; updem2 = 0.00; break; } case 1: { updem1 = 1.1; updem2 = 1.00; break; } case 2: { updem1 = 1.2; updem2 = 2.00; break; } case 3: { updem1 = 1.3; updem2 = 3.00; break; } case 4: { updem1 = 1.4; updem2 = 4.00; break; } case 5: { updem1 = 1.6; updem2 = 5.00; break; } case 6: { updem1 = 1.7; updem2 = 6.00; break; } case 7: { updem1 = 1.8; updem2 = 7.00; break; } case 8: { updem1 = 1.9; updem2 = 8.00; break; } case 9: { updem1 = 2; updem2 = 9.00; break; } }
                         if (ischecked)
                         {
-                            renewdamage(combo, (updem2 + 1)*100);
+                            renewdamage(combo, (updem2 + 1) * 100);
                         }
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("15");
-                        string read = "固定伤害,击退"+(updem1+1)+"码";
+                        string read = "固定伤害,击退" + (updem1 + 1) + "码";
                         renewread(combo, read);
                         break;
                     }
@@ -14828,7 +14844,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("8");
-                        string read = "额外一次"+(updem1+1)+"倍攻击,击退" +( updem2 + 2 )+ "码";
+                        string read = "额外一次" + (updem1 + 1) + "倍攻击,击退" + (updem2 + 2) + "码";
                         renewread(combo, read);
                         break;
                     }
@@ -14853,7 +14869,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("8");
-                        string read = "进行三次伤害逐渐提升的攻击，对每个目标造成"+updem1+"/" + updem2  + "/" + updem3 + "倍的伤害。";
+                        string read = "进行三次伤害逐渐提升的攻击，对每个目标造成" + updem1 + "/" + updem2 + "/" + updem3 + "倍的伤害。";
                         renewread(combo, read);
                         break;
                     }
@@ -14923,7 +14939,7 @@ namespace snqxap
                         switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
                         switch (skillindex) { case 0: { updem1 = 0; break; } case 1: { updem1 = 0.1; break; } case 2: { updem1 = 0.2; break; } case 3: { updem1 = 0.3; break; } case 4: { updem1 = 0.4; break; } case 5: { updem1 = 0.6; break; } case 6: { updem1 = 0.7; break; } case 7: { updem1 = 0.8; break; } case 8: { updem1 = 0.9; break; } case 9: { updem1 = 1; break; } }
                         switch (skillindex) { case 0: { updem2 = 0; break; } case 1: { updem2 = 0.1; break; } case 2: { updem2 = 0.2; break; } case 3: { updem2 = 0.3; break; } case 4: { updem2 = 0.4; break; } case 5: { updem2 = 0.6; break; } case 6: { updem2 = 0.7; break; } case 7: { updem2 = 0.8; break; } case 8: { updem2 = 0.9; break; } case 9: { updem2 = 1; break; } }
-                    
+
                         if (ischecked)
                         {
                             skillsolidmultiple[combo] = updem1 + 1;
@@ -14933,7 +14949,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("8");
-                        string read = "额外一次" + (updem1+1) + "倍攻击,击退" + (updem2 + 2) + "码";
+                        string read = "额外一次" + (updem1 + 1) + "倍攻击,击退" + (updem2 + 2) + "码";
                         renewread(combo, read);
                         break;
                     }
@@ -14962,10 +14978,10 @@ namespace snqxap
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("8");
 
-        
-                            string read = "提升自身" + updem1 * 100 + "%伤害,目标5";
-                            renewread(combo, read);
-                        
+
+                        string read = "提升自身" + updem1 * 100 + "%伤害,目标5";
+                        renewread(combo, read);
+
                         break;
                     }
                 case 105403:
@@ -15054,7 +15070,7 @@ namespace snqxap
                         renewread(combo, read);
                         break;
                     }
-                      case 102205:
+                case 102205:
                     {
                         double cdtime = 0;
                         double attime = 0;
@@ -15062,7 +15078,7 @@ namespace snqxap
                         double updem2 = 0;
 
                         switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
-                        switch (skillindex) { case 0: { attime = 2  ; break; } case 1: { attime = 2.2; break; } case 2: { attime = 2.3; break; } case 3: { attime = 2.5; break; } case 4: { attime = 2.7; break; } case 5: { attime = 2.8; break; } case 6: { attime = 3; break; } case 7: { attime = 3.2; break; } case 8: { attime = 3.3; break; } case 9: { attime = 3.5; break; } }
+                        switch (skillindex) { case 0: { attime = 2; break; } case 1: { attime = 2.2; break; } case 2: { attime = 2.3; break; } case 3: { attime = 2.5; break; } case 4: { attime = 2.7; break; } case 5: { attime = 2.8; break; } case 6: { attime = 3; break; } case 7: { attime = 3.2; break; } case 8: { attime = 3.3; break; } case 9: { attime = 3.5; break; } }
 
 
                         gun[index].cd = cdtime;
@@ -15072,7 +15088,7 @@ namespace snqxap
                         renewread(combo, read);
                         break;
                     }
-                      case 103003:
+                case 103003:
                     {
                         double cdtime = 0;
                         double attime = 0;
@@ -15083,7 +15099,7 @@ namespace snqxap
                         switch (skillindex) { case 0: { updem1 = 2; break; } case 1: { updem1 = 2.4; break; } case 2: { updem1 = 2.8; break; } case 3: { updem1 = 3.2; break; } case 4: { updem1 = 3.6; break; } case 5: { updem1 = 3.9; break; } case 6: { updem1 = 4.3; break; } case 7: { updem1 = 4.7; break; } case 8: { updem1 = 5.1; break; } case 9: { updem1 = 5.5; break; } }
                         if (ischecked)
                         {
-                              skillsolidmultiple[combo] = updem1+1;
+                            skillsolidmultiple[combo] = updem1 + 1;
                             renewindex(combo);
                         }
                         gun[index].cd = cdtime;
@@ -15093,7 +15109,7 @@ namespace snqxap
                         renewread(combo, read);
                         break;
                     }
-                      case 100124:
+                case 100124:
                     {
                         double cdtime = 0;
                         double attime = 0;
@@ -15140,7 +15156,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("6");
-                        string read = "提升自身" + updem1 * 100 + "%伤害,降低自身"+Math.Abs(updem2) * 100 +"%射速";
+                        string read = "提升自身" + updem1 * 100 + "%伤害,降低自身" + Math.Abs(updem2) * 100 + "%射速";
                         renewread(combo, read);
                         break;
                     }
@@ -15165,7 +15181,7 @@ namespace snqxap
                         else
                             switch (skillindex) { case 0: { updem1 = 0.1; break; } case 1: { updem1 = 0.11; break; } case 2: { updem1 = 0.12; break; } case 3: { updem1 = 0.13; break; } case 4: { updem1 = 0.14; break; } case 5: { updem1 = 0.16; break; } case 6: { updem1 = 0.17; break; } case 7: { updem1 = 0.18; break; } case 8: { updem1 = 0.19; break; } case 9: { updem1 = 0.2; break; } }
 
-                  //      switch (skillindex) { case 0: { updem1 = 0.25; break; } case 1: { updem1 = 0.29; break; } case 2: { updem1 = 0.34; break; } case 3: { updem1 = 0.38; break; } case 4: { updem1 = 0.43; break; } case 5: { updem1 = 0.47; break; } case 6: { updem1 = 0.52; break; } case 7: { updem1 = 0.56; break; } case 8: { updem1 = 0.61; break; } case 9: { updem1 = 0.65; break; } }
+                        //      switch (skillindex) { case 0: { updem1 = 0.25; break; } case 1: { updem1 = 0.29; break; } case 2: { updem1 = 0.34; break; } case 3: { updem1 = 0.38; break; } case 4: { updem1 = 0.43; break; } case 5: { updem1 = 0.47; break; } case 6: { updem1 = 0.52; break; } case 7: { updem1 = 0.56; break; } case 8: { updem1 = 0.61; break; } case 9: { updem1 = 0.65; break; } }
 
                         if (ischecked)
                         {
@@ -15184,7 +15200,7 @@ namespace snqxap
                         string read = "";
                         if (innight)
                         {
-                            read = "(夜)提升自身" + updem1 * 100 + "%命中,"+updem2*100+"%伤害,必爆";
+                            read = "(夜)提升自身" + updem1 * 100 + "%命中," + updem2 * 100 + "%伤害,必爆";
                         }
                         else
                         {
@@ -15296,7 +15312,7 @@ namespace snqxap
                                 skillupdamage[i] *= 1 + updem1;
                                 skilluphit[i] *= 1 + updem2;
                                 renewindex(i);
-                            }                         
+                            }
                         }
 
                         gun[index].cd = cdtime;
@@ -15338,9 +15354,9 @@ namespace snqxap
 
                         if (ischecked)
                         {
-                                skillupdamage[combo] *= 1 + updem1;
-                                skillupdodge[combo] *= 1 + updem2;
-                                renewindex(combo);
+                            skillupdamage[combo] *= 1 + updem1;
+                            skillupdodge[combo] *= 1 + updem2;
+                            renewindex(combo);
                             renewtank();
                         }
 
@@ -15361,14 +15377,14 @@ namespace snqxap
                         switch (skillindex) { case 0: { cdtime = 20; break; } case 1: { cdtime = 19.6; break; } case 2: { cdtime = 19.1; break; } case 3: { cdtime = 18.7; break; } case 4: { cdtime = 18.2; break; } case 5: { cdtime = 17.8; break; } case 6: { cdtime = 17.3; break; } case 7: { cdtime = 16.9; break; } case 8: { cdtime = 16.4; break; } case 9: { cdtime = 16; break; } }
                         switch (skillindex) { case 0: { attime = 3; break; } case 1: { attime = 3.2; break; } case 2: { attime = 3.4; break; } case 3: { attime = 3.7; break; } case 4: { attime = 3.9; break; } case 5: { attime = 4.1; break; } case 6: { attime = 4.3; break; } case 7: { attime = 4.6; break; } case 8: { attime = 4.8; break; } case 9: { attime = 5; break; } }
                         switch (skillindex) { case 0: { updem1 = 0.15; break; } case 1: { updem1 = 0.16; break; } case 2: { updem1 = 0.17; break; } case 3: { updem1 = 0.18; break; } case 4: { updem1 = 0.19; break; } case 5: { updem1 = 0.21; break; } case 6: { updem1 = 0.22; break; } case 7: { updem1 = 0.23; break; } case 8: { updem1 = 0.24; break; } case 9: { updem1 = 0.25; break; } }
-                      
+
                         if (ischecked)
                         {
                             if (combo - 3 >= 0)
                             {
-                                skillupdamage[combo-3] *= 1 + updem1;
-                                skillupshotspeed[combo-3] *= 1 + updem1;
-                                skilluphit[combo-3] *= 1 + updem1;
+                                skillupdamage[combo - 3] *= 1 + updem1;
+                                skillupshotspeed[combo - 3] *= 1 + updem1;
+                                skilluphit[combo - 3] *= 1 + updem1;
                                 renewindex(combo - 3);
                             }
                             if (combo + 3 <= 8)
@@ -15378,13 +15394,13 @@ namespace snqxap
                                 skilluphit[combo + 3] *= 1 + updem1;
                                 renewindex(combo + 3);
                             }
-         
+
                         }
 
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("6");
-                        string read = "发动时位于自身影响格上的队友提升" + updem1 * 100 + "%伤害," + updem1 * 100 + "%射速,"+ updem1 * 100 + "%命中";
+                        string read = "发动时位于自身影响格上的队友提升" + updem1 * 100 + "%伤害," + updem1 * 100 + "%射速," + updem1 * 100 + "%命中";
                         renewread(combo, read);
                         break;
                     }
@@ -15444,7 +15460,7 @@ namespace snqxap
                         gun[index].cd = -1;
                         renewattime(combo, "99");
                         gun[index].startcd = ("-1");
-                        string read = "" + updem1 *100+ "%再射一发必暴击子弹";
+                        string read = "" + updem1 * 100 + "%再射一发必暴击子弹";
                         renewread(combo, read);
                         break;
                     }
@@ -15542,13 +15558,13 @@ namespace snqxap
                         switch (skillindex) { case 0: { updem2 = 6; break; } case 1: { updem2 = 6.7; break; } case 2: { updem2 = 7.3; break; } case 3: { updem2 = 8; break; } case 4: { updem2 = 8.7; break; } case 5: { updem2 = 9.3; break; } case 6: { updem2 = 10; break; } case 7: { updem2 = 10.7; break; } case 8: { updem2 = 11.3; break; } case 9: { updem2 = 12; break; } }
                         if (ischecked)
                         {
-                            skillsolidmultiple[combo] = updem1 +updem2;
+                            skillsolidmultiple[combo] = updem1 + updem2;
                             renewindex(combo);
                         }
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("10");
-                        string read = (updem1) + "倍伤害锁定，随后导弹1.5半径"+(updem2)+"倍伤害";
+                        string read = (updem1) + "倍伤害锁定，随后导弹1.5半径" + (updem2) + "倍伤害";
                         renewread(combo, read);
                         break;
                     }
@@ -15586,8 +15602,8 @@ namespace snqxap
                         switch (skillindex) { case 0: { updem1 = 0.2; updem2 = -0.2; break; } case 1: { updem1 = 0.21; updem2 = -0.21; break; } case 2: { updem1 = 0.22; updem2 = -0.21; break; } case 3: { updem1 = 0.23; updem2 = -0.22; break; } case 4: { updem1 = 0.24; updem2 = -0.22; break; } case 5: { updem1 = 0.25; updem2 = -0.23; break; } case 6: { updem1 = 0.26; updem2 = -0.23; break; } case 7: { updem1 = 0.27; updem2 = -0.24; break; } case 8: { updem1 = 0.28; updem2 = -0.24; break; } case 9: { updem1 = 0.3; updem2 = -0.25; break; } }
                         if (ischecked)
                         {
-                    //        skillsolidmultiple[combo] = updem1 * 3;
-         
+                            //        skillsolidmultiple[combo] = updem1 * 3;
+
 
                             rate = (int)((slider.Value - ump40skillclose) / 2) + 1;
                             if (rate > 5)
@@ -15596,16 +15612,16 @@ namespace snqxap
                             skillupdodge[combo] *= Math.Pow((updem2 + 1), rate);
                             renewindex(combo);
                             renewtank();
-                            string read = "(释放时)每2秒伤害上升"+updem1*100+"%,回避下降"+Math.Abs(updem2)*100+"%,最多叠加5层";
+                            string read = "(释放时)每2秒伤害上升" + updem1 * 100 + "%,回避下降" + Math.Abs(updem2) * 100 + "%,最多叠加5层";
                             renewread(combo, read);
 
                         }
                         else
                         {
-                            rate = (int)((slider.Value - ump40skillopen) / 2)+1;
+                            rate = (int)((slider.Value - ump40skillopen) / 2) + 1;
                             if (rate > 5)
                                 rate = 5;
-                            skillupdodge[combo] *= Math.Pow((downdem1 +1),rate);
+                            skillupdodge[combo] *= Math.Pow((downdem1 + 1), rate);
                             skillupdamage[combo] *= Math.Pow((downdem2 + 1), rate);
                             renewindex(combo);
                             renewtank();
@@ -15616,7 +15632,7 @@ namespace snqxap
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("1");
-                    
+
                         break;
                     }
                 case 102303:
@@ -15655,16 +15671,16 @@ namespace snqxap
                         switch (skillindex) { case 0: { updem2 = 4.5; break; } case 1: { updem2 = 5.1; break; } case 2: { updem2 = 5.7; break; } case 3: { updem2 = 6.3; break; } case 4: { updem2 = 6.9; break; } case 5: { updem2 = 7.5; break; } case 6: { updem2 = 8.1; break; } case 7: { updem2 = 8.7; break; } case 8: { updem2 = 9.3; break; } case 9: { updem2 = 10; break; } }
                         if (ischecked)
                         {
-                            if (enemyarmor.Text!="0")
-                            skillsolidmultiple[combo] = updem2 ;
+                            if (enemyarmor.Text != "0")
+                                skillsolidmultiple[combo] = updem2;
                             else
-                                skillsolidmultiple[combo] = updem1 ;
+                                skillsolidmultiple[combo] = updem1;
                             renewindex(combo);
                         }
                         gun[index].cd = cdtime;
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("15");
-                        string read = "2s瞄准,血量最高" + (updem1 ) + "倍,有甲则"+(updem2)+"倍";
+                        string read = "2s瞄准,血量最高" + (updem1) + "倍,有甲则" + (updem2) + "倍";
                         renewread(combo, read);
                         break;
                     }
@@ -15679,8 +15695,8 @@ namespace snqxap
                         switch (skillindex) { case 0: { updem1 = 0.8; break; } case 1: { updem1 = 0.9; break; } case 2: { updem1 = 1; break; } case 3: { updem1 = 1.1; break; } case 4: { updem1 = 1.2; break; } case 5: { updem1 = 1.3; break; } case 6: { updem1 = 1.4; break; } case 7: { updem1 = 1.5; break; } case 8: { updem1 = 1.6; break; } case 9: { updem1 = 1.8; break; } }
                         if (ischecked)
                         {
-              
-                                skillsolidmultiple[combo] = updem1;
+
+                            skillsolidmultiple[combo] = updem1;
                             renewindex(combo);
                         }
                         gun[index].cd = cdtime;
@@ -15732,11 +15748,11 @@ namespace snqxap
                         }
                         break;
                     }
-          
+
                 default:
                     break;
 
-                    
+
             }
 
             return;
@@ -15750,9 +15766,9 @@ namespace snqxap
         {
             int skillindex = SkillLevel0.SelectedIndex;
             int index = Combo0.SelectedIndex;
-            if(index==-1||skillindex == -1)
+            if (index == -1 || skillindex == -1)
                 return;
-         //   calcprobabiliy(0, index, skillindex);
+            //   calcprobabiliy(0, index, skillindex);
             renewskill();
         }
         /// <summary>
@@ -15766,7 +15782,7 @@ namespace snqxap
             int index = Combo1.SelectedIndex;
             if (index == -1 || skillindex == -1)
                 return;
-          //  calcprobabiliy(1, index, skillindex);
+            //  calcprobabiliy(1, index, skillindex);
             renewskill();
         }
         /// <summary>
@@ -15780,7 +15796,7 @@ namespace snqxap
             int index = Combo2.SelectedIndex;
             if (index == -1 || skillindex == -1)
                 return;
-          //  calcprobabiliy(2, index, skillindex);
+            //  calcprobabiliy(2, index, skillindex);
             renewskill();
         }
         /// <summary>
@@ -15794,7 +15810,7 @@ namespace snqxap
             int index = Combo3.SelectedIndex;
             if (index == -1 || skillindex == -1)
                 return;
-          //  calcprobabiliy(3, index, skillindex);
+            //  calcprobabiliy(3, index, skillindex);
             renewskill();
         }
         /// <summary>
@@ -15808,7 +15824,7 @@ namespace snqxap
             int index = Combo4.SelectedIndex;
             if (index == -1 || skillindex == -1)
                 return;
-          //  calcprobabiliy(4, index, skillindex);
+            //  calcprobabiliy(4, index, skillindex);
             renewskill();
         }
         /// <summary>
@@ -15822,7 +15838,7 @@ namespace snqxap
             int index = Combo5.SelectedIndex;
             if (index == -1 || skillindex == -1)
                 return;
-          //  calcprobabiliy(5, index, skillindex);
+            //  calcprobabiliy(5, index, skillindex);
             renewskill();
         }
         /// <summary>
@@ -15836,7 +15852,7 @@ namespace snqxap
             int index = Combo6.SelectedIndex;
             if (index == -1 || skillindex == -1)
                 return;
-          //  calcprobabiliy(6, index, skillindex);
+            //  calcprobabiliy(6, index, skillindex);
             renewskill();
         }
         /// <summary>
@@ -15850,7 +15866,7 @@ namespace snqxap
             int index = Combo7.SelectedIndex;
             if (index == -1 || skillindex == -1)
                 return;
-          //  calcprobabiliy(7, index, skillindex);
+            //  calcprobabiliy(7, index, skillindex);
             renewskill();
         }
         /// <summary>
@@ -15864,7 +15880,7 @@ namespace snqxap
             int index = Combo8.SelectedIndex;
             if (index == -1 || skillindex == -1)
                 return;
-          //  calcprobabiliy(8, index, skillindex);
+            //  calcprobabiliy(8, index, skillindex);
             renewskill();
         }
         /// <summary>
@@ -15905,7 +15921,7 @@ namespace snqxap
         /// <param name="rank">星级</param>
         /// <param name="str">名称</param>
         /// <returns></returns>
-        public Label BrushEquipCombobox(int rank,string str)
+        public Label BrushEquipCombobox(int rank, string str)
         {
             Label l = new Label();
             l.Content = str;
@@ -15996,7 +16012,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb01.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16095,7 +16111,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb13.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16118,7 +16134,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb21.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16137,7 +16153,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb22.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16156,7 +16172,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb23.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16179,7 +16195,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb31.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16198,7 +16214,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb32.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16217,7 +16233,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb33.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16240,7 +16256,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb41.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16259,7 +16275,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb42.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16278,7 +16294,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb43.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16301,7 +16317,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb51.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16320,7 +16336,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb52.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16339,7 +16355,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb53.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16362,7 +16378,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb61.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16381,7 +16397,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb62.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16400,7 +16416,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb63.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16423,7 +16439,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb71.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16442,7 +16458,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb72.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16461,7 +16477,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb73.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16484,7 +16500,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb81.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16503,7 +16519,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb82.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16522,7 +16538,7 @@ namespace snqxap
                                     {
                                         if (equip[i].forwhat == "")
                                             equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
-                                        else if (StringinD(equip[i].forwhat,index.ToString()))
+                                        else if (StringinD(equip[i].forwhat, index.ToString()))
                                             equipcb83.Items.Add(BrushEquipCombobox(equip[i].rank, equip[i].name));
                                     }
                                 }
@@ -16558,14 +16574,14 @@ namespace snqxap
         /// <param name="combo">哪一格</param>
         public void clearequip(int combo)
         {
-                    equipdamage[combo] = 0;
-                    equiphit[combo] = 0;
-                    equipdodge[combo] = 0;
-                    equipbelt[combo] = 0;
-                    equipcrit[combo] =0;
-                    equipnightsee[combo] = 0;
-                    equipshotspeed[combo] = 0;      
-                    equipbreakarmor[combo] = 10;
+            equipdamage[combo] = 0;
+            equiphit[combo] = 0;
+            equipdodge[combo] = 0;
+            equipbelt[combo] = 0;
+            equipcrit[combo] = 0;
+            equipnightsee[combo] = 0;
+            equipshotspeed[combo] = 0;
+            equipbreakarmor[combo] = 10;
             equiparmor[combo] = 0;
             equipcritharm[combo] = 0;
             equiprifledslug[combo] = false;
@@ -16712,7 +16728,7 @@ namespace snqxap
                                     }
                                 case "暴击伤害":
                                     {
-                                        equipcritharm[combo] += double.Parse(number.ToString())/100;
+                                        equipcritharm[combo] += double.Parse(number.ToString()) / 100;
                                         break;
                                     }
                                 case "护甲":
@@ -16839,62 +16855,62 @@ namespace snqxap
                         break;
                     }
             }
-        
-        /*    switch (equip[equipindex].type) 
-            {
-                case 1:
-                    {
-                        equipcrit[combo] += equip[equipindex].critup;
+
+            /*    switch (equip[equipindex].type) 
+                {
+                    case 1:
+                        {
+                            equipcrit[combo] += equip[equipindex].critup;
+                            break;
+                        }
+                    case 2:
+                        {
+                            equiphit[combo] += equip[equipindex].hit;
+                            equipdamage[combo] += equip[equipindex].damage;
+                            equipshotspeed[combo] += equip[equipindex].shotspeed;
+                            break;
+                        }
+                    case 3:
+                        {
+                            equiphit[combo] += equip[equipindex].hit;
+                            equipshotspeed[combo] += equip[equipindex].shotspeed;
+                            break;
+                        }
+                    case 4:
+                        {
+                            equipnightsee[combo] += equip[equipindex].nightsee;
+                            break;
+                        }
+                    case 5:
+                        {
+                            equipbreakarmor[combo] += equip[equipindex].breakarmor;
+                            equipshotspeed[combo] += equip[equipindex].shotspeed;
+                            break;
+                        }
+                    case 8:
+                        {
+                            equipdamage[combo] += equip[equipindex].damage;
+                            equiphit[combo] += equip[equipindex].hit;
+                            break;
+                        }
+                    case 9:
+                        {
+                            equipshotspeed[combo] += equip[equipindex].shotspeed;
+                            equipdamage[combo] += equip[equipindex].damage;
+                            equipbelt[combo] += equip[equipindex].belt;
+                            break;
+                        }
+                    case 10:
+                        {
+                            equipdodge[combo] += equip[equipindex].dodge;
+                            equipdamage[combo] += equip[equipindex].damage;
+                            break;
+                        }
+                    case 13:
                         break;
-                    }
-                case 2:
-                    {
-                        equiphit[combo] += equip[equipindex].hit;
-                        equipdamage[combo] += equip[equipindex].damage;
-                        equipshotspeed[combo] += equip[equipindex].shotspeed;
+                    default:
                         break;
-                    }
-                case 3:
-                    {
-                        equiphit[combo] += equip[equipindex].hit;
-                        equipshotspeed[combo] += equip[equipindex].shotspeed;
-                        break;
-                    }
-                case 4:
-                    {
-                        equipnightsee[combo] += equip[equipindex].nightsee;
-                        break;
-                    }
-                case 5:
-                    {
-                        equipbreakarmor[combo] += equip[equipindex].breakarmor;
-                        equipshotspeed[combo] += equip[equipindex].shotspeed;
-                        break;
-                    }
-                case 8:
-                    {
-                        equipdamage[combo] += equip[equipindex].damage;
-                        equiphit[combo] += equip[equipindex].hit;
-                        break;
-                    }
-                case 9:
-                    {
-                        equipshotspeed[combo] += equip[equipindex].shotspeed;
-                        equipdamage[combo] += equip[equipindex].damage;
-                        equipbelt[combo] += equip[equipindex].belt;
-                        break;
-                    }
-                case 10:
-                    {
-                        equipdodge[combo] += equip[equipindex].dodge;
-                        equipdamage[combo] += equip[equipindex].damage;
-                        break;
-                    }
-                case 13:
-                    break;
-                default:
-                    break;
-            }*/
+                }*/
 
         }
         /// <summary>
@@ -16902,9 +16918,9 @@ namespace snqxap
         /// </summary>
         /// <param name="combo">哪一格装备格</param>
         /// <param name="index">装备index</param>
-        private void setequiptooltips(int combo,int index)
+        private void setequiptooltips(int combo, int index)
         {
-            switch(combo)
+            switch (combo)
             {
                 case 1:
                     {
@@ -17056,7 +17072,7 @@ namespace snqxap
             equiptb011.SelectedIndex = -1;
             equiptb012.SelectedIndex = -1;
             equiptb013.SelectedIndex = -1;
-    //        clearequip(0);
+            //        clearequip(0);
 
             int comboindex = Combo0.SelectedIndex;
 
@@ -17064,42 +17080,44 @@ namespace snqxap
             {
                 string equipselect01 = equipcb01.SelectedItem.ToString();
                 int equipindex01 = getequipindex(equipselect01.Substring(31));
-                if(!String.IsNullOrEmpty(equip[equipindex01].property1))
+                if (!String.IsNullOrEmpty(equip[equipindex01].property1))
                 {
                     equiptb011.IsEnabled = true;
                     equiptb011.Items.Clear();
-                        for (int i = (int)equip[equipindex01].down1; i <= equip[equipindex01].up1; i++)
-                        {
-                            equiptb011.Items.Add(i);
-                        }
-                    equiptb011.SelectedIndex = equiptb011.Items.Count-1;
+                    for (int i = (int)equip[equipindex01].down1; i <= equip[equipindex01].up1; i++)
+                    {
+                        equiptb011.Items.Add(i);
+                    }
+                    equiptb011.SelectedIndex = equiptb011.Items.Count - 1;
                 }
                 if (!String.IsNullOrEmpty(equip[equipindex01].property2))
                 {
                     equiptb012.IsEnabled = true;
                     equiptb012.Items.Clear();
-                        for (int i = (int)equip[equipindex01].down2; i <= equip[equipindex01].up2; i++)
-                        {
-                            equiptb012.Items.Add(i);
-                        }
+                    for (int i = (int)equip[equipindex01].down2; i <= equip[equipindex01].up2; i++)
+                    {
+                        equiptb012.Items.Add(i);
+                    }
                     equiptb012.SelectedIndex = equiptb012.Items.Count - 1;
                 }
                 if (!String.IsNullOrEmpty(equip[equipindex01].property3))
                 {
                     equiptb013.IsEnabled = true;
                     equiptb013.Items.Clear();
-                        for (int i = (int)equip[equipindex01].down3; i <= equip[equipindex01].up3; i++)
-                        {
-                            equiptb013.Items.Add(i);
-                        }
+                    for (int i = (int)equip[equipindex01].down3; i <= equip[equipindex01].up3; i++)
+                    {
+                        equiptb013.Items.Add(i);
+                    }
                     equiptb013.SelectedIndex = equiptb013.Items.Count - 1;
                 }
                 if (equipindex01 != -1)
                     if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex01].type) {
-                                equipcb01.SelectedIndex = 0; return; }
+                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex01].type)
+                            {
+                                equipcb01.SelectedIndex = 0; return;
+                            }
                     }
                 if (equip[equipindex01].rank == 2)
                 {
@@ -17132,14 +17150,18 @@ namespace snqxap
                     if (comboindex == 49)           //16
                     {
                         if (equipcb03.SelectedItem != null && equipcb03.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb03.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type) {
-                              equipcb01.SelectedIndex = 0; return; }
+                            if (equip[getequipindex(equipcb03.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type)
+                            {
+                                equipcb01.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb01.SelectedItem != null && equipcb01.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb01.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type) {
-                               equipcb01.SelectedIndex = 0; return; }
+                            if (equip[getequipindex(equipcb01.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type)
+                            {
+                                equipcb01.SelectedIndex = 0; return;
+                            }
                     }
             }
             if (equipcb03.SelectedItem != null)
@@ -17150,8 +17172,10 @@ namespace snqxap
                     if (comboindex == 49)           //16
                     {
                         if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex03].type) {
-                                equipcb01.SelectedIndex = 0; return; }
+                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex03].type)
+                            {
+                                equipcb01.SelectedIndex = 0; return;
+                            }
                     }
             }
             renewskill();
@@ -17171,7 +17195,7 @@ namespace snqxap
             equiptb023.SelectedIndex = -1;
             //clearequip(0);
             int comboindex = Combo0.SelectedIndex;
-          
+
             if (equipcb01.SelectedItem != null)
             {
                 string equipselect01 = equipcb01.SelectedItem.ToString();
@@ -17180,12 +17204,14 @@ namespace snqxap
                     if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex01].type) {
-                                equipcb02.SelectedIndex = 0; return; }
-                          
+                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex01].type)
+                            {
+                                equipcb02.SelectedIndex = 0; return;
+                            }
+
                     }
-            //    if (equipcb02.SelectedIndex > -1)
-            //        calcequip(0, equipindex01,1);
+                //    if (equipcb02.SelectedIndex > -1)
+                //        calcequip(0, equipindex01,1);
             }
             if (equipcb02.SelectedItem != null)
             {
@@ -17225,17 +17251,21 @@ namespace snqxap
                     if (comboindex == 49)           //16
                     {
                         if (equipcb03.SelectedItem != null && equipcb03.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb03.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type) {
-                                equipcb02.SelectedIndex = 0; return; }
+                            if (equip[getequipindex(equipcb03.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type)
+                            {
+                                equipcb02.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb01.SelectedItem != null && equipcb01.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb01.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type) {
-                                equipcb02.SelectedIndex = 0; return; }
+                            if (equip[getequipindex(equipcb01.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type)
+                            {
+                                equipcb02.SelectedIndex = 0; return;
+                            }
                     }
-           //     if (equipcb02.SelectedIndex > -1)
-           //         calcequip(0, equipindex02,2);
+                //     if (equipcb02.SelectedIndex > -1)
+                //         calcequip(0, equipindex02,2);
                 if (equip[equipindex02].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -17266,12 +17296,14 @@ namespace snqxap
                     if (comboindex == 49)           //16
                     {
                         if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex03].type) {
-                                equipcb02.SelectedIndex = 0; return; }
+                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex03].type)
+                            {
+                                equipcb02.SelectedIndex = 0; return;
+                            }
                     }
 
-            //    if (equipcb02.SelectedIndex > -1)
-            //        calcequip(0, equipindex03,3);
+                //    if (equipcb02.SelectedIndex > -1)
+                //        calcequip(0, equipindex03,3);
             }
             renewskill();
         }
@@ -17299,11 +17331,13 @@ namespace snqxap
                     if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex01].type) {
-                                equipcb03.SelectedIndex = 0; return; }
+                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex01].type)
+                            {
+                                equipcb03.SelectedIndex = 0; return;
+                            }
                     }
-           //     if (equipcb03.SelectedIndex > -1)
-           //         calcequip(0, equipindex01,1);
+                //     if (equipcb03.SelectedIndex > -1)
+                //         calcequip(0, equipindex01,1);
             }
             if (equipcb02.SelectedItem != null)
             {
@@ -17313,17 +17347,21 @@ namespace snqxap
                     if (comboindex == 49)           //16
                     {
                         if (equipcb03.SelectedItem != null && equipcb03.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb03.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type) {
-                                equipcb03.SelectedIndex = 0; return; }
+                            if (equip[getequipindex(equipcb03.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type)
+                            {
+                                equipcb03.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb01.SelectedItem != null && equipcb01.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb01.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type) {
-                                equipcb03.SelectedIndex = 0; return; }
+                            if (equip[getequipindex(equipcb01.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type)
+                            {
+                                equipcb03.SelectedIndex = 0; return;
+                            }
                     }
-            //    if (equipcb03.SelectedIndex > -1)
-            //        calcequip(0, equipindex02,2);
+                //    if (equipcb03.SelectedIndex > -1)
+                //        calcequip(0, equipindex02,2);
             }
             if (equipcb03.SelectedItem != null)
             {
@@ -17363,13 +17401,15 @@ namespace snqxap
                     if (comboindex == 49)           //16
                     {
                         if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex03].type) {
-                                equipcb03.SelectedIndex = 0; return; }
+                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex03].type)
+                            {
+                                equipcb03.SelectedIndex = 0; return;
+                            }
                     }
 
 
-           //     if (equipcb03.SelectedIndex > -1) 
-          //          calcequip(0, equipindex03,3);
+                //     if (equipcb03.SelectedIndex > -1) 
+                //          calcequip(0, equipindex03,3);
                 if (equip[equipindex03].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -17448,11 +17488,13 @@ namespace snqxap
                     if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex11].type) {
-                                equipcb11.SelectedIndex = 0; return; }
+                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex11].type)
+                            {
+                                equipcb11.SelectedIndex = 0; return;
+                            }
                     }
-            //    if (equipcb11.SelectedIndex > -1)
-            //        calcequip(1, equipindex11,11);
+                //    if (equipcb11.SelectedIndex > -1)
+                //        calcequip(1, equipindex11,11);
                 if (equip[equipindex11].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -17483,17 +17525,21 @@ namespace snqxap
                     if (comboindex == 49)           //16
                     {
                         if (equipcb13.SelectedItem != null && equipcb13.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb13.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type) {
-                                equipcb11.SelectedIndex = 0; return; }
+                            if (equip[getequipindex(equipcb13.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type)
+                            {
+                                equipcb11.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb11.SelectedItem != null && equipcb11.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb11.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type) {
-                                equipcb11.SelectedIndex = 0; return; }
+                            if (equip[getequipindex(equipcb11.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type)
+                            {
+                                equipcb11.SelectedIndex = 0; return;
+                            }
                     }
-          //      if (equipcb11.SelectedIndex > -1)
-          //          calcequip(1, equipindex12,12);
+                //      if (equipcb11.SelectedIndex > -1)
+                //          calcequip(1, equipindex12,12);
             }
             if (equipcb13.SelectedItem != null)
             {
@@ -17503,12 +17549,14 @@ namespace snqxap
                     if (comboindex == 49)           //16
                     {
                         if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex13].type) {
-                                equipcb11.SelectedIndex = 0; return; }
+                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex13].type)
+                            {
+                                equipcb11.SelectedIndex = 0; return;
+                            }
                     }
 
-        //        if (equipcb11.SelectedIndex > -1)
-        //            calcequip(1, equipindex13,13);
+                //        if (equipcb11.SelectedIndex > -1)
+                //            calcequip(1, equipindex13,13);
             }
             renewskill();
         }
@@ -17536,11 +17584,13 @@ namespace snqxap
                     if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex11].type) {
-                                equipcb12.SelectedIndex = 0; return; }
+                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex11].type)
+                            {
+                                equipcb12.SelectedIndex = 0; return;
+                            }
                     }
-            //    if (equipcb12.SelectedIndex > -1)
-            //        calcequip(1, equipindex11,11);
+                //    if (equipcb12.SelectedIndex > -1)
+                //        calcequip(1, equipindex11,11);
             }
             if (equipcb12.SelectedItem != null)
             {
@@ -17580,17 +17630,21 @@ namespace snqxap
                     if (comboindex == 49)           //16
                     {
                         if (equipcb13.SelectedItem != null && equipcb13.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb13.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type) {
-                                equipcb12.SelectedIndex = 0; return; }
+                            if (equip[getequipindex(equipcb13.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type)
+                            {
+                                equipcb12.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb11.SelectedItem != null && equipcb11.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb11.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type) {
-                                equipcb12.SelectedIndex = 0; return; }
+                            if (equip[getequipindex(equipcb11.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type)
+                            {
+                                equipcb12.SelectedIndex = 0; return;
+                            }
                     }
-            //    if (equipcb12.SelectedIndex > -1)
-             //       calcequip(1, equipindex12,12);
+                //    if (equipcb12.SelectedIndex > -1)
+                //       calcequip(1, equipindex12,12);
                 if (equip[equipindex12].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -17620,13 +17674,15 @@ namespace snqxap
                 if (equipindex13 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex13].type) {
-                                equipcb12.SelectedIndex = 0; return; }
+                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex13].type)
+                            {
+                                equipcb12.SelectedIndex = 0; return;
+                            }
                     }
 
-             //   if (equipcb12.SelectedIndex > -1)
-             //       calcequip(1, equipindex13,13);
+                //   if (equipcb12.SelectedIndex > -1)
+                //       calcequip(1, equipindex13,13);
             }
             renewskill();
         }
@@ -17653,12 +17709,14 @@ namespace snqxap
                 if (equipindex11 != -1)
                     if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex11].type) {
-                                equipcb13.SelectedIndex = 0; return; }
+                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex11].type)
+                            {
+                                equipcb13.SelectedIndex = 0; return;
+                            }
                     }
-              //  if (equipcb13.SelectedIndex > -1)
-              //      calcequip(1, equipindex11,11);
+                //  if (equipcb13.SelectedIndex > -1)
+                //      calcequip(1, equipindex11,11);
             }
             if (equipcb12.SelectedItem != null)
             {
@@ -17667,18 +17725,22 @@ namespace snqxap
                 if (equipindex12 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb13.SelectedItem != null && equipcb13.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb13.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type) {
-                                equipcb13.SelectedIndex = 0; return; }
+                        if (equipcb13.SelectedItem != null && equipcb13.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb13.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type)
+                            {
+                                equipcb13.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb11.SelectedItem != null && equipcb11.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb11.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type) {
-                                equipcb13.SelectedIndex = 0; return; }
+                        if (equipcb11.SelectedItem != null && equipcb11.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb11.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type)
+                            {
+                                equipcb13.SelectedIndex = 0; return;
+                            }
                     }
-             //   if (equipcb13.SelectedIndex > -1)
-             //       calcequip(1, equipindex12,12);
+                //   if (equipcb13.SelectedIndex > -1)
+                //       calcequip(1, equipindex12,12);
             }
             if (equipcb13.SelectedItem != null)
             {
@@ -17717,13 +17779,15 @@ namespace snqxap
                 if (equipindex13 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex13].type) {
-                                equipcb13.SelectedIndex = 0; return; }
+                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex13].type)
+                            {
+                                equipcb13.SelectedIndex = 0; return;
+                            }
                     }
 
-          //      if (equipcb13.SelectedIndex > -1)
-           //         calcequip(1, equipindex13,13);
+                //      if (equipcb13.SelectedIndex > -1)
+                //         calcequip(1, equipindex13,13);
                 if (equip[equipindex13].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -17801,12 +17865,14 @@ namespace snqxap
                 if (equipindex21 != -1)
                     if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex21].type) {
-                                equipcb21.SelectedIndex = 0; return; }
+                        if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex21].type)
+                            {
+                                equipcb21.SelectedIndex = 0; return;
+                            }
                     }
-           //     if (equipcb21.SelectedIndex > -1)
-          //          calcequip(2, equipindex21,21);
+                //     if (equipcb21.SelectedIndex > -1)
+                //          calcequip(2, equipindex21,21);
                 if (equip[equipindex21].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -17836,18 +17902,22 @@ namespace snqxap
                 if (equipindex22 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb23.SelectedItem != null && equipcb23.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb23.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type) {
-                                equipcb21.SelectedIndex = 0; return; }
+                        if (equipcb23.SelectedItem != null && equipcb23.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb23.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type)
+                            {
+                                equipcb21.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb21.SelectedItem != null && equipcb21.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb21.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type) {
-                                equipcb21.SelectedIndex = 0; return; }
+                        if (equipcb21.SelectedItem != null && equipcb21.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb21.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type)
+                            {
+                                equipcb21.SelectedIndex = 0; return;
+                            }
                     }
-            //    if (equipcb21.SelectedIndex > -1)
-           //         calcequip(2, equipindex22,22);
+                //    if (equipcb21.SelectedIndex > -1)
+                //         calcequip(2, equipindex22,22);
             }
             if (equipcb23.SelectedItem != null)
             {
@@ -17856,13 +17926,15 @@ namespace snqxap
                 if (equipindex23 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex23].type) {
-                                equipcb21.SelectedIndex = 0; return; }
+                        if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex23].type)
+                            {
+                                equipcb21.SelectedIndex = 0; return;
+                            }
                     }
 
-            //    if (equipcb21.SelectedIndex > -1)
-            //        calcequip(2, equipindex23,23);
+                //    if (equipcb21.SelectedIndex > -1)
+                //        calcequip(2, equipindex23,23);
             }
             renewskill();
         }
@@ -17890,12 +17962,14 @@ namespace snqxap
                     if (equipindex21 != -1)
                         if (comboindex == 51 || comboindex == 52)
                         {
-                            if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31)!= " ")
-                                if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex21].type) {
-                                    equipcb22.SelectedIndex = 0; return; }
+                            if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31) != " ")
+                                if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex21].type)
+                                {
+                                    equipcb22.SelectedIndex = 0; return;
+                                }
                         }
-              //  if (equipcb22.SelectedIndex > -1)
-              //      calcequip(2, equipindex21,21);
+                //  if (equipcb22.SelectedIndex > -1)
+                //      calcequip(2, equipindex21,21);
             }
             if (equipcb22.SelectedItem != null)
             {
@@ -17934,18 +18008,22 @@ namespace snqxap
                 if (equipindex22 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb23.SelectedItem != null && equipcb23.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb23.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type) {
-                                equipcb22.SelectedIndex = 0; return; }
+                        if (equipcb23.SelectedItem != null && equipcb23.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb23.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type)
+                            {
+                                equipcb22.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb21.SelectedItem != null && equipcb21.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb21.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type) {
-                                equipcb22.SelectedIndex = 0; return; }
+                        if (equipcb21.SelectedItem != null && equipcb21.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb21.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type)
+                            {
+                                equipcb22.SelectedIndex = 0; return;
+                            }
                     }
-             //   if (equipcb22.SelectedIndex > -1)
-             //       calcequip(2, equipindex22,22);
+                //   if (equipcb22.SelectedIndex > -1)
+                //       calcequip(2, equipindex22,22);
                 if (equip[equipindex22].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -17975,13 +18053,15 @@ namespace snqxap
                 if (equipindex23 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex23].type) {
-                                equipcb22.SelectedIndex = 0; return; }
+                        if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex23].type)
+                            {
+                                equipcb22.SelectedIndex = 0; return;
+                            }
                     }
 
-             //   if (equipcb22.SelectedIndex > -1)
-             //       calcequip(2, equipindex23,23);
+                //   if (equipcb22.SelectedIndex > -1)
+                //       calcequip(2, equipindex23,23);
             }
             renewskill();
         }
@@ -18009,12 +18089,14 @@ namespace snqxap
                     if (equipindex21 != -1)
                         if (comboindex == 51 || comboindex == 52)
                         {
-                            if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31)!= " ")
-                                if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex21].type) {
-                                    equipcb23.SelectedIndex = 0; return; }
+                            if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31) != " ")
+                                if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex21].type)
+                                {
+                                    equipcb23.SelectedIndex = 0; return;
+                                }
                         }
-            //    if (equipcb23.SelectedIndex > -1)
-            //        calcequip(2, equipindex21,21);
+                //    if (equipcb23.SelectedIndex > -1)
+                //        calcequip(2, equipindex21,21);
             }
             if (equipcb22.SelectedItem != null)
             {
@@ -18023,18 +18105,22 @@ namespace snqxap
                 if (equipindex22 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb23.SelectedItem != null && equipcb23.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb23.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type) {
-                                equipcb23.SelectedIndex = 0; return; }
+                        if (equipcb23.SelectedItem != null && equipcb23.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb23.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type)
+                            {
+                                equipcb23.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb21.SelectedItem != null && equipcb21.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb21.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type) {
-                                equipcb23.SelectedIndex = 0; return; }
+                        if (equipcb21.SelectedItem != null && equipcb21.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb21.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type)
+                            {
+                                equipcb23.SelectedIndex = 0; return;
+                            }
                     }
-            //    if (equipcb23.SelectedIndex > -1)
-            //        calcequip(2, equipindex22,22);
+                //    if (equipcb23.SelectedIndex > -1)
+                //        calcequip(2, equipindex22,22);
             }
             if (equipcb23.SelectedItem != null)
             {
@@ -18073,13 +18159,15 @@ namespace snqxap
                 if (equipindex23 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex23].type) {
-                                equipcb23.SelectedIndex = 0; return; }
+                        if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex23].type)
+                            {
+                                equipcb23.SelectedIndex = 0; return;
+                            }
                     }
 
-             //   if (equipcb23.SelectedIndex > -1)
-              //      calcequip(2, equipindex23,23);
+                //   if (equipcb23.SelectedIndex > -1)
+                //      calcequip(2, equipindex23,23);
                 if (equip[equipindex23].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -18119,7 +18207,7 @@ namespace snqxap
             equiptb313.SelectedIndex = -1;
             //clearequip(3);
             int comboindex = Combo3.SelectedIndex;
- 
+
             if (equipcb31.SelectedItem != null)
             {
                 string equipselect31 = equipcb31.SelectedItem.ToString();
@@ -18158,12 +18246,14 @@ namespace snqxap
                     if (equipindex31 != -1)
                         if (comboindex == 51 || comboindex == 52)
                         {
-                            if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31)!= " ")
-                                if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex31].type) {
-                                    equipcb31.SelectedIndex = 0; return; }
+                            if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31) != " ")
+                                if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex31].type)
+                                {
+                                    equipcb31.SelectedIndex = 0; return;
+                                }
                         }
-              //  if (equipcb31.SelectedIndex > -1)
-              //      calcequip(3, equipindex31,31);
+                //  if (equipcb31.SelectedIndex > -1)
+                //      calcequip(3, equipindex31,31);
                 if (equip[equipindex31].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -18193,18 +18283,22 @@ namespace snqxap
                 if (equipindex32 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb33.SelectedItem != null && equipcb33.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb33.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type) {
-                                equipcb31.SelectedIndex = 0; return; }
+                        if (equipcb33.SelectedItem != null && equipcb33.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb33.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type)
+                            {
+                                equipcb31.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb31.SelectedItem != null && equipcb31.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb31.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type) {
-                                equipcb31.SelectedIndex = 0; return; }
+                        if (equipcb31.SelectedItem != null && equipcb31.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb31.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type)
+                            {
+                                equipcb31.SelectedIndex = 0; return;
+                            }
                     }
-             //   if (equipcb31.SelectedIndex > -1)
-             //       calcequip(3, equipindex32,32);
+                //   if (equipcb31.SelectedIndex > -1)
+                //       calcequip(3, equipindex32,32);
             }
             if (equipcb33.SelectedItem != null)
             {
@@ -18213,13 +18307,15 @@ namespace snqxap
                 if (equipindex33 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex33].type) {
-                                equipcb31.SelectedIndex = 0; return; }
+                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex33].type)
+                            {
+                                equipcb31.SelectedIndex = 0; return;
+                            }
                     }
 
-             //   if (equipcb31.SelectedIndex > -1)
-              //      calcequip(3, equipindex33,33);
+                //   if (equipcb31.SelectedIndex > -1)
+                //      calcequip(3, equipindex33,33);
             }
             renewskill();
         }
@@ -18246,12 +18342,14 @@ namespace snqxap
                 if (equipindex31 != -1)
                     if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex31].type) {
-                                equipcb32.SelectedIndex = 0; return; }
+                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex31].type)
+                            {
+                                equipcb32.SelectedIndex = 0; return;
+                            }
                     }
-            //    if (equipcb32.SelectedIndex > -1)
-            //        calcequip(3, equipindex31,31);
+                //    if (equipcb32.SelectedIndex > -1)
+                //        calcequip(3, equipindex31,31);
             }
             if (equipcb32.SelectedItem != null)
             {
@@ -18290,18 +18388,22 @@ namespace snqxap
                 if (equipindex32 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb33.SelectedItem != null && equipcb33.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb33.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type) {
-                                equipcb32.SelectedIndex = 0; return; }
+                        if (equipcb33.SelectedItem != null && equipcb33.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb33.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type)
+                            {
+                                equipcb32.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb31.SelectedItem != null && equipcb31.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb31.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type) {
-                                equipcb32.SelectedIndex = 0; return; }
+                        if (equipcb31.SelectedItem != null && equipcb31.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb31.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type)
+                            {
+                                equipcb32.SelectedIndex = 0; return;
+                            }
                     }
-              //  if (equipcb32.SelectedIndex > -1)
-              //      calcequip(3, equipindex32,32);
+                //  if (equipcb32.SelectedIndex > -1)
+                //      calcequip(3, equipindex32,32);
                 if (equip[equipindex32].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -18331,13 +18433,15 @@ namespace snqxap
                 if (equipindex33 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex33].type) {
-                                equipcb32.SelectedIndex = 0; return; }
+                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex33].type)
+                            {
+                                equipcb32.SelectedIndex = 0; return;
+                            }
                     }
 
-             //   if (equipcb32.SelectedIndex > -1)
-            //        calcequip(3, equipindex33,33);
+                //   if (equipcb32.SelectedIndex > -1)
+                //        calcequip(3, equipindex33,33);
             }
             renewskill();
         }
@@ -18364,12 +18468,14 @@ namespace snqxap
                 if (equipindex31 != -1)
                     if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex31].type) {
-                                equipcb33.SelectedIndex = 0; return; }
+                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex31].type)
+                            {
+                                equipcb33.SelectedIndex = 0; return;
+                            }
                     }
-            //    if (equipcb33.SelectedIndex > -1)
-            //        calcequip(3, equipindex31,31);
+                //    if (equipcb33.SelectedIndex > -1)
+                //        calcequip(3, equipindex31,31);
             }
             if (equipcb32.SelectedItem != null)
             {
@@ -18378,18 +18484,22 @@ namespace snqxap
                 if (equipindex32 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb33.SelectedItem != null && equipcb33.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb33.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type) {
-                                equipcb33.SelectedIndex = 0; return; }
+                        if (equipcb33.SelectedItem != null && equipcb33.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb33.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type)
+                            {
+                                equipcb33.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb31.SelectedItem != null && equipcb31.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb31.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type) {
-                                equipcb33.SelectedIndex = 0; return; }
+                        if (equipcb31.SelectedItem != null && equipcb31.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb31.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type)
+                            {
+                                equipcb33.SelectedIndex = 0; return;
+                            }
                     }
-             //   if (equipcb33.SelectedIndex > -1)
-             //       calcequip(3, equipindex32,32);
+                //   if (equipcb33.SelectedIndex > -1)
+                //       calcequip(3, equipindex32,32);
             }
             if (equipcb33.SelectedItem != null)
             {
@@ -18428,13 +18538,15 @@ namespace snqxap
                 if (equipindex33 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex33].type) {
-                                equipcb33.SelectedIndex = 0; return; }
+                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex33].type)
+                            {
+                                equipcb33.SelectedIndex = 0; return;
+                            }
                     }
 
-            //    if (equipcb33.SelectedIndex > -1)
-             //       calcequip(3, equipindex33,33);
+                //    if (equipcb33.SelectedIndex > -1)
+                //       calcequip(3, equipindex33,33);
                 if (equip[equipindex33].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -18512,12 +18624,14 @@ namespace snqxap
                 if (equipindex41 != -1)
                     if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex41].type) {
-                                equipcb41.SelectedIndex = 0; return; }
+                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex41].type)
+                            {
+                                equipcb41.SelectedIndex = 0; return;
+                            }
                     }
-            //    if (equipcb41.SelectedIndex > -1)
-            //        calcequip(4, equipindex41,41);
+                //    if (equipcb41.SelectedIndex > -1)
+                //        calcequip(4, equipindex41,41);
                 if (equip[equipindex41].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -18547,18 +18661,22 @@ namespace snqxap
                 if (equipindex42 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb43.SelectedItem != null && equipcb43.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb43.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type) {
-                                equipcb41.SelectedIndex = 0; return; }
+                        if (equipcb43.SelectedItem != null && equipcb43.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb43.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type)
+                            {
+                                equipcb41.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb41.SelectedItem != null && equipcb41.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb41.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type) {
-                                equipcb41.SelectedIndex = 0; return; }
+                        if (equipcb41.SelectedItem != null && equipcb41.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb41.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type)
+                            {
+                                equipcb41.SelectedIndex = 0; return;
+                            }
                     }
-             //   if (equipcb41.SelectedIndex > -1)
-             //       calcequip(4, equipindex42,42);
+                //   if (equipcb41.SelectedIndex > -1)
+                //       calcequip(4, equipindex42,42);
             }
             if (equipcb43.SelectedItem != null)
             {
@@ -18567,13 +18685,15 @@ namespace snqxap
                 if (equipindex43 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex43].type) {
-                                equipcb41.SelectedIndex = 0; return; }
+                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex43].type)
+                            {
+                                equipcb41.SelectedIndex = 0; return;
+                            }
                     }
 
-            //    if (equipcb41.SelectedIndex > -1)
-             //       calcequip(4, equipindex43,43);
+                //    if (equipcb41.SelectedIndex > -1)
+                //       calcequip(4, equipindex43,43);
             }
             renewskill();
         }
@@ -18600,12 +18720,14 @@ namespace snqxap
                 if (equipindex41 != -1)
                     if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex41].type) {
-                                equipcb42.SelectedIndex = 0; return; }
+                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex41].type)
+                            {
+                                equipcb42.SelectedIndex = 0; return;
+                            }
                     }
-            //    if (equipcb42.SelectedIndex > -1 )
-            //        calcequip(4, equipindex41,41);
+                //    if (equipcb42.SelectedIndex > -1 )
+                //        calcequip(4, equipindex41,41);
             }
             if (equipcb42.SelectedItem != null)
             {
@@ -18644,19 +18766,23 @@ namespace snqxap
                 if (equipindex42 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb43.SelectedItem != null && equipcb43.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb43.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type) {
-                                equipcb42.SelectedIndex = 0; return; }
+                        if (equipcb43.SelectedItem != null && equipcb43.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb43.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type)
+                            {
+                                equipcb42.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb41.SelectedItem != null && equipcb41.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb41.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type) {
-                                equipcb42.SelectedIndex = 0; return; }
+                        if (equipcb41.SelectedItem != null && equipcb41.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb41.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type)
+                            {
+                                equipcb42.SelectedIndex = 0; return;
+                            }
                     }
 
-             //   if (equipcb42.SelectedIndex > -1)
-            //        calcequip(4, equipindex42,42);
+                //   if (equipcb42.SelectedIndex > -1)
+                //        calcequip(4, equipindex42,42);
                 if (equip[equipindex42].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -18686,13 +18812,15 @@ namespace snqxap
                 if (equipindex43 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex43].type) {
-                                equipcb42.SelectedIndex = 0; return; }
+                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex43].type)
+                            {
+                                equipcb42.SelectedIndex = 0; return;
+                            }
                     }
 
-             //   if (equipcb42.SelectedIndex > -1)
-             //       calcequip(4, equipindex43,43);
+                //   if (equipcb42.SelectedIndex > -1)
+                //       calcequip(4, equipindex43,43);
             }
             renewskill();
         }
@@ -18720,11 +18848,13 @@ namespace snqxap
                     if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex41].type) {
-                                equipcb43.SelectedIndex = 0; return; }
+                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex41].type)
+                            {
+                                equipcb43.SelectedIndex = 0; return;
+                            }
                     }
-             //   if (equipcb43.SelectedIndex > -1)
-             //       calcequip(4, equipindex41,41);
+                //   if (equipcb43.SelectedIndex > -1)
+                //       calcequip(4, equipindex41,41);
             }
             if (equipcb42.SelectedItem != null)
             {
@@ -18734,17 +18864,21 @@ namespace snqxap
                     if (comboindex == 49)           //16
                     {
                         if (equipcb43.SelectedItem != null && equipcb43.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb43.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type) {
-                                equipcb43.SelectedIndex = 0; return; }
+                            if (equip[getequipindex(equipcb43.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type)
+                            {
+                                equipcb43.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
                         if (equipcb41.SelectedItem != null && equipcb41.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb41.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type) {
-                                equipcb43.SelectedIndex = 0; return; }
+                            if (equip[getequipindex(equipcb41.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type)
+                            {
+                                equipcb43.SelectedIndex = 0; return;
+                            }
                     }
-             //   if (equipcb43.SelectedIndex > -1)
-              //      calcequip(4, equipindex42,42);
+                //   if (equipcb43.SelectedIndex > -1)
+                //      calcequip(4, equipindex42,42);
             }
             if (equipcb43.SelectedItem != null)
             {
@@ -18784,12 +18918,14 @@ namespace snqxap
                     if (comboindex == 49)           //16
                     {
                         if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex43].type) {
-                                equipcb43.SelectedIndex = 0; return; }
+                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex43].type)
+                            {
+                                equipcb43.SelectedIndex = 0; return;
+                            }
                     }
 
-             //   if (equipcb43.SelectedIndex > -1)
-             //       calcequip(4, equipindex43,43);
+                //   if (equipcb43.SelectedIndex > -1)
+                //       calcequip(4, equipindex43,43);
                 if (equip[equipindex43].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -18867,12 +19003,14 @@ namespace snqxap
                 if (equipindex51 != -1)
                     if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex51].type) {
-                                equipcb51.SelectedIndex = 0; return; }
+                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex51].type)
+                            {
+                                equipcb51.SelectedIndex = 0; return;
+                            }
                     }
-              //  if (equipcb51.SelectedIndex > -1)
-              //      calcequip(5, equipindex51,51);
+                //  if (equipcb51.SelectedIndex > -1)
+                //      calcequip(5, equipindex51,51);
                 if (equip[equipindex51].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -18902,18 +19040,22 @@ namespace snqxap
                 if (equipindex52 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb53.SelectedItem != null && equipcb53.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb53.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type) {
-                                equipcb51.SelectedIndex = 0; return; }
+                        if (equipcb53.SelectedItem != null && equipcb53.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb53.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type)
+                            {
+                                equipcb51.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb51.SelectedItem != null && equipcb51.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb51.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type) {
-                                equipcb51.SelectedIndex = 0; return; }
+                        if (equipcb51.SelectedItem != null && equipcb51.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb51.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type)
+                            {
+                                equipcb51.SelectedIndex = 0; return;
+                            }
                     }
-            //    if (equipcb51.SelectedIndex > -1)
-             //       calcequip(5, equipindex52,52);
+                //    if (equipcb51.SelectedIndex > -1)
+                //       calcequip(5, equipindex52,52);
             }
             if (equipcb53.SelectedItem != null)
             {
@@ -18922,13 +19064,15 @@ namespace snqxap
                 if (equipindex53 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex53].type) {
-                                equipcb51.SelectedIndex = 0; return; }
+                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex53].type)
+                            {
+                                equipcb51.SelectedIndex = 0; return;
+                            }
                     }
 
-             //   if (equipcb51.SelectedIndex > -1)
-             //       calcequip(5, equipindex53,53);
+                //   if (equipcb51.SelectedIndex > -1)
+                //       calcequip(5, equipindex53,53);
             }
             renewskill();
         }
@@ -18955,12 +19099,14 @@ namespace snqxap
                 if (equipindex51 != -1)
                     if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex51].type) {
-                                equipcb52.SelectedIndex = 0; return; }
+                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex51].type)
+                            {
+                                equipcb52.SelectedIndex = 0; return;
+                            }
                     }
-              //  if (equipcb52.SelectedIndex > -1)
-             //       calcequip(5, equipindex51,51);
+                //  if (equipcb52.SelectedIndex > -1)
+                //       calcequip(5, equipindex51,51);
             }
             if (equipcb52.SelectedItem != null)
             {
@@ -18999,18 +19145,22 @@ namespace snqxap
                 if (equipindex52 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb53.SelectedItem != null && equipcb53.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb53.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type) {
-                                equipcb52.SelectedIndex = 0; return; }
+                        if (equipcb53.SelectedItem != null && equipcb53.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb53.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type)
+                            {
+                                equipcb52.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb51.SelectedItem != null && equipcb51.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb51.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type) {
-                                equipcb52.SelectedIndex = 0; return; }
+                        if (equipcb51.SelectedItem != null && equipcb51.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb51.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type)
+                            {
+                                equipcb52.SelectedIndex = 0; return;
+                            }
                     }
-             //   if (equipcb52.SelectedIndex > -1)
-             //       calcequip(5, equipindex52,52);
+                //   if (equipcb52.SelectedIndex > -1)
+                //       calcequip(5, equipindex52,52);
                 if (equip[equipindex52].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -19040,13 +19190,15 @@ namespace snqxap
                 if (equipindex53 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex53].type) {
-                                equipcb52.SelectedIndex = 0; return; }
+                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex53].type)
+                            {
+                                equipcb52.SelectedIndex = 0; return;
+                            }
                     }
 
-             //   if (equipcb52.SelectedIndex > -1)
-             //       calcequip(5, equipindex53,53);
+                //   if (equipcb52.SelectedIndex > -1)
+                //       calcequip(5, equipindex53,53);
             }
             renewskill();
         }
@@ -19073,12 +19225,14 @@ namespace snqxap
                 if (equipindex51 != -1)
                     if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex51].type) {
-                                equipcb53.SelectedIndex = 0; return; }
+                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex51].type)
+                            {
+                                equipcb53.SelectedIndex = 0; return;
+                            }
                     }
-             //   if (equipcb53.SelectedIndex > -1)
-              //      calcequip(5, equipindex51,51);
+                //   if (equipcb53.SelectedIndex > -1)
+                //      calcequip(5, equipindex51,51);
             }
             if (equipcb52.SelectedItem != null)
             {
@@ -19087,18 +19241,22 @@ namespace snqxap
                 if (equipindex52 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb53.SelectedItem != null && equipcb53.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb53.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type) {
-                                equipcb53.SelectedIndex = 0; return; }
+                        if (equipcb53.SelectedItem != null && equipcb53.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb53.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type)
+                            {
+                                equipcb53.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb51.SelectedItem != null && equipcb51.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb51.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type) {
-                                equipcb53.SelectedIndex = 0; return; }
+                        if (equipcb51.SelectedItem != null && equipcb51.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb51.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type)
+                            {
+                                equipcb53.SelectedIndex = 0; return;
+                            }
                     }
-              //  if (equipcb53.SelectedIndex > -1)
-               //     calcequip(5, equipindex52,52);
+                //  if (equipcb53.SelectedIndex > -1)
+                //     calcequip(5, equipindex52,52);
             }
             if (equipcb53.SelectedItem != null)
             {
@@ -19137,13 +19295,15 @@ namespace snqxap
                 if (equipindex53 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex53].type) {
-                                equipcb53.SelectedIndex = 0; return; }
+                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex53].type)
+                            {
+                                equipcb53.SelectedIndex = 0; return;
+                            }
                     }
 
-              //  if (equipcb53.SelectedIndex > -1)
-              //      calcequip(5, equipindex53,53);
+                //  if (equipcb53.SelectedIndex > -1)
+                //      calcequip(5, equipindex53,53);
                 if (equip[equipindex53].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -19221,12 +19381,14 @@ namespace snqxap
                 if (equipindex61 != -1)
                     if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex61].type) {
-                                equipcb61.SelectedIndex = 0; return; }
+                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex61].type)
+                            {
+                                equipcb61.SelectedIndex = 0; return;
+                            }
                     }
-             //   if (equipcb61.SelectedIndex > -1)
-              //      calcequip(6, equipindex61,61);
+                //   if (equipcb61.SelectedIndex > -1)
+                //      calcequip(6, equipindex61,61);
                 if (equip[equipindex61].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -19256,18 +19418,22 @@ namespace snqxap
                 if (equipindex62 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb63.SelectedItem != null && equipcb63.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb63.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type) {
-                                equipcb61.SelectedIndex = 0; return; }
+                        if (equipcb63.SelectedItem != null && equipcb63.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb63.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type)
+                            {
+                                equipcb61.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb61.SelectedItem != null && equipcb61.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb61.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type) {
-                                equipcb61.SelectedIndex = 0; return; }
+                        if (equipcb61.SelectedItem != null && equipcb61.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb61.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type)
+                            {
+                                equipcb61.SelectedIndex = 0; return;
+                            }
                     }
-             //   if (equipcb61.SelectedIndex > -1)
-             //       calcequip(6, equipindex62,62);
+                //   if (equipcb61.SelectedIndex > -1)
+                //       calcequip(6, equipindex62,62);
             }
             if (equipcb63.SelectedItem != null)
             {
@@ -19276,13 +19442,15 @@ namespace snqxap
                 if (equipindex63 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex63].type) {
-                                equipcb61.SelectedIndex = 0; return; }
+                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex63].type)
+                            {
+                                equipcb61.SelectedIndex = 0; return;
+                            }
                     }
 
-              //  if (equipcb61.SelectedIndex > -1)
-              //      calcequip(6, equipindex63,63);
+                //  if (equipcb61.SelectedIndex > -1)
+                //      calcequip(6, equipindex63,63);
             }
             renewskill();
         }
@@ -19301,7 +19469,7 @@ namespace snqxap
             equiptb623.SelectedIndex = -1;
             //clearequip(6);
             int comboindex = Combo6.SelectedIndex;
-  
+
             if (equipcb61.SelectedItem != null)
             {
                 string equipselect61 = equipcb61.SelectedItem.ToString();
@@ -19309,12 +19477,14 @@ namespace snqxap
                 if (equipindex61 != -1)
                     if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex61].type) {
-                                equipcb62.SelectedIndex = 0; return; }
+                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex61].type)
+                            {
+                                equipcb62.SelectedIndex = 0; return;
+                            }
                     }
-              //  if (equipcb62.SelectedIndex > -1)
-              //      calcequip(6, equipindex61,61);
+                //  if (equipcb62.SelectedIndex > -1)
+                //      calcequip(6, equipindex61,61);
             }
             if (equipcb62.SelectedItem != null)
             {
@@ -19353,18 +19523,22 @@ namespace snqxap
                 if (equipindex62 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb63.SelectedItem != null && equipcb63.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb63.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type) {
-                                equipcb62.SelectedIndex = 0; return; }
+                        if (equipcb63.SelectedItem != null && equipcb63.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb63.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type)
+                            {
+                                equipcb62.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb61.SelectedItem != null && equipcb61.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb61.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type) {
-                                equipcb62.SelectedIndex = 0; return; }
+                        if (equipcb61.SelectedItem != null && equipcb61.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb61.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type)
+                            {
+                                equipcb62.SelectedIndex = 0; return;
+                            }
                     }
-            //    if (equipcb62.SelectedIndex > -1)
-            //        calcequip(6, equipindex62,62);
+                //    if (equipcb62.SelectedIndex > -1)
+                //        calcequip(6, equipindex62,62);
                 if (equip[equipindex62].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -19394,13 +19568,15 @@ namespace snqxap
                 if (equipindex63 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex63].type) {
-                                equipcb62.SelectedIndex = 0; return; }
+                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex63].type)
+                            {
+                                equipcb62.SelectedIndex = 0; return;
+                            }
                     }
 
-            //    if (equipcb62.SelectedIndex > -1)
-            //        calcequip(6, equipindex63,63);
+                //    if (equipcb62.SelectedIndex > -1)
+                //        calcequip(6, equipindex63,63);
 
             }
             renewskill();
@@ -19428,12 +19604,14 @@ namespace snqxap
                 if (equipindex61 != -1)
                     if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex61].type) {
-                                equipcb63.SelectedIndex = 0; return; }
+                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex61].type)
+                            {
+                                equipcb63.SelectedIndex = 0; return;
+                            }
                     }
-             //   if (equipcb63.SelectedIndex > -1)
-              //      calcequip(6, equipindex61,61);
+                //   if (equipcb63.SelectedIndex > -1)
+                //      calcequip(6, equipindex61,61);
             }
             if (equipcb62.SelectedItem != null)
             {
@@ -19442,18 +19620,22 @@ namespace snqxap
                 if (equipindex62 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb63.SelectedItem != null && equipcb63.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb63.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type) {
-                                equipcb63.SelectedIndex = 0; return; }
+                        if (equipcb63.SelectedItem != null && equipcb63.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb63.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type)
+                            {
+                                equipcb63.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb61.SelectedItem != null && equipcb61.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb61.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type) {
-                                equipcb63.SelectedIndex = 0; return; }
+                        if (equipcb61.SelectedItem != null && equipcb61.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb61.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type)
+                            {
+                                equipcb63.SelectedIndex = 0; return;
+                            }
                     }
-              //  if (equipcb63.SelectedIndex > -1)
-              //      calcequip(6, equipindex62,62);
+                //  if (equipcb63.SelectedIndex > -1)
+                //      calcequip(6, equipindex62,62);
             }
             if (equipcb63.SelectedItem != null)
             {
@@ -19492,13 +19674,15 @@ namespace snqxap
                 if (equipindex63 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex63].type) {
-                                equipcb63.SelectedIndex = 0; return; }
+                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex63].type)
+                            {
+                                equipcb63.SelectedIndex = 0; return;
+                            }
                     }
 
-              //  if (equipcb63.SelectedIndex > -1)
-              //      calcequip(6, equipindex63,63);
+                //  if (equipcb63.SelectedIndex > -1)
+                //      calcequip(6, equipindex63,63);
                 if (equip[equipindex63].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -19576,12 +19760,14 @@ namespace snqxap
                 if (equipindex71 != -1)
                     if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex71].type) {
-                                equipcb71.SelectedIndex = 0; return; }
+                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex71].type)
+                            {
+                                equipcb71.SelectedIndex = 0; return;
+                            }
                     }
-              //  if (equipcb71.SelectedIndex > -1)
-              //      calcequip(7, equipindex71,71);
+                //  if (equipcb71.SelectedIndex > -1)
+                //      calcequip(7, equipindex71,71);
                 if (equip[equipindex71].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -19611,18 +19797,22 @@ namespace snqxap
                 if (equipindex72 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb73.SelectedItem != null && equipcb73.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb73.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type) {
-                                equipcb71.SelectedIndex = 0; return; }
+                        if (equipcb73.SelectedItem != null && equipcb73.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb73.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type)
+                            {
+                                equipcb71.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb71.SelectedItem != null && equipcb71.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb71.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type) {
-                                equipcb71.SelectedIndex = 0; return; }
+                        if (equipcb71.SelectedItem != null && equipcb71.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb71.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type)
+                            {
+                                equipcb71.SelectedIndex = 0; return;
+                            }
                     }
-              //  if (equipcb71.SelectedIndex > -1)
-              //      calcequip(7, equipindex72,72);
+                //  if (equipcb71.SelectedIndex > -1)
+                //      calcequip(7, equipindex72,72);
             }
             if (equipcb73.SelectedItem != null)
             {
@@ -19631,13 +19821,15 @@ namespace snqxap
                 if (equipindex73 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex73].type) {
-                                equipcb71.SelectedIndex = 0; return; }
+                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex73].type)
+                            {
+                                equipcb71.SelectedIndex = 0; return;
+                            }
                     }
 
-              //  if (equipcb71.SelectedIndex > -1)
-              //      calcequip(7, equipindex73,73);
+                //  if (equipcb71.SelectedIndex > -1)
+                //      calcequip(7, equipindex73,73);
             }
             renewskill();
         }
@@ -19664,12 +19856,14 @@ namespace snqxap
                 if (equipindex71 != -1)
                     if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex71].type) {
-                                equipcb72.SelectedIndex = 0; return; }
+                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex71].type)
+                            {
+                                equipcb72.SelectedIndex = 0; return;
+                            }
                     }
-              //  if (equipcb72.SelectedIndex > -1)
-              //      calcequip(7, equipindex71,71);
+                //  if (equipcb72.SelectedIndex > -1)
+                //      calcequip(7, equipindex71,71);
             }
             if (equipcb72.SelectedItem != null)
             {
@@ -19708,18 +19902,22 @@ namespace snqxap
                 if (equipindex72 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb73.SelectedItem != null && equipcb73.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb73.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type) {
-                                equipcb72.SelectedIndex = 0; return; }
+                        if (equipcb73.SelectedItem != null && equipcb73.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb73.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type)
+                            {
+                                equipcb72.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb71.SelectedItem != null && equipcb71.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb71.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type) {
-                                equipcb72.SelectedIndex = 0; return; }
+                        if (equipcb71.SelectedItem != null && equipcb71.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb71.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type)
+                            {
+                                equipcb72.SelectedIndex = 0; return;
+                            }
                     }
-              //  if (equipcb72.SelectedIndex > -1)
-              //      calcequip(7, equipindex72,72);
+                //  if (equipcb72.SelectedIndex > -1)
+                //      calcequip(7, equipindex72,72);
                 if (equip[equipindex72].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -19749,13 +19947,15 @@ namespace snqxap
                 if (equipindex73 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex73].type) {
-                                equipcb72.SelectedIndex = 0; return; }
+                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex73].type)
+                            {
+                                equipcb72.SelectedIndex = 0; return;
+                            }
                     }
 
-              //  if (equipcb72.SelectedIndex > -1)
-              //      calcequip(7, equipindex73,73);
+                //  if (equipcb72.SelectedIndex > -1)
+                //      calcequip(7, equipindex73,73);
             }
             renewskill();
 
@@ -19783,12 +19983,14 @@ namespace snqxap
                 if (equipindex71 != -1)
                     if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex71].type) {
-                                equipcb73.SelectedIndex = 0; return; }
+                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex71].type)
+                            {
+                                equipcb73.SelectedIndex = 0; return;
+                            }
                     }
-              //  if (equipcb73.SelectedIndex > -1)
-               //     calcequip(7, equipindex71,71);
+                //  if (equipcb73.SelectedIndex > -1)
+                //     calcequip(7, equipindex71,71);
             }
             if (equipcb72.SelectedItem != null)
             {
@@ -19797,18 +19999,22 @@ namespace snqxap
                 if (equipindex72 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb73.SelectedItem != null && equipcb73.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb73.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type) {
-                                equipcb73.SelectedIndex = 0; return; }
+                        if (equipcb73.SelectedItem != null && equipcb73.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb73.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type)
+                            {
+                                equipcb73.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb71.SelectedItem != null && equipcb71.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb71.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type) {
-                                equipcb73.SelectedIndex = 0; return; }
+                        if (equipcb71.SelectedItem != null && equipcb71.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb71.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type)
+                            {
+                                equipcb73.SelectedIndex = 0; return;
+                            }
                     }
-               // if (equipcb73.SelectedIndex > -1)
-               //     calcequip(7, equipindex72,72);
+                // if (equipcb73.SelectedIndex > -1)
+                //     calcequip(7, equipindex72,72);
             }
             if (equipcb73.SelectedItem != null)
             {
@@ -19847,13 +20053,15 @@ namespace snqxap
                 if (equipindex73 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex73].type) {
-                                equipcb73.SelectedIndex = 0; return; }
+                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex73].type)
+                            {
+                                equipcb73.SelectedIndex = 0; return;
+                            }
                     }
 
-              //  if (equipcb73.SelectedIndex > -1)
-              //      calcequip(7, equipindex73,73);
+                //  if (equipcb73.SelectedIndex > -1)
+                //      calcequip(7, equipindex73,73);
                 if (equip[equipindex73].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -19931,12 +20139,14 @@ namespace snqxap
                 if (equipindex81 != -1)
                     if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex81].type) {
-                                equipcb81.SelectedIndex = 0; return; }
+                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex81].type)
+                            {
+                                equipcb81.SelectedIndex = 0; return;
+                            }
                     }
-              //  if (equipcb81.SelectedIndex > -1)
-               //     calcequip(8, equipindex81,81);
+                //  if (equipcb81.SelectedIndex > -1)
+                //     calcequip(8, equipindex81,81);
                 if (equip[equipindex81].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -19966,18 +20176,22 @@ namespace snqxap
                 if (equipindex82 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb83.SelectedItem != null && equipcb83.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb83.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type) {
-                                equipcb81.SelectedIndex = 0; return; }
+                        if (equipcb83.SelectedItem != null && equipcb83.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb83.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type)
+                            {
+                                equipcb81.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb81.SelectedItem != null && equipcb81.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb81.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type) {
-                                equipcb81.SelectedIndex = 0; return; }
+                        if (equipcb81.SelectedItem != null && equipcb81.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb81.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type)
+                            {
+                                equipcb81.SelectedIndex = 0; return;
+                            }
                     }
-            //    if (equipcb81.SelectedIndex > -1)
-             //       calcequip(8, equipindex82,82);
+                //    if (equipcb81.SelectedIndex > -1)
+                //       calcequip(8, equipindex82,82);
             }
             if (equipcb83.SelectedItem != null)
             {
@@ -19986,13 +20200,15 @@ namespace snqxap
                 if (equipindex83 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex83].type) {
-                                equipcb81.SelectedIndex = 0; return; }
+                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex83].type)
+                            {
+                                equipcb81.SelectedIndex = 0; return;
+                            }
                     }
 
-             //   if (equipcb81.SelectedIndex > -1)
-             //       calcequip(8, equipindex83,83);
+                //   if (equipcb81.SelectedIndex > -1)
+                //       calcequip(8, equipindex83,83);
             }
             renewskill();
         }
@@ -20019,12 +20235,14 @@ namespace snqxap
                 if (equipindex81 != -1)
                     if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex81].type) {
-                                equipcb82.SelectedIndex = 0; return; }
+                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex81].type)
+                            {
+                                equipcb82.SelectedIndex = 0; return;
+                            }
                     }
-             //   if (equipcb82.SelectedIndex > -1)
-             //       calcequip(8, equipindex81,81);
+                //   if (equipcb82.SelectedIndex > -1)
+                //       calcequip(8, equipindex81,81);
             }
             if (equipcb82.SelectedItem != null)
             {
@@ -20063,18 +20281,22 @@ namespace snqxap
                 if (equipindex82 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb83.SelectedItem != null && equipcb83.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb83.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type) {
-                                equipcb82.SelectedIndex = 0; return; }
+                        if (equipcb83.SelectedItem != null && equipcb83.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb83.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type)
+                            {
+                                equipcb82.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb81.SelectedItem != null && equipcb81.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb81.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type) {
-                                equipcb82.SelectedIndex = 0; return; }
+                        if (equipcb81.SelectedItem != null && equipcb81.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb81.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type)
+                            {
+                                equipcb82.SelectedIndex = 0; return;
+                            }
                     }
-              //  if (equipcb82.SelectedIndex > -1)
-              //      calcequip(8, equipindex82,82);
+                //  if (equipcb82.SelectedIndex > -1)
+                //      calcequip(8, equipindex82,82);
                 if (equip[equipindex82].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -20104,13 +20326,15 @@ namespace snqxap
                 if (equipindex83 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex83].type) {
-                                equipcb82.SelectedIndex = 0; return; }
+                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex83].type)
+                            {
+                                equipcb82.SelectedIndex = 0; return;
+                            }
                     }
 
-             //   if (equipcb82.SelectedIndex > -1)
-             //       calcequip(8, equipindex83,83);
+                //   if (equipcb82.SelectedIndex > -1)
+                //       calcequip(8, equipindex83,83);
             }
             renewskill();
         }
@@ -20137,12 +20361,14 @@ namespace snqxap
                 if (equipindex81 != -1)
                     if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex81].type) {
-                                equipcb83.SelectedIndex = 0; return; }
+                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex81].type)
+                            {
+                                equipcb83.SelectedIndex = 0; return;
+                            }
                     }
-             //   if (equipcb83.SelectedIndex > -1)
-              //      calcequip(8, equipindex81,81);
+                //   if (equipcb83.SelectedIndex > -1)
+                //      calcequip(8, equipindex81,81);
             }
             if (equipcb82.SelectedItem != null)
             {
@@ -20151,18 +20377,22 @@ namespace snqxap
                 if (equipindex82 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb83.SelectedItem != null && equipcb83.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb83.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type) {
-                                equipcb83.SelectedIndex = 0; return; }
+                        if (equipcb83.SelectedItem != null && equipcb83.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb83.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type)
+                            {
+                                equipcb83.SelectedIndex = 0; return;
+                            }
                     }
                     else if (comboindex == 51 || comboindex == 52)
                     {
-                        if (equipcb81.SelectedItem != null && equipcb81.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb81.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type) {
-                                equipcb83.SelectedIndex = 0; return; }
+                        if (equipcb81.SelectedItem != null && equipcb81.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb81.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type)
+                            {
+                                equipcb83.SelectedIndex = 0; return;
+                            }
                     }
-             //   if (equipcb83.SelectedIndex > -1)
-             //       calcequip(8, equipindex82,82);
+                //   if (equipcb83.SelectedIndex > -1)
+                //       calcequip(8, equipindex82,82);
             }
             if (equipcb83.SelectedItem != null)
             {
@@ -20201,13 +20431,15 @@ namespace snqxap
                 if (equipindex83 != -1)
                     if (comboindex == 49)           //16
                     {
-                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31)!= " ")
-                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex83].type) {
-                                equipcb83.SelectedIndex = 0; return; }
+                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex83].type)
+                            {
+                                equipcb83.SelectedIndex = 0; return;
+                            }
                     }
 
-            //    if (equipcb83.SelectedIndex > -1)
-             //       calcequip(8, equipindex83,83);
+                //    if (equipcb83.SelectedIndex > -1)
+                //       calcequip(8, equipindex83,83);
                 if (equip[equipindex83].rank == 2)
                 {
                     Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
@@ -20264,7 +20496,7 @@ namespace snqxap
             {
                 renewindex(i);
             }
-                renewskill();
+            renewskill();
         }
         /// <summary>
         /// 夏活相关按钮点击事件
@@ -20311,7 +20543,7 @@ namespace snqxap
                 Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
                 Merry0.Foreground = br;
             }
-            else if(merry[0] == 0.95)
+            else if (merry[0] == 0.95)
             {
                 merry[0] = 1;
                 Merry0.Content = "♡";
@@ -20325,7 +20557,7 @@ namespace snqxap
                 Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Orange"));
                 Merry0.Foreground = br;
             }
-            else if(merry[0] == 1.05)
+            else if (merry[0] == 1.05)
             {
                 merry[0] = 1.1;
                 Merry0.Content = "💘";
@@ -20730,7 +20962,7 @@ namespace snqxap
             renewskill();
         }
 
-        private void showbuff(int combo,int index)
+        private void showbuff(int combo, int index)
         {
             if (index == -1 || index == GUN_NUMBER)
             {
@@ -20793,14 +21025,14 @@ namespace snqxap
                 tbt += "护甲+" + Math.Floor(gun[index].armorup * 100 * multiple[combo]).ToString("0") + "% ";
             if (tbt == "")
                 tbt = "无";
-            Brush br = new SolidColorBrush(Color.FromRgb(0,255,222));
+            Brush br = new SolidColorBrush(Color.FromRgb(0, 255, 222));
             switch (combo)
             {
                 case 0:
                     {
-                        clearshowbuff(0,gun[index].grid_center);
+                        clearshowbuff(0, gun[index].grid_center);
                         buffGrids0.ToolTip = tbt;
-                        switch(gun[index].number)
+                        switch (gun[index].number)
                         {
                             case 1:
                                 {
@@ -21510,7 +21742,7 @@ namespace snqxap
             }
         }
 
-        private void clearshowbuff(int combo,int center)
+        private void clearshowbuff(int combo, int center)
         {
             Brush br = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             Brush inner = new SolidColorBrush(Color.FromRgb(107, 105, 107));
@@ -21519,11 +21751,11 @@ namespace snqxap
                 case 0:
                     {
                         buffGrids0.ToolTip = "";
-                        foreach(Border g in gridlist[0])
+                        foreach (Border g in gridlist[0])
                         {
                             g.Background = br;
                         }
-                        switch(center)
+                        switch (center)
                         {
                             case 1: { buffGrid01.Background = inner; break; }
                             case 2: { buffGrid02.Background = inner; break; }
@@ -21710,8 +21942,8 @@ namespace snqxap
 
         private void equiptb011_TextChanged(object sender, SelectionChangedEventArgs e)
         {
-           if (equipcb01.SelectedItem == null)
-            return;
+            if (equipcb01.SelectedItem == null)
+                return;
             clearequip(0);
             if (equipcb01.SelectedIndex >= 1)
             {
@@ -21724,28 +21956,28 @@ namespace snqxap
                     calcequip(0, equipindex, double.Parse(equiptb013.Text), 3);
             }
             if (equipcb02.SelectedIndex >= 1)
-           {
-               string equipselect2 = equipcb02.SelectedItem.ToString();
-               int equipindex2 = getequipindex(equipselect2.Substring(31));
+            {
+                string equipselect2 = equipcb02.SelectedItem.ToString();
+                int equipindex2 = getequipindex(equipselect2.Substring(31));
                 if (equiptb021.Text != "")
-                    calcequip(0, equipindex2, double.Parse(equiptb021.Text),1);
+                    calcequip(0, equipindex2, double.Parse(equiptb021.Text), 1);
                 if (equiptb022.Text != "")
                     calcequip(0, equipindex2, double.Parse(equiptb022.Text), 2);
                 if (equiptb023.Text != "")
                     calcequip(0, equipindex2, double.Parse(equiptb023.Text), 3);
             }
-           if (equipcb03.SelectedIndex >= 1)
-           {
-               string equipselect3 = equipcb03.SelectedItem.ToString();
-               int equipindex3 = getequipindex(equipselect3.Substring(31));
+            if (equipcb03.SelectedIndex >= 1)
+            {
+                string equipselect3 = equipcb03.SelectedItem.ToString();
+                int equipindex3 = getequipindex(equipselect3.Substring(31));
                 if (equiptb031.Text != "")
-                    calcequip(0, equipindex3, double.Parse(equiptb031.Text),1);
+                    calcequip(0, equipindex3, double.Parse(equiptb031.Text), 1);
                 if (equiptb032.Text != "")
                     calcequip(0, equipindex3, double.Parse(equiptb032.Text), 2);
                 if (equiptb033.Text != "")
                     calcequip(0, equipindex3, double.Parse(equiptb033.Text), 3);
             }
-           renewskill();
+            renewskill();
         }
         private void equiptb012_TextChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -24872,14 +25104,14 @@ namespace snqxap
         {
             if (!IsNumber(enemybreakarmor.Text))
                 enemybreakarmor.Text = "0";
-            if (int.Parse(enemybreakarmor.Text)<0)
+            if (int.Parse(enemybreakarmor.Text) < 0)
                 enemybreakarmor.Text = "0";
             renewtank();
         }
 
         private double ComboDamage(int combo)
         {
-            switch(combo)
+            switch (combo)
             {
                 case 0: { return Double.Parse(Ldamage0.Content.ToString()); }
                 case 1: { return Double.Parse(Ldamage1.Content.ToString()); }
@@ -24894,7 +25126,7 @@ namespace snqxap
             return 0;
         }
 
-        private bool StringinD(string a,string b)
+        private bool StringinD(string a, string b)
         {
             string[] temp = a.Split(',');
             for (int i = 0; i < temp.Length; i++)
@@ -24905,8 +25137,8 @@ namespace snqxap
 
         private double dedouble(double o)
         {
-    
-            int intd = (int)o; 
+
+            int intd = (int)o;
             double doubled = o % intd;
             if (doubled > 0.8)
                 return Convert.ToDouble(o.ToString("0"));
@@ -24946,20 +25178,20 @@ namespace snqxap
             renewskill();
         }
 
-        private string floatdamage(double basePow,double merry,double equipPow,double buff,double Armor)
+        private string floatdamage(double basePow, double merry, double equipPow, double buff, double Armor)
         {
 
             //   Ldamage0.Content = Math.Ceiling(Math.Max(1, (Math.Ceiling((basePow + maxAddPow) * merry[0]) + equipdamage[0]) * gg[0].damageup * (skillupdamage[0]) + Math.Min(2, equipbreakarmor[0] - Int32.Parse(enemyarmor.Text))));
-            Console.WriteLine("buff: " + basePow+" "+merry + " " +equipPow + " " +buff + " " +Armor);
+            Console.WriteLine("buff: " + basePow + " " + merry + " " + equipPow + " " + buff + " " + Armor);
             double result = 0;
-            for(double i = 0.855;i< 1.15;i+=0.01)
+            for (double i = 0.855; i < 1.15; i += 0.01)
             {
-             //   double i = 1;
-                result += Math.Ceiling(Math.Max(1, Math.Round(Math.Ceiling(basePow * merry + equipPow) * buff * i )+ Armor));
-              //  Console.WriteLine(result);
+                //   double i = 1;
+                result += Math.Ceiling(Math.Max(1, Math.Round(Math.Ceiling(basePow * merry + equipPow) * buff * i) + Armor));
+                //  Console.WriteLine(result);
             }
-            Console.WriteLine("damage: "+ result);
-               result /= 30;
+            Console.WriteLine("damage: " + result);
+            result /= 30;
             Console.WriteLine(result);
             return Math.Ceiling(result).ToString("0");
 
@@ -24970,17 +25202,24 @@ namespace snqxap
 
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
-          
+
             Point p = e.GetPosition((IInputElement)sender);
-     //       Console.WriteLine(p.X + " " + p.Y);
-            if (p.Y> 500)
-                {
+            Console.WriteLine(p.X + " " );
+            double h = Windows.ActualHeight;
+            if (p.Y > h-30)
+            {
                 return;
             }
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 this.DragMove();
                 //Window.DragMove();
+            }
+            if (Mouse.LeftButton != MouseButtonState.Pressed)
+            {
+                FrameworkElement element = e.OriginalSource as FrameworkElement;
+                if (element != null && !element.Name.Contains("Resize"))
+                    this.Cursor = Cursors.Arrow;
             }
         }
 
@@ -24989,23 +25228,23 @@ namespace snqxap
             int fairyindex = fairynamecombo.SelectedIndex;
             int levelindex = fairylevel.SelectedIndex;
             int starindex = fairystar.SelectedIndex;
-         //   image.Source = new BitmapImage(new Uri(@"daw\adw.jpg", UriKind.Relative));
+            //   image.Source = new BitmapImage(new Uri(@"daw\adw.jpg", UriKind.Relative));
             if (fairyindex < 0 || levelindex < 0 || starindex < 0)
             {
-                FairyImage.Source = new BitmapImage(new Uri("zhaijiang.jpg",UriKind.Relative));
+                FairyImage.Source = new BitmapImage(new Uri("zhaijiang.jpg", UriKind.Relative));
                 return;
             }
-            FairyImage.Source = new BitmapImage(new Uri("assets/fairy/"+fairy[fairyindex].name+".png", UriKind.Relative));
-            if(fairyindex== 0)
+            FairyImage.Source = new BitmapImage(new Uri("assets/fairy/" + fairy[fairyindex].name + ".png", UriKind.Relative));
+            if (fairyindex == 0)
                 FairyImage.Source = new BitmapImage(new Uri("zhaijiang.jpg", UriKind.Relative));
 
             fairy[fairyindex].level = levelindex + 1;
             fairy[fairyindex].star = starindex + 1;
             fairy[fairyindex].calcfairybuff();
             FairyImage.ToolTip = "伤害：" + fairy[fairyindex].powbuffshow + "% 命中：" + fairy[fairyindex].hitbuffshow + "% 回避：" + fairy[fairyindex].dodgebuffshow + "% 护甲：" + fairy[fairyindex].armorbuffshow + "% 爆伤：" + fairy[fairyindex].critharmbuffshow + "%";
-            for(int i =0;i<9;i++)
+            for (int i = 0; i < 9; i++)
                 renewindex(i);
-         //   calctalent();
+            //   calctalent();
             renewskill();
         }
 
@@ -25015,10 +25254,10 @@ namespace snqxap
             int levelindex = fairylevel.SelectedIndex;
             int starindex = fairystar.SelectedIndex;
             fairystar.Items.Clear();
-            if(levelindex +1 < 20)
-                  for (int i = 1; i <= 1; i++)
+            if (levelindex + 1 < 20)
+                for (int i = 1; i <= 1; i++)
                     fairystar.Items.Add(i);
-            else if(levelindex +1 < 40)
+            else if (levelindex + 1 < 40)
                 for (int i = 1; i <= 2; i++)
                     fairystar.Items.Add(i);
             else if (levelindex + 1 < 70)
@@ -25042,7 +25281,7 @@ namespace snqxap
             //for (int i = 0; i < 9; i++)
             //    renewindex(i);
             renewskill();
-          //  calctalent();
+            //  calctalent();
         }
 
         private void fairyskilllevel_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -25064,21 +25303,21 @@ namespace snqxap
             FairyImage.ToolTip = "伤害：" + fairy[fairyindex].powbuffshow + "% 命中：" + fairy[fairyindex].hitbuffshow + "% 回避：" + fairy[fairyindex].dodgebuffshow + "% 护甲：" + fairy[fairyindex].armorbuffshow + "% 爆伤：" + fairy[fairyindex].critharmbuffshow + "%";
             for (int i = 0; i < 9; i++)
                 renewindex(i);
-            calctalent();
+            renewskill();
         }
 
         private void zhedie_Click(object sender, RoutedEventArgs e)
         {
             if (zhedie)
             {
-       //         Windows.Width = Windows.ActualWidth - equipgrid.ActualWidth;
+                //         Windows.Width = Windows.ActualWidth - equipgrid.ActualWidth;
                 equipgrid.Visibility = System.Windows.Visibility.Collapsed;
                 zhedie = false;
             }
             else
             {
                 //         Windows.Width += equipgrid.Width;
-         //       Windows.Width = Windows.ActualWidth + equipgrid.ActualWidth;
+                //       Windows.Width = Windows.ActualWidth + equipgrid.ActualWidth;
                 equipgrid.Visibility = System.Windows.Visibility.Visible;
                 zhedie = true;
             }
@@ -25111,8 +25350,8 @@ namespace snqxap
         {
             renewskill();
         }
-            private void calctalent()
-        {                   
+        private void calctalent()
+        {
             int fairyindex = fairynamecombo.SelectedIndex;
             int levelindex = fairylevel.SelectedIndex;
             int starindex = fairystar.SelectedIndex;
@@ -25129,7 +25368,7 @@ namespace snqxap
                     {
                         switch (starindex + 1)
                         {
-                            case 1: { rate = 0.4;} break;
+                            case 1: { rate = 0.4; } break;
                             case 2: { rate = 0.6; } break;
                             case 3: { rate = 0.8; } break;
                             case 4: { rate = 0.9; } break;
@@ -25166,10 +25405,10 @@ namespace snqxap
             {
                 case "杀伤型I":
                     {
-                        double updem1= 0.12;
+                        double updem1 = 0.12;
                         for (int i = 0; i < 9; i++)
                         {
-                            skillupdamage[i] *= updem1+1;
+                            skillupdamage[i] *= updem1 + 1;
                             renewindex(i);
                         }
                         fairytalentcombo.ToolTip = "发动率" + (rate * 100) + "%,全体伤害提升" + (updem1 * 100) + "%";
@@ -25194,7 +25433,7 @@ namespace snqxap
                             skilluphit[i] *= updem1 + 1;
                             renewindex(i);
                         }
-                        fairytalentcombo.ToolTip = "发动率" + (rate * 100) + "%,全体命中提升" + (updem1 * 100) + "%"; 
+                        fairytalentcombo.ToolTip = "发动率" + (rate * 100) + "%,全体命中提升" + (updem1 * 100) + "%";
                         break;
                     }
                 case "精准型II":
@@ -25399,7 +25638,7 @@ namespace snqxap
                     {
                         fairytalentcombo.ToolTip = "kirarin~☆ 没啥用，但是好康啊！";
                         break;
-                      
+
                     }
                 default:
                     break;
@@ -25444,7 +25683,7 @@ namespace snqxap
                             }
                         }
                         fairy[fairyindex].cd = cdtime;
-                        cb9.ToolTip = "持续" + attime + "s,提升全体" + updem1 * 100 + "%伤害," + updem2 * 100 + "%射速,消耗点数"+point+",cd"+turncd+"回合";
+                        cb9.ToolTip = "持续" + attime + "s,提升全体" + updem1 * 100 + "%伤害," + updem2 * 100 + "%射速,消耗点数" + point + ",cd" + turncd + "回合";
                         break;
                     }
                 case 900111:
@@ -25469,7 +25708,7 @@ namespace snqxap
                             }
                         }
                         fairy[fairyindex].cd = cdtime;
-                        cb9.ToolTip = "持续" + attime + "s,提升全体" + updem1 * 100 + "%命中," + updem2 * 100 + "%暴击率,消耗点数" + point + ",cd" + turncd + "回合"; 
+                        cb9.ToolTip = "持续" + attime + "s,提升全体" + updem1 * 100 + "%命中," + updem2 * 100 + "%暴击率,消耗点数" + point + ",cd" + turncd + "回合";
                         break;
                     }
                 case 900103:
@@ -25480,7 +25719,7 @@ namespace snqxap
                         double updem2 = 0;
                         double point = 3;
                         double turncd = 0;
-                        switch (skillindex) { case 0: { updem1 = 0.15;break; } case 1: { updem1 = 0.19; break; } case 2: { updem1 = 0.23; break; } case 3: { updem1 = 0.27;  break; } case 4: { updem1 = 0.31; break; } case 5: { updem1 = 0.34;  break; } case 6: { updem1 = 0.38;  break; } case 7: { updem1 = 0.42; break; } case 8: { updem1 = 0.46; break; } case 9: { updem1 = 0.5; break; } }
+                        switch (skillindex) { case 0: { updem1 = 0.15; break; } case 1: { updem1 = 0.19; break; } case 2: { updem1 = 0.23; break; } case 3: { updem1 = 0.27; break; } case 4: { updem1 = 0.31; break; } case 5: { updem1 = 0.34; break; } case 6: { updem1 = 0.38; break; } case 7: { updem1 = 0.42; break; } case 8: { updem1 = 0.46; break; } case 9: { updem1 = 0.5; break; } }
 
                         if (slider.Value > attime)
                             return;
@@ -25535,11 +25774,11 @@ namespace snqxap
                             return;
                         if (ischecked)
                         {
-                            skilldowndamage *=1 - updem1;
+                            fairydowndamage *= 1 - updem1;
                             renewtank();
                         }
                         fairy[fairyindex].cd = cdtime;
-                        cb9.ToolTip = "持续" + attime + "s,回合内每场战斗减伤" + updem1 *100+ "%,消耗点数" + point + ",cd" + turncd + "回合";
+                        cb9.ToolTip = "持续" + attime + "s,回合内每场战斗减伤" + updem1 * 100 + "%,消耗点数" + point + ",cd" + turncd + "回合";
                         break;
                     }
                 case 900104:
@@ -25556,8 +25795,8 @@ namespace snqxap
                             return;
                         if (ischecked)
                         {
-                           // shield = updem1;
-                           // renewtank();
+                            // shield = updem1;
+                            // renewtank();
                         }
                         fairy[fairyindex].cd = cdtime;
                         cb9.ToolTip = "放置一个 " + updem1 + "血的靶子,消耗点数" + point + ",cd" + turncd + "回合";
@@ -25648,7 +25887,38 @@ namespace snqxap
                             }
                         }
                         fairy[fairyindex].cd = cdtime;
-                        cb9.ToolTip = "血量百分比最少人形+1编,回合内每场战斗全体回避提升" + updem1*100 + "%,持续"+attime+"s,消耗点数" + point + ",cd" + turncd + "回合";
+                        cb9.ToolTip = "血量百分比最少人形+1编,回合内每场战斗全体回避提升" + updem1 * 100 + "%,持续" + attime + "s,消耗点数" + point + ",cd" + turncd + "回合";
+                        break;
+                    }
+                case 9:
+                    {
+                        double cdtime = 99;
+                        double attime = 99;
+                        double updem1 = 0;
+                        string updem2 = "";
+                        double point = 5;
+                        double turncd = 5;
+                        switch (skillindex) { case 0: { updem1 = 0.1; break; } case 1: { updem1 = 0.15; break; } case 2: { updem1 = 0.2; break; } case 3: { updem1 = 0.25; break; } case 4: { updem1 = 0.3; break; } case 5: { updem1 = 0.35; break; } case 6: { updem1 = 0.4; break; } case 7: { updem1 = 0.45; break; } case 8: { updem1 = 0.5; break; } case 9: { updem1 = 0.6; break; } }
+                        switch (skillindex) { case 0: { updem2 = "范围3以内"; break; } case 1: { updem2 = "范围3以内"; break; } case 2: { updem2 = "范围3以内"; break; } case 3: { updem2 = "范围4以内"; break; } case 4: { updem2 = "范围4以内"; break; } case 5: { updem2 = "范围5以内"; break; } case 6: { updem2 = "范围5以内"; break; } case 7: { updem2 = "范围6以内"; break; } case 8: { updem2 = "范围6以内"; break; } case 9: { updem2 = "任意"; break; } }
+
+
+                        if (slider.Value > attime)
+                            return;
+                        if (ischecked)
+                        {
+                            for (int i = 0; i < 9; i++)
+                            {
+                                skillupdamage[i] *=  updem1;
+                                skilluphit[i] *= updem1;
+                                skillupdodge[i] *= updem1;
+                                skilluparmor[i] *= updem1;
+                                skillupcrit[i] *= updem1;
+                                renewindex(i);
+                                renewtank();
+                            }
+                        }
+                        fairy[fairyindex].cd = cdtime;
+                        cb9.ToolTip = "本梯队空降有视野的"+updem2+"机场，伤害、命中、回避、护甲、暴击率降低" + (1-updem1) * 100 + "%,持续2回合,消耗点数" + point + ",cd" + turncd + "回合";
                         break;
                     }
                 case 10:
@@ -25669,7 +25939,7 @@ namespace snqxap
                             // renewtank();
                         }
                         fairy[fairyindex].cd = cdtime;
-                        cb9.ToolTip = "相邻格无人点埋雷,存在2回合,敌人触碰减少当前血量" + updem1 *100+ "%,消耗点数" + point + ",cd" + turncd + "回合";
+                        cb9.ToolTip = "相邻格无人点埋雷,存在2回合,敌人触碰减少当前血量" + updem1 * 100 + "%,消耗点数" + point + ",cd" + turncd + "回合";
                         break;
                     }
                 case 11:
@@ -25751,7 +26021,7 @@ namespace snqxap
                         double updem2 = 0;
                         double point = 1;
                         double turncd = 1;
-                        switch (skillindex) { case 0: { updem1 = "极小幅"; break; } case 1: { updem1 = "极小幅";  break; } case 2: { updem1 = "小幅"; break; } case 3: { updem1 = "小幅"; break; } case 4: { updem1 = "中幅"; break; } case 5: { updem1 = "中幅"; break; } case 6: { updem1 = "大幅"; break; } case 7: { updem1 = "大幅"; break; } case 8: { updem1 = "极大"; break; } case 9: { updem1 = "极大"; break; } }
+                        switch (skillindex) { case 0: { updem1 = "极小幅"; break; } case 1: { updem1 = "极小幅"; break; } case 2: { updem1 = "小幅"; break; } case 3: { updem1 = "小幅"; break; } case 4: { updem1 = "中幅"; break; } case 5: { updem1 = "中幅"; break; } case 6: { updem1 = "大幅"; break; } case 7: { updem1 = "大幅"; break; } case 8: { updem1 = "极大"; break; } case 9: { updem1 = "极大"; break; } }
 
                         if (slider.Value > attime)
                             return;
@@ -25779,16 +26049,16 @@ namespace snqxap
                             return;
                         if (ischecked)
                         {
-                            if(innight)
+                            if (innight)
                             {
                                 for (int i = 0; i < 9; i++)
-                                    skilluphit[i] *= updem1+1;
+                                    skilluphit[i] *= updem1 + 1;
                             }
                             // shield = updem1;
                             // renewtank();
                         }
                         fairy[fairyindex].cd = cdtime;
-                        cb9.ToolTip = "(夜)视野+"+updem2+"格,全体命中提升" + updem1 * 100 + "%,消耗点数" + point + ",cd" + turncd + "回合";
+                        cb9.ToolTip = "(夜)视野+" + updem2 + "格,全体命中提升" + updem1 * 100 + "%,消耗点数" + point + ",cd" + turncd + "回合";
                         break;
                     }
                 case 900117:
@@ -25804,7 +26074,7 @@ namespace snqxap
         private void cbIsdoublecard_Click(object sender, RoutedEventArgs e)
         {
             bool ischecked = cbIsdoublecard.IsChecked == true;
-            if(ischecked)
+            if (ischecked)
             {
                 gun[111].doublecard = true; gun[92].doublecard = true; gun[91].doublecard = true; gun[59].doublecard = true;
             }
@@ -25812,8 +26082,184 @@ namespace snqxap
             {
                 gun[111].doublecard = false; gun[92].doublecard = false; gun[91].doublecard = false; gun[59].doublecard = false;
             }
-            for(int i =0;i<9;i++)
+            for (int i = 0; i < 9; i++)
                 renewindex(i);
+        }
+
+        private void ResizePressed(object sender, MouseEventArgs e)
+        {
+            FrameworkElement element = sender as FrameworkElement;
+            ResizeDirection direction = (ResizeDirection)Enum.Parse(typeof(ResizeDirection), element.Name.Replace("Resize", ""));
+
+            this.Cursor = cursors[direction];
+
+            if (e.LeftButton == MouseButtonState.Pressed)
+                ResizeWindow(direction);
+        }
+
+        private void ResizeWindow(ResizeDirection direction)
+        {
+            SendMessage(_HwndSource.Handle, WM_SYSCOMMAND, (IntPtr)(61440 + direction), IntPtr.Zero);
+        }
+
+
+        private const int WM_SYSCOMMAND = 0x112;
+        private HwndSource _HwndSource;
+
+        private Dictionary<ResizeDirection, Cursor> cursors = new Dictionary<ResizeDirection, Cursor>
+{
+{ResizeDirection.Top, Cursors.SizeNS
+    },
+{ResizeDirection.Bottom, Cursors.SizeNS
+},
+{ResizeDirection.Left, Cursors.SizeWE},
+{ResizeDirection.Right, Cursors.SizeWE},
+{ResizeDirection.TopLeft, Cursors.SizeNWSE},
+{ResizeDirection.BottomRight, Cursors.SizeNWSE},
+{ResizeDirection.TopRight, Cursors.SizeNESW},
+{ResizeDirection.BottomLeft, Cursors.SizeNESW}
+};
+
+        enum ResizeDirection
+        {
+            Left = 1,
+            Right = 2,
+            Top = 3,
+            TopLeft = 4,
+            TopRight = 5,
+            Bottom = 6,
+            BottomLeft = 7,
+            BottomRight = 8,
+        }
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            base.OnSourceInitialized(e);
+            HwndSource hwndSource = PresentationSource.FromVisual(this) as HwndSource;
+            if (hwndSource != null)
+            {
+                hwndSource.AddHook(new HwndSourceHook(this.WndProc));
+            }
+        }
+
+        //protected virtual IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
+        //{
+        //    return IntPtr.Zero;
+        //}
+
+        private const int WM_NCHITTEST = 0x0084;
+        private readonly int agWidth = 12; //拐角宽度
+        private readonly int bThickness = 4; // 边框宽度
+        private Point mousePoint = new Point(); //鼠标坐标
+
+        public enum HitTest : int
+        {
+            HTERROR = -2,
+            HTTRANSPARENT = -1,
+            HTNOWHERE = 0,
+            HTCLIENT = 1,
+            HTCAPTION = 2,
+            HTSYSMENU = 3,
+            HTGROWBOX = 4,
+            HTSIZE = HTGROWBOX,
+            HTMENU = 5,
+            HTHSCROLL = 6,
+            HTVSCROLL = 7,
+            HTMINBUTTON = 8,
+            HTMAXBUTTON = 9,
+            HTLEFT = 10,
+            HTRIGHT = 11,
+            HTTOP = 12,
+            HTTOPLEFT = 13,
+            HTTOPRIGHT = 14,
+            HTBOTTOM = 15,
+            HTBOTTOMLEFT = 16,
+            HTBOTTOMRIGHT = 17,
+            HTBORDER = 18,
+            HTREDUCE = HTMINBUTTON,
+            HTZOOM = HTMAXBUTTON,
+            HTSIZEFIRST = HTLEFT,
+            HTSIZELAST = HTBOTTOMRIGHT,
+            HTOBJECT = 19,
+            HTCLOSE = 20,
+            HTHELP = 21,
+        }
+        protected virtual IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
+        {
+            switch (msg)
+            {
+                case WM_NCHITTEST:
+                    this.mousePoint.X = (lParam.ToInt32() & 0xFFFF);
+                    this.mousePoint.Y = (lParam.ToInt32() >> 16);
+
+                    //  测试鼠标位置
+                    #region 测试鼠标位置
+
+                    // 窗口左上角
+                    if (this.mousePoint.Y - this.Top <= this.agWidth
+                       && this.mousePoint.X - this.Left <= this.agWidth)
+                    {
+                        handled = true;
+                        return new IntPtr((int)HitTest.HTTOPLEFT);
+                    }
+                    // 窗口左下角    
+                    else if (this.ActualHeight + this.Top - this.mousePoint.Y <= this.agWidth
+                       && this.mousePoint.X - this.Left <= this.agWidth)
+                    {
+                        handled = true;
+                        return new IntPtr((int)HitTest.HTBOTTOMLEFT);
+                    }
+                    // 窗口右上角
+                    else if (this.mousePoint.Y - this.Top <= this.agWidth
+                       && this.ActualWidth + this.Left - this.mousePoint.X <= this.agWidth)
+                    {
+                        handled = true;
+                        return new IntPtr((int)HitTest.HTTOPRIGHT);
+                    }
+                    // 窗口右下角
+                    else if (this.ActualWidth + this.Left - this.mousePoint.X <= this.agWidth
+                       && this.ActualHeight + this.Top - this.mousePoint.Y <= this.agWidth)
+                    {
+                        handled = true;
+                        return new IntPtr((int)HitTest.HTBOTTOMRIGHT);
+                    }
+                    // 窗口左侧
+                    else if (this.mousePoint.X - this.Left <= this.bThickness)
+                    {
+                        handled = true;
+                        return new IntPtr((int)HitTest.HTLEFT);
+                    }
+                    // 窗口右侧
+                    else if (this.ActualWidth + this.Left - this.mousePoint.X <= this.bThickness)
+                    {
+                        handled = true;
+                        return new IntPtr((int)HitTest.HTRIGHT);
+                    }
+                    // 窗口上方
+                    else if (this.mousePoint.Y - this.Top <= this.bThickness)
+                    {
+                        handled = true;
+                        return new IntPtr((int)HitTest.HTTOP);
+                    }
+                    // 窗口下方
+                    else if (this.ActualHeight + this.Top - this.mousePoint.Y <= this.bThickness)
+                    {
+                        handled = true;
+                        return new IntPtr((int)HitTest.HTBOTTOM);
+                    }
+                    //else // 窗口移动
+                    //{
+                    //    handled = true;
+                    //    return new IntPtr((int)HitTest.HTCAPTION);
+                    //}
+                    else
+                    { return IntPtr.Zero; }
+                    #endregion
+            }
+            return IntPtr.Zero;
         }
     }
 }

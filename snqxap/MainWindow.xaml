@@ -1,7 +1,7 @@
 ﻿<Window x:Class="snqxap.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="「干死雪球」阵型计算器 - h@jyying.cn - v2.1.0 历史总是惊人的相似版" Name="Windows" Height="855" Width="1080"  AllowsTransparency="True"  ResizeMode="CanResizeWithGrip"  WindowStyle="None" Background="Transparent" MouseMove="Window_MouseMove">
+        Title="「干死雪球」阵型计算器 - h@jyying.cn - v2.1.0 历史总是惊人的相似版" Name="Windows" Height="855" Width="1080"  AllowsTransparency="True"   WindowStyle="None" Background="Transparent" MouseMove="Window_MouseMove">
     <Window.Resources>
         <ControlTemplate x:Key="ExpanderToggleButton" TargetType="{x:Type ToggleButton}">
             <Border Name="border" Background="#3c659d" Width="9" Height="119" HorizontalAlignment="Left" VerticalAlignment="Center">
@@ -67,7 +67,7 @@
                 <Image Visibility="Hidden" x:Name="bignews"  Source="zhaijiang.jpg" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
             </Grid>
         </Grid>
-        <Grid HorizontalAlignment="Left"  Height="735" Margin="200,0,0,0" VerticalAlignment="Top" Width="735">
+        <Grid HorizontalAlignment="Left"  Height="735" Margin="200,0,0,0" VerticalAlignment="Top" Width="735" Name="MainGrid">
             <Grid.Background>
                 <ImageBrush ImageSource="/assets/yushe1.png"/>
             </Grid.Background>
