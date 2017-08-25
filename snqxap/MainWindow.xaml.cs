@@ -34,7 +34,7 @@ namespace snqxap
         /// <summary>
         /// 枪娘总数
         /// </summary>
-        public const int GUN_NUMBER = 171;
+        public const int GUN_NUMBER = 174;
         /// <summary>
         /// 装备总数
         /// </summary>
@@ -672,6 +672,22 @@ namespace snqxap
                 gun[170].equiptype1 = "5"; gun[170].equiptype2 = "1,2,3,13"; gun[170].equiptype3 = "9,15"; gun[170].type = 100401;
                 gun[170].grid_center = 5; gun[170].number = 1; gun[170].effect0 = 3; gun[170].rateup = 0.12; gun[170].to = 4;
             }
+
+            gun[171].name = "竞争者"; gun[171].what = 4; gun[171].crit = 0.4; gun[171].belt = 0;
+            gun[171].eatratio = 150; gun[171].ratiododge = 90; gun[171].ratiohit = 140; gun[171].ratiohp = 100; gun[171].ratiopow = 145; gun[171].ratiorate = 75;
+            gun[171].equiptype1 = "4,13"; gun[171].equiptype2 = "5,6"; gun[171].equiptype3 = "9,10,12"; gun[171].type = 106701;
+            gun[171].grid_center = 5; gun[171].number = 8; gun[171].effect0 = 1; gun[171].effect1 = 2; gun[171].effect2 = 3; gun[171].effect3 = 4; gun[171].effect4 = 6; gun[171].effect5 = 7; gun[171].effect6 = 8; gun[171].effect7 = 9; gun[171].damageup = 0.15; gun[171].critup = 0.1; gun[171].to = 1;
+
+            gun[172].name = "T-5000"; gun[172].what = 5; gun[172].crit = 0.4; gun[172].belt = 0;
+            gun[172].eatratio = 117; gun[172].ratiododge = 85; gun[172].ratiohit = 130; gun[172].ratiohp = 102; gun[172].ratiopow = 118; gun[172].ratiorate = 105;
+            gun[172].equiptype1 = "5"; gun[172].equiptype2 = "1,2,3,13"; gun[172].equiptype3 = "9,15"; gun[172].type = 106601;
+            gun[172].grid_center = 5; gun[172].number = 2; gun[172].effect0 = 2; gun[172].effect1 = 3; gun[172].rateup = 0.15; gun[172].to = 4;
+
+            gun[173].name = "阿梅利"; gun[173].what = 6; gun[173].crit = 0.05; gun[173].belt = 8;
+            gun[173].eatratio = 145; gun[173].ratiododge = 140; gun[173].ratiohit = 130; gun[173].ratiohp = 85; gun[173].ratiopow = 90; gun[173].ratiorate = 130;
+            gun[173].equiptype1 = "5"; gun[173].equiptype2 = "1,2,3"; gun[173].equiptype3 = "9,14"; gun[173].type = 105106;
+            gun[173].grid_center = 4; gun[173].number = 3; gun[173].effect0 = 3; gun[173].effect1 = 6; gun[173].effect2 = 9; gun[173].damageup = 0.1; gun[173].armorup = 0.15; gun[173].to = 7;
+
             for (int i = 0; i < GUN_NUMBER + 1; i++)//加颜色
             {
                 Label l = new Label();
@@ -978,7 +994,7 @@ namespace snqxap
                 gun[i].image = "/assets/" + gun[i].name + ".png";
                 gun[i].doublecard = false;
             }
-            gun[170].image = "/assets/MP5.png";
+      //      gun[170].image = "/assets/MP5.png";
             gun[GUN_NUMBER].image = "";
             for (int i = 0; i < 9; i++)
             {
@@ -15748,6 +15764,109 @@ namespace snqxap
                         }
                         break;
                     }
+                case 105106:
+                    {
+                        double cdtime = 18;
+                        double attime = 0;
+                        double updem1 = 0;
+                        double updem2 = 0;
+
+                        switch (skillindex) { case 0: { attime = 6.00; break; } case 1: { attime = 6.20; break; } case 2: { attime = 6.40; break; } case 3: { attime = 6.70; break; } case 4: { attime = 6.90; break; } case 5: { attime = 7.10; break; } case 6: { attime = 7.30; break; } case 7: { attime = 7.60; break; } case 8: { attime = 7.80; break; } case 9: { attime = 8.00; break; } }
+                        if (innight)
+                            switch (skillindex) { case 0: { updem1 = 0.28; break; } case 1: { updem1 = 0.3; break; } case 2: { updem1 = 0.33; break; } case 3: { updem1 = 0.35; break; } case 4: { updem1 = 0.38; break; } case 5: { updem1 = 0.4; break; } case 6: { updem1 = 0.43; break; } case 7: { updem1 = 0.45; break; } case 8: { updem1 = 0.48; break; } case 9: { updem1 = 0.5; break; } }
+                        else
+                            switch (skillindex) { case 0: { updem1 = 0.06; break; } case 1: { updem1 = 0.07; break; } case 2: { updem1 = 0.07; break; } case 3: { updem1 = 0.08; break; } case 4: { updem1 = 0.08; break; } case 5: { updem1 = 0.09; break; } case 6: { updem1 = 0.09; break; } case 7: { updem1 = 0.1; break; } case 8: { updem1 = 0.1; break; } case 9: { updem1 = 0.11; break; } }
+
+                        switch (skillindex) { case 0: { updem2 = 1; break; } case 1: { updem2 = 2; break; } case 2: { updem2 = 2; break; } case 3: { updem2 = 2; break; } case 4: { updem2 = 2; break; } case 5: { updem2 = 3; break; } case 6: { updem2 = 3; break; } case 7: { updem2 = 3; break; } case 8: { updem2 = 3; break; } case 9: { updem2 = 4; break; } }
+
+
+                        if (ischecked)
+                        {
+                            skillupdamage[combo] *= 1 + updem1;
+                            skillupbelt[combo] += updem2;
+                            renewindex(combo);
+                        }
+
+                        gun[index].cd = cdtime;
+                        renewattime(combo, attime.ToString());
+                        gun[index].startcd = ("8");
+                        if (innight)
+                        {
+                            string read = "(夜)提升自身" + updem1 * 100 + "%伤害,弹链+" + updem2 + "(不算弹链时间)";
+                            renewread(combo, read);
+                        }
+                        else
+                        {
+                            string read = "(昼)提升自身" + updem1 * 100 + "%伤害,弹链+" + updem2 + "(不算弹链时间)";
+                            renewread(combo, read);
+                        }
+                        break;
+                    }
+                case 106601:
+                    {
+                        double cdtime = 0;
+                        double attime = 0;
+                        double updem1 = 0;
+                        double updem2 = 0;
+
+                        switch (skillindex) { case 0: { cdtime = 10; break; } case 1: { cdtime = 9.8; break; } case 2: { cdtime = 9.6; break; } case 3: { cdtime = 9.3; break; } case 4: { cdtime = 9.1; break; } case 5: { cdtime = 8.9; break; } case 6: { cdtime = 8.7; break; } case 7: { cdtime = 8.4; break; } case 8: { cdtime = 8.2; break; } case 9: { cdtime = 8; break; } }
+                        switch (skillindex) { case 0: { attime = 3.00; break; } case 1: { attime = 3.30; break; } case 2: { attime = 3.70; break; } case 3: { attime = 4; break; } case 4: { attime = 4.3; break; } case 5: { attime = 4.7; break; } case 6: { attime = 5; break; } case 7: { attime = 5.3; break; } case 8: { attime = 5.7; break; } case 9: { attime = 6; break; } }
+                        switch (skillindex) { case 0: { updem1 = 0.3; break; } case 1: { updem1 = 0.32; break; } case 2: { updem1 = 0.34; break; } case 3: { updem1 = 0.37; break; } case 4: { updem1 = 0.39; break; } case 5: { updem1 = 0.41; break; } case 6: { updem1 = 0.43; break; } case 7: { updem1 = 0.46; break; } case 8: { updem1 = 0.48; break; } case 9: { updem1 = 0.5; break; } }
+
+                        if (ischecked)
+                        {
+
+                            skilluphit[combo] *= 1 + updem1;
+                            skillupshotspeed[combo] *= 1 + updem1;
+                            renewindex(combo);
+
+                        }
+
+                        gun[index].cd = cdtime;
+                        renewattime(combo, attime.ToString());
+                        gun[index].startcd = ("6");
+                        string read = "提升自身" + updem1 * 100 + "%命中," + updem1 * 100 + "%射速";
+                        renewread(combo, read);
+                        break;
+                    }
+
+                case 106701:
+                    {
+                        double cdtime = 0;
+                        double attime = 0;
+                        double updem1 = 0;
+                        double updem2 = 0;
+
+                        switch (skillindex) { case 0: { cdtime = 15; break; } case 1: { cdtime = 14.7; break; } case 2: { cdtime = 14.3; break; } case 3: { cdtime = 14; break; } case 4: { cdtime = 13.7; break; } case 5: { cdtime = 13.3; break; } case 6: { cdtime = 13; break; } case 7: { cdtime = 12.7; break; } case 8: { cdtime = 12.3; break; } case 9: { cdtime = 12; break; } }
+                        switch (skillindex) { case 0: { attime = 3.00; break; } case 1: { attime = 3.20; break; } case 2: { attime = 3.40; break; } case 3: { attime = 3.70; break; } case 4: { attime = 3.90; break; } case 5: { attime = 4.10; break; } case 6: { attime = 4.30; break; } case 7: { attime = 4.60; break; } case 8: { attime = 4.80; break; } case 9: { attime = 5; break; } }
+                        switch (skillindex) { case 0: { updem1 = 0.25; break; } case 1: { updem1 = 0.27; break; } case 2: { updem1 = 0.28; break; } case 3: { updem1 = 0.3; break; } case 4: { updem1 = 0.32; break; } case 5: { updem1 = 0.33; break; } case 6: { updem1 = 0.35; break; } case 7: { updem1 = 0.37; break; } case 8: { updem1 = 0.38; break; } case 9: { updem1 = 0.4; break; } }
+                        switch (skillindex) { case 0: { updem2 = 1.5; break; } case 1: { updem2 = 1.7; break; } case 2: { updem2 = 1.8; break; } case 3: { updem2 = 2; break; } case 4: { updem2 = 2.2; break; } case 5: { updem2 = 2.3; break; } case 6: { updem2 = 2.5; break; } case 7: { updem2 = 2.7; break; } case 8: { updem2 = 2.8; break; } case 9: { updem2 = 3; break; } }
+
+                        if (ischecked)
+                        {
+                            for (int i = 0; i < 9; i++)
+                            {
+                                skilldamageagain[i] = updem1 + 1;
+                                renewindex(i);
+                            }
+                            skillsolidmultiple[combo] = updem2;
+                            renewindex(combo);
+                        }
+                        //     先偷懒成群体突击眼
+                        gun[index].cd = cdtime;
+                        renewattime(combo, attime.ToString());
+                        gun[index].startcd = ("6");
+                        string read = "";
+                        if (combo%3==0)
+                        read = "1s瞄准最近," + (updem2 ) + "倍,BOSS优先,集火";
+                        else if (combo % 3 == 1)
+                            read = "1s瞄准血量最高," + (updem2) + "倍,BOSS优先,集火";
+                        else if (combo % 3 == 2)
+                            read = "1s瞄准最远," + (updem2) + "倍,BOSS优先,集火";
+                        renewread(combo, read);
+
+                        break;
+                    }
 
                 default:
                     break;
@@ -26260,6 +26379,23 @@ namespace snqxap
                     #endregion
             }
             return IntPtr.Zero;
+        }
+
+        private void minimize_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void maxmize_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.WindowState == WindowState.Maximized)
+            {
+                this.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = WindowState.Maximized;
+            }
         }
     }
 }

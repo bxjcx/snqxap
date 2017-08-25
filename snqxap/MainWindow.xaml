@@ -1,7 +1,7 @@
 ﻿<Window x:Class="snqxap.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="「干死雪球」阵型计算器 - h@jyying.cn - v2.1.0 历史总是惊人的相似版" Name="Windows" Height="855" Width="1080"  AllowsTransparency="True"   WindowStyle="None" Background="Transparent" MouseMove="Window_MouseMove">
+        Title="「干死雪球」阵型计算器 - h@jyying.cn - v2.1.1 末日时在做什么?有没有空?可以来少女前线吗?版" Name="Windows" Height="855" Width="1080"  AllowsTransparency="True"   WindowStyle="None" Background="Transparent" MouseMove="Window_MouseMove">
     <Window.Resources>
         <ControlTemplate x:Key="ExpanderToggleButton" TargetType="{x:Type ToggleButton}">
             <Border Name="border" Background="#3c659d" Width="9" Height="119" HorizontalAlignment="Left" VerticalAlignment="Center">
@@ -747,10 +747,12 @@
             <Grid.Background>
                 <ImageBrush ImageSource="/assets/yushe3.png"/>
             </Grid.Background>
-            <Button  Click="zhedie_Click" Margin="695,10,10,80" Height="30" Width="30"/>
-            <Button  Click="fairyzhedie_Click" Margin="619,10,0,80" Height="30" Width="30" HorizontalAlignment="Left"/>
-            <Button  Click="close_Click" Margin="657,10,48,80" Height="30" Width="30" Content="×" Foreground="Red"/>
-            <Slider  Minimum="0" TickFrequency="1" Maximum="30" x:Name="slider" IsSnapToTickEnabled="True" HorizontalAlignment="Left" VerticalAlignment="Center" Width="281" Height="21" Margin="10,94,0,5" Opacity="0.8" RenderTransformOrigin="0.5,0.5">
+            <Button  Click="zhedie_Click" Margin="679,44,26,46" Height="30" Width="30"/>
+            <Button  Click="fairyzhedie_Click" Margin="642,44,0,46" Height="30" Width="30" HorizontalAlignment="Left"/>
+            <Button  Click="close_Click" Margin="695,10,10,80" Height="30" Width="30" Content="×" Foreground="Red"/>
+                <Button  Click="minimize_Click" Margin="625,10,80,80" Height="30" Width="30" Content="-" Foreground="Red"/>
+                <Button  Click="maxmize_Click" Margin="660,10,45,80" Height="30" Width="30" Content="□" Foreground="Red"/>
+                <Slider  Minimum="0" TickFrequency="1" Maximum="30" x:Name="slider" IsSnapToTickEnabled="True" HorizontalAlignment="Left" VerticalAlignment="Center" Width="281" Height="21" Margin="10,94,0,5" Opacity="0.8" RenderTransformOrigin="0.5,0.5">
             
                 </Slider>
                 <TextBox  TextChanged="textBlock_TextChanged"  x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ElementName=slider, Path=Value}" FontSize="15" VerticalAlignment="Top" Margin="296,93,0,0" Opacity="0.5" BorderThickness="0" IsEnabled="False" Width="24"/>
