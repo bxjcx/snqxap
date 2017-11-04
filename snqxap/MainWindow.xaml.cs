@@ -26311,9 +26311,9 @@ namespace snqxap
             switch (msg)
             {
                 case WM_NCHITTEST:
-                    this.mousePoint.X = (lParam.ToInt32() & 0xFFFF);
-                    this.mousePoint.Y = (lParam.ToInt32() >> 16);
-
+                    var m = PresentationSource.FromVisual(Application.Current.MainWindow).CompositionTarget.TransformToDevice;
+                    this.mousePoint.X = Math.Round((lParam.ToInt32() & 0xFFFF) / m.M11);
+                    this.mousePoint.Y = Math.Round((lParam.ToInt32() >> 16) / m.M11);
                     //  测试鼠标位置
                     #region 测试鼠标位置
 
