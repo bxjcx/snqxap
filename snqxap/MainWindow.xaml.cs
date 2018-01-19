@@ -26313,6 +26313,8 @@ namespace snqxap
                 case WM_NCHITTEST:
                     this.mousePoint.X = (lParam.ToInt32() & 0xFFFF);
                     this.mousePoint.Y = (lParam.ToInt32() >> 16);
+                    // Fix HiDPI incorrect mouse position problem
+                    this.mousePoint = this.PointFromScreen(this.mousePoint);
 
                     //  测试鼠标位置
                     #region 测试鼠标位置
