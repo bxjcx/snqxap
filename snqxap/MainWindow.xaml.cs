@@ -92,84 +92,82 @@ namespace snqxap
         List<Border>[] gridlist = new List<Border>[9];
         Fairy[] fairy = new Fairy[FAIRY_NUMBER + 1];
         FairyTalent[] fairytalent = new FairyTalent[FAIRY_TALENT_NUMBER + 1];
-        Boolean zhedie = true;
-        Boolean fairyzhedie = true;
         double shield = 0;
 
         float[] equipupRatio = { };
 
 
 
-        public static readonly float[][] arrAbilityRatio = new float[][]  //各类枪娘属性成长基础
+        public static readonly double[][] arrAbilityRatio = new double[][]  //各类枪娘属性成长基础
 {
-    new float[] //lift,pow,rate,speed,hit,dodge,armor
+    new double[] //lift,pow,rate,speed,hit,dodge,armor
     {
-        1f,1f,1f,1f,1f,1f,1f,0f
+        1,1,1,1,1,1,1,0
     },
-      new float[]   //凑数
+      new double[]   //凑数
       {
-        1f,1f,1f,1f,1f,1f,1f,0f
+        1,1,1,1,1,1,1,0
     },
-        new float[]   //2 ar 3 smg 4 hg 5 rf 6 mg 7 sg   
+        new double[]   //2 ar 3 smg 4 hg 5 rf 6 mg 7 sg   
 	{
-          1f,
-        1f,
-        1f,
-        1f,
-        1f,
-        1f,
-        0f
+          1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
     },
-    new float[]
+    new double[]
     {
-        1.6f,
-        0.6f,
-        1.2f,
-        1.2f,
-        0.3f,
-        1.6f,
-        0f
+        1.6,
+        0.6,
+        1.2,
+        1.2,
+        0.3,
+        1.6,
+        0
     },
-    new float[]
+    new double[]
     {
-         0.6f,
-        0.6f,
-        0.8f,
-        1.5f,
-        1.2f,
-        1.8f,
-        0f
+         0.6,
+        0.6,
+        0.8,
+        1.5,
+        1.2,
+        1.8,
+        0
 
     },
-    new float[]
+    new double[]
     {
-          0.8f,
-        2.4f,
-        0.5f,
-        0.7f,
-        1.6f,
-        0.8f,
-        0f
+          0.8,
+        2.4,
+        0.5,
+        0.7,
+        1.6,
+        0.8,
+        0
     },
-    new float[]
+    new double[]
     {
-        1.5f,
-        1.8f,
-        1.6f,
-        0.4f,
-        0.6f,
-        0.6f,
-        0f
+        1.5,
+        1.8,
+        1.6,
+        0.4,
+        0.6,
+        0.6,
+        0
     },
-    new float[]
+    new double[]
     {
-        2.0f,
-        0.7f,
-        0.4f,
-        0.6f,
-        0.3f,
-        0.3f,
-        1.0f
+        2.0,
+        0.7,
+        0.4,
+        0.6,
+        0.3,
+        0.3,
+        1.0
     }
 };
 
@@ -178,11 +176,6 @@ namespace snqxap
 
             InitializeComponent();
 
-            this.SourceInitialized += delegate (object sender, EventArgs e)
-            {
-                this._HwndSource = PresentationSource.FromVisual((Visual)sender) as HwndSource;
-            };
-            this.MouseMove += new MouseEventHandler(Window_MouseMove);
             baka();
 
             Combo0.SelectedIndex = GUN_NUMBER;
@@ -250,6 +243,8 @@ namespace snqxap
             Lbreakarmor6.Content = equipbreakarmor[6];
             Lbreakarmor7.Content = equipbreakarmor[7];
             Lbreakarmor8.Content = equipbreakarmor[8];
+
+        
         }
 
         /// <summary>
@@ -687,6 +682,76 @@ namespace snqxap
             gun[173].eatratio = 145; gun[173].ratiododge = 140; gun[173].ratiohit = 130; gun[173].ratiohp = 85; gun[173].ratiopow = 90; gun[173].ratiorate = 130;
             gun[173].equiptype1 = "5"; gun[173].equiptype2 = "1,2,3"; gun[173].equiptype3 = "9,14"; gun[173].type = 105106;
             gun[173].grid_center = 4; gun[173].number = 3; gun[173].effect0 = 3; gun[173].effect1 = 6; gun[173].effect2 = 9; gun[173].damageup = 0.1; gun[173].armorup = 0.15; gun[173].to = 7;
+            /////////20171120
+            //gun[174].name = "P226"; gun[174].what = 4; gun[174].crit = 0.2; gun[174].belt = 0;
+            //gun[174].eatratio = 110; gun[174].ratiododge = 90; gun[174].ratiohit = 125; gun[174].ratiohp = 110; gun[174].ratiopow = 110; gun[174].ratiorate = 115;
+            //gun[174].equiptype1 = "4,13"; gun[174].equiptype2 = "6"; gun[174].equiptype3 = "9,10,12"; gun[174].type = 101603;
+            //gun[174].grid_center = 5; gun[174].number = 3; gun[174].effect0 = 2; gun[174].effect1 = 6; gun[174].effect2 = 8; gun[174].damageup = 0.1; gun[174].hitup = 0.25; gun[174].to = 1;
+
+            //gun[175].name = "AK5"; gun[175].what = 2; gun[175].crit = 0.2; gun[175].belt = 0;
+            //gun[175].eatratio = 115; gun[175].ratiododge = 95; gun[175].ratiohit = 120; gun[175].ratiohp = 105; gun[175].ratiopow = 115; gun[175].ratiorate = 112;
+            //gun[175].equiptype1 = "1,2,3,4,13"; gun[175].equiptype2 = "8"; gun[175].equiptype3 = "9,10,12"; gun[175].type = 100103;
+            //gun[175].grid_center = 5; gun[175].number = 2; gun[175].effect0 = 3; gun[175].effect1 = 9; gun[175].damageup = 0.15; gun[175].hitup = 0.30; gun[175].to = 3;
+
+            //gun[176].name = "S.A.T.8"; gun[176].what = 7; gun[176].crit = 0.4; gun[176].belt = 4;
+            //gun[176].eatratio = 95; gun[176].ratiododge = 110; gun[176].ratiohit = 120; gun[176].ratiohp = 128; gun[176].ratiopow = 105; gun[176].ratiorate = 130; gun[176].ratioarmor = 120;
+            //gun[176].equiptype1 = "9,11"; gun[176].equiptype2 = "7"; gun[176].equiptype3 = "1,2,3,4"; gun[176].type = 106801;
+            //gun[176].grid_center = 6; gun[176].number = 3; gun[176].effect0 = 1; gun[176].effect1 = 4; gun[176].effect2 = 7; gun[176].damageup = 0.1; gun[176].hitup = 0.15; gun[176].to = 6;
+
+            //gun[177].name = "USAS-12"; gun[177].what = 7; gun[177].crit = 0.4; gun[177].belt = 5;
+            //gun[177].eatratio = 100; gun[177].ratiododge = 80; gun[177].ratiohit = 95; gun[177].ratiohp = 118; gun[177].ratiopow = 100; gun[177].ratiorate = 140; gun[177].ratioarmor = 120;
+            //gun[177].equiptype1 = "9,11"; gun[177].equiptype2 = "7"; gun[177].equiptype3 = "1,2,3,4"; gun[177].type = 106901;
+            //gun[177].grid_center = 6; gun[177].number = 1; gun[177].effect0 = 7; gun[177].damageup = 0.15; gun[177].hitup = 0.2; gun[177].to = 6;
+
+            //gun[178].name = "NS2000"; gun[178].what = 7; gun[178].crit = 0.4; gun[178].belt = 5;
+            //gun[178].eatratio = 100; gun[178].ratiododge = 95; gun[178].ratiohit = 110; gun[178].ratiohp = 115; gun[178].ratiopow = 115; gun[178].ratiorate = 105; gun[178].ratioarmor = 110;
+            //gun[178].equiptype1 = "9,11"; gun[178].equiptype2 = "7"; gun[178].equiptype3 = "1,2,3,4"; gun[178].type = 103202;
+            //gun[178].grid_center = 9; gun[178].number = 2; gun[178].effect0 = 1; gun[178].effect1 = 7; gun[178].damageup = 0.15;  gun[178].to = 6;
+
+            //gun[179].name = "M12"; gun[179].what = 3; gun[179].crit = 0.05; gun[179].belt = 0;
+            //gun[179].eatratio = 115; gun[179].ratiododge = 100; gun[179].ratiohit = 120; gun[179].ratiohp = 115; gun[179].ratiopow = 95; gun[179].ratiorate = 95;
+            //gun[179].equiptype1 = "9,10,12"; gun[179].equiptype2 = "6"; gun[179].equiptype3 = "1,2,3,4,13"; gun[179].type = 102302;
+            //gun[179].grid_center = 5; gun[179].number =3; gun[179].effect0 = 1; gun[179].effect1 = 4; gun[179].effect2 = 7; gun[179].damageup = 0.08; gun[179].dodgeup = 0.08; gun[179].to = 2;
+
+            //gun[180].name = "JS05"; gun[180].what = 5; gun[180].crit = 0.4; gun[180].belt = 0;
+            //gun[180].eatratio = 135; gun[180].ratiododge = 85; gun[180].ratiohit = 118; gun[180].ratiohp = 102; gun[180].ratiopow = 135; gun[180].ratiorate = 85;
+            //gun[180].equiptype1 = "5"; gun[180].equiptype2 = "1,2,3,13"; gun[180].equiptype3 = "9,15"; gun[180].type = 105708;
+            //gun[180].grid_center = 5; gun[180].number = 1; gun[180].effect0 = 3;  gun[180].rateup = 0.18; gun[180].to = 4;
+
+            //gun[181].name = "T65"; gun[181].what = 2; gun[181].crit = 0.2; gun[181].belt = 0;
+            //gun[181].eatratio = 115; gun[181].ratiododge = 100; gun[181].ratiohit = 110; gun[181].ratiohp = 112; gun[181].ratiopow = 120; gun[181].ratiorate = 115;
+            //gun[181].equiptype1 = "1,2,3,4,13"; gun[181].equiptype2 = "8"; gun[181].equiptype3 = "9,10,12"; gun[181].type = 105902;
+            //gun[181].grid_center = 5; gun[181].number = 2; gun[181].effect0 = 3; gun[181].effect1 = 9; gun[181].damageup = 0.15; gun[181].hitup = 0.25; gun[181].to = 3;
+
+            //gun[182].name = "琪亚娜"; gun[182].what = 4; gun[182].crit = 0.2; gun[182].belt = 0;
+            //gun[182].eatratio = 104; gun[182].ratiododge = 115; gun[182].ratiohit = 118; gun[182].ratiohp = 105; gun[182].ratiopow = 125; gun[182].ratiorate = 125;
+            //gun[182].equiptype1 = "4,13"; gun[182].equiptype2 = "6"; gun[182].equiptype3 = "9,10,12"; gun[182].type = 107301;
+            //gun[182].grid_center = 5; gun[182].number = 4; gun[182].effect0 = 2; gun[182].effect1 = 3; gun[182].effect2 = 8; gun[182].effect3 =9; gun[182].damageup = 0.1; gun[182].dodgeup = 0.15; gun[182].to = 1;
+
+            //gun[183].name = "雷电芽衣"; gun[183].what = 5; gun[183].crit = 0.4; gun[183].belt = 0;
+            //gun[183].eatratio = 120; gun[183].ratiododge = 95; gun[183].ratiohit = 105; gun[183].ratiohp = 95; gun[183].ratiopow = 135; gun[183].ratiorate = 98;
+            //gun[183].equiptype1 = "5"; gun[183].equiptype2 = "1,2,3,13"; gun[183].equiptype3 = "9,15"; gun[183].type = 107401;
+            //gun[183].grid_center = 5; gun[183].number = 2; gun[183].effect0 = 8; gun[183].effect1 = 9; gun[183].rateup = 0.18; gun[183].to = 4;
+
+            //gun[184].name = "布洛妮娅"; gun[184].what = 5; gun[184].crit = 0.4; gun[184].belt = 0;
+            //gun[184].eatratio = 120; gun[184].ratiododge = 100; gun[184].ratiohit = 115; gun[184].ratiohp = 92; gun[184].ratiopow = 122; gun[184].ratiorate = 110;
+            //gun[184].equiptype1 = "5"; gun[184].equiptype2 = "1,2,3,13"; gun[184].equiptype3 = "9,15"; gun[184].type = 107101;
+            //gun[184].grid_center = 5; gun[184].number =2; gun[184].effect0 = 2; gun[184].effect1 = 3; gun[184].rateup = 0.18; gun[184].to = 4;
+
+            //gun[185].name = "德丽莎"; gun[185].what = 4; gun[185].crit = 0.2; gun[185].belt = 0;
+            //gun[185].eatratio = 104; gun[185].ratiododge = 120; gun[185].ratiohit = 105; gun[185].ratiohp = 125; gun[185].ratiopow = 120; gun[185].ratiorate = 105;
+            //gun[185].equiptype1 = "4,13"; gun[185].equiptype2 = "6"; gun[185].equiptype3 = "9,10,12"; gun[185].type = 107501;
+            //gun[185].grid_center = 5; gun[185].number = 4; gun[185].effect0 = 1; gun[185].effect1 = 2; gun[185].effect2 = 7; gun[185].effect3 = 8; gun[185].shotspeedup = 0.15; gun[185].hitup = 0.25; gun[185].to = 1;
+
+            //gun[186].name = "无量塔姬子"; gun[186].what = 2; gun[186].crit = 0.2; gun[186].belt = 0;
+            //gun[186].eatratio = 122; gun[186].ratiododge = 100; gun[186].ratiohit = 105; gun[186].ratiohp = 110; gun[186].ratiopow = 126; gun[186].ratiorate = 95;
+            //gun[186].equiptype1 = "1,2,3,4,13"; gun[186].equiptype2 = "8"; gun[186].equiptype3 = "9,10,12"; gun[186].type = 107601;
+            //gun[186].grid_center = 5; gun[186].number = 1; gun[186].effect0 = 6;  gun[186].damageup = 0.2; gun[186].shotspeedup = 0.2; gun[186].to = 3;
+
+            //gun[187].name = "NS2000"; gun[187].what = 7; gun[187].crit = 0.4; gun[187].belt = 5;
+            //gun[187].eatratio = 90; gun[187].ratiododge = 130; gun[187].ratiohit = 110; gun[187].ratiohp = 112; gun[187].ratiopow = 128 ; gun[187].ratiorate = 108; gun[187].ratioarmor = 120;
+            //gun[187].equiptype1 = "9,11"; gun[187].equiptype2 = "7"; gun[187].equiptype3 = "1,2,3,4"; gun[187].type = 107001;
+            //gun[187].grid_center = 6; gun[187].number = 2; gun[187].effect0 = 1; gun[187].effect1 = 7; gun[187].damageup = 0.2;gun[187].hitup = 0.10; gun[187].to = 6;
 
             for (int i = 0; i < GUN_NUMBER + 1; i++)//加颜色
             {
@@ -994,7 +1059,7 @@ namespace snqxap
                 gun[i].image = "/assets/" + gun[i].name + ".png";
                 gun[i].doublecard = false;
             }
-      //      gun[170].image = "/assets/MP5.png";
+            //      gun[170].image = "/assets/MP5.png";
             gun[GUN_NUMBER].image = "";
             for (int i = 0; i < 9; i++)
             {
@@ -1033,7 +1098,7 @@ namespace snqxap
                 skilluprenju[i] = 1;
                 skillupboom[i] = 0;
                 skillupdamage[i] = 1;
-                skilldamageagain[i] = 0;
+                skilldamageagain[i] = 1;
                 skilltarget[i] = 1;
                 equipdamage[i] = 0;
                 equiparmor[i] = 0;
@@ -7132,8 +7197,8 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor0.Content.ToString()))));
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())*fairydowndamage).ToString("0.00");
+                                enemycalcdamage = Double.Parse(enemyfloatdamage(enemycalcdamage, Math.Min(2, ebreakarmor - Double.Parse(Larmor0.Content.ToString()))));
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
                                 tank.Content = 0;
@@ -7148,7 +7213,7 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor1.Content.ToString()))));
+                                enemycalcdamage = Double.Parse(enemyfloatdamage(enemycalcdamage, Math.Min(2, ebreakarmor - Double.Parse(Larmor1.Content.ToString()))));
                                 tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp1.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge1.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
@@ -7164,7 +7229,7 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor2.Content.ToString()))));
+                                enemycalcdamage = Double.Parse(enemyfloatdamage(enemycalcdamage, Math.Min(2, ebreakarmor - Double.Parse(Larmor2.Content.ToString()))));
                                 tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp2.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
@@ -7180,7 +7245,7 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor3.Content.ToString()))));
+                                enemycalcdamage = Double.Parse(enemyfloatdamage(enemycalcdamage, Math.Min(2, ebreakarmor - Double.Parse(Larmor3.Content.ToString()))));
                                 tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp3.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
@@ -7196,7 +7261,7 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor4.Content.ToString()))));
+                                enemycalcdamage = Double.Parse(enemyfloatdamage(enemycalcdamage, Math.Min(2, ebreakarmor - Double.Parse(Larmor4.Content.ToString()))));
                                 tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp4.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
@@ -7212,7 +7277,7 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor5.Content.ToString()))));
+                                enemycalcdamage = Double.Parse(enemyfloatdamage(enemycalcdamage, Math.Min(2, ebreakarmor - Double.Parse(Larmor5.Content.ToString()))));
                                 tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp5.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
@@ -7228,7 +7293,7 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor6.Content.ToString()))));
+                                enemycalcdamage = Double.Parse(enemyfloatdamage(enemycalcdamage, Math.Min(2, ebreakarmor - Double.Parse(Larmor6.Content.ToString()))));
                                 tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp6.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
@@ -7244,7 +7309,7 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor7.Content.ToString()))));
+                                enemycalcdamage = Double.Parse(enemyfloatdamage(enemycalcdamage, Math.Min(2, ebreakarmor - Double.Parse(Larmor7.Content.ToString()))));
                                 tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp7.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
@@ -7260,7 +7325,7 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor8.Content.ToString()))));
+                                enemycalcdamage = Double.Parse(enemyfloatdamage(enemycalcdamage, Math.Min(2, ebreakarmor - Double.Parse(Larmor8.Content.ToString()))));
                                 tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp8.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
@@ -7293,7 +7358,7 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor0.Content.ToString()))));
+                                enemycalcdamage = Double.Parse(enemyfloatdamage(enemycalcdamage, Math.Min(2, ebreakarmor - Double.Parse(Larmor0.Content.ToString()))));
                                 ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
@@ -7309,7 +7374,7 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor1.Content.ToString()))));
+                                enemycalcdamage = Double.Parse(enemyfloatdamage(enemycalcdamage, Math.Min(2, ebreakarmor - Double.Parse(Larmor1.Content.ToString()))));
                                 ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp1.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge1.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
@@ -7325,7 +7390,7 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor2.Content.ToString()))));
+                                enemycalcdamage = Double.Parse(enemyfloatdamage(enemycalcdamage, Math.Min(2, ebreakarmor - Double.Parse(Larmor2.Content.ToString()))));
                                 ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp2.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge2.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
@@ -7341,7 +7406,7 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor3.Content.ToString()))));
+                                enemycalcdamage = Double.Parse(enemyfloatdamage(enemycalcdamage, Math.Min(2, ebreakarmor - Double.Parse(Larmor3.Content.ToString()))));
                                 ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp3.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge3.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
@@ -7357,7 +7422,7 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor4.Content.ToString()))));
+                                enemycalcdamage = Double.Parse(enemyfloatdamage(enemycalcdamage, Math.Min(2, ebreakarmor - Double.Parse(Larmor4.Content.ToString()))));
                                 ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp4.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge4.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
@@ -7373,7 +7438,7 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor5.Content.ToString()))));
+                                enemycalcdamage = Double.Parse(enemyfloatdamage(enemycalcdamage, Math.Min(2, ebreakarmor - Double.Parse(Larmor5.Content.ToString()))));
                                 ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp5.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge5.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
@@ -7389,7 +7454,7 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor6.Content.ToString()))));
+                                enemycalcdamage = Double.Parse(enemyfloatdamage(enemycalcdamage, Math.Min(2, ebreakarmor - Double.Parse(Larmor6.Content.ToString()))));
                                 ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp6.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge6.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
@@ -7405,7 +7470,7 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor7.Content.ToString()))));
+                                enemycalcdamage = Double.Parse(enemyfloatdamage(enemycalcdamage, Math.Min(2, ebreakarmor - Double.Parse(Larmor7.Content.ToString()))));
                                 ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp7.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge7.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
@@ -7421,7 +7486,7 @@ namespace snqxap
                         {
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
-                                enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor8.Content.ToString()))));
+                                enemycalcdamage = Double.Parse(enemyfloatdamage(enemycalcdamage, Math.Min(2, ebreakarmor - Double.Parse(Larmor8.Content.ToString()))));
                                 ftank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp8.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge8.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
@@ -7750,7 +7815,20 @@ namespace snqxap
             fairylevel.SelectedIndex = 0;
             fairytalentcombo.SelectedIndex = -1;
             cb9.IsChecked = false;
-            cbIsdoublecard.IsChecked = false;
+     
+            cbdoublecard0.IsChecked = false;
+            cbdoublecard1.IsChecked = false;
+            cbdoublecard2.IsChecked = false;
+            cbdoublecard3.IsChecked = false;
+            cbdoublecard4.IsChecked = false;
+            cbdoublecard5.IsChecked = false;
+            cbdoublecard6.IsChecked = false;
+            cbdoublecard7.IsChecked = false;
+            cbdoublecard8.IsChecked = false;
+            for (int i = 0; i < GUN_NUMBER; i++)
+            {
+                gun[i].doublecard = false;
+            }
         }
         /// <summary>
         /// 选中左上格副T
@@ -7883,6 +7961,11 @@ namespace snqxap
             skilldownhit = 1;
             skilldowndamage = 1;
             fairydowndamage = 1;
+            for (int i = 0; i <= GUN_NUMBER; i++)
+            {
+                if(gun[i]!=null)
+                gun[i].doublecard = false;
+            }
         }
         /// <summary>
         /// 左上格技能打勾事件
@@ -10054,7 +10137,7 @@ namespace snqxap
                         break;
                 }
             }
-            waste.Content = ammo.ToString() + "弹药 " + food.ToString() + "口粮";
+            waste.Content = ammo.ToString() + "弹 " + food.ToString() + "粮";
         }
         /// <summary>
         /// 滑块移动事件
@@ -10126,46 +10209,46 @@ namespace snqxap
             int fairyindex = fairynamecombo.SelectedIndex;
             if (fairyindex < 0)
                 fairyindex = 0;
-            float[] array = arrAbilityRatio[gun[select].what];
-            float num = 55f;
-            float num2 = 0.555f;
-            float num3 = 100f;
+            double[] array = arrAbilityRatio[gun[select].what];
+            double num = 55;
+            double num2 = 0.555;
+            double num3 = 100;
             double maxLife = Math.Ceiling((num + levelselect * num2) * array[0] * gun[select].ratiohp / num3);
 
-            num = 2f;
-            num2 = 0.161f;
-            num3 = 100f;
+            num = 2;
+            num2 = 0.161;
+            num3 = 100;
             double maxarmor = Math.Ceiling((num + levelselect * num2) * array[6] * gun[select].ratioarmor / num3);
 
 
-            num = 16f;
-            num2 = 100f;
+            num = 16;
+            num2 = 100;
             double basePow = Math.Ceiling(num * array[1] * gun[select].ratiopow / num2);
-            num = 0.242f;
-            num2 = 100f;
-            num3 = 100f;
+            num = 0.242;
+            num2 = 100;
+            num3 = 100;
             double maxAddPow = Math.Ceiling(levelselect * num * array[1] * gun[select].ratiopow * gun[select].eatratio / num2 / num3);
-            num = 45f;
-            num2 = 100f;
+            num = 45;
+            num2 = 100;
             double baseRate = Math.Ceiling(num * array[2] * gun[select].ratiorate / num2);
-            num = 0.181f;
-            num2 = 100f;
-            num3 = 100f;
+            num = 0.181;
+            num2 = 100;
+            num3 = 100;
             double maxAddRate = Math.Ceiling(levelselect * num * array[2] * gun[select].ratiorate * gun[select].eatratio / num2 / num3);
-            num = 5f;
-            num2 = 100f;
+            num = 5;
+            num2 = 100;
             double basehit = Math.Ceiling(num * array[4] * gun[select].ratiohit / num2);
-            num = 0.303f;
-            num2 = 100f;
-            num3 = 100f;
+            num = 0.303;
+            num2 = 100;
+            num3 = 100;
             double maxAddHit = Math.Ceiling(levelselect * num * array[4] * gun[select].ratiohit * gun[select].eatratio / num2 / num3);
 
-            num = 5f;
-            num2 = 100f;
+            num = 5;
+            num2 = 100;
             double baseDodge = Math.Ceiling(num * array[5] * gun[select].ratiododge / num2);
-            num = 0.303f;
-            num2 = 100f;
-            num3 = 100f;
+            num = 0.303;
+            num2 = 100;
+            num3 = 100;
             double maxAddDodge = Math.Ceiling(levelselect * num * array[5] * gun[select].ratiododge * gun[select].eatratio / num2 / num3);
             double doublecardup = 1;
             if (gun[select].doublecard)
@@ -10197,17 +10280,18 @@ namespace snqxap
 
                             //      Ldamage0.Content = Math.Ceiling(Math.Max(1, (Math.Ceiling((basePow + maxAddPow) * merry[0]) + equipdamage[0]) * gg[0].damageup * (skillupdamage[0]) + Math.Min(2, equipbreakarmor[0] - Int32.Parse(enemyarmor.Text))));
 
-                            Ldamage0.Content = floatdamage(basePow + maxAddPow, merry[0], equipdamage[0], gg[0].damageup * skillupdamage[0] * doublecardup * (fairy[fairyindex].powbuff), Math.Min(2, equipbreakarmor[0] - Int32.Parse(enemyarmor.Text)));
+                            Ldamage0.Content = floatdamage(basePow + maxAddPow, merry[0], equipdamage[0], gg[0].damageup * skillupdamage[0] * doublecardup , Math.Min(2, equipbreakarmor[0] - Int32.Parse(enemyarmor.Text)), (fairy[fairyindex].powbuff));
+                            Console.WriteLine(Ldamage0.Content);
                         }
                         if (Int32.Parse(Lhp0.Content.ToString()) == 0)
                             Ldamage0.Content = 0;
                         if (equiprifledslug[0])
                             Ldamage0.Content = (Double.Parse(Ldamage0.Content.ToString()) * 3).ToString();
                         if (innight)
-                            Lhit0.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[0]) + equiphit[0]) * (fairy[fairyindex].hitbuff) * (100 - 0.9 * (100 - equipnightsee[0])) / 100 * gg[0].hitup * (skilluphit[0])).ToString();
+                            Lhit0.Content = Math.Ceiling(Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[0]) + equiphit[0]) * (fairy[fairyindex].hitbuff)) * (100 - 0.9 * (100 - equipnightsee[0])) / 100 * gg[0].hitup * (skilluphit[0])).ToString();
                         else
-                            Lhit0.Content = Math.Ceiling(((Math.Ceiling((basehit + maxAddHit) * merry[0]) + equiphit[0]) * (fairy[fairyindex].hitbuff) * gg[0].hitup * (skilluphit[0]))).ToString("0");
-                        Console.WriteLine(basehit + " " + maxAddHit + " " + merry[0] + " " + equiphit[0] + " " + fairy[fairyindex].hitbuff + " " + gg[0].hitup + " " + skilluphit[0]);
+                            Lhit0.Content = Math.Ceiling(Math.Ceiling(((Math.Ceiling((basehit + maxAddHit) * merry[0]) + equiphit[0]) * (fairy[fairyindex].hitbuff)) * gg[0].hitup * (skilluphit[0]))).ToString("0");
+              //          Console.WriteLine(basehit + " " + maxAddHit + " " + merry[0] + " " + equiphit[0] + " " + fairy[fairyindex].hitbuff + " " + gg[0].hitup + " " + skilluphit[0]);
 
                         Image0.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
@@ -10229,7 +10313,7 @@ namespace snqxap
                             tbt = "无";
                         tb0.Text = tbt;
                         Lcritharm0.Content = Math.Ceiling((1 + (0.5 + equipcritharm[0]) * (fairy[fairyindex].critharmbuff)) * 100).ToString() + "%";
-                        Larmor0.Content = Math.Ceiling(((maxarmor + equiparmor[0]) * doublecardup * (fairy[fairyindex].armorbuff) * gg[0].armorup * skilluparmor[0])).ToString("0");
+                        Larmor0.Content = Math.Ceiling((Math.Ceiling((maxarmor + equiparmor[0]) * (fairy[fairyindex].armorbuff)) * doublecardup * gg[0].armorup * skilluparmor[0])).ToString("0");
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[0]) * gg[0].shotspeedup * (skillupshotspeed[0]) > 120)
                             Lshotspeed0.Content = 120;
                         else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[0]) * gg[0].shotspeedup * (skillupshotspeed[0]) > 60)
@@ -10256,7 +10340,7 @@ namespace snqxap
                         if (crit > 1)
                             crit = 1;
                         Lcrit0.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge0.Content = Math.Ceiling(((Math.Ceiling((baseDodge + maxAddDodge) * merry[0]) + equipdodge[0]) * doublecardup * (fairy[fairyindex].dodgebuff) * gg[0].dodgeup * (skillupdodge[0]))).ToString("0");
+                        Ldodge0.Content = Math.Ceiling((Math.Ceiling((Math.Ceiling((baseDodge + maxAddDodge) * merry[0]) + equipdodge[0])  * (fairy[fairyindex].dodgebuff)) * doublecardup * gg[0].dodgeup * (skillupdodge[0]))).ToString("0");
                         //      Console.WriteLine(baseDodge + " " + maxAddDodge + " " + merry[0] + " " + equipdodge[0] + " " + fairy[fairyindex].dodgebuff + " " + gg[0].dodgeup + " " + skillupdodge[0]);
                         Lbelt0.Content = gun[select].belt + equipbelt[0] + skillupbelt[0];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
@@ -10283,7 +10367,7 @@ namespace snqxap
                             //    else
                             //        Ldamage1.Content = Math.Floor(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[1])+ equipdamage[1]) * gg[1].damageup * (skillupdamage[1])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[1])+ equipdamage[1]) * gg[1].damageup * (skillupdamage[1])) + equipbreakarmor[1] - Int32.Parse(enemyarmor.Text)))).ToString();
                             //     Ldamage1.Content = Math.Ceiling(Math.Max(1, (Math.Ceiling((basePow + maxAddPow) * merry[1]) + equipdamage[1]) * gg[1].damageup * (skillupdamage[1]) + Math.Min(2, equipbreakarmor[1] - Int32.Parse(enemyarmor.Text))));
-                            Ldamage1.Content = floatdamage(basePow + maxAddPow, merry[1], equipdamage[1], gg[1].damageup * doublecardup * (fairy[fairyindex].powbuff) * skillupdamage[1], Math.Min(2, equipbreakarmor[1] - Int32.Parse(enemyarmor.Text)));
+                            Ldamage1.Content = floatdamage(basePow + maxAddPow, merry[1], equipdamage[1], gg[1].damageup * doublecardup  * skillupdamage[1], Math.Min(2, equipbreakarmor[1] - Int32.Parse(enemyarmor.Text)), (fairy[fairyindex].powbuff));
 
                         }
                         if (Int32.Parse(Lhp1.Content.ToString()) == 0)
@@ -10292,9 +10376,9 @@ namespace snqxap
                             Ldamage1.Content = (Double.Parse(Ldamage1.Content.ToString()) * 3).ToString();
 
                         if (innight)
-                            Lhit1.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[1]) + equiphit[1]) * (fairy[fairyindex].hitbuff) * (100 - 0.9 * (100 - equipnightsee[1])) / 100 * gg[1].hitup * (skilluphit[1])).ToString();
+                            Lhit1.Content = Math.Ceiling(Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[1]) + equiphit[1]) * (fairy[fairyindex].hitbuff)) * (100 - 0.9 * (100 - equipnightsee[1])) / 100 * gg[1].hitup * (skilluphit[1])).ToString();
                         else
-                            Lhit1.Content = Math.Ceiling(((Math.Ceiling((basehit + maxAddHit) * merry[1]) + equiphit[1]) * (fairy[fairyindex].hitbuff) * gg[1].hitup * (skilluphit[1]))).ToString("0");
+                            Lhit1.Content = Math.Ceiling((Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[1]) + equiphit[1]) * (fairy[fairyindex].hitbuff)) * gg[1].hitup * (skilluphit[1]))).ToString("0");
 
 
                         Image1.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
@@ -10317,7 +10401,7 @@ namespace snqxap
                             tbt = "无";
                         tb1.Text = tbt;
                         Lcritharm1.Content = Math.Ceiling((1 + (0.5 + equipcritharm[1]) * (fairy[fairyindex].critharmbuff)) * 100).ToString() + "%";
-                        Larmor1.Content = Math.Ceiling(((maxarmor + equiparmor[1]) * doublecardup * (fairy[fairyindex].armorbuff) * gg[1].armorup * skilluparmor[1])).ToString("0");
+                        Larmor1.Content = Math.Ceiling(Math.Ceiling((maxarmor + equiparmor[1])  * (fairy[fairyindex].armorbuff)) * doublecardup * gg[1].armorup * skilluparmor[1]).ToString("0");
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[1]) * gg[1].shotspeedup * (skillupshotspeed[1]) > 120)
                             Lshotspeed1.Content = 120;
                         else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[1]) * gg[1].shotspeedup * (skillupshotspeed[1]) > 60)
@@ -10343,7 +10427,7 @@ namespace snqxap
                         if (crit > 1)
                             crit = 1;
                         Lcrit1.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge1.Content = Math.Ceiling(((Math.Ceiling((baseDodge + maxAddDodge) * merry[1]) + equipdodge[1]) * doublecardup * (fairy[fairyindex].dodgebuff) * gg[1].dodgeup * (skillupdodge[1]))).ToString("0");
+                        Ldodge1.Content = Math.Ceiling(Math.Ceiling((Math.Ceiling((baseDodge + maxAddDodge) * merry[1]) + equipdodge[1]) * (fairy[fairyindex].dodgebuff)) * doublecardup * gg[1].dodgeup * (skillupdodge[1])).ToString("0");
                         Lbelt1.Content = gun[select].belt + equipbelt[1] + skillupbelt[1];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
                         Lindex1.Content = Index(Double.Parse(Lshotspeed1.Content.ToString()), Double.Parse(Ldamage1.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit1.Content.ToString()), double.Parse(Lbelt1.Content.ToString()) - skillupbelt[1], 1, skilldamageagain[1]).ToString("0.00");
@@ -10369,7 +10453,7 @@ namespace snqxap
                             //    else
                             //        Ldamage2.Content = Math.Floor(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[2])+ equipdamage[2]) * gg[2].damageup * (skillupdamage[2])) / 10, ((((Math.Ceiling(basePow + maxAddPow ) * merry[2])+ equipdamage[2]) * gg[2].damageup * (skillupdamage[2])) + equipbreakarmor[2] - Int32.Parse(enemyarmor.Text)))).ToString();
                             //     Ldamage2.Content = Math.Ceiling(Math.Max(1, (Math.Ceiling((basePow + maxAddPow) * merry[2]) + equipdamage[2]) * gg[2].damageup * (skillupdamage[2]) + Math.Min(2, equipbreakarmor[2] - Int32.Parse(enemyarmor.Text))));
-                            Ldamage2.Content = floatdamage(basePow + maxAddPow, merry[2], equipdamage[2], gg[2].damageup * doublecardup * (fairy[fairyindex].powbuff) * skillupdamage[2], Math.Min(2, equipbreakarmor[2] - Int32.Parse(enemyarmor.Text)));
+                            Ldamage2.Content = floatdamage(basePow + maxAddPow, merry[2], equipdamage[2], gg[2].damageup * doublecardup * skillupdamage[2], Math.Min(2, equipbreakarmor[2] - Int32.Parse(enemyarmor.Text)), (fairy[fairyindex].powbuff));
 
                         }
                         if (Int32.Parse(Lhp2.Content.ToString()) == 0)
@@ -10378,9 +10462,9 @@ namespace snqxap
                             Ldamage2.Content = (Double.Parse(Ldamage2.Content.ToString()) * 3).ToString();
 
                         if (innight)
-                            Lhit2.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[2]) + equiphit[2]) * (100 - 0.9 * (100 - equipnightsee[2])) / 100 * (fairy[fairyindex].hitbuff) * gg[2].hitup * (skilluphit[2])).ToString();
+                            Lhit2.Content = Math.Ceiling(Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[2]) + equiphit[2])  * (fairy[fairyindex].hitbuff)) * (100 - 0.9 * (100 - equipnightsee[2])) / 100 * gg[2].hitup * (skilluphit[2])).ToString();
                         else
-                            Lhit2.Content = Math.Ceiling(((Math.Ceiling((basehit + maxAddHit) * merry[2]) + equiphit[2]) * (fairy[fairyindex].hitbuff) * gg[2].hitup * (skilluphit[2]))).ToString("0");
+                            Lhit2.Content = Math.Ceiling(Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[2]) + equiphit[2]) * (fairy[fairyindex].hitbuff)) * gg[2].hitup * (skilluphit[2])).ToString("0");
                         Image2.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[2].damageup != 1)
@@ -10401,7 +10485,7 @@ namespace snqxap
                             tbt = "无";
                         tb2.Text = tbt;
                         Lcritharm2.Content = Math.Ceiling((1 + (0.5 + equipcritharm[2]) * (fairy[fairyindex].critharmbuff)) * 100).ToString() + "%";
-                        Larmor2.Content = Math.Ceiling(((maxarmor + equiparmor[2]) * gg[2].armorup * doublecardup * (fairy[fairyindex].armorbuff) * skilluparmor[2])).ToString("0");
+                        Larmor2.Content = Math.Ceiling(Math.Ceiling((maxarmor + equiparmor[2])  * (fairy[fairyindex].armorbuff)) * gg[2].armorup * doublecardup * skilluparmor[2]).ToString("0");
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[2]) * gg[2].shotspeedup * (skillupshotspeed[2]) > 120)
                             Lshotspeed2.Content = 120;
                         else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[2]) * gg[2].shotspeedup * (skillupshotspeed[2]) > 60)
@@ -10427,7 +10511,7 @@ namespace snqxap
                         if (crit > 1)
                             crit = 1;
                         Lcrit2.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge2.Content = Math.Ceiling(((Math.Ceiling((baseDodge + maxAddDodge) * merry[2]) + equipdodge[2]) * doublecardup * (fairy[fairyindex].dodgebuff) * gg[2].dodgeup * (skillupdodge[2]))).ToString("0");
+                        Ldodge2.Content = Math.Ceiling(Math.Ceiling((Math.Ceiling((baseDodge + maxAddDodge) * merry[2]) + equipdodge[2]) * (fairy[fairyindex].dodgebuff)) * doublecardup * gg[2].dodgeup * (skillupdodge[2])).ToString("0");
                         Lbelt2.Content = gun[select].belt + equipbelt[2] + skillupbelt[2];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
                         Lindex2.Content = Index(Double.Parse(Lshotspeed2.Content.ToString()), Double.Parse(Ldamage2.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit2.Content.ToString()), double.Parse(Lbelt2.Content.ToString()) - skillupbelt[2], 2, skilldamageagain[2]).ToString("0.00");
@@ -10453,7 +10537,7 @@ namespace snqxap
                             //else
                             //    Ldamage3.Content = Math.Floor(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[3])+ equipdamage[3]) * gg[3].damageup * (skillupdamage[3])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[3])+ equipdamage[3]) * gg[3].damageup * (skillupdamage[3])) + equipbreakarmor[3] - Int32.Parse(enemyarmor.Text)))).ToString();
                             //         Ldamage3.Content = Math.Ceiling(Math.Max(1, (Math.Ceiling((basePow + maxAddPow) * merry[3]) + equipdamage[3]) * gg[3].damageup * (skillupdamage[3]) + Math.Min(2, equipbreakarmor[3] - Int32.Parse(enemyarmor.Text))));
-                            Ldamage3.Content = floatdamage(basePow + maxAddPow, merry[3], equipdamage[3], gg[3].damageup * doublecardup * (fairy[fairyindex].powbuff) * skillupdamage[3], Math.Min(2, equipbreakarmor[3] - Int32.Parse(enemyarmor.Text)));
+                            Ldamage3.Content = floatdamage(basePow + maxAddPow, merry[3], equipdamage[3], gg[3].damageup * doublecardup  * skillupdamage[3], Math.Min(2, equipbreakarmor[3] - Int32.Parse(enemyarmor.Text)), (fairy[fairyindex].powbuff));
 
                         }
                         if (Int32.Parse(Lhp3.Content.ToString()) == 0)
@@ -10462,9 +10546,9 @@ namespace snqxap
                             Ldamage3.Content = (Double.Parse(Ldamage3.Content.ToString()) * 3).ToString();
 
                         if (innight)
-                            Lhit3.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[3]) + equiphit[3]) * (fairy[fairyindex].hitbuff) * (100 - 0.9 * (100 - equipnightsee[3])) / 100 * gg[3].hitup * (skilluphit[3])).ToString();
+                            Lhit3.Content = Math.Ceiling(Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[3]) + equiphit[3]) * (fairy[fairyindex].hitbuff)) * (100 - 0.9 * (100 - equipnightsee[3])) / 100 * gg[3].hitup * (skilluphit[3])).ToString();
                         else
-                            Lhit3.Content = Math.Ceiling(((Math.Ceiling((basehit + maxAddHit) * merry[3]) + equiphit[3]) * (fairy[fairyindex].hitbuff) * gg[3].hitup * (skilluphit[3]))).ToString("0");
+                            Lhit3.Content = Math.Ceiling((Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[3]) + equiphit[3]) * (fairy[fairyindex].hitbuff)) * gg[3].hitup * (skilluphit[3]))).ToString("0");
                         Image3.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[3].damageup != 1)
@@ -10485,7 +10569,7 @@ namespace snqxap
                             tbt = "无";
                         tb3.Text = tbt;
                         Lcritharm3.Content = Math.Ceiling((1 + (0.5 + equipcritharm[3]) * (fairy[fairyindex].critharmbuff)) * 100).ToString() + "%";
-                        Larmor3.Content = Math.Ceiling(((maxarmor + equiparmor[3]) * doublecardup * (fairy[fairyindex].armorbuff) * gg[3].armorup * skilluparmor[3])).ToString("0");
+                        Larmor3.Content = Math.Ceiling((Math.Ceiling((maxarmor + equiparmor[3]) *  (fairy[fairyindex].armorbuff)) * doublecardup * gg[3].armorup * skilluparmor[3])).ToString("0");
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[3]) * gg[3].shotspeedup * (skillupshotspeed[3]) > 120)
                             Lshotspeed3.Content = 120;
                         else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[3]) * gg[3].shotspeedup * (skillupshotspeed[3]) > 60)
@@ -10511,7 +10595,7 @@ namespace snqxap
                         if (crit > 1)
                             crit = 1;
                         Lcrit3.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge3.Content = Math.Ceiling(((Math.Ceiling((baseDodge + maxAddDodge) * merry[3]) + equipdodge[3]) * doublecardup * (fairy[fairyindex].dodgebuff) * gg[3].dodgeup * (skillupdodge[3]))).ToString("0");
+                        Ldodge3.Content = Math.Ceiling((Math.Ceiling((Math.Ceiling((baseDodge + maxAddDodge) * merry[3]) + equipdodge[3])  * (fairy[fairyindex].dodgebuff)) * doublecardup * gg[3].dodgeup * (skillupdodge[3]))).ToString("0");
                         Lbelt3.Content = gun[select].belt + equipbelt[3] + skillupbelt[3];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
                         Lindex3.Content = Index(Double.Parse(Lshotspeed3.Content.ToString()), Double.Parse(Ldamage3.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit3.Content.ToString()), double.Parse(Lbelt3.Content.ToString()) - skillupbelt[3], 3, skilldamageagain[3]).ToString("0.00");
@@ -10537,7 +10621,7 @@ namespace snqxap
                             //    else
                             //        Ldamage4.Content = Math.Floor(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[4])+ equipdamage[4]) * gg[4].damageup * (skillupdamage[4])) / 10, (((Math.Ceiling(basePow + maxAddPow ) * merry[4]+ equipdamage[4]) * gg[4].damageup * (skillupdamage[4])) + equipbreakarmor[4] - Int32.Parse(enemyarmor.Text)))).ToString();
                             //    Ldamage4.Content = Math.Ceiling(Math.Max(1, (Math.Ceiling((basePow + maxAddPow) * merry[4]) + equipdamage[4]) * gg[4].damageup * (skillupdamage[4]) + Math.Min(2, equipbreakarmor[4] - Int32.Parse(enemyarmor.Text))));
-                            Ldamage4.Content = floatdamage(basePow + maxAddPow, merry[4], equipdamage[4], gg[4].damageup * doublecardup * (fairy[fairyindex].powbuff) * skillupdamage[4], Math.Min(2, equipbreakarmor[4] - Int32.Parse(enemyarmor.Text)));
+                            Ldamage4.Content = floatdamage(basePow + maxAddPow, merry[4], equipdamage[4], gg[4].damageup * doublecardup * skillupdamage[4], Math.Min(2, equipbreakarmor[4] - Int32.Parse(enemyarmor.Text)), (fairy[fairyindex].powbuff));
 
                         }
                         if (Int32.Parse(Lhp4.Content.ToString()) == 0)
@@ -10546,9 +10630,9 @@ namespace snqxap
                             Ldamage4.Content = (Double.Parse(Ldamage4.Content.ToString()) * 3).ToString();
 
                         if (innight)
-                            Lhit4.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[4]) + equiphit[4]) * (fairy[fairyindex].hitbuff) * (100 - 0.9 * (100 - equipnightsee[4])) / 100 * gg[4].hitup * (skilluphit[4])).ToString();
+                            Lhit4.Content = Math.Ceiling(Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[4]) + equiphit[4]) * (fairy[fairyindex].hitbuff)) * (100 - 0.9 * (100 - equipnightsee[4])) / 100 * gg[4].hitup * (skilluphit[4])).ToString();
                         else
-                            Lhit4.Content = Math.Ceiling(((Math.Ceiling((basehit + maxAddHit) * merry[4]) + equiphit[4]) * (fairy[fairyindex].hitbuff) * gg[4].hitup * (skilluphit[4]))).ToString("0");
+                            Lhit4.Content = Math.Ceiling((Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[4]) + equiphit[4]) * (fairy[fairyindex].hitbuff)) * gg[4].hitup * (skilluphit[4]))).ToString("0");
                         Image4.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[4].damageup != 1)
@@ -10569,7 +10653,7 @@ namespace snqxap
                             tbt = "无";
                         tb4.Text = tbt;
                         Lcritharm4.Content = Math.Ceiling((1 + (0.5 + equipcritharm[4]) * (fairy[fairyindex].critharmbuff)) * 100).ToString() + "%";
-                        Larmor4.Content = Math.Ceiling(((maxarmor + equiparmor[4]) * gg[4].armorup * doublecardup * (fairy[fairyindex].armorbuff) * skilluparmor[4])).ToString("0");
+                        Larmor4.Content = Math.Ceiling((Math.Ceiling((maxarmor + equiparmor[4]) *  (fairy[fairyindex].armorbuff)) * gg[4].armorup * doublecardup * skilluparmor[4])).ToString("0");
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[4]) * gg[4].shotspeedup * (skillupshotspeed[4]) > 120)
                             Lshotspeed4.Content = 120;
                         else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[4]) * gg[4].shotspeedup * (skillupshotspeed[4]) > 60)
@@ -10595,7 +10679,7 @@ namespace snqxap
                         if (crit > 1)
                             crit = 1;
                         Lcrit4.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge4.Content = Math.Ceiling(((Math.Ceiling((baseDodge + maxAddDodge) * merry[4]) + equipdodge[4]) * doublecardup * (fairy[fairyindex].dodgebuff) * gg[4].dodgeup * (skillupdodge[4]))).ToString("0");
+                        Ldodge4.Content = Math.Ceiling((Math.Ceiling((Math.Ceiling((baseDodge + maxAddDodge) * merry[4]) + equipdodge[4])  * (fairy[fairyindex].dodgebuff)) * doublecardup * gg[4].dodgeup * (skillupdodge[4]))).ToString("0");
                         Lbelt4.Content = gun[select].belt + equipbelt[4] + skillupbelt[4];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
                         Lindex4.Content = Index(Double.Parse(Lshotspeed4.Content.ToString()), Double.Parse(Ldamage4.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit4.Content.ToString()), double.Parse(Lbelt4.Content.ToString()) - skillupbelt[4], 4, skilldamageagain[4]).ToString("0.00");
@@ -10621,7 +10705,7 @@ namespace snqxap
                             //else
                             //    Ldamage5.Content = Math.Floor(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[5])+ equipdamage[5]) * gg[5].damageup * (skillupdamage[5])) / 10, (((Math.Ceiling(basePow + maxAddPow ) * merry[5]+ equipdamage[5]) * gg[5].damageup * (skillupdamage[5])) + equipbreakarmor[5] - Int32.Parse(enemyarmor.Text)))).ToString();
                             // Ldamage5.Content = Math.Ceiling(Math.Max(1, (Math.Ceiling((basePow + maxAddPow) * merry[5]) + equipdamage[5]) * gg[5].damageup * (skillupdamage[5]) + Math.Min(2, equipbreakarmor[5] - Int32.Parse(enemyarmor.Text))));
-                            Ldamage5.Content = floatdamage(basePow + maxAddPow, merry[5], equipdamage[5], gg[5].damageup * doublecardup * (fairy[fairyindex].powbuff) * skillupdamage[5], Math.Min(2, equipbreakarmor[5] - Int32.Parse(enemyarmor.Text)));
+                            Ldamage5.Content = floatdamage(basePow + maxAddPow, merry[5], equipdamage[5], gg[5].damageup * doublecardup * skillupdamage[5], Math.Min(2, equipbreakarmor[5] - Int32.Parse(enemyarmor.Text)), (fairy[fairyindex].powbuff));
 
                         }
                         if (Int32.Parse(Lhp5.Content.ToString()) == 0)
@@ -10630,9 +10714,9 @@ namespace snqxap
                             Ldamage5.Content = (Double.Parse(Ldamage5.Content.ToString()) * 3).ToString();
 
                         if (innight)
-                            Lhit5.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[5]) + equiphit[5]) * (fairy[fairyindex].hitbuff) * (100 - 0.9 * (100 - equipnightsee[5])) / 100 * gg[5].hitup * (skilluphit[5])).ToString();
+                            Lhit5.Content = Math.Ceiling(Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[5]) + equiphit[5]) * (fairy[fairyindex].hitbuff)) * (100 - 0.9 * (100 - equipnightsee[5])) / 100 * gg[5].hitup * (skilluphit[5])).ToString();
                         else
-                            Lhit5.Content = Math.Ceiling(((Math.Ceiling((basehit + maxAddHit) * merry[5]) + equiphit[5]) * (fairy[fairyindex].hitbuff) * gg[5].hitup * (skilluphit[5]))).ToString("0");
+                            Lhit5.Content = Math.Ceiling((Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[5]) + equiphit[5]) * (fairy[fairyindex].hitbuff)) * gg[5].hitup * (skilluphit[5]))).ToString("0");
                         Image5.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[5].damageup != 1)
@@ -10653,7 +10737,7 @@ namespace snqxap
                             tbt = "无";
                         tb5.Text = tbt;
                         Lcritharm5.Content = Math.Ceiling((1 + (0.5 + equipcritharm[5]) * (fairy[fairyindex].critharmbuff)) * 100).ToString() + "%";
-                        Larmor5.Content = Math.Ceiling(((maxarmor + equiparmor[5]) * gg[5].armorup * doublecardup * (fairy[fairyindex].armorbuff) * skilluparmor[5])).ToString("0");
+                        Larmor5.Content = Math.Ceiling((Math.Ceiling((maxarmor + equiparmor[5])  * (fairy[fairyindex].armorbuff)) * gg[5].armorup * doublecardup * skilluparmor[5])).ToString("0");
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[5]) * gg[5].shotspeedup * (skillupshotspeed[5]) > 120)
                             Lshotspeed5.Content = 120;
                         else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[5]) * gg[5].shotspeedup * (skillupshotspeed[5]) > 60)
@@ -10679,7 +10763,7 @@ namespace snqxap
                         if (crit > 1)
                             crit = 1;
                         Lcrit5.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge5.Content = Math.Ceiling(((Math.Ceiling((baseDodge + maxAddDodge) * merry[5]) + equipdodge[5]) * doublecardup * (fairy[fairyindex].dodgebuff) * gg[5].dodgeup * (skillupdodge[5]))).ToString("0");
+                        Ldodge5.Content = Math.Ceiling((Math.Ceiling((Math.Ceiling((baseDodge + maxAddDodge) * merry[5]) + equipdodge[5])  * (fairy[fairyindex].dodgebuff)) * doublecardup * gg[5].dodgeup * (skillupdodge[5]))).ToString("0");
                         Lbelt5.Content = gun[select].belt + equipbelt[5] + skillupbelt[5];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
                         Lindex5.Content = Index(Double.Parse(Lshotspeed5.Content.ToString()), Double.Parse(Ldamage5.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit5.Content.ToString()), double.Parse(Lbelt5.Content.ToString()) - skillupbelt[5], 5, skilldamageagain[5]).ToString("0.00");
@@ -10705,7 +10789,7 @@ namespace snqxap
                             //else
                             //    Ldamage6.Content = Math.Floor(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[6])+ equipdamage[6]) * gg[6].damageup * (skillupdamage[6])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[6])+ equipdamage[6]) * gg[6].damageup * (skillupdamage[6])) + equipbreakarmor[6] - Int32.Parse(enemyarmor.Text)))).ToString();
                             //        Ldamage6.Content = Math.Ceiling(Math.Max(1, (Math.Ceiling((basePow + maxAddPow) * merry[6]) + equipdamage[6]) * gg[6].damageup * (skillupdamage[6]) + Math.Min(2, equipbreakarmor[6] - Int32.Parse(enemyarmor.Text))));
-                            Ldamage6.Content = floatdamage(basePow + maxAddPow, merry[6], equipdamage[6], gg[6].damageup * doublecardup * (fairy[fairyindex].powbuff) * skillupdamage[6], Math.Min(2, equipbreakarmor[6] - Int32.Parse(enemyarmor.Text)));
+                            Ldamage6.Content = floatdamage(basePow + maxAddPow, merry[6], equipdamage[6], gg[6].damageup * doublecardup * skillupdamage[6], Math.Min(2, equipbreakarmor[6] - Int32.Parse(enemyarmor.Text)), (fairy[fairyindex].powbuff));
 
                         }
                         if (Int32.Parse(Lhp6.Content.ToString()) == 0)
@@ -10714,9 +10798,9 @@ namespace snqxap
                             Ldamage6.Content = (Double.Parse(Ldamage6.Content.ToString()) * 3).ToString();
 
                         if (innight)
-                            Lhit6.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[6]) + equiphit[6]) * (fairy[fairyindex].hitbuff) * (100 - 0.9 * (100 - equipnightsee[6])) / 100 * gg[6].hitup * (skilluphit[6])).ToString();
+                            Lhit6.Content = Math.Ceiling(Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[6]) + equiphit[6]) * (fairy[fairyindex].hitbuff)) * (100 - 0.9 * (100 - equipnightsee[6])) / 100 * gg[6].hitup * (skilluphit[6])).ToString();
                         else
-                            Lhit6.Content = Math.Ceiling(((Math.Ceiling((basehit + maxAddHit) * merry[6]) + equiphit[6]) * (fairy[fairyindex].hitbuff) * gg[6].hitup * (skilluphit[6]))).ToString("0");
+                            Lhit6.Content = Math.Ceiling((Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[6]) + equiphit[6]) * (fairy[fairyindex].hitbuff)) * gg[6].hitup * (skilluphit[6]))).ToString("0");
                         Image6.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[6].damageup != 1)
@@ -10737,7 +10821,7 @@ namespace snqxap
                             tbt = "无";
                         tb6.Text = tbt;
                         Lcritharm6.Content = Math.Ceiling((1 + (0.5 + equipcritharm[6]) * (fairy[fairyindex].critharmbuff)) * 100).ToString() + "%";
-                        Larmor6.Content = Math.Ceiling(((maxarmor + equiparmor[6]) * doublecardup * (fairy[fairyindex].armorbuff) * gg[6].armorup * skilluparmor[6])).ToString("0");
+                        Larmor6.Content = Math.Ceiling((Math.Ceiling((maxarmor + equiparmor[6])  * (fairy[fairyindex].armorbuff)) * doublecardup * gg[6].armorup * skilluparmor[6])).ToString("0");
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[6]) * gg[6].shotspeedup * (skillupshotspeed[6]) > 120)
                             Lshotspeed6.Content = 120;
                         else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[6]) * gg[6].shotspeedup * (skillupshotspeed[6]) > 60)
@@ -10763,7 +10847,7 @@ namespace snqxap
                         if (crit > 1)
                             crit = 1;
                         Lcrit6.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge6.Content = Math.Ceiling(((Math.Ceiling((baseDodge + maxAddDodge) * merry[6]) + equipdodge[6]) * doublecardup * (fairy[fairyindex].dodgebuff) * gg[6].dodgeup * (skillupdodge[6]))).ToString("0");
+                        Ldodge6.Content = Math.Ceiling((Math.Ceiling((Math.Ceiling((baseDodge + maxAddDodge) * merry[6]) + equipdodge[6]) * (fairy[fairyindex].dodgebuff)) * doublecardup * gg[6].dodgeup * (skillupdodge[6]))).ToString("0");
                         Lbelt6.Content = gun[select].belt + equipbelt[6] + skillupbelt[6];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
                         Lindex6.Content = Index(Double.Parse(Lshotspeed6.Content.ToString()), Double.Parse(Ldamage6.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit6.Content.ToString()), double.Parse(Lbelt6.Content.ToString()) - skillupbelt[6], 6, skilldamageagain[6]).ToString("0.00");
@@ -10789,7 +10873,7 @@ namespace snqxap
                             //else
                             //    Ldamage7.Content = Math.Floor(Math.Max(((Math.Ceiling((basePow + maxAddPow ) * merry[7])+ equipdamage[7]) * gg[7].damageup * (skillupdamage[7])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[7])+ equipdamage[7]) * gg[7].damageup * (skillupdamage[7])) + equipbreakarmor[7] - Int32.Parse(enemyarmor.Text)))).ToString();
                             //   Ldamage7.Content = Math.Ceiling(Math.Max(1, (Math.Ceiling((basePow + maxAddPow) * merry[7]) + equipdamage[7]) * gg[7].damageup * (skillupdamage[7]) + Math.Min(2, equipbreakarmor[7] - Int32.Parse(enemyarmor.Text))));
-                            Ldamage7.Content = floatdamage(basePow + maxAddPow, merry[7], equipdamage[7], gg[7].damageup * doublecardup * (fairy[fairyindex].powbuff) * skillupdamage[7], Math.Min(2, equipbreakarmor[7] - Int32.Parse(enemyarmor.Text)));
+                            Ldamage7.Content = floatdamage(basePow + maxAddPow, merry[7], equipdamage[7], gg[7].damageup * doublecardup * skillupdamage[7], Math.Min(2, equipbreakarmor[7] - Int32.Parse(enemyarmor.Text)), (fairy[fairyindex].powbuff));
 
                         }
                         if (Int32.Parse(Lhp7.Content.ToString()) == 0)
@@ -10798,9 +10882,9 @@ namespace snqxap
                             Ldamage7.Content = (Double.Parse(Ldamage7.Content.ToString()) * 3).ToString();
 
                         if (innight)
-                            Lhit7.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[7]) + equiphit[7]) * (fairy[fairyindex].hitbuff) * (100 - 0.9 * (100 - equipnightsee[7])) / 100 * gg[7].hitup * (skilluphit[7])).ToString();
+                            Lhit7.Content = Math.Ceiling(Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[7]) + equiphit[7]) * (fairy[fairyindex].hitbuff)) * (100 - 0.9 * (100 - equipnightsee[7])) / 100 * gg[7].hitup * (skilluphit[7])).ToString();
                         else
-                            Lhit7.Content = Math.Ceiling(((Math.Ceiling((basehit + maxAddHit) * merry[7]) + equiphit[7]) * (fairy[fairyindex].hitbuff) * gg[7].hitup * (skilluphit[7]))).ToString("0");
+                            Lhit7.Content = Math.Ceiling((Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[7]) + equiphit[7]) * (fairy[fairyindex].hitbuff)) * gg[7].hitup * (skilluphit[7]))).ToString("0");
                         Image7.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[7].damageup != 1)
@@ -10821,7 +10905,7 @@ namespace snqxap
                             tbt = "无";
                         tb7.Text = tbt;
                         Lcritharm7.Content = Math.Ceiling((1 + (0.5 + equipcritharm[7]) * (fairy[fairyindex].critharmbuff)) * 100).ToString() + "%";
-                        Larmor7.Content = Math.Ceiling(((maxarmor + equiparmor[7]) * doublecardup * (fairy[fairyindex].armorbuff) * gg[7].armorup * skilluparmor[7])).ToString("0");
+                        Larmor7.Content = Math.Ceiling((Math.Ceiling((maxarmor + equiparmor[7])* (fairy[fairyindex].armorbuff)) * doublecardup * gg[7].armorup * skilluparmor[7])).ToString("0");
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[7]) * gg[7].shotspeedup * (skillupshotspeed[7]) > 120)
                             Lshotspeed7.Content = 120;
                         else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[7]) * gg[7].shotspeedup * (skillupshotspeed[7]) > 60)
@@ -10847,7 +10931,7 @@ namespace snqxap
                         if (crit > 1)
                             crit = 1;
                         Lcrit7.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge7.Content = Math.Ceiling(((Math.Ceiling((baseDodge + maxAddDodge) * merry[7]) + equipdodge[7]) * doublecardup * (fairy[fairyindex].dodgebuff) * gg[7].dodgeup * (skillupdodge[7]))).ToString("0");
+                        Ldodge7.Content = Math.Ceiling((Math.Ceiling((Math.Ceiling((baseDodge + maxAddDodge) * merry[7]) + equipdodge[7])  * (fairy[fairyindex].dodgebuff)) * doublecardup * gg[7].dodgeup * (skillupdodge[7]))).ToString("0");
                         Lbelt7.Content = gun[select].belt + equipbelt[7] + skillupbelt[7];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
                         Lindex7.Content = Index(Double.Parse(Lshotspeed7.Content.ToString()), Double.Parse(Ldamage7.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit7.Content.ToString()), double.Parse(Lbelt7.Content.ToString()) - skillupbelt[7], 7, skilldamageagain[7]).ToString("0.00");
@@ -10874,7 +10958,7 @@ namespace snqxap
                             //    Ldamage8.Content = Math.Floor(Math.Max(((Math.Ceiling((basePow + maxAddPow )) * merry[8]+ equipdamage[8]) * gg[8].damageup * (skillupdamage[8])) / 10, (((Math.Ceiling((basePow + maxAddPow ) * merry[8])+ equipdamage[8]) * gg[8].damageup * (skillupdamage[8])) + equipbreakarmor[8] - Int32.Parse(enemyarmor.Text)))).ToString();
 
                             //    Ldamage8.Content = Math.Ceiling(Math.Max(1, (Math.Ceiling((basePow + maxAddPow) * merry[8]) + equipdamage[8]) * gg[8].damageup * (skillupdamage[8]) + Math.Min(2, equipbreakarmor[8] - Int32.Parse(enemyarmor.Text))));
-                            Ldamage8.Content = floatdamage(basePow + maxAddPow, merry[8], equipdamage[8], gg[8].damageup * doublecardup * (fairy[fairyindex].powbuff) * skillupdamage[8], Math.Min(2, equipbreakarmor[8] - Int32.Parse(enemyarmor.Text)));
+                            Ldamage8.Content = floatdamage(basePow + maxAddPow, merry[8], equipdamage[8], gg[8].damageup * doublecardup * skillupdamage[8], Math.Min(2, equipbreakarmor[8] - Int32.Parse(enemyarmor.Text)), (fairy[fairyindex].powbuff));
 
                         }
                         if (Int32.Parse(Lhp8.Content.ToString()) == 0)
@@ -10883,9 +10967,9 @@ namespace snqxap
                             Ldamage8.Content = (Double.Parse(Ldamage8.Content.ToString()) * 3).ToString();
 
                         if (innight)
-                            Lhit8.Content = Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[8]) + equiphit[8]) * (fairy[fairyindex].hitbuff) * (100 - 0.9 * (100 - equipnightsee[8])) / 100 * gg[8].hitup * (skilluphit[8])).ToString();
+                            Lhit8.Content = Math.Ceiling(Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[8]) + equiphit[8]) * (fairy[fairyindex].hitbuff)) * (100 - 0.9 * (100 - equipnightsee[8])) / 100 * gg[8].hitup * (skilluphit[8])).ToString();
                         else
-                            Lhit8.Content = Math.Ceiling(((Math.Ceiling((basehit + maxAddHit) * merry[8]) + equiphit[8]) * (fairy[fairyindex].hitbuff) * gg[8].hitup * (skilluphit[8]))).ToString("0");
+                            Lhit8.Content = Math.Ceiling((Math.Ceiling((Math.Ceiling((basehit + maxAddHit) * merry[8]) + equiphit[8]) * (fairy[fairyindex].hitbuff)) * gg[8].hitup * (skilluphit[8]))).ToString("0");
                         Image8.Source = new BitmapImage(new Uri(@gun[select].image, UriKind.Relative));
                         string tbt = "";
                         if (gg[8].damageup != 1)
@@ -10906,7 +10990,7 @@ namespace snqxap
                             tbt = "无";
                         tb8.Text = tbt;
                         Lcritharm8.Content = Math.Ceiling((1 + (0.5 + equipcritharm[8]) * (fairy[fairyindex].critharmbuff)) * 100).ToString() + "%";
-                        Larmor8.Content = Math.Ceiling(((maxarmor + equiparmor[8]) * gg[8].armorup * doublecardup * (fairy[fairyindex].armorbuff) * skilluparmor[8])).ToString("0");
+                        Larmor8.Content = Math.Ceiling((Math.Ceiling((maxarmor + equiparmor[8]) * gg[8].armorup *  (fairy[fairyindex].armorbuff)) * doublecardup * skilluparmor[8])).ToString("0");
                         if (gun[select].belt == 0 && (baseRate + maxAddRate + equipshotspeed[8]) * gg[8].shotspeedup * (skillupshotspeed[8]) > 120)
                             Lshotspeed8.Content = 120;
                         else if (gun[select].what == 7 && (baseRate + maxAddRate + equipshotspeed[8]) * gg[8].shotspeedup * (skillupshotspeed[8]) > 60)
@@ -10932,7 +11016,7 @@ namespace snqxap
                         if (crit > 1)
                             crit = 1;
                         Lcrit8.Content = (crit * 100).ToString("0") + "%";
-                        Ldodge8.Content = Math.Ceiling(((Math.Ceiling((baseDodge + maxAddDodge) * merry[8]) + equipdodge[8]) * doublecardup * (fairy[fairyindex].dodgebuff) * gg[8].dodgeup * (skillupdodge[8]))).ToString("0");
+                        Ldodge8.Content = Math.Ceiling((Math.Ceiling((Math.Ceiling((baseDodge + maxAddDodge) * merry[8]) + equipdodge[8])  * (fairy[fairyindex].dodgebuff)) * doublecardup * gg[8].dodgeup * (skillupdodge[8]))).ToString("0");
                         Lbelt8.Content = gun[select].belt + equipbelt[8] + skillupbelt[8];
                         nowdodge.Content = (Double.Parse(enemydodge.Text) * skilldowndodge).ToString("0");
                         Lindex8.Content = Index(Double.Parse(Lshotspeed8.Content.ToString()), Double.Parse(Ldamage8.Content.ToString()), crit, Double.Parse(nowdodge.Content.ToString()), Double.Parse(Lhit8.Content.ToString()), double.Parse(Lbelt8.Content.ToString()) - skillupbelt[8], 8, skilldamageagain[8]).ToString("0.00");
@@ -11605,7 +11689,7 @@ namespace snqxap
                 return;
 
             int skilllevel = skillindex + 1;
-            double rootrate = gun[index].probability * (1f + (float)(skilllevel - 1) * gun[index].growth / 9f) * Math.Ceiling((float)skilllevel / 10f) / 100f;
+            double rootrate = gun[index].probability * (1f + (float)(skilllevel - 1) * gun[index].growth / 9f) * Math.Ceiling((float)skilllevel / 10f) / 100;
 
             switch(combo)
             {
@@ -12045,6 +12129,19 @@ namespace snqxap
             //double num2 = gun[index].skilleffect2 * (1f + (float)(skillindex) * gun[index].growth / 9f);
             // double num3 = gun[index].skilleffect3 * (1f + (float)(skillindex) * gun[index].growth / 9f);
             //double num4 = gun[index].skilleffect4 * (1f + (float)(skillindex) * gun[index].growth / 9f);
+            switch (combo)
+            {
+                case 0: gun[combo].doublecard = cbdoublecard0.IsChecked == true; break;
+                case 1: gun[combo].doublecard = cbdoublecard1.IsChecked == true; break;
+                case 2: gun[combo].doublecard = cbdoublecard2.IsChecked == true; break;
+                case 3: gun[combo].doublecard = cbdoublecard3.IsChecked == true; break;
+                case 4: gun[combo].doublecard = cbdoublecard4.IsChecked == true; break;
+                case 5: gun[combo].doublecard = cbdoublecard5.IsChecked == true; break;
+                case 6: gun[combo].doublecard = cbdoublecard6.IsChecked == true; break;
+                case 7: gun[combo].doublecard = cbdoublecard7.IsChecked == true; break;
+                case 8: gun[combo].doublecard = cbdoublecard8.IsChecked == true; break;
+            }
+
             renewdamage(combo, 0);
             switch (gun[index].type)
             {
@@ -14453,7 +14550,7 @@ namespace snqxap
 
                         if (ischecked)
                         {
-                            skilldamageagain[combo] = updem1 + 1;
+                            skilldamageagain[combo] *= updem1 + 1;
                             renewindex(combo);
                         }
                         //     renewtime(combo, num2);
@@ -15846,7 +15943,7 @@ namespace snqxap
                         {
                             for (int i = 0; i < 9; i++)
                             {
-                                skilldamageagain[i] = updem1 + 1;
+                                skilldamageagain[i] *= updem1 + 1;
                                 renewindex(i);
                             }
                             skillsolidmultiple[combo] = updem2;
@@ -15857,8 +15954,8 @@ namespace snqxap
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("6");
                         string read = "";
-                        if (combo%3==0)
-                        read = "1s瞄准最近," + (updem2 ) + "倍,BOSS优先,集火";
+                        if (combo % 3 == 0)
+                            read = "1s瞄准最近," + (updem2) + "倍,BOSS优先,集火";
                         else if (combo % 3 == 1)
                             read = "1s瞄准血量最高," + (updem2) + "倍,BOSS优先,集火";
                         else if (combo % 3 == 2)
@@ -25297,57 +25394,42 @@ namespace snqxap
             renewskill();
         }
 
-        private string floatdamage(double basePow, double merry, double equipPow, double buff, double Armor)
+        private string floatdamage(double basePow, double merry, double equipPow, double buff , double Armor,double fairyupdamage)
         {
+            //       Ldodge0.Content = Math.Ceiling((Math.Ceiling((Math.Ceiling((baseDodge + maxAddDodge) * merry[0]) + equipdodge[0])  * (fairy[fairyindex].dodgebuff)) * doublecardup * gg[0].dodgeup * (skillupdodge[0]))).ToString("0");
 
             //   Ldamage0.Content = Math.Ceiling(Math.Max(1, (Math.Ceiling((basePow + maxAddPow) * merry[0]) + equipdamage[0]) * gg[0].damageup * (skillupdamage[0]) + Math.Min(2, equipbreakarmor[0] - Int32.Parse(enemyarmor.Text))));
-            Console.WriteLine("buff: " + basePow + " " + merry + " " + equipPow + " " + buff + " " + Armor);
+       //       Console.WriteLine("buff: " + basePow + " " + merry + " " + equipPow + " " + buff + " " + Armor + " "+fairyupdamage);
             double result = 0;
             for (double i = 0.855; i < 1.15; i += 0.01)
             {
                 //   double i = 1;
-                result += Math.Ceiling(Math.Max(1, Math.Round(Math.Ceiling(basePow * merry + equipPow) * buff * i) + Armor));
-                //  Console.WriteLine(result);
+                result += Math.Max(1, Math.Ceiling(Math.Ceiling(Math.Ceiling(basePow * merry + equipPow)*fairyupdamage) * buff) * i + Armor);
+           //       Console.WriteLine(result);
             }
-            Console.WriteLine("damage: " + result);
-            result /= 30;
-            Console.WriteLine(result);
-            return Math.Ceiling(result).ToString("0");
+         //   Console.WriteLine("damage: " + result);
+            result /= 30.0d;
+     //       Console.WriteLine(result);
+            return result.ToString("0");
 
 
             //    floatdamage(basePow + maxAddPow, merry[0], equipdamage[0] * gg[0].damageup * skillupdamage[0], Math.Min(2, equipbreakarmor[0] - Int32.Parse(enemyarmor.Text)));
 
         }
 
-        private void Window_MouseMove(object sender, MouseEventArgs e)
+        private string enemyfloatdamage(double basePow, double Armor)
         {
+               double result = Math.Max(1,basePow  + Armor);
+                return result.ToString("0");
+     }
 
-            Point p = e.GetPosition((IInputElement)sender);
-            Console.WriteLine(p.X + " " );
-            double h = Windows.ActualHeight;
-            if (p.Y > h-30)
-            {
-                return;
-            }
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                this.DragMove();
-                //Window.DragMove();
-            }
-            if (Mouse.LeftButton != MouseButtonState.Pressed)
-            {
-                FrameworkElement element = e.OriginalSource as FrameworkElement;
-                if (element != null && !element.Name.Contains("Resize"))
-                    this.Cursor = Cursors.Arrow;
-            }
-        }
 
         private void fairynamecombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int fairyindex = fairynamecombo.SelectedIndex;
             int levelindex = fairylevel.SelectedIndex;
             int starindex = fairystar.SelectedIndex;
-            //   image.Source = new BitmapImage(new Uri(@"daw\adw.jpg", UriKind.Relative));
+
             if (fairyindex < 0 || levelindex < 0 || starindex < 0)
             {
                 FairyImage.Source = new BitmapImage(new Uri("zhaijiang.jpg", UriKind.Relative));
@@ -25423,46 +25505,6 @@ namespace snqxap
             for (int i = 0; i < 9; i++)
                 renewindex(i);
             renewskill();
-        }
-
-        private void zhedie_Click(object sender, RoutedEventArgs e)
-        {
-            if (zhedie)
-            {
-                //         Windows.Width = Windows.ActualWidth - equipgrid.ActualWidth;
-                equipgrid.Visibility = System.Windows.Visibility.Collapsed;
-                zhedie = false;
-            }
-            else
-            {
-                //         Windows.Width += equipgrid.Width;
-                //       Windows.Width = Windows.ActualWidth + equipgrid.ActualWidth;
-                equipgrid.Visibility = System.Windows.Visibility.Visible;
-                zhedie = true;
-            }
-        }
-
-        private void fairyzhedie_Click(object sender, RoutedEventArgs e)
-        {
-            if (fairyzhedie)
-            {
-                //         Windows.Width = Windows.ActualWidth - equipgrid.ActualWidth;
-                fairygrid.Visibility = System.Windows.Visibility.Collapsed;
-                fairyzhedie = false;
-            }
-            else
-            {
-                //         Windows.Width += equipgrid.Width;
-                //       Windows.Width = Windows.ActualWidth + equipgrid.ActualWidth;
-                fairygrid.Visibility = System.Windows.Visibility.Visible;
-                fairyzhedie = true;
-            }
-        }
-
-        private void close_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-            base.OnClosed(e);
         }
 
         private void fairytalentcombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -26027,7 +26069,7 @@ namespace snqxap
                         {
                             for (int i = 0; i < 9; i++)
                             {
-                                skillupdamage[i] *=  updem1;
+                                skillupdamage[i] *= updem1;
                                 skilluphit[i] *= updem1;
                                 skillupdodge[i] *= updem1;
                                 skilluparmor[i] *= updem1;
@@ -26037,7 +26079,7 @@ namespace snqxap
                             }
                         }
                         fairy[fairyindex].cd = cdtime;
-                        cb9.ToolTip = "本梯队空降有视野的"+updem2+"机场，伤害、命中、回避、护甲、暴击率降低" + (1-updem1) * 100 + "%,持续2回合,消耗点数" + point + ",cd" + turncd + "回合";
+                        cb9.ToolTip = "本梯队空降有视野的" + updem2 + "机场，伤害、命中、回避、护甲、暴击率降低" + (1 - updem1) * 100 + "%,持续2回合,消耗点数" + point + ",cd" + turncd + "回合";
                         break;
                     }
                 case 10:
@@ -26190,212 +26232,77 @@ namespace snqxap
             }
         }
 
-        private void cbIsdoublecard_Click(object sender, RoutedEventArgs e)
+        private void doublecard0_Click(object sender, RoutedEventArgs e)
         {
-            bool ischecked = cbIsdoublecard.IsChecked == true;
-            if (ischecked)
-            {
-                gun[111].doublecard = true; gun[92].doublecard = true; gun[91].doublecard = true; gun[59].doublecard = true;
-            }
-            else
-            {
-                gun[111].doublecard = false; gun[92].doublecard = false; gun[91].doublecard = false; gun[59].doublecard = false;
-            }
-            for (int i = 0; i < 9; i++)
-                renewindex(i);
+            int select = Combo0.SelectedIndex;
+            if (select == -1)
+                return;
+            gun[select].doublecard = cbdoublecard0.IsChecked == true;
+            renewindex(0);
         }
-
-        private void ResizePressed(object sender, MouseEventArgs e)
+        private void doublecard1_Click(object sender, RoutedEventArgs e)
         {
-            FrameworkElement element = sender as FrameworkElement;
-            ResizeDirection direction = (ResizeDirection)Enum.Parse(typeof(ResizeDirection), element.Name.Replace("Resize", ""));
-
-            this.Cursor = cursors[direction];
-
-            if (e.LeftButton == MouseButtonState.Pressed)
-                ResizeWindow(direction);
+            int select = Combo1.SelectedIndex;
+            if (select == -1)
+                return;
+            gun[select].doublecard = cbdoublecard1.IsChecked == true;
+            renewindex(1);
         }
-
-        private void ResizeWindow(ResizeDirection direction)
+        private void doublecard2_Click(object sender, RoutedEventArgs e)
         {
-            SendMessage(_HwndSource.Handle, WM_SYSCOMMAND, (IntPtr)(61440 + direction), IntPtr.Zero);
+            int select = Combo2.SelectedIndex;
+            if (select == -1)
+                return;
+            gun[select].doublecard = cbdoublecard2.IsChecked == true;
+            renewindex(2);
         }
-
-
-        private const int WM_SYSCOMMAND = 0x112;
-        private HwndSource _HwndSource;
-
-        private Dictionary<ResizeDirection, Cursor> cursors = new Dictionary<ResizeDirection, Cursor>
-{
-{ResizeDirection.Top, Cursors.SizeNS
-    },
-{ResizeDirection.Bottom, Cursors.SizeNS
-},
-{ResizeDirection.Left, Cursors.SizeWE},
-{ResizeDirection.Right, Cursors.SizeWE},
-{ResizeDirection.TopLeft, Cursors.SizeNWSE},
-{ResizeDirection.BottomRight, Cursors.SizeNWSE},
-{ResizeDirection.TopRight, Cursors.SizeNESW},
-{ResizeDirection.BottomLeft, Cursors.SizeNESW}
-};
-
-        enum ResizeDirection
+        private void doublecard3_Click(object sender, RoutedEventArgs e)
         {
-            Left = 1,
-            Right = 2,
-            Top = 3,
-            TopLeft = 4,
-            TopRight = 5,
-            Bottom = 6,
-            BottomLeft = 7,
-            BottomRight = 8,
+            int select = Combo3.SelectedIndex;
+            if (select == -1)
+                return;
+            gun[select].doublecard = cbdoublecard3.IsChecked == true;
+            renewindex(3);
         }
-
-        [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        private static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
-
-        protected override void OnSourceInitialized(EventArgs e)
+        private void doublecard4_Click(object sender, RoutedEventArgs e)
         {
-            base.OnSourceInitialized(e);
-            HwndSource hwndSource = PresentationSource.FromVisual(this) as HwndSource;
-            if (hwndSource != null)
-            {
-                hwndSource.AddHook(new HwndSourceHook(this.WndProc));
-            }
+            int select = Combo4.SelectedIndex;
+            if (select == -1)
+                return;
+            gun[select].doublecard = cbdoublecard4.IsChecked == true;
+            renewindex(4);
         }
-
-        //protected virtual IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
-        //{
-        //    return IntPtr.Zero;
-        //}
-
-        private const int WM_NCHITTEST = 0x0084;
-        private readonly int agWidth = 12; //拐角宽度
-        private readonly int bThickness = 4; // 边框宽度
-        private Point mousePoint = new Point(); //鼠标坐标
-
-        public enum HitTest : int
+        private void doublecard5_Click(object sender, RoutedEventArgs e)
         {
-            HTERROR = -2,
-            HTTRANSPARENT = -1,
-            HTNOWHERE = 0,
-            HTCLIENT = 1,
-            HTCAPTION = 2,
-            HTSYSMENU = 3,
-            HTGROWBOX = 4,
-            HTSIZE = HTGROWBOX,
-            HTMENU = 5,
-            HTHSCROLL = 6,
-            HTVSCROLL = 7,
-            HTMINBUTTON = 8,
-            HTMAXBUTTON = 9,
-            HTLEFT = 10,
-            HTRIGHT = 11,
-            HTTOP = 12,
-            HTTOPLEFT = 13,
-            HTTOPRIGHT = 14,
-            HTBOTTOM = 15,
-            HTBOTTOMLEFT = 16,
-            HTBOTTOMRIGHT = 17,
-            HTBORDER = 18,
-            HTREDUCE = HTMINBUTTON,
-            HTZOOM = HTMAXBUTTON,
-            HTSIZEFIRST = HTLEFT,
-            HTSIZELAST = HTBOTTOMRIGHT,
-            HTOBJECT = 19,
-            HTCLOSE = 20,
-            HTHELP = 21,
+            int select = Combo5.SelectedIndex;
+            if (select == -1)
+                return;
+            gun[select].doublecard = cbdoublecard5.IsChecked == true;
+            renewindex(5);
         }
-        protected virtual IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
+        private void doublecard6_Click(object sender, RoutedEventArgs e)
         {
-            switch (msg)
-            {
-                case WM_NCHITTEST:
-                    this.mousePoint.X = (lParam.ToInt32() & 0xFFFF);
-                    this.mousePoint.Y = (lParam.ToInt32() >> 16);
-
-                    //  测试鼠标位置
-                    #region 测试鼠标位置
-
-                    // 窗口左上角
-                    if (this.mousePoint.Y - this.Top <= this.agWidth
-                       && this.mousePoint.X - this.Left <= this.agWidth)
-                    {
-                        handled = true;
-                        return new IntPtr((int)HitTest.HTTOPLEFT);
-                    }
-                    // 窗口左下角    
-                    else if (this.ActualHeight + this.Top - this.mousePoint.Y <= this.agWidth
-                       && this.mousePoint.X - this.Left <= this.agWidth)
-                    {
-                        handled = true;
-                        return new IntPtr((int)HitTest.HTBOTTOMLEFT);
-                    }
-                    // 窗口右上角
-                    else if (this.mousePoint.Y - this.Top <= this.agWidth
-                       && this.ActualWidth + this.Left - this.mousePoint.X <= this.agWidth)
-                    {
-                        handled = true;
-                        return new IntPtr((int)HitTest.HTTOPRIGHT);
-                    }
-                    // 窗口右下角
-                    else if (this.ActualWidth + this.Left - this.mousePoint.X <= this.agWidth
-                       && this.ActualHeight + this.Top - this.mousePoint.Y <= this.agWidth)
-                    {
-                        handled = true;
-                        return new IntPtr((int)HitTest.HTBOTTOMRIGHT);
-                    }
-                    // 窗口左侧
-                    else if (this.mousePoint.X - this.Left <= this.bThickness)
-                    {
-                        handled = true;
-                        return new IntPtr((int)HitTest.HTLEFT);
-                    }
-                    // 窗口右侧
-                    else if (this.ActualWidth + this.Left - this.mousePoint.X <= this.bThickness)
-                    {
-                        handled = true;
-                        return new IntPtr((int)HitTest.HTRIGHT);
-                    }
-                    // 窗口上方
-                    else if (this.mousePoint.Y - this.Top <= this.bThickness)
-                    {
-                        handled = true;
-                        return new IntPtr((int)HitTest.HTTOP);
-                    }
-                    // 窗口下方
-                    else if (this.ActualHeight + this.Top - this.mousePoint.Y <= this.bThickness)
-                    {
-                        handled = true;
-                        return new IntPtr((int)HitTest.HTBOTTOM);
-                    }
-                    //else // 窗口移动
-                    //{
-                    //    handled = true;
-                    //    return new IntPtr((int)HitTest.HTCAPTION);
-                    //}
-                    else
-                    { return IntPtr.Zero; }
-                    #endregion
-            }
-            return IntPtr.Zero;
+            int select = Combo6.SelectedIndex;
+            if (select == -1)
+                return;
+            gun[select].doublecard = cbdoublecard6.IsChecked == true;
+            renewindex(6);
         }
-
-        private void minimize_Click(object sender, RoutedEventArgs e)
+        private void doublecard7_Click(object sender, RoutedEventArgs e)
         {
-            this.WindowState = WindowState.Minimized;
+            int select = Combo7.SelectedIndex;
+            if (select == -1)
+                return;
+            gun[select].doublecard = cbdoublecard7.IsChecked == true;
+            renewindex(7);
         }
-
-        private void maxmize_Click(object sender, RoutedEventArgs e)
+        private void doublecard8_Click(object sender, RoutedEventArgs e)
         {
-            if (this.WindowState == WindowState.Maximized)
-            {
-                this.WindowState = WindowState.Normal;
-            }
-            else
-            {
-                this.WindowState = WindowState.Maximized;
-            }
+            int select = Combo8.SelectedIndex;
+            if (select == -1)
+                return;
+            gun[select].doublecard = cbdoublecard8.IsChecked == true;
+            renewindex(8);
         }
     }
 }
