@@ -994,7 +994,7 @@ namespace snqxap
                 gun[i].image = "/assets/" + gun[i].name + ".png";
                 gun[i].doublecard = false;
             }
-      //      gun[170].image = "/assets/MP5.png";
+            //      gun[170].image = "/assets/MP5.png";
             gun[GUN_NUMBER].image = "";
             for (int i = 0; i < 9; i++)
             {
@@ -7133,7 +7133,7 @@ namespace snqxap
                             if (Double.Parse(nowhit.Content.ToString()) != 0 && enemycalcdamage != 0)
                             {
                                 enemycalcdamage = Double.Parse(floatdamage(enemycalcdamage, 1, 0, 1, Math.Min(2, ebreakarmor - Double.Parse(Larmor0.Content.ToString()))));
-                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString())*fairydowndamage).ToString("0.00");
+                                tank.Content = (Double.Parse((Math.Ceiling(Double.Parse(Lhp0.Content.ToString() + shield) / enemycalcdamage) / (1 / (1 + Double.Parse(Ldodge0.Content.ToString()) / Double.Parse(nowhit.Content.ToString())))).ToString()) * fairydowndamage).ToString("0.00");
                             }
                             else
                                 tank.Content = 0;
@@ -15857,8 +15857,8 @@ namespace snqxap
                         renewattime(combo, attime.ToString());
                         gun[index].startcd = ("6");
                         string read = "";
-                        if (combo%3==0)
-                        read = "1s瞄准最近," + (updem2 ) + "倍,BOSS优先,集火";
+                        if (combo % 3 == 0)
+                            read = "1s瞄准最近," + (updem2) + "倍,BOSS优先,集火";
                         else if (combo % 3 == 1)
                             read = "1s瞄准血量最高," + (updem2) + "倍,BOSS优先,集火";
                         else if (combo % 3 == 2)
@@ -25323,9 +25323,9 @@ namespace snqxap
         {
 
             Point p = e.GetPosition((IInputElement)sender);
-            Console.WriteLine(p.X + " " );
+            Console.WriteLine(p.X + " ");
             double h = Windows.ActualHeight;
-            if (p.Y > h-30)
+            if (p.Y > h - 30)
             {
                 return;
             }
@@ -26027,7 +26027,7 @@ namespace snqxap
                         {
                             for (int i = 0; i < 9; i++)
                             {
-                                skillupdamage[i] *=  updem1;
+                                skillupdamage[i] *= updem1;
                                 skilluphit[i] *= updem1;
                                 skillupdodge[i] *= updem1;
                                 skilluparmor[i] *= updem1;
@@ -26037,7 +26037,7 @@ namespace snqxap
                             }
                         }
                         fairy[fairyindex].cd = cdtime;
-                        cb9.ToolTip = "本梯队空降有视野的"+updem2+"机场，伤害、命中、回避、护甲、暴击率降低" + (1-updem1) * 100 + "%,持续2回合,消耗点数" + point + ",cd" + turncd + "回合";
+                        cb9.ToolTip = "本梯队空降有视野的" + updem2 + "机场，伤害、命中、回避、护甲、暴击率降低" + (1 - updem1) * 100 + "%,持续2回合,消耗点数" + point + ",cd" + turncd + "回合";
                         break;
                     }
                 case 10:
@@ -26313,60 +26313,57 @@ namespace snqxap
                 case WM_NCHITTEST:
                     this.mousePoint.X = (lParam.ToInt32() & 0xFFFF);
                     this.mousePoint.Y = (lParam.ToInt32() >> 16);
-                    // Fix HiDPI incorrect mouse position problem
-                    this.mousePoint = this.PointFromScreen(this.mousePoint);
+
+                    // Fix HiDPI incorrect mouse position problem;
+                    var fixedPoint = this.PointFromScreen(this.mousePoint);
 
                     //  测试鼠标位置
                     #region 测试鼠标位置
 
                     // 窗口左上角
-                    if (this.mousePoint.Y - this.Top <= this.agWidth
-                       && this.mousePoint.X - this.Left <= this.agWidth)
+                    if (fixedPoint.X <= this.agWidth && fixedPoint.Y <= this.agWidth)
                     {
                         handled = true;
                         return new IntPtr((int)HitTest.HTTOPLEFT);
                     }
                     // 窗口左下角    
-                    else if (this.ActualHeight + this.Top - this.mousePoint.Y <= this.agWidth
-                       && this.mousePoint.X - this.Left <= this.agWidth)
+                    else if (this.ActualHeight - fixedPoint.Y <= this.agWidth && fixedPoint.X <= this.agWidth)
                     {
                         handled = true;
                         return new IntPtr((int)HitTest.HTBOTTOMLEFT);
                     }
                     // 窗口右上角
-                    else if (this.mousePoint.Y - this.Top <= this.agWidth
-                       && this.ActualWidth + this.Left - this.mousePoint.X <= this.agWidth)
+                    else if (this.ActualWidth - fixedPoint.X <= 12 && fixedPoint.Y <= 12)
                     {
                         handled = true;
                         return new IntPtr((int)HitTest.HTTOPRIGHT);
                     }
                     // 窗口右下角
-                    else if (this.ActualWidth + this.Left - this.mousePoint.X <= this.agWidth
-                       && this.ActualHeight + this.Top - this.mousePoint.Y <= this.agWidth)
+                    else if (this.ActualWidth - fixedPoint.Y <= this.agWidth && this.ActualHeight - fixedPoint.X <= this.agWidth)
                     {
                         handled = true;
                         return new IntPtr((int)HitTest.HTBOTTOMRIGHT);
                     }
                     // 窗口左侧
-                    else if (this.mousePoint.X - this.Left <= this.bThickness)
+                    else if (fixedPoint.X <= this.bThickness)
                     {
                         handled = true;
                         return new IntPtr((int)HitTest.HTLEFT);
                     }
                     // 窗口右侧
-                    else if (this.ActualWidth + this.Left - this.mousePoint.X <= this.bThickness)
+                    else if (this.ActualWidth - fixedPoint.X <= this.bThickness)
                     {
                         handled = true;
                         return new IntPtr((int)HitTest.HTRIGHT);
                     }
                     // 窗口上方
-                    else if (this.mousePoint.Y - this.Top <= this.bThickness)
+                    else if (fixedPoint.Y <= this.bThickness)
                     {
                         handled = true;
                         return new IntPtr((int)HitTest.HTTOP);
                     }
                     // 窗口下方
-                    else if (this.ActualHeight + this.Top - this.mousePoint.Y <= this.bThickness)
+                    else if (this.ActualHeight - fixedPoint.Y <= this.bThickness)
                     {
                         handled = true;
                         return new IntPtr((int)HitTest.HTBOTTOM);
