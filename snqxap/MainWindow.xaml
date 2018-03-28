@@ -84,7 +84,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <Label Name="Merry0" Content="♡" FontSize="16" Margin="90,212,98,0" MouseUp="Merry0_MouseUp"/>
+                    <Label Name="Merry0" Content="♡" FontSize="16" Margin="90,212,98,0" MouseUp="Merry_MouseUp"/>
                     <ComboBox   BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Height="30" SelectionChanged="Combo0_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="#FF454443" Opacity="0"/>
@@ -156,7 +156,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <Label Name="Merry1" Content="♡" FontSize="16" Margin="90,212,98,0" MouseUp="Merry1_MouseUp"/>
+                    <Label Name="Merry1" Content="♡" FontSize="16" Margin="90,212,98,0" MouseUp="Merry_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Height="30" SelectionChanged="Combo1_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -228,7 +228,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <Label Name="Merry2" Content="♡" FontSize="16" Margin="90,212,98,0" MouseUp="Merry2_MouseUp"/>
+                    <Label Name="Merry2" Content="♡" FontSize="16" Margin="90,212,98,0" MouseUp="Merry_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443"  IsEditable = "true"  Name="Combo2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Height="30" SelectionChanged="Combo2_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -300,7 +300,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <Label Name="Merry3" Content="♡" FontSize="16" Margin="90,210,98,0" MouseUp="Merry3_MouseUp"/>
+                    <Label Name="Merry3" Content="♡" FontSize="16" Margin="90,210,98,0" MouseUp="Merry_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Height="30" SelectionChanged="Combo3_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -372,7 +372,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <Label Name="Merry4" Content="♡" FontSize="16" Margin="90,210,98,0" MouseUp="Merry4_MouseUp"/>
+                    <Label Name="Merry4" Content="♡" FontSize="16" Margin="90,210,98,0" MouseUp="Merry_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Height="30" SelectionChanged="Combo4_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -444,7 +444,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <Label Name="Merry5" Content="♡" FontSize="16" Margin="90,210,98,0" MouseUp="Merry5_MouseUp"/>
+                    <Label Name="Merry5" Content="♡" FontSize="16" Margin="90,210,98,0" MouseUp="Merry_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Height="30" SelectionChanged="Combo5_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -516,7 +516,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <Label Name="Merry6" Content="♡" FontSize="16" Margin="90,208,98,0" MouseUp="Merry6_MouseUp"/>
+                    <Label Name="Merry6" Content="♡" FontSize="16" Margin="90,208,98,0" MouseUp="Merry_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Height="30" SelectionChanged="Combo6_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -588,7 +588,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <Label Name="Merry7" Content="♡" FontSize="16" Margin="90,208,98,0" MouseUp="Merry7_MouseUp"/>
+                    <Label Name="Merry7" Content="♡" FontSize="16" Margin="90,208,98,0" MouseUp="Merry_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Height="30" SelectionChanged="Combo7_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -660,7 +660,7 @@
                             </ToolTip>
                         </Image.ToolTip>
                     </Image>
-                    <Label Name="Merry8" Content="♡" FontSize="16" Margin="90,208,98,0" MouseUp="Merry8_MouseUp"/>
+                    <Label Name="Merry8" Content="♡" FontSize="16" Margin="90,208,98,0" MouseUp="Merry_MouseUp"/>
                     <ComboBox  BorderThickness="2.5" BorderBrush="#FF454443" IsEditable = "true"  Name="Combo8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Height="30" SelectionChanged="Combo8_SelectionChanged">
                         <ComboBox.Background>
                             <SolidColorBrush Color="White" Opacity="0"/>
@@ -752,9 +752,9 @@
                         <Label Content="①" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="12"/>
                         <Label Content="①" HorizontalAlignment="Left" Margin="0,25,0,0" VerticalAlignment="Top" FontSize="12"/>
                         <Label Content="①" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" FontSize="12"/>
-                        <ComboBox IsEnabled="False" Name="equipcb01" Height="25" Width="72" Margin="0,0,101,50" SelectionChanged="equipcb01_SelectionChanged"/>
-                        <ComboBox IsEnabled="False" Name="equipcb02" Height="25" Width="72" Margin="0,0,101,0" SelectionChanged="equipcb02_SelectionChanged"/>
-                        <ComboBox IsEnabled="False" Name="equipcb03" Height="25" Width="72" Margin="0,0,101,-50" SelectionChanged="equipcb03_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb01" Height="25" Width="72" Margin="0,0,101,50" SelectionChanged="equipcb_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb02" Height="25" Width="72" Margin="0,0,101,0" SelectionChanged="equipcb_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb03" Height="25" Width="72" Margin="0,0,101,-50" SelectionChanged="equipcb_SelectionChanged"/>
                         <ComboBox SelectionChanged="equiptb011_TextChanged" Name="equiptb011" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="101,0,0,0"  Height="25"/>
                         <ComboBox SelectionChanged="equiptb012_TextChanged" Name="equiptb012" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="144,0,0,0"  Height="25"/>
                         <ComboBox SelectionChanged="equiptb013_TextChanged" Name="equiptb013" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="186,0,0,0"  Height="25"/>
@@ -769,9 +769,9 @@
                         <Label Content="②" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="12"/>
                         <Label Content="②" HorizontalAlignment="Left" Margin="0,25,0,0" VerticalAlignment="Top" FontSize="12"/>
                         <Label Content="②" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" FontSize="12"/>
-                        <ComboBox IsEnabled="False" Name="equipcb11" Height="25" Width="72" Margin="-101,0,0,50" SelectionChanged="equipcb11_SelectionChanged"/>
-                        <ComboBox IsEnabled="False" Name="equipcb12" Height="25" Width="72" Margin="-101,0,0,0" SelectionChanged="equipcb12_SelectionChanged"/>
-                        <ComboBox IsEnabled="False" Name="equipcb13" Height="25" Width="72" Margin="-101,0,0,-50" SelectionChanged="equipcb13_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb11" Height="25" Width="72" Margin="-101,0,0,50" SelectionChanged="equipcb_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb12" Height="25" Width="72" Margin="-101,0,0,0" SelectionChanged="equipcb_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb13" Height="25" Width="72" Margin="-101,0,0,-50" SelectionChanged="equipcb_SelectionChanged"/>
                         <ComboBox SelectionChanged="equiptb111_TextChanged" Name="equiptb111" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="101,0,0,0"  Height="25"/>
                         <ComboBox SelectionChanged="equiptb112_TextChanged" Name="equiptb112" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="144,0,0,0"  Height="25"/>
                         <ComboBox SelectionChanged="equiptb113_TextChanged" Name="equiptb113" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="186,0,0,0"  Height="25"/>
@@ -786,9 +786,9 @@
                         <Label Content="③" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="12"/>
                         <Label Content="③" HorizontalAlignment="Left" Margin="0,25,0,0" VerticalAlignment="Top" FontSize="12"/>
                         <Label Content="③" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" FontSize="12"/>
-                        <ComboBox IsEnabled="False" Name="equipcb21" Height="25" Width="72" Margin="0,0,101,50" SelectionChanged="equipcb21_SelectionChanged"/>
-                        <ComboBox IsEnabled="False" Name="equipcb22" Height="25" Width="72" Margin="0,0,101,0" SelectionChanged="equipcb22_SelectionChanged"/>
-                        <ComboBox IsEnabled="False" Name="equipcb23" Height="25" Width="72" Margin="0,0,101,-50" SelectionChanged="equipcb23_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb21" Height="25" Width="72" Margin="0,0,101,50" SelectionChanged="equipcb_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb22" Height="25" Width="72" Margin="0,0,101,0" SelectionChanged="equipcb_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb23" Height="25" Width="72" Margin="0,0,101,-50" SelectionChanged="equipcb_SelectionChanged"/>
                         <ComboBox SelectionChanged="equiptb211_TextChanged" Name="equiptb211" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="101,0,0,0"  Height="25"/>
                         <ComboBox SelectionChanged="equiptb212_TextChanged" Name="equiptb212" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="144,0,0,0"  Height="25"/>
                         <ComboBox SelectionChanged="equiptb213_TextChanged" Name="equiptb213" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="186,0,0,0"  Height="25"/>
@@ -803,9 +803,9 @@
                         <Label Content="④" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="12"/>
                         <Label Content="④" HorizontalAlignment="Left" Margin="0,25,0,0" VerticalAlignment="Top" FontSize="12"/>
                         <Label Content="④" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" FontSize="12"/>
-                        <ComboBox IsEnabled="False" Name="equipcb31" Height="25" Width="72" Margin="-101,0,0,50" SelectionChanged="equipcb31_SelectionChanged"/>
-                        <ComboBox IsEnabled="False" Name="equipcb32" Height="25" Width="72" Margin="-101,0,0,0" SelectionChanged="equipcb32_SelectionChanged"/>
-                        <ComboBox IsEnabled="False" Name="equipcb33" Height="25" Width="72" Margin="-101,0,0,-50" SelectionChanged="equipcb33_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb31" Height="25" Width="72" Margin="-101,0,0,50" SelectionChanged="equipcb_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb32" Height="25" Width="72" Margin="-101,0,0,0" SelectionChanged="equipcb_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb33" Height="25" Width="72" Margin="-101,0,0,-50" SelectionChanged="equipcb_SelectionChanged"/>
                         <ComboBox SelectionChanged="equiptb311_TextChanged" Name="equiptb311" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="101,0,0,0"  Height="25"/>
                         <ComboBox SelectionChanged="equiptb312_TextChanged" Name="equiptb312" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="144,0,0,0"  Height="25"/>
                         <ComboBox SelectionChanged="equiptb313_TextChanged" Name="equiptb313" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="186,0,0,0"  Height="25"/>
@@ -820,9 +820,9 @@
                         <Label Content="⑤" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="12"/>
                         <Label Content="⑤" HorizontalAlignment="Left" Margin="0,25,0,0" VerticalAlignment="Top" FontSize="12"/>
                         <Label Content="⑤" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" FontSize="12"/>
-                        <ComboBox IsEnabled="False" Name="equipcb41" Height="25" Width="72" Margin="0,0,101,50" SelectionChanged="equipcb41_SelectionChanged"/>
-                        <ComboBox IsEnabled="False" Name="equipcb42" Height="25" Width="72" Margin="0,0,101,0" SelectionChanged="equipcb42_SelectionChanged"/>
-                        <ComboBox IsEnabled="False" Name="equipcb43" Height="25" Width="72" Margin="0,0,101,-50" SelectionChanged="equipcb43_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb41" Height="25" Width="72" Margin="0,0,101,50" SelectionChanged="equipcb_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb42" Height="25" Width="72" Margin="0,0,101,0" SelectionChanged="equipcb_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb43" Height="25" Width="72" Margin="0,0,101,-50" SelectionChanged="equipcb_SelectionChanged"/>
                         <ComboBox SelectionChanged="equiptb411_TextChanged" Name="equiptb411" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="101,0,0,0"  Height="25"/>
                         <ComboBox SelectionChanged="equiptb412_TextChanged" Name="equiptb412" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="144,0,0,0"  Height="25"/>
                         <ComboBox SelectionChanged="equiptb413_TextChanged" Name="equiptb413" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="186,0,0,0"  Height="25"/>
@@ -837,9 +837,9 @@
                         <Label Content="⑥" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="12"/>
                         <Label Content="⑥" HorizontalAlignment="Left" Margin="0,25,0,0" VerticalAlignment="Top" FontSize="12"/>
                         <Label Content="⑥" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" FontSize="12"/>
-                        <ComboBox IsEnabled="False" Name="equipcb51" Height="25" Width="72" Margin="-101,0,0,50" SelectionChanged="equipcb51_SelectionChanged"/>
-                        <ComboBox IsEnabled="False" Name="equipcb52" Height="25" Width="72" Margin="-101,0,0,0" SelectionChanged="equipcb52_SelectionChanged"/>
-                        <ComboBox IsEnabled="False" Name="equipcb53" Height="25" Width="72" Margin="-101,0,0,-50" SelectionChanged="equipcb53_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb51" Height="25" Width="72" Margin="-101,0,0,50" SelectionChanged="equipcb_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb52" Height="25" Width="72" Margin="-101,0,0,0" SelectionChanged="equipcb_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb53" Height="25" Width="72" Margin="-101,0,0,-50" SelectionChanged="equipcb_SelectionChanged"/>
                         <ComboBox SelectionChanged="equiptb511_TextChanged" Name="equiptb511" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="101,0,0,0"  Height="25"/>
                         <ComboBox SelectionChanged="equiptb512_TextChanged" Name="equiptb512" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="144,0,0,0"  Height="25"/>
                         <ComboBox SelectionChanged="equiptb513_TextChanged" Name="equiptb513" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="186,0,0,0"  Height="25"/>
@@ -854,9 +854,9 @@
                         <Label Content="⑦" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="12"/>
                         <Label Content="⑦" HorizontalAlignment="Left" Margin="0,25,0,0" VerticalAlignment="Top" FontSize="12"/>
                         <Label Content="⑦" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" FontSize="12"/>
-                        <ComboBox IsEnabled="False" Name="equipcb61" Height="25" Width="72" Margin="0,0,101,50" SelectionChanged="equipcb61_SelectionChanged"/>
-                        <ComboBox IsEnabled="False" Name="equipcb62" Height="25" Width="72" Margin="0,0,101,0" SelectionChanged="equipcb62_SelectionChanged"/>
-                        <ComboBox IsEnabled="False" Name="equipcb63" Height="25" Width="72" Margin="0,0,101,-50" SelectionChanged="equipcb63_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb61" Height="25" Width="72" Margin="0,0,101,50" SelectionChanged="equipcb_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb62" Height="25" Width="72" Margin="0,0,101,0" SelectionChanged="equipcb_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb63" Height="25" Width="72" Margin="0,0,101,-50" SelectionChanged="equipcb_SelectionChanged"/>
                         <ComboBox SelectionChanged="equiptb611_TextChanged" Name="equiptb611" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="101,0,0,0"  Height="25"/>
                         <ComboBox SelectionChanged="equiptb612_TextChanged" Name="equiptb612" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="144,0,0,0"  Height="25"/>
                         <ComboBox SelectionChanged="equiptb613_TextChanged" Name="equiptb613" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="186,0,0,0"  Height="25"/>
@@ -871,9 +871,9 @@
                         <Label Content="⑧" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="12"/>
                         <Label Content="⑧" HorizontalAlignment="Left" Margin="0,25,0,0" VerticalAlignment="Top" FontSize="12"/>
                         <Label Content="⑧" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" FontSize="12"/>
-                        <ComboBox IsEnabled="False" Name="equipcb71" Height="25" Width="72" Margin="-101,0,0,50" SelectionChanged="equipcb71_SelectionChanged"/>
-                        <ComboBox IsEnabled="False" Name="equipcb72" Height="25" Width="72" Margin="-101,0,0,0" SelectionChanged="equipcb72_SelectionChanged"/>
-                        <ComboBox IsEnabled="False" Name="equipcb73" Height="25" Width="72" Margin="-101,0,0,-50" SelectionChanged="equipcb73_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb71" Height="25" Width="72" Margin="-101,0,0,50" SelectionChanged="equipcb_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb72" Height="25" Width="72" Margin="-101,0,0,0" SelectionChanged="equipcb_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb73" Height="25" Width="72" Margin="-101,0,0,-50" SelectionChanged="equipcb_SelectionChanged"/>
                         <ComboBox SelectionChanged="equiptb711_TextChanged" Name="equiptb711" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="101,0,0,0"  Height="25"/>
                         <ComboBox SelectionChanged="equiptb712_TextChanged" Name="equiptb712" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="144,0,0,0"  Height="25"/>
                         <ComboBox SelectionChanged="equiptb713_TextChanged" Name="equiptb713" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="186,0,0,0"  Height="25"/>
@@ -888,9 +888,9 @@
                         <Label Content="⑨" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="12"/>
                         <Label Content="⑨" HorizontalAlignment="Left" Margin="0,25,0,0" VerticalAlignment="Top" FontSize="12"/>
                         <Label Content="⑨" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" FontSize="12"/>
-                        <ComboBox IsEnabled="False" Name="equipcb81" Height="25" Width="72" Margin="0,0,101,50" SelectionChanged="equipcb81_SelectionChanged"/>
-                        <ComboBox IsEnabled="False" Name="equipcb82" Height="25" Width="72" Margin="0,0,101,0" SelectionChanged="equipcb82_SelectionChanged"/>
-                        <ComboBox IsEnabled="False" Name="equipcb83" Height="25" Width="72" Margin="0,50,101,0" SelectionChanged="equipcb83_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb81" Height="25" Width="72" Margin="0,0,101,50" SelectionChanged="equipcb_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb82" Height="25" Width="72" Margin="0,0,101,0" SelectionChanged="equipcb_SelectionChanged"/>
+                        <ComboBox IsEnabled="False" Name="equipcb83" Height="25" Width="72" Margin="0,50,101,0" SelectionChanged="equipcb_SelectionChanged"/>
                         <ComboBox SelectionChanged="equiptb811_TextChanged" Name="equiptb811" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="101,0,0,0"  Height="25"/>
                         <ComboBox SelectionChanged="equiptb812_TextChanged" Name="equiptb812" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="144,0,0,0"  Height="25"/>
                         <ComboBox SelectionChanged="equiptb813_TextChanged" Name="equiptb813" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="186,0,0,0"  Height="25"/>

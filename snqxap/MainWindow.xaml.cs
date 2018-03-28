@@ -96,8 +96,60 @@ namespace snqxap
 
         float[] equipupRatio = { };
 
+        List<Label> MerryLabelList = new List<Label>();
+        List<ComboBox> ComboBoxList = new List<ComboBox>();
+        List<ComboBox> LevelList = new List<ComboBox>();
+        List<ComboBox> SkillLevelList = new List<ComboBox>();
 
+        List<List<ComboBox>> EquipCbListList = new List<List<ComboBox>>();
+        List<ComboBox> EquipCbList0 = new List<ComboBox>();
+        List<ComboBox> EquipCbList1 = new List<ComboBox>();
+        List<ComboBox> EquipCbList2 = new List<ComboBox>();
+        List<ComboBox> EquipCbList3 = new List<ComboBox>();
+        List<ComboBox> EquipCbList4 = new List<ComboBox>();
+        List<ComboBox> EquipCbList5 = new List<ComboBox>();
+        List<ComboBox> EquipCbList6 = new List<ComboBox>();
+        List<ComboBox> EquipCbList7 = new List<ComboBox>();
+        List<ComboBox> EquipCbList8 = new List<ComboBox>();
 
+        List<List<List<ComboBox>>> EquipTbListListList = new List<List<List<ComboBox>>>();
+        List<List<ComboBox>> EquipTbListList0 = new List<List<ComboBox>>();
+        List<List<ComboBox>> EquipTbListList1 = new List<List<ComboBox>>();
+        List<List<ComboBox>> EquipTbListList2 = new List<List<ComboBox>>();
+        List<List<ComboBox>> EquipTbListList3 = new List<List<ComboBox>>();
+        List<List<ComboBox>> EquipTbListList4 = new List<List<ComboBox>>();
+        List<List<ComboBox>> EquipTbListList5 = new List<List<ComboBox>>();
+        List<List<ComboBox>> EquipTbListList6 = new List<List<ComboBox>>();
+        List<List<ComboBox>> EquipTbListList7 = new List<List<ComboBox>>();
+        List<List<ComboBox>> EquipTbListList8 = new List<List<ComboBox>>();
+        List<ComboBox> EquipTbList01 = new List<ComboBox>();
+        List<ComboBox> EquipTbList11 = new List<ComboBox>();
+        List<ComboBox> EquipTbList21 = new List<ComboBox>();
+        List<ComboBox> EquipTbList31 = new List<ComboBox>();
+        List<ComboBox> EquipTbList41 = new List<ComboBox>();
+        List<ComboBox> EquipTbList51 = new List<ComboBox>();
+        List<ComboBox> EquipTbList61 = new List<ComboBox>();
+        List<ComboBox> EquipTbList71 = new List<ComboBox>();
+        List<ComboBox> EquipTbList81 = new List<ComboBox>();
+        List<ComboBox> EquipTbList02 = new List<ComboBox>();
+        List<ComboBox> EquipTbList12 = new List<ComboBox>();
+        List<ComboBox> EquipTbList22 = new List<ComboBox>();
+        List<ComboBox> EquipTbList32 = new List<ComboBox>();
+        List<ComboBox> EquipTbList42 = new List<ComboBox>();
+        List<ComboBox> EquipTbList52 = new List<ComboBox>();
+        List<ComboBox> EquipTbList62 = new List<ComboBox>();
+        List<ComboBox> EquipTbList72 = new List<ComboBox>();
+        List<ComboBox> EquipTbList82 = new List<ComboBox>();
+        List<ComboBox> EquipTbList03 = new List<ComboBox>();
+        List<ComboBox> EquipTbList13 = new List<ComboBox>();
+        List<ComboBox> EquipTbList23 = new List<ComboBox>();
+        List<ComboBox> EquipTbList33 = new List<ComboBox>();
+        List<ComboBox> EquipTbList43 = new List<ComboBox>();
+        List<ComboBox> EquipTbList53 = new List<ComboBox>();
+        List<ComboBox> EquipTbList63 = new List<ComboBox>();
+        List<ComboBox> EquipTbList73 = new List<ComboBox>();
+        List<ComboBox> EquipTbList83 = new List<ComboBox>();
+        string[] StarColor = {"","", "Black", "Blue", "Green", "orange" };
         public static readonly double[][] arrAbilityRatio = new double[][]  //各类枪娘属性成长基础
 {
     new double[] //lift,pow,rate,speed,hit,dodge,armor
@@ -173,9 +225,211 @@ namespace snqxap
 
         public MainWindow()
         {
-
             InitializeComponent();
+            MerryLabelList.Add(Merry0);
+            MerryLabelList.Add(Merry1);
+            MerryLabelList.Add(Merry2);
+            MerryLabelList.Add(Merry3);
+            MerryLabelList.Add(Merry4);
+            MerryLabelList.Add(Merry5);
+            MerryLabelList.Add(Merry6);
+            MerryLabelList.Add(Merry7);
+            MerryLabelList.Add(Merry8);
 
+            ComboBoxList.Add(Combo0);
+            ComboBoxList.Add(Combo1);
+            ComboBoxList.Add(Combo2);
+            ComboBoxList.Add(Combo3);
+            ComboBoxList.Add(Combo4);
+            ComboBoxList.Add(Combo5);
+            ComboBoxList.Add(Combo6);
+            ComboBoxList.Add(Combo7);
+            ComboBoxList.Add(Combo8);
+
+            LevelList.Add(Level0);
+            LevelList.Add(Level1);
+            LevelList.Add(Level2);
+            LevelList.Add(Level3);
+            LevelList.Add(Level4);
+            LevelList.Add(Level5);
+            LevelList.Add(Level6);
+            LevelList.Add(Level7);
+            LevelList.Add(Level8);
+
+            SkillLevelList.Add(SkillLevel0);
+            SkillLevelList.Add(SkillLevel1);
+            SkillLevelList.Add(SkillLevel2);
+            SkillLevelList.Add(SkillLevel3);
+            SkillLevelList.Add(SkillLevel4);
+            SkillLevelList.Add(SkillLevel5);
+            SkillLevelList.Add(SkillLevel6);
+            SkillLevelList.Add(SkillLevel7);
+            SkillLevelList.Add(SkillLevel8);
+
+            EquipCbList0.Add(equipcb01);
+            EquipCbList0.Add(equipcb02);
+            EquipCbList0.Add(equipcb03);
+            EquipCbList1.Add(equipcb11);
+            EquipCbList1.Add(equipcb12);
+            EquipCbList1.Add(equipcb13);
+            EquipCbList2.Add(equipcb21);
+            EquipCbList2.Add(equipcb22);
+            EquipCbList2.Add(equipcb23);
+            EquipCbList3.Add(equipcb31);
+            EquipCbList3.Add(equipcb32);
+            EquipCbList3.Add(equipcb33);
+            EquipCbList4.Add(equipcb41);
+            EquipCbList4.Add(equipcb42);
+            EquipCbList4.Add(equipcb43);
+            EquipCbList5.Add(equipcb51);
+            EquipCbList5.Add(equipcb52);
+            EquipCbList5.Add(equipcb53);
+            EquipCbList6.Add(equipcb61);
+            EquipCbList6.Add(equipcb62);
+            EquipCbList6.Add(equipcb63);
+            EquipCbList7.Add(equipcb71);
+            EquipCbList7.Add(equipcb72);
+            EquipCbList7.Add(equipcb73);
+            EquipCbList8.Add(equipcb81);
+            EquipCbList8.Add(equipcb82);
+            EquipCbList8.Add(equipcb83);
+            EquipCbListList.Add(EquipCbList0);
+            EquipCbListList.Add(EquipCbList1);
+            EquipCbListList.Add(EquipCbList2);
+            EquipCbListList.Add(EquipCbList3);
+            EquipCbListList.Add(EquipCbList4);
+            EquipCbListList.Add(EquipCbList5);
+            EquipCbListList.Add(EquipCbList6);
+            EquipCbListList.Add(EquipCbList7);
+            EquipCbListList.Add(EquipCbList8);
+
+            EquipTbList01.Add(equiptb011);
+            EquipTbList01.Add(equiptb012);
+            EquipTbList01.Add(equiptb013);
+            EquipTbList02.Add(equiptb021);
+            EquipTbList02.Add(equiptb022);
+            EquipTbList02.Add(equiptb023);
+            EquipTbList03.Add(equiptb031);
+            EquipTbList03.Add(equiptb032);
+            EquipTbList03.Add(equiptb033);
+
+            EquipTbList11.Add(equiptb111);
+            EquipTbList11.Add(equiptb112);
+            EquipTbList11.Add(equiptb113);
+            EquipTbList12.Add(equiptb121);
+            EquipTbList12.Add(equiptb122);
+            EquipTbList12.Add(equiptb123);
+            EquipTbList13.Add(equiptb131);
+            EquipTbList13.Add(equiptb132);
+            EquipTbList13.Add(equiptb133);
+
+            EquipTbList21.Add(equiptb211);
+            EquipTbList21.Add(equiptb212);
+            EquipTbList21.Add(equiptb213);
+            EquipTbList22.Add(equiptb221);
+            EquipTbList22.Add(equiptb222);
+            EquipTbList22.Add(equiptb223);
+            EquipTbList23.Add(equiptb231);
+            EquipTbList23.Add(equiptb232);
+            EquipTbList23.Add(equiptb233);
+
+            EquipTbList31.Add(equiptb311);
+            EquipTbList31.Add(equiptb312);
+            EquipTbList31.Add(equiptb313);
+            EquipTbList32.Add(equiptb321);
+            EquipTbList32.Add(equiptb322);
+            EquipTbList32.Add(equiptb323);
+            EquipTbList33.Add(equiptb331);
+            EquipTbList33.Add(equiptb332);
+            EquipTbList33.Add(equiptb333);
+
+            EquipTbList41.Add(equiptb411);
+            EquipTbList41.Add(equiptb412);
+            EquipTbList41.Add(equiptb413);
+            EquipTbList42.Add(equiptb421);
+            EquipTbList42.Add(equiptb422);
+            EquipTbList42.Add(equiptb423);
+            EquipTbList43.Add(equiptb431);
+            EquipTbList43.Add(equiptb432);
+            EquipTbList43.Add(equiptb433);
+
+            EquipTbList51.Add(equiptb511);
+            EquipTbList51.Add(equiptb512);
+            EquipTbList51.Add(equiptb513);
+            EquipTbList52.Add(equiptb521);
+            EquipTbList52.Add(equiptb522);
+            EquipTbList52.Add(equiptb523);
+            EquipTbList53.Add(equiptb531);
+            EquipTbList53.Add(equiptb532);
+            EquipTbList53.Add(equiptb533);
+
+            EquipTbList61.Add(equiptb611);
+            EquipTbList61.Add(equiptb612);
+            EquipTbList61.Add(equiptb613);
+            EquipTbList62.Add(equiptb621);
+            EquipTbList62.Add(equiptb622);
+            EquipTbList62.Add(equiptb623);
+            EquipTbList63.Add(equiptb631);
+            EquipTbList63.Add(equiptb632);
+            EquipTbList63.Add(equiptb633);
+
+            EquipTbList71.Add(equiptb711);
+            EquipTbList71.Add(equiptb712);
+            EquipTbList71.Add(equiptb713);
+            EquipTbList72.Add(equiptb721);
+            EquipTbList72.Add(equiptb722);
+            EquipTbList72.Add(equiptb723);
+            EquipTbList73.Add(equiptb731);
+            EquipTbList73.Add(equiptb732);
+            EquipTbList73.Add(equiptb733);
+
+            EquipTbList81.Add(equiptb811);
+            EquipTbList81.Add(equiptb812);
+            EquipTbList81.Add(equiptb813);
+            EquipTbList82.Add(equiptb821);
+            EquipTbList82.Add(equiptb822);
+            EquipTbList82.Add(equiptb823);
+            EquipTbList83.Add(equiptb831);
+            EquipTbList83.Add(equiptb832);
+            EquipTbList83.Add(equiptb833);
+
+            EquipTbListList0.Add(EquipTbList01);
+            EquipTbListList0.Add(EquipTbList02);
+            EquipTbListList0.Add(EquipTbList03);
+            EquipTbListList1.Add(EquipTbList11);
+            EquipTbListList1.Add(EquipTbList12);
+            EquipTbListList1.Add(EquipTbList13);
+            EquipTbListList2.Add(EquipTbList21);
+            EquipTbListList2.Add(EquipTbList22);
+            EquipTbListList2.Add(EquipTbList23);
+            EquipTbListList3.Add(EquipTbList31);
+            EquipTbListList3.Add(EquipTbList32);
+            EquipTbListList3.Add(EquipTbList33);
+            EquipTbListList4.Add(EquipTbList41);
+            EquipTbListList4.Add(EquipTbList42);
+            EquipTbListList4.Add(EquipTbList43);
+            EquipTbListList5.Add(EquipTbList51);
+            EquipTbListList5.Add(EquipTbList52);
+            EquipTbListList5.Add(EquipTbList53);
+            EquipTbListList6.Add(EquipTbList61);
+            EquipTbListList6.Add(EquipTbList62);
+            EquipTbListList6.Add(EquipTbList63);
+            EquipTbListList7.Add(EquipTbList71);
+            EquipTbListList7.Add(EquipTbList72);
+            EquipTbListList7.Add(EquipTbList73);
+            EquipTbListList8.Add(EquipTbList81);
+            EquipTbListList8.Add(EquipTbList82);
+            EquipTbListList8.Add(EquipTbList83);
+
+            EquipTbListListList.Add(EquipTbListList0);
+            EquipTbListListList.Add(EquipTbListList1);
+            EquipTbListListList.Add(EquipTbListList2);
+            EquipTbListListList.Add(EquipTbListList3);
+            EquipTbListListList.Add(EquipTbListList4);
+            EquipTbListListList.Add(EquipTbListList5);
+            EquipTbListListList.Add(EquipTbListList6);
+            EquipTbListListList.Add(EquipTbListList7);
+            EquipTbListListList.Add(EquipTbListList8);
             baka();
 
             Combo0.SelectedIndex = GUN_NUMBER;
@@ -244,7 +498,7 @@ namespace snqxap
             Lbreakarmor7.Content = equipbreakarmor[7];
             Lbreakarmor8.Content = equipbreakarmor[8];
 
-        
+            
         }
 
         /// <summary>
@@ -17275,3411 +17529,102 @@ namespace snqxap
                     }
             }
         }
+      
         /// <summary>
-        /// 01装备格选项变化事件
+        ///装备格选项变化事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void equipcb01_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void equipcb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            equiptb011.IsEnabled = false;
-            equiptb012.IsEnabled = false;
-            equiptb013.IsEnabled = false;
-            equiptb011.SelectedIndex = -1;
-            equiptb012.SelectedIndex = -1;
-            equiptb013.SelectedIndex = -1;
-            //        clearequip(0);
-
-            int comboindex = Combo0.SelectedIndex;
-
-            if (equipcb01.SelectedItem != null)
-            {
-                string equipselect01 = equipcb01.SelectedItem.ToString();
-                int equipindex01 = getequipindex(equipselect01.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex01].property1))
-                {
-                    equiptb011.IsEnabled = true;
-                    equiptb011.Items.Clear();
-                    for (int i = (int)equip[equipindex01].down1; i <= equip[equipindex01].up1; i++)
-                    {
-                        equiptb011.Items.Add(i);
-                    }
-                    equiptb011.SelectedIndex = equiptb011.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex01].property2))
-                {
-                    equiptb012.IsEnabled = true;
-                    equiptb012.Items.Clear();
-                    for (int i = (int)equip[equipindex01].down2; i <= equip[equipindex01].up2; i++)
-                    {
-                        equiptb012.Items.Add(i);
-                    }
-                    equiptb012.SelectedIndex = equiptb012.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex01].property3))
-                {
-                    equiptb013.IsEnabled = true;
-                    equiptb013.Items.Clear();
-                    for (int i = (int)equip[equipindex01].down3; i <= equip[equipindex01].up3; i++)
-                    {
-                        equiptb013.Items.Add(i);
-                    }
-                    equiptb013.SelectedIndex = equiptb013.Items.Count - 1;
-                }
-                if (equipindex01 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex01].type)
-                            {
-                                equipcb01.SelectedIndex = 0; return;
-                            }
-                    }
-                if (equip[equipindex01].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb01.Foreground = br;
-                }
-                else if (equip[equipindex01].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb01.Foreground = br;
-                }
-                else if (equip[equipindex01].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb01.Foreground = br;
-                }
-                else if (equip[equipindex01].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb01.Foreground = br;
-                }
-                setequiptooltips(1, equipindex01);
-            }
-            if (equipcb02.SelectedItem != null)
-            {
-                string equipselect02 = equipcb02.SelectedItem.ToString();
-                int equipindex02 = getequipindex(equipselect02.Substring(31));
-
-                if (equipindex02 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb03.SelectedItem != null && equipcb03.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb03.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type)
-                            {
-                                equipcb01.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb01.SelectedItem != null && equipcb01.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb01.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type)
-                            {
-                                equipcb01.SelectedIndex = 0; return;
-                            }
-                    }
-            }
-            if (equipcb03.SelectedItem != null)
-            {
-                string equipselect03 = equipcb03.SelectedItem.ToString();
-                int equipindex03 = getequipindex(equipselect03.Substring(31));
-                if (equipindex03 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex03].type)
-                            {
-                                equipcb01.SelectedIndex = 0; return;
-                            }
-                    }
-            }
-            renewskill();
-        }
-        /// <summary>
-        /// 02装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb02_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb021.IsEnabled = false;
-            equiptb022.IsEnabled = false;
-            equiptb023.IsEnabled = false;
-            equiptb021.SelectedIndex = -1;
-            equiptb022.SelectedIndex = -1;
-            equiptb023.SelectedIndex = -1;
-            //clearequip(0);
-            int comboindex = Combo0.SelectedIndex;
-
-            if (equipcb01.SelectedItem != null)
-            {
-                string equipselect01 = equipcb01.SelectedItem.ToString();
-                int equipindex01 = getequipindex(equipselect01.Substring(31));
-                if (equipindex01 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex01].type)
-                            {
-                                equipcb02.SelectedIndex = 0; return;
-                            }
-
-                    }
-                //    if (equipcb02.SelectedIndex > -1)
-                //        calcequip(0, equipindex01,1);
-            }
-            if (equipcb02.SelectedItem != null)
-            {
-                string equipselect02 = equipcb02.SelectedItem.ToString();
-                int equipindex02 = getequipindex(equipselect02.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex02].property1))
-                {
-                    equiptb021.IsEnabled = true;
-                    equiptb021.Items.Clear();
-                    for (int i = (int)equip[equipindex02].down1; i <= equip[equipindex02].up1; i++)
-                    {
-                        equiptb021.Items.Add(i);
-                    }
-                    equiptb021.SelectedIndex = equiptb021.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex02].property2))
-                {
-                    equiptb022.IsEnabled = true;
-                    equiptb022.Items.Clear();
-                    for (int i = (int)equip[equipindex02].down2; i <= equip[equipindex02].up2; i++)
-                    {
-                        equiptb022.Items.Add(i);
-                    }
-                    equiptb022.SelectedIndex = equiptb022.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex02].property3))
-                {
-                    equiptb023.IsEnabled = true;
-                    equiptb023.Items.Clear();
-                    for (int i = (int)equip[equipindex02].down3; i <= equip[equipindex02].up3; i++)
-                    {
-                        equiptb023.Items.Add(i);
-                    }
-                    equiptb023.SelectedIndex = equiptb023.Items.Count - 1;
-                }
-                if (equipindex02 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb03.SelectedItem != null && equipcb03.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb03.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type)
-                            {
-                                equipcb02.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb01.SelectedItem != null && equipcb01.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb01.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type)
-                            {
-                                equipcb02.SelectedIndex = 0; return;
-                            }
-                    }
-                //     if (equipcb02.SelectedIndex > -1)
-                //         calcequip(0, equipindex02,2);
-                if (equip[equipindex02].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb02.Foreground = br;
-                }
-                else if (equip[equipindex02].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb02.Foreground = br;
-                }
-                else if (equip[equipindex02].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb02.Foreground = br;
-                }
-                else if (equip[equipindex02].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb02.Foreground = br;
-                }
-                setequiptooltips(2, equipindex02);
-            }
-            if (equipcb03.SelectedItem != null)
-            {
-                string equipselect03 = equipcb03.SelectedItem.ToString();
-                int equipindex03 = getequipindex(equipselect03.Substring(31));
-                if (equipindex03 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex03].type)
-                            {
-                                equipcb02.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //    if (equipcb02.SelectedIndex > -1)
-                //        calcequip(0, equipindex03,3);
-            }
-            renewskill();
-        }
-        /// <summary>
-        /// 03装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb03_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb031.IsEnabled = false;
-            equiptb032.IsEnabled = false;
-            equiptb033.IsEnabled = false;
-            equiptb031.SelectedIndex = -1;
-            equiptb032.SelectedIndex = -1;
-            equiptb033.SelectedIndex = -1;
-            //clearequip(0);
-            int comboindex = Combo0.SelectedIndex;
-
-            if (equipcb01.SelectedItem != null)
-            {
-                string equipselect01 = equipcb01.SelectedItem.ToString();
-                int equipindex01 = getequipindex(equipselect01.Substring(31));
-                if (equipindex01 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex01].type)
-                            {
-                                equipcb03.SelectedIndex = 0; return;
-                            }
-                    }
-                //     if (equipcb03.SelectedIndex > -1)
-                //         calcequip(0, equipindex01,1);
-            }
-            if (equipcb02.SelectedItem != null)
-            {
-                string equipselect02 = equipcb02.SelectedItem.ToString();
-                int equipindex02 = getequipindex(equipselect02.Substring(31));
-                if (equipindex02 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb03.SelectedItem != null && equipcb03.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb03.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type)
-                            {
-                                equipcb03.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb01.SelectedItem != null && equipcb01.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb01.SelectedItem.ToString().Substring(31))].type == equip[equipindex02].type)
-                            {
-                                equipcb03.SelectedIndex = 0; return;
-                            }
-                    }
-                //    if (equipcb03.SelectedIndex > -1)
-                //        calcequip(0, equipindex02,2);
-            }
-            if (equipcb03.SelectedItem != null)
-            {
-                string equipselect03 = equipcb03.SelectedItem.ToString();
-                int equipindex03 = getequipindex(equipselect03.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex03].property1))
-                {
-                    equiptb031.IsEnabled = true;
-                    equiptb031.Items.Clear();
-                    for (int i = (int)equip[equipindex03].down1; i <= equip[equipindex03].up1; i++)
-                    {
-                        equiptb031.Items.Add(i);
-                    }
-                    equiptb031.SelectedIndex = equiptb031.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex03].property2))
-                {
-                    equiptb032.IsEnabled = true;
-                    equiptb032.Items.Clear();
-                    for (int i = (int)equip[equipindex03].down2; i <= equip[equipindex03].up2; i++)
-                    {
-                        equiptb032.Items.Add(i);
-                    }
-                    equiptb032.SelectedIndex = equiptb032.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex03].property3))
-                {
-                    equiptb033.IsEnabled = true;
-                    equiptb033.Items.Clear();
-                    for (int i = (int)equip[equipindex03].down3; i <= equip[equipindex03].up3; i++)
-                    {
-                        equiptb033.Items.Add(i);
-                    }
-                    equiptb033.SelectedIndex = equiptb033.Items.Count - 1;
-                }
-                if (equipindex03 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb02.SelectedItem != null && equipcb02.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb02.SelectedItem.ToString().Substring(31))].type == equip[equipindex03].type)
-                            {
-                                equipcb03.SelectedIndex = 0; return;
-                            }
-                    }
-
-
-                //     if (equipcb03.SelectedIndex > -1) 
-                //          calcequip(0, equipindex03,3);
-                if (equip[equipindex03].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb03.Foreground = br;
-                }
-                else if (equip[equipindex03].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb03.Foreground = br;
-                }
-                else if (equip[equipindex03].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb03.Foreground = br;
-                }
-                else if (equip[equipindex03].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb03.Foreground = br;
-                }
-                setequiptooltips(3, equipindex03);
-            }
-            renewskill();
-        }
-        /// <summary>
-        /// 11装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb11_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb111.IsEnabled = false;
-            equiptb112.IsEnabled = false;
-            equiptb113.IsEnabled = false;
-            equiptb111.SelectedIndex = -1;
-            equiptb112.SelectedIndex = -1;
-            equiptb113.SelectedIndex = -1;
-            //clearequip(1);
-            int comboindex = Combo1.SelectedIndex;
-
-            if (equipcb11.SelectedItem != null)
-            {
-                string equipselect11 = equipcb11.SelectedItem.ToString();
-                int equipindex11 = getequipindex(equipselect11.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex11].property1))
-                {
-                    equiptb111.IsEnabled = true;
-                    equiptb111.Items.Clear();
-                    for (int i = (int)equip[equipindex11].down1; i <= equip[equipindex11].up1; i++)
-                    {
-                        equiptb111.Items.Add(i);
-                    }
-                    equiptb111.SelectedIndex = equiptb111.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex11].property2))
-                {
-                    equiptb112.IsEnabled = true;
-                    equiptb112.Items.Clear();
-                    for (int i = (int)equip[equipindex11].down2; i <= equip[equipindex11].up2; i++)
-                    {
-                        equiptb112.Items.Add(i);
-                    }
-                    equiptb112.SelectedIndex = equiptb112.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex11].property3))
-                {
-                    equiptb113.IsEnabled = true;
-                    equiptb113.Items.Clear();
-                    for (int i = (int)equip[equipindex11].down3; i <= equip[equipindex11].up3; i++)
-                    {
-                        equiptb113.Items.Add(i);
-                    }
-                    equiptb113.SelectedIndex = equiptb113.Items.Count - 1;
-                }
-                if (equipindex11 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex11].type)
-                            {
-                                equipcb11.SelectedIndex = 0; return;
-                            }
-                    }
-                //    if (equipcb11.SelectedIndex > -1)
-                //        calcequip(1, equipindex11,11);
-                if (equip[equipindex11].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb11.Foreground = br;
-                }
-                else if (equip[equipindex11].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb11.Foreground = br;
-                }
-                else if (equip[equipindex11].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb11.Foreground = br;
-                }
-                else if (equip[equipindex11].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb11.Foreground = br;
-                }
-                setequiptooltips(11, equipindex11);
-            }
-            if (equipcb12.SelectedItem != null)
-            {
-                string equipselect12 = equipcb12.SelectedItem.ToString();
-                int equipindex12 = getequipindex(equipselect12.Substring(31));
-                if (equipindex12 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb13.SelectedItem != null && equipcb13.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb13.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type)
-                            {
-                                equipcb11.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb11.SelectedItem != null && equipcb11.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb11.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type)
-                            {
-                                equipcb11.SelectedIndex = 0; return;
-                            }
-                    }
-                //      if (equipcb11.SelectedIndex > -1)
-                //          calcequip(1, equipindex12,12);
-            }
-            if (equipcb13.SelectedItem != null)
-            {
-                string equipselect13 = equipcb13.SelectedItem.ToString();
-                int equipindex13 = getequipindex(equipselect13.Substring(31));
-                if (equipindex13 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex13].type)
-                            {
-                                equipcb11.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //        if (equipcb11.SelectedIndex > -1)
-                //            calcequip(1, equipindex13,13);
-            }
-            renewskill();
-        }
-        /// <summary>
-        /// 12装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb12_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb121.IsEnabled = false;
-            equiptb122.IsEnabled = false;
-            equiptb123.IsEnabled = false;
-            equiptb121.SelectedIndex = -1;
-            equiptb122.SelectedIndex = -1;
-            equiptb123.SelectedIndex = -1;
-            //clearequip(1);
-            int comboindex = Combo1.SelectedIndex;
-
-            if (equipcb11.SelectedItem != null)
-            {
-                string equipselect11 = equipcb11.SelectedItem.ToString();
-                int equipindex11 = getequipindex(equipselect11.Substring(31));
-                if (equipindex11 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex11].type)
-                            {
-                                equipcb12.SelectedIndex = 0; return;
-                            }
-                    }
-                //    if (equipcb12.SelectedIndex > -1)
-                //        calcequip(1, equipindex11,11);
-            }
-            if (equipcb12.SelectedItem != null)
-            {
-                string equipselect12 = equipcb12.SelectedItem.ToString();
-                int equipindex12 = getequipindex(equipselect12.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex12].property1))
-                {
-                    equiptb121.IsEnabled = true;
-                    equiptb121.Items.Clear();
-                    for (int i = (int)equip[equipindex12].down1; i <= equip[equipindex12].up1; i++)
-                    {
-                        equiptb121.Items.Add(i);
-                    }
-                    equiptb121.SelectedIndex = equiptb121.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex12].property2))
-                {
-                    equiptb122.IsEnabled = true;
-                    equiptb122.Items.Clear();
-                    for (int i = (int)equip[equipindex12].down2; i <= equip[equipindex12].up2; i++)
-                    {
-                        equiptb122.Items.Add(i);
-                    }
-                    equiptb122.SelectedIndex = equiptb122.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex12].property3))
-                {
-                    equiptb123.IsEnabled = true;
-                    equiptb123.Items.Clear();
-                    for (int i = (int)equip[equipindex12].down3; i <= equip[equipindex12].up3; i++)
-                    {
-                        equiptb123.Items.Add(i);
-                    }
-                    equiptb123.SelectedIndex = equiptb123.Items.Count - 1;
-                }
-                if (equipindex12 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb13.SelectedItem != null && equipcb13.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb13.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type)
-                            {
-                                equipcb12.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb11.SelectedItem != null && equipcb11.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb11.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type)
-                            {
-                                equipcb12.SelectedIndex = 0; return;
-                            }
-                    }
-                //    if (equipcb12.SelectedIndex > -1)
-                //       calcequip(1, equipindex12,12);
-                if (equip[equipindex12].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb12.Foreground = br;
-                }
-                else if (equip[equipindex12].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb12.Foreground = br;
-                }
-                else if (equip[equipindex12].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb12.Foreground = br;
-                }
-                else if (equip[equipindex12].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb12.Foreground = br;
-                }
-                setequiptooltips(12, equipindex12);
-            }
-            if (equipcb13.SelectedItem != null)
-            {
-                string equipselect13 = equipcb13.SelectedItem.ToString();
-                int equipindex13 = getequipindex(equipselect13.Substring(31));
-                if (equipindex13 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex13].type)
-                            {
-                                equipcb12.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //   if (equipcb12.SelectedIndex > -1)
-                //       calcequip(1, equipindex13,13);
-            }
-            renewskill();
-        }
-        /// <summary>
-        ///13装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb13_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb131.IsEnabled = false;
-            equiptb132.IsEnabled = false;
-            equiptb133.IsEnabled = false;
-            equiptb131.SelectedIndex = -1;
-            equiptb132.SelectedIndex = -1;
-            equiptb133.SelectedIndex = -1;
-            //clearequip(1);
-            int comboindex = Combo1.SelectedIndex;
-
-            if (equipcb11.SelectedItem != null)
-            {
-                string equipselect11 = equipcb11.SelectedItem.ToString();
-                int equipindex11 = getequipindex(equipselect11.Substring(31));
-                if (equipindex11 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex11].type)
-                            {
-                                equipcb13.SelectedIndex = 0; return;
-                            }
-                    }
-                //  if (equipcb13.SelectedIndex > -1)
-                //      calcequip(1, equipindex11,11);
-            }
-            if (equipcb12.SelectedItem != null)
-            {
-                string equipselect12 = equipcb12.SelectedItem.ToString();
-                int equipindex12 = getequipindex(equipselect12.Substring(31));
-                if (equipindex12 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb13.SelectedItem != null && equipcb13.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb13.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type)
-                            {
-                                equipcb13.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb11.SelectedItem != null && equipcb11.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb11.SelectedItem.ToString().Substring(31))].type == equip[equipindex12].type)
-                            {
-                                equipcb13.SelectedIndex = 0; return;
-                            }
-                    }
-                //   if (equipcb13.SelectedIndex > -1)
-                //       calcequip(1, equipindex12,12);
-            }
-            if (equipcb13.SelectedItem != null)
-            {
-                string equipselect13 = equipcb13.SelectedItem.ToString();
-                int equipindex13 = getequipindex(equipselect13.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex13].property1))
-                {
-                    equiptb131.IsEnabled = true;
-                    equiptb131.Items.Clear();
-                    for (int i = (int)equip[equipindex13].down1; i <= equip[equipindex13].up1; i++)
-                    {
-                        equiptb131.Items.Add(i);
-                    }
-                    equiptb131.SelectedIndex = equiptb131.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex13].property2))
-                {
-                    equiptb132.IsEnabled = true;
-                    equiptb132.Items.Clear();
-                    for (int i = (int)equip[equipindex13].down2; i <= equip[equipindex13].up2; i++)
-                    {
-                        equiptb132.Items.Add(i);
-                    }
-                    equiptb132.SelectedIndex = equiptb132.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex13].property3))
-                {
-                    equiptb133.IsEnabled = true;
-                    equiptb133.Items.Clear();
-                    for (int i = (int)equip[equipindex13].down3; i <= equip[equipindex13].up3; i++)
-                    {
-                        equiptb133.Items.Add(i);
-                    }
-                    equiptb133.SelectedIndex = equiptb133.Items.Count - 1;
-                }
-                if (equipindex13 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb12.SelectedItem != null && equipcb12.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb12.SelectedItem.ToString().Substring(31))].type == equip[equipindex13].type)
-                            {
-                                equipcb13.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //      if (equipcb13.SelectedIndex > -1)
-                //         calcequip(1, equipindex13,13);
-                if (equip[equipindex13].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb13.Foreground = br;
-                }
-                else if (equip[equipindex13].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb13.Foreground = br;
-                }
-                else if (equip[equipindex13].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb13.Foreground = br;
-                }
-                else if (equip[equipindex13].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb13.Foreground = br;
-                }
-                setequiptooltips(13, equipindex13);
-            }
-            renewskill();
-        }
-        /// <summary>
-        /// 21装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb21_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb211.IsEnabled = false;
-            equiptb212.IsEnabled = false;
-            equiptb213.IsEnabled = false;
-            equiptb211.SelectedIndex = -1;
-            equiptb212.SelectedIndex = -1;
-            equiptb213.SelectedIndex = -1;
-            //clearequip(2);
-            int comboindex = Combo2.SelectedIndex;
-
-            if (equipcb21.SelectedItem != null)
-            {
-                string equipselect21 = equipcb21.SelectedItem.ToString();
-                int equipindex21 = getequipindex(equipselect21.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex21].property1))
-                {
-                    equiptb211.IsEnabled = true;
-                    equiptb211.Items.Clear();
-                    for (int i = (int)equip[equipindex21].down1; i <= equip[equipindex21].up1; i++)
-                    {
-                        equiptb211.Items.Add(i);
-                    }
-                    equiptb211.SelectedIndex = equiptb211.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex21].property2))
-                {
-                    equiptb212.IsEnabled = true;
-                    equiptb212.Items.Clear();
-                    for (int i = (int)equip[equipindex21].down2; i <= equip[equipindex21].up2; i++)
-                    {
-                        equiptb212.Items.Add(i);
-                    }
-                    equiptb212.SelectedIndex = equiptb212.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex21].property3))
-                {
-                    equiptb213.IsEnabled = true;
-                    equiptb213.Items.Clear();
-                    for (int i = (int)equip[equipindex21].down3; i <= equip[equipindex21].up3; i++)
-                    {
-                        equiptb213.Items.Add(i);
-                    }
-                    equiptb213.SelectedIndex = equiptb213.Items.Count - 1;
-                }
-                if (equipindex21 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex21].type)
-                            {
-                                equipcb21.SelectedIndex = 0; return;
-                            }
-                    }
-                //     if (equipcb21.SelectedIndex > -1)
-                //          calcequip(2, equipindex21,21);
-                if (equip[equipindex21].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb21.Foreground = br;
-                }
-                else if (equip[equipindex21].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb21.Foreground = br;
-                }
-                else if (equip[equipindex21].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb21.Foreground = br;
-                }
-                else if (equip[equipindex21].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb21.Foreground = br;
-                }
-                setequiptooltips(21, equipindex21);
-            }
-            if (equipcb22.SelectedItem != null)
-            {
-                string equipselect22 = equipcb22.SelectedItem.ToString();
-                int equipindex22 = getequipindex(equipselect22.Substring(31));
-                if (equipindex22 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb23.SelectedItem != null && equipcb23.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb23.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type)
-                            {
-                                equipcb21.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb21.SelectedItem != null && equipcb21.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb21.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type)
-                            {
-                                equipcb21.SelectedIndex = 0; return;
-                            }
-                    }
-                //    if (equipcb21.SelectedIndex > -1)
-                //         calcequip(2, equipindex22,22);
-            }
-            if (equipcb23.SelectedItem != null)
-            {
-                string equipselect23 = equipcb23.SelectedItem.ToString();
-                int equipindex23 = getequipindex(equipselect23.Substring(31));
-                if (equipindex23 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex23].type)
-                            {
-                                equipcb21.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //    if (equipcb21.SelectedIndex > -1)
-                //        calcequip(2, equipindex23,23);
-            }
-            renewskill();
-        }
-        /// <summary>
-        /// 22装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb22_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb221.IsEnabled = false;
-            equiptb222.IsEnabled = false;
-            equiptb223.IsEnabled = false;
-            equiptb221.SelectedIndex = -1;
-            equiptb222.SelectedIndex = -1;
-            equiptb223.SelectedIndex = -1;
-            //clearequip(2);
-            int comboindex = Combo2.SelectedIndex;
-
-            if (equipcb21.SelectedItem != null)
-            {
-                string equipselect21 = equipcb21.SelectedItem.ToString();
-                int equipindex21 = getequipindex(equipselect21.Substring(31));
-                if (equipindex21 != -1)
-                    if (equipindex21 != -1)
-                        if (comboindex == 51 || comboindex == 52)
-                        {
-                            if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31) != " ")
-                                if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex21].type)
-                                {
-                                    equipcb22.SelectedIndex = 0; return;
-                                }
-                        }
-                //  if (equipcb22.SelectedIndex > -1)
-                //      calcequip(2, equipindex21,21);
-            }
-            if (equipcb22.SelectedItem != null)
-            {
-                string equipselect22 = equipcb22.SelectedItem.ToString();
-                int equipindex22 = getequipindex(equipselect22.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex22].property1))
-                {
-                    equiptb221.IsEnabled = true;
-                    equiptb221.Items.Clear();
-                    for (int i = (int)equip[equipindex22].down1; i <= equip[equipindex22].up1; i++)
-                    {
-                        equiptb221.Items.Add(i);
-                    }
-                    equiptb221.SelectedIndex = equiptb221.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex22].property2))
-                {
-                    equiptb222.IsEnabled = true;
-                    equiptb222.Items.Clear();
-                    for (int i = (int)equip[equipindex22].down2; i <= equip[equipindex22].up2; i++)
-                    {
-                        equiptb222.Items.Add(i);
-                    }
-                    equiptb222.SelectedIndex = equiptb222.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex22].property3))
-                {
-                    equiptb223.IsEnabled = true;
-                    equiptb223.Items.Clear();
-                    for (int i = (int)equip[equipindex22].down3; i <= equip[equipindex22].up3; i++)
-                    {
-                        equiptb223.Items.Add(i);
-                    }
-                    equiptb223.SelectedIndex = equiptb223.Items.Count - 1;
-                }
-                if (equipindex22 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb23.SelectedItem != null && equipcb23.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb23.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type)
-                            {
-                                equipcb22.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb21.SelectedItem != null && equipcb21.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb21.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type)
-                            {
-                                equipcb22.SelectedIndex = 0; return;
-                            }
-                    }
-                //   if (equipcb22.SelectedIndex > -1)
-                //       calcequip(2, equipindex22,22);
-                if (equip[equipindex22].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb22.Foreground = br;
-                }
-                else if (equip[equipindex22].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb22.Foreground = br;
-                }
-                else if (equip[equipindex22].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb22.Foreground = br;
-                }
-                else if (equip[equipindex22].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb22.Foreground = br;
-                }
-                setequiptooltips(22, equipindex22);
-            }
-            if (equipcb23.SelectedItem != null)
-            {
-                string equipselect23 = equipcb23.SelectedItem.ToString();
-                int equipindex23 = getequipindex(equipselect23.Substring(31));
-                if (equipindex23 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex23].type)
-                            {
-                                equipcb22.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //   if (equipcb22.SelectedIndex > -1)
-                //       calcequip(2, equipindex23,23);
-            }
-            renewskill();
-        }
-        /// <summary>
-        /// 23装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb23_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb231.IsEnabled = false;
-            equiptb232.IsEnabled = false;
-            equiptb233.IsEnabled = false;
-            equiptb231.SelectedIndex = -1;
-            equiptb232.SelectedIndex = -1;
-            equiptb233.SelectedIndex = -1;
-            //clearequip(2);
-            int comboindex = Combo2.SelectedIndex;
-
-            if (equipcb21.SelectedItem != null)
-            {
-                string equipselect21 = equipcb21.SelectedItem.ToString();
-                int equipindex21 = getequipindex(equipselect21.Substring(31));
-                if (equipindex21 != -1)
-                    if (equipindex21 != -1)
-                        if (comboindex == 51 || comboindex == 52)
-                        {
-                            if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31) != " ")
-                                if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex21].type)
-                                {
-                                    equipcb23.SelectedIndex = 0; return;
-                                }
-                        }
-                //    if (equipcb23.SelectedIndex > -1)
-                //        calcequip(2, equipindex21,21);
-            }
-            if (equipcb22.SelectedItem != null)
-            {
-                string equipselect22 = equipcb22.SelectedItem.ToString();
-                int equipindex22 = getequipindex(equipselect22.Substring(31));
-                if (equipindex22 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb23.SelectedItem != null && equipcb23.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb23.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type)
-                            {
-                                equipcb23.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb21.SelectedItem != null && equipcb21.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb21.SelectedItem.ToString().Substring(31))].type == equip[equipindex22].type)
-                            {
-                                equipcb23.SelectedIndex = 0; return;
-                            }
-                    }
-                //    if (equipcb23.SelectedIndex > -1)
-                //        calcequip(2, equipindex22,22);
-            }
-            if (equipcb23.SelectedItem != null)
-            {
-                string equipselect23 = equipcb23.SelectedItem.ToString();
-                int equipindex23 = getequipindex(equipselect23.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex23].property1))
-                {
-                    equiptb231.IsEnabled = true;
-                    equiptb231.Items.Clear();
-                    for (int i = (int)equip[equipindex23].down1; i <= equip[equipindex23].up1; i++)
-                    {
-                        equiptb231.Items.Add(i);
-                    }
-                    equiptb231.SelectedIndex = equiptb231.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex23].property2))
-                {
-                    equiptb232.IsEnabled = true;
-                    equiptb232.Items.Clear();
-                    for (int i = (int)equip[equipindex23].down2; i <= equip[equipindex23].up2; i++)
-                    {
-                        equiptb232.Items.Add(i);
-                    }
-                    equiptb232.SelectedIndex = equiptb232.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex23].property3))
-                {
-                    equiptb233.IsEnabled = true;
-                    equiptb233.Items.Clear();
-                    for (int i = (int)equip[equipindex23].down3; i <= equip[equipindex23].up3; i++)
-                    {
-                        equiptb233.Items.Add(i);
-                    }
-                    equiptb233.SelectedIndex = equiptb233.Items.Count - 1;
-                }
-                if (equipindex23 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb22.SelectedItem != null && equipcb22.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb22.SelectedItem.ToString().Substring(31))].type == equip[equipindex23].type)
-                            {
-                                equipcb23.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //   if (equipcb23.SelectedIndex > -1)
-                //      calcequip(2, equipindex23,23);
-                if (equip[equipindex23].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb23.Foreground = br;
-                }
-                else if (equip[equipindex23].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb23.Foreground = br;
-                }
-                else if (equip[equipindex23].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb23.Foreground = br;
-                }
-                else if (equip[equipindex23].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb23.Foreground = br;
-                }
-                setequiptooltips(23, equipindex23);
-            }
-            renewskill();
-        }
-        /// <summary>
-        ///31装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb31_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb311.IsEnabled = false;
-            equiptb312.IsEnabled = false;
-            equiptb313.IsEnabled = false;
-            equiptb311.SelectedIndex = -1;
-            equiptb312.SelectedIndex = -1;
-            equiptb313.SelectedIndex = -1;
-            //clearequip(3);
-            int comboindex = Combo3.SelectedIndex;
-
-            if (equipcb31.SelectedItem != null)
-            {
-                string equipselect31 = equipcb31.SelectedItem.ToString();
-                int equipindex31 = getequipindex(equipselect31.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex31].property1))
-                {
-                    equiptb311.IsEnabled = true;
-                    equiptb311.Items.Clear();
-                    for (int i = (int)equip[equipindex31].down1; i <= equip[equipindex31].up1; i++)
-                    {
-                        equiptb311.Items.Add(i);
-                    }
-                    equiptb311.SelectedIndex = equiptb311.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex31].property2))
-                {
-                    equiptb312.IsEnabled = true;
-                    equiptb312.Items.Clear();
-                    for (int i = (int)equip[equipindex31].down2; i <= equip[equipindex31].up2; i++)
-                    {
-                        equiptb312.Items.Add(i);
-                    }
-                    equiptb312.SelectedIndex = equiptb312.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex31].property3))
-                {
-                    equiptb313.IsEnabled = true;
-                    equiptb313.Items.Clear();
-                    for (int i = (int)equip[equipindex31].down3; i <= equip[equipindex31].up3; i++)
-                    {
-                        equiptb313.Items.Add(i);
-                    }
-                    equiptb313.SelectedIndex = equiptb313.Items.Count - 1;
-                }
-                if (equipindex31 != -1)
-                    if (equipindex31 != -1)
-                        if (comboindex == 51 || comboindex == 52)
-                        {
-                            if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31) != " ")
-                                if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex31].type)
-                                {
-                                    equipcb31.SelectedIndex = 0; return;
-                                }
-                        }
-                //  if (equipcb31.SelectedIndex > -1)
-                //      calcequip(3, equipindex31,31);
-                if (equip[equipindex31].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb31.Foreground = br;
-                }
-                else if (equip[equipindex31].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb31.Foreground = br;
-                }
-                else if (equip[equipindex31].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb31.Foreground = br;
-                }
-                else if (equip[equipindex31].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb31.Foreground = br;
-                }
-                setequiptooltips(31, equipindex31);
-            }
-            if (equipcb32.SelectedItem != null)
-            {
-                string equipselect32 = equipcb32.SelectedItem.ToString();
-                int equipindex32 = getequipindex(equipselect32.Substring(31));
-                if (equipindex32 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb33.SelectedItem != null && equipcb33.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb33.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type)
-                            {
-                                equipcb31.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb31.SelectedItem != null && equipcb31.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb31.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type)
-                            {
-                                equipcb31.SelectedIndex = 0; return;
-                            }
-                    }
-                //   if (equipcb31.SelectedIndex > -1)
-                //       calcequip(3, equipindex32,32);
-            }
-            if (equipcb33.SelectedItem != null)
-            {
-                string equipselect33 = equipcb33.SelectedItem.ToString();
-                int equipindex33 = getequipindex(equipselect33.Substring(31));
-                if (equipindex33 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex33].type)
-                            {
-                                equipcb31.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //   if (equipcb31.SelectedIndex > -1)
-                //      calcequip(3, equipindex33,33);
-            }
-            renewskill();
-        }
-        /// <summary>
-        ///32装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb32_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb321.IsEnabled = false;
-            equiptb322.IsEnabled = false;
-            equiptb323.IsEnabled = false;
-            equiptb321.SelectedIndex = -1;
-            equiptb322.SelectedIndex = -1;
-            equiptb323.SelectedIndex = -1;
-            //clearequip(3);
-            int comboindex = Combo3.SelectedIndex;
-
-            if (equipcb31.SelectedItem != null)
-            {
-                string equipselect31 = equipcb31.SelectedItem.ToString();
-                int equipindex31 = getequipindex(equipselect31.Substring(31));
-                if (equipindex31 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex31].type)
-                            {
-                                equipcb32.SelectedIndex = 0; return;
-                            }
-                    }
-                //    if (equipcb32.SelectedIndex > -1)
-                //        calcequip(3, equipindex31,31);
-            }
-            if (equipcb32.SelectedItem != null)
-            {
-                string equipselect32 = equipcb32.SelectedItem.ToString();
-                int equipindex32 = getequipindex(equipselect32.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex32].property1))
-                {
-                    equiptb321.IsEnabled = true;
-                    equiptb321.Items.Clear();
-                    for (int i = (int)equip[equipindex32].down1; i <= equip[equipindex32].up1; i++)
-                    {
-                        equiptb321.Items.Add(i);
-                    }
-                    equiptb321.SelectedIndex = equiptb321.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex32].property2))
-                {
-                    equiptb322.IsEnabled = true;
-                    equiptb322.Items.Clear();
-                    for (int i = (int)equip[equipindex32].down2; i <= equip[equipindex32].up2; i++)
-                    {
-                        equiptb322.Items.Add(i);
-                    }
-                    equiptb322.SelectedIndex = equiptb322.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex32].property3))
-                {
-                    equiptb323.IsEnabled = true;
-                    equiptb323.Items.Clear();
-                    for (int i = (int)equip[equipindex32].down3; i <= equip[equipindex32].up3; i++)
-                    {
-                        equiptb323.Items.Add(i);
-                    }
-                    equiptb323.SelectedIndex = equiptb323.Items.Count - 1;
-                }
-                if (equipindex32 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb33.SelectedItem != null && equipcb33.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb33.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type)
-                            {
-                                equipcb32.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb31.SelectedItem != null && equipcb31.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb31.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type)
-                            {
-                                equipcb32.SelectedIndex = 0; return;
-                            }
-                    }
-                //  if (equipcb32.SelectedIndex > -1)
-                //      calcequip(3, equipindex32,32);
-                if (equip[equipindex32].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb32.Foreground = br;
-                }
-                else if (equip[equipindex32].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb32.Foreground = br;
-                }
-                else if (equip[equipindex32].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb32.Foreground = br;
-                }
-                else if (equip[equipindex32].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb32.Foreground = br;
-                }
-                setequiptooltips(32, equipindex32);
-            }
-            if (equipcb33.SelectedItem != null)
-            {
-                string equipselect33 = equipcb33.SelectedItem.ToString();
-                int equipindex33 = getequipindex(equipselect33.Substring(31));
-                if (equipindex33 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex33].type)
-                            {
-                                equipcb32.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //   if (equipcb32.SelectedIndex > -1)
-                //        calcequip(3, equipindex33,33);
-            }
-            renewskill();
-        }
-        /// <summary>
-        ///33装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb33_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb331.IsEnabled = false;
-            equiptb332.IsEnabled = false;
-            equiptb333.IsEnabled = false;
-            equiptb331.SelectedIndex = -1;
-            equiptb332.SelectedIndex = -1;
-            equiptb333.SelectedIndex = -1;
-            //clearequip(3);
-            int comboindex = Combo3.SelectedIndex;
-
-            if (equipcb31.SelectedItem != null)
-            {
-                string equipselect31 = equipcb31.SelectedItem.ToString();
-                int equipindex31 = getequipindex(equipselect31.Substring(31));
-                if (equipindex31 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex31].type)
-                            {
-                                equipcb33.SelectedIndex = 0; return;
-                            }
-                    }
-                //    if (equipcb33.SelectedIndex > -1)
-                //        calcequip(3, equipindex31,31);
-            }
-            if (equipcb32.SelectedItem != null)
-            {
-                string equipselect32 = equipcb32.SelectedItem.ToString();
-                int equipindex32 = getequipindex(equipselect32.Substring(31));
-                if (equipindex32 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb33.SelectedItem != null && equipcb33.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb33.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type)
-                            {
-                                equipcb33.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb31.SelectedItem != null && equipcb31.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb31.SelectedItem.ToString().Substring(31))].type == equip[equipindex32].type)
-                            {
-                                equipcb33.SelectedIndex = 0; return;
-                            }
-                    }
-                //   if (equipcb33.SelectedIndex > -1)
-                //       calcequip(3, equipindex32,32);
-            }
-            if (equipcb33.SelectedItem != null)
-            {
-                string equipselect33 = equipcb33.SelectedItem.ToString();
-                int equipindex33 = getequipindex(equipselect33.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex33].property1))
-                {
-                    equiptb331.IsEnabled = true;
-                    equiptb331.Items.Clear();
-                    for (int i = (int)equip[equipindex33].down1; i <= equip[equipindex33].up1; i++)
-                    {
-                        equiptb331.Items.Add(i);
-                    }
-                    equiptb331.SelectedIndex = equiptb331.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex33].property2))
-                {
-                    equiptb332.IsEnabled = true;
-                    equiptb332.Items.Clear();
-                    for (int i = (int)equip[equipindex33].down2; i <= equip[equipindex33].up2; i++)
-                    {
-                        equiptb332.Items.Add(i);
-                    }
-                    equiptb332.SelectedIndex = equiptb332.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex33].property3))
-                {
-                    equiptb333.IsEnabled = true;
-                    equiptb333.Items.Clear();
-                    for (int i = (int)equip[equipindex33].down3; i <= equip[equipindex33].up3; i++)
-                    {
-                        equiptb333.Items.Add(i);
-                    }
-                    equiptb333.SelectedIndex = equiptb333.Items.Count - 1;
-                }
-                if (equipindex33 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb32.SelectedItem != null && equipcb32.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb32.SelectedItem.ToString().Substring(31))].type == equip[equipindex33].type)
-                            {
-                                equipcb33.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //    if (equipcb33.SelectedIndex > -1)
-                //       calcequip(3, equipindex33,33);
-                if (equip[equipindex33].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb33.Foreground = br;
-                }
-                else if (equip[equipindex33].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb33.Foreground = br;
-                }
-                else if (equip[equipindex33].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb33.Foreground = br;
-                }
-                else if (equip[equipindex33].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb33.Foreground = br;
-                }
-                setequiptooltips(33, equipindex33);
-            }
-            renewskill();
-        }
-        /// <summary>
-        ///41装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb41_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb411.IsEnabled = false;
-            equiptb412.IsEnabled = false;
-            equiptb413.IsEnabled = false;
-            equiptb411.SelectedIndex = -1;
-            equiptb412.SelectedIndex = -1;
-            equiptb413.SelectedIndex = -1;
-            //clearequip(4);
-            int comboindex = Combo4.SelectedIndex;
-
-            if (equipcb41.SelectedItem != null)
-            {
-                string equipselect41 = equipcb41.SelectedItem.ToString();
-                int equipindex41 = getequipindex(equipselect41.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex41].property1))
-                {
-                    equiptb411.IsEnabled = true;
-                    equiptb411.Items.Clear();
-                    for (int i = (int)equip[equipindex41].down1; i <= equip[equipindex41].up1; i++)
-                    {
-                        equiptb411.Items.Add(i);
-                    }
-                    equiptb411.SelectedIndex = equiptb411.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex41].property2))
-                {
-                    equiptb412.IsEnabled = true;
-                    equiptb412.Items.Clear();
-                    for (int i = (int)equip[equipindex41].down2; i <= equip[equipindex41].up2; i++)
-                    {
-                        equiptb412.Items.Add(i);
-                    }
-                    equiptb412.SelectedIndex = equiptb412.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex41].property3))
-                {
-                    equiptb413.IsEnabled = true;
-                    equiptb413.Items.Clear();
-                    for (int i = (int)equip[equipindex41].down3; i <= equip[equipindex41].up3; i++)
-                    {
-                        equiptb413.Items.Add(i);
-                    }
-                    equiptb413.SelectedIndex = equiptb413.Items.Count - 1;
-                }
-                if (equipindex41 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex41].type)
-                            {
-                                equipcb41.SelectedIndex = 0; return;
-                            }
-                    }
-                //    if (equipcb41.SelectedIndex > -1)
-                //        calcequip(4, equipindex41,41);
-                if (equip[equipindex41].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb41.Foreground = br;
-                }
-                else if (equip[equipindex41].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb41.Foreground = br;
-                }
-                else if (equip[equipindex41].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb41.Foreground = br;
-                }
-                else if (equip[equipindex41].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb41.Foreground = br;
-                }
-                setequiptooltips(41, equipindex41);
-            }
-            if (equipcb42.SelectedItem != null)
-            {
-                string equipselect42 = equipcb42.SelectedItem.ToString();
-                int equipindex42 = getequipindex(equipselect42.Substring(31));
-                if (equipindex42 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb43.SelectedItem != null && equipcb43.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb43.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type)
-                            {
-                                equipcb41.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb41.SelectedItem != null && equipcb41.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb41.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type)
-                            {
-                                equipcb41.SelectedIndex = 0; return;
-                            }
-                    }
-                //   if (equipcb41.SelectedIndex > -1)
-                //       calcequip(4, equipindex42,42);
-            }
-            if (equipcb43.SelectedItem != null)
-            {
-                string equipselect43 = equipcb43.SelectedItem.ToString();
-                int equipindex43 = getequipindex(equipselect43.Substring(31));
-                if (equipindex43 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex43].type)
-                            {
-                                equipcb41.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //    if (equipcb41.SelectedIndex > -1)
-                //       calcequip(4, equipindex43,43);
-            }
-            renewskill();
-        }
-        /// <summary>
-        ///42装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb42_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb421.IsEnabled = false;
-            equiptb422.IsEnabled = false;
-            equiptb423.IsEnabled = false;
-            equiptb421.SelectedIndex = -1;
-            equiptb422.SelectedIndex = -1;
-            equiptb423.SelectedIndex = -1;
-            //clearequip(4);
-            int comboindex = Combo4.SelectedIndex;
-
-            if (equipcb41.SelectedItem != null)
-            {
-                string equipselect41 = equipcb41.SelectedItem.ToString();
-                int equipindex41 = getequipindex(equipselect41.Substring(31));
-                if (equipindex41 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex41].type)
-                            {
-                                equipcb42.SelectedIndex = 0; return;
-                            }
-                    }
-                //    if (equipcb42.SelectedIndex > -1 )
-                //        calcequip(4, equipindex41,41);
-            }
-            if (equipcb42.SelectedItem != null)
-            {
-                string equipselect42 = equipcb42.SelectedItem.ToString();
-                int equipindex42 = getequipindex(equipselect42.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex42].property1))
-                {
-                    equiptb421.IsEnabled = true;
-                    equiptb421.Items.Clear();
-                    for (int i = (int)equip[equipindex42].down1; i <= equip[equipindex42].up1; i++)
-                    {
-                        equiptb421.Items.Add(i);
-                    }
-                    equiptb421.SelectedIndex = equiptb421.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex42].property2))
-                {
-                    equiptb422.IsEnabled = true;
-                    equiptb422.Items.Clear();
-                    for (int i = (int)equip[equipindex42].down2; i <= equip[equipindex42].up2; i++)
-                    {
-                        equiptb422.Items.Add(i);
-                    }
-                    equiptb422.SelectedIndex = equiptb422.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex42].property3))
-                {
-                    equiptb423.IsEnabled = true;
-                    equiptb423.Items.Clear();
-                    for (int i = (int)equip[equipindex42].down3; i <= equip[equipindex42].up3; i++)
-                    {
-                        equiptb423.Items.Add(i);
-                    }
-                    equiptb423.SelectedIndex = equiptb423.Items.Count - 1;
-                }
-                if (equipindex42 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb43.SelectedItem != null && equipcb43.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb43.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type)
-                            {
-                                equipcb42.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb41.SelectedItem != null && equipcb41.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb41.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type)
-                            {
-                                equipcb42.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //   if (equipcb42.SelectedIndex > -1)
-                //        calcequip(4, equipindex42,42);
-                if (equip[equipindex42].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb42.Foreground = br;
-                }
-                else if (equip[equipindex42].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb42.Foreground = br;
-                }
-                else if (equip[equipindex42].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb42.Foreground = br;
-                }
-                else if (equip[equipindex42].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb42.Foreground = br;
-                }
-                setequiptooltips(42, equipindex42);
-            }
-            if (equipcb43.SelectedItem != null)
-            {
-                string equipselect43 = equipcb43.SelectedItem.ToString();
-                int equipindex43 = getequipindex(equipselect43.Substring(31));
-                if (equipindex43 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex43].type)
-                            {
-                                equipcb42.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //   if (equipcb42.SelectedIndex > -1)
-                //       calcequip(4, equipindex43,43);
-            }
-            renewskill();
-        }
-        /// <summary>
-        ///43装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb43_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb431.IsEnabled = false;
-            equiptb432.IsEnabled = false;
-            equiptb433.IsEnabled = false;
-            equiptb431.SelectedIndex = -1;
-            equiptb432.SelectedIndex = -1;
-            equiptb433.SelectedIndex = -1;
-            //clearequip(4);
-            int comboindex = Combo4.SelectedIndex;
-
-            if (equipcb41.SelectedItem != null)
-            {
-                string equipselect41 = equipcb41.SelectedItem.ToString();
-                int equipindex41 = getequipindex(equipselect41.Substring(31));
-                if (equipindex41 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex41].type)
-                            {
-                                equipcb43.SelectedIndex = 0; return;
-                            }
-                    }
-                //   if (equipcb43.SelectedIndex > -1)
-                //       calcequip(4, equipindex41,41);
-            }
-            if (equipcb42.SelectedItem != null)
-            {
-                string equipselect42 = equipcb42.SelectedItem.ToString();
-                int equipindex42 = getequipindex(equipselect42.Substring(31));
-                if (equipindex42 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb43.SelectedItem != null && equipcb43.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb43.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type)
-                            {
-                                equipcb43.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb41.SelectedItem != null && equipcb41.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb41.SelectedItem.ToString().Substring(31))].type == equip[equipindex42].type)
-                            {
-                                equipcb43.SelectedIndex = 0; return;
-                            }
-                    }
-                //   if (equipcb43.SelectedIndex > -1)
-                //      calcequip(4, equipindex42,42);
-            }
-            if (equipcb43.SelectedItem != null)
-            {
-                string equipselect43 = equipcb43.SelectedItem.ToString();
-                int equipindex43 = getequipindex(equipselect43.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex43].property1))
-                {
-                    equiptb431.IsEnabled = true;
-                    equiptb431.Items.Clear();
-                    for (int i = (int)equip[equipindex43].down1; i <= equip[equipindex43].up1; i++)
-                    {
-                        equiptb431.Items.Add(i);
-                    }
-                    equiptb431.SelectedIndex = equiptb431.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex43].property2))
-                {
-                    equiptb432.IsEnabled = true;
-                    equiptb432.Items.Clear();
-                    for (int i = (int)equip[equipindex43].down2; i <= equip[equipindex43].up2; i++)
-                    {
-                        equiptb432.Items.Add(i);
-                    }
-                    equiptb432.SelectedIndex = equiptb432.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex43].property3))
-                {
-                    equiptb433.IsEnabled = true;
-                    equiptb433.Items.Clear();
-                    for (int i = (int)equip[equipindex43].down3; i <= equip[equipindex43].up3; i++)
-                    {
-                        equiptb433.Items.Add(i);
-                    }
-                    equiptb433.SelectedIndex = equiptb433.Items.Count - 1;
-                }
-                if (equipindex43 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb42.SelectedItem != null && equipcb42.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb42.SelectedItem.ToString().Substring(31))].type == equip[equipindex43].type)
-                            {
-                                equipcb43.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //   if (equipcb43.SelectedIndex > -1)
-                //       calcequip(4, equipindex43,43);
-                if (equip[equipindex43].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb43.Foreground = br;
-                }
-                else if (equip[equipindex43].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb43.Foreground = br;
-                }
-                else if (equip[equipindex43].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb43.Foreground = br;
-                }
-                else if (equip[equipindex43].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb43.Foreground = br;
-                }
-                setequiptooltips(43, equipindex43);
-            }
-            renewskill();
-        }
-        /// <summary>
-        ///51装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb51_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb511.IsEnabled = false;
-            equiptb512.IsEnabled = false;
-            equiptb513.IsEnabled = false;
-            equiptb511.SelectedIndex = -1;
-            equiptb512.SelectedIndex = -1;
-            equiptb513.SelectedIndex = -1;
-            //clearequip(5);
-            int comboindex = Combo5.SelectedIndex;
-
-            if (equipcb51.SelectedItem != null)
-            {
-                string equipselect51 = equipcb51.SelectedItem.ToString();
-                int equipindex51 = getequipindex(equipselect51.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex51].property1))
-                {
-                    equiptb511.IsEnabled = true;
-                    equiptb511.Items.Clear();
-                    for (int i = (int)equip[equipindex51].down1; i <= equip[equipindex51].up1; i++)
-                    {
-                        equiptb511.Items.Add(i);
-                    }
-                    equiptb511.SelectedIndex = equiptb511.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex51].property2))
-                {
-                    equiptb512.IsEnabled = true;
-                    equiptb512.Items.Clear();
-                    for (int i = (int)equip[equipindex51].down2; i <= equip[equipindex51].up2; i++)
-                    {
-                        equiptb512.Items.Add(i);
-                    }
-                    equiptb512.SelectedIndex = equiptb512.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex51].property3))
-                {
-                    equiptb513.IsEnabled = true;
-                    equiptb513.Items.Clear();
-                    for (int i = (int)equip[equipindex51].down3; i <= equip[equipindex51].up3; i++)
-                    {
-                        equiptb513.Items.Add(i);
-                    }
-                    equiptb513.SelectedIndex = equiptb513.Items.Count - 1;
-                }
-                if (equipindex51 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex51].type)
-                            {
-                                equipcb51.SelectedIndex = 0; return;
-                            }
-                    }
-                //  if (equipcb51.SelectedIndex > -1)
-                //      calcequip(5, equipindex51,51);
-                if (equip[equipindex51].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb51.Foreground = br;
-                }
-                else if (equip[equipindex51].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb51.Foreground = br;
-                }
-                else if (equip[equipindex51].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb51.Foreground = br;
-                }
-                else if (equip[equipindex51].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb51.Foreground = br;
-                }
-                setequiptooltips(51, equipindex51);
-            }
-            if (equipcb52.SelectedItem != null)
-            {
-                string equipselect52 = equipcb52.SelectedItem.ToString();
-                int equipindex52 = getequipindex(equipselect52.Substring(31));
-                if (equipindex52 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb53.SelectedItem != null && equipcb53.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb53.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type)
-                            {
-                                equipcb51.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb51.SelectedItem != null && equipcb51.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb51.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type)
-                            {
-                                equipcb51.SelectedIndex = 0; return;
-                            }
-                    }
-                //    if (equipcb51.SelectedIndex > -1)
-                //       calcequip(5, equipindex52,52);
-            }
-            if (equipcb53.SelectedItem != null)
-            {
-                string equipselect53 = equipcb53.SelectedItem.ToString();
-                int equipindex53 = getequipindex(equipselect53.Substring(31));
-                if (equipindex53 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex53].type)
-                            {
-                                equipcb51.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //   if (equipcb51.SelectedIndex > -1)
-                //       calcequip(5, equipindex53,53);
-            }
-            renewskill();
-        }
-        /// <summary>
-        ///52装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb52_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb521.IsEnabled = false;
-            equiptb522.IsEnabled = false;
-            equiptb523.IsEnabled = false;
-            equiptb521.SelectedIndex = -1;
-            equiptb522.SelectedIndex = -1;
-            equiptb523.SelectedIndex = -1;
-            //clearequip(5);
-            int comboindex = Combo5.SelectedIndex;
-
-            if (equipcb51.SelectedItem != null)
-            {
-                string equipselect51 = equipcb51.SelectedItem.ToString();
-                int equipindex51 = getequipindex(equipselect51.Substring(31));
-                if (equipindex51 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex51].type)
-                            {
-                                equipcb52.SelectedIndex = 0; return;
-                            }
-                    }
-                //  if (equipcb52.SelectedIndex > -1)
-                //       calcequip(5, equipindex51,51);
-            }
-            if (equipcb52.SelectedItem != null)
-            {
-                string equipselect52 = equipcb52.SelectedItem.ToString();
-                int equipindex52 = getequipindex(equipselect52.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex52].property1))
-                {
-                    equiptb521.IsEnabled = true;
-                    equiptb521.Items.Clear();
-                    for (int i = (int)equip[equipindex52].down1; i <= equip[equipindex52].up1; i++)
-                    {
-                        equiptb521.Items.Add(i);
-                    }
-                    equiptb521.SelectedIndex = equiptb521.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex52].property2))
-                {
-                    equiptb522.IsEnabled = true;
-                    equiptb522.Items.Clear();
-                    for (int i = (int)equip[equipindex52].down2; i <= equip[equipindex52].up2; i++)
-                    {
-                        equiptb522.Items.Add(i);
-                    }
-                    equiptb522.SelectedIndex = equiptb522.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex52].property3))
-                {
-                    equiptb523.IsEnabled = true;
-                    equiptb523.Items.Clear();
-                    for (int i = (int)equip[equipindex52].down3; i <= equip[equipindex52].up3; i++)
-                    {
-                        equiptb523.Items.Add(i);
-                    }
-                    equiptb523.SelectedIndex = equiptb523.Items.Count - 1;
-                }
-                if (equipindex52 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb53.SelectedItem != null && equipcb53.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb53.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type)
-                            {
-                                equipcb52.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb51.SelectedItem != null && equipcb51.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb51.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type)
-                            {
-                                equipcb52.SelectedIndex = 0; return;
-                            }
-                    }
-                //   if (equipcb52.SelectedIndex > -1)
-                //       calcequip(5, equipindex52,52);
-                if (equip[equipindex52].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb52.Foreground = br;
-                }
-                else if (equip[equipindex52].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb52.Foreground = br;
-                }
-                else if (equip[equipindex52].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb52.Foreground = br;
-                }
-                else if (equip[equipindex52].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb52.Foreground = br;
-                }
-                setequiptooltips(52, equipindex52);
-            }
-            if (equipcb53.SelectedItem != null)
-            {
-                string equipselect53 = equipcb53.SelectedItem.ToString();
-                int equipindex53 = getequipindex(equipselect53.Substring(31));
-                if (equipindex53 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex53].type)
-                            {
-                                equipcb52.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //   if (equipcb52.SelectedIndex > -1)
-                //       calcequip(5, equipindex53,53);
-            }
-            renewskill();
-        }
-        /// <summary>
-        ///53装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb53_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb531.IsEnabled = false;
-            equiptb532.IsEnabled = false;
-            equiptb533.IsEnabled = false;
-            equiptb531.SelectedIndex = -1;
-            equiptb532.SelectedIndex = -1;
-            equiptb533.SelectedIndex = -1;
-            //clearequip(5);
-            int comboindex = Combo5.SelectedIndex;
-
-            if (equipcb51.SelectedItem != null)
-            {
-                string equipselect51 = equipcb51.SelectedItem.ToString();
-                int equipindex51 = getequipindex(equipselect51.Substring(31));
-                if (equipindex51 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex51].type)
-                            {
-                                equipcb53.SelectedIndex = 0; return;
-                            }
-                    }
-                //   if (equipcb53.SelectedIndex > -1)
-                //      calcequip(5, equipindex51,51);
-            }
-            if (equipcb52.SelectedItem != null)
-            {
-                string equipselect52 = equipcb52.SelectedItem.ToString();
-                int equipindex52 = getequipindex(equipselect52.Substring(31));
-                if (equipindex52 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb53.SelectedItem != null && equipcb53.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb53.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type)
-                            {
-                                equipcb53.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb51.SelectedItem != null && equipcb51.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb51.SelectedItem.ToString().Substring(31))].type == equip[equipindex52].type)
-                            {
-                                equipcb53.SelectedIndex = 0; return;
-                            }
-                    }
-                //  if (equipcb53.SelectedIndex > -1)
-                //     calcequip(5, equipindex52,52);
-            }
-            if (equipcb53.SelectedItem != null)
-            {
-                string equipselect53 = equipcb53.SelectedItem.ToString();
-                int equipindex53 = getequipindex(equipselect53.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex53].property1))
-                {
-                    equiptb531.IsEnabled = true;
-                    equiptb531.Items.Clear();
-                    for (int i = (int)equip[equipindex53].down1; i <= equip[equipindex53].up1; i++)
-                    {
-                        equiptb531.Items.Add(i);
-                    }
-                    equiptb531.SelectedIndex = equiptb531.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex53].property2))
-                {
-                    equiptb532.IsEnabled = true;
-                    equiptb532.Items.Clear();
-                    for (int i = (int)equip[equipindex53].down2; i <= equip[equipindex53].up2; i++)
-                    {
-                        equiptb532.Items.Add(i);
-                    }
-                    equiptb532.SelectedIndex = equiptb532.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex53].property3))
-                {
-                    equiptb533.IsEnabled = true;
-                    equiptb533.Items.Clear();
-                    for (int i = (int)equip[equipindex53].down3; i <= equip[equipindex53].up3; i++)
-                    {
-                        equiptb533.Items.Add(i);
-                    }
-                    equiptb533.SelectedIndex = equiptb533.Items.Count - 1;
-                }
-                if (equipindex53 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb52.SelectedItem != null && equipcb52.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb52.SelectedItem.ToString().Substring(31))].type == equip[equipindex53].type)
-                            {
-                                equipcb53.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //  if (equipcb53.SelectedIndex > -1)
-                //      calcequip(5, equipindex53,53);
-                if (equip[equipindex53].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb53.Foreground = br;
-                }
-                else if (equip[equipindex53].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb53.Foreground = br;
-                }
-                else if (equip[equipindex53].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb53.Foreground = br;
-                }
-                else if (equip[equipindex53].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb53.Foreground = br;
-                }
-                setequiptooltips(53, equipindex53);
-            }
-            renewskill();
-        }
-        /// <summary>
-        ///61装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb61_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb611.IsEnabled = false;
-            equiptb612.IsEnabled = false;
-            equiptb613.IsEnabled = false;
-            equiptb611.SelectedIndex = -1;
-            equiptb612.SelectedIndex = -1;
-            equiptb613.SelectedIndex = -1;
-            //clearequip(6);
-            int comboindex = Combo6.SelectedIndex;
-
-            if (equipcb61.SelectedItem != null)
-            {
-                string equipselect61 = equipcb61.SelectedItem.ToString();
-                int equipindex61 = getequipindex(equipselect61.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex61].property1))
-                {
-                    equiptb611.IsEnabled = true;
-                    equiptb611.Items.Clear();
-                    for (int i = (int)equip[equipindex61].down1; i <= equip[equipindex61].up1; i++)
-                    {
-                        equiptb611.Items.Add(i);
-                    }
-                    equiptb611.SelectedIndex = equiptb611.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex61].property2))
-                {
-                    equiptb612.IsEnabled = true;
-                    equiptb612.Items.Clear();
-                    for (int i = (int)equip[equipindex61].down2; i <= equip[equipindex61].up2; i++)
-                    {
-                        equiptb612.Items.Add(i);
-                    }
-                    equiptb612.SelectedIndex = equiptb612.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex61].property3))
-                {
-                    equiptb613.IsEnabled = true;
-                    equiptb613.Items.Clear();
-                    for (int i = (int)equip[equipindex61].down3; i <= equip[equipindex61].up3; i++)
-                    {
-                        equiptb613.Items.Add(i);
-                    }
-                    equiptb613.SelectedIndex = equiptb613.Items.Count - 1;
-                }
-                if (equipindex61 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex61].type)
-                            {
-                                equipcb61.SelectedIndex = 0; return;
-                            }
-                    }
-                //   if (equipcb61.SelectedIndex > -1)
-                //      calcequip(6, equipindex61,61);
-                if (equip[equipindex61].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb61.Foreground = br;
-                }
-                else if (equip[equipindex61].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb61.Foreground = br;
-                }
-                else if (equip[equipindex61].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb61.Foreground = br;
-                }
-                else if (equip[equipindex61].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb61.Foreground = br;
-                }
-                setequiptooltips(61, equipindex61);
-            }
-            if (equipcb62.SelectedItem != null)
-            {
-                string equipselect62 = equipcb62.SelectedItem.ToString();
-                int equipindex62 = getequipindex(equipselect62.Substring(31));
-                if (equipindex62 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb63.SelectedItem != null && equipcb63.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb63.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type)
-                            {
-                                equipcb61.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb61.SelectedItem != null && equipcb61.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb61.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type)
-                            {
-                                equipcb61.SelectedIndex = 0; return;
-                            }
-                    }
-                //   if (equipcb61.SelectedIndex > -1)
-                //       calcequip(6, equipindex62,62);
-            }
-            if (equipcb63.SelectedItem != null)
-            {
-                string equipselect63 = equipcb63.SelectedItem.ToString();
-                int equipindex63 = getequipindex(equipselect63.Substring(31));
-                if (equipindex63 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex63].type)
-                            {
-                                equipcb61.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //  if (equipcb61.SelectedIndex > -1)
-                //      calcequip(6, equipindex63,63);
-            }
-            renewskill();
-        }
-        /// <summary>
-        ///62装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb62_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb621.IsEnabled = false;
-            equiptb622.IsEnabled = false;
-            equiptb623.IsEnabled = false;
-            equiptb621.SelectedIndex = -1;
-            equiptb622.SelectedIndex = -1;
-            equiptb623.SelectedIndex = -1;
-            //clearequip(6);
-            int comboindex = Combo6.SelectedIndex;
-
-            if (equipcb61.SelectedItem != null)
-            {
-                string equipselect61 = equipcb61.SelectedItem.ToString();
-                int equipindex61 = getequipindex(equipselect61.Substring(31));
-                if (equipindex61 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex61].type)
-                            {
-                                equipcb62.SelectedIndex = 0; return;
-                            }
-                    }
-                //  if (equipcb62.SelectedIndex > -1)
-                //      calcequip(6, equipindex61,61);
-            }
-            if (equipcb62.SelectedItem != null)
-            {
-                string equipselect62 = equipcb62.SelectedItem.ToString();
-                int equipindex62 = getequipindex(equipselect62.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex62].property1))
-                {
-                    equiptb621.IsEnabled = true;
-                    equiptb621.Items.Clear();
-                    for (int i = (int)equip[equipindex62].down1; i <= equip[equipindex62].up1; i++)
-                    {
-                        equiptb621.Items.Add(i);
-                    }
-                    equiptb621.SelectedIndex = equiptb621.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex62].property2))
-                {
-                    equiptb622.IsEnabled = true;
-                    equiptb622.Items.Clear();
-                    for (int i = (int)equip[equipindex62].down2; i <= equip[equipindex62].up2; i++)
-                    {
-                        equiptb622.Items.Add(i);
-                    }
-                    equiptb622.SelectedIndex = equiptb622.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex62].property3))
-                {
-                    equiptb623.IsEnabled = true;
-                    equiptb623.Items.Clear();
-                    for (int i = (int)equip[equipindex62].down3; i <= equip[equipindex62].up3; i++)
-                    {
-                        equiptb623.Items.Add(i);
-                    }
-                    equiptb623.SelectedIndex = equiptb623.Items.Count - 1;
-                }
-                if (equipindex62 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb63.SelectedItem != null && equipcb63.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb63.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type)
-                            {
-                                equipcb62.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb61.SelectedItem != null && equipcb61.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb61.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type)
-                            {
-                                equipcb62.SelectedIndex = 0; return;
-                            }
-                    }
-                //    if (equipcb62.SelectedIndex > -1)
-                //        calcequip(6, equipindex62,62);
-                if (equip[equipindex62].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb62.Foreground = br;
-                }
-                else if (equip[equipindex62].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb62.Foreground = br;
-                }
-                else if (equip[equipindex62].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb62.Foreground = br;
-                }
-                else if (equip[equipindex62].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb62.Foreground = br;
-                }
-                setequiptooltips(62, equipindex62);
-            }
-            if (equipcb63.SelectedItem != null)
-            {
-                string equipselect63 = equipcb63.SelectedItem.ToString();
-                int equipindex63 = getequipindex(equipselect63.Substring(31));
-                if (equipindex63 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex63].type)
-                            {
-                                equipcb62.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //    if (equipcb62.SelectedIndex > -1)
-                //        calcequip(6, equipindex63,63);
-
-            }
-            renewskill();
-        }
-        /// <summary>
-        ///63装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb63_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb631.IsEnabled = false;
-            equiptb632.IsEnabled = false;
-            equiptb633.IsEnabled = false;
-            equiptb631.SelectedIndex = -1;
-            equiptb632.SelectedIndex = -1;
-            equiptb633.SelectedIndex = -1;
-            //clearequip(6);
-            int comboindex = Combo6.SelectedIndex;
-
-            if (equipcb61.SelectedItem != null)
-            {
-                string equipselect61 = equipcb61.SelectedItem.ToString();
-                int equipindex61 = getequipindex(equipselect61.Substring(31));
-                if (equipindex61 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex61].type)
-                            {
-                                equipcb63.SelectedIndex = 0; return;
-                            }
-                    }
-                //   if (equipcb63.SelectedIndex > -1)
-                //      calcequip(6, equipindex61,61);
-            }
-            if (equipcb62.SelectedItem != null)
-            {
-                string equipselect62 = equipcb62.SelectedItem.ToString();
-                int equipindex62 = getequipindex(equipselect62.Substring(31));
-                if (equipindex62 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb63.SelectedItem != null && equipcb63.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb63.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type)
-                            {
-                                equipcb63.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb61.SelectedItem != null && equipcb61.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb61.SelectedItem.ToString().Substring(31))].type == equip[equipindex62].type)
-                            {
-                                equipcb63.SelectedIndex = 0; return;
-                            }
-                    }
-                //  if (equipcb63.SelectedIndex > -1)
-                //      calcequip(6, equipindex62,62);
-            }
-            if (equipcb63.SelectedItem != null)
-            {
-                string equipselect63 = equipcb63.SelectedItem.ToString();
-                int equipindex63 = getequipindex(equipselect63.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex63].property1))
-                {
-                    equiptb631.IsEnabled = true;
-                    equiptb631.Items.Clear();
-                    for (int i = (int)equip[equipindex63].down1; i <= equip[equipindex63].up1; i++)
-                    {
-                        equiptb631.Items.Add(i);
-                    }
-                    equiptb631.SelectedIndex = equiptb631.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex63].property2))
-                {
-                    equiptb632.IsEnabled = true;
-                    equiptb632.Items.Clear();
-                    for (int i = (int)equip[equipindex63].down2; i <= equip[equipindex63].up2; i++)
-                    {
-                        equiptb632.Items.Add(i);
-                    }
-                    equiptb632.SelectedIndex = equiptb632.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex63].property3))
-                {
-                    equiptb633.IsEnabled = true;
-                    equiptb633.Items.Clear();
-                    for (int i = (int)equip[equipindex63].down3; i <= equip[equipindex63].up3; i++)
-                    {
-                        equiptb633.Items.Add(i);
-                    }
-                    equiptb633.SelectedIndex = equiptb633.Items.Count - 1;
-                }
-                if (equipindex63 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb62.SelectedItem != null && equipcb62.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb62.SelectedItem.ToString().Substring(31))].type == equip[equipindex63].type)
-                            {
-                                equipcb63.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //  if (equipcb63.SelectedIndex > -1)
-                //      calcequip(6, equipindex63,63);
-                if (equip[equipindex63].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb63.Foreground = br;
-                }
-                else if (equip[equipindex63].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb63.Foreground = br;
-                }
-                else if (equip[equipindex63].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb63.Foreground = br;
-                }
-                else if (equip[equipindex63].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb63.Foreground = br;
-                }
-                setequiptooltips(63, equipindex63);
-            }
-            renewskill();
-        }
-        /// <summary>
-        ///71装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb71_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb711.IsEnabled = false;
-            equiptb712.IsEnabled = false;
-            equiptb713.IsEnabled = false;
-            equiptb711.SelectedIndex = -1;
-            equiptb712.SelectedIndex = -1;
-            equiptb713.SelectedIndex = -1;
-            //clearequip(7);
-            int comboindex = Combo7.SelectedIndex;
-
-            if (equipcb71.SelectedItem != null)
-            {
-                string equipselect71 = equipcb71.SelectedItem.ToString();
-                int equipindex71 = getequipindex(equipselect71.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex71].property1))
-                {
-                    equiptb711.IsEnabled = true;
-                    equiptb711.Items.Clear();
-                    for (int i = (int)equip[equipindex71].down1; i <= equip[equipindex71].up1; i++)
-                    {
-                        equiptb711.Items.Add(i);
-                    }
-                    equiptb711.SelectedIndex = equiptb711.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex71].property2))
-                {
-                    equiptb712.IsEnabled = true;
-                    equiptb712.Items.Clear();
-                    for (int i = (int)equip[equipindex71].down2; i <= equip[equipindex71].up2; i++)
-                    {
-                        equiptb712.Items.Add(i);
-                    }
-                    equiptb712.SelectedIndex = equiptb712.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex71].property3))
-                {
-                    equiptb713.IsEnabled = true;
-                    equiptb713.Items.Clear();
-                    for (int i = (int)equip[equipindex71].down3; i <= equip[equipindex71].up3; i++)
-                    {
-                        equiptb713.Items.Add(i);
-                    }
-                    equiptb713.SelectedIndex = equiptb713.Items.Count - 1;
-                }
-                if (equipindex71 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex71].type)
-                            {
-                                equipcb71.SelectedIndex = 0; return;
-                            }
-                    }
-                //  if (equipcb71.SelectedIndex > -1)
-                //      calcequip(7, equipindex71,71);
-                if (equip[equipindex71].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb71.Foreground = br;
-                }
-                else if (equip[equipindex71].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb71.Foreground = br;
-                }
-                else if (equip[equipindex71].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb71.Foreground = br;
-                }
-                else if (equip[equipindex71].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb71.Foreground = br;
-                }
-                setequiptooltips(71, equipindex71);
-            }
-            if (equipcb72.SelectedItem != null)
-            {
-                string equipselect72 = equipcb72.SelectedItem.ToString();
-                int equipindex72 = getequipindex(equipselect72.Substring(31));
-                if (equipindex72 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb73.SelectedItem != null && equipcb73.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb73.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type)
-                            {
-                                equipcb71.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb71.SelectedItem != null && equipcb71.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb71.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type)
-                            {
-                                equipcb71.SelectedIndex = 0; return;
-                            }
-                    }
-                //  if (equipcb71.SelectedIndex > -1)
-                //      calcequip(7, equipindex72,72);
-            }
-            if (equipcb73.SelectedItem != null)
-            {
-                string equipselect73 = equipcb73.SelectedItem.ToString();
-                int equipindex73 = getequipindex(equipselect73.Substring(31));
-                if (equipindex73 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex73].type)
-                            {
-                                equipcb71.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //  if (equipcb71.SelectedIndex > -1)
-                //      calcequip(7, equipindex73,73);
-            }
-            renewskill();
-        }
-        /// <summary>
-        ///72装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb72_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb721.IsEnabled = false;
-            equiptb722.IsEnabled = false;
-            equiptb723.IsEnabled = false;
-            equiptb721.SelectedIndex = -1;
-            equiptb722.SelectedIndex = -1;
-            equiptb723.SelectedIndex = -1;
-            //clearequip(7);
-            int comboindex = Combo7.SelectedIndex;
-
-            if (equipcb71.SelectedItem != null)
-            {
-                string equipselect71 = equipcb71.SelectedItem.ToString();
-                int equipindex71 = getequipindex(equipselect71.Substring(31));
-                if (equipindex71 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex71].type)
-                            {
-                                equipcb72.SelectedIndex = 0; return;
-                            }
-                    }
-                //  if (equipcb72.SelectedIndex > -1)
-                //      calcequip(7, equipindex71,71);
-            }
-            if (equipcb72.SelectedItem != null)
-            {
-                string equipselect72 = equipcb72.SelectedItem.ToString();
-                int equipindex72 = getequipindex(equipselect72.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex72].property1))
-                {
-                    equiptb721.IsEnabled = true;
-                    equiptb721.Items.Clear();
-                    for (int i = (int)equip[equipindex72].down1; i <= equip[equipindex72].up1; i++)
-                    {
-                        equiptb721.Items.Add(i);
-                    }
-                    equiptb721.SelectedIndex = equiptb721.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex72].property2))
-                {
-                    equiptb722.IsEnabled = true;
-                    equiptb722.Items.Clear();
-                    for (int i = (int)equip[equipindex72].down2; i <= equip[equipindex72].up2; i++)
-                    {
-                        equiptb722.Items.Add(i);
-                    }
-                    equiptb722.SelectedIndex = equiptb722.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex72].property3))
-                {
-                    equiptb723.IsEnabled = true;
-                    equiptb723.Items.Clear();
-                    for (int i = (int)equip[equipindex72].down3; i <= equip[equipindex72].up3; i++)
-                    {
-                        equiptb723.Items.Add(i);
-                    }
-                    equiptb723.SelectedIndex = equiptb723.Items.Count - 1;
-                }
-                if (equipindex72 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb73.SelectedItem != null && equipcb73.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb73.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type)
-                            {
-                                equipcb72.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb71.SelectedItem != null && equipcb71.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb71.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type)
-                            {
-                                equipcb72.SelectedIndex = 0; return;
-                            }
-                    }
-                //  if (equipcb72.SelectedIndex > -1)
-                //      calcequip(7, equipindex72,72);
-                if (equip[equipindex72].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb72.Foreground = br;
-                }
-                else if (equip[equipindex72].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb72.Foreground = br;
-                }
-                else if (equip[equipindex72].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb72.Foreground = br;
-                }
-                else if (equip[equipindex72].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb72.Foreground = br;
-                }
-                setequiptooltips(72, equipindex72);
-            }
-            if (equipcb73.SelectedItem != null)
-            {
-                string equipselect73 = equipcb73.SelectedItem.ToString();
-                int equipindex73 = getequipindex(equipselect73.Substring(31));
-                if (equipindex73 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex73].type)
-                            {
-                                equipcb72.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //  if (equipcb72.SelectedIndex > -1)
-                //      calcequip(7, equipindex73,73);
-            }
-            renewskill();
-
-        }
-        /// <summary>
-        ///73装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb73_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb731.IsEnabled = false;
-            equiptb732.IsEnabled = false;
-            equiptb733.IsEnabled = false;
-            equiptb731.SelectedIndex = -1;
-            equiptb732.SelectedIndex = -1;
-            equiptb733.SelectedIndex = -1;
-            //clearequip(7);
-            int comboindex = Combo7.SelectedIndex;
-
-            if (equipcb71.SelectedItem != null)
-            {
-                string equipselect71 = equipcb71.SelectedItem.ToString();
-                int equipindex71 = getequipindex(equipselect71.Substring(31));
-                if (equipindex71 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex71].type)
-                            {
-                                equipcb73.SelectedIndex = 0; return;
-                            }
-                    }
-                //  if (equipcb73.SelectedIndex > -1)
-                //     calcequip(7, equipindex71,71);
-            }
-            if (equipcb72.SelectedItem != null)
-            {
-                string equipselect72 = equipcb72.SelectedItem.ToString();
-                int equipindex72 = getequipindex(equipselect72.Substring(31));
-                if (equipindex72 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb73.SelectedItem != null && equipcb73.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb73.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type)
-                            {
-                                equipcb73.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb71.SelectedItem != null && equipcb71.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb71.SelectedItem.ToString().Substring(31))].type == equip[equipindex72].type)
-                            {
-                                equipcb73.SelectedIndex = 0; return;
-                            }
-                    }
-                // if (equipcb73.SelectedIndex > -1)
-                //     calcequip(7, equipindex72,72);
-            }
-            if (equipcb73.SelectedItem != null)
-            {
-                string equipselect73 = equipcb73.SelectedItem.ToString();
-                int equipindex73 = getequipindex(equipselect73.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex73].property1))
-                {
-                    equiptb731.IsEnabled = true;
-                    equiptb731.Items.Clear();
-                    for (int i = (int)equip[equipindex73].down1; i <= equip[equipindex73].up1; i++)
-                    {
-                        equiptb731.Items.Add(i);
-                    }
-                    equiptb731.SelectedIndex = equiptb731.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex73].property2))
-                {
-                    equiptb732.IsEnabled = true;
-                    equiptb732.Items.Clear();
-                    for (int i = (int)equip[equipindex73].down2; i <= equip[equipindex73].up2; i++)
-                    {
-                        equiptb732.Items.Add(i);
-                    }
-                    equiptb732.SelectedIndex = equiptb732.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex73].property3))
-                {
-                    equiptb733.IsEnabled = true;
-                    equiptb733.Items.Clear();
-                    for (int i = (int)equip[equipindex73].down3; i <= equip[equipindex73].up3; i++)
-                    {
-                        equiptb733.Items.Add(i);
-                    }
-                    equiptb733.SelectedIndex = equiptb733.Items.Count - 1;
-                }
-                if (equipindex73 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb72.SelectedItem != null && equipcb72.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb72.SelectedItem.ToString().Substring(31))].type == equip[equipindex73].type)
-                            {
-                                equipcb73.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //  if (equipcb73.SelectedIndex > -1)
-                //      calcequip(7, equipindex73,73);
-                if (equip[equipindex73].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb73.Foreground = br;
-                }
-                else if (equip[equipindex73].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb73.Foreground = br;
-                }
-                else if (equip[equipindex73].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb73.Foreground = br;
-                }
-                else if (equip[equipindex73].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb73.Foreground = br;
-                }
-                setequiptooltips(73, equipindex73);
-            }
-            renewskill();
-        }
-        /// <summary>
-        ///81装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb81_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb811.IsEnabled = false;
-            equiptb812.IsEnabled = false;
-            equiptb813.IsEnabled = false;
-            equiptb811.SelectedIndex = -1;
-            equiptb812.SelectedIndex = -1;
-            equiptb813.SelectedIndex = -1;
+            ComboBox l = (ComboBox)sender;
+            int index1 = EquipCbListList.FindIndex(x => x.Find(y=>y.Name==l.Name)!=null);
+            int index2 = EquipCbListList[index1].FindIndex(x => x.Name == l.Name);
+            int numindex1 = index1 + 1;
+            int numindex2 = index2 + 1;
+            EquipTbListListList[index1][index2][0].IsEnabled = false;
+            EquipTbListListList[index1][index2][1].IsEnabled = false;
+            EquipTbListListList[index1][index2][2].IsEnabled = false;
+            EquipTbListListList[index1][index2][0].SelectedIndex = -1;
+            EquipTbListListList[index1][index2][1].SelectedIndex = -1;
+            EquipTbListListList[index1][index2][2].SelectedIndex = -1;
             //clearequip(8);
-            int comboindex = Combo8.SelectedIndex;
-
-            if (equipcb81.SelectedItem != null)
+            int comboindex = ComboBoxList[index1].SelectedIndex;
+            if (gun[comboindex].equiptype1 == gun[comboindex].equiptype2)
             {
-                string equipselect81 = equipcb81.SelectedItem.ToString();
-                int equipindex81 = getequipindex(equipselect81.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex81].property1))
-                {
-                    equiptb811.IsEnabled = true;
-                    equiptb811.Items.Clear();
-                    for (int i = (int)equip[equipindex81].down1; i <= equip[equipindex81].up1; i++)
-                    {
-                        equiptb811.Items.Add(i);
-                    }
-                    equiptb811.SelectedIndex = equiptb811.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex81].property2))
-                {
-                    equiptb812.IsEnabled = true;
-                    equiptb812.Items.Clear();
-                    for (int i = (int)equip[equipindex81].down2; i <= equip[equipindex81].up2; i++)
-                    {
-                        equiptb812.Items.Add(i);
-                    }
-                    equiptb812.SelectedIndex = equiptb812.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex81].property3))
-                {
-                    equiptb813.IsEnabled = true;
-                    equiptb813.Items.Clear();
-                    for (int i = (int)equip[equipindex81].down3; i <= equip[equipindex81].up3; i++)
-                    {
-                        equiptb813.Items.Add(i);
-                    }
-                    equiptb813.SelectedIndex = equiptb813.Items.Count - 1;
-                }
-                if (equipindex81 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex81].type)
+                string equipselect1 = EquipCbListList[index1][0].SelectedItem.ToString();
+                int equipindex1 = getequipindex(equipselect1.Substring(31));
+                if (equipindex1 != -1)
+                        if (EquipCbListList[index1][1].SelectedItem != null && EquipCbListList[index1][1].SelectedItem.ToString().Substring(31) != " ")
+                            if (equip[getequipindex(EquipCbListList[index1][1].SelectedItem.ToString().Substring(31))].type == equip[equipindex1].type)
                             {
-                                equipcb81.SelectedIndex = 0; return;
+                            EquipCbListList[index1][1].SelectedIndex = 0; return;
                             }
-                    }
-                //  if (equipcb81.SelectedIndex > -1)
-                //     calcequip(8, equipindex81,81);
-                if (equip[equipindex81].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb81.Foreground = br;
-                }
-                else if (equip[equipindex81].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb81.Foreground = br;
-                }
-                else if (equip[equipindex81].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb81.Foreground = br;
-                }
-                else if (equip[equipindex81].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb81.Foreground = br;
-                }
-                setequiptooltips(81, equipindex81);
             }
-            if (equipcb82.SelectedItem != null)
+            if (gun[comboindex].equiptype1 == gun[comboindex].equiptype3)
             {
-                string equipselect82 = equipcb82.SelectedItem.ToString();
-                int equipindex82 = getequipindex(equipselect82.Substring(31));
-                if (equipindex82 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb83.SelectedItem != null && equipcb83.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb83.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type)
-                            {
-                                equipcb81.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb81.SelectedItem != null && equipcb81.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb81.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type)
-                            {
-                                equipcb81.SelectedIndex = 0; return;
-                            }
-                    }
-                //    if (equipcb81.SelectedIndex > -1)
-                //       calcequip(8, equipindex82,82);
+                string equipselect1 = EquipCbListList[index1][0].SelectedItem.ToString();
+                int equipindex1 = getequipindex(equipselect1.Substring(31));
+                if (equipindex1 != -1)
+                    if (EquipCbListList[index1][2].SelectedItem != null && EquipCbListList[index1][2].SelectedItem.ToString().Substring(31) != " ")
+                        if (equip[getequipindex(EquipCbListList[index1][2].SelectedItem.ToString().Substring(31))].type == equip[equipindex1].type)
+                        {
+                            EquipCbListList[index1][2].SelectedIndex = 0; return;
+                        }
             }
-            if (equipcb83.SelectedItem != null)
+            if (gun[comboindex].equiptype2 == gun[comboindex].equiptype3)
             {
-                string equipselect83 = equipcb83.SelectedItem.ToString();
-                int equipindex83 = getequipindex(equipselect83.Substring(31));
-                if (equipindex83 != -1)
-                    if (comboindex == 49)           //16
+                string equipselect1 = EquipCbListList[index1][1].SelectedItem.ToString();
+                int equipindex1 = getequipindex(equipselect1.Substring(31));
+                if (equipindex1 != -1)
+                    if (EquipCbListList[index1][2].SelectedItem != null && EquipCbListList[index1][2].SelectedItem.ToString().Substring(31) != " ")
+                        if (equip[getequipindex(EquipCbListList[index1][2].SelectedItem.ToString().Substring(31))].type == equip[equipindex1].type)
+                        {
+                            EquipCbListList[index1][2].SelectedIndex = 0; return;
+                        }
+            }
+            if (l.SelectedItem != null)
+            {
+                string equipselect = l.SelectedItem.ToString();
+                int equipindex = getequipindex(equipselect.Substring(31));
+                if (!String.IsNullOrEmpty(equip[equipindex].property1))
+                {
+                    EquipTbListListList[index1][index2][0].IsEnabled = true;
+                    EquipTbListListList[index1][index2][0].Items.Clear();
+                    for (int i = (int)equip[equipindex].down1; i <= equip[equipindex].up1; i++)
                     {
-                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex83].type)
-                            {
-                                equipcb81.SelectedIndex = 0; return;
-                            }
+                        EquipTbListListList[index1][index2][0].Items.Add(i);
                     }
-
-                //   if (equipcb81.SelectedIndex > -1)
-                //       calcequip(8, equipindex83,83);
+                    EquipTbListListList[index1][index2][0].SelectedIndex = EquipTbListListList[index1][index2][0].Items.Count - 1;
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex].property2))
+                {
+                    EquipTbListListList[index1][index2][1].IsEnabled = true;
+                    EquipTbListListList[index1][index2][1].Items.Clear();
+                    for (int i = (int)equip[equipindex].down2; i <= equip[equipindex].up2; i++)
+                    {
+                        EquipTbListListList[index1][index2][1].Items.Add(i);
+                    }
+                    EquipTbListListList[index1][index2][1].SelectedIndex = EquipTbListListList[index1][index2][1].Items.Count - 1;
+                }
+                if (!String.IsNullOrEmpty(equip[equipindex].property3))
+                {
+                    EquipTbListListList[index1][index2][2].IsEnabled = true;
+                    EquipTbListListList[index1][index2][2].Items.Clear();
+                    for (int i = (int)equip[equipindex].down3; i <= equip[equipindex].up3; i++)
+                    {
+                        EquipTbListListList[index1][index2][2].Items.Add(i);
+                    }
+                    EquipTbListListList[index1][index2][2].SelectedIndex = EquipTbListListList[index1][index2][2].Items.Count - 1;
+                }
+            
+                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString(StarColor[equip[equipindex].rank]));
+                l.Foreground = br;
+                l.ToolTip = equip[equipindex].tooltip;
             }
             renewskill();
         }
-        /// <summary>
-        ///82装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb82_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb821.IsEnabled = false;
-            equiptb822.IsEnabled = false;
-            equiptb823.IsEnabled = false;
-            equiptb821.SelectedIndex = -1;
-            equiptb822.SelectedIndex = -1;
-            equiptb823.SelectedIndex = -1;
-            //clearequip(8);
-            int comboindex = Combo8.SelectedIndex;
 
-            if (equipcb81.SelectedItem != null)
-            {
-                string equipselect81 = equipcb81.SelectedItem.ToString();
-                int equipindex81 = getequipindex(equipselect81.Substring(31));
-                if (equipindex81 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex81].type)
-                            {
-                                equipcb82.SelectedIndex = 0; return;
-                            }
-                    }
-                //   if (equipcb82.SelectedIndex > -1)
-                //       calcequip(8, equipindex81,81);
-            }
-            if (equipcb82.SelectedItem != null)
-            {
-                string equipselect82 = equipcb82.SelectedItem.ToString();
-                int equipindex82 = getequipindex(equipselect82.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex82].property1))
-                {
-                    equiptb821.IsEnabled = true;
-                    equiptb821.Items.Clear();
-                    for (int i = (int)equip[equipindex82].down1; i <= equip[equipindex82].up1; i++)
-                    {
-                        equiptb821.Items.Add(i);
-                    }
-                    equiptb821.SelectedIndex = equiptb821.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex82].property2))
-                {
-                    equiptb822.IsEnabled = true;
-                    equiptb822.Items.Clear();
-                    for (int i = (int)equip[equipindex82].down2; i <= equip[equipindex82].up2; i++)
-                    {
-                        equiptb822.Items.Add(i);
-                    }
-                    equiptb822.SelectedIndex = equiptb822.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex82].property3))
-                {
-                    equiptb823.IsEnabled = true;
-                    equiptb823.Items.Clear();
-                    for (int i = (int)equip[equipindex82].down3; i <= equip[equipindex82].up3; i++)
-                    {
-                        equiptb823.Items.Add(i);
-                    }
-                    equiptb823.SelectedIndex = equiptb823.Items.Count - 1;
-                }
-                if (equipindex82 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb83.SelectedItem != null && equipcb83.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb83.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type)
-                            {
-                                equipcb82.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb81.SelectedItem != null && equipcb81.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb81.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type)
-                            {
-                                equipcb82.SelectedIndex = 0; return;
-                            }
-                    }
-                //  if (equipcb82.SelectedIndex > -1)
-                //      calcequip(8, equipindex82,82);
-                if (equip[equipindex82].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb82.Foreground = br;
-                }
-                else if (equip[equipindex82].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb82.Foreground = br;
-                }
-                else if (equip[equipindex82].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb82.Foreground = br;
-                }
-                else if (equip[equipindex82].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb82.Foreground = br;
-                }
-                setequiptooltips(82, equipindex82);
-            }
-            if (equipcb83.SelectedItem != null)
-            {
-                string equipselect83 = equipcb83.SelectedItem.ToString();
-                int equipindex83 = getequipindex(equipselect83.Substring(31));
-                if (equipindex83 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex83].type)
-                            {
-                                equipcb82.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //   if (equipcb82.SelectedIndex > -1)
-                //       calcequip(8, equipindex83,83);
-            }
-            renewskill();
-        }
-        /// <summary>
-        ///83装备格选项变化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void equipcb83_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            equiptb831.IsEnabled = false;
-            equiptb832.IsEnabled = false;
-            equiptb833.IsEnabled = false;
-            equiptb831.SelectedIndex = -1;
-            equiptb832.SelectedIndex = -1;
-            equiptb833.SelectedIndex = -1;
-            //clearequip(8);
-            int comboindex = Combo8.SelectedIndex;
-
-            if (equipcb81.SelectedItem != null)
-            {
-                string equipselect81 = equipcb81.SelectedItem.ToString();
-                int equipindex81 = getequipindex(equipselect81.Substring(31));
-                if (equipindex81 != -1)
-                    if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex81].type)
-                            {
-                                equipcb83.SelectedIndex = 0; return;
-                            }
-                    }
-                //   if (equipcb83.SelectedIndex > -1)
-                //      calcequip(8, equipindex81,81);
-            }
-            if (equipcb82.SelectedItem != null)
-            {
-                string equipselect82 = equipcb82.SelectedItem.ToString();
-                int equipindex82 = getequipindex(equipselect82.Substring(31));
-                if (equipindex82 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb83.SelectedItem != null && equipcb83.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb83.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type)
-                            {
-                                equipcb83.SelectedIndex = 0; return;
-                            }
-                    }
-                    else if (comboindex == 51 || comboindex == 52)
-                    {
-                        if (equipcb81.SelectedItem != null && equipcb81.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb81.SelectedItem.ToString().Substring(31))].type == equip[equipindex82].type)
-                            {
-                                equipcb83.SelectedIndex = 0; return;
-                            }
-                    }
-                //   if (equipcb83.SelectedIndex > -1)
-                //       calcequip(8, equipindex82,82);
-            }
-            if (equipcb83.SelectedItem != null)
-            {
-                string equipselect83 = equipcb83.SelectedItem.ToString();
-                int equipindex83 = getequipindex(equipselect83.Substring(31));
-                if (!String.IsNullOrEmpty(equip[equipindex83].property1))
-                {
-                    equiptb831.IsEnabled = true;
-                    equiptb831.Items.Clear();
-                    for (int i = (int)equip[equipindex83].down1; i <= equip[equipindex83].up1; i++)
-                    {
-                        equiptb831.Items.Add(i);
-                    }
-                    equiptb831.SelectedIndex = equiptb831.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex83].property2))
-                {
-                    equiptb832.IsEnabled = true;
-                    equiptb832.Items.Clear();
-                    for (int i = (int)equip[equipindex83].down2; i <= equip[equipindex83].up2; i++)
-                    {
-                        equiptb832.Items.Add(i);
-                    }
-                    equiptb832.SelectedIndex = equiptb832.Items.Count - 1;
-                }
-                if (!String.IsNullOrEmpty(equip[equipindex83].property3))
-                {
-                    equiptb833.IsEnabled = true;
-                    equiptb833.Items.Clear();
-                    for (int i = (int)equip[equipindex83].down3; i <= equip[equipindex83].up3; i++)
-                    {
-                        equiptb833.Items.Add(i);
-                    }
-                    equiptb833.SelectedIndex = equiptb833.Items.Count - 1;
-                }
-                if (equipindex83 != -1)
-                    if (comboindex == 49)           //16
-                    {
-                        if (equipcb82.SelectedItem != null && equipcb82.SelectedItem.ToString().Substring(31) != " ")
-                            if (equip[getequipindex(equipcb82.SelectedItem.ToString().Substring(31))].type == equip[equipindex83].type)
-                            {
-                                equipcb83.SelectedIndex = 0; return;
-                            }
-                    }
-
-                //    if (equipcb83.SelectedIndex > -1)
-                //       calcequip(8, equipindex83,83);
-                if (equip[equipindex83].rank == 2)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                    equipcb83.Foreground = br;
-                }
-                else if (equip[equipindex83].rank == 3)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Blue"));
-                    equipcb83.Foreground = br;
-                }
-                else if (equip[equipindex83].rank == 4)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Green"));
-                    equipcb83.Foreground = br;
-                }
-                else if (equip[equipindex83].rank == 5)
-                {
-                    Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("orange"));
-                    equipcb83.Foreground = br;
-                }
-                setequiptooltips(83, equipindex83);
-            }
-            renewskill();
-        }
         /// <summary>
         /// 点击夜战checkbox事件
         /// </summary>
@@ -20746,432 +17691,50 @@ namespace snqxap
             renewtank();
         }
         /// <summary>
-        /// 点击左上格心事件
+        /// 点击心事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Merry0_MouseUp(object sender, MouseButtonEventArgs e)
+        private void Merry_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (merry[0] == 1.1)
+            Label l = (Label)sender;
+            int index = MerryLabelList.FindIndex(x => x.Name == l.Name);
+            if (merry[index] == 1.1)
             {
-                merry[0] = 0.95;
-                Merry0.Content = "💔";
+                merry[index] = 0.95;
+                l.Content = "💔";
                 Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                Merry0.Foreground = br;
+                l.Foreground = br;
             }
-            else if (merry[0] == 0.95)
+            else if (merry[index] == 0.95)
             {
-                merry[0] = 1;
-                Merry0.Content = "♡";
+                merry[index] = 1;
+                l.Content = "♡";
                 Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
-                Merry0.Foreground = br;
+                l.Foreground = br;
             }
-            else if (merry[0] == 1)
+            else if (merry[index] == 1)
             {
-                merry[0] = 1.05;
-                Merry0.Content = "❤";
+                merry[index] = 1.05;
+                l.Content = "❤";
                 Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Orange"));
-                Merry0.Foreground = br;
+                l.Foreground = br;
             }
-            else if (merry[0] == 1.05)
+            else if (merry[index] == 1.05)
             {
-                merry[0] = 1.1;
-                Merry0.Content = "💘";
+                merry[index] = 1.1;
+                l.Content = "💘";
                 Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
-                Merry0.Foreground = br;
+                l.Foreground = br;
             }
 
-            int select = Combo0.SelectedIndex;
+            int select = ComboBoxList[index].SelectedIndex;
             if (select == -1 || select == GUN_NUMBER)
                 return;
-            int levelselect = Level0.SelectedIndex;
+            int levelselect = LevelList[index].SelectedIndex;
             if (levelselect == -1 || levelselect == 100)
                 return;
-            int skillselect = SkillLevel0.SelectedIndex;
-            if (skillselect == -1)
-                return;
-            renewskill();
-            renewskill();
-        }
-        /// <summary>
-        /// 点击上格心事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Merry1_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            if (merry[1] == 1.1)
-            {
-                merry[1] = 0.95;
-                Merry1.Content = "💔";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                Merry1.Foreground = br;
-            }
-            else if (merry[1] == 0.95)
-            {
-                merry[1] = 1;
-                Merry1.Content = "♡";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
-                Merry1.Foreground = br;
-            }
-            else if (merry[1] == 1)
-            {
-                merry[1] = 1.05;
-                Merry1.Content = "❤";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Orange"));
-                Merry1.Foreground = br;
-            }
-            else if (merry[1] == 1.05)
-            {
-                merry[1] = 1.1;
-                Merry1.Content = "💘";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
-                Merry1.Foreground = br;
-            }
-
-            int select = Combo1.SelectedIndex;
-            if (select == -1 || select == GUN_NUMBER)
-                return;
-            int levelselect = Level1.SelectedIndex;
-            if (levelselect == -1 || levelselect == 100)
-                return;
-            int skillselect = SkillLevel1.SelectedIndex;
-            if (skillselect == -1)
-                return;
-            renewskill();
-            renewskill();
-        }
-        /// <summary>
-        /// 点击右上格心事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Merry2_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            if (merry[2] == 1.1)
-            {
-                merry[2] = 0.95;
-                Merry2.Content = "💔";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                Merry2.Foreground = br;
-            }
-            else if (merry[2] == 0.95)
-            {
-                merry[2] = 1;
-                Merry2.Content = "♡";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
-                Merry2.Foreground = br;
-            }
-            else if (merry[2] == 1)
-            {
-                merry[2] = 1.05;
-                Merry2.Content = "❤";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Orange"));
-                Merry2.Foreground = br;
-            }
-            else if (merry[2] == 1.05)
-            {
-                merry[2] = 1.1;
-                Merry2.Content = "💘";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
-                Merry2.Foreground = br;
-            }
-
-            int select = Combo2.SelectedIndex;
-            if (select == -1 || select == GUN_NUMBER)
-                return;
-            int levelselect = Level2.SelectedIndex;
-            if (levelselect == -1 || levelselect == 100)
-                return;
-            int skillselect = SkillLevel2.SelectedIndex;
-            if (skillselect == -1)
-                return;
-            renewskill();
-            renewskill();
-        }
-        /// <summary>
-        /// 点击左中格心事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Merry3_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            if (merry[3] == 1.1)
-            {
-                merry[3] = 0.95;
-                Merry3.Content = "💔";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                Merry3.Foreground = br;
-            }
-            else if (merry[3] == 0.95)
-            {
-                merry[3] = 1;
-                Merry3.Content = "♡";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
-                Merry3.Foreground = br;
-            }
-            else if (merry[3] == 1)
-            {
-                merry[3] = 1.05;
-                Merry3.Content = "❤";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Orange"));
-                Merry3.Foreground = br;
-            }
-            else if (merry[3] == 1.05)
-            {
-                merry[3] = 1.1;
-                Merry3.Content = "💘";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
-                Merry3.Foreground = br;
-            }
-
-            int select = Combo3.SelectedIndex;
-            if (select == -1 || select == GUN_NUMBER)
-                return;
-            int levelselect = Level3.SelectedIndex;
-            if (levelselect == -1 || levelselect == 100)
-                return;
-            int skillselect = SkillLevel3.SelectedIndex;
-            if (skillselect == -1)
-                return;
-            renewskill();
-            renewskill();
-        }
-        /// <summary>
-        /// 点击中格心事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Merry4_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            if (merry[4] == 1.1)
-            {
-                merry[4] = 0.95;
-                Merry4.Content = "💔";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                Merry4.Foreground = br;
-            }
-            else if (merry[4] == 0.95)
-            {
-                merry[4] = 1;
-                Merry4.Content = "♡";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
-                Merry4.Foreground = br;
-            }
-            else if (merry[4] == 1)
-            {
-                merry[4] = 1.05;
-                Merry4.Content = "❤";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Orange"));
-                Merry4.Foreground = br;
-            }
-            else if (merry[4] == 1.05)
-            {
-                merry[4] = 1.1;
-                Merry4.Content = "💘";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
-                Merry4.Foreground = br;
-            }
-
-            int select = Combo4.SelectedIndex;
-            if (select == -1 || select == GUN_NUMBER)
-                return;
-            int levelselect = Level4.SelectedIndex;
-            if (levelselect == -1 || levelselect == 100)
-                return;
-            int skillselect = SkillLevel4.SelectedIndex;
-            if (skillselect == -1)
-                return;
-            renewskill();
-            renewskill();
-        }
-        /// <summary>
-        /// 点击右中格心事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Merry5_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            if (merry[5] == 1.1)
-            {
-                merry[5] = 0.95;
-                Merry5.Content = "💔";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                Merry5.Foreground = br;
-            }
-            else if (merry[5] == 0.95)
-            {
-                merry[5] = 1;
-                Merry5.Content = "♡";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
-                Merry5.Foreground = br;
-            }
-            else if (merry[5] == 1)
-            {
-                merry[5] = 1.05;
-                Merry5.Content = "❤";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Orange"));
-                Merry5.Foreground = br;
-            }
-            else if (merry[5] == 1.05)
-            {
-                merry[5] = 1.1;
-                Merry5.Content = "💘";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
-                Merry5.Foreground = br;
-            }
-
-            int select = Combo5.SelectedIndex;
-            if (select == -1 || select == GUN_NUMBER)
-                return;
-            int levelselect = Level5.SelectedIndex;
-            if (levelselect == -1 || levelselect == 100)
-                return;
-            int skillselect = SkillLevel5.SelectedIndex;
-            if (skillselect == -1)
-                return;
-            renewskill();
-            renewskill();
-        }
-        /// <summary>
-        /// 点击左下格心事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Merry6_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            if (merry[6] == 1.1)
-            {
-                merry[6] = 0.95;
-                Merry6.Content = "💔";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                Merry6.Foreground = br;
-            }
-            else if (merry[6] == 0.95)
-            {
-                merry[6] = 1;
-                Merry6.Content = "♡";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
-                Merry6.Foreground = br;
-            }
-            else if (merry[6] == 1)
-            {
-                merry[6] = 1.05;
-                Merry6.Content = "❤";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Orange"));
-                Merry6.Foreground = br;
-            }
-            else if (merry[6] == 1.05)
-            {
-                merry[6] = 1.1;
-                Merry6.Content = "💘";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
-                Merry6.Foreground = br;
-            }
-
-            int select = Combo6.SelectedIndex;
-            if (select == -1 || select == GUN_NUMBER)
-                return;
-            int levelselect = Level6.SelectedIndex;
-            if (levelselect == -1 || levelselect == 100)
-                return;
-            int skillselect = SkillLevel6.SelectedIndex;
-            if (skillselect == -1)
-                return;
-            renewskill();
-            renewskill();
-        }
-        /// <summary>
-        /// 点击下格心事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Merry7_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            if (merry[7] == 1.1)
-            {
-                merry[7] = 0.95;
-                Merry7.Content = "💔";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                Merry7.Foreground = br;
-            }
-            else if (merry[7] == 0.95)
-            {
-                merry[7] = 1;
-                Merry7.Content = "♡";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
-                Merry7.Foreground = br;
-            }
-            else if (merry[7] == 1)
-            {
-                merry[7] = 1.05;
-                Merry7.Content = "❤";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Orange"));
-                Merry7.Foreground = br;
-            }
-            else if (merry[7] == 1.05)
-            {
-                merry[7] = 1.1;
-                Merry7.Content = "💘";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
-                Merry7.Foreground = br;
-            }
-
-            int select = Combo7.SelectedIndex;
-            if (select == -1 || select == GUN_NUMBER)
-                return;
-            int levelselect = Level7.SelectedIndex;
-            if (levelselect == -1 || levelselect == 100)
-                return;
-            int skillselect = SkillLevel7.SelectedIndex;
-            if (skillselect == -1)
-                return;
-            renewskill();
-            renewskill();
-        }
-        /// <summary>
-        /// 点击右下格心事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Merry8_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            if (merry[8] == 1.1)
-            {
-                merry[8] = 0.95;
-                Merry8.Content = "💔";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-                Merry8.Foreground = br;
-            }
-            else if (merry[8] == 0.95)
-            {
-                merry[8] = 1;
-                Merry8.Content = "♡";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Gray"));
-                Merry8.Foreground = br;
-            }
-            else if (merry[8] == 1)
-            {
-                merry[8] = 1.05;
-                Merry8.Content = "❤";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Orange"));
-                Merry8.Foreground = br;
-            }
-            else if (merry[8] == 1.05)
-            {
-                merry[8] = 1.1;
-                Merry8.Content = "💘";
-                Brush br = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
-                Merry8.Foreground = br;
-            }
-
-            int select = Combo8.SelectedIndex;
-            if (select == -1 || select == GUN_NUMBER)
-                return;
-            int levelselect = Level8.SelectedIndex;
-            if (levelselect == -1 || levelselect == 100)
-                return;
-            int skillselect = SkillLevel8.SelectedIndex;
+            int skillselect = SkillLevelList[index].SelectedIndex;
             if (skillselect == -1)
                 return;
             renewskill();
